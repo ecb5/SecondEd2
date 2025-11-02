@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Expanding Simple Power Series by Algebraic Methods</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="AA Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:author" content="Robert Rogers">
+<meta property="book:author" content="Eugene Boman">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.65bdf16e03e918ea.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="ASORA.html"><span class="title">AA Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<p class="byline">Robert Rogers, Eugene Boman</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ExponentAdditionProperty.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="CalcIn17th18thCentury.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="PowerSeriesQuestions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\imp}{\ \Rightarrow\ }
+\newcommand{\dx}[1]{\,{\rm d}#1}
+
+
+\newcommand{\dfdx}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\def\limit#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}#3}}
+\def\limitt#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}\textstyle #3}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\unif}{\stackrel{unif}{\longrightarrow}}
+\newcommand{\ptwise}{\stackrel{ptwise}{\longrightarrow}}
+\newcommand{\CC}{\mathbb {C}}
+\newcommand{\DD}{\mathbb {D}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\ZZ}{\mathbb {Z}}
+\def\eval#1#2#3{\left.\strut{}#1\right|_{#2=#3}}
+\def\geneval#1#2#3{\left.\strut{}#1\right|_{#2#3}}
+\def\mineval#1#2{\left.\strut{}#1\right|_{#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="ASORA-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="ASORA-2-4.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="ASORA-2-5.html" class="internal"><span class="title">Preface to the Second Edition</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="Instructor.html" class="internal"><span class="title">To the Instructor</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="AskingQuestions.html" class="internal"><span class="codenumber">I</span> <span class="title">In Which We Raise A Number Of Questions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Threelessons.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue: Three Lessons Before We Begin</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons-lesson-one.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Lesson One</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-two.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Lesson Two</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-three.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Lesson Three</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="NumbersRealRational.html" class="internal"><span class="codenumber">2</span> <span class="title">Numbers, Real <span class="process-math">\(\left(\RR\right)\)</span> and Rational <span class="process-math">\(\left(\QQ\right)\)</span></span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury.html" class="internal"><span class="codenumber">3</span> <span class="title">Calculus in the 17th and 18th Centuries</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Newton and Leibniz Get Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#sec_leibn-calc-rules" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Leibniz’ Calculus Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#LeibnizProductRule" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Leibniz’s Approach to the Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#NewtonsApproach" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Newton’s Approach to the Product Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ExponentAdditionProperty.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Power Series as Infinite Polynomials</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="SECTIONPowSerWOTaylor.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Expanding Simple Power Series by Algebraic Methods</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesQuestions.html" class="internal"><span class="codenumber">4</span> <span class="title">Questions Concerning Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-TaylorsFormula.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Taylor’s Formula</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-SeriesAnomalies.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Series Anomalies</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="InterregnumPart.html" class="internal"><span class="codenumber">II</span> <span class="title">Interregnum</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Interegnum.html" class="internal"><span class="codenumber">5</span> <span class="title">Joseph Fourier: The Man Who Broke Calculus</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="Interegnum-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Joseph Fourier and His Series</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="FindingAnswers.html" class="internal"><span class="codenumber">III</span> <span class="title">In Which We Find (Some) Answers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Convergence.html" class="internal"><span class="codenumber">6</span> <span class="title">Convergence of Sequences and Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SeqRealNum.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Sequences of Real Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="LimitAsPrimary.html" class="internal"><span class="codenumber">6.2</span> <span class="title">The Limit as a Primary Tool</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="DivergentSeq.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Divergence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="TaylorSeries.html" class="internal"><span class="codenumber">7</span> <span class="title">A “Tayl” of Three Remainders</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-IntFormRem.html" class="internal"><span class="codenumber">7.1</span> <span class="title">The Integral Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-LagrFormRem.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Lagrange’s Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-CauchyFormRem.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Cauchy’s Form of the Remainder</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Continuity.html" class="internal"><span class="codenumber">8</span> <span class="title">Continuity: What It Isn’t and What It Is</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-AnalyticDef.html" class="internal"><span class="codenumber">8.1</span> <span class="title">An Analytic Definition of Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SequencesAndContinuity.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Sequences and Continuity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="IVTandEVT.html" class="internal"><span class="codenumber">9</span> <span class="title">Intermediate and Extreme Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-Completeness.html" class="internal"><span class="codenumber">9.1</span> <span class="title">The Nested Interval Property: Completeness of the Real Number System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-ProofOfIVT.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Proof of the Intermediate Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-BWT.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Bolzano–Weierstrass Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-SupremumAndEVT.html" class="internal"><span class="codenumber">9.4</span> <span class="title">The Supremum and the Extreme Value Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DefLimit.html" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DerivativeAfterthought.html" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONFTC.html" class="internal"><span class="codenumber">10.3</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONDefiningIntegral.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Definition of the Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONCauchyRiemannInt" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Cauchy’s Definition of the Integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONDarbouxIntegral" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Darboux’s Integral Definition</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesRedux.html" class="internal"><span class="codenumber">11</span> <span class="title">Back to Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Uniform Convergence</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Uniform Convergence: Integrals and Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html#PowerSeriesRedux-UnifConv-IntsAndDerivs-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Cauchy Sequences</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-RadiusOfConv.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Radius of Convergence of a Power Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-AbelsThm.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Boundary Issues and Abel’s Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="BackToFourier.html" class="internal"><span class="codenumber">12</span> <span class="title">Back to the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONRiseSetTheory.html" class="internal"><span class="codenumber">12.1</span> <span class="title">The Rise of Set Theory</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-InfiniteSets.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Infinite Sets</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONLebesgueIntegration.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Road to Lebesgue Integration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-CantorsTheorem.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Cantor’s Theorem and Its Consequences</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Epilogues.html" class="internal"><span class="codenumber">13</span> <span class="title">Epilogs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONEpilog1.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONBuildReals.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Epilog #2: Building the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DecimalExpansion" class="internal"><span class="codenumber">13.2.1</span> <span class="title">The Decimal Expansion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#CauchySequences" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Cauchy Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DedekindCuts" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Dedekind Cuts</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ASORA-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="ASORA-6-1.html" class="internal"><span class="title">Bibliography</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ASORA-6-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main" style="background-image:url('data:image/svg+xml;charset=utf-8,&lt;svg version=&quot;1.1&quot; height=&quot;600&quot; width=&quot;600&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;text x=&quot;50%&quot; y=&quot;50%&quot; text-anchor=&quot;middle&quot; transform=&quot;rotate(-45,300,300)&quot; fill=&quot;rgb(204,204,204)&quot; style=&quot;font-family:sans-serif; font-size:2.5cm;&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;DRAFT&lt;/text&gt;&lt;/svg&gt;');background-position:center top;background-repeat:repeat-y;"><div id="ptx-content" class="ptx-content"><section class="section" id="SECTIONPowSerWOTaylor"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Expanding Simple Power Series by Algebraic Methods</span>
+</h2>
+<p class="watermark">Watermark text: DRAFT</p>
+<div class="para" id="SECTIONPowSerWOTaylor-2">We call the power series expansions we’ll see in this section “simple” because all that is needed to generate them is prior knowledge of a few series (e.g.,the <a href="ExponentAdditionProperty.html#EQUATIONGeometricSeries" class="xref" data-knowl="./knowl/xref/EQUATIONGeometricSeries.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.1">Geometric Series</a>, the <a href="ExponentAdditionProperty.html#PROBLEMSinCosPwrSeries" class="xref" data-knowl="./knowl/xref/PROBLEMSinCosPwrSeries.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 3.2.11">sine and cosine series</a>, the <a href="ExponentAdditionProperty.html#EQUATIONExpSeries" class="xref" data-knowl="./knowl/xref/EQUATIONExpSeries.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.2">exponential series</a>, the <a href="ExponentAdditionProperty.html#eq_BinomialSeries" class="xref" data-knowl="./knowl/xref/eq_BinomialSeries.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.6">Binomial Series</a>), and a creative use of algebra. In particular <a href="PowerSeriesQuestions-TaylorsFormula.html#TaylorsTheorem" class="xref" data-knowl="./knowl/xref/TaylorsTheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.12: Taylor’s Theorem">Taylor’s Theorem</a> is not needed. We assume that you are familiar with the use of Taylor’s Theorem from your Calculus course.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONPowSerWOTaylor-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONPowSerWOTaylor-3">As we saw in the last section, it can be particularly fruitful to expand a function as a power series centered at <span class="process-math">\(a=0\text{.}\)</span> Unfortunately, this isn’t always possible. For example, it is not possible to expand the function <span class="process-math">\(f\left(x\right)=\frac{1}{x}\)</span> about zero. (Why not?)<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONPowSerWOTaylor-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONPowSerWOTaylor-4">
+<div class="para">But we are not confined to expanding about zero.  Consider that the following is a power series for <span class="process-math">\(f(x)=\frac{1}{x}\)</span> expanded about <span class="process-math">\(a=1\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PowerSeriesQuestions-TaylorsFormula.html">
+\begin{equation*}
+\frac{1}{x}=\frac{1}{1+\left(x-1\right)}=\sum^{\infty}_{n=0}{-1^n{\left(x-1\right)}^n}\text{.}
+\end{equation*}
+</div>
+<div class="para">Of course, there are still questions that need to be resolved. Chief among these is the question, “For which values of <span class="process-math">\(x\)</span> is this series a valid representation of the function we started with?” We will explore this in <a href="PowerSeriesQuestions-TaylorsFormula.html" class="internal" title="Section 4.1: Taylor’s Formula">Section 4.1</a>. For now we will content ourselves with having a representation which seems reasonable.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONPowSerWOTaylor-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="PROBLEMOneOverXTayl"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="introduction" id="PROBLEMOneOverXTayl-2"><div class="para" id="PROBLEMOneOverXTayl-2-1">Let <span class="process-math">\(a\neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMOneOverXTayl-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="PROBLEMOneOverXTayl-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="PROBLEMOneOverXTayl-3-1-1">Represent <span class="process-math">\(\frac{1}{x}\)</span> as a power series expanded about <span class="process-math">\(a\text{.}\)</span>  That is, as a power series of the form <span class="process-math">\(\sum^{\infty }_{n=0}{a_n{(x-a)}^n}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMOneOverXTayl-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="PROBLEMOneOverXTayl-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="PROBLEMOneOverXTayl-3-2-1">
+<span class="process-math">\(\frac{1}{x}=\frac{1}{a+x-a}=\frac{1}{a}\left(\frac{1}{1+\frac{x-a}{a}}\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMOneOverXTayl-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.3.1.a.1"><a href="#PROBLEMOneOverXTayl-3-2" title="Copy heading and permalink for Hint 3.3.1.a.1" aria-label="Copy heading and permalink for Hint 3.3.1.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 3.3.1.a"><a href="#PROBLEMOneOverXTayl-3" title="Copy heading and permalink for Task 3.3.1.a" aria-label="Copy heading and permalink for Task 3.3.1.a">🔗</a></div></article><article class="task exercise-like" id="PROBLEMOneOverXTayl-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="PROBLEMOneOverXTayl-4-1-1">Represent <span class="process-math">\(\ln (x)\)</span> as a power series expanded about <span class="process-math">\(a\)</span> by integrating your solution to part (a).<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMOneOverXTayl-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.3.1.b"><a href="#PROBLEMOneOverXTayl-4" title="Copy heading and permalink for Task 3.3.1.b" aria-label="Copy heading and permalink for Task 3.3.1.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 3.3.1"><a href="#PROBLEMOneOverXTayl" title="Copy heading and permalink for Problem 3.3.1" aria-label="Copy heading and permalink for Problem 3.3.1">🔗</a></div></article><article class="problem example-like" id="SECTIONPowSerWOTaylor-6"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="SECTIONPowSerWOTaylor-6-2">Let <span class="process-math">\(a&gt;0\)</span> and use <a href="ExponentAdditionProperty.html#eq_BinomialSeries" class="xref" data-knowl="./knowl/xref/eq_BinomialSeries.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.6">equation (3.2.6)</a> to represent <span class="process-math">\(\sqrt{x}\)</span> as a power series expanded about <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONPowSerWOTaylor-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 3.3.2"><a href="#SECTIONPowSerWOTaylor-6" title="Copy heading and permalink for Problem 3.3.2" aria-label="Copy heading and permalink for Problem 3.3.2">🔗</a></div></article><article class="problem example-like" id="PROBLEMExpTaylAta"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="PROBLEMExpTaylAta-2">Let <span class="process-math">\(a\)</span> be a real number.  Represent <span class="process-math">\(e^x\)</span> as power series expanded about <span class="process-math">\(a\text{.}\)</span>  Notice there is no restriction on <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMExpTaylAta-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 3.3.3"><a href="#PROBLEMExpTaylAta" title="Copy heading and permalink for Problem 3.3.3" aria-label="Copy heading and permalink for Problem 3.3.3">🔗</a></div></article><article class="problem example-like" id="SECTIONPowSerWOTaylor-8"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="SECTIONPowSerWOTaylor-8-2">Let <span class="process-math">\(a\)</span> be a real number.  Represent <span class="process-math">\(x^3+2x^2+3\)</span> as a power series expanded about <span class="process-math">\(a\text{.}\)</span>  What happens if <span class="process-math">\(a=0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONPowSerWOTaylor-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 3.3.4"><a href="#SECTIONPowSerWOTaylor-8" title="Copy heading and permalink for Problem 3.3.4" aria-label="Copy heading and permalink for Problem 3.3.4">🔗</a></div></article><article class="problem example-like" id="PROBLEMSinExpandedAta"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="PROBLEMSinExpandedAta-2-1">
+<div class="para">Let <span class="process-math">\(a\)</span> be a real number.  Use the power series expansions</div>
+<div class="displaymath process-math" id="PROBLEMSinExpandedAta-2-1-2">
+\begin{align*}
+\sin \left(x\right)=\sum^{\infty
+}_{n=0}{\frac{{\left(-1\right)}^n}{\left(2n+1\right)!}x^{2n+1}}\amp{}\amp{} \cos\left(x\right)=\sum^{\infty
+}_{n=0}{\frac{{\left(-1\right)}^n}{\left(2n\right)!}x^{2n}}
+\end{align*}
+</div>
+<div class="para">to obtain the power series representation</div>
+<div class="displaymath process-math" id="PROBLEMSinExpandedAta-2-1-3">
+\begin{align*}
+\sin (x)=\sin (a)+\amp{}\cos \left(a\right)\left(x-a\right)-\frac{1}{2!}\sin
+\left(a\right){\left(x-a\right)}^2\\
+\amp{}-\frac{1}{3!}\cos
+\left(a\right){\left(x-a\right)}^3+\frac{1}{4!}\sin
+\left(a\right){\left(x-a\right)}^4\\
+\amp{}\ \ \ \ \ +\frac{1}{5!}\cos
+\left(a\right){\left(x-a\right)}^5+\cdots.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMSinExpandedAta-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="PROBLEMSinExpandedAta-2-2">This result will come into play in the next section.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMSinExpandedAta-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="PROBLEMSinExpandedAta-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="PROBLEMSinExpandedAta-3-1">
+<span class="process-math">\(\sin \left(x\right) =\sin \left(a+\left(x-a\right)\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMSinExpandedAta-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.3.5.1"><a href="#PROBLEMSinExpandedAta-3" title="Copy heading and permalink for Hint 3.3.5.1" aria-label="Copy heading and permalink for Hint 3.3.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 3.3.5"><a href="#PROBLEMSinExpandedAta" title="Copy heading and permalink for Problem 3.3.5" aria-label="Copy heading and permalink for Problem 3.3.5">🔗</a></div></article><div class="autopermalink" data-description="Section 3.3: Expanding Simple Power Series by Algebraic Methods"><a href="#SECTIONPowSerWOTaylor" title="Copy heading and permalink for Section 3.3: Expanding Simple Power Series by Algebraic Methods" aria-label="Copy heading and permalink for Section 3.3: Expanding Simple Power Series by Algebraic Methods">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ExponentAdditionProperty.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="PowerSeriesQuestions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
