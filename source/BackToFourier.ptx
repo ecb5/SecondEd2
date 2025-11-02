@@ -1,0 +1,5056 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="BackToFourier">
+  <title>Back to the Real Numbers</title>
+  <introduction>
+    <p>
+      As we have seen, when they converge, power series are very well
+      behaved.  But Fourier (trigonometric) series were not and that
+      was a puzzle which made them a lightning rod for mathematical
+      study in the nineteenth century.
+    </p>
+
+    <p> 
+      <idx><h>Fourier, Jean Baptiste Joseph</h></idx> 
+
+      For example, consider the question of uniqueness.  We saw in
+      <xref ref="TaylorSeries"></xref> that if a function could
+      be represented by a power series, then that series must be the
+      Taylor series.  More precisely, if <me> f(x)=\displaystyle\sum_{n=0}^\infty
+      a_n(x-a)^n </me>, then 
+
+      <me> 
+        a_n=\frac{f^{(n)}(a)}{n!} 
+      </me>
+
+      which make sthe series unique.
+
+      But what can be said about the uniqueness of a trigonometric
+      series?  
+      </p>
+      <p>
+        Using the techniques that he employed to solve the heat flow
+        problem (see <xref ref="Interegnum" ></xref>), Fourier showed
+        that if a <q>general</q> function <m>f(x)</m> defined on the
+        interval <m>[0,1]</m> could be expressed as a trigonometric series 
+        <me>
+          f(x) = \sum_{m=0}^\infty \left[ a_n\cos(2n \pi x) + b_n\sin (2n\pi
+          x)\right] 
+        </me>
+        then the coefficients could be determined as follows:
+        <md>
+          <mrow>a_0\amp{}=\int_{x=0}^1 f(x)\dx{x}</mrow>
+          <mrow>
+            a_n\amp{}=2\int_{x=0}^1f(x)\cos(2n\pi x) \dx{x},\amp{} n=1, 2, 3, \cdots{}
+          </mrow>
+          <mrow>
+            b_n\amp{}=2\int_{x=0}^1f(x)\sin(2n\pi x) \dx{x},\amp{} n=0, 2, 3, \cdots{}.
+          </mrow>
+        </md>
+        <!--   If we can represent a function <m>f</m> as a general -->
+        <!--   trigonometric series <me> f(x)=\displaystyle\sum_{n=0}^\infty(a_n\cos n\pi -->
+        <!--   x+b_n\sin n\pi x) </me>, then must this be the Fourier series -->
+        <!--   with the coefficients as determined by Fourier? -->
+        <!-- </p> -->
+
+        <!-- <p> -->
+        <!--   If  -->
+        <!--   <m> -->
+        <!--     \displaystyle\sum_{n=0}^\infty(a_n\cos n\pi x + b_n\sin n\pi x) -->
+        <!--   </m> -->
+        <!--   converges uniformly to <m>f</m> on the interval <m>[0,1]</m> -->
+        <!--   then <mdash/> because of the uniform convergence <mdash/> -->
+        <!--   Fourier<rsq/>s term<ndash/>by<ndash/>term integration is -->
+        <!--   perfectly legitimate. Moreover the coefficients will of -->
+        <!--   necessity be the coefficients computed in <xref -->
+        <!--   ref="EQUATIONSineCoeffFourier">equation</xref> and <xref -->
+        <!--   ref="EQUATIONCosineCoeffFourier" >equation</xref> .   -->
+
+        If <m>\sum_{m=0}^\infty \left[ a_n\cos(2n \pi x) + b_n\sin (2n\pi
+        x)\right] </m> converges uniformly to <m>f</m> on <m>[0, 1]</m>, then
+        Fourier<rsq/>s term<ndash/>by<ndash/>term integration is perfectly
+        legitimate and the coefficients will be as given above.
+      </p>
+      <p>
+
+        However we
+        have seen that the convergence of a Fourier series need not be
+        uniform.  This does not mean that we cannot integrate
+        term<ndash/>by<ndash/>term, but it does say that we can<rsq/>t
+        be sure that term<ndash/>by<ndash/>term integration of a Fourier
+        series will yield the integral of the associated function.
+      </p>
+
+      <p>
+        <idx><h>Lebesgue, Henri</h></idx> 
+        <idx><h>Cantor, Georg</h></idx> 
+
+        Such considerations led to a generalization of the integral by 
+        <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Lebesgue/" >Henri Lebesgue</url>
+        in <m>1905</m>.  Lebesgue<rsq/>s profound work settled the question: <q>Is
+        a bounded pointwise converging trigonometric series the
+        Fourier series of a function?</q> We will (very briefly) describe some of 
+        Lebesgue<rsq/>s work in <xref ref="SECTIONLebesgueIntegration" ></xref>.
+      </p>
+      <p>
+        But before we can do that we will need to understand the
+        pioneering work of <url
+        href="https://mathshistory.st-andrews.ac.uk/Biographies/Cantor/"
+        >Georg Cantor</url> (1845<ndash/>1918) on <term>Set
+        Theory</term> in the late 19th century.  Cantor<rsq/>s work
+        was profound, had far reaching implications in modern
+        mathematics, and leads to some seemingly very weird
+        conclusions.
+      </p>
+      <aside>
+        
+        <title>
+          Weird does not mean false
+        </title>
+
+        <p>
+          It simply means that some of Cantor<rsq/>s results can be
+          hard to accept, even after you have seen the proofs and
+          verified their validity. Indeed, Cantor himself found some
+          of his own results unbelievable.
+        </p>
+      </aside> 
+
+      <figure>
+        <caption><url href="https://mathshistory.st-andrews.ac.uk/Biographies/Cantor/" >Georg Cantor</url> </caption>
+
+        <idx><h>Portraits</h><h>Cantor</h></idx>
+        <idx><h>Cantor, Georg</h><h>portrait of</h></idx>
+
+        <image width="35%" source="images/Cantor.png">
+          <shortdescription>Portrait of Georg Cantor</shortdescription>
+        </image>
+      </figure>
+
+
+      <p>
+        To begin, let<rsq/>s suppress the underlying function and suppose we
+        have the two series
+
+        <me>
+          \sum_{n=0}^\infty\left[{}a_n\cos (2n\pi x)+b_n\sin (2n\pi
+          x)\right] 
+          </me>
+          and
+          <me>
+          \sum_{n=0}^\infty\left[ a^\prime_n\cos (2n\pi x)+b^\prime_n\sin (2n\pi
+          x)\right]
+          </me>.
+
+      </p>
+
+      <p>
+        We ask: If these two series are equal must it be true that
+        <m>a_n=a^\prime_n</m> and <m>b_n=b^\prime_n</m>?  We can
+        reformulate this uniqueness question as follows: Suppose
+
+        <me>
+          \displaystyle\sum_{n=0}^\infty\left[(a_n-a^\prime_n)\cos (2n\pi
+          x) +(b_n-b^\prime_n)\sin (2n\pi x)\right] = 0 
+          </me>.
+
+          If we let <m>c_n = a_n-a^\prime_n</m> and <m>d_n =
+          b_n-b^\prime_n</m>, then the question becomes: If
+          
+          <me>
+            \sum_{n=0}^\infty\left[c_n\cos (2n\pi x)+d_n\sin (2n\pi
+            x)\right] = 0
+            </me>, 
+
+            is it necessarily true that
+      <m>c_n=d_n=0</m>?  </p>
+
+      <p>
+        Intuitively, it certainly seems reasonable to suppose so, but
+        at this point we have enough experience with infinite sums to
+        know that we need to be very careful about relying on the
+        intuition we have gained from finite sums.
+      </p>
+
+      <!-- <p> -->
+      <!--   <idx> -->
+      <!--     <h>Cantor, Georg</h><h>and the modern view of mathematics</h> -->
+      <!--   </idx> -->
+
+      <!--   The converse of the question above: If <m>c_n=d_n=0</m>, is it -->
+      <!--   necessarily true that <me>\sum_{n=0}^\infty\left(c_n\cos n\pi -->
+      <!--   x+d_n\sin n\pi x\right) = 0</me>, is even more interesting, as -->
+      <!--   we will soon see.  The answer to this seemingly basic question -->
+      <!--   leads to some very profound results. -->
+      <!-- </p> -->
+      
+      <p>
+        Answering this question led Cantor to study the
+        makeup of the real number system.  This in turn opened the door
+        to the twentieth century view of mathematics.  In
+        particular, Cantor proved the following result in <m>1871</m><nbsp
+        />(<xref ref="jahnke03__histor_analy"/>, p. 305).
+      </p>
+
+      <theorem xml:id="thm_Cantor-uniqueness-of-trig-series">
+        <title>Cantor</title>
+
+        <idx>
+          <h>Cantor, Georg</h>
+        </idx> 
+        <idx>
+          <h>Cantor, Georg</h>
+          <h>uniqueness of Fourier series</h>
+          <h>first theorem on</h>
+        </idx> 
+        <idx>
+          <h>Fourier Series</h>
+          <h>Cantor<rsq/>s first theorem on uniqueness</h>
+        </idx>
+
+        <statement>
+          <p>
+
+            If the trigonometric series
+            <me>
+              \sum_{n=0}^\infty\left[c_n\cos (2n\pi  x)+d_n\sin (2n\pi x)\right] = 0
+              </me>,
+          </p>
+
+          <p>
+            <q>with the exception of certain values of <m>x</m>,</q>
+            then all of its coefficients vanish.
+          </p>
+        </statement>
+      </theorem>
+
+      <p>
+        In his attempts to nail down precisely which <q>certain
+        values</q> could be exceptional Cantor was led to examine the
+        nature of subsets of real numbers and ultimately to give a
+        precise definition of the concept of infinite sets and to define
+        an arithmetic of <q>infinite numbers.</q>
+      </p>
+      <aside>
+        <title>
+          Transfinite Numbers
+        </title>
+        <p> 
+          Actually, he called them <term>transfinite numbers</term>
+        because, by definition, numbers are finite.</p>
+      </aside>
+
+
+      <p>
+        In his attempt to identify those <q>certain values,</q> Cantor
+        proved the following theorems, which we will state but not
+        prove.
+      </p>
+
+      <theorem xml:id="thm_Cantor_1870">
+        <title>Cantor, (1870)</title>
+
+        <idx>
+          <h>Cantor, Georg</h>
+          <h> uniqueness of Fourier series</h>
+        <h>second theorem</h></idx>      
+        <idx>
+
+          <h>Fourier Series</h>
+          <h>Cantor<rsq/>s second theorem on uniqueness</h>
+        </idx>
+        <statement>
+          <p>
+            If the trigonometric series
+            <me>
+              \sum_{n=0}^\infty\left[c_n\cos (2n\pi  x)+d_n\sin (2n\pi x)\right] = 0
+              </me>,
+              for all <m>x\in\RR</m> then all of its coefficients vanish.
+          </p>
+        </statement>
+      </theorem>
+
+      <!-- <p> -->
+      <!--   He then extended this to the following: -->
+      <!-- </p> -->
+
+      <theorem xml:id="thm_Cantor-1871-b">
+        <title>Cantor, (1871)</title>
+
+        <idx>
+          <h>Cantor, Georg</h>
+          <h>uniqueness of Fourier series</h>
+          <h>third theorem on</h>
+        </idx> 
+        <idx>
+          <h>Fourier Series</h>
+          <h>Cantor<rsq/>s third theorem on uniqueness</h>
+        </idx>
+        
+        <statement>
+
+          <p>
+            If the trigonometric series 
+            <me>
+              \sum_{n=0}^\infty\left[c_n\cos (2n\pi x)+d_n\sin (2n\pi
+              x)\right] = 0 
+              </me>, 
+              for all but finitely many <m>x\in\RR</m>
+              then all of its coefficients vanish.
+          </p>
+        </statement>
+      </theorem>
+
+
+      <p>
+        Observe that this is not a trivial generalization.  Although the
+        exceptional points are constrained to be finite in number, this
+        number could still be extraordinarily large.  That is, even if
+        the series given above differed from zero on
+        <m>10^{\left(10^{100000}\right)}</m> distinct points in the
+        interval <m>\left(0, 10^{-\left(10^{100000}\right)}\right)</m>
+        the coefficients still vanish.  This remains true even if at
+        each of these <m>10^{\left(10^{100000}\right)}</m> points the
+        series converges to <m>10^{\left(10^{100000}\right)}</m>.  This
+        is truly remarkable when you think of it this way.
+      </p>
+
+      <p>
+        At this point Cantor became more interested in these exceptional
+        points than in the Fourier series problem that he<rsq/>d started
+        with.  The next task he set for himself was to see just how
+        general the set of exceptional points could be.  Following
+        Cantor<rsq/>s lead we make the following definitions.
+      </p>
+
+      <definition xml:id="def_accumulation-point">
+        
+        <idx><h>Definition</h><h>accumulation points</h></idx>  
+        <idx><h>accumulation points</h><h>definition</h></idx>  
+        <idx><h>limit</h><h>accumulation points</h></idx>
+        <idx><h>sets</h><h>accumulation points</h></idx> 
+
+        <statement>
+          <p>
+            Let <m>S\subseteq \RR</m> and let <m>a</m> be a real number.
+            We say that <m>a</m> is a <term>limit point</term> (or an
+            <term>accumulation point</term>) of <m>S</m> if there is a
+            sequence <m>(a_n)</m> with <m>a_n\in S-\left\{a\right\}</m>
+            which converges to <m>a</m>.
+          </p>
+        </statement>
+      </definition>
+
+      <problem xml:id="PROBLEMAccumulationPoint">
+        
+        <idx><h>Problems</h><h>accumulation point</h></idx>
+        <idx><h>limit</h><h>accumulation point</h></idx>
+        <idx><h>sets</h><h>accumulation points</h></idx>
+
+        <statement>
+          <p>
+            Let <m>S\subseteq\RR</m> and let <m>a</m> be a real number.
+            Prove that <m>a</m> is a limit point of <m>S</m> if and only
+            if for every <m>\eps>0</m> the intersection of the interval
+            <m>(a-\eps, a+\eps)</m> with <m>S</m> contains more than the
+            single point <m>{a}</m>.
+          </p>
+          <p>
+            That is,
+            <me>
+              (a-\eps, a+\eps) \cap S -\left\{a\right\} \neq \emptyset. 
+            </me>
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        The following definition gets to the heart of the matter.
+      </p>
+
+      <definition xml:id="def_derived-set">
+        
+        <idx><h>Definition</h><h>derived sets</h></idx>
+        <idx><h>derived sets</h><h>definition</h></idx>
+        <idx><h>sets</h><h>derived sets</h></idx>
+
+        <statement>
+          <p>
+            Let <m>S\subseteq\RR</m>.  The set of all limit points of
+            <m>S</m> is called the <term>derived set</term> of <m>S</m>.
+            The derived set is denoted <m>S^{\prime}</m>.
+          </p>
+        </statement>
+      </definition>
+
+
+      <p>
+        Don<rsq/>t confuse the derived set of a set with the derivative
+        of a function.  They are completely different objects despite
+        the similarity of both the language and notation.  The only
+        thing that they have in common is that they were somehow
+        <q>derived</q> from something else.
+      </p>
+
+      <problem>
+        
+        <idx><h>derived sets</h></idx>
+        <idx><h>Problems</h><h>derived sets</h></idx>
+
+        <statement>
+          <p>
+            Determine the derived set <m>S^\prime</m>, of each of the
+            following sets.
+            <ol cols="2" marker="(a)">
+              <li>
+                <p>
+                  <m>S=\left\{\frac11, \frac12, \frac13, \ldots\right\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\left\{0,\frac11, \frac12, \frac13, \ldots\right\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=(0,1]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\left[\left.0,1/2\right)\right.\cup\left.\left(1/2,1\right.\right]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\QQ</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\RR-\QQ</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\ZZ</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Any finite set <m>S</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </problem>
+
+      <problem>
+
+        <idx><h>Problems</h><h>derived sets</h></idx>
+        <idx><h>derived sets</h></idx>
+
+        <statement>
+          <p>
+            Let <m>S\subseteq\RR</m>.
+            <ol marker="(a)">
+              <li>
+                <p>
+                  Prove that
+                  <m>\left(S^{\prime}\right)^{\prime}\subseteq
+                  S^{\prime}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example where these two sets are equal.
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  Give an example where these two sets are not equal.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        The notion of the derived set forms the foundation of Cantor<rsq/>s
+        exceptional set of values.  Specifically, let <m>S</m> again be
+        a set of real numbers and consider the following sequence of
+        sets:
+        <me>
+          S^{\prime}\supseteq \left(S^\prime\right)^\prime\supseteq \left(\left(S^\prime\right)^\prime\right)^\prime\supseteq \cdots
+          </me>.
+      </p>
+
+      <p>
+        <idx><h>Cantor, Georg</h></idx>
+
+        Cantor showed that if, at some point, one of these derived sets
+        is empty, then the uniqueness property still holds.
+        Specifically, we have:
+      </p>
+
+      <theorem xml:id="thm_Cantor-1871">
+        
+        <idx>
+          <h>Cantor, Georg</h>
+          <h>fourth theorem on the uniqueness of Fourier series</h>
+        </idx>
+
+        <statement>
+          <p>
+            Let <m>S</m> be a subset of the real numbers with the
+            property that one of its derived sets is empty.  Then if the
+            trigonometric series
+
+            <me>
+              \displaystyle\sum_{n=0}^\infty\left(c_n\cos (2n\pi x)+d_n\sin (2n\pi
+              x)\right)
+            </me> 
+
+            is zero for all <m>x\in\RR-S</m>, then all of the
+            coefficients of the series vanish.
+          </p>
+        </statement>
+      </theorem>
+  </introduction>
+
+  <section xml:id="SECTIONRiseSetTheory">
+    <title>The Rise of Set Theory</title>
+
+    <p>
+      Cantor<rsq/>s work was instrumental in the re<ndash/>examination
+      of the foundations of mathematics whereby mathematical ideas
+      were recast in the language of sets. Nowadays we do this
+      naturally, so it doesn<rsq/>t seem profound, but recasting
+      mathematics in terms of <term>Set Theory</term> has
+      fundamentally shaped our modern approach.  We<rsq/>ve already
+      seen this in <xref ref="def_accumulation-point"></xref>, <xref
+      ref="PROBLEMAccumulationPoint"></xref>, and <xref
+      ref="def_derived-set"></xref> where we recast Cantor<rsq/>s
+      definition of a limit point into set theoretic terms.
+    </p> 
+
+    <p>
+      It turns out that we can also rewrite concepts such as limits
+      and continuity in terms of sets.  This led to a subject known as
+      <term>point set topology</term>. Presenting all of
+      <term>topology</term> would require an entire new course with an
+      entire new book, so we will only give a brief glimpse at how
+      analysis concepts can be recast in set theoretic form.
+    </p>
+    <p>
+      Recall that a closed interval is one which contains its endpoints. Similarly example, a set of real numbers <m>S</m> (not necessarily an
+      interval) is called <term>closed</term> if it contains all of its limit
+      points. 
+      <!-- Notice how similar this is to the definition of a closed -->
+      <!-- interval. Since a closed interval contains its endpoints, it -->
+      <!-- would seem to contain all of its limits points and is therefore -->
+      <!-- closed.  To see this, we will show that any point not in -->
+      <!-- <m>S=[a,b]</m> is not a limit point of <m>S</m>. -->
+      <!-- First, suppose <m>c\notin [a,b]</m>.  If -->
+      <!-- <m>c\lt a</m>, then if we let <m>\eps =a-c\gt0</m>, then -->
+      <!-- <me>\left(c-\eps ,c+\eps \right)\cap -->
+      <!-- \left[a,b\right]-\left\{c\right\}=\emptyset </me> so <m>c\notin -->
+      <!-- S^\prime</m>. -->
+    A closed interval is also a closed set as the next problem shows.
+    </p>
+
+    <problem  xml:id="PROBLEMClosedIntIsClosedSet">
+      <idx><h>Problems</h><h>a closed interval is a closed set</h></idx>
+      
+      <statement>
+        <p>
+          Prove that a closed interval, <m>[a,b]</m> is also a
+          closed set.
+          <!-- Prove that if <m>b\lt c</m>, then <m>c</m> is not a limit -->
+          <!-- point of <m>[a,b]</m>.  This will complete the proof that -->
+          <!-- <m>[a,b]</m> is closed. -->
+        </p>
+      </statement>
+      <hint>
+        <p>
+          First suppose that <m>c\notin [a,b]</m>. There are two
+          cases:
+          <dl>
+            <li>
+              <title>
+                Case 1
+              </title>
+
+              <p>
+                <m>c\lt a</m>
+              </p>
+
+            </li>
+            <li>
+              <title>
+                Case 2
+              </title>
+
+              <p>
+                <m>b\lt c</m>.
+
+              </p>
+            </li>
+          </dl>   
+        </p>
+      </hint>
+
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h>a closed set is not (necessarily) a closed inteval </h></idx>  
+      <introduction>
+        
+        <p>
+          The converse of <xref ref="PROBLEMClosedIntIsClosedSet" ></xref>
+          is not true. That is, not every closed set is also a closed
+          interval. Convince yourself that each of the sets below is closed.
+        </p>
+      </introduction>        
+
+      <task>
+        <statement>
+          <p>
+            <m>\RR</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+            <m>\emptyset</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+            <m>\left[a,\infty \right)</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+            <m> \left(-\infty ,b\right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            any finite set
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+            <m> \left\{\frac{1}{n},\ n\in \mathbb{N}\right\}\cup
+            \left\{0\right\}</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\ZZ</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+            the union of two closed sets
+          </p>
+        </statement>
+      </task>
+    </problem>
+
+    <p>
+      At this point you<rsq/>ve probably guessed that the definition of
+      an open set can be  modeled on the definition of open interval. That
+      is true, but <xref ref="DEFINITIONOpenSet" ></xref> is easier to use.
+    </p>
+
+    <definition xml:id="DEFINITIONOpenSet">
+      <title>Open Sets</title>
+
+      <idx><h>Definition</h><h>open set</h></idx>    
+      <idx><h>open set</h><h>definition of</h></idx>    
+
+      <statement>
+        <p>
+          A set <m>S</m> of real numbers is
+          open if its complement <m>S^C=\RR-S</m> is closed.
+        </p>
+      </statement>
+    </definition>
+
+    <problem>
+
+      <idx><h>Problems</h><h>open sets</h></idx>    
+      <statement>
+
+        <p>
+          Show that a set <m>S</m> is open if and only if for all
+          <m>a\in S</m> there is an <m>\eps >0</m> such that
+          <m>\left(a-\eps ,a+\eps \right)\subset S</m>
+        </p>
+
+      </statement>
+      <hint>
+        <p>
+          Notice that if <m>S^C</m> is closed then  <m>a\in S</m> is not a limit point of
+          <m>S^C</m>. What does <xref ref="PROBLEMAccumulationPoint"
+          ></xref> tell you?
+        </p>
+      </hint>
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h>open intervals are not the only open sets</h></idx>    
+      
+      <introduction>
+        <p>
+          Open intervals are not the only open sets.  Convince yourself
+          that each of the following are also open sets.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+
+          <p>
+            <m>\RR </m>
+          </p>
+
+        </statement>
+      </task>
+      <task>
+        <statement>
+          
+          <p>
+            <m> \emptyset</m>
+          </p>
+
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+            <m>\displaystyle\bigcup^{\infty }_{n=1}{S_n}</m> where each
+            <m>S_n</m> is an open set.
+
+          </p>
+        </statement>
+      </task>
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h>sets that are neither open nor closed</h></idx>
+
+      <introduction>
+        <p>
+          Of course, there are sets which are neither open nor closed.
+          Convince yourself that these sets are neither open
+          nor closed.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+
+
+          <p>
+            <m>\left[a,b\right)</m>
+          </p>
+
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+
+          <p>
+            <m> \left(a,b\right]</m>
+          </p>
+
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+
+          <p>
+            <m>\left\{\frac{1}{n},\ n\in \NN\right\}</m>
+          </p>
+
+        </statement>
+      </task>
+    </problem>
+
+    <p>
+      Again, we could spend an entire course exploring these concepts,
+      but for our introduction we will only show how the concept of
+      continuity can be repackaged into a statement involving sets. To
+      keep things simple we will restrict our attention to functions
+      <m>f(x)</m> whose domain is an open set of real numbers. The
+      following notation will be helpful.
+    </p>
+
+    <definition xml:id="DEFINITIONOpenByPreImage">
+      <idx><h>Definition</h><h>image</h></idx>
+      <idx><h>Definition</h><h>image</h><seealso>pre<ndash/>image</seealso></idx>
+      <idx><h>image</h><h>definition</h></idx>
+      <idx><h>image</h><h>definition</h><seealso>pre<ndash/>image</seealso></idx>
+      <idx><h>pre<ndash/>image</h><h>definition</h></idx>
+      <idx><h>pre<ndash/>image</h><h>definition</h><seealso>image</seealso></idx>
+
+      <statement>
+        <p>
+          <ol marker="(1)">
+            <li>
+              <p>
+                Let <m>D\in \RR </m>, <m>S\subset D</m>. If we define
+                the <term>image</term> of <m>S</m> by
+                <me>f\left(S\right)=\left\{f\left(x\right)\right|x\in
+                S\}</me>
+              </p>
+            </li>
+            <li>
+              <p>
+                For any <m>T\subset \mathbb{R}</m>, we define the <term>preimage</term> of <m>T</m> by
+                <me>f^{-1}\left(T\right)=\left\{x\in D\right|f\left(x\right)\in T\}</me>
+              </p>
+            </li>
+
+          </ol>
+        </p>
+      </statement>
+
+    </definition>
+
+    <aside>
+      <title>
+        Preimage
+      </title>
+      <p>
+        The <term>preimage</term> <m>(f^{-1})</m> of a set
+        <m>T</m> under the function <m>f(x)</m>, is the set of all
+        points, <m>x</m> for which <m>f(x)\in T</m>. In particular,
+        this notation does not represent an inverse function,
+        although it is related. The notation <m>f^{-1}</m> is a
+        set<ndash/>theoretic construct, so in this context the
+        notation <m>f^{-1}(T)</m> represents a set, not a function
+        evaluation.
+      </p>
+    </aside>
+    <problem>
+      <p>
+        Show that <m>f(x)</m> is continuous at <m>x=a</m> if and only
+        if for every open set <m>V</m> containing <m>f(a)</m> there is
+        an open set <m>U</m> containing <m>a</m> with <m>f(U)\subset
+        V</m>.
+      </p>
+    </problem>
+
+    <problem  xml:id="PROBLEMTopoDefCont">
+      <title>
+        Topological Definition of Continuity
+      </title>
+      <idx><h>Problems</h><h>continuity</h><h> via set theory</h></idx>
+
+      <p> 
+        Show that a function <m>f(x)</m> is continuous on a set
+        <m>D\subset \RR </m> if and only if for every open set of real
+        numbers <m>V\subset D </m>, the preimage of <m>V</m> is open.
+      </p>
+      <!-- <p> -->
+      <!--   Show that <m>f</m> is continuous on <m>D</m> if and only if -->
+      <!--   <m>f</m> satisfies the following condition: for any open set -->
+      <!--   of real numbers <m>V</m>, <m>f^{-1}(V)</m> is open. -->
+      <!-- </p> -->
+    </problem>
+
+    <!-- <p> -->
+    <!--   The statement  of <xref ref="PROBLEMTopoDefCont" -->
+    <!--   ></xref> is actually the  <term>topological</term> definition of continuity in -->
+    <!--   terms of open sets.  -->
+    <!--   <!-\- (Notice that in <xref -\-> -->
+    <!--   <!-\- ref="PROBLEMTopoDefCont" ></xref>, <m>f\left(U\right)\subset -\-> -->
+    <!--   <!-\- V</m> can be expressed as <m>U\subset f^{-1}(V)</m>.) -\-> -->
+    <!-- </p> -->
+    <!-- <p> -->
+    <!--   With these definitions we have the following result -->
+    <!-- </p> -->
+    <!-- <problem> -->
+    <!--   <p> -->
+    <!--     Show that <m>f\left(x\right)</m> is continuous at <m>x=a</m> -->
+    <!--     if and only if for all open sets <m>V</m> containing -->
+    <!--     <m>f(a)</m>, there is an open set <m>U</m> containing <m>a</m> -->
+    <!--     with <m>f\left(U\right)\subset V</m>. -->
+    <!--   </p> -->
+    <!-- </problem> -->
+    <!-- <p> -->
+    <!--   Notice that in the previous problem, <m>f\left(U\right)\subset -->
+    <!--   V</m> can be written as <m>U\subset f^{-1}(V)</m>.  Based on -->
+    <!--   this observation and the previous problem, continuity of -->
+    <!--   <m>f</m> on all of its domain <m>D</m> has an even easier -->
+    <!--   condition when stated in terms of open sets. -->
+    <!-- </p> -->
+
+    <!-- <p> -->
+
+    <!--   With <xref ref="PROBLEMTopoDefCont" ></xref> in mind we have the following definition. -->
+    <!--   (Notice that in <xref ref="PROBLEMTopoDefCont" ></xref>, <m>f\left(U\right)\subset -->
+    <!--   V</m> can be expressed as <m>U\subset f^{-1}(V)</m>.) -->
+
+    <!-- </p> -->
+
+    <!-- <problem xml:id="PROBLEMTopoDefCont"> -->
+
+    <!--   <statement> -->
+
+    <!--     <p> -->
+    <!--       Show that <m>f</m> is continuous on <m>D</m> if and only if -->
+    <!--       <m>f</m> satisfies the following condition: for any open set -->
+    <!--       of real numbers <m>V\subset D</m>, <m>f^{-1}(V)</m> is also -->
+    <!--       open. -->
+
+    <!--     </p> -->
+
+    <!--   </statement> -->
+    <!-- </problem> -->
+
+
+    <p>
+      The value of the  reformulation of continuity in <xref ref="PROBLEMTopoDefCont" ></xref>  in terms of open sets (and similar
+      definitions involving limits) is that
+      the concept of continuity can be generalized beyond the realm
+      of real numbers to sets where the distance between points is
+      either irrelevant or not even meaningful.
+    </p>
+    <p>
+      In
+      <m>1914</m>, <url
+      href="https://mathshistory.st-andrews.ac.uk/Biographies/Hausdorff/"
+      >Felix Hausdorff</url> (1868<ndash/>1942) defined the concept
+      of a <term>topology on a set</term>. His definition is based
+      solely on sets and does not use the notion of distance
+      or length which we have relied on hitherto. (The <m>\eps
+      </m> and <m>\delta </m> that appeared in almost all of our
+      convergence proofs measure a distance or length of some sort.)
+    </p>
+    <figure  xml:id="FIGUREHausdorffPortrait">
+      <caption>Felix Hausdorff</caption>
+      <image source="images/Hausdorff.png" width="35%">
+        <shortdescription>Portrait of Felix Hausdorff</shortdescription>
+      </image>
+    </figure>
+    <p>
+      Given an arbitrary nonempty set <m>S</m>, we define a <term>topology</term>
+      on <m>S</m> to be a collection <m>\tau </m> of subsets of
+      <m>S</m> (which we designate to be the open sets).  The
+      modern rendition of Hausdorff<rsq/>s definition of a <term>topology</term>
+      says that <m>\tau </m> must satisfy the following axioms.
+      
+      <ul>
+        <li>
+          <p>
+            <m>S</m> and <m>\emptyset </m> must be in <m>\tau </m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            An arbitrary union of open sets in <m>\tau </m> must also be in <m>\tau </m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The intersection of any finite number of open sets in <m>\tau </m> must also be in <m>\tau </m>.
+          </p>
+        </li>
+      </ul>
+
+    </p>
+
+
+
+    <p>
+      Hausdorff actually added an extra <q>separation axiom.</q>
+    </p>
+    <p>
+      
+      <ul>
+        <li>
+          <p>
+            For any two elements <m>x,y</m> of <m>S</m>, there must
+            exist two disjoint open sets <m>U_x</m> and <m>U_y</m>
+            with <m>x\in U_x</m> and <m>y\in U_y</m>.
+          </p>
+        </li>
+      </ul>
+
+    </p>
+    <p>
+      Nowadays, a <term>topological</term> space (that is, a set with
+      a <term>topology</term> defined on it) which has this extra
+      property is called a <term>Hausdorff space</term>.
+    </p>
+    <p>
+      This relatively simple idea generalizes our notion of open
+      intervals in the real numbers and can be applied to a wide
+      range of sets. We won<rsq/>t go into this very deeply, but we
+      note that if we have a function <m>f:S\to T</m> from one
+      topological space into another, we can define concepts like
+      continuity by insisting that the preimage of any open set in
+      the topology on <m>T</m> must be open in the topology on
+      <m>S</m>.  It would be hard to overstate the impact of 
+      generalizaions of this sort on modern mathematics.
+    </p>
+
+</section>
+
+
+<section  xml:id="BackToFourier-InfiniteSets">
+  <title>Infinite Sets</title>
+  <p>
+    Cantor<rsq/>s work with Fourier series prompted him to study the
+    sizes of various infinite sets.  The following theorem follows
+    directly from our previous work with the <xref ref="NIP"
+    text="custom">NIP</xref> and will be very handy later.  It is a
+    slightly weaker version of the NIP which says that the
+    intersection of a sequence of nested closed intervals will be
+    non<ndash/>empty  even if their lengths do not
+    converge to zero.
+  </p>
+
+  <theorem xml:id="thm_WeakNIP">
+    <title>
+      Weak Nested Interval Property
+    </title>
+
+    <idx><h>Nested Interval Property</h><h>weak form</h></idx>
+
+    <statement>
+      <p>
+        Let <me>[x_1, y_1] \supseteq [x_2, y_2]\supseteq [x_3,y_3]
+        \supseteq \cdots  </me> be
+        a sequence of closed, nested intervals. Then
+        <me>\bigcap_{n=1}^\infty [x_n,y_n] \neq 0</me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      By <xref ref="cor_IncBoundedConverge"></xref> of
+      <xref ref="IVTandEVT"></xref>, we know that a bounded
+      increasing sequence such as <m>(x_n)</m> converges, say to
+      <m>c</m>.  Since <m>x_n\leq x_m\leq y_n</m> for <m>m>n</m> and
+      <m>\limit{m}{\infty}{x_m}=c</m>, then for any fixed <m>n</m>,
+      <m>x_n\leq c\leq y_n</m>.  This says <m>c\in\left[x_n,
+      y_n\right]</m> for all <m>n\in\NN</m>.
+    </p>
+  </proof>
+
+  <problem>
+
+    <idx><h>Problems</h><h>Nested Interval Property</h><h>weak form</h></idx>
+    <idx><h>Nested Interval Property</h><h>weak form</h></idx> 
+
+    <statement>
+      <p>
+        Suppose <m>\limit{n}{\infty}{\abs{y_n-x_n}}>0</m>.  Show
+        that there are at least two points, <m>c</m> and <m>d</m>,
+        such that <m>c\in[x_n, y_n]</m> and <m>d\in[x_n, y_n]</m>
+        for all <m>n\in\NN</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    Our next theorem says that in a certain, very technical sense
+    there are more real numbers than there are counting numbers <xref
+    ref="franks10__cantor_other_proof_rr_uncoun" />. This probably
+    does not seem terribly significant.  After all, there are plenty
+    of real numbers which are not counting numbers. But what makes
+    this startling is that the same cannot be said about all sets
+    which strictly contain the counting numbers. Some of them even the
+    same <q>size</q> as the counting numbers in a sense that we will
+    make precise in this section.
+  </p>
+
+
+
+  <theorem xml:id="thm_NoSeriesContainsAllReals">
+    <title>Cantor, (1874)</title>
+    
+    <idx>
+      <h>Cantor, Georg</h>
+      <h>first proof that <m>\RR</m> is uncountable</h>
+    </idx> 
+    <idx>
+      <h sortby="real"><m>\RR</m></h>
+      <h> is uncountable</h>
+      <h>Cantor<rsq/>s first proof</h>
+    </idx>
+
+    <statement>
+
+      <p>
+        Let <m>S=\left(s_n\right)_{n=1}^\infty</m> be a sequence of
+        real numbers.  There is a real number <m>c</m>, which is not
+        in <m>S</m>.
+      </p>
+      <aside> 
+        <title>Abuse of Notation</title>
+        <p>
+          To streamline things, we are abusing notation here as we
+          are letting <m>S</m> denote both the sequence (which is
+          ordered) and the underlying (unordered) set of entries in
+          the sequence. Which usage is meant will be clear from the
+          context.
+        </p>  
+      </aside>
+    </statement>
+  </theorem>
+
+  <proof>
+    <p>
+      For the sake of obtaining a contradiction assume that the
+      sequence <m>S</m> contains every real number; that is,
+      <m>S=\RR</m>.  As usual we will build a sequence of nested
+      intervals <m>\left(\left[x_i,
+      y_i\right]\right)_{i=1}^\infty</m>.
+    </p>
+
+    <p>
+      Let <m>x_1</m> be the smaller of the first two distinct
+      elements of <m>S</m>, let <m>y_1</m> be the larger and take
+      <m>\left[x_1,y_1\right]</m> to be the first interval.
+    </p>
+
+    <!-- <p> -->
+    <!--   Next we assume that <m>\left[x_{n-1}, y_{n-1}\right]</m> has -->
+    <!--   been constructed and build <m>\left[x_n, y_n\right]</m> as -->
+    <!--   follows.  Observe that there are infinitely many elements of -->
+    <!--   <m>S</m> in <m>\left(x_{n-1}, y_{n-1}\right)</m> since -->
+    <!--   <m>S=\RR</m>.  Let <m>s_m</m> and <m>s_k</m> be the first two -->
+    <!--   distinct elements of <m>S</m> such that <me> s_m, s_k \in -->
+    <!--   \left(x_{n-1}, y_{n-1}\right) </me>. -->
+    <!-- </p> -->
+    <p>
+      Next we assume that <m>\left[x_{n-1}, y_{n-1}\right]</m> has
+      been constructed and build <m>\left[x_n, y_n\right]</m> as
+      follows.  Observe that there are infinitely many elements of
+      <m>S</m> in <m>\left(x_{n-1}, y_{n-1}\right)</m> since
+      <m>S=\RR</m>.  Let <m>x_n</m> and <m>y_n</m> be the first two
+      distinct elements of <m>S</m> such that <me> x_n, y_n \in
+      \left(x_{n-1}, y_{n-1}\right) </me> with <m>x_n\lt y_n</m>.
+      Then <m>\left[x_n,
+      y_n\right]</m> is the <m>n</m>th interval.
+    </p>
+
+    <!-- <p> -->
+    <!--   Take <m>x_n</m> to be the smaller and <m>y_n</m> to be the -->
+    <!--   larger of <m>s_m</m> and <m>s_k</m>.  Then <m>\left[x_n, -->
+    <!--   y_n\right]</m> is the <m>n</m>th interval. -->
+    <!-- </p> -->
+
+    <p>
+      From the way we constructed them it is clear that <me>
+      \left[x_1, y_1\right] \supseteq \left[x_2, y_2\right]
+      \supseteq \left[x_3, y_3\right] \supseteq \ldots </me>.
+    </p>
+
+    <p>
+      Therefore by <xref ref="thm_WeakNIP"></xref> there is a
+      real number, say <m>c</m>, such that <me> c\in\left[x_n,
+      y_n\right] \text{ for all } n\in\NN </me>.
+    </p>
+
+    <p>
+      In fact, since <m>x_1\lt x_2\lt x_3\ldots\lt y_3\lt y_2\lt
+      y_1</m> it is clear that
+      <men xml:id="eq_NIP-interval">
+        x_n\lt c\lt y_n, \ \forall n
+        </men>.
+    </p>
+
+    <p>
+      We will show that <m>c</m> is the number we seek.  That the
+      inequalities in <xref ref="eq_NIP-interval">formula</xref> are
+      strict will play a crucial role.
+    </p>
+
+    <p>
+      To see that <m>c\not\in S</m> we suppose that <m>c\in S</m>
+      and derive a contradiction.
+    </p>
+
+    <p>
+      So, suppose that <m>c=s_p</m> for some <m>p\in\NN</m>.  Then
+      only <m>\left\{s_1, s_2,\ldots, s_{p-1}\right\}</m> appear
+      before <m>s_p</m> in the sequence <m>S</m>.  Since each
+      <m>x_n</m> is taken from <m>S</m> it follows that only
+      finitely many elements of the sequence <m>(x_n)</m> appear
+      before <m>s_p=c</m> in the sequence as well.
+    </p>
+
+    <p>
+      Let <m>x_l</m> be the last element of <m>(x_n)</m>
+      which appears before <m>c=s_p</m> in the sequence and consider
+      <m>x_{l+1}</m>.  The way it was constructed, <m>x_{l+1}</m>
+      was one of the first two distinct terms in the sequence
+      <m>S</m> strictly between <m>x_l</m> and <m>y_l</m>, the other
+      being <m>y_{l+1}</m>.  Since <m>x_{l+1}</m> does not appear
+      before <m>c=s_p</m> in the sequence and <m>x_l\lt c\lt
+      y_l</m>, it follows that either <m>c=x_{l+1}</m> or
+      <m>c=y_{l+1}</m>.  However, this gives us a contradiction as
+      we know from <xref ref="eq_NIP-interval">formula</xref> that
+      <m>x_{l+1}\lt c\lt y_{l+1}</m>.
+    </p>
+
+    <p>
+      Thus <m>c</m> is not an element of <m>S</m>.
+    </p>
+  </proof>
+
+  <p>
+    So how does this theorem show that there are <q>more</q> real
+    numbers than counting numbers?  Before we address that question
+    we need to be very careful about the meaning of the word <q>more</q>
+    when we<rsq/>re talking about infinite sets.
+  </p>
+
+  <p>
+    First let<rsq/>s consider two finite sets, say
+    <md>
+      <mrow>        A=\left\{\alpha,\beta,\gamma,\delta\right\}
+      \amp{}\amp{}\text{and}\amp{}\amp{}B=\left\{a,b,c,d,e\right\}.</mrow>
+    </md>
+    How do we know that <m>B</m>
+    is the bigger set? One way is to simply count
+    the number of elements in both sets. Clearly <m>B</m>
+    is  bigger since <m>\abs{A}=4</m> and <m>\abs{B}=5</m>
+    and <m>4\lt 5</m>.  But we have no way of counting the number of elements of an
+    infinite set.  Indeed, it isn<rsq/>t even clear what the phrase
+    <q>the number of elements</q> might mean when applied
+    to  an infinite set. So we need to find another way.
+  </p>
+
+  <p>
+    When we count the number of elements in a finite set  we are 
+    matching up the elements of the set with a set
+    of consecutive positive integers, starting at <m>1</m>.  Thus
+    since
+    <md>
+      <mrow>1\amp \leftrightarrow\alpha</mrow>
+      <mrow>2\amp \leftrightarrow\beta</mrow>
+      <mrow>3\amp \leftrightarrow\gamma</mrow>
+      <mrow>4\amp \leftrightarrow\delta</mrow>
+    </md>
+    we see that <m>\abs{A}=4</m>.  Moreover, the order of the
+    match<ndash/>up is unimportant.   Since
+    <md>
+      <mrow>2\amp \leftrightarrow e</mrow>
+      <mrow>3\amp \leftrightarrow a</mrow>
+      <mrow>5\amp \leftrightarrow b</mrow>
+      <mrow>4\amp \leftrightarrow d</mrow>
+      <mrow>1\amp \leftrightarrow c</mrow>
+    </md>
+    it is clear that the elements of <m>B</m> and the set
+    <m>\left\{1,2,3,4,5\right\}</m> can be matched up as well.  And
+    it doesn<rsq/>t matter what order either set is in.  They both have
+    <m>5</m> elements.
+  </p>
+
+  <p>
+    <idx><h>cardinality</h><h>definition</h></idx>
+
+    Such a match<ndash/>up is called a one<ndash/>to<ndash/>one
+    correspondence.  In general, if two sets can be put in
+    one<ndash/>to<ndash/>one correspondence then they are the same
+    <q>size.</q> Of course the word <q>size</q> has lots of
+    connotations that will begin to get in the way when we talk about
+    infinite sets, so instead we will say that the two sets have the
+    same <term>cardinality</term>. Speaking loosely, this just means
+    that they are the same size. Speaking very loosely it means that
+    they have the same <q>number</q> of elements.
+  </p>
+
+  <p> 
+    More precisely, if a given set <m>S</m> can be put in
+    one<ndash/>to<ndash/>one correspondence with a finite set of
+    consecutive integers beginning at <m>1</m>, say
+    <m>\left\{1,2,3,\ldots, N\right\}</m>, then we say that the
+    cardinality of the set is <m>N</m>.  But again, the precise statement is  that
+    both sets have the same cardinality.  It is this notion of
+    one<ndash/>to<ndash/>one correspondence, along with the next two
+    definitions, which will allow us to compare the sizes
+    (cardinalities) of infinite sets.
+  </p>
+
+
+  <definition xml:id="def_CountableSets">
+    
+    <idx><h>Definition</h><h>countable sets</h></idx>    
+    <idx><h>countable sets</h><h>definition</h></idx>    
+    <idx><h>cardinality</h><h>countable sets</h></idx>
+    <idx><h>countable sets</h><h>defintion of</h></idx>
+
+    <statement>
+      <p>
+        Any set which can be put into one<ndash/>to<ndash/>one correspondence with
+        <m>\NN=\left\{1,2,3,\ldots\right\}</m> is called a
+        <term>countably infinite</term> set.  Any set which is
+        either finite or countably infinite is said to be
+        <term>countable</term>.
+      </p>
+    </statement>
+  </definition>
+
+
+
+
+  <p>
+    <idx><h>Cantor, Georg</h></idx>
+
+    Since <m>\NN</m> is an infinite set, we have no symbol to
+    designate its cardinality so we have to invent one.  The symbol
+    used by Cantor and adopted by mathematicians ever since is
+    <m>\aleph_0</m>.  Thus the cardinality of any countably infinite
+    set is <m>\aleph_0</m>.
+  </p>
+
+  <aside>
+    <title>The  <m>\boldsymbol\aleph_0</m> symbol</title>
+    <p>
+      <m>\aleph{}</m> is the first letter of the Hebrew alphabet and
+      is pronounced <q>aleph.</q> <m>\aleph_0</m> is pronounced
+    <q>aleph null.</q></p>
+  </aside> 
+
+  <p>
+    We have already given the following definition informally.  We
+    include it formally here for later reference.
+  </p>
+
+  <definition xml:id="def_EqualCardinality">
+    
+    <idx><h>cardinality</h><h>definition</h></idx>
+    <idx><h>Definition</h><h>cardinality</h></idx>
+
+    <statement>
+      <p>
+        If two sets can be put into one<ndash/>to<ndash/>one correspondence then
+        they are said to have the <alert>same cardinality</alert>.
+      </p>
+    </statement>
+  </definition>
+
+
+
+  <p>
+    <idx><h>infinite sets</h><h>uncountable</h></idx>
+
+    With these two definitions in place we can see that <xref
+    ref="thm_NoSeriesContainsAllReals"></xref> is nothing more nor
+    less than the statement that <m>\RR</m> is not countably
+    infinite, for if it were then a one<ndash/>to<ndash/>one
+    correspondence with <m>\NN </m> would enable the entire set <m>\RR
+    </m> to be written as a sequence, violating <xref ref="thm_NoSeriesContainsAllReals" ></xref>. 
+
+    <!-- since it is certainly not finite and the subscripts -->
+    <!-- identify a one<ndash/>to<ndash/>one correspondence. In that case -->
+    <!-- we say that the set of real numbers is <term>uncountably -->
+    <!-- infinite</term> or just <term>uncountable</term>.  -->
+    <!-- Therefore  <m>\RR</m> is  uncountable.  Speaking  loosely we  say that -->
+    <!-- <m>\RR </m> is <q>bigger</q> than the natural numbers. -->
+  </p>
+
+  <aside xml:id="SizeVsCardinality">
+    <title>
+      Size vs. Cardinality
+    </title>
+    <p>
+      It is natural to use the word <q>size</q> in the context of
+      infinite sets but <q>size</q> conjures up a mental image that
+      really doesn<rsq/>t apply. This is why we use
+      <q>cardinality</q>. For example all of the sets in <xref
+      ref="PROBLEMCountableDrills" ></xref> have the same
+      cardinality. Would you say they are the same size?
+    </p>
+  </aside>
+
+  <!-- <p> -->
+  <!--   To see this let us suppose first that each real number appears -->
+  <!--   in the sequence <m>(s_n)_{n=1}^\infty</m> at least once.  In -->
+  <!--   that case the indexing of our sequence is really just a -->
+  <!--   one<ndash/>to<ndash/>one correspondence between the elements of -->
+  <!--   the sequence and <m>\NN:</m> -->
+  <!--   <md> -->
+  <!--     <mrow>1\amp \leftrightarrow s_1</mrow> -->
+  <!--     <mrow>2\amp \leftrightarrow s_2</mrow> -->
+  <!--     <mrow>3\amp \leftrightarrow s_3</mrow> -->
+  <!--     <mrow>4\amp \leftrightarrow s_4</mrow> -->
+  <!--     <mrow>\amp \ \ \ \vdots</mrow> -->
+  <!--   </md> -->
+  <!-- </p> -->
+
+  <!-- <p> -->
+  <!--   If some real numbers are repeated in our sequence then all of -->
+  <!--   the real numbers are a subset of our sequence and will therefore -->
+  <!--   also be countable as we will see in  part (a) of  <xref -->
+  <!--   ref="prob_countable_sets_unions_of"></xref>. -->
+  <!-- </p> -->
+
+  <!-- <p> -->
+  <!--   Therefore <m>\left(s_n\right)_{n=1}^\infty </m> is countable. -->
+  <!--   But <xref ref="thm_NoSeriesContainsAllReals" ></xref> says that -->
+  <!--   no sequence in <m>\RR</m> includes all of <m>\RR</m>.  Therefore -->
+  <!--   <m>\RR</m> is uncountable. -->
+  <!-- </p> -->
+
+
+  <problem xml:id="PROBLEMCountableDrills">
+  
+    <idx><h>Problems</h><h>countable sets</h></idx>  
+    <idx><h>countable sets</h><h>countable sets drill, 5 parts</h></idx>
+    
+    <introduction>
+      <p>
+        Most of the sets you have encountered so far in your life
+        have been countable.  Show that each of the following sets
+        is countable.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          <m>\left\{2,3,4,5,\ldots\right\}=\left\{n\right\}_{n=2}^\infty</m>
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>\left\{0,1,2,3,\ldots\right\}=\left\{n\right\}_{n=0}^\infty</m>
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>\left\{1,4,9,16,\ldots,n^2,\ldots\right\}=\left\{n^2\right\}_{n=1}^\infty</m>
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          The set of prime numbers
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>\ZZ</m>
+        </p>
+      </statement>
+    </task>
+  </problem>
+
+
+  <problem xml:id="PROBLEMFiniteUnionCountableSets">
+  
+    <idx><h>Problems</h><h>countable sets</h><h>unions and intersections of</h></idx>  
+    <idx><h>countable sets</h><h>unions and intersections of</h></idx>
+
+    <introduction>
+      <p>
+        If we start with one or more countable sets it is rather
+        difficult to use it to build anything but another countable
+        set.
+      </p>
+      <p>
+        Let <m>\left\{A_1, A_2, A_3, \ldots, A_n \right\}</m> be a
+        collection of countable sets.  Show that each of the
+        following sets is also countable:
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Any subset of <m>A_1</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>A_1\cup A_2</m>
+        </p>
+        <p>
+
+          <alert>Warning:</alert> It is easy to  assume, implicitly,  that <m>A_1\bigcap
+          A_2=\emptyset{}</m>. Don<rsq/>t do that.
+          </p>
+
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>A_1\cup A_2 \cup A_3</m>
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>\displaystyle\bigcup_{i=1}^nA_i</m>
+        </p>
+      </statement>
+    </task>
+    <!-- <task> -->
+    <!--   <statement> -->
+    <!--     <p> -->
+    <!--       <m>\displaystyle\bigcup_{i=1}^\infty A_i</m> -->
+    <!--     </p> -->
+    <!--   </statement> -->
+    <!-- </task> -->
+  </problem>
+
+  <p>
+    In <xref ref="PROBLEMFiniteUnionCountableSets" ></xref> we saw
+    several examples where the union of finitely many <term>countably
+    infinite</term> sets yields another set which is also
+    <term>countably infinite</term>.  But what about a countably
+    infinite union of <term>countably infinite</term> sets? Surely
+    that will yield an <term>uncountably infinite</term> set.
+  </p>
+  <p>
+    Alas, no. The next problem shows that even a countably infinite
+    union of countably infinite sets only yields another countably
+    infinite set.
+  </p>
+
+  <problem xml:id="PROBLEMCountUnionCountSets">
+
+    <statement>
+      <p>
+        Let the set 
+
+        <m> {\left\{ a_{i,j}\right\}_{i=1}^\infty}_{j=1}^\infty </m>
+
+        be laid out in
+        an infinite array in the following diagram.
+      </p>
+
+
+      <image source="images/CountUnion.png" width="60%">
+        <shortdescription>A doubly subscripted array or generic elements with red arrows point up an to the right through diagonal rows.  </shortdescription>
+      </image>
+      <p>
+        Use this  diagram to show that a countably infinite union of countably infinite sets will also be countably infinite. 
+        <!-- <me> -->
+        <!--   \begin{array}{cccccc} -->
+        <!--   a_{1,1}\amp{}a_{1,2}\amp{}a_{1,3}\amp{}a_{1,4}\amp{}a_{1,5}\amp{}a_{1,6}\\ -->
+        <!--   a_{2,1}\amp{}a_{2,2}\amp{}a_{2,3}\amp{}a_{2,4}\amp{}a_{2,5}\amp{}\\ -->
+        <!--   a_{3,1}\amp{}a_{3,2}\amp{}a_{3,3}\amp{}a_{3,4}\amp{}\amp{}{}\\ -->
+        <!--   a_{4,1}\amp{}a_{4,2}\amp{}a_{4,3} \amp{}\bullet{}\amp{}\amp{}\\ -->
+        <!--   a_{5,1}\amp{}a_{5,2}\amp{}\amp{}\amp{}\bullet\amp{}\\ -->
+        <!--   a_{6,1}\amp{}  \amp{} \amp{} \amp{} \amp{}\bullet\\ -->
+
+        <!--   \end{array} -->
+        <!-- </me> -->
+      </p>
+
+    </statement>
+    <hint>
+      <p>
+        In case the sets are not disjoint you may need to use part (a) of <xref ref="PROBLEMFiniteUnionCountableSets" ></xref>
+      </p>
+    </hint>
+
+  </problem>
+
+  <p>
+    It seems that no matter what we do the only example we can find
+    of an uncountably infinite set is <m>\RR</m>. 
+  </p>
+  <p>
+    But wait!  Remember the rational numbers?  They were similar to
+    the real numbers in many ways.  Perhaps they are uncountably
+    infinite too?
+  </p>
+
+  <p>
+    Alas, no.  The rational numbers turn out to be countable too.
+  </p>
+
+  <theorem xml:id="thm_QisCountable">
+    
+    <idx><h sortby="quotient"><m>\QQ</m></h><h> is countable</h></idx>
+
+    <statement>
+      <p>
+        <m>\QQ</m> is countable.
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- <proof> -->
+  <!--   <title>Sketch of Proof</title> -->
+  <!--   <p> -->
+  <!--     Explain how you know that all of the non<ndash/>negative -->
+  <!--     rational numbers are in this (doubly infinite) array:  -->
+  <!--     <me> -->
+  <!--       \begin{array}{cccccccc} -->
+  <!--       \frac01,\amp{}\frac02,\amp{}\frac03,\amp{}\frac04,\amp{}\frac05,\amp{}\frac06,\amp{}\frac07,\amp{}\cdots\\ -->
+  <!--       \frac11,\amp{}\frac12,\amp{}\frac13,\amp{}\frac14,\amp{}\frac15,\amp{}\frac16,\amp{}\frac17,\amp{}\cdots\\ -->
+  <!--       \frac21,\amp{}\frac22,\amp{}\frac23,\amp{}\frac24,\amp{}\frac25,\amp{}\frac26,\amp{}\frac27,\amp{}\cdots\\ -->
+  <!--       \frac31,\amp{}\frac32,\amp{}\frac33,\amp{}\frac34,\amp{}\frac35,\amp{}\frac36,\amp{}\frac37,\amp{}\cdots\\ -->
+  <!--       \frac41,\amp{}\frac42,\amp{}\frac43,\amp{}\frac44,\amp{}\frac45,\amp{}\frac46,\amp{}\frac47,\amp{}\cdots\\ -->
+  <!--       \frac51,\amp{}\frac52,\amp{}\frac53,\amp{}\frac54,\amp{}\frac55,\amp{}\frac56,\amp{}\frac57,\amp{}\cdots\\ -->
+  <!--       \frac61,\amp{}\frac62,\amp{}\frac63,\amp{}\frac64,\amp{}\frac65,\amp{}\frac66,\amp{}\frac67,\amp{}\cdots\\ -->
+  <!--       \frac71,\amp{}\frac72,\amp{}\frac73,\amp{}\frac74,\amp{}\frac75,\amp{}\frac76,\amp{}\frac77,\amp{}\cdots\\ -->
+  <!--       \vdots\amp{} \vdots{}\amp{}\vdots{}\amp{}\vdots{}\amp{}\vdots{}\amp{}\vdots{}\amp{}\vdots{}\amp{}\ddots\\ -->
+
+  <!--       \end{array} -->
+  <!--     </me> -->
+
+  <!--     <!-\- <me> -\-> -->
+  <!--     <!-\-   \frac{0}{1},\frac{0}{2},\frac{1}{1},\frac{0}{3}, -\-> -->
+  <!--     <!-\-   \frac{1}{2},\frac{2}{1},\frac{0}{4},\frac{1}{3}, \frac{2}{2}, -\-> -->
+  <!--     <!-\-   \frac{3}{1}, \cdots  -\-> -->
+  <!--     <!-\-   </me>. -\-> -->
+  <!--   </p> -->
+
+
+  <!--   <p> -->
+  <!--     Clearly there is some duplication in the array above.  To handle this, -->
+  <!--     apply part (a) of <xref -->
+  <!--     ref="PROBLEMFiniteUnionCountableSets"></xref>.  Does this -->
+  <!--     complete the proof? -->
+  <!--   </p> -->
+  <!-- </proof> -->
+
+
+
+  <problem>
+    <idx><h>Problems</h><h sortby="quotient"><m>\QQ</m> is countable</h></idx>  
+    <idx><h sortby="quotient"><m>\QQ</m></h><h>is countable</h></idx>
+
+    <statement>
+      <p>
+        Prove <xref ref="thm_QisCountable"></xref>.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        For <m>n\in\ZZ </m> let <m>\QQ_n = \left\{ \frac{n}{1},
+        \frac{n}{2}, \frac{n}{3}, \cdots \right\} </m>, and apply 
+        <xref ref="PROBLEMCountUnionCountSets" ></xref> .
+      </p>
+    </hint>
+  </problem>
+
+  <!-- <p> -->
+  <!--   <idx><h>Leibniz, Gottfried Wilhelm</h></idx> -->
+
+  <!--   Notice how this idea hearkens back to the discussion of -->
+  <!--   Leibniz<rsq/>  approach -->
+  <!--   to the Product Rule (<xref -->
+  <!--   ref="eq_LeibnizProductRule">equation</xref>).  He simply tossed -->
+  <!--   aside the expression <m>\dx{ x}\dx{ y}</m> because it was -->
+  <!--   <em>infinitely small</em> compared to either <m>x\dx{ y}</m> or -->
+  <!--   <m>y\dx{ x}</m>.  Although this isn<rsq/>t quite the same thing we -->
+  <!--   are discussing here it is similar and it is clear that Leibniz<rsq/> -->
+  <!--   insight and intuition were extremely acute.  They were moving -->
+  <!--   him in the right direction, at least. -->
+  <!-- </p> -->
+
+  <p>
+    All of our efforts to build an uncountable set from a countable
+    one have come to nothing.  In fact many sets that at first
+    <q>feel</q> like they should be uncountable are not. This makes
+    the uncountability of <m>\RR</m> all the more remarkable.
+  </p>
+  <!-- <aside> -->
+
+
+  <p>    
+    The failure is in the methods we<rsq/>ve used so far.  It is
+    possible to build an uncountable set using just two symbols if
+    we<rsq/>re clever enough, but this would take us too far away from
+    our main topic so we won<rsq/>t pursue it.
+    Do you see how it might be done?
+  </p>
+  <!-- </aside>  -->
+
+  <p>
+    On the other hand if we start with an uncountable set like <m>\RR </m> it is
+    relatively easy to build others from it.
+  </p>
+
+  <problem>
+    <idx><h>Problems</h><h>intervals are uncountable</h></idx>  
+    
+    <idx><h>sets</h><h>intervals are uncountable</h></idx>
+
+    <task>
+      <statement>
+        <p>
+          Let <m>(a,b)</m> and <m>(c,d)</m> be two open intervals of
+          real numbers.  Show that these two sets have the same
+          cardinality by constructing a one<ndash/>to<ndash/>one onto function
+          between them.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          A linear function should do the trick.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Show that any open interval of real numbers has the same
+          cardinality as <m>\RR</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Consider the interval <m>(-\pi/2,\pi/2)</m>.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Show that <m>(0,1]</m> and <m>(0,1)</m> have the same cardinality. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          If <m>x\not\in \QQ{}</m> let <m>x</m> correspond to
+          itself. Note that  <m>\QQ \cap (0,1)</m> and <m>\QQ
+          \cap (0,1]</m> are both countable.
+          <!--   Note that <m>\left\{1,1/2,1/3,\ldots\right\}</m> and -->
+          <!--   <m>\left\{1/2, 1/3, \ldots\right\}</m> have the same -->
+          <!--   cardinality. -->
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Show that <m>[0,1]</m> and <m>(0,1)</m> have the same
+          cardinality.
+        </p>
+      </statement>
+    </task>
+  </problem>
+</section>
+
+
+<!-- <section xml:id="SUBSECTIONStieltjesInt"> -->
+<!--   <title>The Steiltjes Integral</title> -->
+
+
+<!--   <p> -->
+<!--     Of particular note is the work of <url -->
+<!--     href="https://mathshistory.st-andrews.ac.uk/Biographies/Stieltjes/" -->
+<!--     >Thomas Jan Stieltjes</url> (1856-1894). While working on the -->
+<!--     problem of determining the mass distribution of an object given -->
+<!--     that the moments of all orders of a body are given (called the -->
+<!--     moment problem) he defined a slight generalization of the Riemann -->
+<!--     integral which was published in his work <foreign>Recherches sur -->
+<!--     les fractions continues</foreign> (Research on Continued -->
+<!--     Fractions) in <m>1894</m>. -->
+<!--     <!-\- If you are acquainted -\-> -->
+<!--     <!-\- with probability theory, the first moment of a probability density -\-> -->
+<!--     <!-\- function is the expected value, the second moment (about the mean) -\-> -->
+<!--     <!-\- is the variance, etc.  The problem is to reconstruct the -\-> -->
+<!--     <!-\- probability density function from these moments.   -\-> -->
+<!--   </p> -->
+<!--   <figure  xml:id="FIGUREStieltjes"> -->
+<!--     <caption>Thomas Jan Stieltjes</caption> -->
+<!--     <image source="images/Stieltjes.jpg" width="35%"> -->
+<!--       <shortdescription>Portrait of Thomas Stieltjes</shortdescription> -->
+<!--     </image> -->
+<!--   </figure> -->
+<!--   <p> -->
+<!--     You are already acquainted with the underlying idea of a -->
+<!--     Stieltjes integral. You just don<rsq/>t know it by this name. -->
+<!--     Consider for example, -->
+<!--     <men xml:id="EQUATIONStieltjesExampIntX"> -->
+<!--       \int^2_{x=0}{\sin\left(x^2\right)2x\dx{x}} -->
+<!--       </men>. -->
+
+<!--       We recognize that the computed value of <xref -->
+<!--       ref="EQUATIONStieltjesExampIntX" >formula</xref> will be the -->
+<!--       same as the computed value of integral -->
+
+<!--       <men  xml:id="EQUATIONStieltjesExampIntY"> -->
+<!--         \int^2_{x=0}{\sin(u)} \dx(u) -->
+<!--       </men> -->
+<!--       if <m>u=x^2</m>          . -->
+
+<!--       In both <xref ref="EQUATIONStieltjesExampIntX">formula</xref> and <xref ref="EQUATIONStieltjesExampIntY" >formula</xref> -->
+<!--       <!-\- <me>\int^2_{x=0}{\sin\left(x^2\right)2x\dx{x}}</me>. -\-> -->
+<!--       <!-\- <me>\int^1_{u=0}{{\sin -\-> -->
+<!--       <!-\- \left(u\right)}\ du}</me> -\-> -->
+<!--       we can think of the differential <m>\dx{x}</m> as representing -->
+<!--       the <q>width</q> (or <q>measure</q>) of the infinitely thin -->
+<!--       rectangles whose areas are to be summed. But it is clear -->
+<!--       that <m>\dx{x}\neq \dx{u}</m>. There must be some -->
+<!--       relationship between the two differentials that adjusts for -->
+<!--       the change in variables. -->
+<!--   </p> -->
+<!--   <p> -->
+<!--     Since <m>u=x^2</m> clearly <m>\dx{u} = 2x\dx{x}</m>. It is this -->
+<!--     relation between the differentials that keeps the integrals equal. -->
+<!--   </p> -->
+
+<!--   <!-\-     <p> -\-> -->
+<!--   <!-\-       In the Riemann integral -\-> -->
+<!--   <!-\-       <me> -\-> -->
+<!--   <!-\-         \int^2_{x=0}{\sin(x^2)} \dx(x^2) -\-> -->
+<!--   <!-\-       </me> -\-> -->
+<!--   <!-\-       we see that the width of the areas <m>\dx(x^2)</m> changes -\-> -->
+<!--   <!-\-       depending on the value of <m>x</m>.  Those closer to one carry -\-> -->
+<!--   <!-\-       more weight, or are denser, than those closer to zero: -\-> -->
+
+<!--   <!-\-       <md> -\-> -->
+<!--   <!-\-         <mrow> -\-> -->
+<!--   <!-\-           \mineval{2x\dx{x}}{x=0}\amp{}=0\dx{x} -\-> -->
+<!--   <!-\-           <!-\\- \left.2x\dx{x}\right|_{x=0}\amp{}=0\dx{x} -\\-> -\-> -->
+<!--   <!-\-         </mrow> -\-> -->
+<!--   <!-\-         <mrow> -\-> -->
+<!--   <!-\-           \mineval{2x\dx{x}}{x=1}\amp{}=2 \dx{x}. -\-> -->
+<!--   <!-\-         </mrow> -\-> -->
+<!--   <!-\-         <mrow> -\-> -->
+<!--   <!-\-           \mineval{2x\dx{x}}{x=2}\amp{}=4 \dx{x}. -\-> -->
+<!--   <!-\-         </mrow> -\-> -->
+<!--   <!-\-       </md> -\-> -->
+<!--   <!-\-       To simplify our notation we set <m>u=x^2</m> so that <m>\dx{u}=2x\dx{x}</m> and the integral becomes  -\-> -->
+<!--   <!-\- <me> -\-> -->
+<!--   <!-\-   \int_{x=0}^1\sin \left(x^2\right)2x\dx{x}=\int_{u=0}^4\sin u\dx{u} -\-> -->
+<!--   <!-\-   </me>.  -\-> -->
+<!--   <!-\-   Of course you recognize this as the integration technique called <term>integration by substitution</term> in most Calculus textbooks. -\-> -->
+<!--   <!-\-     </p> -\-> -->
+<!--   <!-\-     <p> -\-> -->
+<!--   <!-\-       The genius of Stieltjes was that he recognized that there is -\-> -->
+<!--   <!-\-       more going on here than just finding a clever way to compute a -\-> -->
+<!--   <!-\-       difficult integral. But to see it we<rsq/>ll need to -\-> -->
+<!--   <!-\-       re<ndash/>interpret our notation a bit. In particular we need to -\-> -->
+<!--   <!-\-       re<ndash/>think the role of the differentials <m>\dx{x}</m> and -\-> -->
+<!--   <!-\-       <m>\dx{u}</m>. -\-> -->
+
+<!--   <!-\-     </p> -\-> -->
+<!--   <p> -->
+<!--     This relation is visualized geometrically in <xref -->
+<!--     ref="FIGUREStieltjesDX" ></xref> and <xref ref="FIGUREStieltjesDY" -->
+<!--     ></xref> where  the interval <m>[0,2]</m> is partitioned into -->
+<!--     subintervals of length <m>\dx{x}</m> and of length <m>\dx{u}</m>, -->
+<!--     respectively. -->
+<!--   </p> -->
+
+
+<!--   <sbsgroup widths="50% 50%" margins="auto" valign="top"> -->
+
+<!--     <sidebyside> -->
+
+<!--       <figure  xml:id="FIGUREStieltjesDX"> -->
+<!--         <caption> -->
+<!--           Interpreting <m>\dx{x}</m> geometrically. -->
+<!--         </caption> -->
+
+<!--         <image  source="images/StieltjesDX.png" > -->
+<!--           <shortdescription>The interval from 0 to 2, partitioned uniformly into subintervals of length dx.</shortdescription> -->
+<!--         </image> -->
+<!--       </figure> -->
+
+<!--       <figure  xml:id="FIGUREStieltjesDY"> -->
+<!--         <caption> -->
+<!--           Re<ndash/>interpreting <m>\dx{u}</m>. These intervals are -->
+<!--           all the same length, <m>\dx{u}</m>, despite appearances. -->
+<!--         </caption> -->
+
+
+<!--         <image source="images/StieltjesDY.png"> -->
+<!--           <shortdescription>The interval from 0 to 2, partitioned  into subintervals of length du, where du is longer closer to 2.</shortdescription> -->
+<!--         </image> -->
+
+<!--       </figure> -->
+<!--     </sidebyside> -->
+
+<!--   </sbsgroup> -->
+
+<!--   <p> Strictly speaking, the intervals in <xref -->
+<!--   ref="FIGUREStieltjesDY" ></xref> are all the same length (since -->
+<!--   they are all of length <m>\dx{u}</m>) just as in <xref -->
+<!--   ref="FIGUREStieltjesDX" ></xref>. We<rsq/>ve drawn them with -->
+<!--   increasing lengths to emphasize that we are measuring the -->
+<!--   distance of a point from the origin in two distinct ways.  </p> -->
+<!--   <p> This is a bizarre idea so we will proceed slowly.  </p> <p> -->
+<!--   Notice that the (absolute value of the) coordinate of a point on -->
+<!--   the line gives the distance from the origin to the point. -->
+<!--   The -->
+<!--   usual way to measure the length between arbitrary points on the -->
+<!--   real line is to take the absolute value of the difference of -->
+<!--   their coordinates. Thus between <m>x</m> and <m>x+\dx{x}</m> the -->
+<!--   length is <m>\abs{\dx{x}}</m>.  Similarly the length between -->
+<!--   <m>u</m> and <m>u+\dx{u}</m> is <m>\abs{\dx{u}}</m>. As long as -->
+<!--   we work with the <m>u-</m>coordinate system this is fine but if -->
+<!--   we want to move between the <m>u-</m>coordinates and the -->
+<!--   <m>x-</m>coordinates we must use the relation -->
+
+<!--   <me> -->
+<!--     \dx{u}=2x\dx{x} -->
+<!--   </me> -->
+
+<!--   to adjust appropriately between <m>\dx{x}</m> and -->
+<!--   <m>\dx{u}</m>. That is what <xref ref="FIGUREStieltjesDY" -->
+<!--   ></xref> depicts. We<rsq/>ve drawn the intervals in the -->
+<!--   <m>x-</m>coordinates, but we<rsq/>ve labeled them with -->
+<!--   <m>u-</m>coordinates. That<rsq/>s why they don<rsq/>t appear to -->
+<!--   be the same length. -->
+
+
+<!-- </p> -->
+
+
+
+
+<!-- <aside> -->
+<!--   <title> -->
+<!--     Is This Rigorous? -->
+<!--   </title> -->
+<!--   <p> -->
+<!--     No, obviously it is not and we won<rsq/>t pretend that it -->
+<!--     is. In particular we haven<rsq/>t even stated a definition -->
+<!--     for the differentials <m>\dx{x}</m> or <m>\dx{y}</m>. -->
+<!--   </p> -->
+<!--   <p> -->
+<!--     As we observed in <xref ref="NumbersRealRational" ></xref> -->
+<!--     Abraham Robinson built a rigorous theory of differentials in -->
+<!--     his book <pubtitle> Non<ndash/>Standard Analysis</pubtitle> -->
+<!--     <xref ref="robinson74__non_stand_analy" />. But we have -->
+<!--     relied on the older limit theory so nothing we do with -->
+<!--     differentials can be considered rigorous. You should think -->
+<!--     of the use of differentials as an aid to intuition, as a -->
+<!--     useful <q>way of thinking</q>. But to be considered -->
+<!--     thoroughly rigorous any insight gained from the use of -->
+<!--     differentials must be justified either using the theory of -->
+<!--     limits or Robinson<rsq/>s Non<ndash/>Standard Analysis. -->
+<!--   </p> -->
+<!-- </aside> -->
+
+<!-- <p> -->
+<!--   Just as we replaced the word <q>size</q> with -->
+<!--   <q>cardinality</q> when working with infinite sets we -->
+<!--   replace the word <q>length</q> with <q>measure</q> in this -->
+<!--   context. The word <q>length</q> has too many associations -->
+<!--   that can trip us up if we<rsq/>re not careful. So the -->
+<!--   measures of subintervals in our partition are being -->
+<!--   generated in different ways. When we work in the -->
+<!--   <m>u-</m>coordinate system the length of the interval -->
+<!--   <m>\dx{u} </m> at <m>u=x^2</m> is given by -->
+<!--   <m>\dx{u}=2x\dx{x}</m>. The function <m>u(x)=x^2</m> is our  <term>measure</term> function. -->
+<!-- </p> -->
+<!-- <definition xml:id="DEFINITIONStieljesIntegral"> -->
+<!--   <title> -->
+<!--     The Stieltjes Integral -->
+<!--   </title> -->
+
+<!--   <statement> -->
+
+<!--     <p> -->
+<!--       Suppose <m>\alpha(x)</m> is a monotonically increasing -->
+<!--       function on an interval <m>[a,b]</m> then -->
+<!--       <me> -->
+<!--         \int_a^bf(\alpha )\dx{\alpha} =\int_a^bf(\alpha (x))\alpha^\prime(x)\dx{x} -->
+<!--       </me> -->
+<!--       is called the  <term>Stieltjes Integral</term>. -->
+
+<!--     </p> -->
+
+<!--   </statement> -->
+<!-- </definition> -->
+
+<!-- <p> -->
+<!--   Because <xref ref="DEFINITIONStieljesIntegral" ></xref> -->
+<!--   gives the simplest possible version of the <term>Stieltjes -->
+<!--   Integral</term> it is easy to get the impression that it -->
+<!--   is equivalent to <term>integration by substitution</term> -->
+<!--   and nothing more. But Stieltjes<rsq/> original efforts -->
+<!--   were a little more general than that. He was working on -->
+<!--   the moment problem we described at the beginning of this -->
+<!--   section. His integral allowed him to address that problem -->
+<!--   more simply than the Riemann integral would allow. The -->
+<!--   <term>Stieltjes Integral</term> is also useful in -->
+<!--   probability and physics, in places where <m>f</m> has jump -->
+<!--   discontinuities, and is generalizable to a functional -->
+<!--   analysis setting where the <q>points</q> are actually -->
+<!--   functions. But all of this is well beyond the scope of -->
+<!--   this text. -->
+<!-- </p> -->
+<!-- <p> -->
+<!--   We focused on the notion of the <term>measure</term> of a -->
+<!--   set as distinct from the length of an interval because the -->
+<!--   <term>measure</term> of a set is the foundational idea -->
+<!--   that we will need to introduce our next topic, the -->
+<!--   <term>Lebesgue Integral</term>. -->
+<!-- </p> -->
+
+<!-- <!-\- <p> -\-> -->
+
+<!-- <!-\-   It also sets the stage for what we will focus on, which is to -\-> -->
+<!-- <!-\-   find a way to integrate a function such as the <xref ref="PROBLEMDirichletCountrExamp" text="custom">Dirichlet -\-> -->
+<!-- <!-\-   Function</xref>.  The trick is to not focus on the function but on -\-> -->
+<!-- <!-\-   the interval on which it is integrated and how to measure the -\-> -->
+<!-- <!-\-   subsets in a partition.  This generalization comes from  -\-> -->
+<!-- <!-\-   <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Lebesgue/" > -\-> -->
+<!-- <!-\-     Henri -\-> -->
+<!-- <!-\-     Lebesgue</url> (1875-1941) in <m>1901</m>. -\-> -->
+<!-- <!-\- </p> -\-> -->
+<!-- </section> -->
+
+
+<!-- <section xml:id="SECTIONLebesgMeas"> -->
+<!--   <title>Henri Lebesgue: Measure and Integration</title> -->
+
+<!--   <paragraphs> -->
+<!--     <title> -->
+<!--       Measure, Outer Measure, and  Lesbesgue Measure -->
+<!--     </title> -->
+<!--     <p> -->
+<!--       In our side comment, <xref ref="SizeVsCardinality" -->
+<!--       text="title"></xref> we noted that the mental image evoked by the -->
+<!--       word <q>size</q> isn<rsq/>t really appropriate when discussing -->
+<!--       infinite sets because two sets can have the same cardinality even -->
+<!--       though the first completely contains the second, with some left -->
+<!--       over. For example <m>\ZZ </m> contains all of <m>\NN{}</m>, and -->
+<!--       all of the negative integers as well. -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       We have a similar problem with the concept of length. Two intervals -->
+<!--       can have the same length even as one completely contains the other, -->
+<!--       with some left over. For example, <m>[0,1]</m> contains all of the -->
+<!--       points in <m>(0,1)</m> in addition to <m>0</m> and -->
+<!--       <m>1</m>. Moreover <q>length</q> is only applicable to intervals -->
+<!--       which are a very specific kind of set.  We will need to be able to -->
+<!--       compute the <q>length</q> of more general sets. To avoid -->
+<!--       confusion we need to use a word other than <q>length</q>. -->
+<!--     </p> -->
+
+<!--     <p> -->
+<!--       Historically,  the word that has been chosen  is <term>measure</term>. If <m>S</m> is a set of real numbers then <m> \mu -->
+<!--       (S)</m> denotes the <term>measure</term> of <m>S</m>.  -->
+<!--     </p> -->
+
+<!--     <definition xml:id="DEFINITIONMeasureFunction"> -->
+<!--       <title> -->
+<!--         The Definition of a Measure -->
+<!--       </title> -->
+
+<!--       <statement> -->
+<!--         <p> -->
+<!--           <m>\mu </m> is a <term>measure</term> on the real numbers if the following statements are true. -->
+<!--           <ol marker="(1)"> -->
+<!--             <li>  -->
+<!--               <p> -->
+<!--                 If <m>S</m> is an interval of length <m>l</m> then  -->
+<!--                 <me> -->
+<!--                   \mu (S)=l -->
+<!--                   </me>. -->
+<!--                   (We include intervals with the same left and right -->
+<!--                   endpoint: <m>\mu ([a,a])=0</m>). -->
+<!--               </p> -->
+<!--             </li> -->
+<!--             <li> -->
+<!--               <p> -->
+<!--                 If <m>\left( S_i\right)_{i=1}^\infty  </m> is a sequence of  sets in <m>\RR </m> then  -->
+<!--                 <me> -->
+<!--                   \mu\left( \bigcup_{i=1}^\infty S_i\right)\leq \sum_{i=1}^\infty -->
+<!--                   \mu\left(S_i\right) -->
+<!--                 </me> -->
+<!--                 with equality when <m>\left( S_i\right)_{i=1}^\infty  </m> are disjoint. -->
+<!--               </p> -->
+<!--             </li> -->
+<!--             <li> -->
+<!--               <p> -->
+<!--                 <m>\mu{}</m> is translation invariant. More precisely, if -->
+<!--                 <m>S </m> is a subset of <m>\RR </m>, <m>x</m> is any real number, and <m>S_x=\left\{s+x\left| s\in S -->
+<!--                 \right.\right\}  </m> then -->
+<!--                 <me> -->
+<!--                   \mu (S)=\mu(S_x).  -->
+<!--                 </me> -->
+<!--                 (<m>\mu{}</m> is said to be <term>shift invariant</term>, -->
+<!--                 meaning that if you shift every element of <m>S</m> by -->
+<!--                 some amount <m>x</m> the measure of the set is unchanged.) -->
+
+<!--               </p> -->
+
+<!--             </li> -->
+<!--           </ol>     -->
+<!--         </p> -->
+
+<!--       </statement> -->
+<!--     </definition> -->
+<!--     <p> -->
+<!--       The purpose of -->
+<!--       the first and third statements should be clear.  Since we are -->
+<!--       looking to generalize the concept of length the -->
+<!--       <term>measure</term> of an interval should be its length. For -->
+<!--       example, -->
+<!--       <me> -->
+<!--         \mu -->
+<!--         \left( (a,b)\right) = \mu \left( [a,b]\right) =  \mu \left( -->
+<!--         [a,b)\right) =\mu \left( (a,b]\right) =b-a -->
+<!--         </me>,  -->
+<!--         and if <m>\gamma{}\in\RR{}</m> -->
+<!--         <me> -->
+<!--           \mu -->
+<!--           \left( (a,b)\right) = \mu \left( a+\gamma{},b+\gamma{}])\right) = b-a -->
+<!--           </me>,  -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       The second statement is the <xref ref="TriangleIneq" -->
+<!--       text="custom">Triangle Inequalty</xref> dressed up in the language -->
+<!--       of sets and measures. -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       The conditions given in <xref ref="DEFINITIONMeasureFunction" -->
+<!--       ></xref> are modeled on properties of lengths (of intervals) but -->
+<!--       if that<rsq/>s all we are interested in there is no need to make -->
+<!--       this definition. These properties are easily proven if -->
+<!--       <m>\mu{}</m> is length and the only sets we measure are -->
+<!--       intervals. This definition is here because we want measure other -->
+<!--       kinds of sets in <m>\RR{}</m>. For example using this definition -->
+<!--       we can compute <m>\mu (\ZZ )</m>,  <m>\mu (\NN{}) </m> and -->
+<!--       <m>\mu (\QQ) </m>. What would you guess each of these will be? -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       Notice that <xref ref="DEFINITIONMeasureFunction" ></xref> does not -->
+<!--       require that <m>\mu{}</m> be unique. In fact many measure functions -->
+<!--       have been, and can be defined on <m>\RR{}</m>, but for our purposes -->
+<!--       we only need to touch lightly on one of them, the <term>Lebesgue -->
+<!--       measure</term>, first introduced by <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Lebesgue/" > -->
+<!--       Henri -->
+<!--       Lebesgue</url> (1875-1941) in his doctoral dissertation  -->
+<!--       <pubtitle> -->
+<!--         Intégrale, longueur, aire  -->
+<!--         </pubtitle> (Integral, length, area) <m>1902</m>. By <q>touch lightly</q> we mean that we will only -->
+<!--         actually define the so<ndash/>calle <term>outer measure</term> from -->
+<!--         which Lebegue<rsq/>s measure follows. That will be enough for our -->
+<!--         purposes. -->
+<!--     </p> -->
+
+
+
+<!--     <figure  xml:id="FIGURELebesgue"> -->
+<!--       <caption>Henri Lebesgue</caption> -->
+
+<!--       <idx><h>Portraits</h><h>Lebesgue</h></idx> -->
+<!--       <idx><h>Lebesgue, Henri</h><h>portrait of</h></idx> -->
+
+<!--       <image source="images/Lebesgue.png" width="35%"> -->
+<!--         <shortdescription>Portrait of Henri Lebesgue</shortdescription> -->
+<!--       </image> -->
+<!--     </figure> -->
+
+
+
+<!--     <p> -->
+<!--       To begin we will need the concept of an <term>open cover</term> a set.  -->
+<!--     </p> -->
+<!--     <definition xml:id="DEFINITIONOpenCover"> -->
+<!--       <title> -->
+<!--         Open Cover -->
+<!--       </title> -->
+
+<!--       <statement> -->
+<!--         <p> -->
+<!--           Let <m>S</m> be any set in <m>\RR</m>, and let -->
+<!--           <me>I=\bigcup_{n=1}^\infty{}(a_n,b_n)</me> be the union of a -->
+<!--           collection of open intervals. Then <m>I</m> is called an -->
+<!--           <term>open cover</term> of <m>S</m> if and only if -->
+<!--           <me> -->
+<!--             x\in S \imp x\in I -->
+<!--             </me>. -->
+
+<!--             (Our definition specifies that the collection of open -->
+<!--             intervals be countably infinite, but a cover is allowed to -->
+<!--             be a finite collection as well.) -->
+<!--         </p> -->
+
+<!--       </statement> -->
+<!--     </definition> -->
+<!--     <p> -->
+<!--       Loosely speaking, and <term>open cover</term> of a set <m>S</m> is a -->
+<!--       collection of open intervals which <q>cover</q> <m>S</m> (hence the -->
+<!--       name). Obviously every open interval is an open cover of itself.  -->
+<!--     </p> -->
+
+<!--     <problem xml:id="PROBLEMOpenCovers"> -->
+<!--       <idx><h>Problems</h><h>open covers</h></idx> -->
+
+<!--       <introduction> -->
+<!--         <p> -->
+<!--           Construct two distinct open covers of each of the following -->
+<!--           sets. (There is more than one correct answer.) -->
+<!--         </p> -->
+<!--       </introduction> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             The empty set: <m>\emptyset </m>. -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>(0,1)\cup{} (2,4)</m> -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>[-1,1]</m> -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>\QQ\cap(0,1) </m> -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>\QQ\cap [0,1]  </m> -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>\QQ{}</m> -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--     </problem> -->
+
+<!--     <definition xml:id="DEFINITIONOuterMeasure"> -->
+<!--       <title> -->
+<!--         Lebesgue<rsq/>s Outer Measure -->
+<!--       </title> -->
+
+<!--       <statement> -->
+<!--         <p> -->
+<!--           Let <m>S\subseteq [a,b]\subset{}\RR </m> be a set and let  -->
+
+<!--           <me> -->
+<!--             C=\bigcup_{n=1}^\infty (a_n,b_n) -->
+<!--           </me>  -->
+
+<!--           be an open cover of <m>S</m>. The <term>outer measure</term> of -->
+<!--           <m>S</m> is given by -->
+<!--           <me> -->
+<!--             \lambda_o (S)= \inf_{S\in C}\left({}\sum_{n=1}^\infty (b_n-a_n)\right)   -->
+<!--           </me> -->
+<!--           where the sum is over all possible open covers of <m>S</m>. -->
+<!--         </p> -->
+
+<!--       </statement> -->
+<!--     </definition> -->
+<!--     <problem xml:id="PROBLEMOuterMeasure1"> -->
+<!--       <idx><h>Problems</h><h>outer measure</h></idx> -->
+
+
+<!--       <introduction> -->
+<!--         <p> -->
+<!--           Compute the <xref ref="DEFINITIONOuterMeasure" text="custom">outer measure</xref> of each of the following sets. -->
+<!--         </p> -->
+<!--       </introduction> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>\left\{a\right\} </m> where <m>a\in \RR{}</m>. -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>\left\{1, 2, 3, 4, 5\right\} </m>. -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>(0,1)</m> -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             <m>[0,1]</m> -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <!-\-   <task> -\-> -->
+<!--       <!-\-     <statement> -\-> -->
+<!--       <!-\-       <p> -\-> -->
+<!--       <!-\-         <m>\NN{}</m> -\-> -->
+<!--       <!-\-       </p> -\-> -->
+<!--       <!-\- </statement> -\-> -->
+<!--       <!-\- <hint> -\-> -->
+<!--       <!-\-   <p> -\-> -->
+<!--       <!-\-     The sets in your cover do not have to be the same size. -\-> -->
+<!--       <!-\-   </p> -\-> -->
+<!--       <!-\- </hint> -\-> -->
+
+<!--       <!-\- </task> -\-> -->
+
+<!--     </problem> -->
+<!--     <p> -->
+<!--       That we called <m>\lambda_o (S)</m> and <term>outer</term> measure -->
+<!--       suggests that there might be something called an <term>inner -->
+<!--       measure</term> and indeed there is. It<rsq/>is definition is given -->
+<!--       in <xref ref="DEFINITIONInnerMeasure" ></xref>. -->
+<!--     </p> -->
+<!--     <definition xml:id="DEFINITIONInnerMeasure"> -->
+<!--       <title> -->
+<!--         Lebegue<rsq/>s Inner Measure -->
+<!--       </title> -->
+
+<!--       <statement> -->
+<!--         <p> -->
+<!--           Let <m>S\subseteq [a,b] \subset \RR </m> be a set, and let <m>S^C</m> be its complement as in <xref ref="DEFINITIONOpenSet" ></xref>. The the <term>inner measure</term> of <m>S</m> is given by -->
+<!--           <men xml:id="EQUATIONInnerMeasure"> -->
+<!--             \lambda_i(S) = [b-a]-\lambda_o([a,b]-S) -->
+<!--             </men>. -->
+<!--         </p> -->
+<!--       </statement> -->
+<!--     </definition> -->
+
+<!--     <p> -->
+<!--       A couple of observations regarding this notation will be helpful here. -->
+<!--       <ul  marker="disc"> -->
+<!--         <li> -->
+<!--           <p> -->
+<!--             Since <m>[b-a]</m> and <m>\lambda_o</m> both represent numbers -->
+<!--             the first subtraction in <xref ref="EQUATIONInnerMeasure" -->
+<!--             >equation</xref> is just ordinary subtraction. -->
+<!--           </p> -->
+<!--         </li>     -->
+<!--         <li> -->
+<!--           <p> -->
+<!--             The expression <m>[a,b]</m> normally means the interval from -->
+<!--             <m>a</m> to <m>b</m> which means that the points in the -->
+<!--             interval are ordered, but we are abusing our notation a bit by -->
+<!--             thinking of it simply as an unordered set. In that case the -->
+<!--             expression <m>[a,b] - S</m> represents set deletion rather -->
+<!--             than ordinary subtraction. It represents the set of points -->
+<!--             between <m>a</m> and <m>b</m> (inclusive) with the points in -->
+<!--             <m>S</m> deleted. -->
+<!--           </p> -->
+<!--         </li> -->
+<!--       </ul> -->
+<!--     </p> -->
+
+<!--     <p> -->
+<!--       The names of the inner and outer measures are descriptive. To -->
+<!--       compute <m>\lambda _o</m> we consider a set of numbers generated by -->
+<!--       a collection of sets which contain <m>S</m>. To compute -->
+<!--       <m>\lambda_i</m> we consider a set of numbers generated by a -->
+<!--       collection of sets which are contained within <m>S</m>. When these -->
+<!--       are the same we have the <term>Lebesgue Measure</term>. -->
+<!--     </p> -->
+
+<!--     <definition xml:id="DEFINITIONLebesgueMeasure"> -->
+<!--       <title> -->
+<!--         Lebesgue Measure -->
+<!--       </title> -->
+
+<!--       <statement> -->
+<!--         <p> -->
+<!--           Given a set <m>S\subseteq [a,b]\subset \RR</m> if -->
+<!--           <m>\lambda_o(S)=\lambda_i(S)</m> then their common value is the -->
+<!--           <term>Lebesgue measure</term> of <m>S</m>, denoted <m>\Lambda(S)</m>. -->
+
+<!--         </p> -->
+<!--       </statement> -->
+
+<!--     </definition> -->
+
+<!--     <p> -->
+<!--       Because the <term>Lebesgue Measure</term> depends on the notion of an infimum, the possibility of an non<ndash/>measureable set exists.  -->
+<!--       The first non<ndash/>measurable set was described -->
+<!--       by  -->
+<!--       <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Vitali/" > -->
+<!--         Giuseppe Vitali</url> (1875-1932) in <m>1905</m>.  Creating such -->
+<!--         a set requires the use of something called the <term>Axiom of -->
+<!--         Choice</term> and delves deeply into a careful study of the -->
+<!--         theory of sets.  We will see how complicated sets can be in the -->
+<!--         next section. -->
+
+<!--     </p> -->
+<!--     <figure  xml:id="FIGUREGiuseppeVitali"> -->
+<!--       <caption>    Giuseppe Vitali</caption> -->
+
+<!--       <idx><h>Portraits</h><h>Vitali</h></idx> -->
+<!--       <idx><h>Vitali, Giuseppe</h><h>portrait of</h> </idx> -->
+
+<!--       <image source="images/Vitali.png" width="35%"> -->
+<!--         <shortdescription>Portrait of Giuseppe Vitali</shortdescription> -->
+<!--       </image> -->
+<!--     </figure> -->
+
+<!--     <p>  -->
+<!--       For the remainder of this section we will only be discussing and -->
+<!--       using the <xref ref="DEFINITIONOuterMeasure" text="custom">Outer -->
+<!--       Measure</xref>. This will be enough to give you a good intuitive -->
+<!--       feel for the <term>Lebesgue Integral</term> which we define below. -->
+<!--       We have included the definitions of <xref -->
+<!--       ref="DEFINITIONInnerMeasure" text="custom">Inner Measure</xref> -->
+<!--       and <xref ref="DEFINITIONLebesgueMeasure" text="custom">Lebesgue -->
+<!--       Measure</xref> for completeness. -->
+<!--     </p> -->
+
+
+
+<!--     <!-\- <p> -\-> -->
+<!--     <!-\-   Notice that <term>outer measure</term> is by definition an -\-> -->
+<!--     <!-\-   infimum. Since not all infima exist, there is the possibility that -\-> -->
+<!--     <!-\-   some sets might be <term>non<ndash/>measurable</term>. -\-> -->
+<!--     <!-\- </p> -\-> -->
+
+
+
+
+<!--     <p> -->
+<!--       You saw in parts (a) and (b) of <xref ref="PROBLEMOuterMeasure1" -->
+<!--       ></xref> that finite sets have outer measure equal to zero.  So do -->
+<!--       some infinite sets. -->
+<!--     </p> -->
+
+<!--     <theorem xml:id="THEOREMMeasureZero"> -->
+
+<!--       <idx><h>measure zero</h></idx> -->
+<!--       <idx><h>zero measure</h><see>measure zero</see></idx> -->
+
+<!--       <statement> -->
+
+<!--         <p> -->
+<!--           Let <m>S=\{s_1, s_2, s_3, \dots \}</m> be countably -->
+<!--           infinite set of real numbers.  Let <m>\eps \gt 0</m> be -->
+<!--           given.  There is a collection of open intervals <m>(a_n,\ -->
+<!--           b_n)</m> with <me>S\subset \bigcup^{\infty -->
+<!--           }_{n=1}{\left(a_n,\ b_n\right)}</me> and <me>\sum^{\infty -->
+<!--           }_{n=1}{\left(b_n-a_n\right)}=\eps </me> -->
+
+<!--         </p> -->
+<!--         <p> -->
+<!--           Such a set is said to have <term>measure zero</term>. -->
+<!--         </p> -->
+
+
+<!--       </statement> -->
+<!--     </theorem> -->
+
+<!--     <problem> -->
+<!--       <idx><h>Problems</h><h>measure zero</h></idx> -->
+
+<!--       <task> -->
+<!--         <statement> -->
+<!--           <p> -->
+<!--             Observe that <xref ref="DEFINITIONLebesgueMeasure" ></xref> does not say that anything is equal to zero. Explain how we can still conclude that the set <m>S</m> has <term>measure zero</term>. -->
+<!--           </p> -->
+<!--         </statement> -->
+<!--       </task> -->
+<!--       <task> -->
+<!--         <statement> -->
+
+<!--           <p> -->
+<!--             Prove <xref ref="THEOREMMeasureZero"></xref>.  -->
+<!--           </p> -->
+
+<!--         </statement>       -->
+
+
+<!--         <hint> -->
+<!--           <p> -->
+<!--             Consider the interval <m>\left(s_n-\frac{\eps  }{2^{n+1}},\ s_n+\frac{\eps }{2^{n+1}}\right)</m>.] -->
+<!--           </p> -->
+<!--         </hint> -->
+<!--       </task> -->
+
+
+
+<!--     </problem> -->
+<!--   </paragraphs> -->
+
+<!--   <paragraphs> -->
+<!--     <title> -->
+<!--       The Lesbegue Integral -->
+<!--     </title> -->
+
+
+
+<!--     <p> -->
+<!--       A primary objective of this text is to convey to you, the student, -->
+<!--       an appreciation for, and an understanding of, the need for -->
+<!--       rigor. That objective remains in force. However, in this section -->
+<!--       we are at the edge of very deep mathematical waters. Until we -->
+<!--       start the next section we will only be wading in the shallows.  We -->
+<!--       will thus relax our relentless emphasis on rigor for now. -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       For the rest of this section we will set rigor to the side and -->
+<!--       instead appeal to your intuition by the use of sketches. We will -->
+<!--       also reason by analogy rather than precisely (e.g., using <m>\eps -->
+<!--       </m>) and <m>\delta{}</m>.  -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       In addition, for the remainder of this section we will assume that -->
+<!--       all of the functions we will consider are positive so that we can -->
+<!--       safely engage your strong intuitive understanding of area. We do -->
+<!--       this because our goal here is only to give you a sense of how -->
+<!--       Lesbegue broadened Cauchy<rsq/>s definition of the integral. In -->
+<!--       particular we will not develop Lebesgue<rsq/>s integral in -->
+<!--       detail. Should you desire a deeper understanding than you<rsq/>ll -->
+<!--       get here a second course in Real Analysis is highly recommended. -->
+<!--     </p> -->
+
+
+<!--     <p> -->
+<!--       <!-\- <idx><h>Dirichlet<rsq/>s Function</h></idx> -\-> -->
+
+<!--       Recall from <xref ref="PROBLEMDirichletCountrExamp" ></xref> -->
+<!--       that the <term>Dirichlet Function</term> -->
+<!--       <me>  -->
+<!--         D(x)= -->
+<!--         \begin{cases} -->
+<!--         0, \amp \text{ if }  x \text{ is irrational}\\ -->
+<!--         1, \amp \text{ if }  x \text{ is rational} -->
+<!--         \end{cases} -->
+<!--       </me> -->
+<!--       is not Riemann (Cauchy, Darboux) integrable. Dirichlet invented -->
+<!--       his function as an example of a non<ndash/>integrable -->
+<!--       function. For our purposes it has no importance beyond -->
+<!--       that. However the existence of non<ndash/>(Riemann)integrable -->
+<!--       functions suggests the question: Can the integral be defined in -->
+<!--       such a way as to capture all of the intuitive features of -->
+<!--       (Riemann) integration known to <m>18</m>th century mathematicians -->
+<!--       and which also allows us to integrate something as seemingly -->
+<!--       bizarre as the Dirichlet Function? -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       The answer, of course, is yes. Otherwise we wouldn<rsq/>t have -->
+<!--       asked. Lebesgue defined such an integral at he turn of the twentieth century. -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       Speaking very loosely, if we want to compute -->
+<!--       <m>\int_a^bf(x)\dx{x} </m> where <m>f(x)\ge 0</m> using the -->
+<!--       Riemann (Cauchy) integral we partition the <m>x-</m>axis into -->
+<!--       adjacent intervals with width <m>\dx{x}</m> and then construct -->
+<!--       (infinitesimal) rectangles with area  -->
+
+<!--       <me> -->
+<!--         f(x)\dx{x}  -->
+<!--       </me>  -->
+<!--       from each differential. Summing these areas <mdash/> computing -->
+<!--       <m> \int_a^b f(x)\dx{x} </m> <mdash/> provides the value -->
+<!--       of the definite integral. -->
+<!--     </p>  -->
+
+<!--     <p> -->
+<!--       <!-\-   To compute the area of the rectangle -\-> -->
+<!--       <!-\- constructed at <m>x</m> we need its height, <m>f(x)</m>, and its -\-> -->
+<!--       <!-\- width, <m>\dx{x}</m>.   -\-> -->
+<!--       <!-\- </p> -\-> -->
+
+<!--       <!-\- <p> -\-> -->
+<!--       <!-\-   Rather -\-> -->
+<!--       <!-\-   than summing the areas of the rectangle one at a time proceeding -\-> -->
+<!--       <!-\-   from <m>a</m> to <m>b</m>  -\-> -->
+<!--       <!-\-   came up with a different approach -\-> -->
+
+
+<!--       Lebesgue<rsq/>s idea was to find all rectangles with a common -->
+<!--       height first, gather them together, and sum those areas. In letter -->
+<!--       to a colleague he described his process as follows: -->
+<!--     </p> -->
+<!--     <blockquote> -->
+
+<!--       <p> -->
+<!--         <q>I have to pay a certain sum, which I have collected -->
+<!--         in my pocket. I take the bills and coins out of my -->
+<!--         pocket and give them to the creditor in the order I -->
+<!--         find them until I have reached the total sum. This is -->
+<!--         the Riemann integral. But I can proceed -->
+<!--         differently. After I have taken all the money out of -->
+<!--         my pocket I order the bills and coins according to -->
+<!--         identical values and then I pay the several heaps one -->
+<!--         after the other to the creditor. This is my integral.</q> -->
+<!--       </p> -->
+<!--     </blockquote> -->
+
+<!--     <!-\- <figure  xml:id="FIGURELebesgue"> -\-> -->
+<!--     <!-\-   <caption>Henri Lebesgue</caption> -\-> -->
+
+<!--     <!-\-   <idx><h>Portraits</h><h>Lebesgue</h></idx> -\-> -->
+<!--     <!-\-   <idx><h>Lebesgue, Henri</h><h>portrait of</h></idx> -\-> -->
+
+<!--     <!-\-   <image source="images/Lebesgue.png" width="35%"> -\-> -->
+<!--     <!-\-     <shortdescription>Portrait of Henri Lebesgue</shortdescription> -\-> -->
+<!--     <!-\-   </image> -\-> -->
+<!--     <!-\- </figure> -\-> -->
+
+<!--     <p> -->
+<!--       To see how this worked suppose we want to integrate -->
+<!--       <m>f(x)=\abs{\sin x}</m> from <m>x=0</m> to <m>x=\pi{}</m> as seen in <xref ref="FIGURELebegInt1" ></xref> below. -->
+<!--     </p> -->
+
+
+<!--     <figure  xml:id="FIGURELebegInt1"> -->
+<!--       <caption>In Lebesgue<rsq/>s integral we find the area of each -->
+<!--       colored region first. Notice that there are <m>29</m> regions, -->
+<!--       including the two very thin red regions and three regions with -->
+<!--       zero height located at <m>x=0</m>, <m>x=\pi{}</m>, and -->
+<!--       <m>x=2\pi{}</m>.  </caption> -->
+<!--       <image source="images/LebInt2.png" width="100%"> -->
+<!--         <shortdescription></shortdescription> -->
+<!--       </image> -->
+<!--     </figure> -->
+
+<!--     <p> -->
+<!--       In a Riemann integral we start at <m>x=0</m>, compute the first blue -->
+<!--       area, add to that the first green area, and so on, until we reach -->
+<!--       <m>x=2\pi </m> where we add in the last blue area. Notice that area of -->
+<!--       the first blue rectangle is the height of <m>f(x)</m> multiplied by -->
+<!--       the measure of interval on the <m>x-</m>axis which corresponds to -->
+<!--       the interval <m>\left[ \frac17, \frac27 \right]{}</m> on the -->
+<!--       <m>y-</m>axis. We<rsq/>ll designate that area with -->
+<!--       <m>\mu{(1)}</m>. Similarly <m>\mu (2)</m> represents the measure of -->
+<!--       the base of the first green rectangle, and so on for all <m>26</m> -->
+<!--       regions. (Don<rsq/>t forget the thin red regions. We<rsq/>ll get -->
+<!--       back to those in a bit.) -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       But nothing says we must add the areas in this order. This is just a -->
+<!--       convention. Lebesgue<rsq/>s ideas was to compute the area of all of -->
+<!--       the blue regions together, then all of the green regions, then the -->
+<!--       orange, and so on. By rearranging the sum this way the total are of -->
+<!--       the blue regions is, -->
+
+<!--       <me> -->
+<!--         f(1/7)\mu (1) +f(1/7)\mu (13) +f(1/7)\mu (14) +f(1/7)\mu -->
+<!--         (28) -->
+<!--       </me> -->
+<!--       or  -->
+<!--       <me> -->
+<!--         f(1/7)\underbrace{\left[ \mu (1) +\mu (13) +\mu (14) -->
+<!--         +\mu(28)\right]}_{=\Lambda_b}  -->
+<!--         </me>. -->
+
+<!--         The expression <m>\left( \mu (1) +\mu (13) +\mu (14) -->
+<!--         +\mu(28)\right)</m> then represents the total measure of the bases -->
+<!--         on the <m>x-</m>axis of the blue regions which we designate -->
+<!--         <m>\Lambda_b</m>. <m>\Lambda_b</m> is the Lebesgue measure of the -->
+<!--         base of all of the blue regions. Similarly the Lebesgue measure of -->
+<!--         the dark green, orange, light green, purple,  yellow, and red regions are -->
+<!--         <m>\Lambda_d</m>, <m>\Lambda_o</m>, <m>\Lambda_l</m>, -->
+<!--         <m>\Lambda_p</m>,  <m>\Lambda_y</m>, and <m>\Lambda_r</m> respectively. -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       Our integral is thus  -->
+<!--       <md> -->
+<!--         <mrow>   -->
+<!--           \int_{x=0}^{2 \pi}f(x)\dx{x}=f(1/7)\Lambda_b + f(2/7)\Lambda_d \amp{}+ -->
+<!--           f(3/7)\Lambda_o -->
+<!--         </mrow> -->
+<!--         <mrow> -->
+<!--           \amp{} + f(4/7)\Lambda_l + f(5/7)\Lambda_p + f(6/7)\Lambda_y  -->
+<!--         </mrow> -->
+<!--       </md> -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       But wait a minute! What about the two thin red regions and the ones -->
+<!--       at <m>x=0</m>, <m>x=\pi{}</m>, and <m>x=2 \pi{}</m>? Why did we leave them out? -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       It should be clear that the measure of these regions must be -->
+<!--       zero. Do you see why?  The only places on our graph where <m>f(x) = -->
+<!--       1</m> are at the two maxima, and the base of any rectangle -->
+<!--       constructed there will have measure zero, <m>\Lambda_r = 0</m>. This -->
+<!--       is clear from the sketch. Moreover in light of part (a) of <xref -->
+<!--       ref="PROBLEMOuterMeasure1" ></xref>. A single point on the -->
+<!--       <m>x-</m>axis has measure zero. -->
+
+<!--       Thus -->
+<!--       the <q>area</q> of those regions will be <m>1\cdot \Lambda_0 = -->
+<!--       1\cdot 0 = 0</m>. Those points in the domain of our function -->
+<!--       contribute nothing to the integral. -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       The same is true of the rectangles constructed at <m>x=0</m>, -->
+<!--       <m>x=\pi{}</m>, and <m>x=2\pi{}</m>. The measures of their bases -->
+<!--       will be zero. (Their heights will also be zero but that is -->
+<!--       irrelevant.) -->
+<!--     </p> -->
+
+
+
+
+
+<!--     <!-\- <p> -\-> -->
+<!--     <!-\-   Given that Cantor had shown that the set of rational numbers is -\-> -->
+<!--     <!-\-   countable while the set of irrational numbers is uncountable, -\-> -->
+<!--     <!-\-   Lebesgue thought that the value of <m>f\left(x\right)</m> on a -\-> -->
+<!--     <!-\-   relatively <q>small</q> set such as the rational numbers should -\-> -->
+<!--     <!-\-   have no bearing (or at least very little) on the value of an integral so he focused -\-> -->
+<!--     <!-\-   more on measuring the relative <q>sizes</q> of different sets in the -\-> -->
+<!--     <!-\-   domain of <m>f</m>. The basis of this idea comes from the following. -\-> -->
+<!--     <!-\- </p> -\-> -->
+
+
+
+<!--     <!-\- <p> -\-> -->
+<!--     <!-\-   The collection of intervals <m>(a_n,b_n)</m> with <m>S\subset -\-> -->
+<!--     <!-\-   \bigcup^{\infty }_{n=1}{\left(a_n,\ b_n\right)}</m> is called -\-> -->
+<!--     <!-\-   an open cover of <m>S</m>.  Lebesgue defined the (outer) -\-> -->
+<!--     <!-\-   measure of a set to be the infimum of the sums <m>\sum^{\infty -\-> -->
+<!--     <!-\-   }_{n=1}{\left(b_n-a_n\right)}</m> over all such open covers. -\-> -->
+<!--     <!-\-   In symbols, the (outer) measure of a set <m>S</m> -\-> -->
+<!--     <!-\-   <m>\left(\lambda_o \left(S\right)\right)</m> is given by -\-> -->
+
+<!--     <!-\-   <me>\lambda_o(S)=\inf_{S\subset \bigcup^{\infty}_{n=1}{(a_n,\ b_n)}} \left(\sum^{\infty }_{n=1}{\left(b_n-a_n\right)}\right) </me>  -\-> -->
+
+
+<!--     <!-\- </p> -\-> -->
+
+<!--     <p> -->
+<!--       In Lebesgue<rsq/>s scheme there is always the possibility that after -->
+<!--       rearranging our rectangles the measure of the base of a region might -->
+<!--       be zero.  <xref ref="FIGURELebegInt1" ></xref> shows two ways that -->
+<!--       can happen but there are many others. In particular, <xref -->
+<!--       ref="THEOREMMeasureZero" ></xref> shows that it is possible for an -->
+<!--       infinite set to have measure zero.  This has repurcussions for the -->
+<!--       integral of Dirichlet<rsq/>s function, -->
+
+<!--       <me>  -->
+<!--         D(x)= -->
+<!--         \begin{cases} -->
+<!--         0, \amp \text{ if }  x \text{ is irrational}\\ -->
+<!--         1, \amp \text{ if }  x \text{ is rational} -->
+<!--         \end{cases} -->
+<!--       </me> -->
+
+<!--       which we will explore next.  -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       For our later convenience we define the following -->
+<!--       notations.  -->
+<!--       <ul> -->
+<!--         <li> -->
+<!--           Let <m>\cal{I}</m> represent the set of irrational -->
+<!--           numbers in the interval <m>[0,1]</m>. -->
+<!--         </li> -->
+<!--         <li> -->
+<!--           Let <m>\cal{Q}</m> be the set of rational numbers in the same interval.  -->
+<!--         </li> -->
+<!--       </ul>    -->
+<!--     </p> -->
+
+<!--     <p> -->
+<!--       Since <m>D(x)</m> takes on only two values, <m>0</m> and <m>1</m>, -->
+<!--       we need only partition the <m>y-</m>axis in two places, <m>y=0</m> -->
+<!--       and <m>y=1</m>. Gathering all of the rectangles together in the same way we did  above  we see that -->
+<!--       <men xml:id="EQUATIONDirichFunc"> -->
+<!--         \int_0^1D(x)\dx{x} = 0\cdot{} \Lambda \left( \cal{I}\right){}+ 1\cdot -->
+<!--         \Lambda\left( \cal{Q}\right) . -->
+<!--       </men> -->
+<!--     </p> -->
+<!--     <problem> -->
+<!--       <title> -->
+<!--         The Lebesgue Integral of Dirichlet<rsq/>s Function  -->
+<!--       </title> -->
+
+<!--       <idx><h>Problems</h><h>Dirichlet<rsq/>s Function</h><h>Lebesgue integral of</h></idx> -->
+<!--       <idx><h>Dirichlet<rsq/>s Function</h><h>Lebesgue integral of</h></idx> -->
+
+
+<!--       <p> -->
+<!--         Use <xref ref="THEOREMMeasureZero" ></xref> and <xref -->
+<!--         ref="EQUATIONDirichFunc" >equation</xref> to show that -->
+<!--         <me> -->
+<!--           \int_0^1D(x)\dx{x} = 0 -->
+<!--           </me>. -->
+<!--       </p> -->
+
+<!--     </problem> -->
+
+
+<!--     <!-\-   it is possible that   Part (b) of <xref ref="PROBLEMOuterMeasure1" ></xref> indicates that any finite set of points  Given the result of <xref ref="THEOREMMeasureZero"></xref>, any -\-> -->
+<!--     <!-\-   countable set would have Lebesgue measure zero.  Since the -\-> -->
+<!--     <!-\-   rational numbers are countably infinite, then they have measure -\-> -->
+<!--     <!-\-   zero.  We won't get into the details of a Lebesgue integral, but -\-> -->
+<!--     <!-\-   it should not be surprising that if two (Lebesgue integrable) -\-> -->
+<!--     <!-\-   functions, <m>f</m> and <m>g</m>, differ from each other on set of -\-> -->
+<!--     <!-\-   measure zero, then they should have the same value for their -\-> -->
+<!--     <!-\-   Lebesgue integrals.  Since the <xref ref="PROBLEMDirichletCountrExamp" text="custom">Dirichlet function</xref> differs from -\-> -->
+<!--     <!-\-   the constantly one function on a set of measure zero (namely -\-> -->
+<!--     <!-\-   <m>\QQ</m>), then it should be Lebesgue integrable (as a -\-> -->
+<!--     <!-\-   constant function should be) and its integral would be -\-> -->
+
+
+<!--     <!-\-   <me>\int^b_{x=a}{f\left(x\right)d\lambda_o =\left(b-a\right)}</me>  -\-> -->
+
+
+<!--     <!-\- </p> -\-> -->
+
+
+
+<!--     <!-\- <p> -\-> -->
+
+<!--     <!-\-   You may have noticed that we used the term outer measure before. -\-> -->
+<!--     <!-\-   For a measurable set, its measure is this outer measure.  However, -\-> -->
+<!--     <!-\-   there are examples of non<ndash/>measurable sets.  Any set would have an -\-> -->
+<!--     <!-\-   outer measure, but assigning this as the measure of one of these -\-> -->
+<!--     <!-\-   non<ndash/>measurable sets results in a number of contradictions on how a -\-> -->
+<!--     <!-\-   measure should behave.  -\-> -->
+
+
+
+
+<!--     <!-\- <corollary xml:id="cor_Q-MeasureZero"> -\-> -->
+<!--     <!-\-   <statement> -\-> -->
+<!--     <!-\-     <p> -\-> -->
+<!--     <!-\-       Let <m>\eps>0</m> be given.  There is a collection of -\-> -->
+<!--     <!-\-       intervals in <m>\RR</m>, <m>I_n=[a_n,b_n]</m> such that -\-> -->
+<!--     <!-\-       <me> -\-> -->
+<!--     <!-\-         \QQ \subset \bigcup_{n=1}^\infty I_n -\-> -->
+<!--     <!-\-       </me> -\-> -->
+<!--     <!-\-       and -\-> -->
+<!--     <!-\-       <me> -\-> -->
+<!--     <!-\-         \sum_{n=1}^\infty(b_n-a_n)\lt \eps -\-> -->
+<!--     <!-\-         </me>. -\-> -->
+<!--     <!-\-       </p> -\-> -->
+<!--     <!-\-     </statement> -\-> -->
+<!--     <!-\-   </corollary> -\-> -->
+
+<!--     <!-\-     <problem> -\-> -->
+<!--     <!-\-       <idx><h><m>\QQ</m></h><h>has measure zero in <m>\RR</m></h></idx> -\-> -->
+<!--     <!-\-       <idx><h>measure zero</h><h><m>\QQ</m> has measure zero in <m>\RR</m></h></idx> -\-> -->
+<!--     <!-\-       <statement> -\-> -->
+
+<!--     <!-\-         <p> -\-> -->
+<!--     <!-\-           Prove <xref ref="cor_Q-MeasureZero"></xref>.  -\-> -->
+<!--     <!-\-         </p> -\-> -->
+<!--     <!-\-       </statement> -\-> -->
+<!--     <!-\-       <hint> -\-> -->
+<!--     <!-\-         <p> -\-> -->
+<!--     <!-\-           If we had only finitely many rationals to deal with this -\-> -->
+<!--     <!-\-           would be easy.  Let <m>\left\{r_1, r_2, \ldots, -\-> -->
+<!--     <!-\-           r_k\right\}</m> be these rational numbers and take -\-> -->
+<!--     <!-\-           <m>a_n=r_n-\frac{\eps}{2(k+1)}</m> and -\-> -->
+<!--     <!-\-           <m>b_n=r_n+\frac{\eps}{2(k+1)}</m>.  Then for all -\-> -->
+<!--     <!-\-           <m>n=1,\ldots, k</m> <m>r_n\in[a_n,b_n]</m> and <me> -\-> -->
+<!--     <!-\-           \sum_{n=1}^kb_n-a_n = \sum_{n=1}^k -\-> -->
+<!--     <!-\-           \frac{\eps}{k+1}=\frac{k\eps}{k+1}\lt\eps </me>. -\-> -->
+<!--     <!-\-         </p> -\-> -->
+<!--     <!-\-         <p> -\-> -->
+<!--     <!-\-           The difficulty is, how do we move from the finite to the -\-> -->
+<!--     <!-\-           infinite case?] -\-> -->
+<!--     <!-\-         </p> -\-> -->
+<!--     <!-\-       </hint> -\-> -->
+<!--     <!-\-     </problem> -\-> -->
+
+
+<!--   </paragraphs> -->
+<!-- </section> -->
+
+<section xml:id="SECTIONLebesgueIntegration">
+  <title>
+    The Road to Lebesgue Integration
+  </title>
+  <paragraphs>
+    <title>    Swapping Limits and Integrals</title>
+
+    <p>
+      <xref ref="th_UniformIntegralConvergence" ></xref> states that if
+      (Riemann) integrable functions <m>f_n</m> converge uniformly to an integrable
+      function <m>f</m> on <m>[a,b]</m> then limit evaluation and
+      integration are commutative operations:
+
+      <men xml:id="EQUATIONLimIntSwap">
+        \limit{n}{\infty}{\left(\int_{x=a}^b f_n(x)\dx{
+        x}\right)}=\int_{x=a}^b \limit{n}{\infty}{\left(f_n(x)\right)
+        \dx{ x}}=\int_{x=a}^bf(x)\dx{x}
+        </men>.  
+
+        Thus we can integrate a power series
+        term<ndash/>by<ndash/>term because as we saw in <xref
+        ref="thm_PowerSeriesConvergeUniformly" ></xref> all power
+        series converge uniformly on any closed interval <m>[-b,b]</m>
+        contained inside their intervals of convergence, <m>(-r,
+        r)</m>.  However the converse of <xref
+        ref="th_UniformIntegralConvergence" ></xref> is not true.
+    </p>
+    <aside>
+      <title>
+        Necessary vs. Sufficient Conditions
+      </title>
+      <p>
+        With respect to the validity of swapping integration with
+        limit evaluation we say that uniform convergence is a
+        <term>sufficient</term> but not a <term>necessary</term>
+        condition.
+      </p>
+    </aside>
+<p>
+  In other words, there are sequences of functions <m>\left(
+  f_n\right) </m> converging pointwise to <m>f</m> for which <xref ref="EQUATIONLimIntSwap">equation</xref> 
+  still holds true.
+
+</p>
+
+
+    <p>
+      In  <xref
+      ref="PROBLEMMonomialsOnUnitInterval" ></xref> you showed that
+      <me>
+        \limit{n}{\infty}{x^n} = \begin{cases}0\amp \text{ if  } x\in[0,1)\\
+        1\amp \text{ if } x=1 \end{cases}
+        </me>.
+        This is also intuitively clear from  <xref ref="FIGUREPolynomGraphs" ></xref>.
+    </p>
+        <figure  xml:id="FIGUREPolynomGraphs">
+          <caption></caption>
+          <image source="images/PolynomGraphs.png" width="60%">
+            <shortdescription>Graphs of x raised to the zeroth,
+            second, fifth, tenth, and one hundredth
+            power. </shortdescription>
+          </image>
+        </figure>
+
+        <p>
+          In fact <xref ref="PROBLEMMonomialsOnUnitInterval" ></xref>
+          is an example of a function which is the pointwise limit of
+          continuous functions where integration and limit evaluation
+          commute.  We did not comment on it at the time because we
+          weren<rsq/>t prepared to talk about integration yet. Now we
+          are.
+        </p>
+
+        <problem xml:id="PROBLEMPtwiseConveCommute">
+          <task>
+            <statement>
+
+              <p>
+                As in <xref ref="PROBLEMMonomialsOnUnitInterval"
+                ></xref> let 
+
+                <me> 
+                  f(x)=  \begin{cases}0\amp \text{
+                  if } x\in[0,1)\\ 1\amp \text{ if } x=1 \end{cases} </me>.
+
+                  Use 
+                  <!-- <xref ref="DEFINITIONPartitionRefine" ></xref> -->
+                  <!-- and  -->
+                  <xref ref="DEFINITIONDarbouxIntegral" ></xref>
+                  to show that
+
+                  <me>
+                    \int_{x=0}^1f(x)\dx{x} =0
+                    </me>.
+
+              </p>
+            </statement>
+              <hint>
+                <p>
+                  <!-- Let <m>\eps > 0</m> and show that any partition of -->
+                  <!-- <m>[0,1]</m> can be refined so that the contribution -->
+                  <!-- of the subinterval containing <m>1</m> to the value of the integral is less than <m>\eps </m>. -->
+                  Notice that for any partition <m>P</m> the lower sum
+                  <m>L\left(P\right)=0</m>, so the <xref
+                  ref="EQUATIONLowerDarbInt" text="custom">lower
+                  Darboux integral</xref> is <m>0</m>. To find the
+                  upper Darboux integral, let <m>0\lt \eps \lt 1</m>
+                  and use the partition <m>P=\left\{ 0, 1-\eps,
+                  1\right\} </m> to show that the <xref
+                  ref="EQUATIONUpperDarbInt" text="custom">upper
+                  Darboux integral</xref> is less than or equal to  <m>\eps
+                  </m>. Be sure to explain how the conclusion follows
+                  from this observation.
+                </p>
+              </hint>    
+          </task>
+          <task>
+            <statement>
+              <p>
+                Use the result of part (a) to conclude that
+
+                <me>
+                  \limit{n}{\infty}{\left( \int_{x=0}^1x^n\dx{x}\right)} =
+                  \int_{x=0}^1\limit{n}{\infty }{x^n}\dx{x}
+                  </me>.
+
+              </p>
+            </statement>
+          </task>
+
+        </problem>
+
+        <p>
+          As a result of <xref ref="PROBLEMPtwiseConveCommute"
+          ></xref> we have one example of a pointwise limit where
+          integration and limit evaluation commute, thus affirming
+          that uniform convergence is not a <term>necessary</term>
+          condition. A natural question to ask at this point is,
+          <q>What is necessary?</q> In other words, can we find weaker
+          conditions on the convergence that still allow
+          commutativity? The <xref
+          ref="PROBLEMRiemannIntFiniteDiscont" text="custom">next
+          problem</xref> begins to address <mdash/> but does not fully answer
+          <mdash/> that question.
+        </p>
+
+
+        <problem xml:id="PROBLEMRiemannIntFiniteDiscont">
+
+
+          <task>
+            <statement>
+              <p>
+                Suppose <m>f</m> is a continuous function  on the interval
+                <m>[a,b]</m> and let 
+                <me>
+                  f_L(x)= \begin{cases} f(x)\amp{}\text{ if }x\neq c\\ L
+                  \amp{}\text{ if }x=c \end{cases} </me>.  
+
+                  <!-- Use <xref -->
+                  <!-- ref="DEFINITIONPartitionRefine" ></xref> and <xref -->
+                  <!-- ref="DEFINITIONDarbouxIntegral" ></xref>  -->
+
+                  Generalize your solution of <xref
+                  ref="PROBLEMPtwiseConveCommute" ></xref> to show
+                  that
+                  <me>
+                    \int_{x=a}^bf_L(x)\dx{x}= \int_{x=a}^bf(x)\dx{x}
+                    </me>.            
+              </p>
+            </statement>
+            <hint>
+              <p>
+                Suppose that <m>f(c)\gt L </m>.  You can use an argument similar to the one in part (a) of <xref ref="PROBLEMPtwiseConveCommute" ></xref> to  show that 
+                <me>
+\int_{x=a}^b \left(f(x)-f_L(x)\right) \dx{x} =0
+</me>, 
+
+but this time use  a partition with a subinterval containing <m>c</m>
+with length equal to <m>\frac{\eps}{2(f(c)-L)}</m>. 
+              </p>
+              <p>
+                A similar argument will work if <m>f(c)\lt L</m>.
+                <!-- We know that <m>f(x)</m> is bounded. Let <m>B</m> be a -->
+                <!-- bound, so that <m> -B\lt f(x)\lt B</m>. Now generalize your solution to <xref ref="PROBLEMPtwiseConveCommute" ></xref>. -->
+                <!-- Show that there is always   a partition on <m>[a,b]</m> -->
+                <!-- where the absolute value of the contribution to the -->
+                <!-- integral of the subinterval containing <m>c</m> is less -->
+                <!-- then <m>\eps </m>. -->
+              </p>
+            </hint>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Extend your result in part (a) to show that the
+                integral of <m>f</m> is unchanged if there are
+                finitely many discontinuities:
+                <m>\left\{c_k\right\}_{k=1}^n </m>.
+              </p>
+              <p>
+                We 
+                assume that
+                <m>f(c_k)</m> is finite for all values of <m>k</m>.
+              </p>
+            </statement>
+            <hint>
+              <p>
+                This is just an extension of the technique used in part (a).   
+              </p>
+            </hint>
+
+          </task>
+
+          </problem>
+
+          <problem xml:id="PROBLEMCountableDiscontinutities">
+            <p>
+              Let <m>f</m> be a bounded function on <m>[a,b]</m>. Do you think the
+              integral of <m>f</m> will remain unchanged when the set
+              of discontinuities is countably infinite? Explain.
+            </p>
+            <p>
+              You do not yet know enough about infinite sets
+              to answer this question definitively, so we are
+              not asking you to prove anything. Just explain
+              what your intuition is telling you. There is no
+              right or wrong answer yet.
+              But there will be when we revisit this question in
+              <xref
+                  ref="PROBLEMUncountableDiscontinutities"></xref>.
+                  </p>
+          </problem>
+
+          <example>
+            <p>
+              Next consider the two functions
+              <md>
+                <mrow>
+                  P_n(x) = x^n, \amp{}\amp{}\text{ and }
+                \amp{}\amp{}          \Upsilon_n(x)= \begin{cases}n\amp \text{ if } x\in\left(0,\frac{1}{n}\right)\\ 0\amp \text{ otherwise } \end{cases}. </mrow>
+              </md>
+              We know from <xref ref="PROBLEMPtwiseConveCommute"
+              ></xref>  that for the sequence <m>\left(
+              P_n(x)\right)_{n-1}^\infty 
+              </m>, we can commute integration and limit evaluation. But
+              by <xref ref="PROBLEMPtwConvNoCommute" ></xref> we
+              cannot do this for the sequence <m>\left( \Upsilon_n(x)\right)_{n-1}^\infty
+              </m>. What do you suppose is the difference between the two? 
+              <!-- We saw in <xref ref="PROBLEMPtwiseConveCommute" ></xref> -->
+              <!-- and <xref ref="PROBLEMPtwConvNoCommute" ></xref> -->
+              <!-- respectively, that both <m>P_n(x)</m> and <m>Z_n(x)</m> -->
+              <!-- converge pointwise to the zero function. Yet we can -->
+              <!-- commute integration and limit evaluation for <m>P_n(x)</m> -->
+              <!-- but not for <m>Z_n(x)</m>. Why? -->
+            </p>
+            <p>
+              The answer comes from the following theorem due to 
+              <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Arzela/">Cesare Arzelà</url> (1847<ndash/>1912).
+            </p>
+
+
+            <figure  xml:id="FIGUREArzelaPortrait">
+              <caption>Cesare Arzelà</caption>
+              <image source="images/Arzela.png" width="35%">
+                <shortdescription>Portrait of Cesare Arzelà</shortdescription>
+              </image>
+            </figure>
+
+          </example>
+
+          <theorem xml:id="THEOREMArzealBddConv">
+            <title>
+              Arzelà<rsq/>s Bounded Convergence Theorem (1885)
+            </title>
+            <p>
+              Assume <m>\left(f_n\left(x\right)\right)</m> is a sequence
+              of Riemann<ndash/>integrable functions which converges
+              pointwise to a Riemann integrable function <m>f(x)</m> on
+              <m>[a,b]</m>.  Assume also that this sequence is uniformly
+              bounded, namely, that there is a real number <m>B</m> with
+              <m>\abs{f_n\left(x\right)}\le B,\ </m>for all <m>x\in
+              [a,b]</m> and for all <m>n</m>.  Then 
+              <me>
+                \limit{n}{\infty}
+                {\left(\int^b_{x=a}{f_n(x)\dx{x}}\right)}=\int^b_{x=a}f(x)\dx{x}
+                </me>.
+            </p>
+          </theorem>
+          <problem>
+            <p>
+              Why does the example in <xref
+              ref="PROBLEMPtwConvNoCommute" ></xref> not violate
+              Arzelà<rsq/>s Bounded Convergence Theorem?
+            </p>
+          </problem>
+
+          <problem>
+            <p>
+              It is not necessarily true that the limit function
+              <m>f</m> in Arzelà<rsq/>s Bounded Convergence Theorem will
+              be automatically Riemann integrable.  To see this consider
+              the following example.
+            </p>
+            <p>
+              Since the rational numbers are a countably infinite set, they can be
+              written sequentially (and in no particular order) as
+
+              <me>
+                \mathbb{Q}=\left\{r_1,\ r_2,\ r_3,\ \dots \right\}
+                </me>,
+
+                so we define the function <m>f_n</m> as follows
+                
+                <me>
+                  f_n\left(x\right)=
+                  \begin{cases}
+                  1 \amp{} \text{ if } x\in \{r_1, r_2, \dots, r_n\} \\
+                  0 \amp{} \text{ otherwise }
+                  \end{cases} 
+                  </me>.
+            </p>
+            <p>
+              Notice that each <m>f_n</m> is Riemann integrable.  Show
+              that the sequence<m>\left(f_n\right)_{n=1}^\infty </m>
+              converges pointwise to the Dirichlet Function
+
+              <me>
+                D\left(x\right)=
+                \begin{cases} 
+                1
+                \amp{} \text{if } x \text{ is rational} \\
+                0 \amp{} \text{if } x \text{ is irrational}
+                \end{cases}
+              </me>
+
+              which is not Riemann integrable as we saw in <xref ref="PROBLEMDirichletCountrExamp" ></xref>.
+
+            </p>
+          </problem>
+        </paragraphs>
+
+      <paragraphs>
+        <title>
+          Lebesgue Measure and Integration
+        </title>
+
+        <p>
+          We will not provide a direct analytic proof of <xref
+          ref="THEOREMArzealBddConv" text="custom">Arzelà<rsq/>s
+          Bounded Convergence Theorem</xref>. Instead we will show
+          that it is a special case of a more general result.
+          <!-- involving a more general formulation of integration which -->
+          <!-- emphasized sets and set theory, which was quite novel when -->
+          <!-- it was formulated.  --> 
+        </p>
+        <p>
+          Earlier in this chapter we saw how the
+          concepts of continuity and the limit could be restated in
+          terms of sets and set theory.
+          Set theory also played a role in generalizing the notion
+          of an integral.  As we said before, the story of
+          integration is complex with many entry points.  To provide
+          a full accounting would take another course (and another
+          book) so we will provide only a glimpse into this story
+          and see how it relates to the swapping of limits and
+          integrals.  In what follows many of the details will be
+          glossed over in favor of a larger view.
+
+        </p>
+
+
+        <p>
+          As an entry point into this world, consider the
+          <term>Dirichlet Function</term> again.  Recall from <xref
+          ref="PROBLEMDirichletCountrExamp" ></xref> that the
+          <term>Dirichlet Function</term>
+
+          <me>
+            D(x)=
+            \begin{cases}
+            0, \amp \text{ if }  x \text{ is irrational}\\
+            1, \amp \text{ if }  x \text{ is rational}
+            \end{cases}
+          </me>
+
+          is not Riemann (Cauchy, Darboux) integrable. Dirichlet
+          invented his function as an example of a
+          non<ndash/>integrable function. For our purposes it has no
+          importance beyond that. However the existence of
+          non<ndash/>(Riemann)integrable functions suggests the
+          question: Can the integral be defined in such a way as to
+          capture all of the intuitive features of (Riemann)
+          integration known to <m>18</m>th century mathematicians
+          and which also allows us to integrate something as
+          seemingly bizarre as the Dirichlet Function?
+        </p>
+
+        <p>
+          Cantor<rsq/>s work on the cardinality of infinite sets
+          provides some insight.
+          <!--   Recall that the set of rational -->
+          <!-- numbers is countably infinite, whereas the set of irrational -->
+          <!-- numbers must be uncountable. --> 
+          A countable set like <m>\QQ </m> is smaller (in
+          Cantor<rsq/>s sense) than an uncountable set like <m>\RR
+          </m>, but we haven<rsq/>t yet tried to express how much
+          smaller because we didn<rsq/>t have any way to
+          <term>measure</term> the size of either set in order to
+          compare their sizes numerically.
+        </p>
+        <p>
+          Even though they are both infinite a countable set is
+          miniscule <mdash/> In a sense we will make clear shortly
+          <mdash/> compared to an uncountable set. In the same way
+          that the value of a function on a finite number of points in
+          its domain does not affect its Riemann integral (see <xref
+          ref="PROBLEMRiemannIntFiniteDiscont"></xref>) it seems,
+          intuitively at least, as if the values that a function takes
+          over a countable piece of its domain should not affect the
+          value of its integral either.
+          We need a way to measure the size of sets, particularly
+          infinite sets, which clearly displays how tiny a countable
+          set is compared to an uncountable set.
+        </p>
+        <p>
+          In order to extend integration beyond the Riemann integral
+          <url
+          href="https://mathshistory.st-andrews.ac.uk/Biographies/Lebesgue/">Henri
+          Lebesgue</url> (1875<ndash/>1941) devised such a
+          <term>measure</term> His ideas were later generalized led to
+          the area of mathematics called <term>measure
+          theory</term>. Lebesgue is not the only mathematician to
+          address the problem of defining a <term>measure</term> for
+          sets. But he was one of the first and his ideas have become
+          foundational so we will focus on the Lebesgue measure and
+          the Lebesgue integral.
+
+          
+        </p>
+
+        <figure  xml:id="FIGURELebesgue">
+          <caption>Henri Lebesgue</caption>
+
+          <idx><h>Portraits</h><h>Lebesgue</h></idx>
+          <idx><h>Lebesgue, Henri</h><h>portrait of</h></idx>
+
+          <image source="images/Lebesgue.png" width="35%">
+            <shortdescription>Portrait of Henri Lebesgue</shortdescription>
+          </image>
+        </figure>
+
+        <definition xml:id="DEFINITIONMeasureProperties">
+          <title>
+            Properties of a <term>Measure</term>
+          </title>
+
+          <statement>
+
+            <p>
+              Lebesgue determined that a <term>measure</term> <m>\mu
+              </m> of a set <m>S</m> of real numbers should have the
+              following properties
+              <ol marker="(1)">
+                <li>
+                  <p>
+                    If <m>S</m> is an interval of length <m>l</m> then
+                    <m>
+                      \mu (S)=l
+                      </m>.
+                      (We include intervals with the same left and right
+                      endpoint: <m>\mu ([a,a])=0</m>).
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If <m>\left( S_i\right)_{i=1}^\infty  </m> is a sequence of  sets in <m>\RR </m> then
+                    <me>
+                      \mu\left( \bigcup_{i=1}^\infty S_i\right)\leq \sum_{i=1}^\infty
+                      \mu\left(S_i\right)
+                    </me>
+                    with equality when <m>\left( S_i\right)_{i=1}^\infty
+                    </m> are pairwise disjoint i.e, <m>S_i\cap
+                    S_j=\emptyset{}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\mu{}</m> is translation invariant. More precisely, if
+                    <m>S </m> is a subset of <m>\RR </m>, <m>x</m> is any real number, and <m>S_x=\left\{s+x\left| s\in S
+                    \right.\right\}  </m> then
+                    <me>
+                      \mu (S)=\mu(S_x).
+                    </me>
+                    (<m>\mu{}</m> is said to be <term>shift invariant</term>,
+                    meaning that if you shift every element of <m>S</m> by
+                    some amount <m>x</m> the measure of the set is unchanged.)
+
+                  </p>
+
+                </li>
+              </ol>
+            </p>
+
+          </statement>
+</definition>
+        <p>
+          The purpose of the first and third statements in <xref
+          ref="DEFINITIONMeasureProperties"></xref> should be clear.
+          Since we are looking to generalize the concept of length the
+          <term>measure</term> of an interval should be its
+          length, which does not depend on its position. For example,
+          <me>
+            \mu
+            \left( (a,b)\right) = \mu \left( [a,b]\right) =  \mu \left(
+            [a,b)\right) =\mu \left( (a,b]\right) =b-a
+            </me>,
+            and if <m>\gamma{}\in\RR{}</m>
+            <me>
+              \mu
+              \left( (a,b)\right) = \mu \left( a+\gamma{},b+\gamma{}])\right) = b-a
+              </me>,
+        </p>
+        <p>
+          The second statement is the <xref ref="TriangleIneq"
+          text="custom">Triangle Inequalty</xref> dressed up in the language
+          of sets and measures.
+        </p>
+        <p>
+          The conditions in <xref
+          ref="DEFINITIONMeasureProperties"></xref> are clearly  modeled on the properties of the length of an
+          interval.
+          <!-- but if that<rsq/>s all we are interested in there is no -->
+          <!-- need to make this definition. These properties are easily proven if -->
+          <!-- <m>\mu{}</m> is length and the only sets we measure are -->
+          <!-- intervals. -->
+          The reason for formalizing it is that we want measure other
+          kinds of sets in <m>\RR{}</m>. For example using this definition we
+          can compute <m>\mu (\ZZ )</m>, <m>\mu (\NN{}) </m> and <m>\mu (\QQ)
+          </m>. What would you guess each of these will be?
+        </p>
+
+        <p>
+          Actually defining such a measure can be more delicate than
+          it might appear to be as we will see. But this is enough to
+          serve our purposes for the moment.  We will focus on what
+          Lebesgue introduced in his <m>1902</m> doctoral dissertation
+          <pubtitle>
+            Intégrale,
+            longueur, aire
+          </pubtitle>
+          (Integral, length, area) which is now known as <term>Lebesgue
+          Measure</term>.
+          
+        </p>
+
+        <definition xml:id="DEFINITIONOpenCover">
+          <title>
+            Open Cover
+          </title>
+
+          <statement>
+            <p>
+              Suppose <m>\cal{C}</m> is a collection of open intervals in
+              <m>\RR</m> and let <m>S</m> be any set in <m>\RR</m>. Then
+              <m>\cal{C}</m> is called an <term>open cover</term> of <m>S</m>
+              if and only if every element of <m>S</m> is contained in one of
+              the open sets in <m>\cal{C}</m>. If <m>\cal{C}</m> contains only
+              finitely many open sets then <m>\cal{C}</m> is called a
+              <term>finite open cover</term> of <m>S</m>.
+            </p>
+
+          </statement>
+        </definition>
+        <p>
+          Loosely speaking, an <term>open cover</term> of a set <m>S</m> is a
+          collection of open intervals which <q>cover</q> <m>S</m> (hence the
+          name). Obviously every open interval is an open cover of itself.
+        </p>
+
+        <problem xml:id="PROBLEMOpenCovers">
+          <idx><h>Problems</h><h>open covers</h></idx>
+
+          <introduction>
+            <p>
+              Construct two distinct open covers of each of the following
+              sets. (There is more than one correct answer.)
+            </p>
+          </introduction>
+          <task>
+            <statement>
+              <p>
+                The empty set: <m>\emptyset </m>.
+              </p>
+            </statement>
+          </task>
+
+          <task>
+            <statement>
+              <p>
+                <m>(0,1)\cup{} (2,4)</m>
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>[-1,1]</m>
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>\QQ\cap(0,1) </m>
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>\QQ\cap [0,1]  </m>
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>\QQ{}</m>
+              </p>
+            </statement>
+          </task>
+        </problem>
+
+        <definition xml:id="DEFINITIONOuterMeasure">
+          <title>
+            Lebesgue<rsq/>s Outer Measure
+          </title>
+
+          <statement>
+            <p>
+              Let <m>S\subseteq [a,b]\subset{}\RR </m> be a set
+              (allowing for the possibility that the left and right
+              endpoints might be <m>-\infty </m> or <m>\infty </m>,
+              respectively) and let <m>C</m> be the collection of all
+              countable open covers  <m>\left\{ (a_n, b_n) \left|
+              n=1, 2, 3, \ldots{}\right.\right\}  </m> of <m>S</m>.
+
+              <!-- <me> -->
+              <!--   C=\left\{ (a_n, b_n) \left|\right. n=1, 2, 3, \ldots \right\} -->
+              <!-- </me> -->
+
+              <!-- be an open cover of <m>S</m>.  -->The <term>outer measure</term> of
+              <m>S</m> is given by
+              <me>
+                \mu_o (S)= \inf_{<!-- S\subset --> C}\left( \sum_{n=1}^\infty (b_n-a_n)\right)
+                </me>.
+                <!-- where the sum is over all countable  open covers of <m>S</m>. -->
+            </p>
+
+          </statement>
+        </definition>
+        <problem xml:id="PROBLEMOuterMeasure1">
+          <idx><h>Problems</h><h>outer measure</h></idx>
+
+
+          <introduction>
+            <p>
+              Compute the <xref ref="DEFINITIONOuterMeasure" text="custom">outer measure</xref> of each of the following sets.
+            </p>
+          </introduction>
+          <task>
+            <statement>
+              <p>
+                <m>\left\{a\right\} </m> where <m>a\in \RR{}</m>.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>\left\{1, 2, 3, 4, 5\right\} </m>.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>(0,1)</m>
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>[0,1]</m>
+              </p>
+            </statement>
+          </task>
+          <!--   <task> -->
+          <!--     <statement> -->
+          <!--       <p> -->
+          <!--         <m>\NN{}</m> -->
+          <!--       </p> -->
+          <!-- </statement> -->
+          <!-- <hint> -->
+          <!--   <p> -->
+          <!--     The sets in your cover do not have to be the same size. -->
+          <!--   </p> -->
+          <!-- </hint> -->
+
+          <!-- </task> -->
+
+        </problem>
+        <p>
+          That we called <m>\mu_o (S)</m> an <term>outer</term> measure
+          suggests that there might be something called an <term>inner
+          measure</term> and indeed there is. It<rsq/>s definition is given
+          in <xref ref="DEFINITIONInnerMeasure" ></xref>.
+        </p>
+        <definition xml:id="DEFINITIONInnerMeasure">
+          <title>
+            Lebegue<rsq/>s Inner Measure
+          </title>
+
+          <statement>
+            <p>
+              Let <m>S\subseteq [a,b] \subset \RR </m> be a set.  Then
+              the <term>inner measure</term> of <m>S</m> is given by
+              
+              <men xml:id="EQUATIONInnerMeasure">
+                \mu_i\left(S\right)=\sup
+                \left(\mu_o(K)\right)
+              </men> 
+
+              where <m>K\subset S</m> is closed and bounded.
+              <!-- \mu_i(S) = [b-a]-\mu_o([a,b]-S) -->
+            </p>
+          </statement>
+        </definition>
+
+        <!-- <p> -->
+        <!--   A couple of observations regarding this notation will be helpful here. -->
+        <!--   <ul  marker="disc"> -->
+        <!--     <li> -->
+        <!--       <p> -->
+        <!--         Since <m>[b-a]</m> and <m>\mu_o</m> both represent numbers -->
+        <!--         the first subtraction in <xref ref="EQUATIONInnerMeasure" -->
+        <!--         >equation</xref> is just ordinary subtraction. -->
+        <!--       </p> -->
+        <!--     </li> -->
+        <!--     <li> -->
+        <!--       <p> -->
+        <!--         The expression <m>[a,b]</m> normally means the interval from -->
+        <!--         <m>a</m> to <m>b</m> which means that the points in the -->
+        <!--         interval are ordered, but we are abusing our notation a bit by -->
+        <!--         thinking of it simply as an unordered set. In that case the -->
+        <!--         expression <m>[a,b] - S</m> represents set deletion rather -->
+        <!--         than ordinary subtraction. It represents the set of points -->
+        <!--         between <m>a</m> and <m>b</m> (inclusive) with the points in -->
+        <!--         <m>S</m> deleted. -->
+        <!--       </p> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </p> -->
+
+        <p>
+          The names of the inner and outer measures are descriptive. To
+          compute <m>\mu _o</m> we consider a set of numbers generated by
+          a collection of sets which contain <m>S</m>. To compute
+          <m>\mu_i</m> we consider a set of numbers generated by a
+          collection of sets which are contained within <m>S</m>. When these
+          are the same we have the <term>Lebesgue Measure</term>.
+        </p>
+
+        <definition xml:id="DEFINITIONLebesgueMeasure">
+          <title>
+            Lebesgue Measure
+          </title>
+
+          <statement>
+            <p>
+              Given a set <m>S\subseteq [a,b]\subset \RR</m> (allowing for the possibility that the left and right
+              endpoints might be <m>-\infty </m> or <m>\infty </m>,
+              respectively) if
+              <m>\mu_o(S)=\mu_i(S)</m> then their common value is the
+              <term>Lebesgue measure</term> of <m>S</m>, denoted <m>\mu(S)</m>.
+
+            </p>
+          </statement>
+
+        </definition>
+
+        <p>
+          All seems pretty straightforward at this point, but here is
+          where one of the difficulties lies: For a given set, there
+          is no guarantee that the inner and outer measures must be
+          equal. When they are not the  set is said to be 
+          <term>non<ndash/>measurable</term>.  The first
+          <term>non<ndash/>measurable</term> set was described by
+          <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Vitali/" >
+            Giuseppe Vitali</url> (1875-1932) in <m>1905</m>.
+            Creating such a set requires the use of something called
+            the <term>Axiom of Choice</term> and careful study of <url
+            href="https://mathshistory.st-andrews.ac.uk/HistTopics/Beginnings_of_set_theory/">Set
+            Theory</url>.  We will see how complicated sets can be in
+            the next section.
+
+        </p>
+        <figure  xml:id="FIGUREGiuseppeVitali">
+          <caption>    Giuseppe Vitali</caption>
+
+          <idx><h>Portraits</h><h>Vitali</h></idx>
+          <idx><h>Vitali, Giuseppe</h><h>portrait of</h> </idx>
+
+          <image source="images/Vitali.png" width="35%">
+            <shortdescription>Portrait of Giuseppe Vitali</shortdescription>
+          </image>
+        </figure>
+
+        <p>
+          From a practical point of view, almost every set you encounter will likely be (Lebesgue) measurable.  In summary, the collection of measurable sets has the following properties.
+          
+          <ol>
+            <li>
+              <p>
+                Every interval <m>I\subset \RR</m> is measurable and <m>\mu
+                \left(I\right)</m> is equal to the length of <m>I</m>.
+              </p>
+            </li>
+            <li>
+              A set can have an infinite measure. For example <m>\mu(\RR) =
+              \infty </m>.
+            </li>
+            <li>
+              <p>
+                If <m>E\subset \RR</m> is measurable then <m>E^c=\RR-E</m> is also measurable.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                If <m>E_1, E_2, E_3, \cdots </m> are all measurable then <m>\bigcup^{\infty }_{n=0}{E_n}</m> is measurable.
+              </p>
+            </li>
+          </ol>
+
+        </p>
+
+        <p>
+          For the remainder of this section we will only be discussing and
+          using the <xref ref="DEFINITIONOuterMeasure" text="custom">Outer
+          Measure</xref>. This will be enough to give you a good intuitive
+          feel for the <term>Lebesgue Integral</term> which we define below.
+          We have included the definitions of <xref
+          ref="DEFINITIONInnerMeasure" text="custom">Inner Measure</xref>
+          and <xref ref="DEFINITIONLebesgueMeasure" text="custom">Lebesgue
+          Measure</xref> for completeness.
+        </p>
+
+
+        <p>
+          You saw in parts (a) and (b) of <xref ref="PROBLEMOuterMeasure1"
+          ></xref> that finite sets have outer measure equal to zero.  So do
+          some infinite sets.
+        </p>
+
+        <theorem xml:id="THEOREMMeasureZero">
+
+          <idx><h>measure zero</h></idx>
+          <idx><h>zero measure</h><see>measure zero</see></idx>
+
+          <statement>
+
+            <p>
+              Let <m>S=\{s_1, s_2, s_3, \dots \}</m> be countably
+              infinite set of real numbers.  Let <m>\eps \gt 0</m> be
+              given.  There is a collection of open intervals <m>(a_n,\
+              b_n)</m> with <me>S\subset \bigcup^{\infty
+              }_{n=1}{\left(a_n,\ b_n\right)}</me> and <me>\sum^{\infty
+              }_{n=1}{\left(b_n-a_n\right)}=\eps </me>
+
+            </p>
+            <p>
+              Such a set is said to have <term>measure zero</term>.
+            </p>
+
+
+          </statement>
+        </theorem>
+        <problem>
+          <idx><h>Problems</h><h>measure zero</h></idx>
+
+
+          <task>
+            <statement>
+
+              <p>
+                Prove <xref ref="THEOREMMeasureZero"></xref>.
+              </p>
+
+            </statement>
+
+
+            <hint>
+              <p>
+                Consider the interval <m>\left(s_n-\frac{\eps
+                  }{2^{n+1}},\ s_n+\frac{\eps }{2^{n+1}}\right), n=1,
+                2, 3, \cdots </m>.
+              </p>
+            </hint>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Observe that <xref ref="DEFINITIONLebesgueMeasure"
+                ></xref> does not say that anything is equal to
+                zero. Explain how we can still conclude in <xref
+                ref="THEOREMMeasureZero"></xref> that the set <m>S</m>
+                has <term>measure zero</term>.
+              </p>
+            </statement>
+          </task>
+
+
+
+        </problem>
+
+
+        <p>
+          Despite the existence of non<ndash/>measurable sets of real numbers,
+          Lebesgue was able to generalize the idea of a Riemann integral in a
+          meaningful way.  Here is an overall look at his ideas.
+
+        </p>
+        <p>
+          Speaking very loosely, if we want to compute
+          <m>\int_a^bf(x)\dx{x} </m> where <m>f(x)\ge 0</m> using the
+          Riemann (Cauchy) integral we partition the <m>x-</m>axis into
+          adjacent intervals with width <m>\dx{x}</m> and then construct
+          (infinitesimal) rectangles with area
+          <m>
+            f(x)\cdot{}\dx{x}
+          </m>
+          from each differential. Summing these areas (computing
+          <m> \int_a^b f(x)\dx{x}</m>) provides the value
+          of the definite integral.
+        </p>
+
+        <p>
+          Lebesgue<rsq/>s idea was to find all rectangles with a common
+          height first, gather them together, and sum those areas. In letter
+          to a colleague he described his process as follows:
+        </p>
+        <blockquote>
+
+          <p>
+            <q>I have to pay a certain sum, which I have collected
+            in my pocket. I take the bills and coins out of my
+            pocket and give them to the creditor in the order I
+            find them until I have reached the total sum. This is
+            the Riemann integral. But I can proceed
+            differently. After I have taken all the money out of
+            my pocket I order the bills and coins according to
+            identical values and then I pay the several heaps one
+            after the other to the creditor. This is my integral.</q>
+          </p>
+        </blockquote>
+
+
+        <p>
+          To apply Lebesgue's idea, we need the concept of a <term>simple
+          function</term>.
+        </p>
+
+        <definition xml:id="DEFINITIONSimpleFunction">
+          <title>
+            Simple Function
+          </title>
+
+          <statement>
+            <p>
+              A <term>simple function</term> <m>s(x)</m> defined on a measurable set <m>E</m> has two properties.
+
+              <ol>
+                <li>
+                  <p>
+                    The range of <m>s</m> is finite.  In symbols,
+                    <m>s\left(E\right)=\left\{a_1, a_2,\dots, a_n\right\}</m>
+                  </p>
+
+                </li>
+
+                <li>
+                  <p>
+                    The inverse image of each <m>a_j</m> is measurable.  In
+                    symbols, <m>s^{-1}\left(\left\{a_j\right\}\right)</m> is
+                    measurable.
+                  </p>
+
+                </li>
+              </ol>
+
+
+            </p>
+          </statement>
+
+        </definition> 
+        
+        <example xml:id="EXAMPLESimpleFunction">
+          <title>
+            A Simple Function 
+          </title>
+          <p>
+
+            An example of a simple function on <m>[0,10]</m> is given by
+
+            <me>
+              s\left(x\right)=
+              \begin{cases}
+              0 \amp{}  \text{ if } x\in \left\{1\right\}\cup \left(3,6\right)\cup (7,8)  \\
+              1 \amp{}  \text{ if } x\in \left[0,\ 1\right)\cup (6,7] \\
+              1.5 \amp{}\text{ if } x=3 \\
+              2    \amp{} \text{ if } x\in \{6,10\}  \\
+              3    \amp{}   \text{ if } x\in \left(1,3\right)\cup [8,10) 
+              \end{cases}
+              </me>
+              and its  graph of <m>s\left(x\right)</m> is seen in <xref ref="FIGURESimpleFuntion1" text="custom">the figure below</xref>.
+          </p>
+
+
+<figure  xml:id="FIGURESimpleFuntion1">
+  <caption>The graph of a <term>simple function</term></caption>
+  <image source="images/SimpleFunction1.png" width="90%">
+    <shortdescription>Graph of s(x)</shortdescription>
+  </image>
+</figure>
+
+<p>
+
+          For a simple function <m>s</m> on <m>E</m> with
+          <m>s\left(E\right)=\{a_1, a_2, \dots, a_n\}</m> we would
+          define the Lebesgue integral of <m>s(x)</m> on <m>E</m> by
+
+          <me>
+            \int_Es(x) \dx{\mu}=\sum^n_{j=1}{a_j\mu
+            (s^{-1}\left(\left\{a_j\right\}\right)}
+          </me>
+</p>
+<aside>
+  <title>
+    <m>\dx{x}</m> vs. <m>\dx{\mu }</m>
+  </title>
+  <p>
+    Notice that in Lebesgue<rsq/>s integral the differential is
+    <m>\dx{\mu }</m> rather than <m>\dx{x}</m>. In fact, it is no
+    longer even (necessarily) a differential. This is one of the
+    quirks of mathematical notation. As our knowledge and
+    understanding enlarges we tend to hang to the old, comfortable
+    notation just because it is comfortable. Eventually it can happen
+    that the notation no longer evokes anything resembling the
+    original meaning of the symbols involved. In this case the symbol
+    <m>\dx{\mu{}}</m> evokes the notion of a displacement in <m>\mu
+    </m> as Leibniz intended. But is that what it actually means?
+  </p>
+</aside>
+
+<p>
+
+  For this example 
+
+  <md>
+    <mrow>
+      \int_E s \dx{\mu}=\amp{} 0\cdot \mu \left(\left\{1\right\}\cup
+      \left(3,6\right) \cup \left(7,8\right)\right)+1\cdot \mu
+      \left(\left[0,\ 1\right)\cup \left(6,7\right]\right)   +1.5\cdot \mu
+      \left(\left\{3\right\}\right)
+    </mrow>
+    <!-- <mrow> -->
+    <!--   \amp{} +1.5\cdot \mu -->
+    <!--   \left(\left\{3\right\}\right) -->
+    <!-- </mrow> -->
+    <mrow>
+
+      \amp{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \     +2\cdot \mu
+      \left(\left\{6,10\right\}\right)+3\cdot \mu \left(\left(1,3\right)\cup
+      \left[8,10\right)\right)
+    </mrow>
+    <mrow>
+      =\amp{}0\cdot 4+1\cdot 2+1.5\cdot 0+2\cdot 0+3\cdot 4
+    </mrow>
+    <mrow>
+      =\amp{}14.
+    </mrow>
+
+  </md>
+</p>
+        </example>
+
+        <problem>
+          <task>
+            <statement>
+              <p>
+                Show that the Dirichlet function 
+                <me>
+                  D\left(x\right)=
+                  \begin{cases}
+                  1 \amp{} \text{ if } x  \text{ is rational} \\ 
+                  0 \amp{} \text{ if } x \text{ is irrational} 
+                  \end{cases}
+                </me> 
+                is a simple function on <m>\left[0,1\right]</m>.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Compute the  Lebesgue integral:
+                <m>\displaystyle{}\int_{[0,1]}D\left(x\right)\dx{\mu}</m>.
+              </p>
+              <aside>
+                <title>
+                  Indices in the Lebesgue Integral
+                </title>
+                <p>
+                  When we work with the <term>Lebesgue Integral</term> we
+                  modify our notation to: <m>\int_{[a,b]}</m> instead of
+                  <m>\int_a^b </m> because the Lebesgue Integral is meaningful
+                  even when the domain over which it is computed is not
+                  necessarily an interval. For example it is meaningful to
+                  compute a Lebesgue integral of some function <m>f(x)</m>
+                  over only the rational numbers in an interval
+                  <m>[a,b]</m>. In that case we<rsq/>d express the integral as
+                  
+                  <me>
+                    \int_{\QQ\cap[0,1]}f(x)\dx{\mu} 
+                    </me>.
+
+                </p>
+              </aside>
+            </statement>
+
+          </task>
+        </problem>
+
+        <p>
+          In order to define the Lebesgue integral of a more general function
+          we proceed much as we did in <xref ref="SECTIONDefiningIntegral"
+          ></xref> where we defined the upper and lower Darboux integrals in
+          <xref ref="DEFINITIONDarbouxIntegral" ></xref>.
+
+        </p>
+        <definition xml:id="DEFINITIONUpAndLowLebesgueIntegrals">
+          <title>Upper and Lower Lebesgue Integrals</title>
+
+
+          <statement>
+
+            <p>
+              Suppose <m>f</m> is a bounded function defined on a measurable
+              set <m>E</m> with <m>\mu \left(E\right)\lt{}\infty </m>.  We
+              define the <term>upper and lower Lebesgue integrals</term>,
+              respectively, by
+
+
+              <me>
+                I^*=\inf\left\{ \int_E s(x)\dx{\mu}\right\}
+              </me>
+
+              where <m>s</m> is simple and <m> s(x)\ge f(x)</m>, <m>\forall\ x\in E</m>, and
+
+              <me>
+                I_*=\sup \left\{\int_E s(x)\dx{\mu}\right\}
+              </me>
+              where <m> s</m> is simple and <m> s(x)\le f(x)</m>, <m>\forall\
+              x\in E</m>.
+
+            </p>
+          </statement>
+        </definition>
+
+        <p>
+          Just as with the upper and lower Darboux integrals (<xref
+          ref="PROBLEMUpLowDarboux" ></xref>), want to show that
+          <m>I_*\le I^*</m>.  We<rsq/>ll do this in part (b) of <xref
+          ref="PROBLEMSimpleFuncIntIneq"></xref>. In preparation
+          we<rsq/>ll first show that for any simple functions,
+          <m>s(x)</m> and <m>t(x)</m> defined on <m>E</m> with
+          <m>s\left(x\right)\le t(x)</m> for all <m>x\in E</m>, we
+          have
+          
+          <me>
+            \int_E{s\left(x\right)\dx{\mu} }\le \int_E t(x)\dx{\mu}
+          </me>
+
+        </p>
+        <p>
+          <idx><h>Definition</h><h>characteristic function</h></idx>
+
+          We  introduce the following notation.
+
+          Let <m>S\subset \RR </m> and   consider the function <m>\chi_S(x)</m> defined by
+          <me>
+            \chi_S(x)=
+            \begin{cases}
+            1 \amp{}\text{ if }\ x\in S  \\
+            0 \amp{}\text{ if }\ x\notin S
+            \end{cases}
+          </me>
+          <m>\chi_S</m> is called the <term>characteristic
+          function</term> of <m>S</m>.
+        </p>
+        <example>
+          <p>
+            Observe that the <xref ref="EQUATIONDirichletsFunction"
+            text="custom">Dirichlet function</xref> is <m>\chi_\QQ{}
+            (x) </m>, the <term>characteristic function</term> of the
+            rational numbers.
+          </p
+          >
+
+        </example>
+        <p>
+          Note that if <m>S=S_1\cup S_2</m> and <m>S_1\cap
+          S_2=\emptyset </m>, then <m>{\chi }_S={\chi }_{S_1}+{\chi
+          }_{S_2}</m>.  This can be extended to more than two sets,
+          namely if <m>S=\bigcup^n_{j=1}{S_j}</m> where <m>S_j</m> are
+          pairwise disjoint, then 
+
+          <me>
+            {\chi }_S(x)=\sum^n_{j=1}{{\chi }_{S_j(x)}} </me>.
+
+            This observation will be useful in what is to
+            come.
+        </p>
+
+        <p>
+          With this notation we can write a simple function on <m>E</m> as follows
+          
+          <me>
+            s\left(x\right)=\sum^n_{j=1}{a_j{\chi }_{E_j}\left(x\right)}
+          </me>
+
+          where <m>E_j=s^{-1}\left(\left\{a_j\right\}\right)</m>.  
+
+          Note that with this notation, <m>E=\bigcup^n_{j=1}{E_j}</m>
+          where <m>E_j</m> are pairwise disjoint.  Next suppose we have two simple functions
+          <m>s\left(x\right)\le t(x)</m> defined on a measurable set
+          <m>E</m> with <m>\mu \left(E\right)\lt{}\infty </m>.  Using
+          the notation we developed, we can write these simple
+          functions as
+
+          <md>
+            <mrow>
+              s(x)=\sum^n_{j=1}a_j\chi_{E_j}(x)\amp{}\amp{} 
+              \text{ and } 
+              \amp{}\amp{} t\left(x\right)=\sum^m_{j=1}b_j{\chi
+}_{F_j}\left(x\right).
+            </mrow>
+          </md>
+
+          where <m>\displaystyle{}E=\bigcup_{j=1}^nE_j = \bigcup_{j=1}^nF_j </m>.
+          <!-- <me>s\left(x\right)=\sum^n_{j=1}{a_j{\chi }_{E_j}\left(x\right)}\ \ \ \ \ \ t\left(x\right)=\sum^m_{i=1}{b_i{\chi }_{F_i}\left(x\right)}</me> -->
+
+
+          Notice that for each <m>j</m>, we can write
+
+          <md>
+            
+            <mrow>
+              E_j\amp{}=E_j\cap E\amp{}
+            </mrow>
+            <mrow>
+              \amp{}=E_j\cap \left(F_1\cup F_2\cup \dots \cup
+              F_m\right)
+            </mrow>
+            <mrow>
+              \amp{}=\left(E_j\cap F_1\right)\cup \left(E_j\cap
+              F_2\right)\cup \dots \cup (E_j\cap F_m)
+            </mrow>
+          </md>
+
+          where  these last sets are necessarily pairwise disjoint (Why?).
+        </p>
+
+          <p>
+            Thus, we have
+
+            <md>
+              
+              <mrow>
+                s\amp{}=\sum^n_{j=1}{a_j{\chi }_{E_j}}
+              </mrow>
+              <mrow>
+                \amp{}=\sum^n_{j=1}{\left(a_j\sum^m_{i=1}{{\chi }_{E_j\cap
+                F_i}}\right)}
+              </mrow>
+              <mrow>
+                \amp{}=\sum^{n,m}_{j=1,i=1}{a_j{\chi }_{E_j\cap F_i}}.
+              </mrow>
+            </md>
+            In a similar fashion we have
+
+            
+            <me>t=\sum^{n,m}_{j=1,i=1}{b_i{\chi }_{E_j\cap F_i}}</me>
+            But on <m>E_j\cap F_i</m>,
+            <me>a_j=s\left(x\right)\le t\left(x\right)=b_i</me>
+
+          </p>
+
+          <problem xml:id="PROBLEMSimpleFuncIntIneq">
+            <task>
+              <statement>
+                <p>
+                  Use the above ideas to show that if
+                  <m>s\left(x\right),\ t(x)</m> are two simple functions
+                  defined on a measurable set <m>E</m> with <m>\mu
+                  \left(E\right)\lt\infty </m> with
+                  <m>s\left(x\right)\le t(x)</m>, then
+
+
+                  <me>\int_E{s\left(x\right)\dx{\mu} }\le \int_E{t\left(x\right)\dx{\mu} }</me>
+
+                </p>
+              </statement>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  Show that for a bounded function <m>f</m> on <m>E</m>, <m>I_*\le I^*</m>
+                </p>
+              </statement>
+            </task>
+          </problem>
+
+
+
+
+
+          <definition xml:id="DEFINITIONLebesgueInt">
+            <title>
+              The Lebesgue Integral
+            </title>
+
+            <statement>
+              <p>
+                We say that <m>f</m> is <term>Lebesgue integrable</term>
+                on a measurable set <m>E</m>, 
+                provided that the <xref
+                ref="DEFINITIONUpAndLowLebesgueIntegrals"
+                text="custom">Upper and Lower Lebesgue Integrals</xref>
+                are equal: <m>I^*=I_*</m>. 
+              </p>
+              <p>
+                We define the <term>Lebesgue
+                integral</term>, denoted by
+                <m>\int_E{f\left(x\right)\dx{\mu} }</m>, to be their
+                common value.
+              </p>
+            </statement>
+          </definition>
+
+
+
+          <problem xml:id="PROBLEMRiemanIntImpLebInt">
+            <introduction>
+
+              <p>
+                Any bounded function which is Riemann (Darboux) integrable on a
+                finite interval <m>[a,b]</m> is automatically Lebesgue integrable
+                and the values of the integrals are the same.  The reason for this
+                is straightforward: An upper Darboux sum <m>U(P)</m> is the integral
+                of a simple function greater than or equal to <m>f</m> and a lower
+                Darboux sum <m>L(P)</m> is the Lebesgue integral of a simple
+                function less than or equal to <m>f</m>.
+              </p>
+            </introduction>
+            <task>
+              <statement>
+                <p>
+                  Use the observation above to show that
+
+                  <me> 
+                    \int^b_{\underline{x=a}}{f\left(x\right)\dx{x}\le }I_*\le
+                    I^*\le \overline{\int^{b}_{x=a}}{f\left(x\right)\dx{x}}
+                  </me>
+                </p>
+              </statement>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  Use the result in part (a) to explain why a bounded
+                  function which is Riemann (Darboux) integrable must also
+                  be Lebesgue integrable and the values of the integrals are
+                  equal.
+                </p>
+              </statement>
+            </task>
+
+          </problem>
+
+
+
+          <p>
+            The <term>Lebesgue Integral</term> is more general than
+            the <term>Riemann Integral</term> in the sense that there
+            are functions which are Lebesgue but not Riemann
+            integrable. We<rsq/>ve already seen  the Dirichlet function <m>D(x)</m> but there are others.
+            The Lebesgue integral also shares the typical properties
+            of a Riemann integral: integral of a sum equals sum of the
+            integrals, the Fundamental Theorem Of Calculus, etc.
+          </p>
+          <p>
+            There is also a precise characterization for when a
+            function is Lebesgue integrable.  In a sense, Lebesgue
+            consolidated a number of ideas and results about
+            integration dating literally back to ancient times into a
+            holistic approach by taking full advantage of results from
+            modern <term> Set Theory</term>. As an example of this, we
+            will examine, without proof, two of Lebesgue<rsq/>s more important results.
+
+            <!-- but all of that -->
+            <!-- is beyond the scope of this textbook so we will conclude -->
+            <!-- this section by stating (without proof) some of the more -->
+            <!-- important and useful results of Lebesgue<rsq/>s work. -->
+            <!-- <p> -->
+
+          </p>
+
+            
+          <theorem xml:id="THEOREMLebegCritRiemanInt">
+            <title>
+              Lebesgue<rsq/>s Criterion for Riemann Integrability (1901)
+            </title>
+            <p>
+              A bounded function on a closed interval <m>[a,b]</m> is Riemann
+              integrable if and only if the set of its discontinuities has
+              Lebesgue measure zero.
+
+            </p>
+          </theorem>
+
+
+
+
+
+          <problem xml:id="PROBLEMUncountableDiscontinutities">
+            <introduction>
+              <p>
+                Look again at your response to <xref
+                ref="PROBLEMCountableDiscontinutities"></xref>. 
+              </p>
+            </introduction>
+
+            <task>
+              <statement>
+                <p>
+                  Was your intuition correct?
+                </p>
+              </statement>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  Use <xref ref="PROBLEMRiemanIntImpLebInt"></xref> and <xref
+                  ref="THEOREMLebegCritRiemanInt"></xref> to determine the correct
+                  answer to <xref ref="PROBLEMCountableDiscontinutities"></xref> and
+                  prove that it is correct.
+                </p>
+              </statement>
+            </task>
+            <conclusion>
+              <p>
+                Notice that we have avoided the question of the integrability of a
+                function with uncountably many discontinuities. That is because it
+                is the measure of the set, not its cardinality, which determines
+                its integrability properties. And there are both uncountable sets
+                with zero and non<ndash/>zero measure. Perhaps the most famous of
+                the former is the <url
+                href="https://www.scientificamerican.com/blog/roots-of-unity/a-few-of-my-favorite-spaces-the-cantor-set/">Cantor<rsq/>s
+                middle<ndash/>third set</url>.
+
+              </p>
+            </conclusion>
+          </problem>
+
+
+
+          <p>
+            To address the question of switching a limit and an integral
+            Lebesgue proved the following theorem.
+          </p>
+
+          <theorem xml:id="THEOREMLebDomConvThm">
+            <title>
+              Lebesgue's Dominated Convergence Theorem (1904)
+            </title>
+
+            <p>
+              Suppose <m>E</m> is a measurable set with <m>\mu
+              \left(E\right)\lt{}\infty </m> and <m>\left(f_n\right)</m> is a
+              sequence of Lebesgue integrable functions on <m>E</m> which
+              converges pointwise to <m>f</m> on <m>E</m> except possibly on a set
+              <m>M</m> of measure 0.  If there is a Lebesgue integrable function
+              <m>g</m> such that <m>\left|f_n\left(x\right)\right|\le g(x)</m> for
+              all <m>x\in E-M</m> and for all <m>n</m>, then <m>f</m> is Lebesgue
+              integrable and
+
+
+              <me>\limit{n}{\infty}{ \left(\int_E f_n\left(x\right)\dx{\mu}
+              \right)}=\int_E f\left(x\right)\dx{\mu }</me>.
+            </p>
+          </theorem>
+
+          <p>
+            Again, we will not prove <xref ref="THEOREMLebDomConvThm"
+            text="custom">Lebesgue<rsq/>s Dominated Convergence Theorem</xref>
+            but notice that, unlike <xref
+            ref="THEOREMArzealBddConv">Arzelà<rsq/>s Bounded Convergence
+            Theorem</xref>, we did not need the assumption that <m>f</m> was
+            integrable.  In fact, Lebesgue<rsq/>s theorem is stronger than
+            Arzelà<rsq/>s in the sense that Arzelà<rsq/>s result follows from
+            Lebesgue<rsq/>s.
+          </p>
+
+
+
+
+          <problem xml:id="PROBLEMLebImplyArz">
+
+            <statement>
+              <p>
+                Explain how <xref ref="THEOREMArzealBddConv">Arzelà<rsq/>s
+                Bounded Convergence Theorem</xref> is a consequence of <xref
+                ref="THEOREMLebDomConvThm">Lebesgue<rsq/>s
+                Dominated Convergence Theorem</xref>.
+              </p>
+            </statement>
+          </problem>
+          <p>
+            In the interest of conserving space we have presented a stripped
+            down view of the modern development of integration theory, but the road
+            from Riemann<rsq/>s integral to Lebesgue<rsq/>s was
+            neither straight nor smooth.  Cauchy, Riemann and  Darboux many others along the way
+            developed their own ideas for a  rigorous formulation of the  integral concept.
+          </p>
+          <p>
+            If you are interested in learning more, you can begin by reading
+            about <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Stieltjes/">Thomas
+            Jan Stietles</url>, <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Denjoy/">Arnaud
+            Denjoy</url>, <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Perron/">Oskar
+            Perron</url>, and <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Borel/">Émile
+            Borel</url>, to name a few. You might also find the book <xref
+            ref="Gordon_Integrals" ></xref> and the article <xref
+            ref="Bartle_Riemann_Integral" ></xref> interesting. The latter
+            describes an integral definition independently developed in the
+            <m>1960</m>'s by Jaroslav Kurzwell and Ralph Henstock which is more
+            general than the Lebesgue integral and is arguably easier to teach
+            and understand.
+          </p>
+          <p>
+            But that
+            is another story.
+          </p>
+
+      </paragraphs>
+
+    </section>
+
+      <section  xml:id="BackToFourier-CantorsTheorem">
+        <title>Cantor<rsq/>s Theorem and Its Consequences</title>
+
+        <p>
+          After employing his ideas on infinite sets of real numbers to
+          study trigonometric series, Cantor gravitated toward applying
+          his ideas to sets in general.  For example, once he showed
+          that there were two types of infinity (countable and
+          uncountable), the following question was natural, <q>Do all
+          uncountable sets have the same cardinality?</q>
+        </p>
+
+        <p>
+          Just like not all <q>non<ndash/>dogs</q> are cats, there is,
+          <foreign>a priori</foreign>, no reason to believe that all
+          uncountable sets should have the same cardinality.  However constructing
+          uncountable sets of different sizes is not as easy as it sounds.
+        </p>
+
+        <p>
+          <idx>
+            <h>Dedekind, Richard</h>
+          </idx>
+          <idx>
+            <h>Cantor, Georg</h>
+            <h>unit interval and unit square have equal cardinalty</h>
+          </idx>
+          
+          For example, what about the line segment represented by the
+          interval <m>[0,1]</m> and the square represented by the set
+          <m>[0,1]\times[0,1]=\left\{(x,y)|0\leq x,y\leq
+          1\right\}</m>.  Certainly the two dimensional square must be
+          a larger infinite set than the one dimensional line segment.
+          Cantor showed that these two sets have the same
+          cardinality. Remarkably, Cantor himself had trouble
+          accepting this idea. In his <m>1877</m> correspondence of
+          this result to his friend and fellow mathematician, <url
+          href="https://mathshistory.st-andrews.ac.uk/Biographies/Dedekind/"
+          >Richard Dedekind</url>, (1831<ndash/>1915) he said, <q>I
+          see it, but I don<rsq/>t believe it!</q>
+        </p>
+        <figure>
+          <caption>Richard Dedekind</caption>
+
+          <idx><h>Dedekind, Richard</h><h>portrait of</h></idx>
+          <idx><h>Portraits</h><h>Dedekind</h></idx>
+
+          <image width="35%" source="images/Dedekind.png" >
+            <shortdescription>Portrait of Richard Dedekind</shortdescription>
+          </image>
+        </figure>
+        <p>
+          The following argument illustrates the idea of Cantor<rsq/>s
+          proof.  We define the following function
+          <m>f:[0,1]\times[0,1]\rightarrow [0,1]</m>.  First, we represent
+          the coordinates of any point <m>(x,y)\in [0,1]\times[0,1]</m> by
+          their decimal representations <m>x=0.a_1 a_2 a_3\cdots</m> and
+          <m>y=0.b_1 b_2 b_3\cdots</m>.  Even terminating decimals can be
+          written this way as we could write <m>0.5=0.5000\cdots</m>.  We
+          can then define <m>f(x,y)</m> by <me> f((0.a_1 a_2 a_3\cdots
+          ,0.b_1 b_2 b_3\cdots))=0.a_1 b_1 a_2 b_2 a_3 b_3\cdots </me>.
+        </p>
+
+        <p>
+          This relatively simple idea has some technical difficulties in
+          it related to the following result.
+        </p>
+
+        <problem>
+          <idx><h>Problems</h><h>Geometric series</h></idx>
+
+          
+          <idx><h>series</h><h>Geometric series</h><h>
+
+          <m>(0.\bar{9})</m> converges to <m>1</m></h></idx> 
+          <statement>
+            <p>
+              Consider the sequence <m>(0.9,0.99,0.999,\cdots)</m>.
+              Determine that this sequence converges and, in fact, it
+              converges to <m>1</m>.  This suggests that
+              <m>0.999\cdots=1</m>.
+            </p>
+          </statement>
+        </problem>
+
+        <p>
+          Similarly, we have <m>0.04999\cdots=0.05000\cdots</m>, etc.  To
+          make the decimal representation of a real number in <m>[0,1]</m>
+          unique, we must make a consistent choice of writing a
+          terminating decimal as one that ends in an infinite string of
+          zeros or an infinite string of nines [with the one exception
+          <m>0=0.000\cdots</m> ]. No matter which choice we make, we could
+          never make this function onto.  For example,
+          <m>109/1100=0.09909090\cdots</m> would have as its preimage
+          <m>(0.0999\cdots,0.9000\cdots)</m> which would be a mix of the
+          two conventions.
+        </p>
+
+        <p>
+          Cantor was able to overcome this technicality and
+          demonstrate a one<ndash/>to<ndash/>one correspondence, but rather than go into that we will simply assert
+          that using either convention it is possible to show that the
+          function is one<ndash/>to<ndash/>one and onto. As a result the set
+          <m>[0,1]\times[0,1]</m> has the same cardinality as
+          <m>[0,1]</m> which is an uncountable subset of <m>\RR</m>.
+        </p>
+        <p>
+          Finally           <xref ref="thm_CantorsTheorem" text="custom">Cantor<rsq/>s Theorem</xref> below is the tool we need to answer the question we began this section with: <q>Do all uncountable sets have the same cardinality?</q> 
+        </p>
+
+        <theorem xml:id="thm_CantorsTheorem">
+          <title>Cantor<rsq/>s Theorem (<m>1891</m>)</title>
+          
+          <idx>
+            <h>Cantor, Georg</h>
+            <h>Cantor<rsq/>s Theorem</h>
+          </idx>
+
+          <statement>
+            <p>
+              Let <m>S</m> be any set.  Then there is no one<ndash/>to<ndash/>one
+              correspondence between <m>S</m> and <m>P(S)</m>, the set of
+              all subsets of <m>S</m>.
+            </p>
+          </statement>
+        </theorem>
+
+        <p>
+          It is clear that <m>S</m> can be put into one<ndash/>to<ndash/>one
+          correspondence with a subset of <m>P(S)</m> (why?), which means
+          that <m>P(S)</m> is at least as large as <m>S</m> itself. In the
+          finite case <m>\abs{P(S)}</m> is strictly greater than
+          <m>\abs{S}</m> as the following problem shows.  It also
+          demonstrates why <m>P(S)</m> is called the <term>power set</term> of <m>S</m>.
+        </p>
+
+        <problem xml:id="prob_PowerSet">
+          <idx><h>Problems</h><h>power set</h></idx>
+          <idx><h>sets</h><h>power set</h></idx>
+          <idx><h>sets</h><h>cardinality of a power set</h></idx>
+          <idx><h>cardinality</h><h>of a power set</h></idx>
+
+          <statement>
+            <p>
+              Prove: If <m>\abs{S}=n</m>, then <m>\abs{ P(S)}=2^n</m>.
+            </p>
+          </statement>
+          <hint>
+            <p>
+              Let <m>S=\left\{a_1,a_2,\cdots,a_n\right\}</m>.  Consider
+              the following correspondence between the elements of
+              <m>P(S)</m> and the set <m>T</m> of all <m>n</m>-tuples of
+              yes (Y) or no (N):
+              <md>
+                <mrow>\{ \}  \amp \leftrightarrow \{N,N,N,\cdots,N\}</mrow>
+                <mrow>\{a_1\}\amp \leftrightarrow \{Y,N,N,\cdots ,N\}</mrow>
+                <mrow>\{a_2\}\amp \leftrightarrow \{N,Y,N,\cdots,N\}</mrow>
+                <mrow>\amp \vdots</mrow>
+                <mrow>S\amp \leftrightarrow \{Y,Y,Y,\cdots,Y\}</mrow>
+              </md>
+            </p>
+            <p>
+              How many elements are in <m>T?</m>
+            </p>
+          </hint>
+        </problem>
+
+        
+        <p>
+          Remarkably, Cantor<rsq/>s Theorem holds for infinite sets
+          as well.
+        </p>
+
+        <problem>
+          <idx><h>Problems</h><h>Cantor<rsq/>s Theorem</h></idx>
+
+          
+          <idx><h>Cantor, Georg</h><h>Cantor<rsq/>s Theorem</h></idx>
+
+          <statement>
+            <p>
+              Prove <xref ref="thm_CantorsTheorem" text="custom">Cantor<rsq/>s Theorem</xref>.
+            </p>
+          </statement>
+          <hint>
+            <p>
+              Assume for contradiction, that there is a one<ndash/>to<ndash/>one
+              correspondence <m>f:S\rightarrow P(S)</m>.  Consider
+              <m>A=\left\{x\in S\ |\ x\not\in f(x)\right\}</m>.  Since
+              <m>f</m> is onto, then there is <m>a\in A</m> such that
+              <m>A=f(a)</m>.  Is <m>a\in A</m> or is <m>a\not\in A?</m>
+            </p>
+          </hint>
+        </problem>
+<p>
+  In light of Cantor<rsq/>s Theorem it is clear that there are sets
+  which are larger (in the sense of Cantor) than
+  <m>\RR{}</m>. Specifically <m>\abs{P(\RR)}\gt \abs{\RR }</m>.
+</p>
+
+
+        <p>
+          Actually it turns out that <m>\RR</m> and <m>P(\NN)</m> have the
+          same cardinality.  This can be seen in a roundabout way using some
+          of the ideas from <xref ref="prob_PowerSet"></xref>.
+          Specifically, let <m>T</m> be the set of all sequences of zeros or
+          ones. <!--  Then it -->
+          <!-- is straightforward to see that <m>T</m> and <m>P(\NN)</m> have the -->
+          <!-- same cardinality. -->
+        </p>
+
+        <p>
+          The half<ndash/>open interval <m>(0,1]</m> has the same
+          cardinality as <m>\RR</m> and we can show that it has the same
+          cardinality as <m>T</m> as well by expressing them in binary form.
+          Specifically every real number in <m>[0,1]</m> can be written as
+          <me>
+            \displaystyle\sum_{j=1}^\infty \frac{a_j}{2^j} =0.a_1a_2a_3\cdots
+          </me>
+          where <m>a_j\in\left\{0,1\right\}</m>.  We have to account for
+          the fact that binary representations such as <m>0.0111\cdots</m>
+          and <m>0.1000\cdots</m> represent the same real number (say that
+          no representations will end in an infinite string of zeros),
+          then we can see that <m>[0,1]</m> has the same cardinality as
+          <m>T-U</m>, where <m>U</m> is the set of all sequences ending in
+          an infinite string of zeros.  It turns out that <m>U</m> itself
+          is a countable set.
+        </p>
+
+        <problem>
+          <idx><h>Problems</h><h>countable union of finite sets</h></idx>
+
+          <statement>
+            <p>
+              <idx><h>countable sets</h><h>countable union of finite sets</h></idx>
+
+              Let <me>U_n=\left\{(a_1,a_2,a_3,\cdots)\ |\ a_j\in \left\{0,1\right\} \text{
+              and } a_{n+1}=a_{n+2}=\cdots=0\right\}</me>.  Show that for each
+              <m>n</m>, <m>U_n</m> is finite and use this to conclude that
+              <m>U</m> is countably infinite.
+            </p>
+          </statement>
+        </problem>
+
+        <p>
+          The above problems say that <m>\RR</m>, <m>T-U</m>, <m>T</m>,
+          and <m>P(N)</m> all have the same cardinality.  The following
+          two problems show that deleting a countable set from an
+          uncountable set does not change its cardinality.
+        </p>
+
+        <problem>
+          <idx><h>Problems</h><h>countably infinite subsets</h></idx>
+
+          <statement>
+            <p>
+              <idx><h>sets</h><h>countably infinite subsets</h></idx>
+              
+              Let <m>S</m> be an infinite set.  Prove that <m>S</m>
+              contains a countably infinite subset.
+            </p>
+          </statement>
+        </problem>
+
+        <problem>
+          <idx><h>Problems</h><h>deleting a countable subset from an uncountable set</h></idx>
+
+          <idx><h>uncountable sets</h><h>deleting a countable subset</h></idx> 
+
+
+          <statement>
+
+            <p>
+              Suppose <m>X</m> is an uncountable set and <m>Y\subset X</m>
+              is countably infinite.  
+
+
+              <!-- <task> -->
+              <!--   <statement> -->
+              <!--     <p> -->
+              <!--       Prove that <m>X</m> and <m>X-Y</m> are both uncountable -->
+              <!--       sets. -->
+              <!--     </p> -->
+              <!--   </statement> -->
+              <!-- </task> -->
+
+              Prove that <m>X</m> and <m>X-Y</m> have the same
+              cardinality.
+            </p>
+
+          </statement>
+
+          <hint>
+            <p>
+              Let <m>Y=Y_0</m>.  Since <m>X-Y_0</m> is an infinite set,
+              then by the previous problem it contains a countably
+              infinite set <m>Y_1</m>.  Likewise since <m>X-(Y_0\cup
+              Y_1)</m> is infinite it also contains a countably infinite set
+              <m>Y_2</m>.  Again, since <m>X-(Y_0\cup Y_1\cup Y_2)</m> is
+              a countably infinite set then it contains a countably infinite set
+              <m>Y_3</m>, etc.  For <m>n=1, 2, 3,\cdots </m>, let
+              <m>f_n:Y_{n-1}\rightarrow Y_n</m> be a one<ndash/>to<ndash/>one
+              correspondence and define <m>f:X\rightarrow X-Y</m> by
+              <me>
+                f(x) =
+                \begin{cases}
+                f_n(x), \amp \text{ if }  x\in Y_n, n=0,1,2,\cdots\\
+                x, \amp \text{ if }  x\in X-\left(\bigcup_{n=0}^\infty Y_n \right) 
+                \end{cases}
+                </me>.
+            </p>
+            <p>
+              Show that <m>f</m> is one<ndash/>to<ndash/>one and onto.
+            </p>
+          </hint>
+        </problem>
+
+
+        <p>
+          <idx><h>Cantor, Georg</h></idx>
+
+          As we indicated before, Cantor<rsq/>s  work on infinite sets had a profound impact on
+          mathematics in the beginning of the twentieth century.  For
+          example, in examining the proof of Cantor<rsq/>s Theorem, the
+          eminent logician 
+          <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Russell/" >Bertrand Russell</url> (1872<ndash/>1970) devised his famous paradox in
+          1901.  
+        </p>
+
+        <figure  xml:id="FIGURERussellPortrait">
+          <caption>Bertrand Russell</caption>
+
+          <idx><h>Portraits</h><h>Russell</h></idx>
+          <idx><h>Russell, Bertrand</h><h>portrait of</h></idx>
+          
+          <image source="images/Russell.png" width="35%">
+            <shortdescription>Portrait of Bertrand Russell</shortdescription>
+          </image>
+        </figure>
+
+        <p>
+          Through the work of Cantor and others, sets were becoming a
+          central object of study in mathematics.  Mathematical
+          concepts were being reformulated in terms of sets, as we saw in
+          <xref ref="SECTIONRiseSetTheory" ></xref>.  The idea was that set
+          theory was to be a unifying theme of mathematics but
+          Russell<rsq/>s paradox set the mathematical world on its ear
+          because it showed that the naive understanding of a set as <q>just a
+          collection of objects</q> leads to logical difficulties.
+        </p>
+
+        <fact xml:id="RussellParadox">
+          
+          <idx><h>Russell<rsq/>s Paradox</h></idx>
+
+          <p>
+            Consider the set of all sets
+            which are not elements of themselves.  We call this set <m>D</m>
+            and ask, <q>Is <m>D\in D?</m></q> Symbolically, this set is <me>
+            D=\{S\ |\ S\not \in S\} </me>.
+          </p>
+
+          <p>
+            If <m>D\in D</m>, then by definition, <m>D\not\in D</m>.  If
+            <m>D\not\in D</m>, then by definition, <m>D\in D</m>.
+          </p>
+        </fact>
+
+        <p>
+          The idea behind <xref ref="RussellParadox" text="custom">Russell<rsq/>s
+          Paradox</xref> is essentially the same idea that gave us a
+          contradiction in our proof of <xref ref="thm_CantorsTheorem"
+          text="custom" >Cantor<rsq/>s Theorem</xref>.
+        </p>
+        <p>
+          To have such a contradiction occurring at the most basic
+          level of mathematics was scandalous.  It forced a number of
+          mathematicians and logicians to carefully devise the axioms
+          by which sets could be constructed.  To be honest, most
+          mathematicians still approach set theory from a naive point
+          of view as the sets we typically deal with are what we might
+          characterize as <q>normal sets.</q> Such an
+          approach is called <term>Naive Set Theory</term>
+          (as opposed to <url
+          href="https://mathshistory.st-andrews.ac.uk/HistTopics/Beginnings_of_set_theory/"
+          >Axiomatic Set Theory</url>). Attempts to put set
+          theory and logic on solid footing led to the modern study of
+          symbolic logic and ultimately the design of computer
+          (machine) logic.
+        </p>
+
+        <p>
+          <idx><h>Cantor, Georg</h></idx>
+
+          Another place where Cantor<rsq/>s work had a profound influence in
+          modern logic comes from something we alluded to before.  We showed
+          before that the unit square <m>[0,1]\times [0,1]</m> had the same
+          cardinality as an uncountable subset of <m>\RR</m>.  In fact,
+          Cantor showed that the unit square had the same cardinality as
+          <m>\RR</m> itself and was moved to advance the following in <m>1878</m>.
+        </p>
+
+        <conjecture xml:id="ContinuumHypothesis">
+          <title>The Continuum Hypothesis</title>
+          
+          <idx><h>Continuum Hypothesis</h><h>original</h></idx> 
+
+          <statement>
+
+            <p>
+              Every uncountable subset of <m>\RR</m> has the same
+              cardinality as <m>\RR</m>.
+            </p>
+          </statement>
+        </conjecture>
+
+        <p>
+          Cantor was unable to prove or disprove the <xref
+          ref="ContinuumHypothesis" text="custom">Continuum
+          Hypothesis</xref> conjecture (along with every other mathematician
+          at the time). In fact, proving or disproving the Continuum
+          Hypothesis, was one of <url
+          href="https://mathshistory.st-andrews.ac.uk/Biographies/Hilbert/"
+          >David Hilbert<rsq/>s</url> famous <url
+          href="https://mathshistory.st-andrews.ac.uk/Extras/Hilbert_Problems/"
+          >23 problems</url> which he presented as a challenge for the
+          mathematics community at the <url
+          href="https://en.wikipedia.org/wiki/International_Congress_of_Mathematicians"
+          visual="https://en.wikipedia.org/wiki/International_Congress_of_Mathematicians">International
+          Congress of Mathematicians</url> in <m>1900</m>.
+        </p>
+
+        <figure  xml:id="FIGUREHilbertPortrait">
+          <caption>David Hilbert</caption>
+
+          <idx><h>Portraits</h><h>Hilbert</h></idx>
+          <idx><h>Hilbert, David</h><h>portrait of</h></idx>
+
+          <image source="images/Hilbert.png" width="35%">
+            <shortdescription>Portrait of Hilbert</shortdescription>
+          </image>
+        </figure>
+
+        <p>
+          Since <m>\RR</m> has the same cardinality as <m>P(\NN)</m>, the
+          <xref ref="ContinuumHypothesis" text="custom">Continuum
+          Hypothesis</xref> was generalized to the:
+        </p>
+
+        <conjecture xml:id="GenContHyp">
+          <title>The Generalized Continuum Hypothesis</title>
+          
+          <idx><h>Continuum Hypothesis</h><h>generalized</h></idx>
+
+          <statement>
+
+            <p>
+              Given an infinite set <m>S</m>, there is no infinite set
+              which has a cardinality strictly between that of <m>S</m>
+              and its power set <m>P(S)</m>.
+            </p>
+          </statement>
+        </conjecture>
+
+        <p>
+          Efforts to prove or disprove <xref ref="GenContHyp" ></xref> were
+          in vain and with good reason.  In <m>1940</m>, the logician <url
+          href="https://mathshistory.st-andrews.ac.uk/Biographies/Godel/"
+          >Kurt Gödel</url> showed that the Continuum Hypothesis could not
+          be disproved from the
+          
+          <url href="https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory" >Zermelo-Fraenkel Axioms</url> of set theory.  In 1963, 
+          <url href="https://mathshistory.st-andrews.ac.uk/Biographies/Cohen/" >Paul Cohen</url> (1934<ndash/>2007)
+          showed that the Continuum Hypothesis could not be proved using
+          the Zermelo-Fraenkel Axioms, either.  In other words, the
+          Zermelo-Fraenkel Axioms do not contain enough information to
+          decide the truth of the hypothesis.
+        </p>
+        <aside> 
+          <title>
+            The Zermelo-Fraenkel Axioms
+          </title>
+          <p>
+            One of the formal axiomatic approaches to set theory
+            established by Ernst Zermelo in 1908 and revised by Abraham
+            Fraenkel in 1921.
+          </p>  
+        </aside>
+
+        <sbsgroup widths="35% 35%" margins="auto" valign="top">
+
+          <sidebyside>
+
+            <figure>
+              <caption>
+                Kurt Gödel
+              </caption>
+
+              <idx><h>Portraits</h><h>Gödel</h></idx>
+              <idx><h>Gödel, Kurt</h><h>portrait of</h></idx>
+
+              <image  source="images/Godel.png" >
+                <shortdescription>Portrait of Kurt Gödel</shortdescription>
+              </image>
+            </figure>
+
+            <figure  xml:id="FIGURECohenPortrait">
+              <caption>Paul Cohen</caption>
+
+              <idx><h>Portraits</h><h>Cohen</h></idx>
+              <idx><h>Cohen, Paul</h><h>portrait of</h></idx>     
+
+              <image source="images/Cohen.png">
+                <shortdescription>Portrait of Paul Cohen</shortdescription>
+              </image>
+
+            </figure>
+          </sidebyside>
+
+        </sbsgroup>
+
+        <p>
+          We are willing to bet that at this point your head might be
+          swimming a bit.  If so, then know that these are the same feelings
+          that the mathematical community experienced in the
+          mid<ndash/>twentieth century.  In the past, mathematics was seen
+          as a model of logical certainty.  It is disconcerting to find that
+          there are statements that are <term>undecidable</term>. In fact, Gödel
+          proved in <m>1931</m> that a consistent finite axiom system that
+          contained the axioms of arithmetic would always contain
+          undecidable statements which could neither be proved true nor
+          false with those axioms.  Mathematical knowledge would always be
+          incomplete.
+        </p>
+
+
+
+        <p>
+          So by trying to put the foundations of Calculus on solid ground,
+          we have come to a point where we can never obtain mathematical
+          certainty.  Does this mean that we should throw up our hands and
+          concede defeat?  Should we be paralyzed with fear of trying
+          anything?  Certainly not!  As we mentioned before, most
+          mathematicians do well by taking a pragmatic approach. We use the
+          mathematics we know and understand to solve the problems we
+          encounter as best we can.  In fact, it is typically the problems
+          that motivate the mathematics.  It is true that we take chances
+          that don<rsq/>t always pan out, but still we take those chances,
+          often with success.  Even when the successes lead to more
+          questions, as they typically do, tackling those questions usually
+          leads to a deeper understanding.  At the very least, our
+          incomplete understanding means we will always have more questions
+          to answer, more problems to solve.
+        </p>
+        <!-- <aside> -->
+        <!--   <title>Note from Bob</title> <p> I'm not sure how, but it sounds -->
+        <!--   appropriate to mention in the following passage that by -->
+        <!--   essentially ignoring the complexities of axiomatic set theory -->
+        <!--   (but knowing they are there), we are in much the same boat as -->
+        <!--   mathematicians of the 18th century who exploited the infinitely -->
+        <!--   small with great success and a large number of questions to be -->
+        <!--   answered.  That being said, I like the way that this ends the -->
+        <!--   book. -->
+        <!-- </p> -->
+        <!-- <p> -->
+
+        <!--   Any thoughts? -->
+
+        <!-- </p> -->
+        <!-- </aside> -->
+
+
+        <p>
+          What else could a mathematician ask for?
+        </p>
+      </section>
+
+
+  </chapter>
+

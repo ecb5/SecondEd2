@@ -1,0 +1,1820 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="PowerSeriesRedux">
+  <title>Back to Power Series</title>
+
+
+  <section xml:id="PowerSeriesRedux-UnifConv">
+    <title>Uniform Convergence</title>
+    <p>
+      We have developed precise analytic definitions of the
+      convergence of a sequence and continuity of a function and we
+      have used these to prove the <xref ref="thm_EVT"
+      text="custom">EVT</xref> and <xref
+      ref="IntermediateValueTheorem" text="custom">IVT</xref> for
+      continuous functions. We have also carefully defined the
+      derivative and the integral and used those definitions to prove
+      the <xref ref="THEOREMFTCCauchy" text="custom">Fundamental
+      Theorem of Calculus</xref>, which was instrumental in developing
+      the three forms of the remainder for <xref ref="TaylorSeries"
+      text="custom">Taylor Series</xref>. 
+    </p>
+    <p>
+      We now return to the question that originally motivated these
+      definitions, <q>Why are Taylor series well behaved, but Fourier
+      series are not necessarily?</q> More precisely, we mentioned
+      that whenever a power series converges then the function it
+      converges to is continuous and that if we differentiate or integrate
+      a convergent power series term by term then the resulting series
+      will converge to the derivative or integral of the original
+      series, but this was not always the case for Fourier series.
+    </p>
+    <p>
+      We saw in our <xref ref="InterregnumPart" text="custom">Interregnum</xref>  that the 
+      <!--   <!-\- <md> -\-> -->
+      <!--   <!-\-   <mrow>f(x) \amp = \frac{4}{\pi}\left(\sum_{k=0}^\infty\frac{(-1)^k}{2k+1}\cos\left((2k+1)\pi x\right)\right)</mrow> -\-> -->
+      <!--   <!-\-   <mrow>\amp = \frac{4}{\pi}\left(\cos(\pi x)-\frac13\cos(3\pi x)+\frac15 (5\pi x)-\ldots\right)</mrow> -\-> -->
+      <!--   <!-\-   </md>. -\-> -->
+      <!-- </p> -->
+
+      <!-- <p> -->
+      graph of 
+      <men  xml:id="EQUATIONContConvDis">
+        f(x) =
+        \frac{4}{\pi}\left(\sum_{k=0}^\infty\frac{(-1)^k}{2k+1}\cos\left((2k+1)\pi
+        x\right)\right)
+      </men>
+      specifically, <xref ref="EQUATIONPDESolDeriv" >formula</xref>) is given by
+    </p>
+
+    <image width="85%" source="images/Ch7fig1.png" >
+      <shortdescription></shortdescription>
+    </image>
+
+    <p>
+      But if we consider the sequence of partial sums of <m>f(x)</m>
+      in <xref ref="EQUATIONContConvDis" >equation</xref>:
+      <md>
+        <mrow>f_1(x)=\amp \frac{4}{\pi}\cos\left(\pi x\right)</mrow>
+        <mrow>f_2(x)=\amp \frac{4}{\pi}\left(\cos \left(\pi x\right)-\frac{1}{3}\cos\left( 3\pi x\right)\right)</mrow>
+        <mrow>f_3(x)=\amp \frac{4}{\pi}\left(\cos\left(\pi x\right)-\frac{1}{3}\cos\left(3\pi x\right)+\frac{1}{5}\cos\left(5\pi x\right)\right)</mrow>
+        <mrow>\amp \vdots</mrow>
+      </md>
+      we see the sequence of continuous functions
+      <m>\left(f_n\right)</m> converges to the non<ndash/>continuous function
+      <m>f</m> for each real number <m>x</m>.  This didn<rsq/>t happen with
+      Taylor series.  The partial sums for a Taylor series were
+      polynomials and hence continuous but what they converged to was
+      continuous as well.
+    </p>
+
+
+    <p>
+      The difficulty is quite delicate and it took mathematicians
+      quite a while to determine that there are two very subtly
+      different ways that a sequence of functions can converge:
+      pointwise or uniformly.  This distinction was touched upon by
+      <url
+      href="https://mathshistory.st-andrews.ac.uk/Biographies/Abel/">Niels
+      Henrik Abel</url> (1802<ndash/>1829) in <m>1826</m> while
+      studying the domain of convergence of a power series.  However,
+      the necessary formal definitions were not made explicit until
+      Weierstrass did it in his <m>1841</m> paper <pubtitle>Zur
+      Theorie der Potenzreihen (On the Theory of Power
+      Series)</pubtitle>. This was published in his collected works in
+      <m>1894</m>.
+    </p>
+    <figure  xml:id="FIGUREAbelPortrait">
+      <caption>Niels Henrik Abel</caption>
+
+      <idx><h>Portraits</h><h>Abel</h></idx>
+      <idx><h>Abel, Niels Henrik</h><h>portrait of</h></idx>
+
+      <image source="images/Abel.png" width="35%">
+        <shortdescription></shortdescription>
+      </image>
+    </figure>
+    
+    <p>
+      It will be instructive to take a look at an argument that
+      doesn<rsq/>t quite work before looking at the formal definitions we
+      will need.  In <m>1821</m> Augustin Cauchy <q>proved</q> that the
+      infinite sum of continuous functions is continuous.  Of course,
+      it is obvious (to us) that this is not true because we<rsq/>ve seen
+      several counterexamples.  But Cauchy, who was a first rate
+      mathematician was so sure of the correctness of his argument
+      that he included it in his textbook on analysis, <foreign>Cours
+      d<rsq/>analyse</foreign> <m>(1821)</m>.
+    </p>
+
+    <problem xml:id="prob_Cauchy_s_incorrect_proof">
+      <idx><h>Problems</h><h>Cauchy<rsq/>s flawed proof that the limit of continuous functions is continuous</h></idx>
+
+      <idx>
+        <h>Cauchy, Augustin</h>
+        <h>Cauchy<rsq/>s flawed proof that the limit of continuous functions is continuous</h>
+      </idx>
+
+      <idx>
+        <h>continuity</h> 
+        <h>Cauchy<rsq/>s flawed proof that the limit of continuous
+        functions is continuous</h>
+      </idx>
+
+      <statement>
+        <p>
+          Find the flaw in the following <q>proof</q> that  if  <m>f_1, f_2, f_3, f_4 \ldots</m> are all continuous
+          at <m>a</m> then  <m>f=\sum_{n=1}^\infty f_n</m> is also continuous at <m>a</m>.
+        </p>
+        <p>
+          Let
+          <m>\eps>0</m>.  Since <m>f_n</m> is continuous at <m>a,</m>
+          we can choose <m>\delta_n>0</m> such that if <m>\abs{x-a}\lt
+          \delta_n,</m> then <m>\abs{f_n(x)-f_n(a)}\lt
+          \frac{\eps}{2^n}</m>.  Let
+          <m>\delta=\inf(\delta_1,\delta_2,\delta_3,\ldots)</m>.  If
+          <m>\abs{x-a}\lt \delta</m> then
+          <md>
+            <mrow>\abs{f(x)-f(a)} \amp =  \abs{\sum_{n=1}^\infty f_n(x)  -  \sum_{n=1}^\infty f_n(a) }</mrow>
+            <mrow>\amp = \abs{\sum_{n=1}^\infty \left(f_n(x)-f_n(a)\right) }</mrow>
+            <mrow>\amp \le \sum_{n=1}^\infty \abs{f_n(x)-f_n(a) }</mrow>
+            <mrow>\amp \le \sum_{n=1}^\infty \frac{\eps}{2^n}</mrow>
+            <mrow>\amp \le \eps\sum_{n=1}^\infty \frac{1}{2^n}</mrow>
+            <mrow>\amp =   \eps.</mrow>
+          </md>
+        </p>
+
+        <p>
+          Thus <m>f</m> is continuous at <m>a</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <definition xml:id="def_PointwiseConvergence">
+      <title>Pointwise Convergence</title>
+
+      <idx><h>Pointwise Convergence</h></idx>
+      <idx><h>Definition</h><h>Pointwise Convergence</h></idx>
+      <idx><h>convergence</h><h>of a series</h><h>pointwise</h></idx>
+
+      <statement>
+        <p>
+          Let <m>S</m> be a subset of the real number system and let
+          <m>\left(f_n\right)=\left(f_1,f_2,f_3,\,\ldots\right)</m> be
+          a sequence of functions defined on <m>S</m>.  Let <m>f</m>
+          be a function defined on <m>S</m> as well.  We say that
+          <m>\left(f_n\right)</m> <alert>converges to <m>f</m>
+          pointwise on <m>S</m></alert> provided that for all <m>x\in
+          S,</m> the sequence of real numbers
+          <m>\left(f_n(x)\right)</m> converges to the number
+          <m>f(x)</m>.  In this case we write<m>\,f_n\ptwise f</m> on
+          <m>S</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Symbolically, we have <m>f_n\ptwise f\text{ on }
+      S\Leftrightarrow \forall\,x\in S,\forall\ \eps>0,\,\exists\
+      N</m> such that <m>\left(n>N \Rightarrow|f_n(x)-f(x)|\lt
+      \eps\right)</m>.
+    </p>
+
+    <p>
+      This is the type of convergence we have been observing to this
+      point.  By contrast we have the following new definition.
+    </p>
+
+    <definition xml:id="def_UniformConvergence">
+      
+      <title>Uniform Convergence</title>
+
+      <idx><h>Uniform Convergence</h></idx>
+      <idx><h>Definition</h><h>Uniform Convergence</h></idx>
+      <idx><h>uniform convergence</h></idx>
+
+      <statement>
+        <p>
+          
+          Let <m>S</m> be a subset of the real number system and let
+          <m>\left(f_n\right)=\left(f_1,f_2,f_3,\,\ldots\right)</m> be
+          a sequence of functions defined on <m>S</m>.  Let <m>f</m>
+          be a function defined on <m>S</m> as well.  We say that
+          <m>\left(f_n\right)</m> <alert>converges to <m>f</m>
+          uniformly on <m>S</m></alert> provided <m>\forall\
+          \eps>0,\,\exists\ N</m> such that
+          <m>n>N\Rightarrow|f_n(x)-f(x)|\lt \eps\text{ , } \forall\
+          x\in S</m>.
+        </p>
+        <p>
+          In this case we write <m>f_n\unif f</m> on <m>S</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      The difference between these two definitions is subtle.  In
+      <term>pointwise convergence</term>, we are given a fixed <m>x\in S</m> and an
+      <m>\eps>0</m>.  Then the task is to find an <m>N</m> that works
+      for that particular <m>x</m> and that <m>\eps</m>.  In <term>uniform
+      convergence</term>, we are given <m>\eps>0</m> and must find a single
+      <m>N</m> that works for that particular <m>\eps</m> but also
+      simultaneously (uniformly) for all <m>x\in S</m>.  Clearly
+      uniform convergence implies pointwise convergence as an <m>N</m>
+      which works uniformly for all <m>x,</m> works for each
+      individual <m>x</m> also.  However the reverse is not true.
+      This will become evident, but first consider the following
+      example.
+    </p>
+
+    <problem xml:id="prob_uniform_convergence">
+      <idx><h>Problems</h><h sortby="polynomial"><m>x^n</m> converges uniformly on <m>(0,b),</m>
+      <m>b\lt 1</m></h></idx>
+      
+      <idx><h>uniform convergence</h><h><m>x^n</m> converges uniformly on <m>(0,b),</m>
+      <m>b\lt 1</m></h></idx>
+
+      <statement>
+        <p>
+          Let <m>0\lt b\lt 1</m> and consider the sequence of
+          functions <m>\left(f_n\right)</m> defined on <m>[0,b]</m> by
+          <m>f_n(x)=x^n</m>.  Use the definition to show that
+          <m>f_n\unif 0</m> on <m>[0,b]</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          <m>|x^n-0|=x^n\leq b^n</m>.
+        </p>
+      </hint>
+    </problem>
+
+    <p>
+      Uniform convergence is not only dependent on the sequence of
+      functions but also on the set <m>S</m>.  For example, the
+      sequence
+      <m>\left(f_n(x)\right)=\left(x^n\right)_{n=0}^\infty</m> of
+      <xref ref="prob_uniform_convergence"></xref> does not
+      converge uniformly on <m>[0,1]</m>.  We could use the negation
+      of the definition to prove this, but instead, it will be a
+      consequence of the following theorem.
+    </p>
+
+    <theorem xml:id="thm_UnifConv-_Continuity">
+
+      <idx><h>uniform convergence</h><h>continuous functions and</h></idx>
+      <idx><h>continuous functions</h><h>uniform convergence and</h></idx>
+      <idx><h>continuous functions</h><h>uniform limit of
+      continuous functions is continuous</h></idx>
+
+      <statement>
+        <p>
+
+          Consider a sequence of functions <m>\left(f_n\right)</m>
+          which are all continuous on an interval <m>I</m>.  Suppose
+          <m>f_n\unif f</m> on <m>I</m>.  Then <m>f</m> must be
+          continuous on <m>I</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <title>Sketch of Proof</title>
+      <p>
+        Let <m>a\in I</m> and let <m>\eps>0</m>.  The idea is to use
+        uniform convergence to replace <m>f</m> with one of the known
+        continuous functions <m>f_n</m>.  Specifically, by
+        uncancelling, we can write
+        <md>
+          <mrow>\left|f(x)-f(a)\right|\amp =\left|f(x)-f_n(x)+f_n(x)-f_n(a)+f_n(a)-f(a)\right|</mrow>
+          <mrow>\amp \leq \left|f(x)-f_n(x)\right|+\left|f_n(x)-f_n(a)\right|+\left|f_n(a)-f(a)\right|</mrow>
+        </md>
+      </p>
+
+      <p>
+        If we choose <m>n</m> large enough, then we can make the first
+        and last terms as small as we wish, noting that the uniform
+        convergence makes the first term uniformly small for all
+        <m>x</m>.  Once we have a specific <m>n,</m> then we can use
+        the continuity of <m>f_n</m> to find a <m>\delta>0</m> such
+        that the middle term is small whenever <m>x</m> is within
+        <m>\delta</m> of <m>a</m>.
+      </p>
+    </proof>
+
+    <problem>
+      <idx><h>Problems</h><h>uniform convergence and continuous functions
+      </h></idx>
+
+      <idx><h>uniform convergence</h><h>continuous functions
+      and</h></idx>
+
+      <statement>
+        <p>
+          Provide a formal proof of <xref
+          ref="thm_UnifConv-_Continuity"></xref> based on the
+          above ideas.
+        </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="PROBLEMMonomialsOnUnitInterval">
+      <idx><h>Problems</h><h sortby="polynomial"><m>x^n</m> converges pointwise on <m>[0,1]</m></h></idx>
+
+      <idx><h>pointwise convergence</h></idx>
+      <idx><h sortby="polynomial"><m>x^n</m> converges pointwise on <m>[0,1]</m></h></idx>
+
+      <statement>
+        <p>
+          Consider the sequence of functions <m>\left(f_n\right)</m>
+          defined on <m>[0,1]</m> by <m>f_n(x)=x^n</m>.  Show that the
+          sequence converges to the function
+          <me>
+            f(x)= \begin{cases}0\amp \text{ if  } x\in[0,1)\\ 1\amp \text{ if } x=1 \end{cases}
+          </me>
+          pointwise on <m>\,[0,1],</m> but not uniformly on <m>[0,1]</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      Notice that for the Fourier series at the beginning of this
+      chapter,
+      <me>
+        f(x)=\frac{4}{\pi}\left(\cos\left(\frac{\pi}{2}x\right)-\frac{1}{3}\cos\left( 3\pi x\right)+\frac{1}{5}\cos\left(5\pi x\right)-\frac{1}{7}\cos\left(7\pi x\right)+\cdots\right)
+      </me>
+      the convergence cannot be uniform on <m>(-\infty,\infty),</m> as
+      the function <m>f</m> is not continuous.  This never happens
+      with a power series, since they converge to continuous functions
+      whenever they converge. Although it is not yet obvious that
+      power series converge uniformly, we will soon see that they do
+      and that uniform convergence is what guarantees that they
+      converge to continuous functions. We will also see that uniform
+      convergence is what allows us to integrate and differentiate a
+      power series term by term.
+    </p>
+  </section>
+
+  <section xml:id="PowerSeriesRedux-UnifConv-IntsAndDerivs">
+    <title>Uniform Convergence: Integrals and Derivatives</title>
+    <introduction>
+      <p>
+        We saw in the previous section that if <m>\left(f_n\right)</m>
+        is a sequence of continuous functions which converges
+        uniformly to <m>f</m> on an interval, then <m>f</m> must be
+        continuous on the interval as well.  This was not necessarily
+        true if the convergence was only pointwise. For example, we
+        saw in <xref ref="EQUATIONContConvDis" >equation</xref> a
+        sequence of continuous functions defined on
+        <m>(-\infty,\infty)</m> converging pointwise to a function
+        that was not continuous on <m>(-\infty,\infty)</m>.  Uniform
+        convergence guarantees some other nice properties as well.
+      </p>
+
+      <theorem xml:id="th_UniformIntegralConvergence">
+
+        <idx><h>uniform convergence</h><h>integration
+        and</h></idx>
+
+        <statement>
+          <p>
+            Suppose <m>f_n</m> and <m>f</m> are integrable and
+            <m>f_n\unif f</m> on <m>[a,b]</m>.  Then
+            <me>
+              \limit{n}{\infty}{\left(\int_{x=a}^b f_n(x)\dx{
+              x}\right)}=\int_{x=a}^bf(x)\dx{x}
+              </me>.
+          </p>
+        </statement>
+      </theorem>
+      <problem>
+        <idx><h>Problems</h><h>integration and uniform convergence</h></idx>
+        <idx><h>uniform convergence</h><h>integration and</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="th_UniformIntegralConvergence"></xref>. 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            For <m>\eps>0,</m> we need to make <m>|f_n(x)-f(x)|\lt
+            \frac{\eps}{b-a},</m> for all <m>x\in[a,b]</m>.
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        Notice that this theorem is not true if the convergence is
+        only pointwise, as illustrated by the following.
+      </p>
+
+      <problem xml:id="PROBLEMPtwConvNoCommute">
+        <idx><h>Problems</h><h>pointwise convergence</h></idx>
+
+        <idx><h>convergence</h><h>pointwise convergence</h></idx>
+        <idx><h>convergence</h><h>uniform convergence</h></idx>
+        <idx><h>convergence</h><h>pointwise vs. uniform convergence</h></idx>
+        <introduction>
+          <p>
+            Consider the sequence of functions <m>\left(f_n\right)</m>
+            given by
+            <me>
+              f_n(x)= \begin{cases}n\amp \text{ if } x\in\left(0,\frac{1}{n}\right)\\ 0\amp \text{ otherwise } \end{cases} 
+              </me>.
+          </p>
+        </introduction>
+        <task>
+          <statement>
+
+            <p>
+              Show that <m>f_n\ptwise 0</m> on <m>[0,1],</m> but
+              <me>
+                \limit{n}{\infty}{\left( \int_{x=0}^1f_n(x)\dx{
+                x}\right) \neq\int_{x=0}^10\dx{ x}}
+                </me>.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+
+            <p>
+              Can the convergence be uniform?  Explain.
+            </p>
+          </statement>
+</task>
+      </problem>
+
+      <p>
+        Applying the result of <xref ref="PROBLEMPtwConvNoCommute"
+        ></xref> to power series we have the following.
+      </p>
+
+      <!-- <aside> -->
+      
+      <!--   <p> -->
+      <!--     Notice that we must explicitly assume uniform convergence. -->
+      <!--     This is because we have not <em>yet</em> -->
+      <!--   proved that power series actually do converge uniformly.</p> -->
+      <!-- </aside> -->
+
+      <corollary xml:id="cor_IntConvUni">
+        <statement>
+          <p>
+            If <m>\sum_{n=0}^\infty a_nx^n</m> converges uniformly to
+            <m>f</m> on an interval containing <m>0</m> and <m>x</m>
+            then 
+            <me>
+            \int_{t=0}^xf(t)\dx{
+            t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)
+          </me>.
+          </p>
+          <p>
+            (Notice that we must explicitly assume uniform convergence.
+            This is because we have not yet proved that power
+            series actually do converge uniformly.)
+          </p>
+
+</statement>
+</corollary>
+
+      <problem>
+        <idx><h>Problems</h><h>term<ndash/>by<ndash/>term integration of power series</h></idx>
+
+        <idx><h>power series</h><h>term<ndash/>by<ndash/>term integral of</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="cor_IntConvUni"></xref>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Remember that
+            <me>
+              \displaystyle \sum_{n=0}^\infty f_n(x) =
+              \limit{N}{\infty}{\left(\sum_{n=0}^N f_n(x)\right)}.
+            </me>
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        Surprisingly, the issue of term<ndash/>by<ndash/>term
+        differentiation depends not on the uniform convergence of
+        <m>\left(f_n\right),</m> but on the uniform convergence of
+        <m>\left(f^\prime_n\right)</m>.  More precisely, we have the
+        following result.
+      </p>
+
+      <theorem xml:id="thm_UniformDerivativeConvergence">
+        
+        <idx><h>pointwise convergence</h><h>derivative and</h></idx>
+        <idx><h>differentiation</h><h>of the pointwise limit of functions</h></idx>
+
+        <statement>
+          <p>
+            Suppose for every <m>n\in\NN</m> <m>f_n</m> is
+            differentiable, <m>f_n^\prime</m> is continuous,
+            <m>f_n\ptwise f,</m> and <m>f_n^\prime\unif g</m> on an
+            interval, <m>I</m>.  Then <m>f</m> is differentiable and
+            <m>f^\prime = g</m> on <m>I</m>.
+          </p>
+        </statement>
+      </theorem>
+
+      <problem>
+        <idx><h>Problems</h><h>differentiation of a sequence of functions</h></idx>
+        
+        <idx><h>sequences</h><h>differentiation of a sequence of functions</h></idx>
+        <idx><h>differentiation</h><h>differentiation of a sequence of functions</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="thm_UniformDerivativeConvergence"></xref>. 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Let <m>a</m> be an arbitrary fixed point in <m>I</m> and
+            let <m>x\in I</m>.  By the Fundamental Theorem of
+            Calculus, we have 
+            
+            <me> \int_{t=a}^x f^\prime_n(t)\dx{t}=f_n(x)-f_n(a) </me>.
+            
+            Take the limit of both sides and differentiate with
+            respect to <m>x</m>.
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        Applying <xref ref="thm_UniformDerivativeConvergence" ></xref>  to power series gives the following result.
+      </p>
+
+      <corollary xml:id="cor_UniformConvergenceDerivative">
+        <statement>
+          <p>
+            If
+            <m>\sum_{n=0}^\infty a_nx^n</m> converges pointwise to <m>f</m> on an interval containing <m>0</m> and <m>x</m> and
+            <m>\sum_{n=1}^\infty a_nnx^{n-1}</m> converges uniformly on an interval containing <m>0</m> and <m>x,</m>
+            then <m>f^\prime(x)=\sum_{n=1}^\infty a_nnx^{n-1}</m>.
+          </p>
+        </statement>
+      </corollary>
+
+      <problem>
+        <idx><h>Problems</h><h>term by term differentiation of power series</h></idx>
+
+        <idx><h>power series</h><h>term<ndash/>by<ndash/>term differentiation of</h></idx>
+        <idx><h>differentiation</h><h>term by term differentiation of power series</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="cor_UniformConvergenceDerivative"></xref>.
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        Taken together the above results say that a power series can
+        be differentiated and integrated term<ndash/>by<ndash/>term as
+        long as the convergence is uniform.  Fortunately it is in
+        general true that when a power series converges the
+        convergence of it and its integrated and differentiated series
+        is also (almost) uniform.
+      </p>
+
+      <p>
+        However we do not yet have all of the tools necessary to see
+        this.  To build these tools requires that we return briefly to
+        our study, begun in <xref ref="Convergence"></xref>, of
+        the convergence of sequences.
+      </p>
+    </introduction>
+
+    <subsection>
+      <title>Cauchy Sequences</title>
+      <p>
+        Knowing that a sequence or a series converges and knowing what
+        it converges to are typically two different matters.  For
+        example, we know that <m>\sum_{n=0}^\infty\frac{1}{n!}</m>and
+        <m>\sum_{n=0}^\infty\frac{1}{n!\,n!}</m> both converge.  The
+        first converges to <m>e,</m> which has meaning in other
+        contexts.  We don<rsq/>t know what the second one converges to,
+        other than to say it converges to
+        <m>\sum_{n=0}^\infty\frac{1}{n!\,n!}</m>.  In fact, that
+        question might not have much meaning without some other
+        context in which <m>\sum_{n=0}^\infty\frac{1}{n!\,n!}</m>
+        arises naturally.  Be that as it may, we need to look at the
+        convergence of a series (or a sequence for that matter)
+        without necessarily knowing what it might converge to.  We
+        make the following definition.
+      </p>
+
+      <definition xml:id="def_CauchySequence">
+        
+        <title>Cauchy Sequence</title>
+
+        <idx><h>Cauchy Sequence</h></idx>
+        <idx><h>Definition</h><h>Cauchy Sequence</h></idx>
+        <idx><h>sequences</h><h>Cauchy sequences</h></idx>
+
+        <statement>
+          <p>
+            
+            
+            Let <m>\left(s_n\right)</m> be a sequence of real numbers.
+            We say that <m>\left(s_n\right)</m>is a <term>Cauchy
+            sequence</term> if for any <m>\eps>0,</m> there exists a
+            real number <m>N</m> such that if <m>m,n>N,</m> then
+            <m>|s_m-s_n|\lt \eps</m>.
+          </p>
+        </statement>
+      </definition>
+
+      <p>
+        Notice that this definition says that the terms in a Cauchy
+        sequence get arbitrarily close to each other and that there is
+        no reference to getting close to any particular fixed real
+        number.  Furthermore, you have already seen lots of examples
+        of Cauchy sequences as illustrated by the following result.
+      </p>
+
+      <theorem xml:id="thm_Converge-_Cauchy">
+
+        <idx><h>sequences</h><h>convergence</h></idx>
+        <idx><h>convergence</h><h>of a sequence</h><h>implies
+        Cauchy sequence</h></idx>
+
+        <statement>
+          <p>
+            Suppose <m>\left(s_n\right)</m> is a sequence of real
+            numbers which converges to <m>s</m>.  Then
+            <m>\left(s_n\right)</m> is a Cauchy sequence.
+          </p>
+        </statement>
+      </theorem>
+
+      <p>
+        Intuitively, <xref ref="thm_Converge-_Cauchy" ></xref> makes
+        sense.  If the terms of a sequence are getting arbitrarily
+        close to <m>s</m>, then they should be getting arbitrarily
+        close to each other as well.  This is the basis of the proof.
+      </p>
+      <!-- <aside> -->
+      <!--   <title> -->
+      <!--     Cauchy Sequences Needn<rsq/>t Converge -->
+      <!--   </title> -->
+      <!--   <p> -->
+      <!--     But the converse of <xref ref="thm_Converge-_Cauchy" ></xref> is not true. Why not? -->
+      <!--   </p> -->
+      <!-- </aside> -->
+
+      <problem>
+        <idx><h>Problems</h><h>convergent sequences are Cauchy</h></idx>
+        
+        <idx><h>sequences</h><h>convergence</h></idx>
+        <idx><h>convergence</h><h>of a sequence</h><h> implies Cauchy sequence</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="thm_Converge-_Cauchy"></xref>. 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            <m>\abs{s_m-s_n}=\abs{s_m-s+s-s_n}\leq \abs{s_m-s}+\abs{s-s_n}</m>.
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        So any convergent sequence is automatically Cauchy.  For the
+        real number system, the converse is also true and, in fact, is
+        equivalent to any of our completeness axioms: the <xref ref="NIP" text="custom">NIP</xref>, the
+        <xref ref="BolzanoWeierstrass" text="custom">Bolzano<ndash/>Weierstrass Theorem</xref>, or the <xref ref="thm_LUB" text="custom">LUB Property</xref>.  Thus, this
+        could have been taken as our completeness axiom and we could
+        have used it to prove the others.  One of the most convenient
+        ways to prove this converse is to use the Bolzano<ndash/>Weierstrass
+        Theorem.  To do that, we must first show that a Cauchy
+        sequence must be bounded.  This result is reminiscent of the
+        fact that a convergent sequence is bounded (<xref
+        ref="lemma_BoundedConvergent"></xref> of <xref
+        ref="Convergence"></xref>) and the proof is very
+        similar.
+      </p>
+
+      <lemma xml:id="lemma_Cauchy-_Bounded">
+        <statement>
+          <p>
+            Suppose <m>\left(s_n\right)</m> <m></m>is a Cauchy
+            sequence.  Then there exists <m>B>0</m> such that
+            <m>\abs{s_n}\leq B</m> for all <m>n</m>.
+          </p>
+        </statement>
+      </lemma>
+
+      <problem>
+        <idx><h>Problems</h><h>every Cauchy
+        sequence is bounded</h></idx>
+        
+        <idx><h>sequences</h><h>Cauchy sequences</h><h>every Cauchy
+        sequence is bounded</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="lemma_Cauchy-_Bounded"></xref>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            This is similar to <xref
+            ref="prob_BoundedConvergent"></xref> of <xref
+            ref="Convergence"></xref>.  There exists <m>N</m>
+            such that if <m>m,n>N</m>then <m>|s_n-s_m|\lt
+            1</m>. Choose a fixed <m>m>N</m> and let
+            <m>B=\max\left(\abs{s_1}, \abs{s_2}, \ldots,
+            \abs{s_{\lceil N\rceil}}, \abs{s_m}+1\right)</m>.
+          </p>
+        </hint>
+      </problem>
+
+      <theorem xml:id="thm_Cauchy-_Converge">
+        <title>Cauchy Sequences Converge in <m>\RR </m></title>
+
+        <idx><h>sequences</h><h>Cauchy sequences</h><h>convergence
+        of</h></idx>
+
+        <statement>
+          <p>
+            
+            Suppose <m>\left(s_n\right)</m> is a Cauchy sequence of
+            real numbers.  There exists a real number <m>s</m> such
+            that <me>\limit{n}{\infty}{s_n}=s</me>.
+          </p>
+        </statement>
+      </theorem>
+
+      <proof>
+        <title>Sketch of Proof</title>
+        <p>
+          We know that <m>\left(s_n\right)</m> <m></m>is bounded, so
+          by the Bolzano<ndash/>Weierstrass Theorem, it has a convergent
+          subsequence <m>\left(s_{n_k}\right)</m> converging to some
+          real number <m>s</m>.  We have
+          <me>
+            \abs{s_n-s}=\abs{s_n-s_{n_k}+s_{n_k}-s}\leq
+            \abs{s_n-s_{n_k}}+\abs{s_{n_k}-s}
+            </me>.
+          If we choose <m>n</m> and <m>n_k</m> large enough, we
+          should be able to make each term arbitrarily small.
+        </p>
+      </proof>
+
+      <!-- <problem> -->
+      <!--   <p> -->
+      <!--     Show that <xref ref="thm_Cauchy-_Converge" ></xref> is not -->
+      <!--     true if the underlying number system is <m>\QQ{}</m> instead -->
+      <!--     of <m>\RR{}</m> by constructing a sequence in <m>\QQ{}</m> -->
+      <!--     which converges to an irrational number. -->
+      <!--   </p> -->
+      <!-- </problem> -->
+
+      <problem xml:id="prob_Cauchy_sequences_Cauchy_implies_convergence">
+        <idx><h>Problems</h><h>convergence of Cauchy sequences</h></idx>
+
+        <idx><h>sequences</h><h>Cauchy sequences</h><h>convergence
+        of</h></idx>
+
+        <statement>
+          <p>
+            Provide a formal proof of <xref
+            ref="thm_Cauchy-_Converge"></xref>.
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        From <xref ref="thm_Converge-_Cauchy"></xref> we see that
+        every Cauchy sequence converges in <m>\RR</m>.  Moreover the
+        proof of this fact depends on the <xref
+        ref="BolzanoWeierstrass"
+        text="custom">Bolzano<ndash/>Weierstrass Theorem</xref> which,
+        as we have seen, is equivalent to our completeness axiom, the
+        <xref ref="NIP" text="custom">Nested Interval Property</xref>.
+        What this means is that if there is a <xref
+        ref="def_CauchySequence" text="custom">Cauchy sequence</xref>
+        which does not converge then the <xref ref="NIP"
+        text="custom">NIP</xref> is not true.  A natural question to
+        ask is if every Cauchy sequence converges does the NIP follow?
+        In other words, is the convergence of Cauchy sequences also
+        equivalent to our completeness axiom?  The following theorem
+        shows that the answer is yes.
+      </p>
+
+      <theorem xml:id="thm_ConvCauchyEquivNIP">
+
+        <idx><h>sequences</h><h>Cauchy sequences</h><h>convergence
+        of is equivalent to the NIP</h></idx>
+
+        <statement>
+          <p>
+            
+            Suppose every <xref ref="def_CauchySequence"
+            text="custom">Cauchy sequence</xref> converges.  Then the
+            <xref ref="NIP" text="custom">Nested Interval
+            Property</xref> is true.
+          </p>
+        </statement>
+      </theorem>
+
+      <problem xml:id="prob_Cauchy_sequences_Cauchy_implies_NIP">
+        <idx><h>Problems</h><h>convergence of
+        Cauchy sequences is equivalent to the NIP</h></idx>
+        <idx><h>sequences</h><h>Cauchy sequences</h><h>convergence of
+        is equivalent to the NIP</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="thm_ConvCauchyEquivNIP"></xref>. 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            If we start with two sequences <m>\left(x_n\right)</m> and
+            <m>\left(y_n\right)</m>, satisfying all of the conditions
+            of the <xref ref="NIP" text="custom">NIP</xref>, you
+            should be able to show that these are both Cauchy
+            sequences.
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        Taken together <xref
+        ref="prob_Cauchy_sequences_Cauchy_implies_convergence"></xref>
+        and <xref
+        ref="prob_Cauchy_sequences_Cauchy_implies_NIP"></xref> tell us
+        that the following are equivalent: the Nested Interval
+        Property, the Bolzano<ndash/>Weierstrass Theorem, the Least
+        Upper Bound Property, and the convergence of Cauchy sequences.
+        Thus any one of these could have been taken as the
+        completeness axiom of the real number system and then used to
+        prove the each of the others as a theorem according to the
+        following dependency graph:
+      </p>
+
+      <image width="100%" source="images/CompletenessAxioms.png" >
+        <shortdescription></shortdescription>
+      </image>
+
+      <p>
+        Since we can get from any node on the graph to any other,
+        simply by following the implications (indicated with arrows),
+        any one of these statements is logically equivalent to each of
+        the others.
+      </p>
+
+      <problem>
+        <idx><h>Problems</h><h>Cauchy sequences</h><h>don<rsq/>t always converge in <m>\QQ</m></h></idx>
+
+        <idx><h>sequences</h><h>Cauchy sequences</h><h>don<rsq/>t always converge in <m>\QQ</m></h></idx>
+
+        <statement>
+          <p>
+            Since the convergence of Cauchy sequences can be taken as
+            the completeness axiom for the real number system
+            <m>(\RR)</m>, it does not hold for the rational number
+            system <m>(\QQ)</m>, since <m>\QQ{}</m> is not complete.
+            Give an example of a Cauchy sequence of rational numbers
+            which does not converge to a rational number.
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        If we apply the above ideas to series we obtain the following
+        important result, which will provide the basis for our
+        investigation of power series.
+      </p>
+
+      <theorem xml:id="thm_CauchyCriterion"><title>Cauchy Criterion</title>
+
+      <idx><h>series</h><h>Cauchy sequences</h><h>Cauchy Criterion</h></idx> 
+
+      <statement>
+        <p> 
+          The series <m>\sum_{k=0}^\infty a_k</m> converges if and
+          only if <m>\forall</m> <m>\eps>0</m>, <m>\exists\ N</m> such
+          that 
+
+          <md>
+            <mrow>
+              \text{if } m\gt{}n\gt{}N\amp{}\amp{}\text{ then }\amp{}\amp{} \abs{\sum_{k=n+1}^ma_k}\lt
+              \eps.
+            </mrow>
+</md>
+        </p>
+      </statement>
+      </theorem>
+
+      <problem>
+        <idx><h>Problems</h><h>Cauchy Criterion, the</h></idx>
+
+        <idx><h>series</h><h>Cauchy Criterion, the</h></idx>
+        
+        <statement>
+          <p>
+            Prove the Cauchy criterion.
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        At this point several of the convergence tests that you
+        probably in Calculus are easily proved.  
+      </p>
+
+      <problem xml:id="prob_NthTermTest">
+        <title>The <m>n</m>th Term Test</title>
+        <idx><h sortby="nth">Problems</h><h sortby="nth"><m>n</m>th term test</h></idx>
+
+        <idx><h>series</h><h><m>n</m>th term test</h></idx>
+        <idx><h>divergence</h><h>of a series</h><h><m>n</m>th term test</h></idx> 
+
+        <statement>
+          <p>
+            Show that if <m>\sum_{n=1}^\infty a_n</m> converges then
+            <m>\limit{n}{\infty}{a_n}=0</m>.
+          </p>
+        </statement>
+      </problem>
+
+      <problem> 
+        <title>The Strong Cauchy Criterion</title>
+        <idx><h>Problems</h><h>Strong Cauchy
+        criterion, the</h></idx>
+        
+        <idx><h>series</h><h>Cauchy Criterion</h><h>Strong Cauchy
+        criterion</h></idx>
+
+        <statement>
+          <p>
+
+            Show that <m>\displaystyle\sum_{k=1}^\infty a_k</m>
+            converges if and only if
+            <m>\limit{n}{\infty}{\sum_{k=n+1}^\infty a_k}=0</m>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            The hardest part of this problem is recognizing that it is
+            really about the limit of a sequence as in <xref
+            ref="Convergence"></xref>.
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        You may also recall the <xref ref="thm_ComparisonTest"
+        text="custom">Comparison Test</xref> from your study of series
+        in Calculus.  This result follows from the fact that the
+        partial sums of <m>\sum a_n</m> form an increasing sequence
+        which is bounded above by <m>\sum b_n</m>.  (See <xref
+        ref="cor_IncBoundedConverge"></xref> of <xref
+        ref="IVTandEVT">Chapter</xref>.)  The <xref
+        ref="thm_CauchyCriterion" text="custom">Cauchy
+        Criterion</xref> allows us to extend this to the case where
+        the terms <m>a_n</m> could be negative as well.  This can be
+        seen in the following theorem.
+      </p>
+
+      <theorem xml:id="thm_ComparisonTest">
+        <title>Comparison Test</title>
+
+        <idx><h>series</h><h>Comparison Test</h></idx> 
+
+        <statement>
+
+          <p>
+            Suppose <m>|a_n|\leq b_n</m> for all <m>n</m>.  If <m>\sum
+            b_n</m> converges then <m>\sum a_n</m> also converges.
+          </p>
+        </statement>
+      </theorem>
+
+      <problem>
+        <idx><h>Problems</h><h>the Comparison Test</h></idx>
+        
+        <idx><h>series</h><h>the Comparison Test</h></idx>
+        <idx><h>convergence</h><h>of a series</h><h>Comparison Test</h></idx>
+
+        <statement>
+          <p>
+            Prove <xref ref="thm_ComparisonTest"></xref>. 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Use the Cauchy criterion with the fact that
+            <m>\abs{\sum_{k=n+1}^ma_k}\leq\sum_{k=n+1}^m\abs{a_k}</m>.
+          </p>
+        </hint> 
+      </problem>
+
+      <p>
+        The following definition is of marked importance in the study
+        of series.
+      </p>
+
+      <definition xml:id="AbsoluteConvergence">
+        <title>Absolute Convergence</title>
+
+        <idx><h>Absolute Convergence</h></idx>
+        <idx><h>Definition</h><h>Absolute Convergence</h></idx>
+        <idx><h>convergence</h><h>of a series</h><h>absolute</h></idx> 
+
+        <statement>
+          <p>
+            
+            Given a series <m>\sum a_n</m>, the series
+            <m>\sum|a_n|</m> is called the <term>absolute
+            series</term> of <m>\sum a_{n}</m> and if <m>\sum|a_n|</m>
+            converges then we say that <m>\sum a_{n}</m>
+            <term>converges absolutely.</term>
+          </p>
+        </statement>
+      </definition>
+
+      <p>
+        The significance of this definition comes from the following result.
+      </p>
+
+      <corollary xml:id="cor_AbsConv-_Conv">
+        <statement>
+          <p>
+            If
+            <m>\sum a_n</m> converges absolutely,
+            then <m>\sum a_n</m> converges.
+          </p>
+        </statement>
+      </corollary>
+
+      <problem>
+        <idx><h>Problems</h><h>absolute convergence implies convergence</h></idx>
+
+        <idx><h>convergence</h><h>of a series</h><h>absolute convergence implies convergence</h></idx>
+
+        <statement>
+          <p>
+            Show that <xref ref="cor_AbsConv-_Conv"></xref>
+            is a direct consequence of <xref
+            ref="thm_ComparisonTest"></xref>.
+          </p>
+        </statement>
+      </problem>
+
+      <problem>
+        <idx><h>Problems</h><h>absolute convergence of
+        vs. the absolute value of a series</h></idx>
+        <idx><h>Problems</h><h>absolute convergence of
+        vs. the absolute value of a series</h></idx>
+
+        <idx><h>series</h><h>absolute convergence of</h><h>
+        vs. the absolute value of a series</h></idx>
+
+        <statement>
+          <p>
+            If <m>\displaystyle\sum_{n=0}^\infty\abs{a_n}=s</m>,  does it follow
+            that <m>\displaystyle s= \abs{\sum_{n=0}^\infty a_n}</m>?  Justify your
+            answer.  What can be said?
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        <idx><h>series</h><h>Harmonic Series</h></idx>
+
+        The converse of <xref ref="cor_AbsConv-_Conv"></xref>
+        is not true as evidenced by the series
+        <m>\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{n+1}</m>.  As we noted in
+        <xref ref="PowerSeriesQuestions"></xref>, this series
+        converges to <m>\ln 2</m>.  However, its absolute series is the
+        Harmonic  Series
+        which diverges.  Any such series which converges, but not
+        absolutely, is said to <alert>converge conditionally</alert>.
+        Recall also that in <xref
+        ref="PowerSeriesQuestions"></xref>, we showed that we
+        could rearrange the terms of the series
+        <m>\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{n+1}</m> to make it converge
+        to any number we wished.  We noted further that all
+        rearrangements of the series
+        <m>\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{\left(n+1\right)^2}</m>
+        converged to the same value.  The difference between the two
+        series is that the latter converges absolutely whereas the
+        former does not.  Specifically, we have the following result.
+      </p>
+
+      <theorem xml:id="thm_RearrageAbsConv">
+
+        <idx><h>series</h><h>rearrangements</h></idx>
+        <idx><h>series</h><h>absolute convergence of</h><h>rearrangements</h></idx>
+
+        <statement>
+          <p>
+            Suppose <m>\sum a_n</m> converges absolutely and let
+            <me>s=\sum_{n=0}^\infty a_n</me>.  Then any rearrangement of
+            <m>\sum a_n</m> must converge to <m>s</m>.
+          </p>
+        </statement>
+      </theorem>
+
+      <proof>
+        <title>Sketch of Proof</title>
+        <p>
+          We will first show that this result is true in the case
+          where <m>a_n\geq 0</m>.  If <m>\sum b_n</m> represents a
+          rearrangement of <m>\sum a_n</m>, then notice that the
+          sequence of partial sums
+          <m>\displaystyle\left(\sum_{k=0}^nb_k\right)_{n=0}^\infty</m>is an
+          increasing sequence which is bounded by <m>s</m>.  By <xref
+          ref="cor_IncBoundedConverge"></xref> of <xref
+          ref="IVTandEVT"></xref>, this sequence must converge
+          to some number <m>t</m> and <m>t\leq s</m>.  Furthermore
+          <m>\sum a_n</m> is also a rearrangement of <m>\sum b_n</m>.
+          Thus the result holds for this special case. (Why?) For the
+          general case, notice that
+          <m>a_n=\frac{|a_n\mathopen|+a_n}{2}-\frac{|a_n\mathopen|-a_n}{2}</m>
+          and that <m>\sum\frac{|a_n\mathopen|+a_n}{2}</m> and
+          <m>\sum\frac{|a_n\mathopen|-a_n}{2}</m> are both convergent
+          series with nonnegative terms.  By the special case
+
+          <md>
+            <mrow>\sum\frac{\abs{b_n}+b_n}{2}=
+            \sum\frac{\abs{a_n}+a_n}{2}\amp{}\amp{}\text{ and }\amp{}\amp{}
+            \sum\frac{\abs{b_n}-b_n}{2}=
+            \sum\frac{\abs{a_n}-a_n}{2}.
+            </mrow>
+          </md>
+        </p>
+      </proof>
+
+      <problem>
+        <idx><h>Problems</h><h>absolute convergence of rearrangements</h></idx>
+
+        <idx><h>series</h> <h>absolute convergence of</h><h>rearrangements</h></idx>
+        
+        <statement>
+          <p>
+            Fill in the details and provide a formal proof of <xref
+            ref="thm_RearrageAbsConv"></xref>.
+          </p>
+        </statement>
+      </problem>
+    </subsection>
+  </section>
+
+  <section xml:id="PowerSeriesRedux-RadiusOfConv">
+    <title>Radius of Convergence of a Power Series</title>
+    <p>
+      We<rsq/>ve developed enough machinery to look at the convergence of
+      power series.  The fundamental result is the following theorem
+      due to Abel.
+    </p>
+
+    <theorem xml:id="thm_RadiusOfConvergence">
+
+      <idx><h>power series</h><h>converge inside radius of convergence</h></idx>
+
+      <statement>
+        <p>
+          Suppose <m>\displaystyle\sum_{n=0}^\infty a_nc^n</m> converges for some
+          nonzero real number <m>c</m>.  Then <m>\displaystyle\sum_{n=0}^\infty
+          a_nx^n</m> converges absolutely for all <m>x</m> such that
+          <m>\abs{x}\lt \abs{c}</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <title>Sketch of Proof</title>
+
+      <p>
+        To prove <xref ref="thm_RadiusOfConvergence"></xref>
+        first note that by <xref ref="prob_NthTermTest"></xref>,
+        <m>\limit{n}{\infty}{a_nc^n}=0</m>.  Thus
+        <m>\left(a_nc^n\right)</m> is a bounded sequence.  Let <m>B</m>
+        be a bound: <m>\abs{a_nc^n}\le B</m>.  Then
+        <me>
+          \abs{a_nx^n}=\abs{a_nc^n\cdot\left(\frac{x}{c}\right)^n}\leq B\abs{\frac{x}{c}}^n
+          </me>.
+      </p>
+
+      <p>
+        We can now use the comparison test.
+      </p>
+
+    </proof>
+
+    <problem>
+      <idx><h>Problems</h><h>the radius of convergence</h></idx>
+
+      <idx><h>power series</h><h>the radius of convergence</h></idx>
+      <idx><h>convergence</h><h>the radius of convergence of a power series</h></idx>
+      
+      <statement>
+        <p>
+          Prove <xref ref="thm_RadiusOfConvergence"></xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <corollary xml:id="cor_RadiusOfDivergence">
+      <statement>
+        <p>
+          Suppose <m>\displaystyle\sum_{n=0}^\infty a_nc^n</m> diverges for some
+          real number <m>c</m>.  Then <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m>
+          diverges for all <m>x</m> such that <m>\abs{x} \gt \abs{c}</m>.
+        </p>
+      </statement>
+    </corollary>
+
+    <problem>
+      <idx><h>Problems</h><h>the radius of convergence</h></idx>
+
+      <idx><h>power series</h><h>the radius of convergence</h></idx>
+      <idx><h>power series</h><h>a power series diverges outside it<rsq/>s radius of convergence</h></idx>
+      
+      <statement>
+        <p>
+          Prove <xref ref="cor_RadiusOfDivergence"></xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      As a result of <xref
+      ref="thm_RadiusOfConvergence"></xref> and <xref
+      ref="cor_RadiusOfDivergence"></xref>, we have the
+      following: Either <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m> converges
+      absolutely for all <m>x</m> or there exists some nonnegative
+      real number <m>r</m> such that <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m>
+      converges absolutely when <m>|x|\lt r</m> and diverges when
+      <m>|x|>r</m>.  In the latter case, we call <m>r</m> the
+      <term>radius of convergence</term> of the power series
+      <m>\displaystyle\sum_{n=0}^{\infty}a_{n} x^{n}</m>.  In the former case, we
+      say that the <term>radius of convergence</term> of <m>\displaystyle\sum_{n=0}^\infty
+      a_nx^n</m> is <m>\infty</m>.  Though we can say that
+      <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m> converges absolutely when
+      <m>|x|\lt r</m>, we cannot say that the convergence is uniform.
+      However, we can come close.  We can show that the convergence is
+      uniform for <m>|x|\leq b\lt r</m>.  To see this we will use the
+      following result
+    </p>
+
+    <theorem xml:id="thm_WeierstrassM">
+      <title>The Weierstrass-<m>M</m> Test</title>
+      
+      <idx><h>Weierstrass-<m>M</m> Test</h></idx>
+
+      <statement>
+        <p>
+          Let <m>\left(f_n\right)_{n=1}^\infty</m> be a sequence of
+          functions defined on <m>S\subseteq\RR</m> and suppose that
+          <m>\left(M_n\right)_{n=1}^\infty</m> is a sequence of
+          nonnegative real numbers such that
+          <me>
+            \abs{f_n(x)}\leq M_n,\,\, \forall x\in S,\,\, n=1, 2, 3, \ldots
+            </me>.
+        </p>
+        
+        <p>
+          If <m>\displaystyle\sum_{n=1}^\infty M_n</m> converges then
+          <m>\displaystyle\sum_{n=1}^\infty f_n(x)</m> converges uniformly on
+          <m>S</m> to some function (which we will denote by
+          <m>f(x)</m>).
+        </p>
+      </statement>
+    </theorem>
+    
+    <proof>
+      <title>Sketch of Proof</title>
+      <p>
+        Since the crucial feature of the theorem is the function
+        <m>f(x)</m> that our series converges to, our plan of attack
+        is to first define <m>f(x)</m> and then show that our series,
+        <m>\displaystyle\sum_{n=1}^\infty f_n(x)</m>, converges to it uniformly.
+      </p>
+
+      <p>
+        First observe that for any <m>x\in S</m>, <m>\displaystyle\sum_{n=1}^\infty
+        f_n(x)</m> converges by the Comparison Test (in fact it
+        converges absolutely) to some number we will denote by
+        <m>f(x)</m>.  This actually defines the function <m>f(x)</m>
+        for all <m>x\in S</m>.  It follows that <m>\sum_{n=1}^\infty
+        f_n(x)</m> converges pointwise to <m>f(x)</m>.
+      </p>
+
+      <p>
+        Next, let <m>\eps>0</m> be given.  Notice that since
+        <m>\displaystyle\sum_{n=1}^\infty M_n</m> converges, say to <m>M</m>, then
+        there is a real number, <m>N</m>, such that if <m>n>N</m>,
+        then
+        <me>
+          \sum_{k=n+1}^\infty M_k = \abs{\sum_{k=n+1}^\infty M_k} = \abs{M-\sum_{k=1}^n M_k}\lt \eps
+          </me>.
+      </p>
+
+      <p>
+        You should be able to use this to show that if <m>n>N</m>,
+        then
+        <me>
+          \abs{f(x) - \sum_{k=1}^n f_k(x)}\lt  \eps, \, \, \forall x\in S
+          </me>.
+      </p>
+    </proof>
+
+    <problem>
+      <idx><h>Problems</h><h>Weierstrass<ndash/><m>M</m> Test</h></idx>
+
+      <idx><h>Weierstrass<ndash/><m>M</m> Test</h></idx>
+
+      <statement>
+        <p>
+          Use the ideas above to provide a formal proof of <xref
+          ref="thm_WeierstrassM"></xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>     
+      <idx><h>Problems</h><h>Fourier Series and uniform convergence</h></idx>
+      
+      <idx><h>uniform convergence</h><h>Fourier Series and</h></idx>
+      <idx><h>Fourier Series</h><h>uniform convergence and</h></idx>
+
+      <task>
+        <statement>
+          <p>
+            Referring back to <xref ref="PDE_sol">equation</xref>,
+            show that the Fourier series
+            <me>
+              \sum_{k=0}^\infty\frac{(-1)^k}{(2k+1)^2}\sin\left((2k+1)\pi x\right)
+            </me>
+            converges uniformly on <m>\RR</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Does its differentiated series converge uniformly on
+            <m>\RR?</m> Explain.
+          </p>
+        </statement>
+      </task>
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h>Weierstrass<ndash/><m>M</m> Test</h></idx>
+      
+      <idx><h>Weierstrass-<m>M</m> Test</h></idx>
+      <idx><h>Weierstrass-<m>M</m> Test</h><h>drill problems</h></idx>
+
+      <introduction>
+        <p>
+          <!-- Observe that for all <m>x \in [-1,1]</m> <m>\abs{x}\le -->
+          <!-- 1</m>.   -->
+          Identify which of the following series converges
+          pointwise and which converges uniformly on the interval
+          <m>[-1,1]</m>.  In every case identify the limit function.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{n=1}^\infty\left(x^n-x^{n-1}\right)</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{n=1}^\infty\frac{\left(x^n-x^{n-1}\right)}{n}</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>
+            \displaystyle
+            \sum_{n=1}^\infty\frac{\left(x^n-x^{n-1}\right)}{n^2}
+            </m>
+          </p>
+        </statement>
+      </task>
+    </problem>
+
+    <p>
+      Using the Weierstrass<ndash/><m>M</m> test, we can prove the
+      following result.
+    </p>
+
+    <theorem xml:id="thm_PowerSeriesConvergeUniformly">
+      <title>
+        Power Series Converge Uniformly
+      </title>
+
+      <idx><h>power series</h><h>converge uniformly on their interval of convergence</h></idx>
+
+      <statement>
+        <p>
+          
+          Suppose <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m> has radius of
+          convergence <m>r</m> (where <m>r</m> could be <m>\infty</m>
+          as well).  Let <m>b</m> be any nonnegative real number with
+          <m>b\lt r</m>.  Then <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m>
+          converges uniformly on <m>[-b,b]</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <problem>
+      <idx><h>Problems</h><h>uniform convergence and positive power series</h></idx>
+      
+      <idx><h>uniform convergence</h><h>positive power series and</h></idx>
+
+      <statement>
+        <p>
+          Prove <xref ref="thm_PowerSeriesConvergeUniformly"></xref>. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          We know that <m>\displaystyle\sum_{n=0}^\infty|a_nb^n|</m> converges.
+          This should be all set for the Weierstrass-<m>M</m> test.
+        </p>
+      </hint>
+    </problem>
+
+    <p>
+      To finish the story on differentiating and integrating power
+      series, all we need to do is show that the power series, its
+      integrated series, and its differentiated series all have the
+      same radius of convergence.  You might not realize it, but we
+      already know that the integrated series has a radius of
+      convergence at least as big as the radius of convergence of the
+      original series.  Specifically, suppose
+      <m>f(x)=\displaystyle\sum_{n=0}^\infty a_nx^n</m>has a radius of convergence
+      <m>r</m> and let <m>\abs{x}\lt r</m>.  We know that
+      <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m> converges uniformly on an
+      interval containing <m>0</m> and <m>x</m>, and so by <xref
+      ref="cor_IntConvUni"></xref>, <m>\int_{t=0}^xf(t)\dx{
+      t}=\displaystyle\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)</m>.  In
+      other words, the integrated series converges for any <m>x</m>
+      with <m>\abs{x}\lt r</m>.  This says that the radius of convergence
+      of the integated series must be at least <m>r</m>.
+    </p>
+
+    <p>
+      To show that the radii of convergence are the same, all we need
+      to show is that the radius of convergence of the differentiated
+      series is at least as big as <m>r</m> as well. 
+      This would say that the original series has a radius of convergence at least as big as the integrated series, so they must have the same radius of convergence.
+      <!-- Indeed, since -->
+      <!-- the differentiated series of the integrated series is the -->
+      <!-- original, then this would say that the original series and the -->
+      <!-- integrated series have the same radii of convergence. -->
+    </p>
+    <p>
+
+      Putting the differentiated series into the role of the original
+      series, the original series is now the integrated series and so
+      these would have the same radii of convergence as well.  With
+      this in mind, we want to show that if <m>|x|\lt r</m>, then
+      <m>\displaystyle\sum_{n=0}^\infty a_nnx^{n-1}</m> converges.
+      The strategy is to mimic what we did in <xref
+      ref="thm_RadiusOfConvergence"></xref>, where we essentially
+      compared our series with a converging geometric series.  Only
+      this time we need to start with the differentiated geometric
+      series.
+    </p>
+
+    <problem xml:id="prob_PwrSeriesDiffConv">
+      <idx><h>Problems</h><h>uniform convergence and integration</h></idx>
+      
+      <idx><h>uniform convergence</h><h>integration and</h></idx>
+      <idx><h>power series</h><h>term<ndash/>by<ndash/>term integral of </h></idx>
+
+      <statement>
+        <p>
+          Show that <m>\displaystyle\sum_{n=1}^\infty nx^{n-1}</m> converges for
+          <m>|x|\lt 1</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          We know that <m>\displaystyle\sum_{k=0}^nx^k=\frac{x^{n+1}-1}{x-1}</m>.
+          Differentiate both sides and take the limit as <m>n</m>
+          approaches infinity.
+        </p>
+      </hint>
+    </problem>
+
+    <theorem xml:id="thm_SeriesConv-_DerivConv">
+
+      <idx><h>power series</h><h>term<ndash/>by<ndash/>term differentiation of</h></idx>
+
+      <statement>
+        <p>
+          
+          Suppose <m>\displaystyle\sum_{n=0}^\infty a_nx^n</m> has a radius of
+          convergence <m>r</m> and let <m>\abs{x}\lt r</m>.  Then
+          <m>\displaystyle\sum_{n=1}^\infty a_nnx^{n-1}</m> converges.
+        </p>
+      </statement>
+    </theorem>
+
+    <problem>
+      <idx><h>Problems</h><h>term by term derivative of power series</h></idx>
+      
+      <idx><h>power series</h><h>term<ndash/>by<ndash/>term differentiation of</h></idx>
+
+      <statement>
+        <p>
+          Prove <xref ref="thm_SeriesConv-_DerivConv"></xref>. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Let <m>b</m> be a number with <m>\abs{x}\lt b\lt r</m> and
+          consider 
+
+          <me>
+            \abs{a_nnx^{n-1}} =\abs{a_nb^n\cdot\frac{1}{b}\cdot
+            n\left(\frac{x}{b}\right)^{n-1}} 
+          </me>.
+
+          Now use the <xref ref="thm_ComparisonTest" text="custom">Comparison Test</xref> and <xref
+          ref="prob_PwrSeriesDiffConv"></xref>.
+        </p>
+      </hint>
+    </problem>
+  </section>
+
+
+
+
+  <section xml:id="PowerSeriesRedux-AbelsThm">
+    <title>Boundary Issues and Abel<rsq/>s Theorem</title>
+    <p>
+      Summarizing our results, we see that any power series <m>\sum
+      a_nx^n</m> has a radius of convergence <m>r</m> such that
+      <m>\sum a_nx^n</m> converges absolutely when <m>\abs{x}\lt r</m> and
+      diverges when <m>\abs{x}>r</m>.  Furthermore, the convergence is
+      uniform on any closed interval <m>[-b,b]\subset(-r,r)</m> which
+      tells us that whatever the power series converges to must be a
+      continuous function on <m>(-r,r)</m>.  Lastly, if
+      <m>f(x)=\displaystyle\sum_{n=0}^\infty a_nx^n</m> for <m>x\in(-r,r)</m>, then
+      <m>f^\prime(x)=\displaystyle\sum_{n=1}^\infty a_nnx^{n-1}</m> for
+      <m>x\in(-r,r)</m> and <m>\int_{t=0}^xf(t)\dx{ t} =
+      \displaystyle\sum_{n=0}^\infty a_n\frac{x^{n+1}}{n+1}</m> for
+      <m>x\in(-r,r)</m>.
+    </p>
+
+    <p>
+      Thus power series are very well behaved within their interval of
+      convergence, and our cavalier approach from <xref
+      ref="CalcIn17th18thCentury"></xref> is justified,
+      <alert>EXCEPT</alert> for one issue.  If you go back to <xref
+      ref="PROBLEMResultsFromGeometricSeries"></xref> of <xref
+      ref="CalcIn17th18thCentury"></xref>, you see that we used
+      the geometric series to obtain the series, <m>\arctan x
+      =\displaystyle\sum_{n=0}^\infty(-1)^n\frac{1}{2n+1}x^{2n+1}</m>.  We
+      substituted <m>x=1</m> into this to obtain
+      <m>\frac{\pi}{4}=\displaystyle\sum_{n=0}^\infty(-1)^n\frac{1}{2n+1}</m>.
+      Unfortunately, our integration was only guaranteed on a closed
+      subinterval of the interval <m>(-1,1)</m> where the convergence
+      was uniform and we substituted in <m>x=1</m>.  We <q>danced on
+      the boundary</q> in other places as well, including when we said
+      that
+      <me>
+        \frac{\pi}{4}=\int_{x=0}^1\sqrt{1-x^2}\dx{x}=1+\displaystyle\sum_{n=1}^\infty\left(\frac{\prod_{j=0}^{n-1}\left(\frac{1}{2}-j\right)}{n!}\text{ } \right)\left(\frac{\left(-1\right)^n}{2n+1}\right)
+        </me>.
+    </p>
+
+    <p>
+      The fact is that for a power series <m>\sum a_nx^n</m> with
+      radius of convergence <m>r</m>, we know what happens when
+      <m>\abs{x}\lt r</m> and when <m>\abs{x}>r</m>. But we<rsq/>ve never talked
+      about what happens when <m>\abs{x}=r</m>.  That is because there is
+      no systematic approach to this boundary problem.  For example,
+      consider the three series
+      <me>
+        \sum_{n=0}^\infty x^n,\sum_{n=0}^\infty\frac{x^{n+1}}{n+1}, \sum_{n=0}^\infty\frac{x^{n+2}}{(n+1)(n+2)}
+        </me>.
+    </p>
+
+    <p>
+      They are all related in that we started with the geometric
+      series and integrated twice, thus they all have radius of
+      convergence equal to 1.  Their behavior on the boundary, i.e.,
+      when <m>x=\pm 1</m>, is another story.  The first series
+      diverges when <m>x=\pm 1</m>, the third series converges when
+      <m>x=\pm 1</m>.  The second series converges when <m>x=-1</m>
+      and diverges when <m>x=1</m>.
+    </p>
+
+    <p>
+      Even with the unpredictability of a power series at the
+      endpoints of its interval of convergence, the
+      Weierstrass-<m>M</m> test does give us some hope of uniform
+      convergence.
+    </p>
+
+    <problem>
+      <idx><h>Problems</h><h>Weierstrass<ndash/><m>M</m> Test and power series</h></idx>
+      
+      <idx><h>power series</h><h>Weierstrass<ndash/><m>M</m> Test and</h></idx>
+      <idx><h>power series</h><h> converge uniformly inside their radius of convergence</h></idx>
+
+      <statement>
+        <p>
+          Suppose the power series <m>\sum a_nx^n</m> has radius of
+          convergence <m>r</m> and the series <m>\sum a_nr^n</m>
+          converges absolutely.  Then <m>\sum a_nx^n</m> converges
+          uniformly on <m>[-r,r]</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          For <m>\abs{x}\leq r</m>, <m>|a_nx^n|\leq |a_nr^n|</m>.
+        </p>
+      </hint>
+    </problem>
+
+    <p>
+      Unfortunately, this result doesn<rsq/>t apply to the integrals we
+      mentioned as the convergence at the endpoints is not absolute.
+      Nonetheless, the integrations we performed in <xref
+      ref="CalcIn17th18thCentury"></xref> are still legitimate.
+      This is due to the following theorem by Abel which extends
+      uniform convergence to the endpoints of the interval of
+      convergence even if the convergence at an endpoint is only
+      conditional.  Abel did not use the term uniform convergence, as
+      it hadn<rsq/>t been defined yet, but the ideas involved are his.
+    </p>
+
+    <theorem xml:id="AbelsTheorem">
+      <title>Abel<rsq/>s Theorem</title>
+
+      <idx><h>Abel, Niels Henrik</h><h>Abel<rsq/>s Theorem</h></idx>
+
+      <statement>
+        <p>
+          Suppose the power series <m>\sum a_nx^n</m> has radius of
+          convergence <m>r</m> and the series <m>\sum a_nr^n</m>
+          converges.  Then <m>\sum a_nx^n</m> converges uniformly on
+          <m>[0, r]</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      The proof of this is not intuitive, but involves a clever
+      technique known as <xref ref="lemma_AbelsPartialSummationFormula" text="custom">Abel<rsq/>s Partial Summation Formula</xref>.
+    </p>
+
+    <lemma xml:id="lemma_AbelsPartialSummationFormula">
+      <title>
+        Abel<rsq/>s Partial Summation Formula
+      </title>
+      <statement>
+        <p>
+          Let
+          <me>
+            a_1,a_2,\,\ldots,\,a_n,\,b_1,b_2,\,\ldots\,,\,b_n
+          </me>
+          be real numbers and let <m>A_m=\displaystyle\sum_{k=1}^ma_k</m>.  Then
+          <me>
+            a_1b_1+a_2b_2+\cdots+a_nb_n=\sum_{j=1}^{n-1}A_j\left(b_j-b_{j+1}\text{ } \right)+A_nb_n
+            </me>.
+        </p>
+      </statement>
+    </lemma>
+
+    <problem>
+      <idx><h>Problems</h><h>Abel<rsq/>s Partial Summation Formula</h></idx>
+      
+      <idx><h>Abel, Niels Henrik</h><h>Abel<rsq/>s Partial Summation Formula</h></idx>
+
+      <statement>
+        <p>
+          Prove <xref ref="lemma_AbelsPartialSummationFormula"></xref>. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          For <m>j>1</m>, <m>a_j=A_j-A_{j-1}</m>.
+        </p>
+
+      </hint>
+    </problem>
+
+    <lemma xml:id="lemma_AbelsLemma">
+      <title>
+        Abel<rsq/>s Lemma
+      </title>
+      <statement>
+        <p>
+          Let <m>a_1,a_2,\,\ldots,\,a_n,\,b_1,b_2,\,\ldots\,,\,b_n</m>
+          be real numbers with <m>\,b_1\geq
+          b_2\geq\,\ldots\geq\,b_n\geq 0</m> and let
+          <m>A_m=\displaystyle\sum_{k=1}^ma_k</m>.  Suppose <m>|A_m|\leq B</m> for
+          all <m>m</m>.  Then <m>\displaystyle\abs{\sum_{j=1}^na_jb_j}\leq B\cdot
+          b_1</m>.
+        </p>
+      </statement>
+    </lemma>
+
+    <problem>
+      <idx><h>Problems</h><h>Abel<rsq/>s Lemma</h></idx>
+
+      <idx><h>Abel, Niels Henrik</h><h>Abel<rsq/>s Lemma</h></idx>
+
+      <statement>
+        <p>
+          Prove <xref ref="lemma_AbelsLemma" text="custom">Abel<rsq/>s Lemma</xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h>Abel<rsq/>s Theorem</h></idx>
+      
+      <idx><h>Abel, Niels Henrik</h><h>Abel<rsq/>s Theorem</h></idx>
+
+      <statement>
+        <p>
+          Prove <xref ref="AbelsTheorem" text="custom">Abel<rsq/>s Theorem</xref>. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Let <m>\eps\gt0</m>.  Since <m>\displaystyle{}\sum_{n=0}^\infty
+          a_nr^n</m> converges then by the Cauchy Criterion, there
+          exists <m>N</m> such that if <m>m>n>N</m> then
+          <m>\abs{\displaystyle \sum_{k=n+1}^ma_kr^k}\lt \frac{\eps }{2}</m>. Let
+          <m>0\leq x\leq r</m>.
+          
+          By <xref ref="lemma_AbelsLemma" text="custom">Abel<rsq/>s Lemma</xref>,
+          <me>
+            \abs{\sum_{k=n+1}^ma_kx^k}=\abs{\sum_{k=n+1}^ma_kr^k\left(\frac{x}{r}\right)^k}\leq \left(\frac{\eps }{2}\right)\left(\frac{x}{r}\right)^{n+1}\leq\frac{\epsilon}{2}
+            </me>.
+        </p>
+        <p>
+          Thus for <m>0\leq x\leq r</m>, <m>n>N</m>,
+          <me>
+            \abs{\sum_{k=n+1}^\infty
+            a_kx^k}=\limit{m}{\infty}{\abs{\sum_{k=n+1}^ma_kx^k}}\leq\frac{\eps }{2}\lt \epsilon.\rbrack{}
+          </me>
+        </p>
+      </hint>
+    </problem>
+
+    <corollary xml:id="cor_PowerSeriesConvUnif">
+      <statement>
+        <p>
+          Suppose the power series <m>\sum a_nx^n</m> has radius of
+          convergence <m>r</m> and the series <m>\sum
+          a_n\left(-r\right)^n</m> converges.  Then <m>\sum a_nx^n</m>
+          converges uniformly on <m>[-r,0]</m>.
+        </p>
+      </statement>
+    </corollary>
+
+    <problem>
+      <idx><h>Problems</h><h>uniform convergence of power series</h></idx>
+      
+      <idx><h>power series</h><h>uniform convergence of</h></idx>
+      <idx><h>uniform convergence</h><h>power series and</h></idx>
+      <idx><h>uniform convergence</h><h>of power series at the endpoints of the interval of convergence</h></idx>
+
+      <statement>
+        <p>
+          Prove <xref ref="cor_PowerSeriesConvUnif"></xref>. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Apply <xref ref="AbelsTheorem" text="custom">Abel<rsq/>s Theorem</xref> to  <m>\sum
+          a_n\left(-x\right)^n=\sum (-1)^na_nx^n</m>.
+        </p>
+      </hint>
+    </problem>
+  </section>
+
+
+</chapter>
+

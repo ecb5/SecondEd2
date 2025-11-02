@@ -1,0 +1,1058 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="LimDerivIntFTC">
+  <title>Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</title>
+
+  <introduction>
+    <title>Why Now?</title>
+    <p>
+      Up until this point, we refrained from giving a rigorous account
+      of limits, derivatives, and integrals.  We (the authors)
+      consciously made this choice not because it is more historically
+      accurate (though it is), but because we didn't want you to be
+      too overwhelmed by this as you were learning how to <q>play the
+      game</q> of analysis with epsilons and deltas.  As we said
+      before, these definitions were never meant to be intuitive but
+      were rigorous.  We did bend the rules a bit by relying on your
+      intuitive understanding of derivatives and integrals from
+      calculus to accomplish our goal of deriving the remainders for
+      Taylor series.  Furthermore, proving the IVT and EVT did not
+      require them at all, only an understanding of convergence of
+      sequences, continuity, and the completeness of the real number
+      system.  Now we want to go back and make those ideas from
+      calculus rigorous themselves.
+    </p>
+  </introduction>
+
+  <section xml:id="Continuity-DefLimit"> 
+    <title> The Definition of the Limit of a Function </title>
+    <p>
+      Since these days the limit concept is generally regarded as the
+      starting point for calculus, you might think it is a little
+      strange that we've chosen to talk about continuity first.  But
+      historically, the formal definition of a limit came after the
+      formal definition of continuity.  In some ways, the limit
+      concept was part of a unification of all the ideas of calculus
+      that were studied previously and, subsequently, it became the
+      basis for all ideas in calculus.  For this reason it is logical
+      to make it the first topic covered in a calculus course.
+    </p>
+    <p>
+      To be sure, limits
+      were always lurking in the background.  In his attempts to
+      justify his calculations, Newton <idx><h>Newton, Isaac</h></idx>
+      used what he called his doctrine of <q>Ultimate Ratios.</q>
+      Specifically the ratio <m>\frac{(x+h)^2-x^2}{h} =
+      \frac{2xh+h^2}{h} = 2x+h</m> becomes the ultimate ratio
+      <m>2x</m> at the last instant of time before <m>h</m> - an
+      <q>evanescent quantity</q> - vanishes<nbsp />(<xref
+      ref="grabiner81__origin_cauch_rigor_calculy"/>, p. 33).
+      Similarly Leibniz's<idx><h>Leibniz, Gottfried Wilhelm</h></idx>
+      <q>infinitely small</q> differentials <m>\dx{ x}</m> and <m>\dx{
+      y}</m> can be seen as an attempt to get <q>arbitrarily close</q>
+      to <m>x</m> and <m>y</m>, respectively.  This is the idea at the
+      heart of calculus: to get arbitrarily close to, say, <m>x</m>
+      without actually reaching it.  
+    </p> 
+    <p> 
+      As we saw in <xref
+      ref="PowerSeriesQuestions">Chapter</xref>, Lagrange
+      <idx><h>Lagrange, Joseph-Louis</h></idx> tried to avoid the
+      entire issue of <q>arbitrary closesness,</q> both in the limit
+      and differential forms when, in 1797, he attempted to found
+      calculus on infinite series.  
+    </p> 
+    <p> 
+      <idx><h>Lagrange,
+      Joseph-Louis</h></idx> Although Lagrange's efforts failed, they
+      set the stage for Cauchy <idx><h>Cauchy, Augustin</h></idx> to
+      provide a definition of derivative which in turn relied on his
+      precise formulation of a limit.  Consider the following example:
+      to determine the slope of the tangent line (derivative) of
+      <m>f(x) = \sin x</m> at <m>x=0</m>.  We consider the graph of
+      the difference quotient <m>D(x) =\frac{\sin x }{x}</m>.  
+    </p>
+
+    <image width="56%" source="images/SinGraph.png" /> 
+
+    <p> 
+      From the
+      graph, it appears that <m>D(0) =1</m> but we must be careful.
+      <m>D(0)</m> doesn't even exist!  Somehow we must convey the idea
+      that <m>D(x)</m> will approach <m>1</m> as <m>x</m> approaches
+      <m>0</m>, even though the function is not defined at <m>0</m>.
+      Cauchy's idea was that the limit of <m>D(x)</m> would equal
+      <m>1</m> because we can make <m>D(x)</m> differ from 1 by as
+      little as we wish <nbsp/>(<xref ref="jahnke03__histor_analy"/>,
+      p. 158).  
+    </p> 
+    <p> 
+      <idx><h>Weierstrass, Karl</h></idx> Karl
+      Weierstrass made these ideas precise in his lectures on analysis
+      at the University of Berlin (1859-60) and provided us with our
+      modern formulation.  
+    </p>
+
+    <definition xml:id="def_limit">
+      <title>Limit</title> <idx><h>limit</h></idx> 
+      <statement> 
+        <p> 
+          We
+          say <m>\limit{x}{a}{f(x)} =L</m> provided that for each
+          <m>\eps>0</m>, there exists <m>\delta>0</m> such that if <m>0\lt
+          \abs{x-a}\lt \delta</m> then <m>\abs{f(x)-L}\lt \eps</m>.  
+        </p>
+      </statement> 
+    </definition> 
+    <p> 
+      Before we delve into this, notice
+      that it is very similar to the definition of the continuity of
+      <m>f(x)</m> at <m>x=a</m>.  In fact we can readily see that <m>f
+      \text{ is continuous at } x=a \text{ if and only if }
+      \limit{x}{a}{f(x)} = f(a)</m>.  
+    </p> 
+    <aside>
+      <title>Comment</title> 
+      <p>
+        This presumes that <m>a</m> is an
+        <term>accumulation point</term> of the domain of <m>f</m> (<xref
+        ref="def_accumulation-point">Definition</xref>).  We will
+        discuss accumulation points in <xref
+        ref="BackToFourier">Chapter</xref>.  
+      </p> 
+    </aside> 
+    <p> 
+      There are
+      two differences between this definition and the definition of
+      continuity and they are related.  The first is that we replace
+      the value <m>f(a)</m> with <m>L</m>.  This is because the
+      function may not be defined at <m>a</m>.  In a sense the
+      limiting value <m>L</m> is the value <m>f</m> would have <em>if
+      it were defined and continuous at <m>a</m>.</em> The second is
+      that we have replaced <me> \abs{x-a}\lt \delta </me> with <me>
+      0\lt \abs{x-a}\lt \delta </me>.  
+    </p>
+    <p>
+      Again, since <m>f</m>
+      needn't be defined at <m>a</m>, we will not even consider what
+      happens when <m>x=a</m>.  This is the only purpose for this
+      change.  
+    </p> 
+    <p>
+      As with the definition of the limit of a
+      sequence, this definition does not determine what <m>L</m> is,
+      it only verifies that your guess for the value of the limit is
+      correct.  
+    </p> 
+    <p> 
+      Finally, a few comments on the differences
+      and similiarities between this limit and the limit of a sequence
+      are in order, if for no other reason than because we use the
+      same notation (<m>\lim</m>) for both.  
+    </p> 
+    <p> 
+      When we were
+      working with sequences in <xref ref="Convergence">Chapter</xref>
+      and wrote things like <m>\limit{n}{\infty}{a_n}</m> we were
+      thinking of <m>n</m> as an integer that got bigger and bigger.
+      To put that more mathematically, the limit parameter <m>n</m>
+      was taken from the set of positive integers, or <m>n\in \NN</m>.
+    </p> 
+    <p> 
+      For both continuity and the limit of a function we
+      write things like <m>\limit{x}{a}{f(x)}</m> and think of
+      <m>x</m> as a variable that gets arbitrarily close to the number
+      <m>a</m>.  Again, to be more mathematical in our language we
+      would say that the limit parameter <m>x</m> is taken from the
+      <m>\ldots</m> Well, actually, this is interesting isn't it?  Do
+      we need to take <m>x</m> from <m>\QQ</m> or from <m>\RR?</m> The
+      requirement in both cases is simply that we be able to choose
+      <m>x</m> arbitrarily close to <m>a</m>.  From <xref
+      ref="thm_IrrationalBetweenIrrationals">Theorem</xref> of <xref
+      ref="NumbersRealRational">Chapter</xref> we see that this is
+      possible whether <m>x</m> is rational or not, so it seems either
+      will work.  This leads to the pardoxical sounding conclusion
+      that we do not need a continuum (<m>\RR</m>) to have continuity.
+      This seems strange.  
+    </p> 
+    <p>
+      Before we look at the above
+      example, let's look at some algebraic examples to see the
+      definition in use.  
+    </p>
+    <example>
+      <statement>
+        <p> Consider the
+        function <m>D(x)=\frac{x^2-1}{x-1}</m>, <m>x\neq 1</m>.  You
+        probably recognize this as the difference quotient used to
+        compute the derivative of <m>f(x)=x^2</m> at <m>x=1</m>, so we
+        strongly suspect that <m>\limit{x}{1}{\frac{x^2-1}{x-1}}=2</m>.
+        Just as when we were dealing with limits of sequences, we should
+        be able to use the definition to verify this.  And as before, we
+        will start with some scrapwork.  
+        </p> 
+        <p> 
+          <term>SCRAPWORK</term>
+        </p>
+        <p>
+          Let <m>\eps>0</m>.  We wish to find a <m>\delta>0</m>
+          such that if <m>0\lt \abs{x-1}\lt \delta</m> then
+          <m>\abs{\frac{x^2-1}{x-1}-2}\lt \eps</m>.  With this in mind, we
+          perform the following calculations <me>
+          \abs{\frac{x^2-1}{x-1}-2}=\abs{(x+1)-2} = \abs{x-1} </me>.  
+        </p>
+        <p>
+          Now we have a handle on <m>\delta</m> that will work in the
+          definition and we'll give the formal proof that <me>
+          \limit{x}{1}{\frac{x^2-1}{x-1}}=2 </me>.  
+        </p> 
+      </statement>
+    </example>
+    <proof> 
+      <p>
+        Let <m>\eps>0</m> and let <m>\delta=\eps</m>.  If <m>0\lt
+        \abs{x-1}\lt \delta</m>, then <me>
+        \abs{\frac{x^2-1}{x-1}-2}=\abs{(x+1)-2}=\abs{x-1}\lt
+        \delta=\eps </me>.
+      </p>
+    </proof> 
+    <p> 
+      As in our previous work with sequences and continuity, notice
+      that the scrapwork is not part of the formal proof (though it
+      was necessary to determine an appropriate <m>\delta)</m>.  Also,
+      notice that <m>0\lt \abs{x-1}</m> was not really used except to
+      ensure that <m>x\neq 1</m>.
+    </p> 
+    <problem>
+      <idx><h>limit</h><h><m>\limit{x}{a}{\frac{x^2-a^2}{x-a}}=2a</m></h></idx>
+      <statement> 
+        <p>
+          Use the definition of a limit to verify that
+          <me> \limit{x}{a}{\frac{x^2-a^2}{x-a}}=2a.{} </me> 
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <idx><h>limit</h><h>verifying
+      limits via continuity</h></idx>
+      <introduction>
+        <p> 
+          Use the
+          definition of a limit to verify each of the following limits.
+        </p>
+      </introduction>
+      <task> 
+        <statement>
+          <p>
+            <m>\limit{x}{1}{\frac{x^3-1}{x-1}}=3</m> 
+          </p> 
+        </statement>
+        <hint>
+          <p> 
+            <md>
+              <mrow> 
+                \abs{\frac{x^3-1}{x-1}-3} \amp =
+                \abs{x^2+x+1-3} 
+              </mrow> 
+              <mrow>\amp \leq\abs{x^2-1}+\abs{x-1}
+              
+              </mrow> 
+              <mrow> \amp =\abs{(x-1+1)^2-1}+\abs{x-1} 
+              </mrow> 
+              <mrow>
+                \amp =\abs{(x-1)^2+2(x-1)}+\abs{x-1} 
+              </mrow> 
+              <mrow>\amp
+              \leq\abs{x-1}^2 + 3\abs{x-1} 
+              </mrow> 
+              </md>.  
+          </p> 
+        </hint>
+      </task> 
+      <task>
+        <statement> 
+          <p>
+            <m>\limit{x}{1}{\frac{\sqrt{x}-1}{x-1}}=1/2</m> 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            <md>
+              <mrow>
+                \abs{\frac{\sqrt{x}-1}{x-1}-\frac12}\amp =
+                \abs{\frac{1}{\sqrt{x}+1}-\frac12} 
+              </mrow> 
+              <mrow> 
+                \amp
+                =\abs{\frac{2-\left(\sqrt{x}+1\right)}{2\left(\sqrt{x}+1\right)}}
+              </mrow> 
+              <mrow> 
+                \amp
+                =\abs{\frac{1-x}{2\left(1+\sqrt{x}\right)^2}} 
+              </mrow> 
+              <mrow>
+                \amp \leq\frac12\abs{x-1}.  
+              </mrow> 
+            </md> 
+          </p> 
+        </hint> 
+      </task>
+    </problem> 
+    <p> 
+      Let's go back to the original problem: to show
+      that <m>\limit{x}{0}{\textstyle\frac{\sin x}{x}}=1</m>.  
+    </p>
+    <p> 
+      While rigorous, our definition of continuity is quite
+      cumbersome.  We really need to develop some tools we can use to
+      show continuity rigorously without having to refer directly to
+      the definition.  We have already seen in <xref
+      ref="thm_LimDefOfContinuity">Theorem</xref> one way to do this.
+      Here is another.  The key is the observation we made after the
+      definition of a limit: <me> f \text{ is continuous at } x=a
+      \text{ if and only if } \limit{x}{a}{f(x)}=f(a) </me>.  
+    </p> 
+    <p>
+      Read another way, we could say that <m>\limit{x}{a}{f(x)}=L</m>
+      provided that if we redefine <m>f(a)=L</m> (or define
+      <m>f(a)=L</m> in the case where <m>f(a)</m> is not defined) then
+      <m>f</m> becomes continuous at <m>a</m>.  This allows us to use
+      all of the machinery we proved about continuous functions and
+      limits of sequences.  
+    </p> 
+    <p> 
+      For example, the following
+      corollary to <xref ref="thm_LimDefOfContinuity">Theorem</xref>
+      comes virtually for free once we've made the observation above.
+    </p> 
+    <corollary xml:id="cor_limit-by-sequences"> 
+      <statement> 
+        <p>
+          <m>\limit{x}{a}{f(x)}=L</m> if and only if <m>f</m> satisfies
+          the following property: <me> \forall \text{ sequences } (x_n),
+          x_n\ne a, \text{ if } \limit{n}{\infty}{x_n}=a \text{ then }
+          \limit{n}{\infty}{f(x_n)}=L. {} </me> 
+        </p> 
+      </statement>
+    </corollary> 
+    <p> 
+      Armed with this, we can prove the following
+      familiar limit theorems from calculus.  
+    </p> 
+    <theorem xml:id="thm_CalcLimits"> 
+      <statement> 
+        <p>
+          <idx><h>limit</h><h>properties of</h></idx> Suppose
+          <m>\limit{x}{a}{f(x)}=L</m> and <m>\limit{x}{a}{g(x)}=M</m>,
+          then 
+          <ol marker="a"> 
+            <li> 
+              <p>
+                <m>\limit{x}{a}{\left(f(x)+g(x)\right)}=L+M</m> 
+              </p> 
+            </li> 
+            <li>
+              <p>
+                <m>\limit{x}{a}{\left(f(x)\cdot g(x)\right)}=L\cdot M</m>
+              </p>
+            </li> 
+            <li>
+              <p>
+                <m>\limit{x}{a}{\left(\frac{f(x)}{g(x)}\right)}=L/M</m> provided
+                <m>M\ne0</m> and <m>g(x)\ne{}0</m>, for <m>x</m> sufficiently
+                close to a (but not equal to <m>a</m>).  
+              </p> 
+            </li> 
+          </ol> 
+        </p>
+      </statement> 
+    </theorem> 
+    <p> 
+      We will prove part (a) to give you a
+      feel for this and let you prove parts (b) and (c).  
+    </p> 
+    <proof>
+      <p> 
+        Let <m>\left(x_n\right)</m> be a sequence such that
+        <m>x_n\ne a</m> and <m>\limit{n}{\infty}{x_n}=a</m>.  Since
+        <m>\limit{x}{a}{f(x)} = L</m> and <m>\limit{x}{a}{g(x)} = M</m>
+        we see that <m>\limit{n}{\infty}{f(x_n)} = L</m> and
+        <m>\limit{n}{\infty}{g(x_n)} = M</m>.  By <xref
+        ref="thm_SumOfSequences">Theorem</xref> of <xref
+        ref="Convergence">Chapter</xref>, we have
+        <m>\limit{n}{\infty}{f(x_n)+g(x_n)}=L+M</m>.  Since
+        <m>\left\{x_n\right\}</m> was an arbitrary sequence with
+        <m>x_n\ne a</m> and <m>\limit{n}{\infty}{x_n} = a</m> we have
+        <me> \limit{x}{a}{f(x)+g(x)} = L+M </me>.  
+      </p> 
+    </proof>
+
+    <problem> 
+      <statement> 
+        <p> 
+          <idx><h>limit</h><h>properties
+          of</h></idx> <idx><h>limit</h><h>verify limit laws from
+          calculus</h></idx> Prove parts (b) and (c) of <xref
+          ref="thm_CalcLimits">Theorem</xref>.  
+        </p> 
+      </statement>
+    </problem> 
+    <p> 
+      More in line with our current needs, we have a
+      reformulation of the Squeeze Theorem.  
+    </p> 
+    <theorem xml:id="thm_SqueezeTheoremFunctions"> 
+      <statement>
+        <p>
+          <alert>Squeeze Theorem for functions</alert> 
+        </p> 
+        <p>
+          <idx><h>Squeeze Theorem</h><h>for functions</h></idx> Suppose
+          <m>f(x)\le g(x) \le h(x)</m>, for <m>x</m> sufficiently close to
+          <m>a</m> (but not equal to <m>a</m>).  If
+          <m>\limit{x}{a}{f(x)}=L=\limit{x}{a}{h(x)}</m>, then
+          <m>\limit{x}{a}{g(x)}=L</m> also.  
+        </p> 
+      </statement> 
+    </theorem>
+
+    <problem> 
+      <statement> 
+        <p>
+          <idx><h>Squeeze Theorem</h><h>for
+          functions</h></idx> Prove <xref
+          ref="thm_SqueezeTheoremFunctions">Theorem</xref>.  
+        </p>
+      </statement>
+      <hint> 
+        <p> Use <xref
+        ref="thm_SqueezeTheorem">Theorem</xref>, the Squeeze Theorem for
+        sequences from <xref ref="Convergence">Chapter</xref>.  
+        </p>
+      </hint> 
+    </problem> 
+    <p> 
+      Returning to <m>\limit{x}{0}{\frac{\sin
+      x}{x}}</m> we'll see that the Squeeze Theorem is just what we
+      need.  First notice that since <m>D(x)=\sin x/x</m> is an even
+      function, we only need to focus on <m>x>0</m> in our
+      inequalities.  Consider the unit circle.  
+    </p>
+
+    <image
+        width="60%" source="images/UnitCircle.png" /> 
+    <problem>
+      <idx><h>limit</h><h><m>\limit{x}{0}{\textstyle\frac{\sin
+      x}{x}}=1</m></h></idx> 
+      <statement> 
+        <p>
+          Use the fact that <me>
+          \text{ area } (\Delta OAC)\lt \text{ area } (\text{ sector }
+          OAC)\lt \text{ area } (\Delta OAB) </me> to show that if <m>0\lt
+          x\lt \pi/2</m>, then <m>\cos x\lt \sin x/x\lt 1</m>.  Use the
+          fact that all of these functions are even to extend the
+          inequality for <m>-\pi/2\lt x\lt 0</m> and use the Squeeze
+          Theorem to show <m>\limit{x}{0}{\textstyle\frac{\sin
+          x}{x}}=1</m>.  
+        </p>
+      </statement>
+    </problem> 
+
+    <problem xml:id="PROBLEMBasicLimits">
+      <introduction>
+        <p>
+          Suppose <m>\limit{x}{a}{ f(x)}=L</m>.  
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Prove that if <m>L\gt0</m>,
+            then there exists a <m>\delta >0</m>, such that if
+            <m>0\lt\left|x-a\right|\lt\delta </m>, then
+            <m>f\left(x\right)>0</m>.  
+          </p>
+        </statement>
+        <hint>
+          <p> 
+            Let
+            <m>\epsilon =\frac{L}{2}</m>.  
+          </p> 
+        </hint> 
+      </task> 
+      <task>
+        <statement> 
+          <p> 
+            Prove that if <m>L\lt0</m>, then there exists a
+            <m>\delta >0</m>, such that if <m>0\lt\left|x-a\right|\lt\delta
+            </m>, then <m>f\left(x\right)\lt0</m>.  
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Consider <m>-f(x)</m>.  
+          </p> 
+        </hint>
+      </task> 
+      <task>
+        <statement>
+          <p>
+            Notice that if <m>\limit{x}{a}{f(x)}=L</m>, then the contrapositive of part (a) says that
+            if for each <m>\delta >0</m>, there is an <m>x</m> with
+            <m>0\lt\left|x-a\right|\lt\delta </m> and <m>f\left(x\right)\le
+            0</m>, then <m>L\le 0</m>.  
+          </p> 
+          <p> 
+            What would the
+            contrapositive of part (b) say?  
+          </p> 
+        </statement> 
+      </task>
+    </problem> 
+
+    <definition xml:id="DEFINITIONNear">
+      <title>Near</title> 
+      <statement> 
+        <p>
+          We say that a function
+          <m>f(x)</m> has a property for <m>x</m> near <m>a</m>, if there
+          exists a <m>{\delta }_0>0</m> such that <m>f(x)</m> has that
+          property for all <m>x</m> with <m>0\lt\left|x-a\right|\lt{\delta
+          }_0</m>
+
+        </p>
+
+      </statement>
+
+    </definition>
+
+<problem>
+  <introduction>
+
+<p>
+
+    Prove that the following is also a consequence of <xref
+    ref="PROBLEMBasicLimits"></xref>.  Suppose
+    <m>\limit{x}{a}{f(x)}=L</m>.
+
+</p>
+</introduction>
+<task>
+  <statement>
+
+<p>
+    If <m>f\left(x\right)\le 0</m> for <m>x</m> near <m>a</m>, then <m>L\le 0</m>.
+</p>
+
+</statement>
+</task>
+<task>
+  <statement>
+
+<p>
+    If <m>f\left(x\right)\ge 0</m> for <m>x</m> near <m>a</m>, then <m>L\ge 0</m>.
+</p>
+
+</statement>
+</task>
+</problem>
+  </section>
+
+
+
+
+  <section  xml:id="Continuity-DerivativeAfterthought">
+    <title>The Derivative, An Afterthought</title>
+    <p>
+      No, the derivative isn't really an afterthought.  Along with the
+      integral it is, in fact, one of the most powerful and useful
+      mathematical objects ever devised and we've been working very hard to
+      provide a solid, rigorous foundation for it.  In that sense it is a
+      primary focus of our investigations.  
+    </p>
+
+    <p>
+      On the other hand, now that we have built up all of the
+      machinery we need to define and explore the concept of the derivative
+      it will appear rather pedestrian alongside ideas like the convergence
+      of power series, Fourier series, and the bizarre properties of
+      <m>\QQ</m> and <m>\RR</m>.  
+    </p>
+
+    <p>
+      You spent an entire semester learning about the properties of
+      the derivative and how to use them to explore the properties of
+      functions so we will not repeat that effort here.  Instead we will
+      define it formally in terms of the ideas and techniques we've
+      developed thus far.  
+    </p>
+
+    <definition xml:id="def_derivative"><title>The Derivative</title>
+    <idx><h>differentiation</h><h>definition of the derivative</h></idx>
+    <statement>
+      <p>
+        Given a function <m>f(x)</m> defined on an interval
+        <m>(a,b)</m> we define <me> f^\prime(x) =
+        \limit{h}{0}{\frac{f(x+h)-f(x)}{h}}.{} </me> 
+      </p>
+    </statement>
+  </definition>
+
+  <p> 
+    There are a few fairly obvious facts about this definition which
+    are nevertheless worth noticing explicitly: 
+  </p> 
+  <p> 
+    <ol> 
+      <li>
+        <p> 
+          The derivative is <em>defined at a point.</em> If it is
+          defined at every point in an interval <m>(a,b)</m> then
+          we say that the derivative exists at every point on the
+          interval.
+        </p>
+      </li> 
+      <li> 
+        <p> 
+          Since it is defined at a point it is at least
+          theoretically possible for a function to be
+          differentiable at a single point in its entire domain.
+        </p>
+      </li>
+      <li> 
+        <p> 
+          Since it is defined as a limit and not all limits
+          exist, functions are not necessarily differentiable.
+        </p>
+      </li> 
+      <li> 
+        <p>
+          Since it is defined as a limit,
+          <xref ref="cor_limit-by-sequences">Corollary</xref>
+          applies.  That is, <m>f^\prime(x)</m> exists if and
+          only if <m>\forall \text{ sequences } (h_n),\, h_n\ne
+          0</m>, if <m>\limit{n}{\infty}{h_n}=0</m> then <me>
+          f^\prime{(x)} =
+          \limit{n}{\infty}{\frac{f(x+h_n)-f(x)}{h_n}} </me>.
+          Since <m>\limit{n}{\infty}{h_n}=0</m> this could also
+          be written as <me>f^\prime{(x)} =
+          \limit{h_n}{0}{\frac{f(x+h_n)-f(x)}{h_n}}</me>.  
+        </p>
+      </li> 
+    </ol>
+  </p>
+
+  <theorem xml:id="thm_DiffImpCont">
+    <idx><h>continuity</h><h>implied by differentiability</h></idx>
+    <idx><h>differentiation</h><h>differentiability implies
+    continuity</h></idx>
+
+    <statement> 
+      <p> 
+        <alert>Differentiability Implies Continuity</alert>
+      </p> 
+      <p> 
+        If <m>f</m> is differentiable at a point <m>c</m>
+        then <m>f</m> is continuous at <m>c</m> as well.
+      </p>
+    </statement> 
+  </theorem>
+
+  <problem> 
+    <idx><h>differentiation</h><h>differentiability implies
+    continuity</h></idx>
+
+    <statement> 
+      <p> 
+        Prove <xref ref="thm_DiffImpCont">Theorem</xref> 
+      </p>
+    </statement> 
+  </problem>
+
+  <p> 
+    As we mentioned, the derivative is an extraordinarily useful
+    mathematical tool but it is not our intention to learn to
+    <em>use</em> it here.  Our purpose here is to define it
+    rigorously (done) and to show that our formal definition does in
+    fact recover the useful properties you came to know and love in
+    your calculus course.
+  </p>
+
+  <p> 
+    The first such property is known as Fermat's Theorem.  
+  </p>
+
+  <theorem xml:id="thm_FermatsTheorem"> 
+    <title>Fermat's   Theorem</title> 
+<idx><h>Fermat's Theorem</h></idx> 
+
+<statement> 
+  <p>
+    Suppose <m>f</m> is differentiable in some interval <m>(a,b)</m>
+    containing <m>c</m>.  If <m>f(c)\ge f(x)</m> for every <m>x</m> in
+    <m>(a,b)</m>, then <m>f^\prime(c)=0</m>.
+</p> 
+</statement> 
+</theorem>
+
+<proof> 
+  <p> 
+    Since <m>f^\prime(c)</m> exists we know that if
+    <m>\left(h_n\right)_{n=1}^\infty</m> converges to zero then
+    the sequence <m>a_n =
+    \frac{f\left(c+h_n\right)-f(c)}{h_n}</m> converges to
+    <m>f^\prime(c)</m>.  The proof consists of showing that
+    <m>f^\prime(c)\leq 0</m> <em>and</em> that
+    <m>f^\prime(c)\geq 0</m> from which we conclude that
+    <m>f^\prime(c)= 0</m>.  We will only show the first part.
+    The second is left as an exercise.
+</p>
+
+<p> 
+  <em>Claim:</em> <m>f^\prime(c)\leq 0</m>.  
+</p>
+
+<p> 
+  Let <m>n_0</m> be sufficiently large that <m>\frac{1}{n_0}\lt
+  b-c</m> and take
+  <m>\left(h_n\right)=\left(\frac{1}{n}\right)_{n=n_0}^\infty</m>.
+  Then <m>f\left(c+\frac1n\right)-f(c) \leq 0</m> and
+  <m>\frac1n>0</m>, so that <me>
+  \frac{f\left(c+h_n\right)-f(c)}{h_n}\leq 0, \ \ \forall n=n_0,
+  n_0+1, \ldots </me>
+</p>
+
+<p> 
+  Therefore
+  <m>
+    f^\prime(c) =
+    \limit{h_n}{0}{\frac{f\left(c+h_n\right)-f(c)}{h_n}} \leq  0
+    </m> also.  
+</p> 
+</proof>
+
+<problem> 
+  <statement> 
+    <p> 
+      <idx><h>Fermat's Theorem</h><h>if <m>f(a)</m> is a maximum
+      then <m>f^\prime(a)=0</m></h></idx>
+      
+      Show that <m>f^\prime(c) \geq 0</m> and conclude that
+      <m>f^\prime(c) =0</m>.  
+    </p> 
+  </statement> 
+</problem>
+
+<problem> 
+  <statement> 
+    <p> 
+      <idx><h>Fermat's Theorem</h><h>if <m>f(a)</m> is a minimum
+      then <m>f^\prime(a)=0</m></h></idx>
+      
+      Show that if <m>f(c) \leq f(x)</m> for all <m>x</m> in
+      some interval <m>(a,b)</m> then <m>f^\prime(c) =0</m> too.
+    </p> 
+  </statement>
+</problem>
+
+<p> 
+  Many of the most important properties of the derivative follow
+  from what is called the Mean Value Theorem (<term>MVT</term>) which we
+  now state.
+</p>
+
+<theorem xml:id="thm_MVT"> 
+  <statement> 
+    <p> 
+      <term>The Mean Value Theorem</term>
+    </p> 
+    <p>
+      <idx><h>Mean
+      Value Theorem, the</h></idx> Suppose <m>f^\prime</m>
+      exists for every <m>x\in(a,b)</m> and <m>f</m> is
+      continuous on <m>[a,b]</m>.  Then there is a real number
+      <m>c\in(a,b)</m> such that <me>
+      f^\prime(c)=\frac{f(b)-f(a)}{b-a}.{} </me> 
+    </p>
+  </statement> 
+</theorem>
+
+<p> 
+  However, it would be difficult to prove the MVT right now.  So
+  we will first state and prove Rolle's Theorem, which can be seen as a
+  special case of the MVT. The proof of the MVT will then follow easily.
+</p>
+
+<p>
+  Michel Rolle first stated the following theorem in 1691.
+  Given this date and the nature of the theorem it would be reasonable
+  to suppose that Rolle was one of the early developers of calculus but
+  this is not so.  In fact, Rolle was disdainful of both Newton
+  <idx><h>Newton, Isaac</h></idx> and Leibniz's<idx><h>Leibniz,
+  Gottfried Wilhelm</h></idx> versions of calculus, once deriding them
+  as a collection of <q>ingenious fallacies.</q> It is a bit ironic that
+  his theorem is so fundamental to the modern development of the
+  calculus he ridiculed.  
+</p>
+
+<theorem xml:id="thm_Rolle_s_Theorem">
+  <title>Rolle's Theorem</title>
+  <idx><h>Rolle's Theorem</h></idx> 
+  
+  <statement> 
+    <p>
+      Suppose <m>f^\prime</m> exists for every <m>x\in(a,b)</m>,
+      <m>f</m> is continuous on <m>[a,b]</m>, and <me> f(a)=f(b) </me>.
+    </p>
+    
+    <p> 
+      Then there is a real number <m>c\in(a,b)</m> such that
+      <me> f^\prime(c)=0 </me>.  
+    </p> 
+  </statement>
+</theorem>
+
+<proof> 
+  <aside>
+    <title>Comment</title>
+    <p> 
+      Any proof that relies on the Extreme Value
+      Theorem is not complete until the EVT has been proved.  We'll get to
+      this in <xref ref="IVTandEVT">Chapter</xref>.  
+    </p> 
+  </aside>
+  <p> 
+    Since
+    <m>f</m> is continuous on <m>[a,b]</m> we see, by the Extreme Value
+    Theorem,<idx><h>Extreme Value Theorem (EVT)</h><h>Rolle's Theorem,
+    and</h></idx> that <m>f</m> has both a maximum and a minimum on
+    <m>[a,b]</m>.  Denote the maximum by <m>M</m> and the minimum by
+    <m>m</m>.  There are several cases:
+    
+    <dl> 
+      <li> 
+        <title>Case 1:</title>
+        <p>
+          <m>f(a)=f(b)=M=m</m>.  In
+          this case <m>f(x)</m> is constant (why?).  Therefore
+          <m>f^\prime(x)=0</m> for every <m>x\in(a,b)</m>.  
+        </p> 
+      </li>
+      
+      <li> 
+        <title>Case 2:</title> 
+        <p> 
+          <m>f(a)=f(b)=M\neq m</m>.
+          In this case there is a real number <m>c\in(a,b)</m> such that
+          <m>f(c)</m> is a local minimum.  By Fermat's Theorem,
+          <m>f^\prime(c)=0</m>.  
+        </p> 
+      </li>
+      
+      <li>
+        <title>Case 3:</title>
+        <p>
+          <m>f(a)=f(b)=m\neq M</m>.
+          In this case there is a real number <m>c\in(a,b)</m> such that
+          <m>f(c)</m> is a local maximum.  By Fermat's Theorem,
+          <m>f^\prime(c)=0</m>.
+        </p>
+      </li>
+      
+      <li>
+        <title>Case 4:</title> 
+        <p> 
+          <m>f(a)=f(b)</m> is neither a maximum nor a minimum.  In this
+          case there is a real number <m>c_1\in(a,b)</m> such that
+          <m>f(c_1)</m> is a local maximum, and a real number
+          <m>c_2\in(a,b)</m> such that <m>f(c_2)</m> is a local minimum.
+          By Fermat's Theorem, <m>f^\prime(c_1)=f^\prime(c_2)=0</m>.
+        </p> 
+      </li> 
+    </dl> 
+  </p> 
+</proof>
+
+<p>
+  With Rolle's Theorem in hand we can prove the MVT which is really a
+  corollary to Rolle's Theorem or, more precisely, it is a
+  generalization of Rolle's Theorem.  To prove it we only need to find
+  the right function to apply Rolle's Theorem to.  The following
+  figure shows a function, <m>f(x)</m>, cut by a secant line,
+  <m>L(x)</m>, from <m>(a, f(a))</m> to <m>(b,f(b))</m>.
+</p> 
+
+<image width="56%" source="images/MVT.png" /> 
+
+<p>
+  The vertical difference from <m>f(x)</m> to the secant line,
+  indicated by <m>\phi(x)</m> in the figure should do the trick.  You
+  take it from there.
+</p>
+
+<problem> 
+  <idx><h>Mean Value Theorem, the</h></idx> 
+  <statement> 
+    <p> 
+      Prove the Mean Value Theorem.  
+    </p> 
+  </statement>
+</problem>
+
+<p> 
+  The Mean Value Theorem is extraordinarily useful.  Almost all of
+  the properties of the derivative that you used in calculus follow
+  more or less easily from it.  For example the following is true.
+</p>
+
+<corollary xml:id="cor_PosDerivIncFunc1"> 
+  <statement> 
+    <p> 
+      If <m>f^\prime(x) > 0</m> for every <m>x</m> in the interval
+      <m>(a,b)</m> then for every <m>c,d\in(a,b)</m> where
+      <m>d>c</m> we have <me> f(d) > f(c) </me>.
+    </p>
+    
+    <p> 
+      That is, <m>f</m> is increasing on <m>(a,b)</m>. 
+    </p>
+  </statement> 
+</corollary>
+
+<proof> 
+  <p> 
+    Suppose <m>c</m> and <m>d</m> are as described in the corollary.
+    Then by the Mean Value Theorem there is some number, say
+    <m>\alpha\in(c,d)\subseteq(a,b)</m> such that <me>
+    f^\prime(\alpha)=\frac{f(d)-f(c)}{d-c} </me>.
+  </p>
+
+  <p>
+    Since <m>f^\prime(\alpha)>0</m> and <m>d-c>0</m> we have
+    <m>f(d)-f(c)>0</m>, or <m>f(d)>f(c)</m>.  
+  </p> 
+</proof>
+
+<problem> 
+  <statement> 
+    <p> 
+      <idx><h>differentiation</h><h>if <m>f^\prime\lt 0</m> on an
+      interval then <m>f</m> is decreasing</h></idx>
+      
+
+      Show that if <m>f^\prime(x) \lt 0</m> for every <m>x</m> in the
+      interval <m>(a,b)</m> then <m>f</m> is decreasing on
+      <m>(a,b)</m>.
+    </p> 
+  </statement>
+</problem>
+
+<corollary xml:id="cor_PosDerivIncFunc2"> 
+  <statement> 
+    <p>
+      Suppose <m>f</m> is differentiable on some interval
+      <m>(a,b)</m>, <m>f^\prime</m> is continuous on <m>(a,b)</m>,
+      and that <m>f^\prime(c)>0</m> for some <m>c\in (a,b)</m>.
+      Then there is an interval, <m>I\subset (a,b)</m>, containing
+      <m>c</m> such that for every <m>x, y</m> in <m>I</m> where
+      <m>x\ge y</m>, <m>f(x)\ge f(y)</m>.
+    </p> 
+  </statement> 
+</corollary>
+
+<problem> 
+  <statement> 
+    <p>
+      <idx><h>differentiation</h><h><m>f^\prime(a)>0</m> implies
+      <m>f</m> is increasing nearby</h></idx>
+
+      Prove <xref ref="cor_PosDerivIncFunc2">Corollary</xref>.  
+    </p>
+  </statement>
+</problem>
+
+<problem> 
+  <statement> 
+    <p> 
+      <idx> <h>differentiation</h>
+      <h><m>f^\prime(a)\lt 0</m> implies <m>f</m> is decreasing nearby</h>
+    </idx>
+
+    Suppose that  <m>f</m> is differentiable, and <m>f^\prime </m> is
+    continuous on some interval
+    <m>(a,b)</m>. If  <m>f^\prime(c)\lt 0</m> for some <m>c\in
+    (a,b)</m> then there is an interval, <m>I\subset (a,b)</m>,
+    containing <m>c</m> such that for every <m>x, y</m> in <m>I</m>
+    where <m>x\ge y</m>, <m>f(x)\le f(y)</m>.
+  </p>
+</statement>
+</problem>
+</section>
+
+
+
+
+<section xml:id="Continuity-AddProb">
+  <title>Additional Problems</title>
+  <problem>
+    <idx><h>continuous functions</h><h>a constant function is continuous</h></idx>
+
+    <statement>
+      <p>
+        Use the definition of continuity to prove that the constant
+        function <m>g(x)=c</m> is continuous at any point <m>a</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <idx><h>continuous functions</h><h><m>\ln x</m> is continuous everywhere</h></idx>
+    <task>
+      <statement>
+        <p>
+          Use the definition of continuity to prove that <m>\ln x</m>
+          is continuous at <m>1</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You may want to use the fact <m>\abs{\ln x}\lt
+          \eps\,\Leftrightarrow-\eps\lt \ln x\lt \eps</m> to find a
+          <m>\delta</m>.
+        </p>
+</hint>
+</task>
+<task>
+  <statement>
+    <p>
+      Use part (a) to prove that <m>\ln x</m> is continuous at any
+      positive real number <m>a</m>.
+</p>
+</statement>
+<hint>
+  <p>
+    <m>\ln(x)=\ln(x/a)+\ln(a)</m>.  This is a combination of
+    functions which are continuous at <m>a</m>.  Be sure to
+    explain how you know that <m>\ln(x/a)</m> is continuous at
+    <m>a</m>.
+</p>
+</hint>
+</task>
+</problem>
+
+<problem>
+  <statement>
+    <p>
+<idx><h>continuity</h><h>formal definition of discontinuity</h></idx>
+
+Write a formal definition of the statement <m>f</m> is not
+continuous at <m>a</m>, and use it to prove that the function
+<m>f(x)= \begin{cases}x\amp \text{ if } x\neq 1\\ 0\amp \text{
+if } x=1 \end{cases}</m> is not continuous at <m>a=1</m>.
+</p>
+</statement>
+</problem>
+</section>
+
+
+</chapter>
+

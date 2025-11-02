@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="AA Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:author" content="Robert Rogers">
+<meta property="book:author" content="Eugene Boman">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.65bdf16e03e918ea.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="ASORA.html"><span class="title">AA Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<p class="byline">Robert Rogers, Eugene Boman</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="Epilogues.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="Epilogues.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="SECTIONBuildReals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\imp}{\ \Rightarrow\ }
+\newcommand{\dx}[1]{\,{\rm d}#1}
+
+
+\newcommand{\dfdx}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\def\limit#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}#3}}
+\def\limitt#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}\textstyle #3}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\unif}{\stackrel{unif}{\longrightarrow}}
+\newcommand{\ptwise}{\stackrel{ptwise}{\longrightarrow}}
+\newcommand{\CC}{\mathbb {C}}
+\newcommand{\DD}{\mathbb {D}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\ZZ}{\mathbb {Z}}
+\def\eval#1#2#3{\left.\strut{}#1\right|_{#2=#3}}
+\def\geneval#1#2#3{\left.\strut{}#1\right|_{#2#3}}
+\def\mineval#1#2{\left.\strut{}#1\right|_{#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="ASORA-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="ASORA-2-4.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="ASORA-2-5.html" class="internal"><span class="title">Preface to the Second Edition</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="Instructor.html" class="internal"><span class="title">To the Instructor</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="AskingQuestions.html" class="internal"><span class="codenumber">I</span> <span class="title">In Which We Raise A Number Of Questions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Threelessons.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue: Three Lessons Before We Begin</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons-lesson-one.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Lesson One</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-two.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Lesson Two</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-three.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Lesson Three</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="NumbersRealRational.html" class="internal"><span class="codenumber">2</span> <span class="title">Numbers, Real <span class="process-math">\(\left(\RR\right)\)</span> and Rational <span class="process-math">\(\left(\QQ\right)\)</span></span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury.html" class="internal"><span class="codenumber">3</span> <span class="title">Calculus in the 17th and 18th Centuries</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Newton and Leibniz Get Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#sec_leibn-calc-rules" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Leibniz’ Calculus Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#LeibnizProductRule" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Leibniz’s Approach to the Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#NewtonsApproach" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Newton’s Approach to the Product Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ExponentAdditionProperty.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Power Series as Infinite Polynomials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONPowSerWOTaylor.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Expanding Simple Power Series by Algebraic Methods</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesQuestions.html" class="internal"><span class="codenumber">4</span> <span class="title">Questions Concerning Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-TaylorsFormula.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Taylor’s Formula</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-SeriesAnomalies.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Series Anomalies</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="InterregnumPart.html" class="internal"><span class="codenumber">II</span> <span class="title">Interregnum</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Interegnum.html" class="internal"><span class="codenumber">5</span> <span class="title">Joseph Fourier: The Man Who Broke Calculus</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="Interegnum-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Joseph Fourier and His Series</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="FindingAnswers.html" class="internal"><span class="codenumber">III</span> <span class="title">In Which We Find (Some) Answers</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Convergence.html" class="internal"><span class="codenumber">6</span> <span class="title">Convergence of Sequences and Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SeqRealNum.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Sequences of Real Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="LimitAsPrimary.html" class="internal"><span class="codenumber">6.2</span> <span class="title">The Limit as a Primary Tool</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="DivergentSeq.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Divergence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="TaylorSeries.html" class="internal"><span class="codenumber">7</span> <span class="title">A “Tayl” of Three Remainders</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-IntFormRem.html" class="internal"><span class="codenumber">7.1</span> <span class="title">The Integral Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-LagrFormRem.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Lagrange’s Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-CauchyFormRem.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Cauchy’s Form of the Remainder</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Continuity.html" class="internal"><span class="codenumber">8</span> <span class="title">Continuity: What It Isn’t and What It Is</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-AnalyticDef.html" class="internal"><span class="codenumber">8.1</span> <span class="title">An Analytic Definition of Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SequencesAndContinuity.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Sequences and Continuity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="IVTandEVT.html" class="internal"><span class="codenumber">9</span> <span class="title">Intermediate and Extreme Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-Completeness.html" class="internal"><span class="codenumber">9.1</span> <span class="title">The Nested Interval Property: Completeness of the Real Number System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-ProofOfIVT.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Proof of the Intermediate Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-BWT.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Bolzano–Weierstrass Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-SupremumAndEVT.html" class="internal"><span class="codenumber">9.4</span> <span class="title">The Supremum and the Extreme Value Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DefLimit.html" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DerivativeAfterthought.html" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONFTC.html" class="internal"><span class="codenumber">10.3</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONDefiningIntegral.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Definition of the Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONCauchyRiemannInt" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Cauchy’s Definition of the Integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONDarbouxIntegral" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Darboux’s Integral Definition</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesRedux.html" class="internal"><span class="codenumber">11</span> <span class="title">Back to Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Uniform Convergence</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Uniform Convergence: Integrals and Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html#PowerSeriesRedux-UnifConv-IntsAndDerivs-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Cauchy Sequences</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-RadiusOfConv.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Radius of Convergence of a Power Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-AbelsThm.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Boundary Issues and Abel’s Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="BackToFourier.html" class="internal"><span class="codenumber">12</span> <span class="title">Back to the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONRiseSetTheory.html" class="internal"><span class="codenumber">12.1</span> <span class="title">The Rise of Set Theory</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-InfiniteSets.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Infinite Sets</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONLebesgueIntegration.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Road to Lebesgue Integration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-CantorsTheorem.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Cantor’s Theorem and Its Consequences</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="Epilogues.html" class="internal"><span class="codenumber">13</span> <span class="title">Epilogs</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="SECTIONEpilog1.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONBuildReals.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Epilog #2: Building the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DecimalExpansion" class="internal"><span class="codenumber">13.2.1</span> <span class="title">The Decimal Expansion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#CauchySequences" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Cauchy Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DedekindCuts" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Dedekind Cuts</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ASORA-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="ASORA-6-1.html" class="internal"><span class="title">Bibliography</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ASORA-6-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main" style="background-image:url('data:image/svg+xml;charset=utf-8,&lt;svg version=&quot;1.1&quot; height=&quot;600&quot; width=&quot;600&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;text x=&quot;50%&quot; y=&quot;50%&quot; text-anchor=&quot;middle&quot; transform=&quot;rotate(-45,300,300)&quot; fill=&quot;rgb(204,204,204)&quot; style=&quot;font-family:sans-serif; font-size:2.5cm;&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;DRAFT&lt;/text&gt;&lt;/svg&gt;');background-position:center top;background-repeat:repeat-y;"><div id="ptx-content" class="ptx-content"><section class="section" id="SECTIONEpilog1"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</span>
+</h2>
+<p class="watermark">Watermark text: DRAFT</p>
+<div class="para" id="SECTIONEpilog1-2">
+<em class="alert">Interlocuters</em>: <em class="emphasis">Salviati, Sagredo, and Simplicio; Three Friends of Galileo Galilei</em><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-3">
+<em class="alert">Setting</em>: Three friends meet in a garden for lunch in Renaissance Italy.  Prior to their meal they discuss the book <span class="booktitle">A Contextual Introduction to Real Analysis: How We Got From There To Here</span> . How they obtained a copy is not clear.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-4">
+<em class="alert">Salviati</em>: My good sirs. I have read this very strange volume as I hope you have?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-5">
+<em class="alert">Sagredo</em>: I have and I also found it very strange.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-6">
+<em class="alert">Simplicio</em>: Very strange indeed; at once silly and mystifying.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-7">
+<em class="alert">Salviati</em>: Silly? How so?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-8">
+<em class="alert">Simplicio</em>: These authors begin their tome with the question, “What is a number?” This is an unusually silly question, don’t you think? Numbers are numbers. Everyone knows what they are.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-9">
+<em class="alert">Sagredo</em>: I thought so as well until I reached the last chapter.  But now I am not so certain.  What about this quantity <span class="process-math">\(\aleph_0?\)</span> If this counts the positive integers, isn’t it a number?  If not, then how can it count anything? If so, then what number is it?  These questions plague me ‘til I scarcely believe I know anything anymore.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-10">
+<em class="alert">Simplicio</em>: Of course <span class="process-math">\(\aleph_0\)</span> is not a number! It is simply a new name for the infinite, and infinity is not a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-11">
+<em class="alert">Sagredo</em>: But isn’t <span class="process-math">\(\aleph_0\)</span> the cardinality of the set of natural numbers, <span class="process-math">\(\NN\text{,}\)</span> in just the same way that the cardinality of the set <span class="process-math">\(S=\left\{Salviati, Sagredo, Simplicio\right\}\)</span> is <span class="process-math">\(3?\)</span> If <span class="process-math">\(3\)</span> is a number, then why isn’t <span class="process-math">\(\aleph_0?\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-12">
+<em class="alert">Simplicio</em>: Ah, my friend, like our authors you are simply playing with words. You count the elements in the set <span class="process-math">\(S=\left\{Salviati, Sagredo, Simplicio\right\};\)</span> you see plainly that the number of elements it contains is <span class="process-math">\(3\)</span> and then you change your language. Rather than saying that the number of elements in <span class="process-math">\(S\)</span> is <span class="process-math">\(3\)</span> you say that the <dfn class="terminology">cardinality</dfn> is <span class="process-math">\(3\text{.}\)</span> But clearly “cardinality” and “number of elements” mean the same thing.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-13">Similarly you use the symbol <span class="process-math">\(\NN\)</span> to denote the set of positive integers. With your new word and symbol you make the statement “the <dfn class="terminology">cardinality</dfn> (number of elements) of <span class="process-math">\(\NN\)</span> is <span class="process-math">\(\aleph_0\text{.}\)</span>” This statement has the same grammatical form as the statement “the number of elements (cardinality) of <span class="process-math">\(S\)</span> is three.” Since three is a number you conclude that <span class="process-math">\(\aleph_0\)</span> is also a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-14">But this is simply nonsense dressed up to sound sensible. If we unwind our notation and language, your statement is simply, “The number of positive integers is infinite.” This is obviously nonsense because infinity is not a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-15">Even if we take infinity as an undefined term and try to define it by your statement this is still nonsense since you are using the word “number” to define a new “number” called infinity. This definition is circular. Thus it is no definition at all. It is nonsense.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-16">
+<em class="alert">Salviati</em>: Your reasoning on this certainly seems sound.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-17">
+<em class="alert">Simplicio</em>: Thank you.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-18">
+<em class="alert">Salviati</em>:  However, there are a couple of small points I would like to examine more closely if you will indulge me?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-19">
+<em class="alert">Simplicio</em>: Of course. What troubles you?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-20">
+<em class="alert">Salviati</em>: You’ve said that we cannot use the word “number” to define numbers because this would be circular reasoning. I entirely agree, but I am not sure this is what our authors are doing.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-21">Consider the set <span class="process-math">\(\left\{1, 2, 3\right\}\text{.}\)</span> Do you agree that it contains three elements?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-22">
+<em class="alert">Simplicio</em>: Obviously.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-23">
+<em class="alert">Sagredo</em>: Ah!  I see your point!  That there are three elements does not depend on what those elements are.  Any set with three elements has three elements regardless of the nature of the elements.  Thus saying that the set <span class="process-math">\(\left\{1, 2, 3\right\}\)</span> contains three elements does not define the word “number” in a circular manner because it is irrelevant that the number 3 is one of the elements of the set.  Thus to say that three is the cardinality of the set <span class="process-math">\(\left\{1, 2, 3\right\}\)</span> has the same meaning as saying that there are three elements in the set <span class="process-math">\(\left\{Salviati, Sagredo, Simplicio\right\}\text{.}\)</span>  In both cases the number “<span class="process-math">\(3\)</span>” is the name that we give to the totality of the elements of each set.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-24">
+<em class="alert">Salviati</em>:  Precisely. In exactly the same way <span class="process-math">\(\aleph_0\)</span> is the symbol we use to denote the totality of the set of positive integers.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-25">Thus <span class="process-math">\(\aleph_0\)</span> is a number in the same sense that ‘<span class="process-math">\(3\)</span>’ is a number, is it not?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-26">
+<em class="alert">Simplicio</em>:  I see that we can say in a meaningful way that three is the cardinality of any set with . . . well, . . . with three elements (it becomes very difficult to talk about these things) but this is simply a tautology! It is a way of saying that a set which has three elements has three elements!<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-27">This means only that we have counted them and we had to stop at three. In order to do this we must have numbers first. Which, of course, we do. As I said, everyone knows what numbers are.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-28">
+<em class="alert">Sagredo</em>:  I must confess, my friend, that I become more confused as we speak. I am no longer certain that I really know what a number is. Since you seem to have retained your certainty can you clear this up for me? Can you tell me what a number is?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-29">
+<em class="alert">Simplicio</em>:  Certainly. A number is what we have just been discussing. It is what you have when you stop counting. For example, three is the totality (to use your phrase) of the elements of the sets <span class="process-math">\(\left\{Salviati, Sagredo, Simplicio\right\}\)</span> or <span class="process-math">\(\left\{1, 2, 3\right\}\)</span> because when I count the elements in either set I have to stop at three. Nothing less, nothing more. Thus three is a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-30">
+<em class="alert">Salviati</em>:  But this definition only confuses me! Surely you will allow that fractions are numbers? What is counted when we end with, say <span class="process-math">\(4/5\)</span> or <span class="process-math">\(1/5?\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-31">
+<em class="alert">Simplicio</em>: This is simplicity itself.  <span class="process-math">\(4/5\)</span> is the number we get when we have divided something into <span class="process-math">\(5\)</span> equal pieces and we have counted four of these fifths.  This is four–fifths.  You see?  Even the language we use naturally bends itself to our purpose.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-32">
+<em class="alert">Salviati</em>:  But what of one–fifth? In order to count one fifth we must first divide something into fifths. To do this we must know what one–fifth is, musn’t we? We seem to be using the word “number” to define itself again. Have we not come full circle and gotten nowhere?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-33">
+<em class="alert">Simplicio</em>:  I confess this had not occurred to me before. But your objection is easily answered. To count one–fifth we simply divide our “something” into tenths. Then we count two of them. Since two–tenths is the same as one–fifth the problem is solved. Do you see?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-34">
+<em class="alert">Sagredo</em>:  I see your point but it will not suffice at all! It merely replaces the question, “What is one–fifth?” with, “What is one–tenth?” Nor will it do to say that one–tenth is merely two–twentieths. This simply shifts the question back another level.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-35">Archimedes said, “Give me a place to stand and a lever long enough and I will move the earth.” But of course he never moved the earth because he had nowhere to stand. We seem to find ourselves in Archimedes’ predicament: We have no place to stand.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-36">
+<em class="alert">Simplicio</em>:  I confess I don’t see a way to answer this right now. However I’m sure an answer can be found if we only think hard enough. In the meantime I cannot accept that <span class="process-math">\(\aleph_0\)</span> is a number. It is, as I said before, infinity and infinity is not a number! We may as well believe in fairies and leprechauns if we call infinity a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-36" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-37">
+<em class="alert">Sagredo</em>:  But again we’ve come full circle. We cannot say definitively that <span class="process-math">\(\aleph_0\)</span> is or is not a number until we can state with confidence what a number is. And even if we could find solid ground on which to solve the problem of fractions, what of <span class="process-math">\(\sqrt{2}?\)</span> Or <span class="process-math">\(\pi?\)</span> Certainly these are numbers but I see no way to count to either of them.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-37" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-38">
+<em class="alert">Simplicio</em>:  Alas! I am beset by demons! I am bewitched! I no longer believe what I know to be true!<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-38" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-39">
+<em class="alert">Salviati</em>:  Perhaps things are not quite as bad as that. Let us consider further. You said earlier that we all know what numbers are, and I agree. But perhaps your statement needs to be more precisely formulated. Suppose we say instead that we all know what numbers need to be? Or that we know what we want numbers to be?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-39" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-40">Even if we cannot say with certainly what numbers are surely we can say what we want and need for them to be. Do you agree?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-40" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-41">
+<em class="alert">Sagredo</em>:  I do.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-41" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-42">
+<em class="alert">Simplicio</em>:  And so do I.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-42" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-43">
+<em class="alert">Salviati</em>:  Then let us invent numbers anew, as if we’ve never seen them before, always keeping in mind those properties we need for numbers to have. If we take this as a starting point then the question we need to address is, “What do we need numbers to be?”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-43" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-44">
+<em class="alert">Sagredo</em>:  This is obvious! We need to be able to add them and we need to be able to multiply them together, and the result should also be a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-44" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-45">
+<em class="alert">Simplicio</em>:  And subtract and divide too, of course.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-45" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-46">
+<em class="alert">Sagredo</em>:  I am not so sure we actually need these. Could we not define “subtract two from three” to be “add negative two to three” and thus dispense with subtraction and division?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-46" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-47">
+<em class="alert">Simplicio</em>:  I suppose we can but I see no advantage in doing so. Why not simply have subtraction and division as we’ve always known them?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-47" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-48">
+<em class="alert">Sagredo</em>:  The advantage is parsimony. Two arithmetic operations are easier to keep track of than four. I suggest we go forward with only addition and multiplication for now. If we find we need subtraction or division we can consider them later.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-48" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONEpilog1-49">
+<div class="para">
+<em class="alert">Simplicio</em>:  Agreed. And I now see another advantage. Obviously addition and multiplication must not depend on order. That is, if <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are numbers then <span class="process-math">\(x+y\)</span> must be equal to <span class="process-math">\(y+x\)</span> and <span class="process-math">\(xy\)</span> must be equal to <span class="process-math">\(yx\text{.}\)</span> This is not true for subtraction, for <span class="process-math">\(3-2\)</span> does not equal <span class="process-math">\(2-3\text{.}\)</span> But if we define subtraction as you suggest then this symmetry is preserved:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x+(-y) = (-y)+x\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-49" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONEpilog1-50">
+<div class="para">
+<em class="alert">Sagredo</em>:  Excellent! Another property we will require of numbers occurs to me now. When adding or multiplying more than two numbers it should not matter where we begin. That is, if <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> are numbers it should be true that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(x+y)+z = x+(y+z)
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(x\cdot y)\cdot z = x\cdot(y\cdot z)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-50" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-51">
+<em class="alert">Simplicio</em>:  Yes! We have it! Any objects which combine in these precise ways can be called numbers.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-51" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-52">
+<em class="alert">Salviati</em>:  Certainly these properties are necessary, but I don’t think they are yet sufficient to our purpose. For example, the number <span class="process-math">\(1\)</span> is unique in that it is the only number which, when multiplying another number leaves it unchanged.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-52" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-53">For example:  <span class="process-math">\(1\cdot3=3\text{.}\)</span> Or, in general, if <span class="process-math">\(x\)</span> is a number then <span class="process-math">\(1\cdot x =x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-53" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-54">
+<em class="alert">Sagredo</em>:  Yes. Indeed. It occurs to me that the number zero plays a similar role for addition: <span class="process-math">\(0+x=x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-54" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-55">
+<em class="alert">Salviati</em>:  It does not seem to me that addition and multiplication, as we have defined them, force <span class="process-math">\(1\)</span> or <span class="process-math">\(0\)</span> into existence so I believe we will have to postulate their existence independently.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-55" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-56">
+<em class="alert">Sagredo</em>:  Is this everything then? Is this all we require of numbers?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-56" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-57">
+<em class="alert">Simplicio</em>:  I don’t think we are quite done yet. How shall we get division?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-57" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-58">
+<em class="alert">Sagredo</em>: In the same way that we defined subtraction to be the addition of a negative number, can we not define division to be multiplication by a reciprocal?  For example, <span class="process-math">\(3\)</span> divided by <span class="process-math">\(2\)</span> can be considered <span class="process-math">\(3\)</span> multiplied by <span class="process-math">\(1/2\text{,}\)</span> can it not?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-58" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-59">
+<em class="alert">Salviati</em>: I think it can.  But observe that every number will need to have a corresponding negative so that we can subtract any amount.  And again nothing we’ve discussed so far forces these negative numbers into existence so we will have to postulate their existence separately.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-59" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-60">
+<em class="alert">Simplicio</em>:  And in the same way every number will need a reciprocal so that we can divide by any amount.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-60" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-61">
+<em class="alert">Sagredo</em>:  Every number that is, except zero.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-61" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-62">
+<em class="alert">Simplicio</em>:  Yes, this is true. Strange is it not, that of them all only this one number needs no reciprocal? Shall we also postulate that zero has no reciprocal?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-62" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-63">
+<em class="alert">Salviati</em>: I don’t see why we should. Possibly <span class="process-math">\(\aleph_0\)</span> is the reciprocal of zero. Or possibly not. But I see no need to concern ourselves with things we do not need.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-63" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-64">
+<em class="alert">Simplicio</em>: Is this everything then? Have we discovered all that we need for numbers to be?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-64" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-65">
+<em class="alert">Salviati</em>: I believe there is only one property missing. We have postulated addition and we have postulated multiplication and we have described the numbers zero and one which play similar roles for addition and multiplication respectively. But we have not described how addition and multiplication work together.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-65" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONEpilog1-66">
+<div class="para">That is, we need a rule of distribution:  If <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> are all numbers then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-66" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-67">With this in place I believe we have everything we need.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-67" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-68">
+<em class="alert">Simplicio</em>:  Indeed. We can also see from this that <span class="process-math">\(\aleph_0\)</span> cannot be a number since, in the first place, it cannot be added to another number and in the second, even if it could be added to a number the result is surely not also a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-68" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-69">
+<em class="alert">Salviati</em>:  My dear Simplicio, I fear you have missed the point entirely! Our axioms do not declare what a number is, only how it behaves with respect to addition and multiplication with other numbers. Thus it is a mistake to presume that “numbers” are only those objects that we have always believed them to be. In fact, it now occurs to me that “addition” and “multiplication” also needn’t be seen as the operations we have always believed them to be.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-69" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONEpilog1-70">
+<div class="para">For example suppose we have three objects, <span class="process-math">\(\left\{a, b, c\right\}\)</span> and suppose that we define “addition” and “multiplication” by the following tables:</div>
+<div class="displaymath process-math" id="SECTIONEpilog1-70-4">
+\begin{align*}
+\begin{array}{c|ccc}
++\amp a\amp b\amp c\\\hline
+a\amp a\amp b\amp c\\
+b\amp b\amp c\amp a\\
+c\amp c\amp a\amp b
+\end{array}
+\amp \amp \amp \amp \amp \amp
+\begin{array}{c|ccc}
+\cdot\amp a\amp b\amp c\\\hline
+a\amp a\amp a\amp a\\
+b\amp a\amp b\amp c\\
+c\amp a\amp c\amp b
+\end{array}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-70" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-71">I submit that our set along with these definitions satisfy all of our axioms and thus <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> qualify to be called “numbers.”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-71" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-72">
+<em class="alert">Simplicio</em>:  This cannot be! There is no zero, no one!<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-72" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-73">
+<em class="alert">Sagredo</em>:  But there is. Do you not see that <span class="process-math">\(a\)</span> plays the role of zero — if you add it to any number you get that number back. Similarly <span class="process-math">\(b\)</span> plays the role of one.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-73" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-74">
+<em class="alert">Simplicio</em>: This is astonishing!  If <span class="process-math">\(a, b\)</span> and <span class="process-math">\(c\)</span> can be numbers then I am less sure than ever that I know what numbers are!  Why, if we replace <span class="process-math">\(a, b\text{,}\)</span> and <span class="process-math">\(c\)</span> with <em class="emphasis">Simplicio</em> <em class="emphasis">Sagredo,</em> and <em class="emphasis">Salviati</em> then we become numbers ourselves!<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-74" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-75">
+<em class="alert">Salviati</em>: Perhaps we will have to be content with knowing how numbers behave rather than knowing what they are.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-75" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-76">However I confess that I have a certain affection for the numbers I grew up with. Let us call those the “real” numbers. Any other set of numbers, such as our <span class="process-math">\(\left\{a,b,c\right\}\)</span> above we will call a field of numbers, since they seem to provide us with new ground to explore. Or perhaps just a <dfn class="terminology">number field</dfn>?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-76" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-77">As we have been discussing this I have been writing down our axioms.  They are these.  Numbers are any objects which satisfy all of the following properties:<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-77" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="axiom theorem-like" id="SECTIONEpilog1-78"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Definition of Operations.</span>
+</h3>
+<div class="para" id="SECTIONEpilog1-78-2-1">They can be combined by two operations, denoted “<span class="process-math">\(\cdot\)</span>” and “+”.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-78-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.1: Definition of Operations"><a href="#SECTIONEpilog1-78" title="Copy heading and permalink for Axiom 13.1.1: Definition of Operations" aria-label="Copy heading and permalink for Axiom 13.1.1: Definition of Operations">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-79"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Closure.</span>
+</h3>
+<div class="para" id="SECTIONEpilog1-79-2-1">If <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> are numbers then <span class="process-math">\(x+y\)</span> is also a number. <span class="process-math">\(x\cdot y\)</span> is also a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-79-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.2: Closure"><a href="#SECTIONEpilog1-79" title="Copy heading and permalink for Axiom 13.1.2: Closure" aria-label="Copy heading and permalink for Axiom 13.1.2: Closure">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-80"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Commutativity.</span>
+</h3>
+<div class="para logical" id="SECTIONEpilog1-80-2-1">
+<div class="displaymath process-math">
+\begin{equation*}
+x+y=y+x
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x\cdot y=y\cdot x
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-80-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.3: Commutativity"><a href="#SECTIONEpilog1-80" title="Copy heading and permalink for Axiom 13.1.3: Commutativity" aria-label="Copy heading and permalink for Axiom 13.1.3: Commutativity">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-81"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Associativity.</span>
+</h3>
+<div class="para logical" id="SECTIONEpilog1-81-2-1">
+<div class="displaymath process-math">
+\begin{equation*}
+(x+y)+z=x+(y+z)
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(x\cdot y)\cdot z = x\cdot(y\cdot z)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-81-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.4: Associativity"><a href="#SECTIONEpilog1-81" title="Copy heading and permalink for Axiom 13.1.4: Associativity" aria-label="Copy heading and permalink for Axiom 13.1.4: Associativity">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-82"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Additive Identity.</span>
+</h3>
+<div class="para logical" id="SECTIONEpilog1-82-2-1">
+<div class="para">There is a number, denoted <span class="process-math">\(0\text{,}\)</span> such that for any number, <span class="process-math">\(x\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x+0=x\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-82-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.5: Additive Identity"><a href="#SECTIONEpilog1-82" title="Copy heading and permalink for Axiom 13.1.5: Additive Identity" aria-label="Copy heading and permalink for Axiom 13.1.5: Additive Identity">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-83"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiplicative Identity.</span>
+</h3>
+<div class="para logical" id="SECTIONEpilog1-83-2-1">
+<div class="para">There is a number, denoted <span class="process-math">\(1\text{,}\)</span> such that for any number, <span class="process-math">\(x\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1\cdot x=x\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-83-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.6: Multiplicative Identity"><a href="#SECTIONEpilog1-83" title="Copy heading and permalink for Axiom 13.1.6: Multiplicative Identity" aria-label="Copy heading and permalink for Axiom 13.1.6: Multiplicative Identity">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-84"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Additive Inverses.</span>
+</h3>
+<div class="para logical" id="SECTIONEpilog1-84-2-1">
+<div class="para">Given any number, <span class="process-math">\(x\text{,}\)</span> there is a number, denoted <span class="process-math">\(-x\text{,}\)</span> with the property that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x+(-x)=0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-84-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.7: Additive Inverses"><a href="#SECTIONEpilog1-84" title="Copy heading and permalink for Axiom 13.1.7: Additive Inverses" aria-label="Copy heading and permalink for Axiom 13.1.7: Additive Inverses">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-85"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiplicative Inverse.</span>
+</h3>
+<div class="para logical" id="SECTIONEpilog1-85-2-1">
+<div class="para">Given any number, <span class="process-math">\(x\ne0\text{,}\)</span> there is a number, denoted <span class="process-math">\(x^{-1}\text{,}\)</span> with the property that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x\cdot x^{-1} =1\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-85-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.8: Multiplicative Inverse"><a href="#SECTIONEpilog1-85" title="Copy heading and permalink for Axiom 13.1.8: Multiplicative Inverse" aria-label="Copy heading and permalink for Axiom 13.1.8: Multiplicative Inverse">🔗</a></div></article><article class="axiom theorem-like" id="SECTIONEpilog1-86"><h3 class="heading">
+<span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Distributive Property.</span>
+</h3>
+<div class="para logical" id="SECTIONEpilog1-86-2-1">
+<div class="para">If <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> are numbers then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-86-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Axiom 13.1.9: The Distributive Property"><a href="#SECTIONEpilog1-86" title="Copy heading and permalink for Axiom 13.1.9: The Distributive Property" aria-label="Copy heading and permalink for Axiom 13.1.9: The Distributive Property">🔗</a></div></article><div class="para" id="SECTIONEpilog1-87">
+<em class="alert">Sagredo</em>: My friend, this is a thing of surpassing beauty!  All seems clear to me now.  Numbers are any group of objects which satisfy our axioms.  That is, a number is anything that acts like a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-87" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-88">
+<em class="alert">Salviati</em>:  Yes this seems to be true.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-88" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-89">
+<em class="alert">Simplicio</em>:  But wait! We have not settled the question: Is <span class="process-math">\(\aleph_0\)</span> a number or not?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-89" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-90">
+<em class="alert">Salviati</em>: If everything we have just done is valid then <span class="process-math">\(\aleph_0\)</span> could be a number.  And so could <span class="process-math">\(\aleph_1\text{,}\)</span><span class="process-math">\(\aleph_2 \ldots\)</span> if we can find a way to define addition and multiplication on the set <span class="process-math">\(\left\{\aleph_0,
+\aleph_1, \aleph_2 \ldots\right\}\)</span> in a manner that agrees with our axioms.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-90" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-91">
+<em class="alert">Sagredo</em>:  An arithmetic of infinities! This is a very strange idea. Can such a thing be made sensible?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-91" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONEpilog1-92">
+<em class="alert">Simplicio</em>:  Not, I think, before lunch. Shall we retire to our meal?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-92" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="SECTIONEpilog1-93"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="introduction" id="SECTIONEpilog1-93-2"><div class="para" id="SECTIONEpilog1-93-2-1">Any non–empty set with operations satisfying Axioms I–VIII is called a field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="SECTIONEpilog1-93-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="SECTIONEpilog1-93-3-1-1">Show that the set <span class="process-math">\(\{0\}\)</span> with operations <span class="process-math">\(0+0=0,\ 0\cdot 0=0\)</span> satisfies all the axioms of a field. What is the multiplicative identity in this field?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 13.1.10.a"><a href="#SECTIONEpilog1-93-3" title="Copy heading and permalink for Task 13.1.10.a" aria-label="Copy heading and permalink for Task 13.1.10.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-93-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="SECTIONEpilog1-93-4-1-1">Show that in any field <span class="process-math">\(0\cdot x=0\)</span> for all elements <span class="process-math">\(x\)</span> in the field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="SECTIONEpilog1-93-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="SECTIONEpilog1-93-4-2-1">
+<span class="process-math">\(0\cdot x+0\cdot x=\left(0+0\right)\cdot x=0\cdot x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.1.10.b.1"><a href="#SECTIONEpilog1-93-4-2" title="Copy heading and permalink for Hint 13.1.10.b.1" aria-label="Copy heading and permalink for Hint 13.1.10.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 13.1.10.b"><a href="#SECTIONEpilog1-93-4" title="Copy heading and permalink for Task 13.1.10.b" aria-label="Copy heading and permalink for Task 13.1.10.b">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-93-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="SECTIONEpilog1-93-5-1-1">Show that if a field contains <span class="process-math">\(x\neq 0\text{,}\)</span> then <span class="process-math">\(1\neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="SECTIONEpilog1-93-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="SECTIONEpilog1-93-5-2-1">If <span class="process-math">\(1=0\)</span> then <span class="process-math">\(1\cdot x=0\cdot x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.1.10.c.1"><a href="#SECTIONEpilog1-93-5-2" title="Copy heading and permalink for Hint 13.1.10.c.1" aria-label="Copy heading and permalink for Hint 13.1.10.c.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 13.1.10.c"><a href="#SECTIONEpilog1-93-5" title="Copy heading and permalink for Task 13.1.10.c" aria-label="Copy heading and permalink for Task 13.1.10.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.1.10"><a href="#SECTIONEpilog1-93" title="Copy heading and permalink for Problem 13.1.10" aria-label="Copy heading and permalink for Problem 13.1.10">🔗</a></div></article><article class="problem example-like" id="SECTIONEpilog1-94"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="introduction" id="SECTIONEpilog1-94-3">
+<div class="para logical" id="SECTIONEpilog1-94-3-1">
+<div class="para">Consider the set of ordered pairs of integers:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{(x,y) | x, y \in \ZZ, y\neq 0\right\}\text{.}
+\end{equation*}
+</div>
+<div class="para">First we impose the convention:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(ab, ad) = (b,d)
+\end{equation*}
+</div>
+<div class="para">when <span class="process-math">\(a\neq 0\text{,}\)</span> and then define addition and multiplication as follows:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONEpilog1-94-3-2">
+<ul class="disc" id="SECTIONEpilog1-94-3-2-1">
+<li id="SECTIONEpilog1-94-3-2-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span><div class="para" id="SECTIONEpilog1-94-3-2-1-1-2">
+<span class="process-math">\(\displaystyle (a,b)+(c,d) = (ad+bc, bd)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-3-2-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Addition:"><a href="#SECTIONEpilog1-94-3-2-1-1" title="Copy heading and permalink for Item: Addition:" aria-label="Copy heading and permalink for Item: Addition:">🔗</a></div>
+</li>
+<li id="SECTIONEpilog1-94-3-2-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span><div class="para" id="SECTIONEpilog1-94-3-2-1-2-2">
+<span class="process-math">\((a,b)\cdot(c,d) = (ac, bd)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-3-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Multiplication:"><a href="#SECTIONEpilog1-94-3-2-1-2" title="Copy heading and permalink for Item: Multiplication:" aria-label="Copy heading and permalink for Item: Multiplication:">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="SECTIONEpilog1-94-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="SECTIONEpilog1-94-4-1-1">Show that this set with these operations forms a number field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 13.1.11.a"><a href="#SECTIONEpilog1-94-4" title="Copy heading and permalink for Task 13.1.11.a" aria-label="Copy heading and permalink for Task 13.1.11.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-94-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="SECTIONEpilog1-94-5-1-1">Which number field is this?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 13.1.11.b"><a href="#SECTIONEpilog1-94-5" title="Copy heading and permalink for Task 13.1.11.b" aria-label="Copy heading and permalink for Task 13.1.11.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.1.11"><a href="#SECTIONEpilog1-94" title="Copy heading and permalink for Problem 13.1.11" aria-label="Copy heading and permalink for Problem 13.1.11">🔗</a></div></article><article class="problem example-like" id="SECTIONEpilog1-95"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="introduction" id="SECTIONEpilog1-95-4">
+<div class="para" id="SECTIONEpilog1-95-4-1">Consider the set of ordered pairs of real numbers, <span class="process-math">\(\left\{(x,y)|x, y\in\RR\right\}\text{,}\)</span> and define addition and multiplication as follows:<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONEpilog1-95-4-2">
+<ul class="disc" id="SECTIONEpilog1-95-4-2-1">
+<li id="SECTIONEpilog1-95-4-2-1-1">
+<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span><div class="para" id="SECTIONEpilog1-95-4-2-1-1-2">
+<span class="process-math">\(\displaystyle (a,b)+(c,d) = (a+c, b+d)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-4-2-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Addition:"><a href="#SECTIONEpilog1-95-4-2-1-1" title="Copy heading and permalink for Item: Addition:" aria-label="Copy heading and permalink for Item: Addition:">🔗</a></div>
+</li>
+<li id="SECTIONEpilog1-95-4-2-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span><div class="para" id="SECTIONEpilog1-95-4-2-1-2-2">
+<span class="process-math">\((a,b)\cdot(c,d) = (ac- bd,ad+bc)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-4-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item: Multiplication:"><a href="#SECTIONEpilog1-95-4-2-1-2" title="Copy heading and permalink for Item: Multiplication:" aria-label="Copy heading and permalink for Item: Multiplication:">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="SECTIONEpilog1-95-5"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="SECTIONEpilog1-95-5-1-1">Show that this set with these operations forms a number field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 13.1.12.a"><a href="#SECTIONEpilog1-95-5" title="Copy heading and permalink for Task 13.1.12.a" aria-label="Copy heading and permalink for Task 13.1.12.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-95-6"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="SECTIONEpilog1-95-6-1-1">Which number field is this?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 13.1.12.b"><a href="#SECTIONEpilog1-95-6" title="Copy heading and permalink for Task 13.1.12.b" aria-label="Copy heading and permalink for Task 13.1.12.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.1.12"><a href="#SECTIONEpilog1-95" title="Copy heading and permalink for Problem 13.1.12" aria-label="Copy heading and permalink for Problem 13.1.12">🔗</a></div></article><div class="autopermalink" data-description="Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)"><a href="#SECTIONEpilog1" title="Copy heading and permalink for Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)" aria-label="Copy heading and permalink for Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="Epilogues.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="SECTIONBuildReals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

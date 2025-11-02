@@ -1,0 +1,2317 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Convergence">
+  <title>Convergence of Sequences and Series</title>
+
+  <section xml:id="SeqRealNum">
+    <title>Sequences of Real Numbers</title>
+    <p>
+      In <xref ref="CalcIn17th18thCentury"></xref>, we
+      developed the equation <m>1+x+x^2+x^3+\cdots=\frac{1}{1-x}</m>,
+      and we mentioned that there are  limitations to this power series
+      representation.  For example, substituting <m>x=1</m> and
+      <m>x=-1</m> into this expression leads to
+
+      <md>
+      
+        <mrow>
+          1+1+1+\cdots=\frac{1}{0}\amp{}\amp{} \text{and}\amp{}\amp{}  1-1+1-1+\cdots=\frac{1}{2}
+        </mrow>
+
+      </md>
+
+      which are rather hard to accept.  On the other hand, if we
+      substitute <m>x=\frac{1}{2}</m> into the expression we get
+      <men xml:id="EQUATIONSeqVsSer">
+        1+\frac{1}{2}+\left(\frac{1}{2}\right)^2+\left(\frac{1}{2}\right)^3+\cdots=2
+      </men>
+      which seems more palatable. Until we think about it.
+    </p>
+    <p>
+      We can add two numbers together by the method we all learned in
+      elementary school.  Or three numbers.  Or any finite set of
+      numbers. At least in principle.  But infinitely many?  What does
+      that even mean?
+    </p>
+    <p>
+      Before we can add infinitely many numbers together we must find
+      a way to give meaning to the idea of adding infinitely many
+      numbers.
+
+      To do this, we examine an infinite sum by thinking of it as a
+      <term>sequence</term> of finite <term>partial sums</term>.
+    </p>
+
+
+    <aside>
+      <title>Sequence vs. Series</title>
+      
+      <idx><h>Sequence vs. Series</h></idx>
+
+      <p>
+        We assume that you are familiar with the distinction between a
+        sequence and a series from your Calculus course. However, for
+        the sake of clarity we<rsq/>ll make this explicit here. A
+        <term>sequence</term> of numbers is simply a
+        comma<ndash/>separated list of numbers. A single number from a
+        sequence is an <term>element</term> of the sequence.  A
+        <term>series</term> is the sum of the elements of a
+        <term>sequence</term>.
+      </p>
+      <p>
+        For  example, 
+        <me>
+          \left(1,\frac{1}{2}, \frac{1}{4}, \frac{1}{8},\cdots \right) =
+          \left(\frac{1}{2^n}\right)_{n=0}^\infty
+        </me>
+        is a Geometric <term>Sequence</term>, whereas 
+        <me>
+          1+\frac{1}{2}+ \frac{1}{4}+ \frac{1}{8} + \cdots =
+          \sum_{n=0}^\infty \frac{1}{2^n}
+        </me>
+        is a Geometric <term>Series</term>.
+
+      </p>
+    </aside>
+    <p>
+      From <xref ref="EQUATIONSeqVsSer" >equation</xref> we would have
+      the following <term>sequence</term> of <term>partial
+      sums</term>.
+      <me>
+        \left(1,1+\frac{1}{2},1+\frac{1}{2}+\left(\frac{1}{2}\right)^2,1+
+        \frac{1}{2}+\left(\frac{1}{2}\right)^3,\ldots,\sum_{j=0}^n\left(\frac{1}{2}
+        \right)^j,\ldots\right) </me>.
+    </p>
+
+    <p>
+      We can plot these sums on a number line to see what they tend toward as <m>n</m> gets large.
+    </p>
+
+    <!-- <sidebyside width="90%" margins="auto" valign="middle"> -->
+    <image width="84%" source="images/NumberLine.png" >
+      <shortdescription></shortdescription>
+    </image>
+    <!-- </sidebyside> -->
+
+
+    <p>
+      Since each partial sum is located at the midpoint between the
+      previous partial sum and <m>2</m>, it is reasonable to suppose
+      that these sums tend to the number 2.  Indeed, you have probably
+      seen an expression such as
+      <me>\limit{n}{\infty}{\left(\sum_{j=0}^n\left(\frac{1}{2}\right)^j\right)}=2</me>
+      justified by a similar argument.  Of course, relying on pictures
+      is fine if we are satisfied with intuition.  However, to
+      establish rigor we cannot rely on pictures or such nebulous
+      words as <q>approaches.</q>
+    </p>
+
+    <p>
+      No doubt you are wondering <q>What<rsq/>s wrong with the word
+      <sq>approaches</sq>?  It seems clear enough to me.</q> This is
+      often a sticking point.  But if we think carefully about what we
+      mean by the word <q>approach</q> we see that there is an
+      implicit assumption that will cause us some difficulties later
+      if we don<rsq/>t expose it.
+    </p>
+
+    <p>
+      To see this consider the sequence
+      <m>\left(1,\frac12,\frac13,\frac14,\ldots\right)</m>.  Clearly
+      it <q>approaches</q> zero, right?  But, doesn<rsq/>t it also
+      <q>approach</q> <m>-1?</m> It does, in the sense that each term
+      gets closer to <m>-1</m> than the one previous.  But it also
+      <q>approaches</q> <m>-2</m>, <m>-3</m>, or even <m>-1000</m> in
+      the same sense.  That<rsq/>s the problem with the word
+      <q>approaches.</q> It just says that at each step we<rsq/>re
+      closer to something than we were in the previous step.  It does
+      not tell us that we are actually getting close.  Since the moon
+      moves in an elliptical orbit about the earth for part of each
+      month it is <q>approaching</q> the earth.  The moon gets
+      clos<em>er</em> to the earth but, thankfully, it does not get
+      <em>close</em> to the earth.
+    </p>
+    <p>
+      The implicit assumption we alluded to earlier is this: When we
+      say that the sequence <m>\left(\frac1n\right)_{n=1}^\infty</m>
+      <q>approaches</q> zero we mean that it is getting <em>close</em>
+      not clos<em>er</em>.  Ordinarily this kind of vagueness in our
+      language is pretty innocuous.  When we say <q>approaches</q> in
+      casual conversation we can usually tell from the context of the
+      conversation whether we mean <q>getting close to</q> or
+      <q>getting closer to.</q> But when speaking mathematically we
+      need to be more careful, more explicit, in the language we use.
+    </p>
+
+
+    <p>
+      So how can we change the language we use so that this ambiguity
+      is eliminated?  We start by recognizing, rigorously, what we
+      mean when we say that a sequence converges to zero.  For
+      example, you would probably want to say that the sequence
+      <m>\left(1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\,\ldots\right)=\left(
+      \frac{1}{n}\right)_{n=1}^\infty</m> converges to zero.  Is there
+      a way to give this meaning without relying on pictures or
+      intuition?
+    </p>
+
+    <p>
+      One way would be to say that we can make <m>\frac{1}{n}</m> as
+      close to zero as we wish, provided we make <m>n</m> large
+      enough.  But even this needs to be made more specific.  For
+      example, we can get <m>\frac{1}{n}</m> to within a distance of
+      <m>0.1</m> of <m>0</m> provided we make <m>n>10</m>, we can get
+      <m>\frac{1}{n}</m> to within a distance of <m>0.01</m> of
+      <m>0</m> provided we make <m>n>100</m>, etc.  After a few such
+      examples it is apparent that given any arbitrary distance
+      <m>\eps>0</m>, we can get <m>\frac{1}{n}</m> to within
+      <m>\eps</m> of <m>0</m> provided we make
+      <m>n>\frac{1}{\eps}</m>.  This leads to the following
+      definition.
+    </p>
+
+<definition xml:id="def_ConvergeToZero">
+  <title>Convergence to Zero of a Sequence</title>
+
+  <statement>
+    <p>
+      <idx><h>sequences</h><h>convergence to zero</h></idx>
+      <idx><h>Definition</h><h>convergence of a sequence to zero</h></idx>
+
+      Let <m>\left(s_n\right)=\left(s_1,s_2,s_3,\ldots\right)</m> be a
+      sequence of real numbers.  We say that
+      <m>\left(\boldsymbol{s}_{\boldsymbol{n}}\right)</m>
+      <term>converges to 0</term> and write
+      <me>\limit{n}{\infty}{s_n}=0</me> provided for any
+      <m>\eps>0</m>, there is a real number <m>N</m> such that if
+      <m>n>N</m>, then <m>|s_n|\lt \eps</m>.
+    </p>
+  </statement>
+</definition>
+
+<p>
+  <term>Notes on <xref ref="def_ConvergeToZero"></xref></term>:
+
+  <ol>
+    <li>
+      <p>
+        This definition is the formal version of the idea we just
+        talked about. Given an arbitrary distance <m>\eps</m>, we
+        must be able to find a specific number <m>N</m> such that
+        <m>s_n</m> is within <m>\eps</m> of <m>0</m>, whenever
+        <m>n>N</m>.  The <m>N</m> is the answer to the question,
+        how large is <q>large enough</q> to put <m>s_n</m> this
+        close to <m>0</m>.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Even though we didn<rsq/>t need it in the example
+        <m>\left(\frac{1}{n}\right)</m>, the absolute value appears in
+        the definition because we need to make the distance from
+        <m>s_n</m> to 0 smaller than <m>\eps</m>.  Without the
+        absolute value in the definition, we would be able to
+        <q>prove</q> such outrageous statements as
+        <m>\limitt{n}{\infty}{-n}=0</m>, which we obviously don<rsq/>t
+        want.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        The statement <m>|s_n|\lt \eps</m> can also be written as
+        <m>-\eps\lt s_n\lt \eps</m> or <m>s_n\in\left(-\eps,\eps\right)</m>.
+        (See the <xref ref="prob_absolute_value"></xref> below.)
+        Any one of these equivalent formulations can be used to prove convergence.
+        Depending on the application,
+        one of these may be more advantageous to use than the others.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Any time an <m>N</m> can be found that works for a particular <m>\eps</m>,
+        any number <m>M>N</m> will work for that <m>\eps</m> as well,
+        since if <m>n>M</m> then <m>n>N</m>.
+      </p>
+    </li>
+  </ol>
+</p>
+
+<problem xml:id="prob_absolute_value">
+  <idx><h>Problems</h><h>absolute value</h></idx>  
+  <idx><h>absolute value</h></idx>
+  <statement>
+    <p>
+      Let <m>a</m> and <m>b</m> be real numbers with <m>b>0</m>.
+      Prove <m>|a|\lt b</m> if and only if <m>-b\lt a\lt b</m>.
+    </p>
+    <p>
+      Notice that this can be extended to
+      <m>\abs{a}\leq b</m> if and only if <m>-b\leq a\leq b</m>.
+    </p>
+  </statement>
+</problem>
+
+<p>
+  To illustrate how <xref ref="def_ConvergeToZero"></xref> makes the above ideas rigorous,
+  let<rsq/>s use it to prove that <m>\limit{n}{\infty}{\textstyle\frac{1}{n}}=0</m>.
+</p>
+
+<proof>
+  <p>
+    Let <m>\eps>0</m> be given.
+    Let <m>N=\frac{1}{\eps}</m>.
+    If <m>n>N</m>,
+    then <m>n>\frac{1}{\eps}</m> and so <m>\abs{\frac{1}{n}}=\frac{1}{n}\lt \eps</m>.
+    Hence by definition,
+    <m>\limitt{n}{\infty}{\frac{1}{n}}=0</m>.
+  </p>
+</proof>
+
+<p>
+  Notice that this proof is rigorous and makes no reference to
+  vague notions such as <q>getting smaller</q> or <q>approaching
+  infinity.</q> It has three components:
+  <ol>
+    <li>
+      provide the challenge of a distance <m>\eps>0</m>, 
+    </li>
+    <li>
+      identify a real number <m>N</m>,
+      and 
+    </li>
+    <li>
+      show that this <m>N</m> works for this given <m>\eps</m>.
+    </li>
+  </ol>
+  There is also no explanation about where <m>N</m> came from.
+  While it is true that this choice of <m>N</m> is not surprising
+  in light of the <q>scrapwork</q> we did before the definition,
+  the motivation for how we got it is not in the formal proof nor
+  is it required.  In fact, such scrapwork is typically not
+  included in a formal proof.  For example, consider the
+  following.
+</p>
+
+<example>
+  <statement>
+    <p>
+      Use <xref ref="def_ConvergeToZero" ></xref> to prove that
+      <me>
+        \limit{n}{\infty}{\frac{\sin n}{n}}=0
+        </me>.
+    </p>
+  </statement>
+</example>
+<proof>
+  <p>
+    Let <m>\eps>0</m>.
+    Let <m>N=\frac{1}{\eps}</m>.
+    If <m>n>N</m>,
+    then <m>n>\frac{1}{\eps}</m> and <m>\frac{1}{n}\lt \eps</m>.
+    Thus
+    <m>\abs{\frac{\sin(n)}{n}}\leq\frac{1}{n}\lt \eps</m>.
+    Hence by definition,
+    <m>\limitt{n}{\infty}{\frac{\sin n}{n}}=0</m>.
+  </p>
+</proof>
+
+
+
+
+<p>
+  Notice that the <m>N</m> came out of nowhere,
+  but you can probably see the thought process that went into this choice:
+  We needed to use the inequality <m>\abs{\sin n}\leq 1</m>.
+  Again this scrapwork is not part of the formal proof,
+  but it is typically necessary for finding what <m>N</m> should be.
+  You might be able to do the next problem without doing any scrapwork first,
+  but don<rsq/>t hesitate to do scrapwork if you need it.
+</p>
+
+<problem>
+  <idx><h>Problems</h><h>convergence to zero</h></idx>  
+  <idx><h>convergence</h><h>of a sequence</h><h>convergence to zero drill</h></idx>
+
+  <introduction>
+    <p>
+      Use <xref ref="def_ConvergeToZero" ></xref>  to prove the following.
+    </p>
+  </introduction>
+  <task>
+    <statement>
+      <p>
+        <m>\limit{n}{\infty}{\frac{1}{n^2}}=0</m>
+      </p>
+    </statement>
+  </task>
+  <task>
+    <statement>
+      <p>
+        <m>\limit{n}{\infty}{\frac{1}{\sqrt{n}}}=0</m>
+      </p>
+    </statement>
+  </task>
+</problem>
+
+
+<example xml:id="sec_defin-conv-sequ">
+  <statement>
+    <p>
+      In this example we<rsq/>ll  use <xref ref="def_ConvergeToZero" ></xref> to prove
+      <me>
+        \limit{n}{\infty}{\frac{n+4}{n^2+1}}=0
+        </me>.
+    </p>
+    <p>
+      As the sequences get more complicated, doing scrapwork ahead of time
+      becomes more necessary.
+    </p>
+    <p>
+      <term>SCRAPWORK</term>
+    </p>
+    <p>
+      Given an <m>\eps>0</m>,
+      we need to see how large to make <m>n</m> in order to guarantee that <m>|\frac{n+4}{n^2+1}|\lt \eps</m>.
+      First notice that <m>\frac{n+4}{n^2+1}\lt \frac{n+4}{n^2}</m>.
+      Also, notice that if <m>n>4</m>,
+      then <m>n+4\lt n+n=2n</m>.
+      So as long as <m>n>4</m>,
+      we have <m>\frac{n+4}{n^2+1}\lt \frac{n+4}{n^2}\lt \frac{2n}{n^2}=\frac{2}{n}</m>.
+      We can make this less than <m>\eps</m> if we make <m>n>\frac{2}{\eps}</m>.
+      This means we need to make <m>n>4</m> and <m>n>\frac{2}{\eps}</m>,
+      simultaneously.
+      These can be done if we let <m>N</m> be the maximum of these two numbers.
+      This sort of thing comes up regularly,
+      so the notation <m>N=\max\left(4,\frac{2}{\eps}\right)</m> was developed to mean the maximum of these two numbers.
+      Notice that if <m>N=\max\left(4, \frac{2}{\eps}\right)</m> then <m>N\geq 4</m> and <m>N\geq\frac{2}{\eps}</m>.
+      We<rsq/>re now ready for the formal proof.
+    </p>
+  </statement>
+</example>
+<proof>
+  <p>
+    Let <m>\eps>0</m>.
+    Let <m>N=\max\left(4,\frac{2}{\eps}\right)</m>.
+    If <m>n>N</m>, then <m>n>4</m> and <m>n>\frac{2}{\eps}</m>.
+    Thus we have <m>n>4</m> and <m>\frac{2}{n}\lt \eps</m>.
+    Therefore
+    <me>
+      \abs{\frac{n+4}{n^2+1}}=\frac{n+4}{n^2+1}\lt \frac{n+4}{n^2}\lt \frac{2n}{n^2}= \frac{2}{n}\lt \eps
+      </me>.
+  </p>
+
+  <p>
+    Hence by definition,
+    <m>\limit{n}{\infty}{\frac{n+4}{n^2+1}}=0</m>.
+  </p>
+</proof>
+
+<p> 
+  Again we emphasize that the scrapwork is not <alert>explicitly</alert> a
+  part of the formal proof.  However,
+  if you look carefully, you can always find the scrapwork in the formal
+  proof.
+</p>
+
+<problem>
+  <idx><h>Problems</h><h>convergence to zero</h></idx>  
+  <idx><h>convergence</h><h>of a sequence</h><h>convergence to zero drill</h></idx>
+
+  <statement>
+    <p>
+      
+
+      Use <xref ref="def_ConvergeToZero" ></xref>  to prove that
+      <me>
+        \limit{n}{\infty}{\frac{n^2+4n+1}{n^3}}=0.
+      </me>
+    </p>
+  </statement>
+</problem>
+
+<problem xml:id="prob_sequences3">
+  <idx><h>Problems</h><h sortby="limit"><m>\limit{n}{\infty}{b^n}=0</m> if <m>-1\lt b\lt 1</m></h></idx>  
+  
+  <idx><h>limit</h><h><m>\limit{n}{\infty}{b^n}=0</m> if <m>-1\lt b\lt 1</m></h></idx>
+
+  <introduction>
+    <p>
+      Let <m>b</m> be a nonzero real number with <m>|b|\lt 1</m> and let <m>\eps>0</m>.
+    </p>
+  </introduction>
+  <task>
+    <statement>
+      <p>
+        Solve the inequality <m>|b|^n\lt \eps</m> for <m>n</m>
+      </p>
+    </statement>
+  </task>
+  <task>
+    <statement>
+      <p>
+        Use part (a) to prove <m>\limit{n}{\infty}{b^n}=0</m>.
+      </p>
+    </statement>
+  </task>
+  <task>
+    <statement>
+      <p>
+        Where does your proof in part (b) break down if
+        <m>\abs{b}\ge 1</m>?
+      </p>
+    </statement>
+  </task>
+
+</problem>
+
+<p>
+  We can negate <xref ref="def_ConvergeToZero" ></xref> to prove that
+  a particular sequence does not converge to zero.
+  Before we look at an example, let<rsq/>s analyze what it means for a
+  sequence <m>\left(s_n\right)</m> to not converge to zero.
+</p>
+<p>
+  Converging to zero means that any time a distance <m>\eps>0</m> is
+  given, we must be able to respond with a number <m>N</m> such that
+  <m>|s_n|\lt \eps</m> for every <m>n>N</m>.  To have this not happen,
+  we must be able to find some <m>\eps>0</m> such that no choice of
+  <m>N</m> will work.  Of course, if we find such an <m>\eps</m>, then
+  any smaller value will also fail to have such an <m>N</m>, but we
+  only need one.
+</p>
+  <example xml:id="ex_zero-two-not-converge">
+    <statement>
+      <p>
+        Use the definition to prove that the sequence
+        <me>
+          \left(1+(-1)^n\right)_{n=0}^\infty=(2,0,2,0,2,\ldots)
+        </me>
+        does not converge to zero.
+      </p>
+
+    </statement>
+  </example>
+
+
+  <proof>
+    <p>
+      If you stare at the example long enough, you see that any
+      <m>\eps</m> with <m>0\lt \eps\leq 2</m> will cause problems.
+      For the sake of specificity (rigor) we will let <m>\eps=2</m>.
+    </p>
+    <p>
+      Also let <m>N\in\RR</m> be any real number.
+      If we let <m>k</m> be any non<ndash/>negative integer with <m>k>\frac{N}{2}</m>,
+      then <m>n=2k>N</m>, but <m>|1+(-1)^n|=2</m>.
+      Thus no choice of <m>N</m> will satisfy the conditions of the definition for this <m>\eps</m>, (namely that
+      <m>|1+(-1)^n|\lt 2</m> for all <m>n>N</m>) and so <m>\limit{n}{\infty}{\left(1+(-1)^n\right)}\neq 0</m>.
+    </p>
+  </proof>
+
+
+
+  <problem xml:id="prob_sequences-not_converge_to_zero">
+    <idx><h>Problems</h><h>definition of non<ndash/>existence of a limit</h></idx>  
+    <idx><h>limit</h><h>definition of non<ndash/>existence</h></idx> 
+
+    <task>
+    <statement>
+      <p>
+        Negate <xref ref="def_ConvergeToZero" ></xref> to provide a formal
+        definition for <m>\limitt{n}{\infty}{s_n}\neq 0</m>.
+      </p>
+    </statement>
+    </task>
+    <!-- <problem xml:id="prob_sequences4"> -->
+    <!--   <idx><h>limit</h><h>definition of non-existence</h></idx> -->
+    <!--   <statement> -->
+    <task>
+      <statement>
+        <p>
+          Use your definition from part (a) to prove
+          <m>\limitt{n}{\infty}{\frac{n}{n+100}}\neq 0</m>.
+        </p>
+      </statement>
+    </task>
+  </problem>
+
+  <p>
+    Now that we have a handle on how to rigorously prove that a sequence converges to zero,
+    let<rsq/>s generalize this to a formal definition for a sequence converging to something else.
+    Basically, we want to say that a sequence
+    <m>\left(s_n\right)</m> converges to a real number <m>s</m>,
+    provided the difference <m>\left(s_n-s\right)</m> converges to zero.
+    This leads to the following definition:
+  </p>
+
+  <definition xml:id="def_ConvergenceOfASequence">
+    <title>Convergence of a Sequence</title>
+
+    <statement>
+      <p>
+        <idx><h>sequences</h><h>convergence</h></idx>
+        <idx><h>Definition</h><h>convergence of a sequence</h></idx>
+
+        Let <m>\left(s_n\right)=\left(s_1,s_2,s_3,\ldots\right)</m> be a sequence of real numbers and let <m>s</m> be a real number.
+        We say that <m>\left(\boldsymbol{s}_{\boldsymbol{n}}\right)</m> converges to <m>\boldsymbol{s}</m> and write
+        <m>\limitt{n}{\infty}{s_n}=s</m> provided for any <m>\eps>0</m>,
+        there is a real number <m>N</m> such that if <m>n>N</m>,
+        then <m>|s_n-s|\lt \eps</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notes on <xref ref="def_ConvergenceOfASequence"></xref>
+    <ol>
+      <li>
+        <p>
+          Clearly <m>\limit{n}{\infty}{s_n}=s</m> if and only if
+          <m>\limit{n}{\infty}{\left(s_n-s\right)}=0</m>.
+
+          <!-- <md> -->
+
+          <!--   <mrow> -->
+          <!--     \limit{n}{\infty}{s_n}=s\amp{}\amp{} \text{if and only -->
+          <!--     if}\amp{}\amp{} -->
+          <!--     \limit{n}{\infty}{\left(s_n-s\right)}=0. -->
+          <!--   </mrow> -->
+
+          <!-- </md> -->
+        </p>
+      </li>
+      <li>
+        <p>
+          Again notice that this says that we can make <m>s_n</m> as close to <m>s</m> as we wish
+          (within <m>\eps</m>)
+          by making <m>n</m> large enough (<m>>N)</m>.
+          As before, this definition makes these notions very specific.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Notice that <m>\abs{s_n-s}\lt \eps</m> can be written in the following equivalent forms
+        </p>
+        <p>
+          <ul>
+            <li>
+              <p>
+                <m>\abs{s_n-s}\lt \eps</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>-\eps\lt s_n-s\lt \eps</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>s-\eps\lt s_n\lt s+\eps</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>s_n\in\left(s-\eps,s+\eps\right)</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>   
+          and we are free to use any one of these which is convenient at the time.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <aside>
+    <title>Double Implication</title>
+
+    <p>
+      The phrase <q>if and only if</q> (seen in item 1 above) is a term of art in
+      mathematics. The symbol <q><m>\Leftrightarrow </m></q> is
+      equivalent.
+    </p>
+    <p>
+      Formally it means that each statement follows
+      logically from the other. If you are asked to prove the
+      statement <me>A\Leftrightarrow B</me> you need to first assume that
+      <m>A</m> is true to prove <m>B</m>. Then you assume that
+      <m>B</m> is true to prove <m>A</m>.  
+    </p>
+    <p>
+      In a classroom setting
+      it is often abbreviated as <q>iff.</q>
+    </p>
+  </aside>
+
+  <p>
+    As an example, let<rsq/>s use this definition to prove that
+    the sequence in part (b) of <xref
+    ref="prob_sequences-not_converge_to_zero"></xref>
+    converges to <m>1</m>.
+  </p>
+
+  <example xml:id="example_SeriesConverge">
+    <statement>
+      <p>
+        Prove <m>\limitt{n}{\infty}{\frac{n}{n+100}}=1</m>.
+      </p>
+      <p>
+        <term>SCRAPWORK</term>
+      </p>
+      <p>
+        Given an <m>\eps>0</m>, we need to get <m>\abs{\frac{n}{n+100}-1}\lt \eps</m>.
+        This prompts us to do some algebra.
+        <me>
+          \left|\frac{n}{n+100}-1\right|=\left|\frac{n-(n+100)}{n+100}\right|\leq\frac{100}{n}
+          </me>.
+      </p>
+
+      <p>
+        This in turn,
+        seems to suggest that <m>N=\frac{100}{\eps}</m> should work.
+      </p>
+    </statement>
+  </example>
+  <proof>
+    <p>
+      Let <m>\eps>0</m>.
+      Let <m>N=\frac{100}{\eps}</m>.
+      If <m>n>N</m>,
+      then <m>n>\frac{100}{\eps}</m> and so <m>\frac{100}{n}\lt \eps</m>.
+      Hence
+      <me>
+        \left|\frac{n}{n+100}-1\right|=\left|\frac{n-(n+100)}{n+100}\right|= \frac{100}{n+100}\lt \frac{100}{n}\lt \eps
+        </me>.
+    </p>
+
+    <p>
+      Thus by definition <m>\limitt{n}{\infty}{\frac{n}{n+100}} =1</m>.
+    </p>
+  </proof>
+
+
+  <p>
+    Notice again that the scrapwork is not part of the formal
+    proof and the author of a proof is not obligated to explain
+    where the choice of <m>N</m> came from (although the thought
+    process can usually be seen in the formal proof).  The formal
+    proof contains only these requisite three parts:
+
+    <ul>
+
+      <li>
+        provide the
+        challenge of an arbitrary <m>\eps>0</m>,
+      </li>
+
+      <li>
+        provide a specific
+        <m>N</m>, and
+      </li>
+
+      <li>
+        show that this <m>N</m> works for the given
+        <m>\eps</m>.
+
+      </li>
+
+    </ul>
+  </p>
+
+  <p>
+    Also notice that given a specific sequence such as
+    <m>\left(\frac{n}{n+100}\right)</m>, the definition does not
+    indicate what the limit would be if in fact, it exists.  Once
+    an educated guess is made the definition only verifies that
+    this intuition is correct.
+  </p>
+
+  <p>
+    This leads to the following question: If intuition is needed to
+    determine what a limit of a sequence should be, then what is the
+    purpose of this relatively non<ndash/>intuitive, complicated
+    definition?
+  </p>
+
+  <p>
+    Remember that when these rigorous formulations were developed,
+    intuitive notions of convergence were already in place and had
+    been used with great success.  But the arguments based on them
+    could not be fully justified. This definition was developed to
+    address the foundational issues, not to help us compute limits.
+  </p>
+  <p>
+    Could our intuitions be verified in a concrete fashion that was above reproach?
+    This was the purpose of this non-intuitive definition.
+    It was to be used to verify that our intuition was,
+    in fact, correct and do so in a very prescribed manner.
+    For example, if <m>b>0</m> is a fixed number,
+    then you would probably say as <m>n</m> approaches infinity,
+    <m>b^{\left(\frac{1}{n}\right)}</m> approaches <m>b^0=1</m>.
+    After all, we did already prove that <m>\limit{n}{\infty}{\frac{1}{n}}=0</m>.
+    We should be able to back up this intuition with our rigorous definition.
+  </p>
+
+  <problem>
+    <idx><h>Problems</h><h sortby="limit"><m>\limit{n}{\infty}{b^{\left(\frac{1}{n}\right)}}=1</m> if <m>b>0</m></h></idx>  
+    <idx><h>limit</h><h><m>\limit{n}{\infty}{b^{\left(\frac{1}{n}\right)}}=1</m> if <m>b>0</m></h></idx>
+    <statement>
+      <p>
+        
+        Let <m>b>0</m>.  Use <xref ref="def_ConvergenceOfASequence"
+        ></xref> to prove
+        <m>\limitt{n}{\infty}{b^{\left(\frac{1}{n}\right)}}=1</m>.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        You will probably need to separate this into three cases:
+        <m>0\lt b\lt 1</m>, <m>b=0</m>, and <m>b\gt 1</m>.
+      </p>
+    </hint>
+  </problem>
+
+  <problem xml:id="prob_series-geometric">
+    <idx><h>Problems</h><h>convergence/divergence of the Geometric series</h></idx>  
+    <idx><h>series</h><h>Geometric series</h><h>convergence/divergence conditions for</h></idx>
+
+    <task>
+      <statement>
+        <p>
+          Prove that if <m>x\neq 1</m>, then
+          <me>
+            1+x+x^2+\cdots+x^n=\frac{1-x^{n+1}}{1-x}
+            </me>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Use (a) to prove that if <m>|x|\lt 1</m>, then
+          <m>\limit{n}{\infty}{\left(\sum_{j=0}^nx^j\right)}=\frac{1}{1-x}</m>.
+        </p>
+      </statement>
+    </task>
+  </problem>
+
+  <problem>
+    <idx><h>Problems</h><h>definition of divergence</h></idx>  
+    <idx><h>sequences</h><h>definition of divergence</h></idx>
+    <idx><h>convergence</h><h>definition of nonconvergence of a sequence</h></idx>
+
+    <task>
+      <statement>
+        <p>
+          Provide a rigorous definition for <m>\limitt{n}{\infty}{s_n}\neq s</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Use your definition from part (a) to show that for any real number <m>a</m>,
+          <m>\limitt{n}{\infty}{\left(\left(-1\right)^n\right)}\neq a</m>. 
+        </p>
+      </statement>
+      <hint> 
+        <p>
+          Choose <m>\eps=1</m> and use the fact that
+          <m>\abs{a-(-1)^n}\lt 1</m> is equivalent to
+          <m>\left(-1\right)^n-1\lt a\lt \left(-1\right)^n+1</m> to
+          show that no choice of <m>N</m> will work for this
+          <m>\eps</m>.
+        </p>
+      </hint>
+    </task>
+  </problem>
+  
+  <problem>
+    <idx><h>Problems</h><h>convergence of the absolute value of a sequence</h></idx>  
+    <idx><h>convergence</h><h> of a sequence</h><h>implies the convergence of the absolute sequence</h></idx>
+
+    <statement>
+      <p>
+        Prove that if <m>\limit{n}{\infty}{s_n}=s</m> then
+        <m>\limit{n}{\infty}{\abs{s_n}}=\abs{s}</m>.  Prove that the
+        converse is true when <m>s=0</m>, but it is not necessarily
+        true otherwise.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <idx><h>Problems</h><h>limit is unique</h></idx>  
+    <idx><h>sequences</h><h>limit is unique</h></idx>
+
+    <task>
+      <statement>
+        <p>
+          Let <m>\left(s_n\right)</m> and <m>\left(t_n\right)</m> be
+          sequences with <m>s_n\leq t_n,\forall\  n</m>.  Suppose
+          <m>\limit{n}{\infty}{s_n}=s</m> and
+          <m>\limit{n}{\infty}{t_n}=t</m>.
+
+          Prove <m>s\leq t</m>. 
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Assume for contradiction, that <m>s>t</m> and use the
+          definition of convergence with <m>\eps=\frac{s-t}{2}</m>
+          to produce an <m>n</m> with <m>s_n>t_n</m>.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Prove that if a sequence converges, then its limit is
+          unique.  That is, prove that if
+          <m>\limit{n}{\infty}{s_n}=s</m> and
+          <m>\limit{n}{\infty}{s_n}=t</m>, then <m>s=t</m>.
+        </p>
+      </statement>
+    </task>
+  </problem>
+
+  <problem>
+    <idx><h>Problems</h><h>the difference of sequences</h></idx>  
+    <idx><h>sequences</h><h>difference of</h></idx>
+    <idx><h>limit</h><h>of the difference of sequences</h></idx>
+
+    <statement>
+      <p>
+        Prove that if <m>\limit{n}{\infty}{s_n}=s</m> and
+        <m>\limit{n}{\infty}{\left(s_n-t_n\right)}=0</m>, then
+        <m>\limit{n}{\infty}{t_n}=s</m>.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <idx><h>Problems</h><h>lower and upper bounds for sequences</h></idx>  
+    <idx><h>sequences</h><h>lower and upper bounds for</h></idx>
+
+    <task>
+      <statement>
+        <p>
+          Prove that if <m>\limit{n}{\infty}{s_n}=s</m> and <m>s\lt
+          t</m>, then there exists a real number <m>N</m> such that if
+          <m>n>N</m> then <m>s_n\lt t</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Prove that if <m>\limit{n}{\infty}{s_n}=s</m> and <m>r\lt
+          s</m>, then there exists a real number <m>M</m> such that if
+          <m>n>M</m> then <m>r\lt s_n</m>.
+        </p>
+      </statement>
+    </task>
+  </problem>
+
+  <problem xml:id="prob_RatioTest">
+    <title>The Ratio Test</title>
+
+    <idx><h>Problems</h><h>Ratio Test</h></idx> 
+    <idx><h>sequences</h><h>Ratio Test for</h></idx>
+
+    <introduction>
+      <p>
+        Suppose <m>\left(s_n\right)</m> is a sequence of positive numbers such that
+        <me>
+          \limit{n}{\infty}{\left(\frac{s_{n+1}}{s_n}\right)}=L
+          </me>.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Prove that if <m>L\lt 1</m>, then
+          <m>\limit{n}{\infty}{s_n}=0</m>.  
+        </p>
+      </statement>
+      <hint> 
+        <p>
+          Choose <m>R</m> with <m>L\lt R\lt 1</m>.  By the
+          previous problem, <m>\exists</m> <m>N</m> such that if
+          <m>n>N</m>, then <m>\frac{s_{n+1}}{s_n}\lt R</m>.  Let
+          <m>n_0>N</m> be fixed and show <m>s_{n_0+k}\lt R^ks_{n_0}</m>.
+          Conclude that <m>\limit{k}{\infty}{s_{n_0+k}}=0</m> and
+          let <m>n=n_0+k</m>.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Let <m>c</m> be a positive real number.  Prove
+          <m>\limit{n}{\infty}{\left(\frac{c^n}{n!}\right)}=0</m>.
+        </p>
+      </statement>
+    </task>
+  </problem>
+</section>
+
+
+
+
+
+<section xml:id="LimitAsPrimary">
+  <title>The Limit as a Primary Tool</title>
+  <p>
+    As you saw in the <xref ref="SeqRealNum"
+    text="custom">previous section</xref> the formal definition of
+    the convergence of a sequence is meant to capture rigorously
+    our intuitive understanding of convergence.  However, the
+    definition itself is an unwieldy tool. If only there were some
+    way to be rigorous without having to run back to the
+    definition each time.  Fortunately, there is a way.  If we can
+    use the definition to prove some general rules about limits
+    then we could use these rules whenever they apply and be
+    assured that everything was still rigorous.  A number of these
+    should look familiar from Calculus.
+      </p>
+
+      <problem xml:id="PROBLEMLimConst">
+        <title>Limit of a Constant Sequence is the Constant</title>
+
+        <idx><h>Problems</h><h>limit of a constant sequence</h></idx>  
+        <idx><h>limit</h><h>of a constant sequence</h></idx>
+        <idx><h>sequences</h><h>constant sequences</h></idx>
+
+        <statement>
+          <p>
+            Let <m>\left(c\right)_{n=1}^\infty=(c,c,c,\ldots)</m> be a
+            constant sequence.  Show that
+            <m>\limitt{n}{\infty}{c}=c</m>.
+          </p>
+        </statement>
+      </problem>
+
+      <p>
+        In proving the familiar limit theorems,
+        the following will be a very useful tool.
+      </p>
+
+      <lemma xml:id="Tri-RevTri-Ineq">
+        
+        <idx><h>Triangle Inequalities</h></idx>
+        <idx><h>Triangle Inequalities</h><h>Triangle Inequality</h></idx>
+        <idx><h>Triangle Inequalities</h><h>Reverse Triangle Inequalitiy</h></idx>
+
+        <statement>
+          <p>
+            <dl>
+              <li xml:id="TriangleIneq">  <title>Triangle Inequality:</title>
+              <p>
+                Let <m>a</m> and <m>b</m> be real numbers.
+                Then
+                <me>
+                  \abs{a+b}\leq \abs{a}+\abs{b}
+                  </me>.
+              </p>
+              </li>
+              <li xml:id="InvTriangleIneq"> 
+                <title>Reverse Triangle Inequality:</title>
+                <p>
+                  Let <m>a</m> and <m>b</m> be real numbers.
+                  Then
+                  <me>
+                    \abs{a}-\abs{b}\leq\abs{a-b}
+                  </me>
+                </p>
+              </li>
+            </dl>
+          </p>
+        </statement>
+      </lemma>
+
+
+
+
+      <problem xml:id="Tri-RevTri-Ineq_prob">
+        <idx><h>Problems</h><h>The Triangle Inequality</h></idx>  
+        <idx><h>Triangle Inequalities</h><h>Triangle Inequality</h></idx>
+
+        <task>
+          <statement>
+            <p>
+              Prove <xref ref="Tri-RevTri-Ineq"></xref>. 
+            </p>
+          </statement>
+          <hint>
+            <p>
+              For the Reverse Triangle Inequality,
+              consider <m>\abs{a}=\abs{a-b+b}</m>.
+            </p>
+          </hint>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Show <m>\Big||a|-|b|\Big|\leq|a-b|</m>. 
+            </p>
+          </statement>
+          <hint>
+            <p>
+              You want to show that 
+              <me>|a|-|b|\leq|a-b|</me> and that <me>-\left(|a|-|b|\right)\leq|a-b|</me>.
+            </p>
+          </hint>
+
+        </task>
+      </problem>
+
+      <theorem xml:id="thm_SumOfSequences">
+        <title>Limit of a Sum of Sequences is the Sum of the Limits</title>
+
+        <idx><h>limit</h><h> of a sum of sequences</h></idx>
+
+        <statement>
+          <p>
+            If <m>\limitt{n}{\infty}{a_n}=a</m> and
+            <m>\limitt{n}{\infty}{b_n}=b</m>,
+            then <me>\limit{n}{\infty}{\left(a_n+b_n\right)}=a+b</me>.
+          </p>
+        </statement>
+      </theorem>
+
+      <p>
+        We  often state this theorem informally as <q>the limit of
+        a sum is the sum of the limits.</q> However, to be absolutely
+        precise, what it says is that if we already know that two
+        sequences converge, then the sequence formed by summing their
+        corresponding terms  will also converge and
+        in fact, it will converge to the sum of those individual limits.
+      </p>
+      <p>
+        We<rsq/>ll provide the scrapwork and leave the formal
+        write<ndash/>up to you in <xref ref="PROBLEMLimitOfSum"
+        ></xref>. Be sure you justify every step. Also, note the role
+        of the <xref ref="Tri-RevTri-Ineq" text="custom">triangle
+        inequality</xref> in the proof.
+      </p>
+
+      <p>
+        <term>SCRAPWORK:</term>
+      </p>
+      <p>
+        If we let <m>\eps>0</m>, then we want to find <m>N</m> such
+        that if <m>n>N</m>, then
+        <m>\abs{\left(a_n+b_n\right)-\left(a+b\right)}\lt \eps</m>.
+        Since we know that <m>\limit{n}{\infty}{a_n}=a</m> and
+        <m>\limit{n}{\infty}{b_n}=b</m>, we can make
+        <m>\abs{a_n-a}</m> and <m>\abs{b_n-b}</m> as small as we wish,
+        provided we make <m>n</m> large enough.  Let<rsq/>s look
+        closely at our goal to see if we can close the gap between
+        what we know and what we want.  We know, by the triangle
+        inequality, that
+        <me>
+          \abs{\left(a_n+b_n\right)-\left(a+b\right)}=\abs{\left(a_n-a\right)+\left(b_n-b\right)}\leq\abs{a_n-a}+\abs{b_n-b}
+          </me>.
+          To make this whole thing less than <m>\eps</m>,
+          it makes sense to make each part less than <m>\frac{\eps}{2}</m>.
+          
+      </p>
+      <p>
+        Fortunately, we can do that as the definitions of 
+        <m>\limit{n}{\infty}{a_n}=a</m> and <m>\limit{n}{\infty}{b_n}=b</m> allow us to make
+        <m>\abs{a_n-a}</m> and <m>\abs{b_n-b}</m> arbitrarily small.
+      </p>
+      <p>
+        Specifically, since <m>\limit{n}{\infty}{a_n}=a</m>, there
+        exists an <m>N_1</m> such that if <m>n>N_1</m> then
+        <m>\abs{a_n-a}\lt \frac{\eps}{2}</m>.  Also since
+        <m>\limit{n}{\infty}{b_n}=b</m>, there exists an <m>N_2</m>
+        such that if <m>n>N_2</m> then <m>\abs{b_n-b}\lt
+        \frac{\eps}{2}</m>.  Since we want both of these to occur,
+        it makes sense to let
+        <m>N=</m>max<m>\left(N_1,N_2\right)</m>.  This should be the
+        <m>N</m> that we seek.
+        </p>
+
+        <problem xml:id="PROBLEMLimitOfSum">
+          <idx><h>Problems</h><h>termwise sums of sequences</h></idx>  
+          <idx><h>sequences</h><h>termwise sums of</h></idx>
+
+          <statement>
+            <p>
+              Prove <xref ref="thm_SumOfSequences"></xref>.
+            </p>
+
+          </statement>
+          <!-- <hint> -->
+          <!--   <title>SCRAPWORK</title> -->
+
+          <!--   <p> -->
+          <!--     <term>SCRAPWORK:</term> -->
+          <!--   </p> -->
+          <!--   <p> -->
+          <!--     If we let <m>\eps>0</m>, then we want to find <m>N</m> -->
+          <!--     such that if <m>n>N</m>, then -->
+          <!--     <m>\big|\left(a_n+b_n\right)-\left(a+b\right)\big|\lt -->
+          <!--     \eps</m>.  Since we know that -->
+          <!--     <m>\limit{n}{\infty}{a_n}=a</m> and -->
+          <!--     <m>\limit{n}{\infty}{b_n}=b</m>, we can make -->
+          <!--     <m>\big|a_n-a\big|</m> and <m>\big|b_n-b\big|</m> as small -->
+          <!--     as we wish, provided we make <m>n</m> large enough. -->
+          <!--     Let<rsq/>s go back to what we want, to see if we can close -->
+          <!--     the gap between what we know and what we want.  We know, -->
+          <!--     by the triangle inequality, that -->
+          <!--     <me> -->
+          <!--       \left|\left(a_n+b_n\right)-\left(a+b\right)\right|=\left|\left(a_n-a\right)+\left(b_n-b\right)\right|\leq\left|a_n-a\right|+\left|b_n-b\right| -->
+          <!--       </me>. -->
+          <!--       To make this whole thing less than <m>\eps</m>, -->
+          <!--       it makes sense to make each part less than <m>\frac{\eps}{2}</m>. -->
+
+          <!--   </p> -->
+          <!--   <p> -->
+          <!--     Fortunately, we can do that as the definitions of  -->
+          <!--     <m>\limit{n}{\infty}{a_n}=a</m> and <m>\limit{n}{\infty}{b_n}=b</m> allow us to make -->
+          <!--     <m>\abs{a_n-a}</m> and <m>\abs{b_n-b}</m> arbitrarily small. -->
+          <!--   </p> -->
+          <!--   <p> -->
+          <!--     Specifically, since <m>\limit{n}{\infty}{a_n}=a</m>, there -->
+          <!--     exists an <m>N_1</m> such that if <m>n>N_1</m> then -->
+          <!--     <m>\abs{a_n-a}\lt \frac{\eps}{2}</m>.  Also since -->
+          <!--     <m>\limit{n}{\infty}{b_n}=b</m>, there exists an <m>N_2</m> -->
+          <!--     such that if <m>n>N_2</m> then <m>\abs{b_n-b}\lt -->
+          <!--     \frac{\eps}{2}</m>.  Since we want both of these to occur, -->
+          <!--     it makes sense to let -->
+          <!--     <m>N=</m>max<m>\left(N_1,N_2\right)</m>.  This should be the -->
+          <!--     <m>N</m> that we seek. -->
+          <!--   </p> -->
+          <!-- </hint> -->
+        </problem>
+
+        <theorem xml:id="thm_LimitOfProduct">
+          <title>Limit of the Product of Sequences is the Product of the Limits</title>
+
+          <idx><h>limit</h><h> of a product of sequences</h></idx>
+          <idx><h>limit</h><h>products of</h></idx>
+
+          <statement>
+            <p>
+              If <m>\limit{n}{\infty}{a_n}=a</m> and <m>\limit{n}{\infty}{b_n}=b</m>,
+              then <m>\limit{n}{\infty}{\left(a_n b_n\right)}=a b</m>.
+            </p>
+          </statement>
+        </theorem>
+
+
+        <p>
+          <term>SCRAPWORK:</term>
+          Given <m>\eps>0</m>, we want <m>N</m> so that if <m>n>N</m>,
+          then <m>\abs{a_n  b_n-a  b}\lt \eps</m>.
+          One of the standard tricks in analysis is to <q>uncancel.</q>
+          In this case we will subtract and add a convenient term.
+          Normally these would <q>cancel out,</q>
+          which is why we say that we will uncancel to put them back in.
+          You already saw an example of this in proving the Reverse Triangle Inequality
+          (<xref ref="Tri-RevTri-Ineq_prob"></xref>).
+          In the present case, consider
+          <md>
+            <mrow>\abs{a_n  b_n-a  b}\amp =\abs{a_n  b_n-a_n b+a_n b-a  b}</mrow>
+            <mrow>\amp \leq \abs{a_n  b_n-a_n  b}+\abs{a_n b-a b}|</mrow>
+            <mrow>\amp =\abs{a_n}\abs{b_n-b}+\abs{b}\abs{a_n-a}</mrow>
+            </md>.
+        </p>
+
+        <p>
+          We can make this whole thing less than <m>\eps</m>, provided we
+          make each term in the sum less than <m>\frac{\eps}{2}</m>.  We
+          can make <m>\big|b\big|\big|a_n-a\big|\lt \frac{\eps}{2}</m> if
+          we make <m>\big|a_n-a\big|\lt \frac{\eps}{2|b|}</m>. 
+        </p>
+        <p>
+          But wait!
+          What if <m>b=0</m>? 
+        </p>
+        <p>
+          We could handle this as a separate case or
+          we can do the following <q>slick trick.</q> Notice that we can
+          add one more line to the above string of inequalities:
+          <me>\left|a_n\right|\left|b_n-b\right|+\left|b\right|\left|a_n-a\right|\lt
+          \left|a_n
+          \right|\left|b_n-b\right|+\left(\left|b\right|+1\right)\left|a_n-a
+          \right|</me>.  Now we can make <m>\left|a_n-a\right|\lt
+          \frac{\eps}{2\left(|b|+1\right)}</m> and not worry about
+          dividing by zero.
+        </p>
+
+        <p>
+          Making <m>\abs{a_n}\abs{b_n-b}\lt \frac{\eps}{2}</m> requires a bit more finesse.
+          At first glance,
+          one would be tempted to try and make <m>\abs{b_n-b}\lt \frac{\eps}{2|a_n|}</m>.
+          Even if we ignore the fact that we could be dividing by zero
+          (which we could handle),
+          we have a bigger problem.
+          According to the definition of <m>\limitt{n}{\infty}{b_n}=b</m>,
+          we can make <m>\abs{b_n-b}</m> smaller than any given fixed positive number,
+          as long as we make <m>n</m> large enough
+          (larger than some <m>N</m> which goes with a given epsilon).
+          Unfortunately,
+          <m>\frac{\eps}{2|a_n|}</m> is not fixed as it has the variable <m>n</m> in it;
+          there is no reason to believe that a single <m>N</m> will work
+          with all possible values of <m>n</m> simultaneously.
+          To handle this impasse, we need the following:
+        </p>
+
+        <lemma xml:id="lemma_BoundedConvergent">
+          
+          <idx><h>sequences</h><h>convergence</h><h> convergent sequences are bounded</h></idx>
+
+          <statement>
+            <p>
+              <alert>A Convergent Sequence Is Bounded.</alert>
+            </p>
+            <p>
+              If <m>\limitt{n}{\infty}{a_n}=a</m>,
+              then there exists <m>B>0</m> such that <m>\abs{a_n}\leq B</m> for all <m>n</m>.
+            </p>
+          </statement>
+        </lemma>
+
+
+        <problem xml:id="prob_BoundedConvergent">
+          <idx><h>Problems</h><h> convergent sequences are bounded</h></idx>  
+          
+          <idx><h>sequences</h><h>convergence</h><h> convergent sequences are bounded</h></idx>
+
+          <statement>
+            <p>
+              Prove <xref ref="lemma_BoundedConvergent"></xref>. 
+            </p>
+          </statement>
+          <hint>
+            <p>
+              We know that there exists <m>N</m> such that if
+              <m>n>N</m>, then <m>\abs{a_n-a}\lt 1</m>.  Let
+              <m>B=</m>max<m>\left(\abs{a_1},\abs{a_2},\ldots,\abs{a_{\lceil{N}\rceil}},\abs{a}+1\right)</m>,
+              where <m>\lceil{N}\rceil</m> represents the smallest
+              integer greater than or equal to <m>N</m>.
+            </p>
+            <!-- <aside> -->
+            <!--   <title>Comment</title> -->
+            <!--   <p> -->
+            <!--     Actually, this is a dangerous habit to fall into even in -->
+            <!--     convergence proofs. -->
+            <!--   </p> -->
+            <!-- </aside> -->
+          </hint>
+        </problem>
+
+
+
+        <p>
+          Armed with <xref ref="lemma_BoundedConvergent" ></xref>  
+          we can add the following inequality to the scrapwork above.
+          <md>
+            <mrow>\abs{a_n\cdot b_n-a\cdot b}\amp =\abs{a_n\cdot b_n-a_n\cdot b+a_n\cdot b-a\cdot b}</mrow>
+            <mrow>\amp \leq \abs{a_n\cdot b_n-a_n\cdot b}+ \abs{a_n\cdot b-a\cdot b}</mrow>
+            <mrow>\amp = \abs{a_n}\abs{b_n-b}+\abs{b}\abs{a_n-a}</mrow>
+            <mrow>\amp \lt B \abs{b_n-b}+\left(\abs{b}+1\right)\abs{a_n-a}.</mrow>
+          </md>
+        </p>
+
+        <p>
+          At this point,
+          we should be able to make the last line of this less than <m>\eps</m>.
+        </p>
+        <p>
+          <term>END OF SCRAPWORK</term>
+        </p>
+
+
+        <problem>
+          <idx><h>Problems</h><h>termwise products of sequences</h></idx>  
+
+          <idx><h>sequences</h><h>termwise product of</h></idx>
+
+          <statement>
+            <p>
+              Prove <xref ref="thm_LimitOfProduct"></xref>.
+            </p>
+          </statement>
+        </problem>
+
+        <corollary xml:id="cor_1">
+          
+          <title>(to <xref
+          ref="thm_LimitOfProduct"></xref>)</title>
+
+          <statement>
+            <p>
+              If
+              <m>\limit{n}{\infty}{a_n}=a</m> and <m>c\in\mathbb{R}</m>,
+              then <m>\limit{n}{\infty}{c\cdot a_n}=c\cdot a</m>.
+            </p>
+            <!-- <aside> -->
+            <!--   <title>Comment</title> -->
+            <!--   <p> -->
+            <!--     This is a corollary to  -->
+            <!--   </p> -->
+            <!-- </aside> -->
+
+          </statement>
+        </corollary>
+
+        <problem>
+          <idx><h>Problems</h><h>the limit of a constant times a sequence</h></idx>  
+          <idx><h>sequences</h><h>constant multiples of</h></idx>
+          <idx><h>limit</h><h>of a constant times a sequence</h></idx>
+
+          <statement>
+            <p>
+              Prove  <xref ref="cor_1"> </xref>.
+            </p>
+          </statement>
+        </problem>
+
+        <p>
+          The following theorem is the analog of <xref
+          ref="thm_LimitOfProduct"></xref> for quotients.
+        </p>
+
+        <theorem xml:id="thm_LimitOfQuotient">
+          <title>Limit of the Quotient of Sequences is the Quotient of the Limits</title>
+
+          <idx><h>limit</h><h>of a quotient of sequences</h></idx>
+
+          <statement>
+            <p>
+              Suppose <m>\limitt{n}{\infty}{a_n}=a</m> and
+              <m>\limitt{n}{\infty}{b_n}=b</m>.
+              Also suppose <m>b\neq 0</m> and <m>b_n\neq 0, \forall n</m>.
+            </p>
+            <p>
+
+              Then <me>\limit{n}{\infty}{\left(\frac{a_n}{b_n}\right)}=\frac{a}{b}</me>.
+            </p>
+          </statement>
+        </theorem>
+
+
+        <problem>
+          <idx><h>Problems</h><h>termwise quotient of sequence</h></idx>  
+
+          <idx><h>sequences</h><h>termwise quotient of</h></idx>
+
+          <statement>
+            <p>
+              Prove <xref ref="thm_LimitOfQuotient"></xref>.
+            </p>
+
+            <p>
+              <term>SCRAPWORK</term>
+            </p>
+            <p>
+              It is helpful to look first at the special case
+              <me>\limitt{n}{\infty}{\left(\frac{1}{b_n}\right)}=\frac{1}{b}</me>.
+              The general case will follow from this and from <xref
+              ref="thm_LimitOfProduct"></xref>.  
+            </p>
+            <p>
+              Consider
+              <m>\big|\frac{1}{b_n}-\frac{1}{b}\big|=\frac{|b-b_n|}{|b_n||b|}</m>.
+              We are faced with the same dilemma we had when we were
+              proving <xref ref="thm_LimitOfProduct" ></xref>; we need
+              to get <m>\big|\frac{1}{b_n}\big|</m> bounded above.
+              This means we need to get <m>\abs{b_n}</m> bounded away from
+              zero (at least for large enough <m>n</m>).
+            </p>
+
+            <p>
+              This can be done as follows.
+              Since <m>b\neq 0</m>, then <m>\frac{|b|}{2}>0</m>.
+              Thus, by the definition of
+              <m>\limit{n}{\infty}{b_n}=b</m> there exists <m>N_1</m> such that if <m>n>N_1</m>,
+              then <m>\abs{b}-\abs{b_n}\leq\big|b-b_n\big|\lt \frac{\abs{b}}{2}</m>.
+              Thus when <m>n>N_1</m>,
+              <m>\frac{\abs{b}}{2}\lt \abs{b_n}</m> and so <m>\frac{1}{\abs{b_n}}\lt \frac{2}{\abs{b}}</m>.
+              This says that for <m>n>N_1</m>,
+              <m>\frac{\abs{b-b_n}}{\abs{b_n}\abs{b}}\lt \frac{2}{\abs{b}^2}\abs{b-b_n}</m>.
+              We should be able to make this smaller than a given <m>\eps>0</m>, 
+              provided we make <m>n</m> large enough.
+            </p>
+          </statement>
+        </problem>
+
+
+
+        <p>
+          The results of <xref ref="PROBLEMLimConst" ></xref>, <xref
+          ref="thm_SumOfSequences" ></xref>, <xref
+          ref="thm_LimitOfProduct" ></xref>, and <xref
+          ref="thm_LimitOfQuotient" ></xref> allow us to find the 
+          limits of complicated sequences and then rigorously verify that
+          these are in fact, the correct limits without resorting to
+          the definition of a limit.
+          </p>
+
+          <problem>
+            <idx><h>Problems</h><h>the limit of ratios of polynomials</h></idx>  
+
+            <idx><h>limit</h><h>identifing the theorems used in a limit</h></idx>
+            <idx><h>limit</h><h> of ratios of polynomials</h></idx>
+
+            <task>
+              <statement>
+                <p> 
+                  Use the  theorems from this section  to prove
+                  that 
+                  <me>
+                    \limit{n}{\infty}{\frac{3n^3-100n+1}{5n^3+4n^2-7}} =
+                    \limit{n}{\infty}{\frac{n^3\left(3-\frac{100}{n^2}+\frac{1}{n^3}\right)}{n^3
+                    \left(5+\frac{4}{n}-\frac{7}{n^3}\right)}}=\frac{3}{5}
+                    </me>.  
+                </p>
+
+                <!-- <p> -->
+                <!--   Notice that this presumes that all of the individual limits exist. -->
+                <!--   That this is true will become evident as the proof is fleshed out. -->
+                <!-- </p> -->
+              </statement>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  Prove that 
+                  <me>
+                    \limit{n}{\infty}{\frac{a_0+a_1n+a_2n^2+
+                    \cdots+a_kn^k}{b_0+b_1n+b_2n^2+\cdots+b_kn^k}}=\frac{a_k}{b_k}
+                    </me>, provided <m>b_k\neq 0</m>.
+                </p>
+                <p>
+                  Be sure to explain why division by zero is not an issue. (See the hint.)
+                </p>
+
+              </statement>
+              <hint>
+                <p>
+                  A polynomial
+                  only has finitely many roots.
+                </p>
+              </hint>
+            </task>
+
+          </problem>
+
+          <p>
+
+            There is one more theorem which  will prove to be a valuable tool.
+          </p>
+
+          <theorem xml:id="thm_SqueezeTheorem">
+            <title>The Squeeze Theorem for Sequences</title>
+
+            <idx><h>limit</h><h>Squeeze Theorem for Sequences</h></idx> 
+
+            <statement>
+              <p>
+
+              </p>
+              <p>
+                Let <m>\left(r_n\right),\left(s_n\right)</m>,
+                and <m>\left(t_n\right)</m> be sequences of real numbers with
+                <m>r_n\leq s_n\leq t_n,\forall</m> positive integers <m>n</m>.
+                Suppose <m>\limit{n}{\infty}{r_n}=s=\limit{n}{\infty}{t_n}</m>.
+                Then <m>\left(s_n\right)</m> must converge and <m>\limit{n}{\infty}{s_n}=s</m>.
+              </p>
+            </statement>
+          </theorem>
+
+          <problem>
+            <idx><h>Problems</h><h>The Squeeze Theorem</h></idx>  
+            
+            <idx><h>limit</h><h>Squeeze Theorem</h></idx>
+
+            <statement>
+              <p>
+                Prove the <xref ref="thm_SqueezeTheorem" text="custom">Squeeze Theorem for Sequences</xref>. 
+              </p>
+            </statement>
+            <hint> 
+              <p>
+                This is probably a place where you would want to use
+                <m>s-\eps\lt s_n\lt s+\eps</m> instead of <m>|s_n-s|\lt
+                \eps</m>.
+              </p>
+            </hint>
+          </problem>
+
+          <p>
+            The Squeeze Theorem is true even if <m>r_n\leq s_n\leq
+            t_n</m> only holds for sufficiently large <m>n</m>; i.e.,
+            for <m>n</m> larger than some fixed <m>N_0</m>.  This is
+            true because when you find an <m>N_1</m> that works in the
+            original proof, this can be modified by choosing
+            <m>N=</m>max<m>\left(N_0,N_1\right)</m>.  Also note that
+            this theorem really says two things:
+            <ol>
+              <li>
+                <m>\left(s_n\right)</m> converges, and 
+              </li>
+              <li>
+                it converges to
+                <m>s</m>.
+              </li>
+            </ol>
+            This subtle point affects how one should
+            properly use the Squeeze Theorem.
+          </p>
+
+          <example xml:id="example_SqzeEx">
+            <statement>
+              <p>
+                Prove <m>\limit{n}{\infty}{\frac{n+1}{n^2}}=0</m>.
+              </p>
+            </statement>
+          </example>
+
+          <proof>
+            <p>
+              Notice that <m>0\leq\frac{n+1}{n^2}\leq\frac{n+n}{n^2}=\frac{2}{n}</m>.
+              Since <m>\limit{n}{\infty}{0}=0=\limit{n}{\infty}{\frac{2}{n}}</m>,
+              then by the Squeeze Theorem,
+              <m>\limit{n}{\infty}{\frac{n+1}{n^2}}=0</m>.
+            </p>
+          </proof>
+
+          <p>
+            Our proof in <xref ref="example_SqzeEx" ></xref> is
+            completely rigorous and is the proper way to use the <xref
+            ref="thm_SqueezeTheorem" text="custom">Squeeze
+            Theorem</xref>. 
+          </p>
+          <p>
+            Next we give an example of an improper
+            use of the Squeeze Theorem. It is easy to fall into this
+            error. Be careful.
+          </p>
+
+
+          <example xml:id="EXAMPLENotUseSquzTheorem">
+            <title>How Not to Use the Squeeze Theorem</title>
+
+
+            <p>
+              Look again at  <xref ref="example_SqzeEx"></xref>.
+              Notice that
+              <me>
+                0\leq\frac{n+1}{n^2}\leq\frac{n+n}{n^2}=\frac{2}{n}
+                </me>,
+                so
+                <me>
+                  0=\limit{n}{\infty}{0} \leq \limit{n}{\infty}{\frac{n+1}{n^2}}\leq\limit{n}{\infty}{\frac{2}{n}}=0
+                </me>
+                and
+                <me>
+                  \limit{n}{\infty}{\frac{n+1}{n^2}}=0
+                  </me>.
+            </p>
+
+            <p>
+              This is incorrect in form because it presumes that
+              <m>\limitt{n}{\infty}{\frac{n+1}{n^2}}</m> exists,
+              which we don<rsq/>t yet know.
+              If we knew that the limit existed to begin with, then this would be fine.
+              The Squeeze Theorem proves that the limit does in fact exist,
+              but it must be so stated.
+            </p>
+          </example>
+
+
+          <problem>
+            <idx><h>Problems</h><h>if the sequence
+            <m>\left(s_n\right)</m> is bounded then
+            <m>\limit{n}{\infty}{\left(\frac{s_n}{n}\right)}=0</m></h></idx>
+            
+            <idx><h>sequences</h><h>if the sequence <m>\left(s_n\right)</m> is bounded then
+
+            <m>\limit{n}{\infty}{\left(\frac{s_n}{n}\right)}=0</m></h></idx> 
+            <statement>
+              <p>
+                Prove that if the sequence <m>\left(s_n\right)</m> is
+                bounded then
+                <me>\limit{n}{\infty}{\left(\frac{s_n}{n}\right)}=0</me>.
+              </p>
+            </statement>
+          </problem>
+          <p>
+            The general theorems we have seen in this section will
+            allow us to rigorously explore convergence of power series
+            in the next chapter without appealing directly to the
+            definitions.  However there will still be
+            times when we will need to apply the definition directly.
+          </p>
+          <p>
+            But before we go into that let<rsq/>s examine divergence
+            a bit more closely.
+          </p>
+    </section>
+
+
+
+
+    <section xml:id="DivergentSeq">
+      <title>Divergence</title>
+      <p>
+        In <xref ref="thm_rearrangements"></xref>
+        we saw that there is a rearrangment of the alternating Harmonic series which diverges to <m>\infty</m> or <m>-\infty</m>.
+        In that section we did not fuss over any formal notions of divergence.
+        We assumed instead that you are already familiar with the concept of divergence,
+        probably from taking Calculus in the past.
+      </p>
+
+      <p>
+        However we are now in the process of building precise,
+        formal definitions for the concepts we will be using so we define the divergence of a sequence as follows.
+      </p>
+
+      <definition xml:id="thm_divergence_of_a_sequence">
+
+        <idx><h>sequences</h><h>divergence of</h></idx>
+        <idx><h>divergence</h><h> of a sequence</h></idx>
+
+        <statement>
+          <p>
+            A sequence of real numbers <m>\left(s_n\right)_{n=1}^\infty</m> diverges if it does not converge to any <m>a\in\RR</m>.
+          </p>
+        </statement>
+      </definition>
+
+      <p>
+        It may seem unnecessarily pedantic of us to insist on formally stating such an obvious definition.
+        After all <q>converge</q> and <q>diverge</q>
+        are opposites in ordinary English.
+        Why wouldn<rsq/>t they be mathematically opposite too?
+        Why do we have to go to the trouble of formally defining both of them?
+        Since they are opposites defining one implicitly defines the other doesn<rsq/>t it?
+      </p>
+
+      <p>
+        One way to answer that criticism is to state that in mathematics we <em>always</em>
+        work from precisely stated definitions and tightly reasoned logical arguments.
+      </p>
+
+      <p>
+        But this is just more pedantry.
+        It is a way of saying, <q>Because we said so</q>
+        all dressed up in imposing language.
+        We need to do better than that.
+      </p>
+
+      <p>
+        One reason for providing formal definitions of both convergence and divergence is that in mathematics we frequently co-opt words from natural languages like English and imbue them with mathematical meaning that is only tangentially related to the original English definition.
+        When we take two such words which happen to be opposites in English and give them mathematical meanings which are <em>not</em>
+        opposites it can be very confusing, especially at first.
+      </p>
+
+      <p>
+        This is what happened with the words <q>open</q> and
+        <q>closed.</q> These are opposites in English: <q>not open</q>
+        is <q>closed,</q> <q>not closed</q> is <q>open,</q> and there
+        is nothing which is both open and closed.  But recall that an
+        open interval on the real line, <m>(a,b)</m>, is one that does
+        not include <em>either</em> of its endpoints while a closed
+        interval, <m>[a,b]</m>, is one that includes both of them.
+      </p>
+
+      <p>
+        These may seem like opposites at first but they are not.  To see
+        this observe that the interval <m>(a,b]</m> is neither open nor
+        closed since it only contains one of its endpoints. If
+        <q>open</q> and <q>closed</q> were mathematically opposite then
+        <em>every</em> interval would be either open or closed.
+      </p>
+      <aside>
+        <title>
+          Open Sets vs. Closed Sets
+        </title>
+        <p>
+          It is also true that <m>(-\infty,\infty)</m> is
+          <em>both</em> open and closed. We will discuss this a bit further in <xref ref="SECTIONRiseSetTheory" ></xref>.
+          
+        </p>
+      </aside>
+
+      <p>
+          Mathematicians have learned to be extremely careful about this sort of thing.
+          In the case of convergence and divergence of a series,
+          even though these words are actually opposites mathematically
+          (every sequence either converges or diverges and no sequence converges <em>and</em> diverges)
+          it is better to say this explicitly so there can be no confusion.
+        </p>
+
+        <p>
+          A sequence <m>\left(a_n\right)_{n=1}^\infty</m> can only converge to a real number,
+          <m>a</m>,
+          in one way:
+          by getting arbitrarily close to <m>a</m>.
+          However there are several ways a sequence might diverge.
+        </p>
+
+        <example xml:id="EXAMPLEDivOfn">
+          <statement>
+            <p>
+              Consider the sequence, <m>\left(n\right)_{n=1}^\infty</m>.
+              This clearly diverges by getting larger and larger <m>\ldots</m> Ooops!
+              Let<rsq/>s be careful.
+              The sequence <m>\left(1-\frac1n\right)_{n=1}^\infty</m> gets larger and larger too,
+              but it converges.
+              What we meant to say was that the terms of the sequence
+              <m>\left(n\right)_{n=1}^\infty</m> become <term>arbitrarily</term>
+              large as <m>n</m> increases.
+            </p>
+
+            <p>
+              This is clearly a divergent sequence but it may not be clear how to prove it formally.
+              Here<rsq/>s one way.
+            </p>
+
+            <p>
+              To show divergence we must show that the sequence
+              satisfies the negation of the definition of convergence.
+              That is, we must show that for every <m>r\in\RR</m>
+              there is an <m>\eps>0</m> such that for every
+              <m>N\in\RR</m>, there is an <m>n>N</m> with
+              <m>\left|n-r\right|\ge\eps</m>.
+            </p>
+            <p>
+              To prove that the sequence diverges let <m>N\in \RR </m>
+              and <m>r\in \RR </m> be given. Take <m>\eps=1</m>. Let
+              <m>N_0</m> be the smallest positive integer which is
+              greater than <m>r</m>. Finally take <m>n</m> to be
+              greater than <m>N</m>, <m>N_0</m> and <m>r+2</m>.
+            </p>
+<p>
+  Since <m>n\gt N_0 \gt r</m> we see that <m> \abs{n-r}=n-r\gt 0</m>.
+  Thus
+  <men xml:id="EQUATIONIntSerDiv">
+    \abs{n-r}=n-r\ge(r+2)-r=2>\eps=1
+    </men>.
+
+
+    Therefore the sequence <m>\left(n\right)_{n-1}^\infty </m> diverges.
+
+  </p>
+
+</statement>
+        </example>
+
+
+        <!-- <p> -->
+        <!--   Since it is intuitively clear that -->
+        <!--   <m>\left(n\right)_{n=1}^\infty</m> does not converge the -->
+        <!--   proof in <xref ref="EXAMPLEDivOfn" ></xref> seems to have -->
+        <!--   been rather more work than we should have to do for such a -->
+        <!--   simple problem.  In particular all three conditions on our -->
+        <!--   choice of <m>n</m> are necessary. (Why?) -->
+        <!-- </p> -->
+        <p>
+          The fact that <m>\left(n\right)_{n=1}^\infty </m> diverges can be
+          proved by simpler means than we used in <xref
+          ref="EXAMPLEDivOfn" ></xref>. For example, we could  use <xref
+          ref="lemma_BoundedConvergent" ></xref>.
+        </p>
+
+        <problem xml:id="PROBLEMBoundedSeqConv">
+          <idx><h>Problems</h><h>Prove that <m>\left(n\right)_{n=1}^\infty </m> diverges</h></idx>
+          <p>
+            Prove that <m>\left(n\right)_{n=1}^\infty </m> diverges
+            using <xref ref="lemma_BoundedConvergent" ></xref>.
+          </p>
+        </problem>
+            <p>
+              We could also  make
+              <xref ref="def_DivToInf"></xref> (below), and then use <xref
+              ref="DivToInfImpDiv" ></xref> which follows it. After proving
+              the lemma of course.
+            </p>
+            <p>
+              Since these (much) simpler methods were available to us
+              why do you suppose we chose to present a tedious and
+              difficult proof based on the negation of <xref
+              ref="def_ConvergenceOfASequence"
+              ></xref>?
+            </p>
+            <p>
+              The fact is that mathematical definitions are not
+              primarily intended to serve as tools for problem solving
+              (theorem proving). The chief purpose of a definition
+              is to clarify our ideas and make them precise. Lemmas
+              and theorems (the solutions of problems) are then built up
+              logically from definitions. And they provide the tools
+              we need to solve more difficult, or abstract problems
+              (prove lemmas and theorems). Recall that in <xref
+              ref="ThreeLessons_lesson-three" ></xref> we empasized
+              that <q>A problem, once solved, becomes a tool for
+              solving subsequent problems! </q> Taken together <xref
+              ref="EXAMPLEDivOfn" ></xref>, <xref
+              ref="PROBLEMBoundedSeqConv" ></xref>, <xref
+              ref="def_DivToInf" ></xref>, and <xref
+              ref="PROBLEMDivToInfImpDiv" ></xref> are intended to
+              illustrate the robustness of this approach to
+              mathematics.
+            </p>
+
+              <!-- <p> -->
+              <!--   First we<rsq/>ll need a new definition: -->
+              <!-- </p> -->
+
+              <definition xml:id="def_DivToInf">
+                <title>Divergence to Infinity</title>
+
+                
+                <idx><h>sequences</h><h>divergence<m>to \infty</m></h></idx>
+                <idx><h sortby="infinity"><m>\infty</m></h><h>positive infinity</h><h>divergence to</h></idx>
+                <idx><h sortby="infinity"><m>\infty</m></h><h>negative infinity</h><h>divergence to</h></idx>
+                <idx><h>Definition</h><h>divergence of a sequence to <m>\pm\infty</m></h></idx>
+                <idx><h>divergence of a sequence to <m>\pm\infty</m></h><h>definition</h></idx>
+                <idx><h sortby="infinity"><m>\infty</m></h><h>divergence to</h></idx>
+
+                <statement>
+                  <p>
+
+                    A sequence, <m>\left(a_n\right)_{n=1}^\infty</m>, <term>diverges to positive infinity </term> if for every real number <m>r</m>, there is a real number <m>N</m> such that <m>n>N\imp a_n>r</m>.
+                  </p>
+
+                  <p>
+                    A sequence, <m>\left(a_n\right)_{n=1}^\infty</m>,
+                    <term>diverges to negative infinity </term>
+                    if for every real number <m>r</m>,
+                    there is a real number <m>N</m> such that <m>n>N\imp a_n\lt r</m>.
+                  </p>
+
+
+                  <p>
+                    A sequence is said to <term>diverge to infinity</term>
+                    if it diverges to either positive or negative infinity.
+                  </p>
+                </statement>
+
+              </definition>
+
+              <p>
+                Speaking informally, <xref ref="def_DivToInf" ></xref> says
+                that <m>\left(a_n\right)_{n=1}^\infty{}</m> diverges to
+                infinity if it becomes arbitrarily large in either the
+                positive or the negative direction as <m>n</m> increases.
+              </p>
+
+              <lemma xml:id="DivToInfImpDiv">
+
+                <idx><h>sequences</h><h>divergence to <m>\infty</m></h></idx>
+                <idx><h>divergence</h><h>divergence to infinity implies divergence</h></idx>
+
+                <statement>
+                  <p>
+                    Show that if <m>\left(a_n\right)_{n=1}^\infty</m> diverges to infinity then <m>\left(a_n\right)_{n=1}^\infty</m> diverges.
+                  </p>
+                </statement>
+              </lemma>
+
+              <problem xml:id="PROBLEMDivToInfImpDiv">
+                <idx><h>Problems</h><h>Prove that divergence to infinity implies divergence.</h></idx>
+                <p>
+                  Prove <xref ref="DivToInfImpDiv" ></xref>.
+                </p>
+              </problem>
+
+
+              <problem>
+                <idx><h>Problems</h><h>the sequence of positive integers diverges to infinity</h></idx>
+                <idx><h>sequences</h><h>the sequence of positive integers diverges to infinity</h></idx>
+
+                <task>
+                  <statement>
+                    <p>
+                      Show that <m>\left(n^2\right)_{n=1}^\infty</m> diverges to infinity.
+
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      Show that <m>\left(-n\right)_{n=1}^\infty</m> diverges to infinity.
+                    </p>
+                  </statement>
+                </task>
+
+              </problem>
+
+
+
+              <p>
+                We will denote divergence to infinity as
+                <me>
+                  \limit{n}{\infty}{a_n}=\pm\infty
+                  </me>.
+              </p>
+
+              <p>
+                However, strictly speaking this is an abuse of notation since the symbol <m>\infty</m> does not represent a real number.
+                This notation can be very problematic since it looks so much like the notation we use to denote convergence:
+                <m>\limit{n}{\infty}{a_n}=a</m>.
+              </p>
+
+              <p>
+                Nevertheless,
+                the notation is appropriate because divergence to infinity is <q>nice</q>
+                divergence in the sense that it shares many of the properties of convergence,
+                as the next problem shows.
+              </p>
+
+              <problem>
+                <idx><h>Problems</h><h>termwise sums of sequences</h></idx>
+                <idx><h>sequences</h><h>termwise sums of</h></idx>
+
+                <introduction>
+                  <p>
+                    Suppose <m>\limit{n}{\infty}{a_n}=\infty</m> and <m>\limit{n}{\infty}{b_n}=\infty</m>.
+                  </p>
+                </introduction>
+                <task>
+                  <statement>
+                    <p>
+                      Show that <m>\limit{n}{\infty}{(a_n+b_n)}=\infty</m>
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      Show that <m>\limit{n}{\infty}{a_nb_n}=\infty</m>
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      Is it true that <m>\limit{n}{\infty}{\frac{a_n}{b_n}}=\infty?</m> Explain.
+                    </p>
+                  </statement>
+                </task>
+              </problem>
+
+              <p>
+                Because divergence to positive or negative infinity shares some
+                of the properties of convergence it is easy to get careless with
+                it.  Remember that even though we write
+                <m>\limit{n}{\infty}{a_n}=\infty</m> this is still a divergent
+                sequence in the sense that <m>\limit{n}{\infty}{a_n}</m> does
+                not exist.  The symbol <m>\infty</m> does not represent a real
+                number.  This is just a convenient notational shorthand telling
+                us that the sequence diverges by becoming arbitrarily large.
+              </p>
+
+              <problem>
+                <idx><h>Problems</h><h>divergence to <m>\infty</m></h></idx>
+                <idx><h>sequences</h><h>divergence to <m>\infty</m></h></idx>
+
+                <introduction>
+                  <p>
+                    Suppose <m>\limit{n}{\infty}{a_n}=\infty</m> and
+                    <m>\limit{n}{\infty}{b_n}=-\infty</m> and
+                    <m>\alpha\in\RR</m>.  Prove or give a counterexample:
+                  </p>
+                </introduction>
+                <task>
+                  <statement>
+                    <p>
+                      <m>\limit{n}{\infty}{a_n+b_n}=\infty</m>
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      <m>\limit{n}{\infty}{a_nb_n}=-\infty</m>
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      <m>\limit{n}{\infty}{\alpha a_n}=\infty</m>
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      <m>\limit{n}{\infty}{\alpha b_n}=-\infty</m>
+                    </p>
+                  </statement>
+                </task>
+              </problem>
+
+              <p>
+                Finally, a sequence can diverge but not to infinity as the following
+                problem displays.
+              </p>
+
+
+              <problem>
+                <idx><h>Problems</h><h>divergence, but not to infinity</h></idx>
+                
+                <idx><h>sequences</h><h>divergence of</h></idx>
+                <idx><h>sequences</h><h>divergence, but not to infinity</h></idx>
+
+                <introduction>
+                  <p>
+                    Show that each of the following sequences diverges.
+                  </p>
+                </introduction>
+                <task>
+                  <statement>
+                    <p>
+                      <m>a_n=\left(-1\right)^n</m>
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      <m>a_n = \begin{cases}1\amp \text{ if \(n=2^p\) for some \(p\in\NN\) } \\ \frac1n\amp \text{ otherwise. } \end{cases}</m>
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      <m>a_n=2^{\left[(-1)^nn\right]}</m>
+                    </p>
+                  </statement>
+                </task>
+
+              </problem>
+
+
+
+              <problem>
+                <idx><h>Problems</h><h> divergence, but not to infinity</h></idx>
+                <idx><h>sequences</h><h>divergence, but not to infinity</h></idx>
+
+                <introduction>
+                  <p>
+                    Suppose that <m>\left(a_n\right)_{n=1}^\infty</m> diverges
+                    but not to infinity and that <m>\alpha</m> is a real number.
+                    What conditions on <m>\alpha</m> will guarantee that:
+                  </p>
+                </introduction>
+                <task>
+                  <statement>
+                    <p>
+                      <m>\left(\alpha a_n\right)_{n=1}^\infty</m> converges?
+                    </p>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
+                    <p>
+                      <m>\left(\alpha a_n\right)_{n=1}^\infty</m> diverges?
+                    </p>
+                  </statement>
+                </task>
+              </problem>
+
+              <problem>
+                <idx><h>Problems</h><h>Geometric Sequence</h></idx>
+                
+                <idx><h>series</h><h>Geometric Sequence</h><h>divergence condition</h></idx>
+                <idx><h>sequences</h><h>Geometric</h></idx>
+
+                <statement>
+                  <p>
+                    Show that if <m>\abs{r}>1</m> then
+                    <m>\left(r^n\right)_{n=1}^\infty</m> diverges.  Will it
+                    diverge to infinity?
+                  </p>
+                </statement>
+              </problem>
+      </section>
+
+
+
+
+      <!-- <section> -->
+      <!--   <title>Additional Problems</title> -->
+      <!--   <problem> -->
+      <!--     <idx><h>convergence</h><h> of a sequence</h><h>implies the convergence of the absolute sequence</h></idx> -->
+      <!--     <statement> -->
+      <!--       <p> -->
+      <!--         Prove that if <m>\limit{n}{\infty}{s_n}=s</m> then -->
+      <!--         <m>\limit{n}{\infty}{\abs{s_n}}=\abs{s}</m>.  Prove that the -->
+      <!--         converse is true when <m>s=0</m>, but it is not necessarily -->
+      <!--         true otherwise. -->
+      <!--       </p> -->
+      <!--     </statement> -->
+      <!--   </problem> -->
+
+      <!--   <problem> -->
+      <!--     <idx><h>sequences</h><h>limit is unique</h></idx> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Let <m>\left(s_n\right)</m> and <m>\left(t_n\right)</m> be -->
+      <!--           sequences with <m>s_n\leq t_n,\forall n</m>.  Suppose -->
+      <!--           <m>\limit{n}{\infty}{s_n}=s</m> and -->
+      <!--           <m>\limit{n}{\infty}{t_n}=t</m>. -->
+
+      <!--           Prove <m>s\leq t</m>. -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--       <hint> -->
+      <!--         <p> -->
+      <!--           Assume for contradiction, that <m>s>t</m> and use the -->
+      <!--           definition of convergence with <m>\eps=\frac{s-t}{2}</m> -->
+      <!--           to produce an <m>n</m> with <m>s_n>t_n</m>. -->
+      <!--         </p> -->
+      <!--       </hint> -->
+      <!--     </task> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Prove that if a sequence converges, then its limit is -->
+      <!--           unique.  That is, prove that if -->
+      <!--           <m>\limit{n}{\infty}{s_n}=s</m> and -->
+      <!--           <m>\limit{n}{\infty}{s_n}=t</m>, then <m>s=t</m>. -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--     </task> -->
+      <!--   </problem> -->
+
+      <!--   <problem> -->
+      <!--     <idx><h>sequences</h><h>if the sequence <m>\left(s_n\right)</m> is bounded then -->
+      <!--     <m>\limit{n}{\infty}{\left(\frac{s_n}{n}\right)}=0</m></h></idx> -->
+      <!--     <statement> -->
+      <!--       <p> -->
+      <!--         Prove that if the sequence <m>\left(s_n\right)</m> is -->
+      <!--         bounded then -->
+      <!--         <m>\limit{n}{\infty}{\left(\frac{s_n}{n}\right)}=0</m>. -->
+      <!--       </p> -->
+      <!--     </statement> -->
+      <!--   </problem> -->
+
+      <!--   <problem xml:id="prob_series-geometric"> -->
+      <!--     <idx><h>series</h><h>Geometric series</h><h>convergence/divergence conditions for</h></idx> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Prove that if <m>x\neq 1</m>, then -->
+      <!--           <me> -->
+      <!--             1+x+x^2+\cdots+x^n=\frac{1-x^{n+1}}{1-x} -->
+      <!--             </me>. -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--     </task> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Use (a) to prove that if <m>|x|\lt 1</m>, then -->
+      <!--           <m>\limit{n}{\infty}{\left(\sum_{j=0}^nx^j\right)}=\frac{1}{1-x}</m>. -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--     </task> -->
+      <!--   </problem> -->
+
+      <!--   <problem> -->
+      <!--     <statement> -->
+      <!--       <p> -->
+      <!--         <idx><h>limit</h><h> of ratios of polynomials</h></idx> -->
+      <!--         Prove -->
+      <!--         <me> -->
+      <!--           \lim_{n\rightarrow\infty}\frac{a_0+a_1n+a_2n^2+ -->
+      <!--           \cdots+a_kn^k}{b_0+b_1n+b_2n^2+\cdots+b_kn^k}=\frac{a_k}{b_k} -->
+      <!--           </me>, provided <m>b_k\neq 0</m>. -->
+      <!--       </p> -->
+      <!--       <p> -->
+      <!--         Notice division by zero is not an issue.  Since a polynomial -->
+      <!--         only has finitely many roots, the denominator will be -->
+      <!--         non-zero when <m>n</m> is sufficiently large. -->
+      <!--       </p> -->
+      <!--     </statement> -->
+      <!--   </problem> -->
+
+      <!--   <problem> -->
+      <!--     <idx><h>sequences</h><h>difference of</h></idx> -->
+      <!--     <idx><h>limit</h><h>of the difference of sequences</h></idx> -->
+      <!--     <statement> -->
+      <!--       <p> -->
+      <!--         Prove that if <m>\limit{n}{\infty}{s_n}=s</m> and -->
+      <!--         <m>\limit{n}{\infty}{\left(s_n-t_n\right)}=0</m>, then -->
+      <!--         <m>\limit{n}{\infty}{t_n}=s</m>. -->
+      <!--       </p> -->
+      <!--     </statement> -->
+      <!--   </problem> -->
+
+      <!--   <problem> -->
+      <!--     <idx><h>sequences</h><h>lower and upper bounds for</h></idx> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Prove that if <m>\limit{n}{\infty}{s_n}=s</m> and <m>s\lt -->
+      <!--           t</m>, then there exists a real number <m>N</m> such that if -->
+      <!--           <m>n>N</m> then <m>s_n\lt t</m>. -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--     </task> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Prove that if <m>\limit{n}{\infty}{s_n}=s</m> and <m>r\lt -->
+      <!--           s</m>, then there exists a real number <m>M</m> such that if -->
+      <!--           <m>n>M</m> then <m>r\lt s_n</m>. -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--     </task> -->
+      <!--   </problem> -->
+
+      <!--   <problem xml:id="prob_RatioTest"> -->
+      <!--     <idx><h>sequences</h><h>Ratio Test for</h></idx> -->
+      <!--     <introduction> -->
+      <!--       <p> -->
+      <!--         Suppose <m>\left(s_n\right)</m> is a sequence of positive numbers such that -->
+      <!--         <me> -->
+      <!--           \limit{n}{\infty}{\left(\frac{s_{n+1}}{s_n}\right)}=L -->
+      <!--           </me>. -->
+      <!--       </p> -->
+      <!--     </introduction> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Prove that if <m>L\lt 1</m>, then -->
+      <!--           <m>\limit{n}{\infty}{s_n}=0</m>.   -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--       <hint>  -->
+      <!--         <p> -->
+      <!--           Choose <m>R</m> with <m>L\lt R\lt 1</m>.  By the -->
+      <!--           previous problem, <m>\exists</m> <m>N</m> such that if -->
+      <!--           <m>n>N</m>, then <m>\frac{s_{n+1}}{s_n}\lt R</m>.  Let -->
+      <!--           <m>n_0>N</m> be fixed and show <m>s_{n_0+k}\lt R^ks_{n_0}</m>. -->
+      <!--           Conclude that <m>\lim_{k\rightarrow\infty}s_{n_0+k}=0</m> and -->
+      <!--           let <m>n=n_0+k</m>. -->
+      <!--         </p> -->
+      <!--       </hint> -->
+      <!--     </task> -->
+      <!--     <task> -->
+      <!--       <statement> -->
+      <!--         <p> -->
+      <!--           Let <m>c</m> be a positive real number.  Prove -->
+      <!--           <m>\displaystyle\lim_{n\rightarrow\infty}\left(\frac{c^n}{n!}\right)=0</m>. -->
+      <!--         </p> -->
+      <!--       </statement> -->
+      <!--     </task> -->
+      <!--   </problem> -->
+      <!-- </section> -->
+    </chapter>

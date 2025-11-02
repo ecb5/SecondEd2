@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Rise of Set Theory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="AA Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:author" content="Robert Rogers">
+<meta property="book:author" content="Eugene Boman">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.65bdf16e03e918ea.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="ASORA.html"><span class="title">AA Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<p class="byline">Robert Rogers, Eugene Boman</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="BackToFourier.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="BackToFourier.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="BackToFourier-InfiniteSets.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\imp}{\ \Rightarrow\ }
+\newcommand{\dx}[1]{\,{\rm d}#1}
+
+
+\newcommand{\dfdx}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\def\limit#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}#3}}
+\def\limitt#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}\textstyle #3}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\unif}{\stackrel{unif}{\longrightarrow}}
+\newcommand{\ptwise}{\stackrel{ptwise}{\longrightarrow}}
+\newcommand{\CC}{\mathbb {C}}
+\newcommand{\DD}{\mathbb {D}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\ZZ}{\mathbb {Z}}
+\def\eval#1#2#3{\left.\strut{}#1\right|_{#2=#3}}
+\def\geneval#1#2#3{\left.\strut{}#1\right|_{#2#3}}
+\def\mineval#1#2{\left.\strut{}#1\right|_{#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="ASORA-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="ASORA-2-4.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="ASORA-2-5.html" class="internal"><span class="title">Preface to the Second Edition</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="Instructor.html" class="internal"><span class="title">To the Instructor</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="AskingQuestions.html" class="internal"><span class="codenumber">I</span> <span class="title">In Which We Raise A Number Of Questions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Threelessons.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue: Three Lessons Before We Begin</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons-lesson-one.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Lesson One</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-two.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Lesson Two</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-three.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Lesson Three</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="NumbersRealRational.html" class="internal"><span class="codenumber">2</span> <span class="title">Numbers, Real <span class="process-math">\(\left(\RR\right)\)</span> and Rational <span class="process-math">\(\left(\QQ\right)\)</span></span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury.html" class="internal"><span class="codenumber">3</span> <span class="title">Calculus in the 17th and 18th Centuries</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Newton and Leibniz Get Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#sec_leibn-calc-rules" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Leibniz’ Calculus Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#LeibnizProductRule" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Leibniz’s Approach to the Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#NewtonsApproach" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Newton’s Approach to the Product Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ExponentAdditionProperty.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Power Series as Infinite Polynomials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONPowSerWOTaylor.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Expanding Simple Power Series by Algebraic Methods</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesQuestions.html" class="internal"><span class="codenumber">4</span> <span class="title">Questions Concerning Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-TaylorsFormula.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Taylor’s Formula</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-SeriesAnomalies.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Series Anomalies</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="InterregnumPart.html" class="internal"><span class="codenumber">II</span> <span class="title">Interregnum</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Interegnum.html" class="internal"><span class="codenumber">5</span> <span class="title">Joseph Fourier: The Man Who Broke Calculus</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="Interegnum-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Joseph Fourier and His Series</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="FindingAnswers.html" class="internal"><span class="codenumber">III</span> <span class="title">In Which We Find (Some) Answers</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Convergence.html" class="internal"><span class="codenumber">6</span> <span class="title">Convergence of Sequences and Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SeqRealNum.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Sequences of Real Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="LimitAsPrimary.html" class="internal"><span class="codenumber">6.2</span> <span class="title">The Limit as a Primary Tool</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="DivergentSeq.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Divergence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="TaylorSeries.html" class="internal"><span class="codenumber">7</span> <span class="title">A “Tayl” of Three Remainders</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-IntFormRem.html" class="internal"><span class="codenumber">7.1</span> <span class="title">The Integral Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-LagrFormRem.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Lagrange’s Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-CauchyFormRem.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Cauchy’s Form of the Remainder</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Continuity.html" class="internal"><span class="codenumber">8</span> <span class="title">Continuity: What It Isn’t and What It Is</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-AnalyticDef.html" class="internal"><span class="codenumber">8.1</span> <span class="title">An Analytic Definition of Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SequencesAndContinuity.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Sequences and Continuity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="IVTandEVT.html" class="internal"><span class="codenumber">9</span> <span class="title">Intermediate and Extreme Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-Completeness.html" class="internal"><span class="codenumber">9.1</span> <span class="title">The Nested Interval Property: Completeness of the Real Number System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-ProofOfIVT.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Proof of the Intermediate Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-BWT.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Bolzano–Weierstrass Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-SupremumAndEVT.html" class="internal"><span class="codenumber">9.4</span> <span class="title">The Supremum and the Extreme Value Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DefLimit.html" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DerivativeAfterthought.html" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONFTC.html" class="internal"><span class="codenumber">10.3</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONDefiningIntegral.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Definition of the Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONCauchyRiemannInt" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Cauchy’s Definition of the Integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONDarbouxIntegral" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Darboux’s Integral Definition</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesRedux.html" class="internal"><span class="codenumber">11</span> <span class="title">Back to Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Uniform Convergence</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Uniform Convergence: Integrals and Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html#PowerSeriesRedux-UnifConv-IntsAndDerivs-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Cauchy Sequences</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-RadiusOfConv.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Radius of Convergence of a Power Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-AbelsThm.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Boundary Issues and Abel’s Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="BackToFourier.html" class="internal"><span class="codenumber">12</span> <span class="title">Back to the Real Numbers</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="SECTIONRiseSetTheory.html" class="internal"><span class="codenumber">12.1</span> <span class="title">The Rise of Set Theory</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-InfiniteSets.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Infinite Sets</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONLebesgueIntegration.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Road to Lebesgue Integration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-CantorsTheorem.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Cantor’s Theorem and Its Consequences</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Epilogues.html" class="internal"><span class="codenumber">13</span> <span class="title">Epilogs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONEpilog1.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONBuildReals.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Epilog #2: Building the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DecimalExpansion" class="internal"><span class="codenumber">13.2.1</span> <span class="title">The Decimal Expansion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#CauchySequences" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Cauchy Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DedekindCuts" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Dedekind Cuts</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ASORA-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="ASORA-6-1.html" class="internal"><span class="title">Bibliography</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ASORA-6-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main" style="background-image:url('data:image/svg+xml;charset=utf-8,&lt;svg version=&quot;1.1&quot; height=&quot;600&quot; width=&quot;600&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;text x=&quot;50%&quot; y=&quot;50%&quot; text-anchor=&quot;middle&quot; transform=&quot;rotate(-45,300,300)&quot; fill=&quot;rgb(204,204,204)&quot; style=&quot;font-family:sans-serif; font-size:2.5cm;&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;DRAFT&lt;/text&gt;&lt;/svg&gt;');background-position:center top;background-repeat:repeat-y;"><div id="ptx-content" class="ptx-content"><section class="section" id="SECTIONRiseSetTheory"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Rise of Set Theory</span>
+</h2>
+<p class="watermark">Watermark text: DRAFT</p>
+<div class="para" id="SECTIONRiseSetTheory-2">Cantor’s work was instrumental in the re–examination of the foundations of mathematics whereby mathematical ideas were recast in the language of sets. Nowadays we do this naturally, so it doesn’t seem profound, but recasting mathematics in terms of <dfn class="terminology">Set Theory</dfn> has fundamentally shaped our modern approach.  We’ve already seen this in <a href="BackToFourier.html#def_accumulation-point" class="xref" data-knowl="./knowl/xref/def_accumulation-point.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 12.0.5">Definition 12.0.5</a>, <a href="BackToFourier.html#PROBLEMAccumulationPoint" class="xref" data-knowl="./knowl/xref/PROBLEMAccumulationPoint.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 12.0.6">Problem 12.0.6</a>, and <a href="BackToFourier.html#def_derived-set" class="xref" data-knowl="./knowl/xref/def_derived-set.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 12.0.7">Definition 12.0.7</a> where we recast Cantor’s definition of a limit point into set theoretic terms.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONRiseSetTheory-3">It turns out that we can also rewrite concepts such as limits and continuity in terms of sets.  This led to a subject known as <dfn class="terminology">point set topology</dfn>. Presenting all of <dfn class="terminology">topology</dfn> would require an entire new course with an entire new book, so we will only give a brief glimpse at how analysis concepts can be recast in set theoretic form.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONRiseSetTheory-4">Recall that a closed interval is one which contains its endpoints. Similarly example, a set of real numbers <span class="process-math">\(S\)</span> (not necessarily an interval) is called <dfn class="terminology">closed</dfn> if it contains all of its limit points.           A closed interval is also a closed set as the next problem shows.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="PROBLEMClosedIntIsClosedSet"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="PROBLEMClosedIntIsClosedSet-2-1">Prove that a closed interval, <span class="process-math">\([a,b]\)</span> is also a closed set.   <div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMClosedIntIsClosedSet-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="PROBLEMClosedIntIsClosedSet-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="PROBLEMClosedIntIsClosedSet-3-1">
+<div class="para">First suppose that <span class="process-math">\(c\notin [a,b]\text{.}\)</span> There are two cases:</div>
+<dl class="description-list">
+<dt id="PROBLEMClosedIntIsClosedSet-3-1-2-1">Case 1<div class="autopermalink" data-description="Item: Case 1"><a href="#PROBLEMClosedIntIsClosedSet-3-1-2-1" title="Copy heading and permalink for Item: Case 1" aria-label="Copy heading and permalink for Item: Case 1">🔗</a></div>
+</dt>
+<dd><div class="para" id="PROBLEMClosedIntIsClosedSet-3-1-2-1-2">
+<span class="process-math">\(\displaystyle c\lt a\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMClosedIntIsClosedSet-3-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></dd>
+<dt id="PROBLEMClosedIntIsClosedSet-3-1-2-2">Case 2<div class="autopermalink" data-description="Item: Case 2"><a href="#PROBLEMClosedIntIsClosedSet-3-1-2-2" title="Copy heading and permalink for Item: Case 2" aria-label="Copy heading and permalink for Item: Case 2">🔗</a></div>
+</dt>
+<dd><div class="para" id="PROBLEMClosedIntIsClosedSet-3-1-2-2-2">
+<span class="process-math">\(b\lt c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMClosedIntIsClosedSet-3-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></dd>
+</dl>
+<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMClosedIntIsClosedSet-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 12.1.1.1"><a href="#PROBLEMClosedIntIsClosedSet-3" title="Copy heading and permalink for Hint 12.1.1.1" aria-label="Copy heading and permalink for Hint 12.1.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 12.1.1"><a href="#PROBLEMClosedIntIsClosedSet" title="Copy heading and permalink for Problem 12.1.1" aria-label="Copy heading and permalink for Problem 12.1.1">🔗</a></div></article><article class="problem example-like" id="SECTIONRiseSetTheory-6"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="introduction" id="SECTIONRiseSetTheory-6-2"><div class="para" id="SECTIONRiseSetTheory-6-2-1">The converse of <a href="SECTIONRiseSetTheory.html#PROBLEMClosedIntIsClosedSet" class="internal" title="Problem 12.1.1">Problem 12.1.1</a> is not true. That is, not every closed set is also a closed interval. Convince yourself that each of the sets below is closed.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="SECTIONRiseSetTheory-6-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-3-1-1">
+<span class="process-math">\(\RR\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.a"><a href="#SECTIONRiseSetTheory-6-3" title="Copy heading and permalink for Task 12.1.2.a" aria-label="Copy heading and permalink for Task 12.1.2.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-6-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-4-1-1">
+<span class="process-math">\(\emptyset\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.b"><a href="#SECTIONRiseSetTheory-6-4" title="Copy heading and permalink for Task 12.1.2.b" aria-label="Copy heading and permalink for Task 12.1.2.b">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-6-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-5-1-1">
+<span class="process-math">\(\left[a,\infty \right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.c"><a href="#SECTIONRiseSetTheory-6-5" title="Copy heading and permalink for Task 12.1.2.c" aria-label="Copy heading and permalink for Task 12.1.2.c">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-6-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-6-1-1">
+<span class="process-math">\(\left(-\infty ,b\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.d"><a href="#SECTIONRiseSetTheory-6-6" title="Copy heading and permalink for Task 12.1.2.d" aria-label="Copy heading and permalink for Task 12.1.2.d">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-6-7"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-7-1-1">any finite set<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.e"><a href="#SECTIONRiseSetTheory-6-7" title="Copy heading and permalink for Task 12.1.2.e" aria-label="Copy heading and permalink for Task 12.1.2.e">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-6-8"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-8-1-1">
+<span class="process-math">\(\left\{\frac{1}{n},\ n\in \mathbb{N}\right\}\cup
+\left\{0\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.f"><a href="#SECTIONRiseSetTheory-6-8" title="Copy heading and permalink for Task 12.1.2.f" aria-label="Copy heading and permalink for Task 12.1.2.f">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-6-9"><h4 class="heading"><span class="codenumber">(g)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-9-1-1">
+<span class="process-math">\(\ZZ\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.g"><a href="#SECTIONRiseSetTheory-6-9" title="Copy heading and permalink for Task 12.1.2.g" aria-label="Copy heading and permalink for Task 12.1.2.g">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-6-10"><h4 class="heading"><span class="codenumber">(h)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-6-10-1-1">the union of two closed sets<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-6-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.2.h"><a href="#SECTIONRiseSetTheory-6-10" title="Copy heading and permalink for Task 12.1.2.h" aria-label="Copy heading and permalink for Task 12.1.2.h">🔗</a></div></article><div class="autopermalink" data-description="Problem 12.1.2"><a href="#SECTIONRiseSetTheory-6" title="Copy heading and permalink for Problem 12.1.2" aria-label="Copy heading and permalink for Problem 12.1.2">🔗</a></div></article><div class="para" id="SECTIONRiseSetTheory-7">At this point you’ve probably guessed that the definition of an open set can be  modeled on the definition of open interval. That is true, but <a href="SECTIONRiseSetTheory.html#DEFINITIONOpenSet" class="internal" title="Definition 12.1.3: Open Sets">Definition 12.1.3</a> is easier to use.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="DEFINITIONOpenSet"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Open Sets.</span>
+</h3>
+<div class="para" id="DEFINITIONOpenSet-4-1">A set <span class="process-math">\(S\)</span> of real numbers is open if its complement <span class="process-math">\(S^C=\RR-S\)</span> is closed.<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONOpenSet-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 12.1.3: Open Sets"><a href="#DEFINITIONOpenSet" title="Copy heading and permalink for Definition 12.1.3: Open Sets" aria-label="Copy heading and permalink for Definition 12.1.3: Open Sets">🔗</a></div></article><article class="problem example-like" id="SECTIONRiseSetTheory-9"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="SECTIONRiseSetTheory-9-2-1">Show that a set <span class="process-math">\(S\)</span> is open if and only if for all <span class="process-math">\(a\in S\)</span> there is an <span class="process-math">\(\eps &gt;0\)</span> such that <span class="process-math">\(\left(a-\eps ,a+\eps \right)\subset S\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="SECTIONRiseSetTheory-9-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="SECTIONRiseSetTheory-9-3-1">Notice that if <span class="process-math">\(S^C\)</span> is closed then  <span class="process-math">\(a\in S\)</span> is not a limit point of <span class="process-math">\(S^C\text{.}\)</span> What does <a href="BackToFourier.html#PROBLEMAccumulationPoint" class="xref" data-knowl="./knowl/xref/PROBLEMAccumulationPoint.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 12.0.6">Problem 12.0.6</a> tell you?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-9-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 12.1.4.1"><a href="#SECTIONRiseSetTheory-9-3" title="Copy heading and permalink for Hint 12.1.4.1" aria-label="Copy heading and permalink for Hint 12.1.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 12.1.4"><a href="#SECTIONRiseSetTheory-9" title="Copy heading and permalink for Problem 12.1.4" aria-label="Copy heading and permalink for Problem 12.1.4">🔗</a></div></article><article class="problem example-like" id="SECTIONRiseSetTheory-10"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="introduction" id="SECTIONRiseSetTheory-10-2"><div class="para" id="SECTIONRiseSetTheory-10-2-1">Open intervals are not the only open sets.  Convince yourself that each of the following are also open sets.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="SECTIONRiseSetTheory-10-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-10-3-1-1">
+<span class="process-math">\(\RR \)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-10-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.5.a"><a href="#SECTIONRiseSetTheory-10-3" title="Copy heading and permalink for Task 12.1.5.a" aria-label="Copy heading and permalink for Task 12.1.5.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-10-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-10-4-1-1">
+<span class="process-math">\(\emptyset\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-10-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.5.b"><a href="#SECTIONRiseSetTheory-10-4" title="Copy heading and permalink for Task 12.1.5.b" aria-label="Copy heading and permalink for Task 12.1.5.b">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-10-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-10-5-1-1">
+<span class="process-math">\(\displaystyle\bigcup^{\infty }_{n=1}{S_n}\)</span> where each <span class="process-math">\(S_n\)</span> is an open set.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-10-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.5.c"><a href="#SECTIONRiseSetTheory-10-5" title="Copy heading and permalink for Task 12.1.5.c" aria-label="Copy heading and permalink for Task 12.1.5.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 12.1.5"><a href="#SECTIONRiseSetTheory-10" title="Copy heading and permalink for Problem 12.1.5" aria-label="Copy heading and permalink for Problem 12.1.5">🔗</a></div></article><article class="problem example-like" id="SECTIONRiseSetTheory-11"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="introduction" id="SECTIONRiseSetTheory-11-2"><div class="para" id="SECTIONRiseSetTheory-11-2-1">Of course, there are sets which are neither open nor closed. Convince yourself that these sets are neither open nor closed.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="SECTIONRiseSetTheory-11-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-11-3-1-1">
+<span class="process-math">\(\left[a,b\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-11-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.6.a"><a href="#SECTIONRiseSetTheory-11-3" title="Copy heading and permalink for Task 12.1.6.a" aria-label="Copy heading and permalink for Task 12.1.6.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-11-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-11-4-1-1">
+<span class="process-math">\(\left(a,b\right]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-11-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.6.b"><a href="#SECTIONRiseSetTheory-11-4" title="Copy heading and permalink for Task 12.1.6.b" aria-label="Copy heading and permalink for Task 12.1.6.b">🔗</a></div></article><article class="task exercise-like" id="SECTIONRiseSetTheory-11-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="SECTIONRiseSetTheory-11-5-1-1">
+<span class="process-math">\(\left\{\frac{1}{n},\ n\in \NN\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-11-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 12.1.6.c"><a href="#SECTIONRiseSetTheory-11-5" title="Copy heading and permalink for Task 12.1.6.c" aria-label="Copy heading and permalink for Task 12.1.6.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 12.1.6"><a href="#SECTIONRiseSetTheory-11" title="Copy heading and permalink for Problem 12.1.6" aria-label="Copy heading and permalink for Problem 12.1.6">🔗</a></div></article><div class="para" id="SECTIONRiseSetTheory-12">Again, we could spend an entire course exploring these concepts, but for our introduction we will only show how the concept of continuity can be repackaged into a statement involving sets. To keep things simple we will restrict our attention to functions <span class="process-math">\(f(x)\)</span> whose domain is an open set of real numbers. The following notation will be helpful.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="DEFINITIONOpenByPreImage"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="DEFINITIONOpenByPreImage-7-1">
+<ol class="decimal ol-marker-2" id="DEFINITIONOpenByPreImage-7-1-1">
+<li id="DEFINITIONOpenByPreImage-7-1-1-1">
+<div class="para logical" id="DEFINITIONOpenByPreImage-7-1-1-1-1">
+<div class="para">Let <span class="process-math">\(D\in \RR \text{,}\)</span> <span class="process-math">\(S\subset D\text{.}\)</span> If we define the <dfn class="terminology">image</dfn> of <span class="process-math">\(S\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f\left(S\right)=\left\{f\left(x\right)\right|x\in
+S\}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONOpenByPreImage-7-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#DEFINITIONOpenByPreImage-7-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="DEFINITIONOpenByPreImage-7-1-1-2">
+<div class="para logical" id="DEFINITIONOpenByPreImage-7-1-1-2-1">
+<div class="para">For any <span class="process-math">\(T\subset \mathbb{R}\text{,}\)</span> we define the <dfn class="terminology">preimage</dfn> of <span class="process-math">\(T\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f^{-1}\left(T\right)=\left\{x\in D\right|f\left(x\right)\in T\}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONOpenByPreImage-7-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#DEFINITIONOpenByPreImage-7-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONOpenByPreImage-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 12.1.7"><a href="#DEFINITIONOpenByPreImage" title="Copy heading and permalink for Definition 12.1.7" aria-label="Copy heading and permalink for Definition 12.1.7">🔗</a></div></article><details id="SECTIONRiseSetTheory-14" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Preimage.</span>
+</h3></summary><aside class="aside aside-like knowl__content"><div class="para" id="SECTIONRiseSetTheory-14-2">The <dfn class="terminology">preimage</dfn> <span class="process-math">\((f^{-1})\)</span> of a set <span class="process-math">\(T\)</span> under the function <span class="process-math">\(f(x)\text{,}\)</span> is the set of all points, <span class="process-math">\(x\)</span> for which <span class="process-math">\(f(x)\in T\text{.}\)</span> In particular, this notation does not represent an inverse function, although it is related. The notation <span class="process-math">\(f^{-1}\)</span> is a set–theoretic construct, so in this context the notation <span class="process-math">\(f^{-1}(T)\)</span> represents a set, not a function evaluation.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><article class="problem example-like" id="SECTIONRiseSetTheory-15"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="SECTIONRiseSetTheory-15-1">Show that <span class="process-math">\(f(x)\)</span> is continuous at <span class="process-math">\(x=a\)</span> if and only if for every open set <span class="process-math">\(V\)</span> containing <span class="process-math">\(f(a)\)</span> there is an open set <span class="process-math">\(U\)</span> containing <span class="process-math">\(a\)</span> with <span class="process-math">\(f(U)\subset
+V\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 12.1.8"><a href="#SECTIONRiseSetTheory-15" title="Copy heading and permalink for Problem 12.1.8" aria-label="Copy heading and permalink for Problem 12.1.8">🔗</a></div></article><article class="problem example-like" id="PROBLEMTopoDefCont"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Topological Definition of Continuity.</span>
+</h3>
+<div class="para" id="PROBLEMTopoDefCont-3">Show that a function <span class="process-math">\(f(x)\)</span> is continuous on a set <span class="process-math">\(D\subset \RR \)</span> if and only if for every open set of real numbers <span class="process-math">\(V\subset D \text{,}\)</span> the preimage of <span class="process-math">\(V\)</span> is open.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMTopoDefCont-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 12.1.9: Topological Definition of Continuity"><a href="#PROBLEMTopoDefCont" title="Copy heading and permalink for Problem 12.1.9: Topological Definition of Continuity" aria-label="Copy heading and permalink for Problem 12.1.9: Topological Definition of Continuity">🔗</a></div></article><div class="para" id="SECTIONRiseSetTheory-17">The value of the  reformulation of continuity in <a href="SECTIONRiseSetTheory.html#PROBLEMTopoDefCont" class="internal" title="Problem 12.1.9: Topological Definition of Continuity">Problem 12.1.9</a>  in terms of open sets (and similar definitions involving limits) is that the concept of continuity can be generalized beyond the realm of real numbers to sets where the distance between points is either irrelevant or not even meaningful.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONRiseSetTheory-18">In <span class="process-math">\(1914\text{,}\)</span> <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Hausdorff/" target="_blank">Felix Hausdorff</a> (1868–1942) defined the concept of a <dfn class="terminology">topology on a set</dfn>. His definition is based solely on sets and does not use the notion of distance or length which we have relied on hitherto. (The <span class="process-math">\(\eps\)</span> and <span class="process-math">\(\delta \)</span> that appeared in almost all of our convergence proofs measure a distance or length of some sort.)<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="FIGUREHausdorffPortrait"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Hausdorff.png" class="contained" alt="Portrait of Felix Hausdorff"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.1.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Felix Hausdorff<div class="autopermalink" data-description="Figure 12.1.10"><a href="#FIGUREHausdorffPortrait" title="Copy heading and permalink for Figure 12.1.10" aria-label="Copy heading and permalink for Figure 12.1.10">🔗</a></div></figcaption></figure><div class="para logical" id="SECTIONRiseSetTheory-20">
+<div class="para">Given an arbitrary nonempty set <span class="process-math">\(S\text{,}\)</span> we define a <dfn class="terminology">topology</dfn> on <span class="process-math">\(S\)</span> to be a collection <span class="process-math">\(\tau \)</span> of subsets of <span class="process-math">\(S\)</span> (which we designate to be the open sets).  The modern rendition of Hausdorff’s definition of a <dfn class="terminology">topology</dfn> says that <span class="process-math">\(\tau \)</span> must satisfy the following axioms.</div>
+<ul class="disc" id="SECTIONRiseSetTheory-20-9">
+<li id="SECTIONRiseSetTheory-20-9-1">
+<div class="para" id="SECTIONRiseSetTheory-20-9-1-1">
+<span class="process-math">\(S\)</span> and <span class="process-math">\(\emptyset \)</span> must be in <span class="process-math">\(\tau \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-20-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#SECTIONRiseSetTheory-20-9-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="SECTIONRiseSetTheory-20-9-2">
+<div class="para" id="SECTIONRiseSetTheory-20-9-2-1">An arbitrary union of open sets in <span class="process-math">\(\tau \)</span> must also be in <span class="process-math">\(\tau \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-20-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#SECTIONRiseSetTheory-20-9-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="SECTIONRiseSetTheory-20-9-3">
+<div class="para" id="SECTIONRiseSetTheory-20-9-3-1">The intersection of any finite number of open sets in <span class="process-math">\(\tau \)</span> must also be in <span class="process-math">\(\tau \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-20-9-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#SECTIONRiseSetTheory-20-9-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONRiseSetTheory-21">Hausdorff actually added an extra “separation axiom.”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SECTIONRiseSetTheory-22">
+<ul class="disc" id="SECTIONRiseSetTheory-22-1"><li id="SECTIONRiseSetTheory-22-1-1">
+<div class="para" id="SECTIONRiseSetTheory-22-1-1-1">For any two elements <span class="process-math">\(x,y\)</span> of <span class="process-math">\(S\text{,}\)</span> there must exist two disjoint open sets <span class="process-math">\(U_x\)</span> and <span class="process-math">\(U_y\)</span> with <span class="process-math">\(x\in U_x\)</span> and <span class="process-math">\(y\in U_y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-22-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#SECTIONRiseSetTheory-22-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li></ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONRiseSetTheory-23">Nowadays, a <dfn class="terminology">topological</dfn> space (that is, a set with a <dfn class="terminology">topology</dfn> defined on it) which has this extra property is called a <dfn class="terminology">Hausdorff space</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONRiseSetTheory-24">This relatively simple idea generalizes our notion of open intervals in the real numbers and can be applied to a wide range of sets. We won’t go into this very deeply, but we note that if we have a function <span class="process-math">\(f:S\to T\)</span> from one topological space into another, we can define concepts like continuity by insisting that the preimage of any open set in the topology on <span class="process-math">\(T\)</span> must be open in the topology on <span class="process-math">\(S\text{.}\)</span>  It would be hard to overstate the impact of generalizaions of this sort on modern mathematics.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONRiseSetTheory-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 12.1: The Rise of Set Theory"><a href="#SECTIONRiseSetTheory" title="Copy heading and permalink for Section 12.1: The Rise of Set Theory" aria-label="Copy heading and permalink for Section 12.1: The Rise of Set Theory">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="BackToFourier.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="BackToFourier-InfiniteSets.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

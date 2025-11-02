@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Limit as a Primary Tool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="AA Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:author" content="Robert Rogers">
+<meta property="book:author" content="Eugene Boman">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.65bdf16e03e918ea.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="ASORA.html"><span class="title">AA Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<p class="byline">Robert Rogers, Eugene Boman</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="SeqRealNum.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="Convergence.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="DivergentSeq.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\imp}{\ \Rightarrow\ }
+\newcommand{\dx}[1]{\,{\rm d}#1}
+
+
+\newcommand{\dfdx}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\def\limit#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}#3}}
+\def\limitt#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}\textstyle #3}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\unif}{\stackrel{unif}{\longrightarrow}}
+\newcommand{\ptwise}{\stackrel{ptwise}{\longrightarrow}}
+\newcommand{\CC}{\mathbb {C}}
+\newcommand{\DD}{\mathbb {D}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\ZZ}{\mathbb {Z}}
+\def\eval#1#2#3{\left.\strut{}#1\right|_{#2=#3}}
+\def\geneval#1#2#3{\left.\strut{}#1\right|_{#2#3}}
+\def\mineval#1#2{\left.\strut{}#1\right|_{#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="ASORA-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="ASORA-2-4.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="ASORA-2-5.html" class="internal"><span class="title">Preface to the Second Edition</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="Instructor.html" class="internal"><span class="title">To the Instructor</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="AskingQuestions.html" class="internal"><span class="codenumber">I</span> <span class="title">In Which We Raise A Number Of Questions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Threelessons.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue: Three Lessons Before We Begin</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons-lesson-one.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Lesson One</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-two.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Lesson Two</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-three.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Lesson Three</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="NumbersRealRational.html" class="internal"><span class="codenumber">2</span> <span class="title">Numbers, Real <span class="process-math">\(\left(\RR\right)\)</span> and Rational <span class="process-math">\(\left(\QQ\right)\)</span></span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury.html" class="internal"><span class="codenumber">3</span> <span class="title">Calculus in the 17th and 18th Centuries</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Newton and Leibniz Get Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#sec_leibn-calc-rules" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Leibniz’ Calculus Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#LeibnizProductRule" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Leibniz’s Approach to the Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#NewtonsApproach" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Newton’s Approach to the Product Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ExponentAdditionProperty.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Power Series as Infinite Polynomials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONPowSerWOTaylor.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Expanding Simple Power Series by Algebraic Methods</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesQuestions.html" class="internal"><span class="codenumber">4</span> <span class="title">Questions Concerning Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-TaylorsFormula.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Taylor’s Formula</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-SeriesAnomalies.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Series Anomalies</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="InterregnumPart.html" class="internal"><span class="codenumber">II</span> <span class="title">Interregnum</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Interegnum.html" class="internal"><span class="codenumber">5</span> <span class="title">Joseph Fourier: The Man Who Broke Calculus</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="Interegnum-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Joseph Fourier and His Series</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="FindingAnswers.html" class="internal"><span class="codenumber">III</span> <span class="title">In Which We Find (Some) Answers</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="Convergence.html" class="internal"><span class="codenumber">6</span> <span class="title">Convergence of Sequences and Series</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SeqRealNum.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Sequences of Real Numbers</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="LimitAsPrimary.html" class="internal"><span class="codenumber">6.2</span> <span class="title">The Limit as a Primary Tool</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="DivergentSeq.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Divergence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="TaylorSeries.html" class="internal"><span class="codenumber">7</span> <span class="title">A “Tayl” of Three Remainders</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-IntFormRem.html" class="internal"><span class="codenumber">7.1</span> <span class="title">The Integral Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-LagrFormRem.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Lagrange’s Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-CauchyFormRem.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Cauchy’s Form of the Remainder</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Continuity.html" class="internal"><span class="codenumber">8</span> <span class="title">Continuity: What It Isn’t and What It Is</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-AnalyticDef.html" class="internal"><span class="codenumber">8.1</span> <span class="title">An Analytic Definition of Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SequencesAndContinuity.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Sequences and Continuity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="IVTandEVT.html" class="internal"><span class="codenumber">9</span> <span class="title">Intermediate and Extreme Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-Completeness.html" class="internal"><span class="codenumber">9.1</span> <span class="title">The Nested Interval Property: Completeness of the Real Number System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-ProofOfIVT.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Proof of the Intermediate Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-BWT.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Bolzano–Weierstrass Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-SupremumAndEVT.html" class="internal"><span class="codenumber">9.4</span> <span class="title">The Supremum and the Extreme Value Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DefLimit.html" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DerivativeAfterthought.html" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONFTC.html" class="internal"><span class="codenumber">10.3</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONDefiningIntegral.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Definition of the Integral</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONCauchyRiemannInt" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Cauchy’s Definition of the Integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONDarbouxIntegral" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Darboux’s Integral Definition</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesRedux.html" class="internal"><span class="codenumber">11</span> <span class="title">Back to Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Uniform Convergence</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Uniform Convergence: Integrals and Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html#PowerSeriesRedux-UnifConv-IntsAndDerivs-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Cauchy Sequences</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-RadiusOfConv.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Radius of Convergence of a Power Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-AbelsThm.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Boundary Issues and Abel’s Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="BackToFourier.html" class="internal"><span class="codenumber">12</span> <span class="title">Back to the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONRiseSetTheory.html" class="internal"><span class="codenumber">12.1</span> <span class="title">The Rise of Set Theory</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-InfiniteSets.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Infinite Sets</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONLebesgueIntegration.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Road to Lebesgue Integration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-CantorsTheorem.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Cantor’s Theorem and Its Consequences</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Epilogues.html" class="internal"><span class="codenumber">13</span> <span class="title">Epilogs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONEpilog1.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONBuildReals.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Epilog #2: Building the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DecimalExpansion" class="internal"><span class="codenumber">13.2.1</span> <span class="title">The Decimal Expansion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#CauchySequences" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Cauchy Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DedekindCuts" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Dedekind Cuts</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ASORA-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="ASORA-6-1.html" class="internal"><span class="title">Bibliography</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ASORA-6-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main" style="background-image:url('data:image/svg+xml;charset=utf-8,&lt;svg version=&quot;1.1&quot; height=&quot;600&quot; width=&quot;600&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;text x=&quot;50%&quot; y=&quot;50%&quot; text-anchor=&quot;middle&quot; transform=&quot;rotate(-45,300,300)&quot; fill=&quot;rgb(204,204,204)&quot; style=&quot;font-family:sans-serif; font-size:2.5cm;&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;DRAFT&lt;/text&gt;&lt;/svg&gt;');background-position:center top;background-repeat:repeat-y;"><div id="ptx-content" class="ptx-content"><section class="section" id="LimitAsPrimary"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Limit as a Primary Tool</span>
+</h2>
+<p class="watermark">Watermark text: DRAFT</p>
+<div class="para" id="LimitAsPrimary-2">As you saw in the <a href="SeqRealNum.html" class="internal" title="Section 6.1: Sequences of Real Numbers">previous section</a> the formal definition of the convergence of a sequence is meant to capture rigorously our intuitive understanding of convergence.  However, the definition itself is an unwieldy tool. If only there were some way to be rigorous without having to run back to the definition each time.  Fortunately, there is a way.  If we can use the definition to prove some general rules about limits then we could use these rules whenever they apply and be assured that everything was still rigorous.  A number of these should look familiar from Calculus.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="PROBLEMLimConst"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of a Constant Sequence is the Constant.</span>
+</h3>
+<div class="para" id="PROBLEMLimConst-5-1">Let <span class="process-math">\(\left(c\right)_{n=1}^\infty=(c,c,c,\ldots)\)</span> be a constant sequence.  Show that <span class="process-math">\(\limitt{n}{\infty}{c}=c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMLimConst-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.1: Limit of a Constant Sequence is the Constant"><a href="#PROBLEMLimConst" title="Copy heading and permalink for Problem 6.2.1: Limit of a Constant Sequence is the Constant" aria-label="Copy heading and permalink for Problem 6.2.1: Limit of a Constant Sequence is the Constant">🔗</a></div></article><div class="para" id="LimitAsPrimary-4">In proving the familiar limit theorems, the following will be a very useful tool.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="Tri-RevTri-Ineq"><h3 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="Tri-RevTri-Ineq-4-1">
+<dl class="description-list">
+<dt id="TriangleIneq">Triangle Inequality:<div class="autopermalink" data-description="Item: Triangle Inequality:"><a href="#TriangleIneq" title="Copy heading and permalink for Item: Triangle Inequality:" aria-label="Copy heading and permalink for Item: Triangle Inequality:">🔗</a></div>
+</dt>
+<dd><div class="para logical" id="TriangleIneq-2">
+<div class="para">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be real numbers. Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{a+b}\leq \abs{a}+\abs{b}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#TriangleIneq-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></dd>
+<dt id="InvTriangleIneq">Reverse Triangle Inequality:<div class="autopermalink" data-description="Item: Reverse Triangle Inequality:"><a href="#InvTriangleIneq" title="Copy heading and permalink for Item: Reverse Triangle Inequality:" aria-label="Copy heading and permalink for Item: Reverse Triangle Inequality:">🔗</a></div>
+</dt>
+<dd><div class="para logical" id="InvTriangleIneq-2">
+<div class="para">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be real numbers. Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{a}-\abs{b}\leq\abs{a-b}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#InvTriangleIneq-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></dd>
+</dl>
+<div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 6.2.2"><a href="#Tri-RevTri-Ineq" title="Copy heading and permalink for Lemma 6.2.2" aria-label="Copy heading and permalink for Lemma 6.2.2">🔗</a></div></article><article class="problem example-like" id="Tri-RevTri-Ineq_prob"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<article class="task exercise-like" id="Tri-RevTri-Ineq_prob-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="Tri-RevTri-Ineq_prob-3-1-1">Prove <a href="LimitAsPrimary.html#Tri-RevTri-Ineq" class="internal" title="Lemma 6.2.2">Lemma 6.2.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="Tri-RevTri-Ineq_prob-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="Tri-RevTri-Ineq_prob-3-2-1">For the Reverse Triangle Inequality, consider <span class="process-math">\(\abs{a}=\abs{a-b+b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.2.3.a.1"><a href="#Tri-RevTri-Ineq_prob-3-2" title="Copy heading and permalink for Hint 6.2.3.a.1" aria-label="Copy heading and permalink for Hint 6.2.3.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 6.2.3.a"><a href="#Tri-RevTri-Ineq_prob-3" title="Copy heading and permalink for Task 6.2.3.a" aria-label="Copy heading and permalink for Task 6.2.3.a">🔗</a></div></article><article class="task exercise-like" id="Tri-RevTri-Ineq_prob-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="Tri-RevTri-Ineq_prob-4-1-1">Show <span class="process-math">\(\Big||a|-|b|\Big|\leq|a-b|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="Tri-RevTri-Ineq_prob-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="Tri-RevTri-Ineq_prob-4-2-1">
+<div class="para">You want to show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|a|-|b|\leq|a-b|
+\end{equation*}
+</div>
+<div class="para">and that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-\left(|a|-|b|\right)\leq|a-b|\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.2.3.b.1"><a href="#Tri-RevTri-Ineq_prob-4-2" title="Copy heading and permalink for Hint 6.2.3.b.1" aria-label="Copy heading and permalink for Hint 6.2.3.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 6.2.3.b"><a href="#Tri-RevTri-Ineq_prob-4" title="Copy heading and permalink for Task 6.2.3.b" aria-label="Copy heading and permalink for Task 6.2.3.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.2.3"><a href="#Tri-RevTri-Ineq_prob" title="Copy heading and permalink for Problem 6.2.3" aria-label="Copy heading and permalink for Problem 6.2.3">🔗</a></div></article><article class="theorem theorem-like" id="thm_SumOfSequences"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of a Sum of Sequences is the Sum of the Limits.</span>
+</h3>
+<div class="para logical" id="thm_SumOfSequences-3-1">
+<div class="para">If <span class="process-math">\(\limitt{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(\limitt{n}{\infty}{b_n}=b\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\limit{n}{\infty}{\left(a_n+b_n\right)}=a+b\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_SumOfSequences-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits"><a href="#thm_SumOfSequences" title="Copy heading and permalink for Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">🔗</a></div></article><div class="para" id="LimitAsPrimary-8">We  often state this theorem informally as “the limit of a sum is the sum of the limits.” However, to be absolutely precise, what it says is that if we already know that two sequences converge, then the sequence formed by summing their corresponding terms  will also converge and in fact, it will converge to the sum of those individual limits.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-9">We’ll provide the scrapwork and leave the formal write–up to you in <a href="LimitAsPrimary.html#PROBLEMLimitOfSum" class="internal" title="Problem 6.2.5">Problem 6.2.5</a>. Be sure you justify every step. Also, note the role of the <a href="LimitAsPrimary.html#Tri-RevTri-Ineq" class="internal" title="Lemma 6.2.2">triangle inequality</a> in the proof.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-10">
+<dfn class="terminology">SCRAPWORK:</dfn><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="LimitAsPrimary-11">
+<div class="para">If we let <span class="process-math">\(\eps&gt;0\text{,}\)</span> then we want to find <span class="process-math">\(N\)</span> such that if <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(\abs{\left(a_n+b_n\right)-\left(a+b\right)}\lt \eps\text{.}\)</span> Since we know that <span class="process-math">\(\limit{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=b\text{,}\)</span> we can make <span class="process-math">\(\abs{a_n-a}\)</span> and <span class="process-math">\(\abs{b_n-b}\)</span> as small as we wish, provided we make <span class="process-math">\(n\)</span> large enough.  Let’s look closely at our goal to see if we can close the gap between what we know and what we want.  We know, by the triangle inequality, that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\abs{\left(a_n+b_n\right)-\left(a+b\right)}=\abs{\left(a_n-a\right)+\left(b_n-b\right)}\leq\abs{a_n-a}+\abs{b_n-b}\text{.}
+\end{equation*}
+</div>
+<div class="para">To make this whole thing less than <span class="process-math">\(\eps\text{,}\)</span> it makes sense to make each part less than <span class="process-math">\(\frac{\eps}{2}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-12">Fortunately, we can do that as the definitions of <span class="process-math">\(\limit{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=b\)</span> allow us to make <span class="process-math">\(\abs{a_n-a}\)</span> and <span class="process-math">\(\abs{b_n-b}\)</span> arbitrarily small.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-13">Specifically, since <span class="process-math">\(\limit{n}{\infty}{a_n}=a\text{,}\)</span> there exists an <span class="process-math">\(N_1\)</span> such that if <span class="process-math">\(n&gt;N_1\)</span> then <span class="process-math">\(\abs{a_n-a}\lt \frac{\eps}{2}\text{.}\)</span>  Also since <span class="process-math">\(\limit{n}{\infty}{b_n}=b\text{,}\)</span> there exists an <span class="process-math">\(N_2\)</span> such that if <span class="process-math">\(n&gt;N_2\)</span> then <span class="process-math">\(\abs{b_n-b}\lt
+\frac{\eps}{2}\text{.}\)</span>  Since we want both of these to occur, it makes sense to let <span class="process-math">\(N=\)</span>max<span class="process-math">\(\left(N_1,N_2\right)\text{.}\)</span>  This should be the <span class="process-math">\(N\)</span> that we seek.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="PROBLEMLimitOfSum"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="PROBLEMLimitOfSum-3-1">Prove <a href="LimitAsPrimary.html#thm_SumOfSequences" class="internal" title="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">Theorem 6.2.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMLimitOfSum-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.5"><a href="#PROBLEMLimitOfSum" title="Copy heading and permalink for Problem 6.2.5" aria-label="Copy heading and permalink for Problem 6.2.5">🔗</a></div></article><article class="theorem theorem-like" id="thm_LimitOfProduct"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of the Product of Sequences is the Product of the Limits.</span>
+</h3>
+<div class="para" id="thm_LimitOfProduct-4-1">If <span class="process-math">\(\limit{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=b\text{,}\)</span> then <span class="process-math">\(\limit{n}{\infty}{\left(a_n b_n\right)}=a b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_LimitOfProduct-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits"><a href="#thm_LimitOfProduct" title="Copy heading and permalink for Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">🔗</a></div></article><div class="para logical" id="LimitAsPrimary-16">
+<div class="para">
+<dfn class="terminology">SCRAPWORK:</dfn> Given <span class="process-math">\(\eps&gt;0\text{,}\)</span> we want <span class="process-math">\(N\)</span> so that if <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(\abs{a_n  b_n-a  b}\lt \eps\text{.}\)</span> One of the standard tricks in analysis is to “uncancel.” In this case we will subtract and add a convenient term. Normally these would “cancel out,” which is why we say that we will uncancel to put them back in. You already saw an example of this in proving the Reverse Triangle Inequality (<a href="LimitAsPrimary.html#Tri-RevTri-Ineq_prob" class="internal" title="Problem 6.2.3">Problem 6.2.3</a>). In the present case, consider</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/Tri-RevTri-Ineq_prob.html" id="LimitAsPrimary-16-9">
+\begin{align*}
+\abs{a_n  b_n-a  b}\amp =\abs{a_n  b_n-a_n b+a_n b-a  b}\\
+\amp \leq \abs{a_n  b_n-a_n  b}+\abs{a_n b-a b}|\\
+\amp =\abs{a_n}\abs{b_n-b}+\abs{b}\abs{a_n-a}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-17">We can make this whole thing less than <span class="process-math">\(\eps\text{,}\)</span> provided we make each term in the sum less than <span class="process-math">\(\frac{\eps}{2}\text{.}\)</span>  We can make <span class="process-math">\(\big|b\big|\big|a_n-a\big|\lt \frac{\eps}{2}\)</span> if we make <span class="process-math">\(\big|a_n-a\big|\lt \frac{\eps}{2|b|}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-18">But wait! What if <span class="process-math">\(b=0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="LimitAsPrimary-19">
+<div class="para">We could handle this as a separate case or we can do the following “slick trick.” Notice that we can add one more line to the above string of inequalities:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left|a_n\right|\left|b_n-b\right|+\left|b\right|\left|a_n-a\right|\lt
+\left|a_n
+\right|\left|b_n-b\right|+\left(\left|b\right|+1\right)\left|a_n-a
+\right|\text{.}
+\end{equation*}
+</div>
+<div class="para">Now we can make <span class="process-math">\(\left|a_n-a\right|\lt
+\frac{\eps}{2\left(|b|+1\right)}\)</span> and not worry about dividing by zero.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-20">Making <span class="process-math">\(\abs{a_n}\abs{b_n-b}\lt \frac{\eps}{2}\)</span> requires a bit more finesse. At first glance, one would be tempted to try and make <span class="process-math">\(\abs{b_n-b}\lt \frac{\eps}{2|a_n|}\text{.}\)</span> Even if we ignore the fact that we could be dividing by zero (which we could handle), we have a bigger problem. According to the definition of <span class="process-math">\(\limitt{n}{\infty}{b_n}=b\text{,}\)</span> we can make <span class="process-math">\(\abs{b_n-b}\)</span> smaller than any given fixed positive number, as long as we make <span class="process-math">\(n\)</span> large enough (larger than some <span class="process-math">\(N\)</span> which goes with a given epsilon). Unfortunately, <span class="process-math">\(\frac{\eps}{2|a_n|}\)</span> is not fixed as it has the variable <span class="process-math">\(n\)</span> in it; there is no reason to believe that a single <span class="process-math">\(N\)</span> will work with all possible values of <span class="process-math">\(n\)</span> simultaneously. To handle this impasse, we need the following:<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="lemma_BoundedConvergent"><h3 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="lemma_BoundedConvergent-2-1">
+<em class="alert">A Convergent Sequence Is Bounded.</em><div class="autopermalink" data-description="Paragraph"><a href="#lemma_BoundedConvergent-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="lemma_BoundedConvergent-2-2">If <span class="process-math">\(\limitt{n}{\infty}{a_n}=a\text{,}\)</span> then there exists <span class="process-math">\(B&gt;0\)</span> such that <span class="process-math">\(\abs{a_n}\leq B\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lemma_BoundedConvergent-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 6.2.7"><a href="#lemma_BoundedConvergent" title="Copy heading and permalink for Lemma 6.2.7" aria-label="Copy heading and permalink for Lemma 6.2.7">🔗</a></div></article><article class="problem example-like" id="prob_BoundedConvergent"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="prob_BoundedConvergent-3-1">Prove <a href="LimitAsPrimary.html#lemma_BoundedConvergent" class="internal" title="Lemma 6.2.7">Lemma 6.2.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#prob_BoundedConvergent-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="prob_BoundedConvergent-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="prob_BoundedConvergent-4-1">We know that there exists <span class="process-math">\(N\)</span> such that if <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(\abs{a_n-a}\lt 1\text{.}\)</span>  Let <span class="process-math">\(B=\)</span>max<span class="process-math">\(\left(\abs{a_1},\abs{a_2},\ldots,\abs{a_{\lceil{N}\rceil}},\abs{a}+1\right)\text{,}\)</span> where <span class="process-math">\(\lceil{N}\rceil\)</span> represents the smallest integer greater than or equal to <span class="process-math">\(N\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_BoundedConvergent-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.2.8.1"><a href="#prob_BoundedConvergent-4" title="Copy heading and permalink for Hint 6.2.8.1" aria-label="Copy heading and permalink for Hint 6.2.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 6.2.8"><a href="#prob_BoundedConvergent" title="Copy heading and permalink for Problem 6.2.8" aria-label="Copy heading and permalink for Problem 6.2.8">🔗</a></div></article><div class="para logical" id="LimitAsPrimary-23">
+<div class="para">Armed with <a href="LimitAsPrimary.html#lemma_BoundedConvergent" class="internal" title="Lemma 6.2.7">Lemma 6.2.7</a> we can add the following inequality to the scrapwork above.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lemma_BoundedConvergent.html" id="LimitAsPrimary-23-2">
+\begin{align*}
+\abs{a_n\cdot b_n-a\cdot b}\amp =\abs{a_n\cdot b_n-a_n\cdot b+a_n\cdot b-a\cdot b}\\
+\amp \leq \abs{a_n\cdot b_n-a_n\cdot b}+ \abs{a_n\cdot b-a\cdot b}\\
+\amp = \abs{a_n}\abs{b_n-b}+\abs{b}\abs{a_n-a}\\
+\amp \lt B \abs{b_n-b}+\left(\abs{b}+1\right)\abs{a_n-a}.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-24">At this point, we should be able to make the last line of this less than <span class="process-math">\(\eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-25">
+<dfn class="terminology">END OF SCRAPWORK</dfn><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="LimitAsPrimary-26"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="LimitAsPrimary-26-3-1">Prove <a href="LimitAsPrimary.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-26-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.9"><a href="#LimitAsPrimary-26" title="Copy heading and permalink for Problem 6.2.9" aria-label="Copy heading and permalink for Problem 6.2.9">🔗</a></div></article><article class="corollary theorem-like" id="cor_1"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">(to Theorem 6.2.6).</span>
+</h3>
+<div class="para" id="cor_1-2-1">If <span class="process-math">\(\limit{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(c\in\mathbb{R}\text{,}\)</span> then <span class="process-math">\(\limit{n}{\infty}{c\cdot a_n}=c\cdot a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>      <div class="autopermalink" data-description="Corollary 6.2.10: (to Theorem 6.2.6)"><a href="#cor_1" title="Copy heading and permalink for Corollary 6.2.10: (to Theorem 6.2.6)" aria-label="Copy heading and permalink for Corollary 6.2.10: (to Theorem 6.2.6)">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-28"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="LimitAsPrimary-28-4-1">Prove  <a href="LimitAsPrimary.html#cor_1" class="internal" title="Corollary 6.2.10: (to Theorem 6.2.6)">Corollary 6.2.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-28-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.11"><a href="#LimitAsPrimary-28" title="Copy heading and permalink for Problem 6.2.11" aria-label="Copy heading and permalink for Problem 6.2.11">🔗</a></div></article><div class="para" id="LimitAsPrimary-29">The following theorem is the analog of <a href="LimitAsPrimary.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a> for quotients.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_LimitOfQuotient"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of the Quotient of Sequences is the Quotient of the Limits.</span>
+</h3>
+<div class="para" id="thm_LimitOfQuotient-3-1">Suppose <span class="process-math">\(\limitt{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(\limitt{n}{\infty}{b_n}=b\text{.}\)</span> Also suppose <span class="process-math">\(b\neq 0\)</span> and <span class="process-math">\(b_n\neq 0, \forall n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_LimitOfQuotient-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="thm_LimitOfQuotient-3-2">
+<div class="para">Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\limit{n}{\infty}{\left(\frac{a_n}{b_n}\right)}=\frac{a}{b}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm_LimitOfQuotient-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits"><a href="#thm_LimitOfQuotient" title="Copy heading and permalink for Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-31"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="LimitAsPrimary-31-3-1">Prove <a href="LimitAsPrimary.html#thm_LimitOfQuotient" class="internal" title="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">Theorem 6.2.12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="LimitAsPrimary-31-3-2">
+<dfn class="terminology">SCRAPWORK</dfn><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="LimitAsPrimary-31-3-3">
+<div class="para">It is helpful to look first at the special case</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimitOfProduct.html">
+\begin{equation*}
+\limitt{n}{\infty}{\left(\frac{1}{b_n}\right)}=\frac{1}{b}\text{.}
+\end{equation*}
+</div>
+<div class="para">The general case will follow from this and from <a href="LimitAsPrimary.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="LimitAsPrimary-31-3-4">Consider <span class="process-math">\(\big|\frac{1}{b_n}-\frac{1}{b}\big|=\frac{|b-b_n|}{|b_n||b|}\text{.}\)</span> We are faced with the same dilemma we had when we were proving <a href="LimitAsPrimary.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>; we need to get <span class="process-math">\(\big|\frac{1}{b_n}\big|\)</span> bounded above. This means we need to get <span class="process-math">\(\abs{b_n}\)</span> bounded away from zero (at least for large enough <span class="process-math">\(n\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="LimitAsPrimary-31-3-5">This can be done as follows. Since <span class="process-math">\(b\neq 0\text{,}\)</span> then <span class="process-math">\(\frac{|b|}{2}&gt;0\text{.}\)</span> Thus, by the definition of <span class="process-math">\(\limit{n}{\infty}{b_n}=b\)</span> there exists <span class="process-math">\(N_1\)</span> such that if <span class="process-math">\(n&gt;N_1\text{,}\)</span> then <span class="process-math">\(\abs{b}-\abs{b_n}\leq\big|b-b_n\big|\lt \frac{\abs{b}}{2}\text{.}\)</span> Thus when <span class="process-math">\(n&gt;N_1\text{,}\)</span> <span class="process-math">\(\frac{\abs{b}}{2}\lt \abs{b_n}\)</span> and so <span class="process-math">\(\frac{1}{\abs{b_n}}\lt \frac{2}{\abs{b}}\text{.}\)</span> This says that for <span class="process-math">\(n&gt;N_1\text{,}\)</span> <span class="process-math">\(\frac{\abs{b-b_n}}{\abs{b_n}\abs{b}}\lt \frac{2}{\abs{b}^2}\abs{b-b_n}\text{.}\)</span> We should be able to make this smaller than a given <span class="process-math">\(\eps&gt;0\text{,}\)</span> provided we make <span class="process-math">\(n\)</span> large enough.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.13"><a href="#LimitAsPrimary-31" title="Copy heading and permalink for Problem 6.2.13" aria-label="Copy heading and permalink for Problem 6.2.13">🔗</a></div></article><div class="para" id="LimitAsPrimary-32">The results of <a href="LimitAsPrimary.html#PROBLEMLimConst" class="internal" title="Problem 6.2.1: Limit of a Constant Sequence is the Constant">Problem 6.2.1</a>, <a href="LimitAsPrimary.html#thm_SumOfSequences" class="internal" title="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">Theorem 6.2.4</a>, <a href="LimitAsPrimary.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>, and <a href="LimitAsPrimary.html#thm_LimitOfQuotient" class="internal" title="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">Theorem 6.2.12</a> allow us to find the limits of complicated sequences and then rigorously verify that these are in fact, the correct limits without resorting to the definition of a limit.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="LimitAsPrimary-33"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<article class="task exercise-like" id="LimitAsPrimary-33-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para logical" id="LimitAsPrimary-33-4-1-1">
+<div class="para">Use the  theorems from this section  to prove that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\limit{n}{\infty}{\frac{3n^3-100n+1}{5n^3+4n^2-7}} =
+\limit{n}{\infty}{\frac{n^3\left(3-\frac{100}{n^2}+\frac{1}{n^3}\right)}{n^3
+\left(5+\frac{4}{n}-\frac{7}{n^3}\right)}}=\frac{3}{5}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>    <div class="autopermalink" data-description="Task 6.2.14.a"><a href="#LimitAsPrimary-33-4" title="Copy heading and permalink for Task 6.2.14.a" aria-label="Copy heading and permalink for Task 6.2.14.a">🔗</a></div></article><article class="task exercise-like" id="LimitAsPrimary-33-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para logical" id="LimitAsPrimary-33-5-1-1">
+<div class="para">Prove that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\limit{n}{\infty}{\frac{a_0+a_1n+a_2n^2+
+\cdots+a_kn^k}{b_0+b_1n+b_2n^2+\cdots+b_kn^k}}=\frac{a_k}{b_k}\text{,}
+\end{equation*}
+</div>
+<div class="para">provided <span class="process-math">\(b_k\neq 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="LimitAsPrimary-33-5-1-2">Be sure to explain why division by zero is not an issue. (See the hint.)<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="LimitAsPrimary-33-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="LimitAsPrimary-33-5-2-1">A polynomial only has finitely many roots.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.2.14.b.1"><a href="#LimitAsPrimary-33-5-2" title="Copy heading and permalink for Hint 6.2.14.b.1" aria-label="Copy heading and permalink for Hint 6.2.14.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 6.2.14.b"><a href="#LimitAsPrimary-33-5" title="Copy heading and permalink for Task 6.2.14.b" aria-label="Copy heading and permalink for Task 6.2.14.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.2.14"><a href="#LimitAsPrimary-33" title="Copy heading and permalink for Problem 6.2.14" aria-label="Copy heading and permalink for Problem 6.2.14">🔗</a></div></article><div class="para" id="LimitAsPrimary-34">There is one more theorem which  will prove to be a valuable tool.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm_SqueezeTheorem"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Squeeze Theorem for Sequences.</span>
+</h3>
+<div class="para" id="thm_SqueezeTheorem-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#thm_SqueezeTheorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <div class="para" id="thm_SqueezeTheorem-3-2">Let <span class="process-math">\(\left(r_n\right),\left(s_n\right)\text{,}\)</span> and <span class="process-math">\(\left(t_n\right)\)</span> be sequences of real numbers with <span class="process-math">\(r_n\leq s_n\leq t_n,\forall\)</span> positive integers <span class="process-math">\(n\text{.}\)</span> Suppose <span class="process-math">\(\limit{n}{\infty}{r_n}=s=\limit{n}{\infty}{t_n}\text{.}\)</span> Then <span class="process-math">\(\left(s_n\right)\)</span> must converge and <span class="process-math">\(\limit{n}{\infty}{s_n}=s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_SqueezeTheorem-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 6.2.15: The Squeeze Theorem for Sequences"><a href="#thm_SqueezeTheorem" title="Copy heading and permalink for Theorem 6.2.15: The Squeeze Theorem for Sequences" aria-label="Copy heading and permalink for Theorem 6.2.15: The Squeeze Theorem for Sequences">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-36"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="LimitAsPrimary-36-3-1">Prove the <a href="LimitAsPrimary.html#thm_SqueezeTheorem" class="internal" title="Theorem 6.2.15: The Squeeze Theorem for Sequences">Squeeze Theorem for Sequences</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-36-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="LimitAsPrimary-36-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="LimitAsPrimary-36-4-1">This is probably a place where you would want to use <span class="process-math">\(s-\eps\lt s_n\lt s+\eps\)</span> instead of <span class="process-math">\(|s_n-s|\lt
+\eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-36-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.2.16.1"><a href="#LimitAsPrimary-36-4" title="Copy heading and permalink for Hint 6.2.16.1" aria-label="Copy heading and permalink for Hint 6.2.16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 6.2.16"><a href="#LimitAsPrimary-36" title="Copy heading and permalink for Problem 6.2.16" aria-label="Copy heading and permalink for Problem 6.2.16">🔗</a></div></article><div class="para logical" id="LimitAsPrimary-37">
+<div class="para">The Squeeze Theorem is true even if <span class="process-math">\(r_n\leq s_n\leq
+t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\text{;}\)</span> i.e., for <span class="process-math">\(n\)</span> larger than some fixed <span class="process-math">\(N_0\text{.}\)</span>  This is true because when you find an <span class="process-math">\(N_1\)</span> that works in the original proof, this can be modified by choosing <span class="process-math">\(N=\)</span>max<span class="process-math">\(\left(N_0,N_1\right)\text{.}\)</span>  Also note that this theorem really says two things:</div>
+<ol class="decimal" id="LimitAsPrimary-37-8">
+<li id="LimitAsPrimary-37-8-1">
+<div class="para" id="p-derived-LimitAsPrimary-37-8-1">
+<span class="process-math">\(\left(s_n\right)\)</span> converges, and</div>
+<div class="autopermalink" data-description="Item 1"><a href="#LimitAsPrimary-37-8-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="LimitAsPrimary-37-8-2">
+<div class="para" id="p-derived-LimitAsPrimary-37-8-2">it converges to <span class="process-math">\(s\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#LimitAsPrimary-37-8-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="para">This subtle point affects how one should properly use the Squeeze Theorem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-37" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="example_SqzeEx"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="example_SqzeEx-1-1">Prove <span class="process-math">\(\limit{n}{\infty}{\frac{n+1}{n^2}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example_SqzeEx-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.2.17"><a href="#example_SqzeEx" title="Copy heading and permalink for Example 6.2.17" aria-label="Copy heading and permalink for Example 6.2.17">🔗</a></div></article><article class="proof" id="LimitAsPrimary-39"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<div class="para" id="LimitAsPrimary-39-1">Notice that <span class="process-math">\(0\leq\frac{n+1}{n^2}\leq\frac{n+n}{n^2}=\frac{2}{n}\text{.}\)</span> Since <span class="process-math">\(\limit{n}{\infty}{0}=0=\limit{n}{\infty}{\frac{2}{n}}\text{,}\)</span> then by the Squeeze Theorem, <span class="process-math">\(\limit{n}{\infty}{\frac{n+1}{n^2}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-39-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 6.2.1"><a href="#LimitAsPrimary-39" title="Copy heading and permalink for Proof 6.2.1" aria-label="Copy heading and permalink for Proof 6.2.1">🔗</a></div></article><div class="para" id="LimitAsPrimary-40">Our proof in <a href="LimitAsPrimary.html#example_SqzeEx" class="internal" title="Example 6.2.17">Example 6.2.17</a> is completely rigorous and is the proper way to use the <a href="LimitAsPrimary.html#thm_SqueezeTheorem" class="internal" title="Theorem 6.2.15: The Squeeze Theorem for Sequences">Squeeze Theorem</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-40" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-41">Next we give an example of an improper use of the Squeeze Theorem. It is easy to fall into this error. Be careful.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-41" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="EXAMPLENotUseSquzTheorem"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How Not to Use the Squeeze Theorem.</span>
+</h3>
+<div class="para logical" id="EXAMPLENotUseSquzTheorem-2">
+<div class="para">Look again at  <a href="LimitAsPrimary.html#example_SqzeEx" class="internal" title="Example 6.2.17">Example 6.2.17</a>. Notice that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example_SqzeEx.html">
+\begin{equation*}
+0\leq\frac{n+1}{n^2}\leq\frac{n+n}{n^2}=\frac{2}{n}\text{,}
+\end{equation*}
+</div>
+<div class="para">so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example_SqzeEx.html">
+\begin{equation*}
+0=\limit{n}{\infty}{0} \leq \limit{n}{\infty}{\frac{n+1}{n^2}}\leq\limit{n}{\infty}{\frac{2}{n}}=0
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example_SqzeEx.html">
+\begin{equation*}
+\limit{n}{\infty}{\frac{n+1}{n^2}}=0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLENotUseSquzTheorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="EXAMPLENotUseSquzTheorem-3">This is incorrect in form because it presumes that <span class="process-math">\(\limitt{n}{\infty}{\frac{n+1}{n^2}}\)</span> exists, which we don’t yet know. If we knew that the limit existed to begin with, then this would be fine. The Squeeze Theorem proves that the limit does in fact exist, but it must be so stated.<div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLENotUseSquzTheorem-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.2.18: How Not to Use the Squeeze Theorem"><a href="#EXAMPLENotUseSquzTheorem" title="Copy heading and permalink for Example 6.2.18: How Not to Use the Squeeze Theorem" aria-label="Copy heading and permalink for Example 6.2.18: How Not to Use the Squeeze Theorem">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-43"><h3 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="LimitAsPrimary-43-3-1">
+<div class="para">Prove that if the sequence <span class="process-math">\(\left(s_n\right)\)</span> is bounded then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\limit{n}{\infty}{\left(\frac{s_n}{n}\right)}=0\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-43-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.19"><a href="#LimitAsPrimary-43" title="Copy heading and permalink for Problem 6.2.19" aria-label="Copy heading and permalink for Problem 6.2.19">🔗</a></div></article><div class="para" id="LimitAsPrimary-44">The general theorems we have seen in this section will allow us to rigorously explore convergence of power series in the next chapter without appealing directly to the definitions.  However there will still be times when we will need to apply the definition directly.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-44" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="LimitAsPrimary-45">But before we go into that let’s examine divergence a bit more closely.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-45" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 6.2: The Limit as a Primary Tool"><a href="#LimitAsPrimary" title="Copy heading and permalink for Section 6.2: The Limit as a Primary Tool" aria-label="Copy heading and permalink for Section 6.2: The Limit as a Primary Tool">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="SeqRealNum.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="DivergentSeq.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

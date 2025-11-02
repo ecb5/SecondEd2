@@ -1,0 +1,3281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="LimDerivIntFTC">
+  <title>Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</title>
+
+  <introduction>
+    <title>Why Now?</title>
+    <!-- <p> -->
+    <!--   We briefly discussed the invention of Calculus by Newton and -->
+    <!--   Leibniz in <xref ref="CalcIn17th18thCentury" ></xref>.  In -->
+    <!--   subsequent examples and problems we have used the fundamental -->
+    <!--   notions of <term>limit</term>, <term>derivative</term> and -->
+    <!--   <term>integral</term> without going to the trouble of rigorously -->
+    <!--   defining these concepts  -->
+    <!-- </p> -->
+    <!-- <p> -->
+    <!--   We (the authors) made this choice primarily because   It is also a more historically accurate treatment. -->
+    <!-- </p> -->
+    <!-- <p> -->
+    <!--   For the most part rigor could be dispensed with in a Calculus -->
+    <!--   course because the underlying ideas of the <term>limit</term>, -->
+    <!--   the <term>derivative</term> and the <term>integral</term>, are -->
+    <!--   relatively intuitive. But an intuitive understanding is simply -->
+    <!--   not enough for our purposes here. We will need rigor. -->
+    <!-- </p> -->
+
+    <p>
+      So far, we (the authors) have refrained from giving rigorous
+      definitions of the <term>derivative</term>, and the
+      <term>integral</term> before using them. We simply assumed that
+      you are familiar with the use of these ideas from your Calculus
+      course, even if the details of their definitions are still a bit
+      hazy.
+    </p>
+    <p>
+      We made this choice consciously, not because it is more
+      historically accurate (though it is), but because we feel
+      strongly that it is better for beginners to learn to <q>play the
+      game</q> of rigorous analysis using epsilons and deltas in the
+      simpler domain of convergent sequences before confronting all of
+      the nuance and complexity of a fully rigorous treatment of the
+      <term>derivative</term> and, especially, the
+      <term>integral</term>.
+    </p>
+    <p>
+      Since the <term>derivative</term> and the <term>integral</term>
+      were known and had been used quite literally for centuries
+      before they were formally defined their definitions were never
+      meant to be intuitive. They were meant to be rigorous.  For that
+      reason the definitions do not exist to help us use these
+      ideas. They exist to establish a rigorous foundation for
+      Calculus, a foundation we can fall back on when the intuitive
+      approach is inadequate.
+    </p>
+    <p>
+      Thus we did bend the rules a bit when we relied on your
+      intuitive understanding of derivatives and integrals to derive
+      the Tayor series and its various remainders. To correct this we
+      need to circle back and treat these ideas with the proper level
+      of rigor.
+    </p>
+
+    <!-- <p> -->
+    <!--   So we began by relying heavily on the intuitive understanding of -->
+    <!--   derivatives and integrals you gained from your Calculus course, -->
+    <!--   and we used that to derive  -->
+
+    <!--   <ul> -->
+    <!--     <li> -->
+    <!--       the integral, Lagrange, and Cauchy -->
+    <!--       form of the remainders of the Taylor series, -->
+    <!--     </li> -->
+    <!--     <li> -->
+    <!--       the Intermediate Values Theorem, -->
+    <!--     </li> -->
+    <!--     <li> -->
+    <!--       the Extreme Value Theorem -->
+    <!--     </li> -->
+    <!--     <li> -->
+    <!--       the convergence of sequences,  -->
+    <!--     </li> -->
+    <!--     <li> -->
+    <!--       continuity, and -->
+    <!--     </li> -->
+    <!--     <li> -->
+    <!--       the completeness of the real number system. -->
+    <!--     </li> -->
+    <!--   </ul> -->
+    <!--   Now that we have all of these tools in place it is time for us -->
+    <!--   to go back and build the  foundations of Calculus rigorously. -->
+    <!-- </p> -->
+  </introduction>
+
+  <section xml:id="Continuity-DefLimit"> 
+    <title> The Definition of the Limit of a Function </title>
+
+    <p>
+      We<rsq/>ve already used the the notion of a limit and its
+      associated notation, <m>\limit{n}{\infty}{a_n}</m>, to analyze
+      the convergence and divergence of a sequence. And you<rsq/>ve
+      almost certainly encountered limits of functions before so it is
+      tempting for us (the authors) to assume that you are already
+      well<ndash/>versed in the limit concept and simply plow forward
+      with very little discussion. We won<rsq/>t do that.
+    </p>
+
+    <p>
+      And it is probably tempting for you to make the same assumption
+      and skip the discussion you are about to see. Don<rsq/>t do
+      that. The limit concept is subtle. There is more to it than you
+      probably believe and it is worth taking time to think about it
+      deeply.
+    </p>
+    <p>
+      For example, the statement <m>\limit{n}{\infty}{2^{-n}}=0</m>
+      has a very precise meaning. It means that as <m>n</m> increases
+      arbitrarily (<m>\rightarrow \infty </m>) the elements of the
+      sequence <me>\left(2^{-0}, 2^{-1}, 2^{-2}, 2^{-3},
+      \cdots{}\right)</me> get arbitrarily close to zero <m>(=0)</m>.
+      Notice that it does not mean that <m>2^{-n}</m> is actually
+      equal to zero for any value of <m>n</m>. That is not true.
+    </p>
+    <p>
+      You might reasonably ask, <q>OK, but what exactly is equal to
+      zero?</q> The notation <q>=0</q> clearly states that
+      <em>something</em> is equal to zero. What? The simple answer to
+      that question is as obvious as it is unhelpful.  It is the limit
+      of <m>2^{-n}</m> that is equal to zero.
+    </p>
+    <p>
+      <!-- More generally (and more helpfully) suppose the sequence -->
+      <!-- <m>\left(a_n\right)_{n=1}^\infty </m> converges to <m>a</m>.   -->
+
+      Recall from <xref ref="Convergence" ></xref> that
+      <m>\limit{n}{\infty}{a_n} =a</m> means that the sequence
+      <m>(a_n)</m> converges to the number <m>a</m>. This does not
+      necessarily mean that <m>a_n=a</m> for any value of <m>n</m>.
+      <!-- rather than saying that <m>\limit{n}{\infty}{a_n}</m> was equal -->
+      <!-- to <m>a</m>. Unfortunately this idea gets rendered notationally -->
+      <!-- as -->
+      <!-- <me> -->
+      <!--   \limit{n}{\infty}{a_n}=a  -->
+      <!-- </me>  -->
+      <!-- and when we read it aloud we tend to say that <m>a_n</m> <term>equals -->
+      <!-- <m> \boldsymbol{a}</m></term> rather than saying that <m>a_n</m> <term>converges to -->
+      <!-- <m>\boldsymbol{a}</m></term>. This is not wrong <foreign>per se</foreign> but it -->
+      <!-- can be confusing at first. But ultimately it is the -->
+      <!-- <term>limit</term> of the sequence that is equal to <m>a</m>, -->
+      <!-- not any individual term, and certainly not the sequence itself. -->
+    </p>
+    <p>
+      The limit concept has always been lurking in the background of
+      Calculus.  Because it is a deep and very abstract idea it took
+      about <m>200</m> years to bring it forward clearly and
+      precisely. And as we<rsq/>ve just seen the notation we<rsq/>ve
+      inherited, especially the way the equals sign is used, is more
+      befuddling than helpful, at least at first.  We will proceed
+      slowly.
+    </p>
+    <!-- <p> -->
+    <!--   We introduced sequences first because the limit of a sequence (especially a sequence converging to zero) is the simplest kind of non<ndash/>trivial limit to understand.  In this section we<rsq/>ll expand <xref ref="def_ConvergenceOfASequence" ></xref> to the limits of functions -->
+
+    <!--   That<rsq/>s why we  -->
+    <!--   <xref ref="def_ConvergenceOfASequence" ></xref> we introduced  -->
+
+    <!--   say that In the context of the convergence of sequences and series (in <xref ref="Convergence" ></xref>) . In this section we<rsq/>ll expand <xref ref="def_ConvergenceOfASequence" ></xref> to the limits of functions, but we<rsq/>ll re<ndash/>use the same notation. This generally does not create any problems but it is worth noting that the notations   gelimit expand the concept, you might think it is a little -->
+    <!--   strange that we<rsq/>ve chosen to talk about continuity first. -->
+    <!--   But historically, the formal definition of a limit came after -->
+    <!--   the formal definition of continuity.   The limit  -->
+    <!--   concept has become foundational to Calculus.  -->
+    <!-- </p> -->
+    <!-- <p> -->
+    <!--   Speaking very loosely, when we evaluate the limit of the -->
+    <!--   sequence <m>\left( a_n\right)_{n=1}^\infty</m> we let <m>n</m> -->
+    <!--   get close to infinity. That is, we<rsq/>re interested in what -->
+    <!--   happens at the far right side of the sequence, even though there -->
+    <!--   is no <q>far right side.</q> -->
+    <!-- </p> -->
+    <p>
+      <idx><h>Newton, Isaac</h></idx>
+
+      In his attempts to justify his calculations, Newton used what he
+      called his doctrine of <term>Ultimate Ratios</term>. For
+      example, he would have said that as long as <m>h</m> is not zero
+      the ratio <m>\frac{(x+h)^2-x^2}{h} = \frac{2xh+h^2}{h} =
+      2x+h</m> becomes <m>2x</m> <term>ultimately</term>, or at the
+      last instant before <m>h</m> becomes zero. Newton would have
+      called <m>h</m> an <q>evanescent</q> or <q>vanishing
+      quantity</q> (<xref
+      ref="grabiner81__origin_cauch_rigor_calculy"/>, p. 33).
+    </p>
+    <p>
+      <!-- You have seen this sort of expression before, usually with a limit symbol in front of it: -->
+      
+      <!-- <me> -->
+      <!--   \limit{h}{0}{\frac{(x+h)^2-x^2}{h}} = -->
+      <!--   \limit{h}{0}{\frac{2xh+h^2}{h}} = \limit{h}{0}{2x+h}=2x  -->
+      <!--   </me>.   -->
+
+      To evaluate the two limits,
+      <md>
+        <mrow>\limit{n}{\infty}{a_n}\amp{}\amp{} \text{and}\amp{}\amp{}\limit{h}{0}{\frac{(x+h)^2-x^2}{h}}</mrow>
+      </md>
+      requires that we think about the limit parameters <m>n</m> and
+      <m>h</m> slightly differently. In the former the limit parameter
+      <m>n</m> takes on only integer values and continues to increase.
+      But it cannot get close to <m>\infty </m> because <m>\infty</m>
+      is not a number.  In the latter <m>h</m> is getting closer to
+      zero but it cannot become zero because the expression we are
+      evaluating is not a number (because division by zero is
+      meaningless). The commonality is that in both instances the
+      limit parameter is approaching something that it can never
+      reach because that would lead to nonsense.
+      <!-- get close to infinity (which -->
+      <!-- is not a number) here we need to let <m>h</m> get infinitely -->
+      <!-- close to zero (which is a number).  In evaluating the limit of -->
+      <!-- the sequence <m>(a_n)</m> the limit parameter <m>n</m>, only -->
+      <!-- took on integer values whereas in evaluating the limit <m> -->
+      <!-- \limitt{h}{0}{\frac{(x+h)^2-x^2}{h}}</m> the limit parameter -->
+      <!-- <m>h</m> is simply close to zero. Hence it must be a real -->
+      <!-- number.  -->
+      <!-- While they are clearly related this difference in the , the two limits, -->
+      <!-- <md> -->
+      <!--   <mrow>\limit{n}{\infty}{a_n}\amp{}\amp{} \text{and}\amp{}\amp{}\limit{h}{0}{\frac{(x+h)^2-x^2}{h}}</mrow> -->
+      <!-- </md> -->
+      <!-- are different kinds of entities. -->
+      (We are using the word <q>nonsense</q> literally. We mean that
+      it is not sensible. We do not mean that it is silly.)
+    </p> 
+    <p>
+      At the heart of Calculus is the notion of
+      <q>infinite closeness.</q> Unfortunately it is very difficult to
+      define <q>infinite closeness</q> might mean so to get around
+      that difficulty we instead we ask what happens to the expression
+      <m>\frac{(x+h)^2-x^2}{h}</m> as <m>h</m> gets
+      <term>arbitrarily</term> close to zero. That is the meaning of
+      the notation: <m>\limitt{h}{0}{\frac{2xh+h^2}{h}}</m>.
+    </p> 
+
+    <p>
+      <idx><h>Leibniz, Gottfried Wilhelm</h></idx>
+
+      With the advantage of hindsight it is easy to see that
+      Leibniz<rsq/> differentials (e.g. <m>\dx{x}</m> and
+      <m>\dx{y}</m>) were also an attempt to get infinitely close to
+      <m>x</m> and <m>y</m>, respectively. Since <m>\dx{x}</m> was
+      considered an infinitely small quantity the expression
+      <m>x+\dx{x}</m> was seen to be infinitely close to <m>x</m>.
+    </p>
+    <p> 
+      <idx><h>Lagrange, Joseph-Louis</h></idx>
+      <idx><h>Cauchy, Augustin</h></idx> 
+
+      As we saw in <xref ref="PowerSeriesQuestions"></xref>, <url
+      href="https://mathshistory.st-andrews.ac.uk/Biographies/Lagrange/"
+      >Lagrange</url>
+      tried to avoid the entire issue of infinite closeness, both in
+      the limit and differential forms when, in <m>1797</m>, he
+      attempted to make infinite series the foundational concept in
+      Calculus.  Although Lagrange<rsq/>s efforts failed, they set the
+      stage for <url
+      href="https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/"
+      >Cauchy</url>
+      to provide a definition of derivative which in turn relied on
+      his precise formulation of a limit.  Consider the following
+      example.
+    </p>
+    <example xml:id="EXAMPLESyncFunction">
+      <p>
+        Suppose we wish to determine the slope of the tangent line
+        (derivative) of <m>f(x) = \sin x</m> at <m>x=0</m>.  We form
+        the usual difference quotient: <m>D(x)=\frac{\sin x - \sin
+        0}{x-0}=\frac{\sin x
+        }{x}</m>. 
+        <!-- Now consider the graph of this difference -->
+        <!-- quotient <me>D(x) =\frac{\sin x - \sin 0}{x-0}</me>. -->
+      </p>
+
+      <figure xml:id="FIGURESyncFunc" > <caption>Graph of
+      <m>\displaystyle D(x)=\frac{\sin x }{x}</m></caption>
+
+      <image width="75%" source="images/SinGraph-1.png" > 
+        <shortdescription></shortdescription>
+      </image>
+      </figure>
+      <p> 
+        From the graph, it might first appear that <m>D(0) =1</m> but
+        we must be careful.  <m>D(0)</m> doesn<rsq/>t even exist!
+        Somehow we must convey the idea that <m>D(x)</m> will approach
+        <m>1</m> as <m>x</m> approaches <m>0</m>, even though the
+        function <m>D(x)=\frac{\sin x }{x}</m> is not defined at
+        <m>0</m>.  Cauchy<rsq/>s idea was that even if <m>D(0)</m> is
+        meaningless it must be that <m>\limit{x}{0}{D(x)}=1</m>
+        because we can make <m>D(x)</m> differ from <m>1</m> by as
+        little as we wish by taking <m>x</m> sufficiently close to
+        zero <nbsp/>(<xref ref="jahnke03__histor_analy"/>, p. 158).
+      </p> 
+    </example>
+    <p> 
+      <idx><h>Weierstrass, Karl</h></idx> 
+
+      
+      <url
+          href="https://mathshistory.st-andrews.ac.uk/Biographies/Weierstrass/"
+          >Karl
+      Weierstrass</url> made these ideas precise  and provided us
+      with our modern formulation of the limit in his lectures on
+      analysis at the University of Berlin (1859-60).
+    </p>
+
+    <definition xml:id="def_limit">
+      <title>Limit</title> 
+
+      <idx><h>limit</h></idx> 
+      <idx><h>Definition</h><h>limit</h></idx> 
+
+      <statement> 
+        <p> 
+          We say <m>\limit{x}{a}{f(x)} =L</m> provided that for each
+          <m>\eps\gt0</m>, there exists a <m>\delta\gt0</m> such that if
+          <m>0\lt \abs{x-a}\lt \delta</m> then <m>\abs{f(x)-L}\lt
+          \eps</m>.
+        </p>
+      </statement> 
+    </definition> 
+
+    <p> 
+      There are a couple of observations about <xref ref="def_limit" ></xref> that are worth making explicit:
+      <ol>
+        <li>
+          <p>
+            Notice that <xref ref="def_limit" ></xref> is very similar
+            to the definition of <xref ref="def_continuity"
+            text="custom">continuity at a point</xref>.
+            <!-- the definition of the continuity of -->
+            <!-- <m>f(x)</m> at <m>x=a</m>.  --> 
+            This is because the two concepts are very closely related.  
+
+            In fact we can readily see that a function <m>f</m> is continuous at
+            <m>x=a</m> if and only if the limit of <m>f(x)</m> as <m>x</m>
+            approaches <m>a</m> is <m>f(a)</m>.
+          </p> 
+        </li>
+        <li>
+          
+          <p>
+            The statement of <xref ref="def_limit"></xref> does not
+            reflect the way we think or speak about limits at all. We
+            speak of <m>x</m> getting close to, or approaching <m>a</m>
+            which clearly indicates some sort of metaphorical motion.
+            But the definition only references a single, unspecified and
+            fixed parameter <m>\eps{}</m>. Once <m>\eps </m> is given if
+            we need to find a value of <m>\delta{}</m> which guarantees
+            that the inequality <m>\abs{f(x)-L}\lt \eps </m> holds as
+            long as the inequality <m>0\lt \abs{x-a}\lt \delta</m>
+            holds. In that case the limit exists and has the value
+            <m>L</m>. There is no motion metaphorical or otherwise. We
+            just have unchanging inequalities.
+          </p>
+          <p>
+            However, although <m>\eps </m> is fixed it is also unspecified. This
+            means that once an appropriate <m>\delta{}</m> is found (usually in
+            terms of <m>\eps{}</m>) then our inequalities will hold for every
+            value of <m>\eps{}</m>. The upshot is that <m>\eps </m> represents
+            every possible real number and <m>\delta{}</m> represent every
+            corresponding response. There is no need for motion as a metaphor
+            because all possibilities are handled at once.
+          </p>
+          <p>
+            This may seem unnecessarily complex to you and it certainly is
+            complex. But it is also necessary because we want to use our
+            mathematics to (among other things) interpret and explain the
+            natural world. Using our intuition regarding motion (part of the
+            natural world) to explain our mathematics would be reasoning in a
+            circular fashion which is useless.
+          </p>
+
+          
+        </li>
+      </ol>
+      <!--   Before we delve into this, notice that <xref ref="def_limit" ></xref>  is very similar to the -->
+      <!--   definition of <xref ref="def_continuity" -->
+      <!--   text="custom">continuity at a point</xref>.  -->
+      <!--   <!-\- the definition of the continuity of -\-> -->
+      <!--   <!-\- <m>f(x)</m> at <m>x=a</m>.  -\->  -->
+      <!--   This is because the two concepts are closely very related.   -->
+      <!-- </p> -->
+
+      <!-- <p> -->
+      <!--   In fact we can readily see that <m>f</m> is continuous at -->
+      <!--   <m>x=a</m> if and only if the limit of <m>f(x)</m> as <m>x</m> -->
+      <!--   approaches <m>a</m> is <m>f(a)</m>. -->
+    </p> 
+
+    <!-- <aside> -->
+
+    <!--   <title>Accumulation Points</title> -->
+
+    <!--   <p> -->
+    <!--     This presumes that <m>a</m> is an -->
+    <!--     <term>accumulation point</term> of the domain of <m>f</m> (<xref -->
+    <!--     ref="def_accumulation-point"></xref>).  We will -->
+    <!--     discuss accumulation points in <xref -->
+    <!--     ref="BackToFourier"></xref>.   -->
+    <!--   </p>  -->
+    <!-- </aside> --> 
+    <p> 
+      There are really only two differences between <xref
+      ref="def_limit" ></xref> and <xref ref="def_continuity" ></xref>
+      and the differences are related.  The first is that in the
+      definition of a limit <m>L</m> plays the same role that
+      <m>f(a)</m> played in the definition of continuity.  This is
+      because the function may not be defined at <m>a</m>, let alone
+      have a value equal to <m>L</m>.  In a sense the limiting value
+      <m>L</m> is the value <m>f</m> would have if <m>f</m>it were
+      defined and continuous at <m>a</m>.
+    </p>
+    <p>
+      The second difference is that we have replaced <me> \abs{x-a}\lt
+      \delta </me> from the continuity definition with <me> 0\lt
+      \abs{x-a}\lt \delta </me> in the limit definition. You can see
+      why this change is needed from the limit in <xref
+      ref="EXAMPLESyncFunction" ></xref>. Since <m>\frac{\sin
+      x}{x}</m> is not defined at <m>x=0</m> we need to eliminate that
+      possibility from consideration.  This is the only purpose for
+      this change.
+    </p>
+    <problem xml:id="DRILLContIFFLimExist">
+      <idx><h>Problems</h><h>a function <m>f(x)</m>
+      is continuous at <m>x=a</m> if and only if
+      <m>\limit{x}{a}{f(x)}=f(a)</m></h></idx>
+
+      <p>
+        Use <xref ref="def_continuity" ></xref> and <xref
+        ref="def_limit" ></xref> to prove that a function <m>f(x)</m>
+        is continuous at <m>x=a</m> if and only if
+        <m>\limit{x}{a}{f(x)}=f(a)</m>.
+
+      </p>
+    </problem>
+    
+    <!-- <p> -->
+    <!--   As with the definition of convergence of a sequence, the limit -->
+    <!--   definition does not determine what the limit will be. It -->
+    <!--   doesn<rsq/>t even help you guess what the limit might be.  It -->
+    <!--   only verifies that your guess for the value of the limit is -->
+    <!--   correct, once you have made a guess by other means. -->
+    <!-- </p>  -->
+    <!-- <p>  -->
+    <!--   Finally, a few comments on the differences and similiarities -->
+    <!--   between this limit and the limit of a sequence are in order, -->
+    <!--   if for no other reason than because we use the same notation -->
+    <!--   (<m>\lim</m>) for both. -->
+    <!-- </p>  -->
+    <!-- <p>  -->
+    <!--   When we were working with sequences in <xref -->
+    <!--   ref="Convergence"></xref> and wrote things like -->
+    <!--   <m>\limit{n}{\infty}{a_n}</m> we were thinking of <m>n</m> as an -->
+    <!--   integer that got bigger and bigger.  To put that more -->
+    <!--   mathematically, the limit parameter <m>n</m> was taken from the -->
+    <!--   set of positive integers, or <m>n\in \NN</m>. -->
+    <!-- </p>  -->
+    <!-- <p>  -->
+    <!--   For both continuity and the limit of a function we -->
+    <!--   write things like <m>\limit{x}{a}{f(x)}</m> and think of -->
+    <!--   <m>x</m> as a continuous real variable that gets arbitrarily close to the number -->
+    <!--   <m>a</m>.  -->
+
+
+    <!--   <!-\- Again, to be more mathematical in our language we -\-> -->
+    <!--   <!-\- would say that the limit parameter <m>x</m> is taken from the -\-> -->
+    <!--   <!-\- <m>\ldots</m> Well, actually, this is interesting isn<rsq/>t it?  Do -\-> -->
+    <!--   <!-\- we need to take <m>x</m> from <m>\QQ</m> or from <m>\RR?</m> The -\-> -->
+    <!--   <!-\- requirement in both cases is simply that we be able to choose -\-> -->
+    <!--   <!-\- <m>x</m> arbitrarily close to <m>a</m>.  From <xref -\-> -->
+    <!--   <!-\- ref="thm_IrrationalBetweenIrrationals"></xref> of <xref -\-> -->
+    <!--   <!-\- ref="NumbersRealRational"></xref> we see that this is -\-> -->
+    <!--   <!-\- possible whether <m>x</m> is rational or not, so it seems either -\-> -->
+    <!--   <!-\- will work.  This leads to the pardoxical sounding conclusion -\-> -->
+    <!--   <!-\- that we do not need a continuum <m>(\RR)</m> to have continuity. -\-> -->
+    <!--   <!-\- This seems strange.   -\-> -->
+    <!-- </p>  -->
+
+    <!-- <p> -->
+    <!--   Before continuing with <xref ref="EXAMPLESyncFunction" -->
+    <!--   ></xref>, let<rsq/>s look at some simpler, algebraic examples -->
+    <!--   to see the <xref ref="def_limit" ></xref> in use. -->
+    <!-- </p> -->
+    <example>
+      <statement>
+        <p> Consider the function <m>\frac{x^2-1}{x-1}</m>, where
+        <m>x\neq 1</m>, which you probably recognize as the
+        difference quotient used to compute the derivative of
+        <m>f(x)=x^2</m> at <m>x=1</m>, so we strongly suspect that
+        <me>\limit{x}{1}{\frac{x^2-1}{x-1}}=2</me>.  We will use the
+        <xref ref="def_limit" text="custom">definition</xref> to
+        verify this. We begin with some scrapwork.
+        </p> 
+        <p> 
+          <term>SCRAPWORK</term>
+        </p>
+        <p>
+          Let <m>\eps>0</m>.  We wish to find a <m>\delta>0</m>
+          such that if <m>0\lt \abs{x-1}\lt \delta</m> then
+          <m>\abs{\frac{x^2-1}{x-1}-2}\lt \eps</m>.  With this in mind, we
+          perform the following calculations <me>
+          \abs{\frac{x^2-1}{x-1}-2}=\abs{(x+1)-2} = \abs{x-1} </me>.  
+        </p>
+        <p>
+          Now we have a handle on <m>\delta</m> that will work in the
+          definition and we<rsq/>ll give the formal proof that <me>
+          \limit{x}{1}{\frac{x^2-1}{x-1}}=2 </me>.  
+        </p> 
+      </statement>
+    </example>
+    <proof> 
+      <p>
+        Let <m>\eps>0</m> and let <m>\delta=\eps</m>.  If <m>0\lt
+        \abs{x-1}\lt \delta</m>, then <me>
+        \abs{\frac{x^2-1}{x-1}-2}=\abs{(x+1)-2}=\abs{x-1}\lt
+        \delta=\eps </me>.
+      </p>
+    </proof> 
+    <p> 
+      As in our previous work with sequences and continuity, notice
+      that the scrapwork is not part of the formal proof (though it
+      was necessary to determine an appropriate <m>\delta)</m>.  Also,
+      notice that <m>0\lt \abs{x-1}</m> was not really used except to
+      ensure that <m>x\neq 1</m>.
+    </p> 
+    <problem>
+      <idx><h>Problems</h><h sortby="limit"><m>\limit{x}{a}{\frac{x^2-a^2}{x-a}}=2a</m></h></idx>
+      
+      <idx><h>limit</h><h><m>\limit{x}{a}{\frac{x^2-a^2}{x-a}}=2a</m></h></idx>
+
+      <statement> 
+        <p>
+          Use <xref ref="def_limit"></xref>  to verify that
+          <me> \limit{x}{a}{\frac{x^2-a^2}{x-a}}=2a.{} </me> 
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h>verifying limits</h></idx>
+      
+      <idx><h>limit</h><h>verifying limits via continuity</h></idx>
+
+      <introduction>
+        <p> 
+          Use <xref ref="def_limit"></xref>  to verify each of the following limits.
+        </p>
+      </introduction>
+      <task> 
+        <statement>
+          <p>
+            <m>\limit{x}{1}{\frac{x^3-1}{x-1}}=3</m> 
+          </p> 
+        </statement>
+        <hint>
+          <p> 
+            <md>
+              <mrow> 
+                \abs{\frac{x^3-1}{x-1}-3} \amp =
+                \abs{x^2+x+1-3} 
+              </mrow> 
+              <mrow>\amp \leq\abs{x^2-1}+\abs{x-1}
+              
+              </mrow> 
+              <mrow> \amp =\abs{(x-1+1)^2-1}+\abs{x-1} 
+              </mrow> 
+              <mrow>
+                \amp =\abs{(x-1)^2+2(x-1)}+\abs{x-1} 
+              </mrow> 
+              <mrow>\amp
+              \leq\abs{x-1}^2 + 3\abs{x-1} 
+              </mrow> 
+              </md>.  
+          </p> 
+        </hint>
+      </task> 
+      <task>
+        <statement> 
+          <p>
+            <m>\limit{x}{1}{\frac{\sqrt{x}-1}{x-1}}=1/2</m> 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            <md>
+              <mrow>
+                \abs{\frac{\sqrt{x}-1}{x-1}-\frac12}\amp =
+                \abs{\frac{1}{\sqrt{x}+1}-\frac12} 
+              </mrow> 
+              <mrow> 
+                \amp
+                =\abs{\frac{2-\left(\sqrt{x}+1\right)}{2\left(\sqrt{x}+1\right)}}
+              </mrow> 
+              <mrow> 
+                \amp
+                =\abs{\frac{1-x}{2\left(1+\sqrt{x}\right)^2}} 
+              </mrow> 
+              <mrow>
+                \amp \leq\frac12\abs{x-1}.  
+              </mrow> 
+            </md> 
+          </p> 
+        </hint> 
+      </task>
+    </problem> 
+
+    <p> 
+      Although it is rigorous <xref ref="def_limit" ></xref> is quite
+      cumbersome to use. What we need to do is develop some tools we
+      can use without having to refer directly to the definition.  One such tool is <xref
+      ref="thm_LimDefOfContinuity"></xref> which allows us to show
+      that a function is continuous (or discontinuous) at a point by
+      examining certain sequences.
+    </p>
+    <p>
+      As we observed earlier, <m>f(x)</m> is continuous at
+      <m>x=a</m> if and only if <m>\limit{x}{a}{f(x)} = f(a)</m>. On
+      the other hand if <m>f(x)</m> is not continuous at <m>x=a</m>,
+      but <m>\limit{x}{a}{f(x)}=L </m>, we can make it continuous by
+      arbitrarily assigning <m>f(a)=L</m>. 
+
+
+      <!-- <m>\limit{x}{a}{f(x)}=L -->
+      <!-- </m> then we can make it continuous by defining -->
+      <!-- <m>f(a)=L</m>. -->
+      Combining this with <xref
+      ref="thm_LimDefOfContinuity"></xref> we have the following
+      corollary:
+      <!--   Here is another.  The key is the -->
+      <!--   observation we made after the definition of a limit: <me> f -->
+      <!--   \text{ is continuous at } x=a \text{ if and only if } -->
+      <!--   \limit{x}{a}{f(x)}=f(a) </me>. -->
+      <!-- </p>  -->
+      <!-- <p> -->
+      <!--   Read another way, we could say that <m>\limit{x}{a}{f(x)}=L</m> -->
+      <!--   provided that if we redefine <m>f(a)=L</m> (or define -->
+      <!--   <m>f(a)=L</m> in the case where <m>f(a)</m> is not defined) then -->
+      <!--   <m>f</m> becomes continuous at <m>a</m>.  This allows us to use -->
+      <!--   all of the machinery we proved about continuous functions and -->
+      <!--   limits of sequences.   -->
+      <!-- </p>  -->
+      <!-- <p>  -->
+      <!--   For example, the following -->
+      <!--   corollary to <xref ref="thm_LimDefOfContinuity"></xref> -->
+      <!--   comes virtually for free once we<rsq/>ve made the observation above. -->
+    </p> 
+    <corollary xml:id="cor_limit-by-sequences"> 
+      <statement> 
+        <p>
+          <m>\limit{x}{a}{f(x)}=L</m> if and only if <m>f</m> satisfies
+          the following property: <me> \forall \text{ sequences } (x_n),
+          x_n\ne a, \text{ if } \limit{n}{\infty}{x_n}=a \text{ then }
+          \limit{n}{\infty}{f(x_n)}=L. {} </me> 
+        </p> 
+      </statement>
+    </corollary> 
+    <p> 
+      Armed with this, we can prove the following
+      familiar limit theorems from Calculus.  
+    </p> 
+    <theorem xml:id="LimConst">
+      <title>
+        The Limit of a Constant Function
+      </title>
+      <p>
+        Suppose <m>a, \alpha \in \RR </m> and <m>f(x)=\alpha </m>. Then
+        <m>
+          \limit{x}{a}{f(x)} = \alpha.
+        </m>
+      </p> 
+    </theorem>
+
+    <problem xml:id="PROBLEMLimConstBySeq">
+      <idx><h>Problems</h><h>Prove that the limit of a constant function is the constant.</h></idx>
+      <p>
+        Use <xref ref="cor_limit-by-sequences" ></xref> to prove <xref ref="LimConst" ></xref>.
+      </p>
+    </problem>
+
+
+    <theorem xml:id="thm_CalcLimits">
+
+      <idx><h>limit</h><h>properties of</h></idx>
+
+      <statement>
+        <p>
+          Suppose <m>\limit{x}{a}{f(x)}=L</m> and <m>\limit{x}{a}{g(x)}=M</m>, then
+
+          <ol marker="(a)">
+            <li>
+              <p>
+                <m>\limit{x}{a}{\left(f(x)+g(x)\right)}=L+M</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\limit{x}{a}{\left(f(x)\cdot g(x)\right)}=L\cdot M</m>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                <m>\limit{x}{a}{\left(\frac{f(x)}{g(x)}\right)}=L/M</m> provided <m>M\ne0</m> and <m>g(x)\ne{}0</m>,
+                for <m>x</m> sufficiently close to a
+                (but not equal to <m>a</m>).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <!-- <theorem xml:id="thm_CalcLimits">  -->
+    <!--   <introduction> -->
+    <!--     <idx><h>limit</h><h>properties of</h></idx>  -->
+    <!--     <p> -->
+    <!--       Suppose -->
+    <!--       <m>\limit{x}{a}{f(x)}=L</m> and <m>\limit{x}{a}{g(x)}=M</m>, -->
+    <!--       then  -->
+    <!--     </p> -->
+    <!--   </introduction> -->
+    <!--   <task> -->
+    <!--     <statement> -->
+    <!--       <p> -->
+    <!--         <m>\limit{x}{a}{\left(f(x)+g(x)\right)}=L+M</m>  -->
+    <!--       </p> -->
+    <!--     </statement> -->
+    <!--   </task> -->
+    <!--   <task> -->
+    <!--     <statement> -->
+    <!--       <p> -->
+    <!--         <m>\limit{x}{a}{\left(f(x)\cdot g(x)\right)}=L\cdot M</m> -->
+    <!--       </p> -->
+    <!--     </statement> -->
+    <!--   </task> -->
+    <!--   <task> -->
+    <!--     <statement> -->
+    <!--       <p> -->
+    <!--         <m>\limit{x}{a}{\left(\frac{f(x)}{g(x)}\right)}=L/M</m> provided -->
+    <!--         <m>M\ne0</m> and <m>g(x)\ne{}0</m>, for <m>x</m> sufficiently -->
+    <!--         close to a (but not equal to <m>a</m>).   -->
+    <!--       </p> -->
+    <!--     </statement> -->
+    <!--   </task> -->
+    <!-- </theorem> -->
+
+
+    <!-- <statement>  -->
+    <!--   <p> -->
+    <!--     <ol marker="(a)">  -->
+    <!--       <li>  -->
+    <!--         <p> -->
+
+    <!--         </p>  -->
+    <!--       </li>  -->
+    <!--       <li> -->
+    <!--         <p> -->
+
+    <!--         </p> -->
+    <!--       </li>  -->
+    <!--       <li> -->
+    <!--         <p> -->
+    <!--         </p>  -->
+    <!--       </li>  -->
+    <!--     </ol>  -->
+    <!--   </p> -->
+    <!-- </statement>  -->
+    <!-- </theorem>  -->
+    <p> 
+      We will prove part (a) to give you a
+      feel for this and let you prove parts (b) and (c).  
+    </p> 
+    <proof>
+      <p> 
+        Let <m>\left(x_n\right)</m> be a sequence such that
+        <!-- <m>x_n\ne a</m> and --> 
+        <m>\limit{n}{\infty}{x_n}=a</m>.  Since
+        <m>\limit{x}{a}{f(x)} = L</m> and <m>\limit{x}{a}{g(x)} = M</m>
+        we see that <m>\limit{n}{\infty}{f(x_n)} = L</m> and
+        <m>\limit{n}{\infty}{g(x_n)} = M</m>.  By <xref
+        ref="thm_SumOfSequences"></xref> we have
+        <m>\limit{n}{\infty}{f(x_n)+g(x_n)}=L+M</m>.  Since
+        <m>\left(x_n\right)</m> was an arbitrary sequence with
+        <m>x_n\ne a</m> and <m>\limit{n}{\infty}{x_n} = a</m> we have
+        <me> \limit{x}{a}{\left(f(x)+g(x)\right)} = L+M </me>.  
+      </p> 
+    </proof>
+
+    <problem> 
+      <idx><h>Problems</h><h>limit</h><h>properties of</h></idx>
+
+      <idx><h>limit</h><h>properties of</h></idx>
+      <idx><h>limit</h><h>verify limit laws from Calculus</h></idx>
+
+      <statement> 
+        <p> 
+          Use <xref ref="cor_limit-by-sequences" ></xref> to prove
+          parts (b) and (c) of <xref ref="thm_CalcLimits"></xref>.
+        </p> 
+      </statement>
+    </problem> 
+    <p> 
+      More in line with our current needs, we have a
+      reformulation of the Squeeze Theorem.  
+    </p> 
+    <theorem xml:id="thm_SqueezeTheoremFunctions"> 
+      <title>Squeeze Theorem for Functions</title>
+
+      <idx><h>Squeeze Theorem</h><h>for functions</h></idx>
+
+      <statement>
+        
+
+
+        <p>
+          Suppose
+          <m>f(x)\le g(x) \le h(x)</m>, for <m>x</m> sufficiently close to
+          <m>a</m> (but not equal to <m>a</m>).  If
+          <m>\limit{x}{a}{f(x)}=L=\limit{x}{a}{h(x)}</m>, then
+          <m>\limit{x}{a}{g(x)}=L</m> also.  
+        </p> 
+      </statement> 
+    </theorem>
+
+    <problem> 
+      <idx><h>Problems</h><h>Squeeze Theorem for functions</h></idx>
+
+      <idx><h>Squeeze Theorem</h><h>for functions</h></idx>
+
+      <statement> 
+        <p>
+          Prove the <xref
+          ref="thm_SqueezeTheoremFunctions" text="custom">Squeeze
+          Theorem for functions</xref>.  
+        </p>
+      </statement>
+      <hint> 
+        <p> Use <xref
+        ref="thm_SqueezeTheorem" text="custom"> the Squeeze Theorem for
+        Sequences</xref>.
+        </p>
+      </hint> 
+    </problem> 
+    <figure  xml:id="FIGUREUnitCircleSinOverX">
+      <caption></caption>
+      <image width="60%" source="images/UnitCircle.png" > 
+        <shortdescription></shortdescription>
+      </image>
+    </figure>
+
+    <problem>
+      <idx><h>Problems</h><h sortby="limit"><m>\limitt{x}{0}{\frac{\sin
+      x}{x}}=1</m></h></idx>
+      <idx><h>limit</h><h><m>\limitt{x}{0}{\frac{\sin
+      x}{x}}=1</m></h></idx>
+
+      <introduction>
+        <p> 
+          Returning to <xref ref="EXAMPLESyncFunction"></xref> we see
+          that the Squeeze Theorem is just what we need.  First notice
+          that since <m>D(x)=\frac{\sin x}{x}</m> is an even function, we only
+          need to focus on <m>x\gt0</m> in our inequalities.  Consider the
+          unit circle seen in <xref ref="FIGUREUnitCircleSinOverX" ></xref>.
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Show that
+            <me>
+              \text{ area } (\Delta OAC)\lt \text{ area } (\text{ sector }
+            OAC)\lt \text{ area } (\Delta OAB) </me>
+          </p>
+        </statement>
+      </task>
+
+
+      <task>
+        <statement>
+
+          <p>
+            Use the result in part (a) to show that if <m>0\lt x\lt
+            \frac{\pi}{2}</m>, then 
+            <men xml:id="EQUATIONCosLSinOverx">
+              \cos x\lt \frac{\sin x}{x}\lt 1 
+              </men>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+
+            Use the fact that <m>\cos x</m> and <m>\frac{\sin
+            x}{x}</m> are both even functions to show that  <xref
+            ref="EQUATIONCosLSinOverx" >equation</xref> is also true
+            for <m>-\frac{\pi}{2}\lt x\lt 0</m>
+
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+
+          <p>
+            Use <xref ref="EQUATIONCosLSinOverx" >equation</xref> and
+            the <xref ref="thm_SqueezeTheoremFunctions"
+            text="custom">Squeeze Theorem for Functions</xref> to show
+            <m>\limitt{x}{0}{\textstyle\frac{\sin x}{x}}=1</m>.
+
+          </p>
+        </statement>
+      </task> 
+    </problem> 
+
+    <problem xml:id="PROBLEMBasicLimits">
+      <idx><h>Problems</h><h>limits</h></idx>
+      <introduction>
+        <p>
+          Suppose <m>\limitt{x}{a}{ f(x)}=L</m>.  
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Prove that if <m>L\gt0</m>,
+            then there exists a <m>\delta >0</m>, such that if
+            <m>0\lt\left|x-a\right|\lt\delta </m>, then
+            <m>f\left(x\right)>0</m>.  
+          </p>
+        </statement>
+        <hint>
+          <p> 
+            Try
+            <m>\eps =\frac{L}{2}</m>.  
+          </p> 
+        </hint> 
+      </task> 
+      <task>
+        <statement> 
+          <p> 
+            Prove that if <m>L\lt0</m>, then there exists a
+            <m>\delta >0</m>, such that if <m>0\lt\left|x-a\right|\lt\delta
+            </m>, then <m>f\left(x\right)\lt0</m>.  
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Consider <m>-f(x)</m>.  
+          </p> 
+        </hint>
+      </task> 
+      <task>
+        <statement>
+          <p>
+            Notice that if <m>\limit{x}{a}{f(x)}=L</m>, then the contrapositive of part (a) says that
+            if for each <m>\delta >0</m>, there is an <m>x</m> with
+            <m>0\lt\left|x-a\right|\lt\delta </m> and <m>f\left(x\right)\le
+            0</m>, then <m>L\le 0</m>.  
+          </p> 
+          <p> 
+            What does the contrapositive of part (b) say?
+          </p> 
+        </statement> 
+      </task>
+    </problem> 
+
+    <definition xml:id="DEFINITIONNear">
+      <title>Near</title> 
+      <statement> 
+        <p>
+          <idx><h>Definition</h><h>near</h></idx>     
+          <idx><h>near</h></idx>     
+
+          We say that a function
+          <m>f(x)</m> has a property for <m>x</m> <term>near</term> <m>a</m>, if there
+          exists a <m>{\delta }_0>0</m> such that <m>f(x)</m> has that
+          property for all <m>x</m> with <m>0\lt\left|x-a\right|\lt{\delta
+          }_0</m>
+
+        </p>
+
+      </statement>
+
+    </definition>
+
+    <problem xml:id="PROBLEMLimUppLow">
+      <idx><h>Problems</h><h>limits</h></idx>
+
+      <introduction>
+        <p>
+          Prove that each of the following statements is also a
+          consequence of <xref ref="PROBLEMBasicLimits"></xref>.
+          Suppose <m>\limit{x}{a}{f(x)}=L</m>.
+
+        </p>
+      </introduction>
+      <task>
+        <statement>
+
+          <p>
+            If <m>f\left(x\right)\le 0</m> for <m>x</m> <term>near</term> <m>a</m>, then <m>L\le 0</m>.
+          </p>
+
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            If <m>f\left(x\right)\ge 0</m> for <m>x</m> <term>near</term> <m>a</m>, then <m>L\ge 0</m>.
+          </p>
+        </statement>
+      </task>
+    </problem>
+
+  </section>
+
+
+
+
+  <section  xml:id="Continuity-DerivativeAfterthought">
+    <title>The Definition of  the Derivative and the Mean Value Theorem</title>
+    <p>
+      As we mentioned in <xref
+      ref="CalcIn17th18thCentury-NewtLeibStart"></xref> Leibniz invented
+      his <foreign>calculus differentialis</foreign> (differential
+      calculus <mdash/> literally <q>rules for (infinitely small)
+      differences</q>) in the <m>1600</m>s.
+    </p>
+    <p>
+      In the late <m>1700</m>s Lagrange tried to provide a rigorous
+      foundation for Calculus by discarding differential ratios like
+      the expression <m>\dfdx{y}{x} </m> in favor of his own <q>prime
+      notation</q> (<m>f^\prime(x) </m>). Thus it was Lagrange who
+      established functions and limits, rather than the curves and
+      infinitesimals favored by Leibniz and Newton, as fundamental.
+    </p>
+    
+
+    <p>
+      When you took Calculus you spent at least an entire semester
+      learning about the properties of the derivative and how to use
+      them to explore the properties of functions so there is no need to
+      repeat that effort here. Instead we will establish the underlying,
+      rigorous, formal foundation for the derivative concept in terms of
+      limits.
+      
+    </p>
+
+    <definition xml:id="def_derivative">
+      <title>The Derivative</title>
+
+      <idx><h>differentiation</h><h>definition of the derivative</h></idx>
+      <idx><h>Definition</h><h>derivative</h></idx>
+
+      <statement>
+        <p>
+          Given a function <m>f(x)</m> defined on an interval
+          <m>(a,b)</m> we define <me> f^\prime(x) =
+          \limit{h}{0}{\frac{f(x+h)-f(x)}{h}}.{} </me> 
+        </p>
+      </statement>
+    </definition>
+
+    <p> 
+      There are a few fairly obvious facts about this definition which
+      are nevertheless worth noticing explicitly: 
+    </p> 
+    <p> 
+      <ol> 
+        <li>
+          If the limit <m>f^\prime (x)</m> exists at <m>x</m>, then we say that
+          <m>f</m> is <term>differentiable</term> at <m>x</m>.
+        </li>
+        <li>
+          <p> 
+            The derivative is defined <em>at a point.</em> If the derivative
+            of <m>f(x)</m>  is
+            defined at every point in an interval <m>(a,b)</m> then
+            we say that <m>f</m> is <term>differentiable on the interval</term> <m>(a,b)</m>.
+          </p>
+        </li> 
+        <li> 
+          <p> 
+            Since it is defined at a point it is at least
+            theoretically possible for a function to be
+            differentiable at a single point in its entire domain.
+          </p>
+        </li>
+        <li> 
+          <p> 
+            Since it is defined as a limit and not all limits
+            exist, functions are not necessarily differentiable.
+          </p>
+        </li> 
+        <li> 
+          <p>
+            Since it is defined as a limit,
+            <xref ref="cor_limit-by-sequences"></xref>
+            applies.  That is, <m>f^\prime(x)</m> exists if and
+            only if <m>\forall \text{ sequences } (h_n),\, h_n\ne
+            0</m>, if <m>\limit{n}{\infty}{h_n}=0</m> then <me>
+            f^\prime{(x)} =
+            \limit{n}{\infty}{\frac{f(x+h_n)-f(x)}{h_n}} </me>.
+            Since <m>\limit{n}{\infty}{h_n}=0</m> this could also
+            be written as <me>f^\prime{(x)} =
+            \limit{h_n}{0}{\frac{f(x+h_n)-f(x)}{h_n}}</me>.  
+          </p>
+        </li> 
+      </ol>
+    </p>
+    <p>
+      If we make the substitution <m>y=x+h</m> in <xref
+      ref="def_derivative"></xref>  we obtain the following equivalent
+      definition, which is sometimes easier to use.
+    </p>
+
+    <definition xml:id="DEFINITIONdef_derivative">
+      <title>The Derivative, An Alternative Definition</title>
+
+      <idx><h>differentiation</h><h>definition of the derivative</h></idx>
+      <idx><h>Definition</h><h>derivative</h></idx>
+
+      <statement>
+        <p>
+          Given a function <m>f(x)</m> defined on an interval <m>(a,b)</m>,
+          and a point <m>x\in (a,b)</m>,
+          the derivative of <m>f</m> is given by 
+          <me>f^\prime(x)=\limit{y}{x}{\frac{f(y)-f(x)}{y-x}}</me>.
+        </p>
+
+      </statement>
+    </definition>
+
+    <theorem xml:id="thm_DiffImpCont">
+      
+      <idx><h>continuity</h><h>implied by differentiability</h></idx>
+      <idx><h>differentiation</h><h>differentiability implies
+      continuity</h></idx>
+
+      <statement> 
+        <p> 
+          <alert>Differentiability Implies Continuity</alert>
+        </p> 
+        <p> 
+          If <m>f</m> is differentiable at a point <m>c</m>
+          then <m>f</m> is continuous at <m>c</m> as well.
+        </p>
+      </statement> 
+    </theorem>
+
+    <problem> 
+      <idx><h>Problems</h><h>differentiability implies
+      continuity</h></idx>
+      
+      <idx><h>differentiation</h><h>differentiability implies
+      continuity</h></idx>
+
+      <statement> 
+        <p> 
+          Prove <xref ref="thm_DiffImpCont"></xref> 
+        </p>
+      </statement> 
+    </problem>
+
+    <p> 
+      Although it is an extraordinarily useful mathematical tool but it
+      is not our intention to learn to use the derivative here. You did
+      that in your Calculus course. Our purpose here is to define it
+      rigorously (done) and to show that our formal definition does in
+      fact recover the useful properties you came to know and love in
+      your Calculus course.
+    </p>
+
+    <p> 
+      The first such property is known as Fermat<rsq/>s Theorem.  
+    </p>
+
+    <!-- <theorem xml:id="thm_FermatsTheorem">  -->
+    <!--   <title>Fermat<rsq/>s   Theorem</title>  -->
+    <!--   <idx><h>Fermat<rsq/>s Theorem</h></idx>  -->
+
+    <!--   <statement>  -->
+    <!--     <p> -->
+    <!--       Suppose <m>f</m> is differentiable in some interval <m>(a,b)</m> -->
+    <!--       containing <m>c</m>.  If <m>f(c)\ge f(x)</m> for every <m>x</m> in -->
+    <!--       <m>(a,b)</m>, then <m>f^\prime(c)=0</m>. -->
+    <!--     </p>  -->
+    <!--   </statement>  -->
+    <!-- </theorem> -->
+
+    <!-- <proof>  -->
+    <!--   <p>  -->
+    <!--     Since <m>f^\prime(c)</m> exists we know that if -->
+    <!--     <m>\left(h_n\right)_{n=1}^\infty</m> converges to zero then -->
+    <!--     the sequence <m>a_n = -->
+    <!--     \frac{f\left(c+h_n\right)-f(c)}{h_n}</m> converges to -->
+    <!--     <m>f^\prime(c)</m>.  The proof consists of showing that -->
+    <!--     <m>f^\prime(c)\leq 0</m> <em>and</em> that -->
+    <!--     <m>f^\prime(c)\geq 0</m> from which we conclude that -->
+    <!--     <m>f^\prime(c)= 0</m>.  We will only show the first part. -->
+    <!--     The second is left as an exercise. -->
+    <!--   </p> -->
+
+    <!--   <p>  -->
+    <!--     <em>Claim:</em> <m>f^\prime(c)\leq 0</m>.   -->
+    <!--   </p> -->
+
+    <!--   <p>  -->
+    <!--     Let <m>n_0</m> be sufficiently large that <m>\frac{1}{n_0}\lt -->
+    <!--     b-c</m> and take -->
+    <!--     <m>\left(h_n\right)=\left(\frac{1}{n}\right)_{n=n_0}^\infty</m>. -->
+    <!--     Then <m>f\left(c+\frac1n\right)-f(c) \leq 0</m> and -->
+    <!--     <m>\frac1n>0</m>, so that <me> -->
+    <!--     \frac{f\left(c+h_n\right)-f(c)}{h_n}\leq 0,   \forall n=n_0, -->
+    <!--     n_0+1, \ldots </me> -->
+    <!--   </p> -->
+
+    <!--   <p>  -->
+    <!--     Therefore -->
+    <!--     <m> -->
+    <!--       f^\prime(c) = -->
+    <!--       \limit{h_n}{0}{\frac{f\left(c+h_n\right)-f(c)}{h_n}} \leq  0 -->
+    <!--       </m> also.   -->
+    <!--   </p>  -->
+    <!-- </proof> -->
+
+    <!-- <problem>  -->
+    <!--   <statement>  -->
+    <!--     <p>  -->
+    <!--       <idx><h>Fermat<rsq/>rsq/>s Theorem</h><h>if <m>f(a)</m> is a maximum -->
+    <!--       then <m>f^\prime(a)=0</m></h></idx> -->
+
+    <!--       Show that <m>f^\prime(c) \geq 0</m> and conclude that -->
+    <!--       <m>f^\prime(c) =0</m>.   -->
+    <!--     </p>  -->
+    <!--   </statement>  -->
+    <!-- </problem> -->
+
+    <!-- <problem>  -->
+    <!--   <statement>  -->
+    <!--     <p>  -->
+    <!--       <idx><h>Fermat<rsq/>s Theorem</h><h>if <m>f(a)</m> is a minimum -->
+    <!--       then <m>f^\prime(a)=0</m></h></idx> -->
+
+    <!--       Show that if <m>f(c) \leq f(x)</m> for all <m>x</m> in -->
+    <!--       some interval <m>(a,b)</m> then <m>f^\prime(c) =0</m> too. -->
+    <!--     </p>  -->
+    <!--   </statement> -->
+    <!-- </problem> -->
+
+    <theorem xml:id="thm_FermatsTheorem">
+      <title>Fermat<rsq/>s   Theorem</title>
+      
+      <idx><h>Fermat<rsq/>s Theorem</h></idx>
+
+      <statement>
+        <p>
+          Suppose <m>f</m> is differentiable on <m>(a,b)</m> and <m>f</m> has an extremum at
+          <m>c\in (a,b)</m>.  Then <m>f^\prime\left(c\right)=0</m>.
+        </p>
+      </statement>
+    </theorem>
+
+
+    <proof>
+      <title>Sketch of Proof</title>
+
+      <p>
+        There are two cases: 
+        <dl>
+          <li>
+            <title>Case 1:</title>
+            <p>
+              <m>f(c)</m> is a maximum, and
+            </p>
+          </li>
+          <li>
+            <title>Case 2:</title>
+            <p>
+              <m>f(c)</m> is a minimum.
+            </p>
+          </li>
+        </dl> 
+      </p>
+
+      <p>
+        Suppose <m>f(c)</m> is a maximum so that <m>f\left(c\right)\ge
+        f(x)</m> for all <m>x\in (a,b)</m>.  Since <m>f</m> is
+        differentiable at <m>c</m>, we have
+        <me>f^\prime\left(c\right)=\limit{x}{c}{
+        \frac{f(x)-f(c)}{x-c}}</me>
+      </p>
+
+      <p>
+        To show <m>f^\prime\left(c\right)=0</m>, we need to show that
+
+        <md>
+          <mrow>f^\prime\left(c\right)\le 0 \amp{}\amp{}
+          \text{and}\amp{}\amp{} f^\prime\left(c\right)\ge 0.</mrow>
+        </md>
+
+        These facts follow from <xref ref="PROBLEMBasicLimits"></xref>.
+      </p>
+      <p> 
+        The case where <m>f(c)</m> is a minimum can be handled by
+        looking at <m>-f</m>.
+      </p>
+    </proof>
+
+
+    <problem xml:id="PROBLEMFermatsTheorem">
+      <idx><h>Problems</h><h>Fermat<rsq/>s Theorem</h></idx>
+      <idx><h>Fermat<rsq/>s Theorem</h></idx>
+
+      <statement>
+        <p>
+          Provide a formal proof for <xref
+          ref="thm_FermatsTheorem" text="custom">Fermat<rsq/>s Theorem</xref>.
+        </p>
+
+      </statement>
+    </problem>
+
+    <p> 
+      Many of the most important properties of the derivative follow
+      from what is called the <term>Mean Value Theorem</term> (MVT) stated
+      below.
+    </p>
+
+    <theorem xml:id="thm_MVT"> 
+      <title>The Mean Value Theorem (<init>MVT</init>)</title>
+      
+      <idx><h>Mean Value Theorem, the</h></idx>
+
+      <statement> 
+        <!-- <p>  -->
+        <!--   <term>The Mean Value Theorem (<init>MVT</init>)</term> -->
+        <!-- </p>  -->
+        <p>
+          Suppose <m>f^\prime</m>
+          exists for every <m>x\in(a,b)</m> and <m>f</m> is
+          continuous on <m>[a,b]</m>.  Then there is a real number
+          <m>c\in(a,b)</m> such that <me>
+          f^\prime(c)=\frac{f(b)-f(a)}{b-a}.{} </me> 
+        </p>
+      </statement> 
+    </theorem>
+
+    <p> 
+      It would be difficult to prove the MVT right now,  so
+      we will first state and prove <xref ref="thm_Rolle_s_Theorem" text="custom">Rolle<rsq/>s Theorem</xref>, which can be seen as a
+      special case of the MVT. The proof of the MVT will then follow easily.
+    </p>
+
+    <p>
+      <idx><h>Newton, Isaac</h></idx>
+      <idx><h>Leibniz, Gottfried Wilhelm</h></idx>
+
+      <url
+          href="https://mathshistory.st-andrews.ac.uk/Biographies/Rolle/"
+          >Michel
+      Rolle</url> (1652<ndash/>1719) first stated the following theorem
+      in 1691.  Given this date and the nature of the theorem it would
+      be reasonable to suppose that Rolle was one of the early
+      developers of Calculus but this is not so.  In fact, Rolle was
+      disdainful of both Newton and Leibniz<rsq/> versions of Calculus,
+      once deriding them as a collection of <q>ingenious fallacies.</q>
+      It is a bit ironic that his theorem is so fundamental to the
+      modern development of the Calculus he ridiculed.
+    </p>
+
+    <theorem xml:id="thm_Rolle_s_Theorem">
+      <title>Rolle<rsq/>s Theorem</title>
+      
+      <idx><h>Rolle<rsq/>s Theorem</h></idx> 
+      
+      <statement> 
+        <p>
+          Suppose <m>f^\prime</m> exists for every <m>x\in(a,b)</m>,
+          <m>f</m> is continuous on <m>[a,b]</m>, and <me> f(a)=f(b) </me>.
+        </p>
+        
+        <p> 
+          Then there is a real number <m>c\in(a,b)</m> such that
+          <me> f^\prime(c)=0 </me>.  
+        </p> 
+      </statement>
+    </theorem>
+
+    <!-- <proof>  -->
+    <!--   <p>  -->
+    <!--     Since -->
+    <!--     <m>f</m> is continuous on <m>[a,b]</m> we see, by the Extreme Value -->
+    <!--     Theorem,<idx><h>Extreme Value Theorem (EVT)</h><h>Rolle<rsq/>s Theorem, -->
+    <!--     and</h></idx> that <m>f</m> has both a maximum and a minimum on -->
+    <!--     <m>[a,b]</m>.  Denote the maximum by <m>M</m> and the minimum by -->
+    <!--     <m>m</m>.  There are several cases: -->
+
+    <!--     <dl>  -->
+    <!--       <li>  -->
+    <!--         <title>Case 1:</title> -->
+    <!--         <p> -->
+    <!--           <m>f(a)=f(b)=M=m</m>.  In -->
+    <!--           this case <m>f(x)</m> is constant (why?).  Therefore -->
+    <!--           <m>f^\prime(x)=0</m> for every <m>x\in(a,b)</m>.   -->
+    <!--         </p>  -->
+    <!--       </li> -->
+
+    <!--       <li>  -->
+    <!--         <title>Case 2:</title>  -->
+    <!--         <p>  -->
+    <!--           <m>f(a)=f(b)=M\neq m</m>. -->
+    <!--           In this case there is a real number <m>c\in(a,b)</m> such that -->
+    <!--           <m>f(c)</m> is a local minimum.  By Fermat<rsq/>s Theorem, -->
+    <!--           <m>f^\prime(c)=0</m>.   -->
+    <!--         </p>  -->
+    <!--       </li> -->
+
+    <!--       <li> -->
+    <!--         <title>Case 3:</title> -->
+    <!--         <p> -->
+    <!--           <m>f(a)=f(b)=m\neq M</m>. -->
+    <!--           In this case there is a real number <m>c\in(a,b)</m> such that -->
+    <!--           <m>f(c)</m> is a local maximum.  By Fermat<rsq/>s Theorem, -->
+    <!--           <m>f^\prime(c)=0</m>. -->
+    <!--         </p> -->
+    <!--       </li> -->
+
+    <!--       <li> -->
+    <!--         <title>Case 4:</title>  -->
+    <!--         <p>  -->
+    <!--           <m>f(a)=f(b)</m> is neither a maximum nor a minimum.  In this -->
+    <!--           case there is a real number <m>c_1\in(a,b)</m> such that -->
+    <!--           <m>f(c_1)</m> is a local maximum, and a real number -->
+    <!--           <m>c_2\in(a,b)</m> such that <m>f(c_2)</m> is a local minimum. -->
+    <!--           By Fermat<rsq/>s Theorem, <m>f^\prime(c_1)=f^\prime(c_2)=0</m>. -->
+    <!--         </p>  -->
+    <!--       </li>  -->
+    <!--     </dl>  -->
+    <!--   </p>  -->
+    <!-- </proof> -->
+    <proof>
+      
+      <title>Sketch of Proof</title>
+
+      <p>
+        By the <xref ref="thm_EVT" text="custom">EVT</xref>, we know that <m>f</m> has a
+        maximum <m>M</m>, and a minimum <m>m</m>, on
+        <m>[a,b]</m>.  Suppose that both occur at the endpoints.  This would say
+        that <m>m=M</m> and <m>f</m> is constant on <m>[a,b]</m>.  What does this say about
+        <m>f^\prime</m>?  
+      </p>
+      <p>
+        On the other hand, what does <xref
+        ref="thm_FermatsTheorem" text="custom">Fermat<rsq/>s Theorem</xref> say if one or
+        both of these extrema is not at an endpoint?
+      </p>
+    </proof>
+
+    <problem xml:id="PROBLEMRollesTheorem">
+      <title>Rolle<rsq/>s Theorem</title>
+      <idx><h>Problems</h><h>Rolle<rsq/>s Theorem</h></idx>
+
+      <p>
+        Turn the ideas in the sketch above into a proof of <xref
+        ref="thm_Rolle_s_Theorem" text="custom">Rolle<rsq/>s
+        Theorem</xref>.
+      </p>
+    </problem>
+
+
+    <p>
+      We can now prove the MVT as a corollary of Rolle<rsq/>s Theorem.  We
+      only need to find the right function to apply Rolle<rsq/>s Theorem
+      to.  The following figure shows a function, <m>f(x)</m>, cut by a
+      secant line, <m>L(x)</m>, from <m>(a, f(a))</m> to <m>(b,f(b))</m>.
+    </p> 
+
+    <image width="40%" source="images/MVT.png" > 
+      <shortdescription>A straight line, L(x), and a wavy line f(x), both
+      starting at (a, f(a)) and ending at (b, f(b)). At a point x between
+      a and b the vertical distance between the two lines (from (x, L(x))
+      to (x, f(x))) is labeled phi(x).</shortdescription>
+    </image>
+
+    <p>
+      The vertical difference from <m>f(x)</m> to the secant line,
+      indicated by <m>\phi(x)</m> in the figure should do the trick.  You
+      take it from there.
+    </p>
+
+    <problem> 
+      <idx><h>Problems</h><h>Mean Value Theorem, the</h></idx>
+      <idx><h>Mean Value Theorem, the</h></idx> 
+
+      <statement> 
+        <p> 
+          Prove the <xref ref="thm_MVT" text="custom">Mean Value Theorem</xref>.  
+        </p> 
+      </statement>
+    </problem>
+    <p>
+      Notice that the MVT is a generalization of Rolle<rsq/>s Theorem or,
+      put another way, Rolle<rsq/>s Theorem is a special case of the  MVT.
+    </p>
+
+    <p> 
+      The Mean Value Theorem is extraordinarily useful.  Almost all of
+      the properties of the derivative that you used in Calculus follow
+      more or less directly from it.  For example the following is true.
+    </p>
+
+    <corollary xml:id="cor_PosDerivIncFunc1"> 
+      <statement> 
+        <p> 
+          If <m>f^\prime(x) > 0</m> for every <m>x</m> in the interval
+          <m>(a,b)</m> then for every <m>c,d\in(a,b)</m> where
+          <m>d>c</m> we have <me> f(d) > f(c) </me>.
+        </p>
+        
+        <p> 
+          That is, <m>f</m> is increasing on <m>(a,b)</m>. 
+        </p>
+      </statement> 
+    </corollary>
+
+    <proof> 
+      <p> 
+        Suppose <m>c</m> and <m>d</m> are as described in the corollary.
+        Then by the Mean Value Theorem there is some number, say
+        <m>\alpha\in(c,d)\subseteq(a,b)</m> such that <me>
+        f^\prime(\alpha)=\frac{f(d)-f(c)}{d-c} </me>.
+      </p>
+
+      <p>
+        Since <m>f^\prime(\alpha)>0</m> and <m>d-c>0</m> we have
+        <m>f(d)-f(c)>0</m>, or <m>f(d)>f(c)</m>.  
+      </p> 
+    </proof>
+
+    <problem>
+      <idx><h>Problems</h><h>if <m>f^\prime\lt 0</m> on an
+      interval then <m>f</m> is decreasing</h></idx>
+
+      <idx><h>differentiation</h><h>if <m>f^\prime\lt 0</m> on an
+      interval then <m>f</m> is decreasing</h></idx>
+
+      <statement>
+        <p>
+          Show that if <m>f^\prime(x) \lt 0</m> for every <m>x</m> in the
+          interval <m>(a,b)</m> then <m>f</m> is decreasing on
+          <m>(a,b)</m>.
+        </p>
+      </statement>
+    </problem>
+
+    <corollary xml:id="cor_PosDerivIncFunc2">
+      <statement>
+        <p>
+          Suppose <m>f</m> is differentiable on some interval
+          <m>(a,b)</m>, <m>f^\prime</m> is continuous on <m>(a,b)</m>,
+          and that <m>f^\prime(c)>0</m> for some <m>c\in (a,b)</m>.
+          Then there is an interval, <m>I\subset (a,b)</m>, containing
+          <m>c</m> such that for every <m>x, y</m> in <m>I</m> where
+          <m>x\ge y</m>, <m>f(x)\ge f(y)</m>.
+        </p>
+      </statement>
+    </corollary>
+
+    <problem>
+      <idx><h>Problems</h><h><m>f^\prime(a)>0</m> implies
+      <m>f</m> is increasing nearby</h></idx>
+
+      <idx><h>differentiation</h><h><m>f^\prime(a)>0</m> implies
+      <m>f</m> is increasing nearby</h></idx>
+
+      <statement>
+        <p>
+          
+
+          Prove <xref ref="cor_PosDerivIncFunc2"></xref>.
+        </p>
+      </statement>
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h><m>f^\prime(a)\lt 0</m> implies <m>f</m> is decreasing
+      nearby</h></idx>
+
+      <idx> <h>differentiation</h>
+      <h><m>f^\prime(a)\lt 0</m> implies <m>f</m> is decreasing
+      nearby</h>
+      </idx>
+
+      <statement>
+        <p>
+          Prove the following.
+        </p>
+        <p>
+          Suppose that <m>f</m> is differentiable on some interval
+          <m>(a,b)</m>, and <m>f^\prime </m> is continuous on
+          <m>(a,b)</m>. If <m>f^\prime(c)\lt 0</m> for some <m>c\in
+          (a,b)</m> then there is an interval, <m>I\subset (a,b)</m>,
+          containing <m>c</m> such that for every <m>x, y</m> in
+        <m>I</m> where <m>x\ge y</m>, <m>f(x)\le f(y)</m>.  </p>
+      </statement>
+    </problem>
+
+    <problem xml:id="DRILLZeroDerivImpConst">
+      <idx><h>Problems</h><h>Derivative</h><h><m>f^\prime =0 \imp f</m> is constant</h></idx>
+      <task>
+        <statement>
+          <p>
+            Suppose <m>f(x)</m> is continuous on <m>[a,b]</m> and <m>f^\prime(x)=0</m> on <m>(a,b)</m>.  Show that <m>f(x)</m> is constant on <m>[a,b]</m>.
+
+
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Show that for any <m>x, y\in [a,b]</m>, <m>x\neq y</m>, <m>f(x)=f(y)</m>.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Consider
+            <me>
+              f(x)=
+              \begin{cases}
+              \frac{\abs{x} }{x}\amp \text{ if } x\neq 0\\
+              0\amp \text{ if } x=0
+              \end{cases}
+            </me>
+
+            <!-- <me>f(x)=\left\{ \begin{array}{cc} -->
+            <!-- \frac{\left|x\right|}{x} & x\neq 0 \  -->
+            <!--        0 & x=0 \end{array} -->
+            <!--        \right.</me>  -->
+          </p>
+          <p>
+            Show that <m>f^\prime(x)=0</m> for <m>x\neq 0</m>.  Why
+            doesn<rsq/>t this contradict part (a)?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Suppose <m>f(x)</m> and <m>g(x)</m> are continuous on
+            <m>[a,b]</m> with <m>f^\prime(x)=g^\prime(x)</m> on
+            <m>(a,b)</m>.  Show that <m>f(x)=g(x)+C</m> for some constant
+            <m>C</m> on <m>[a,b]</m>.
+          </p>
+        </statement>
+      </task>
+    </problem>
+  </section>
+
+  <section xml:id="SECTIONFTC">
+    <title>The Fundamental Theorem of Calculus</title>
+    <p>
+      If you look back at our derivation of the Integral Form of the
+      Remainder for Taylor Series (<xref ref="TaylorsTheorem"></xref>)
+      you<rsq/>ll see that the <xref ref="THEOREMFTCCauchy"
+      text="custom">Fundamental Theorem of Calculus</xref> provided  our
+      anchoring step:
+      <me>
+        f(x)=f(a)+\int_{t=a}^xf^\prime(t)\dx{t}=f(a)+\frac{1}{0!}\int_{t=a}^xf^{(1)}(t)(x-t)^0\dx{t}
+        </me>.
+    </p>
+    <p>
+      The Fundamental Theorem of Calculus was understood (in at least
+      the limited context of polynomials) before Newton and Leibniz
+      invented Calculus. 
+      <!-- As a result neither of them dubbed it a -->
+      <!-- <q>Fundamental Theorem.</q>  -->
+      <!-- For them it was simply one of those -->
+      <!-- known results that their Calculus re<ndash/>captured in a more -->
+      <!-- elegant form than had previously been known. -->
+
+      They both provided derivations of it via their versions of
+      Calculus, but again neither of them dubbed it <q>The Fundamental
+      Theorem.</q> That name was an innovation of twentieth century
+      Calculus textbooks.  Both Newton and Leibniz considered it very
+      natural and obvious that areas can be found by
+      antidifferentiation.
+    </p>
+
+    <p>
+      Using the differential and integral notation that Leibniz invented
+      (and we still use today) it is easy to see why. If we suppose that
+      <me>\dfdx{Y}{x}=y</me>, then it follows that
+
+      <men xml:id="EQUATIONFTCDifferentialEquality">
+        y\dx{x}=\dx{Y} 
+        </men>.  
+
+        Notice that <xref
+        ref="EQUATIONFTCDifferentialEquality">equation</xref> states
+        that two differentials are equal. Thus it seems apparent that if
+        we add (integrate) together all such differentials between
+        <m>x=a</m> and <m>x=b</m> we have (again employing Leibniz<rsq/>
+        notation)
+        <men xml:id="EQUATIONFTCIntDiffer">
+          \int^b_{x=a}{y\dx{x}}=\int^b_{x=a}{\dx{Y}}
+        </men>
+    </p>
+    <!-- <p> -->
+    <!--   <xref ref="EQUATIONFTCIntDiffer" >Equation</xref> indicates -->
+    <!--   that we are summing all of the respective differentials between -->
+    <!--   <m>x=a</m> and <m>x=b</m>. -->
+    <!--   </p> -->
+
+    <aside>
+      
+      <title>
+        Integral Notation: Upper and Lower Indices
+      </title>
+      <p>
+        We said that <xref ref="EQUATIONFTCIntDiffer" >equation</xref>
+        uses Leibniz<rsq/> notation but this is not entirely
+        correct. Leibniz didn<rsq/>t use upper and lower indices on the
+        integral sign to show the limits of the integration.  Fourier
+        innovated their use approximately <m>150</m> years after Leibniz.
+      </p>
+    </aside>
+    
+
+    <p>
+      Since  a finite sum of finite differences collapses into the
+      difference of the extremes:
+
+      <me>\left(a_2-a_1\right)+\left(a_3-a_2\right)+\dots
+      +\left(a_{n-1}-a_{n-2}\right)+\left(a_n-a_{n-1}\right)=a_n-a_1</me>.
+      Leibniz assumed that this is also true for an infinite sum of
+      infinitesimals. This is probably the most intuitive possible
+      understanding of the Fundamental Theorem of Calculus. In
+      Leibniz<rsq/> notation it is
+
+      <men xml:id="EQUATIONFTCLeibniz">\int^b_{x=a}{y\dx{x}}=\int^b_{x=a}{\dx{Y}}=Y\left(b\right)-Y(a)</men>.
+    </p>
+    <p>
+      For Leibniz, this is all so natural and obvious that when he wrote
+      about it in his 1693 paper
+      <pubtitle>
+        Supplementum geometriae dimensoriae, seu generalissima omnium
+        tetragonismorum effectio per motum: similiterque multiplex
+        constructio lineae ex data tangentium conditione
+        (More on geometric measurement, or most generally of all
+        practicing of quadrilateralization through motion: likewise
+        many ways to construct a curve from a given condition on its
+        tangents) 
+      </pubtitle>
+      he called it a
+      <q>supplementum</q> (supplement, or corollary) rather than
+      something more  imposing <mdash/> like the <term>Fundamental Theorem of Calculus</term>.
+    </p>
+    <p>
+      Leibniz rather famously favored very complex diagrams to
+      illustrate his idea and he included one such diagram in his paper.
+      We provide a simpler, more modern rendition below.
+    </p>
+
+
+    <figure  xml:id="FIGUREFTC">
+      <caption>A visual interpretation of the Fundamental Theorem of
+      Calculus as it was understood by Leibniz.  The relationship
+      between the curves is that the function on the  left,
+      <m>y=y(x)</m>, is the  derivative of the function  on the right,
+      <m>Y=Y(x)</m>.</caption>
+
+      <sidebyside widths="45% 45%" margins="auto" valign="middle">
+        <image source="images/FTC1.png" width="45%">
+          <shortdescription></shortdescription>
+        </image>
+
+        <image source="images/FTC2.png" width="45%">
+          <shortdescription></shortdescription>
+        </image>
+
+      </sidebyside>
+    </figure>
+    <!-- <image source="images/Integration1.png" width="90%"> -->
+    <!--   <shortdescription></shortdescription> -->
+    <!-- </image> -->
+    <!-- \includegraphics*[width=5.43in, height=2.27in]{image15} -->
+
+    <p>
+      In <xref ref="FIGUREFTC" ></xref> the area of the infinitely thin
+      rectangle on the left is given by <m>y\dx{x}</m> and is
+      numerically equal to the infinitely small length <m>\dx{Y}</m> on
+      the right.  Adding the areas on the left gives the area under the
+      curve <m>y(x)</m> between <m>a</m> and <m>b</m>.  The sum of the
+      lengths on the right gives the length of the line segment, also
+      between <m>Y(a)</m> and <m>Y(b)</m>: <m>Y\left(b\right)-Y(a)</m>.
+    </p>
+    <p>
+      Such an approach does not pass modern, or even <m>19</m>th century,
+      standards of rigor.  Even in the <m>17</m>th century it was known that
+      there are logical problems with interpreting an integral in terms
+      of infinitiesimals. But the infinitesimal approach was adequate to
+      the needs of the time so a closer investigation into the nature of
+      the integral was left until infinitesimals were no longer
+      sufficient.
+    </p>
+    <problem>
+      <idx><h>Problems</h><h>antiderivative</h><h>Does every continuous function have an
+      antiderivative?</h></idx>
+      <p>
+        One question which eventually led to such a closer investigation
+        was, <q>Does every continuous function have an antiderivative?</q>
+        What do you think?
+      </p>
+      <!-- <p> -->
+      <!--   Decide whether you believe that every continuous function must -->
+      <!--   necessarily have an antiderivative or not and explain your -->
+      <!--   reasoning. -->
+      <!-- </p> -->
+
+    </problem>
+    <p>
+      At this point we have all of the tools necessary for a rigorous
+      proof of the Fundamental Theorem of Calculus. What we do not have
+      is an adequate definition of the integral.
+      <!-- As we said it turns out -->
+      <!-- that thinking of the integral as an antiderivative is -->
+      <!-- insufficient.  -->
+      We<rsq/>ll need a definition that is independent of
+      differentiation, but which recovers all of the properties of
+      integration that you are already familiar with from your Calculus
+      course, including the Fundamental Theorem of Calculus.
+    </p>
+    <p>
+      We<rsq/>ll provide such a definition in <xref
+      ref="SECTIONDefiningIntegral" ></xref> (the next section), but
+      since we are already familiar with the properties we<rsq/>ll need
+      we will proceed with the proof of the Fundamental Theorem of
+      Calculus now.
+    </p>
+    <p>
+      The following formulation and proof of the Fundamental Theorem of
+      Calculus is from Cauchy<rsq/>s 1823 publication <foreign>Résumé
+      des leçons donnés à l<rsq/> école royale polytechnique sur le
+      calcul infinitesimal</foreign> (Summary of the lessons given at
+      the Royal Polytechnic School on infinitesimal calculus).
+    </p>
+
+    <theorem xml:id="THEOREMFTCCauchy">
+      <title>The Fundamental Theorem of Calculus (Cauchy)</title>
+
+      <idx><h>Fundamental Theorem of Calculus, The</h></idx>
+
+      <p>
+        Suppose <m>f\left(x\right)</m> is continuous on <m>[a,b]</m> and define
+      </p>
+      <p>
+
+
+        <me>I\left(x\right)=\int^x_{t=a}{f\left(t\right)\dx{t}}</me>
+        for <m>x\in [a,b]</m>.  Then <m>I</m> is continuous on <m>[a,b]</m>, differentiable on <m>(a,b)</m> and
+      </p>
+      <p>
+
+
+        <me>I^\prime\left(x\right)=f(x)</me>
+      </p>
+    </theorem>
+    <p>
+      Notice that <xref
+      ref="THEOREMFTCCauchy"></xref> and <xref ref="EQUATIONFTCLeibniz"
+      >equation</xref> are very closely related though they come at the
+      question of integration from different viewpoints.
+    </p>
+    <p>
+      <xref ref="EQUATIONFTCLeibniz" >Equation</xref> starts with the
+      assumption that <m>\dfdx{Y}{x}=y </m>. It says that if we
+      sum the differentials <m>y\dx{x}</m> from  <m>x=a</m> to
+      <m>x=b</m> then the sum collapses to the difference of the
+      extremes: <m>Y(b)-Y(a)</m>.
+    </p>
+
+
+    <!-- <p> -->
+    <!--   <xref -->
+    <!--       ref="EQUATIONFTCLeibniz" >Equation</xref> is understood to -->
+    <!--   mean that we are summing the differentials between <m>x=a</m> and -->
+    <!--   <m>x=b</m> sequentially, starting at <m>x=a</m>. And the result -->
+    <!--   of this is a sum which collapses to the difference of the -->
+    <!--   extremities: <m>Y(b)-Y(a)</m>. The connection to the -->
+    <!--   derivative of <m>Y</m> comes from the differential equation we -->
+    <!--   started with: <m>\dfdx{Y}{x}=y</m>. -->
+    <!-- </p> -->
+    <p>
+      On the other hand <xref ref="THEOREMFTCCauchy" ></xref> starts
+      with the assumption that <m>\int_{t=a}^x f(t)\dx{t}</m> is well
+      defined, uses this to define the function <m>I(x)</m> ( which is
+      simply <m> Y(x)</m> by another name), and then concludes where
+      Leibniz began <mdash/> with the statement that <m>I^\prime
+      (x)=f(x)</m>, (or <m>\dfdx{Y}{x}=y</m>). Our task in the next
+      section will be to provide a definition that will support that
+      conclusion.
+    </p>
+    <p>
+      In most Calculus texts <xref ref="EQUATIONFTCLeibniz" >equation</xref> is
+      called a <term>definite integral</term>, and the function defined
+      in <xref ref="THEOREMFTCCauchy" ></xref> is called an
+      <term>indefinite integral</term>. The two of them are often
+      referred to as parts <m>1</m> and <m>2</m> of the Fundamental Theorem of
+      Calculus.
+    </p>
+    <p>
+      We will now proceed with the proof of Cauchy<rsq/>s version of the
+      Fundamental Theorem of Calculus, with the caveat that the proof is
+      not complete until we have defined the function
+      <m>I(x)=\int_{t=a}^x f(t)\dx{t}</m> and shown that under our
+      definition it has the properties we expect from an integral. We
+      will need some of these properties in the proof below.
+    </p>
+    <proof>
+      <title>Sketch of Proof</title>
+      <p>
+        There are two statements to prove:
+        <ol>
+          <li>
+            <m>I(x)</m> is continuous on the closed interval
+            <m>[a,b]</m>.
+          </li>
+          <li>
+            <m>I(x)</m> is differentiable on the open interval <m>(a,b)</m>
+            and <m>I^\prime (x) =f(x)</m>.
+          </li>
+        </ol> 
+        We will prove differentiablity on <m>(a,b)</m> first. From that
+        continuity on <m>(a,b)</m> follows immediately (why?). Continuity at
+        the endpoints will be addressed separately.
+      </p>
+
+      <p>
+        Let <m>x\in (a,b)</m>. To find <m>I^\prime (x)</m> we apply
+        <xref ref="def_derivative" ></xref>. Thus 
+
+        <mdn>
+          <mrow number="no">I^\prime (x)\amp{} = \limit{h}{0}{\frac{I(x+h)-I(x)}{h}}</mrow>
+          <mrow number="no">
+            \amp{} =       \limit{h}{0}{\frac{\int_{t=a}^{x+h}f(t)\dx{t}-\int_{t=a}^x
+          f(t)\dx{t}}{h}}</mrow>
+          <mrow xml:id="EQUATIONFTCPfSketch">
+            \amp{}=\limit{h}{0}{\frac{\int_{t=x}^{x+h}f(t)\dx{t}}{h}}.
+          </mrow>
+        </mdn>
+
+        <!-- First, we want to show that -->
+        <!--     </p> -->
+        <!-- <p> -->
+        <!-- <me> -->
+        <!-- I^\prime(x) = -->
+        <!-- \limit{h}{0}{\frac{\int_{t=a}^{x+h}f(t)\dx{t}-\int_{t=a}^x -->
+        <!-- f(t)\dx{t}}{h}}=\limit{h}{0}{\frac{\int_{t=x}^{x+h}f(t)\dx{t}}{h}}=f(x) -->
+        <!-- </me>. -->
+        We need to show that the  limit in <xref ref="EQUATIONFTCPfSketch" >equation</xref>  is <m>f(x)</m>.
+        Since <m>f(t)</m> was assumed to be continuous on <m>[a,b]</m>
+        it is also continuous on the closed interval with endpoints
+        <m>x</m> and <m>x+h</m>. We know from the <xref ref="thm_EVT"
+        text="custom">Extreme Value Theorem</xref> that there are points
+        <m>c</m>, and <m>C</m>, in the same interval such that <m>f(c)</m>
+        and <m>f(C)</m> are the global minimum and maximum of <m>f</m>
+        on the closed interval with endpoints <m>x</m> and  <m>x+h</m>, respectively.
+      </p>
+      <p>
+        Thus
+        if <m>h\gt0</m> we have
+
+        <me>f\left(c\right)\cdot h\le
+        \int^{x+h}_{t=x}{f(t)\dx{t}}\le f(C)\cdot h</me>
+        or
+        <me>f\left(c\right)\le \frac{\int^{x+h}_{t=x}{f(t)\dx{t}}}{h}\le
+        f\left(C\right)</me>.
+      </p>
+      <p>
+
+
+
+        If <m>h\lt 0</m>, we have <m>-h>0</m>, and so
+        <me>f\left(c\right)\cdot \left(-h\right)\le
+        \int^x_{t=x+h}{f(t)\dx{t}}\le f\left(C\right)\cdot (-h)</me>
+        <me>f(c)\le \frac{\int^x_{t=x+h}{f(t)\dx{t}}}{-h}\le f(C)</me>
+        In either case we have
+        <me>f(c)\le \frac{\int^{x+h}_{t=x}{f(t)\dx{t}}}{h}\le f\left(C\right)</me>
+      </p>
+      <p>
+        Applying the <xref ref="thm_SqueezeTheoremFunctions" text="custom">Squeeze Theorem</xref> 
+        <!-- and <xref ref="def_continuity" ></xref>  -->
+        <!-- of <m>f</m> at <m>x</m> -->
+        and the continuity of <m>f</m> at <m>x</m> should do the trick.
+      </p>
+      <!-- <p> -->
+      <!--   The above outline shows that <m>I(x)</m> is differentiable on -->
+      <!--   <m>(a,b)</m>, so it follows that <m>I(x)</m> is also -->
+      <!--   continuous on <m>[a,b]</m> (why?). -->
+      <!-- </p> -->
+      <p>
+        To show that <m>I(x)</m> is  continuous  at the endpoints
+        <m>a</m> and <m>b</m>, we will appeal to <xref
+        ref="thm_LimDefOfContinuity" ></xref>.
+      </p>
+      <p>
+        Consider any sequence <m>(x_n)</m> contained in <m>[a,b]</m>
+        and converging to <m>a</m>. We want to show that
+        <me>
+          \limit{n}{\infty }{\left(\int^{x_n}_{t=a}{f(t)\dx{t}}-\int^a_{t=a}{f(t)\dx{t}}\right)}
+          =\limit{n}{\infty }{
+        \left(\int^{x_n}_{t=a}{f(t)\dx{t}}\right)}=0 </me>
+      </p>
+      <p>
+        To get continuity at <m>b</m>, consider any sequence
+        <m>\left(y_n\right)</m> in <m>[a,b]</m> converging to
+        <m>b</m>.  We want to show that
+        <me>
+          \limit{n}{ \infty }
+          {\left(\int^b_{t=a}{f(t)\dx{t}}-\int^{y_n}_{t=a}{f(t)\dx{t}}\right)
+          }=\limit{n}{\infty } {\left(\int^b_{t=y_n}{f(t)\dx{t}}\right)}=0
+        </me>
+      </p>
+      <p>
+        It will be useful to recognize that on <m>[a,b]</m> the function
+        <m>f(x)</m> will have both a maximum and a minimum value (why?).
+      </p>
+
+      <!-- <p> -->
+      <!--   We can use an argument similar to what we did before, but in this -->
+      <!--   case, since we are not dividing, we can just consider the minimum -->
+      <!--   <m>m</m> and maximum <m>M</m> of <m>f</m> on <m>[a,b]</m> so that -->
+      <!--   <m>m\le f\left(t\right)\le M</m>. -->
+      <!-- </p> -->
+    </proof>
+
+
+    <problem>
+      <idx><h>Problems</h><h>Prove the Fundamental Theorem of Calculus</h></idx>
+      <p>
+        Turn the above ideas into a proof of <xref
+        ref="THEOREMFTCCauchy"></xref>. Don<rsq/>t forget to justify
+        every step in the <q>Sketch of Proof</q> above.
+      </p>
+    </problem>
+
+    <problem>
+      <idx><h>Problems</h><h>Fundamental Theorem of Calculus</h></idx>
+
+      <introduction>
+        <p>
+          Suppose <m>f(x)</m> is continuous on <m>[a,b]</m> and
+          <m>I(x)</m> is the antiderivative of <m>f(x)</m> from <xref
+          ref="THEOREMFTCCauchy" ></xref>. Suppose further that
+          <m>F(x)</m> is continuous on <m>[a,b]</m> with <m>F^\prime
+          (x)=f(x)</m> on <m>(a,b)</m>. 
+        </p>
+      </introduction>
+      <task>
+        <statement>
+
+          <p>
+
+            Prove that for any <m>x\in
+            [a,b]</m>,
+            <me>
+              I(x)=\int^x_{t=a}{f\left(t\right)\dx{t}}=F\left(x\right)-F(a)
+            </me>
+
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Use the result in part (a) to show that
+            
+            <me>
+              \int^b_{t=a}{f\left(t\right)\dx{t}}=F\left(b\right)-F(a)
+            </me>
+          </p>
+        </statement>
+        <hint>
+          <p>          You have two antiderivatives of <m>f(x)</m>.  By part (c) of
+          <xref ref="DRILLZeroDerivImpConst"></xref>, these must differ
+          by a constant.  What must this constant be?
+          </p>
+        </hint>
+      </task>
+
+
+    </problem>
+    <!-- <problem> -->
+
+    <!--   <statement> -->
+    <!--     <p> -->
+    <!--       Suppose <m>F(x)</m> is continuous on <m>[a,b]</m> and -->
+    <!--       <m>F^\prime\left(x\right)=f(x)</m> on <m>(a,b)</m>. Prove that for -->
+    <!--       any <m>x\in [a,b]</m>, -->
+
+
+
+    <!--       <me>\int^x_{t=a}{f\left(t\right)\dx{t}}=F\left(x\right)-F(a)</me> -->
+    <!--       In particular, -->
+
+
+
+    <!--       <me>\int^b_{t=a}{f\left(t\right)\dx{t}}=F\left(b\right)-F(a)</me> -->
+    <!--     </p> -->
+    <!--   </statement> -->
+    <!--   <hint> -->
+    <!--     <p> -->
+    <!--       You have two antiderivatives of <m>f(x)</m>.  By part (c) of -->
+    <!--       <xref ref="DRILLZeroDerivImpConst"></xref>, these must differ -->
+    <!--       by a constant.  What must this constant be? -->
+    <!--     </p> -->
+    <!--   </hint> -->
+
+    <!-- </problem> -->
+    <p>
+      An obvious question is, how do we know that a continuous function
+      on a closed interval has an antiderivative? That is, how do
+      we know that <me>I\left(x\right)=\int^x_{t=a}{f(t)\dx{t}}</me>
+      actually exists? This is the topic of the next <xref ref="SECTIONDefiningIntegral" text="custom">section</xref>.
+    </p>
+  </section>
+
+  <section xml:id="SECTIONDefiningIntegral">
+    <title>The Definition of the Integral</title>
+    <introduction>
+
+      <p>
+        In a letter to <url
+        href="https://mathshistory.st-andrews.ac.uk/Biographies/Eratosthenes/"
+        >Eratosthenes</url> (circa 250 BC), <url
+        href="https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/"
+        >Archimedes</url> described what he called a mechanical method
+        for finding areas and volumes.  His method consisted of mentally
+        dividing objects into infinitely thin slices and balancing these
+        slices on an imaginary balance.  Archimedes noted that while his
+        method was not rigorous it was still quite useful. He said:
+      </p>
+      <blockquote>
+        <p>
+          <q>. . . I thought it might be appropriate to write down for you a
+          special method, by means of which you will be able to recognize
+          certain mathematical questions with the aid of mechanics.  I am
+          convinced that this is no less useful than finding the proofs of
+          these same theorems.</q>
+        </p>
+        <p>
+          <q>Some things, which first became clear to me by the mechanical
+          method, were afterwards proved geometrically, because their
+          investigation by that method does not furnish an actual
+          demonstration.  It is easier to supply the proof when we have
+          previously acquired, by the method, some knowledge of the
+          questions than it is to find it without any previous
+          knowledge . . .</q>
+        </p>
+      </blockquote>
+
+      <p>
+        Closer to our time <url
+        href="https://mathshistory.st-andrews.ac.uk/Biographies/Cavalieri/"
+        >Cavalieri</url>,
+        <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Torricelli/"
+            >Torricelli</url>,
+        <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Kepler/"
+            >Kepler</url>,
+        <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/"
+            >Galileo</url>,
+        <url
+            href="https://mathshistory.st-andrews.ac.uk/Biographies/Roberval/"
+            >
+          Roberval</url>, and others explored a similar idea. They
+          mentally cut geometric areas (and volumes) into infinitely thin
+          slices.  But rather than using an imaginary balance they
+          compared them geometrically.
+      </p>
+      <p>
+        This division of objects into infinitely small pieces in order
+        to analyze them is the essential idea underlying integration. As
+        Archimedes observed it is questionable as a method of proof, but
+        for practical applicatons this is still a useful way to think
+        about problems.
+      </p>
+      <p>
+        It was always recognized that the notion of an infinitesimals
+        was problematic as a logical foundation for Calculus but it
+        was not until  the beginning of the <m>19</m>th century that it became
+        imperative to replace them (in large part due to the work of
+        Fourier) with a more rigorous formulation.
+      </p>
+
+
+      <p>
+        Fourier<rsq/>s work raises the question: How random can a
+        function defined on an interval be and still be represented by a
+        Fourier series?  Since the coefficients are computed via
+        integration, a closely related question is how random can a
+        function be and still be integrable?
+      </p>
+      <p>
+        Since this text is intended as a one semester introduction to
+        real analysis we will not be able to fully answer that question
+        here.  But we will give two equivalent rigorous definitions of
+        the integral and then show that a continuous function on a
+        closed interval is integrable.  This will close the gap in our
+        proof of the <xref ref="THEOREMFTCCauchy" text="custom"
+        >Fundamental Theorem of Calculus</xref>.
+        <!--  and show that a -->
+        <!-- continuous function on an interval has an antiderivative. --> 
+        <!-- We
+             have a warning that the details in this -->
+        <!-- rigorous approach can get a bit overwhelming at times, but keep in -->
+        <!-- mind the idea of trying to compute an area under a curve without -->
+        <!-- resorting to infinitesimals underlies these ideas. -->
+      </p>
+      <aside>
+        <title>Multiple Definitions of the Integral</title>
+        <p>
+          The two definitions we will discuss in this chapter are equivalent in the sense
+          that if a function is integrable using one definition then it
+          will be integrable using the other.  But there are other
+          definitions that extend integrability to more general
+          functions. We will look at two of them in <xref ref="BackToFourier" ></xref>.
+        </p>
+      </aside>
+
+    </introduction>
+    <subsection xml:id="SUBSECTIONCauchyRiemannInt">
+      <title>Cauchy<rsq/>s Definition of the Integral</title>
+
+
+      <p>
+        One of the first mathematicians to provide a rigorous definition
+        of a definite integral was <url
+        href="https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/"
+        >Augustin Louis
+        Cauchy</url> in 1823. 
+        Cauchy used the limit idea to bridge the gap between finite sums
+        of (finitely many) very small (but still finite) pieces and
+        infinite sums of infinitesimals.
+      </p>
+      <p>
+        It was common practice to
+        approximate an integral whose antiderivative was not readily
+        computable by a finite sum as seen in <xref
+        ref="FIGURECauchyIntFinitSum" ></xref>.
+        
+      </p>
+
+      <figure  xml:id="FIGURECauchyIntFinitSum">
+        <caption></caption>
+        <image source="images/Integration2.png" width="45%">
+          <shortdescription></shortdescription>
+        </image>
+      </figure>
+      <p>
+
+        To approximate <m>\int^b_{x=a}{f(x)\dx{x}}</m>, Cauchy started
+        by partitioning <m>P</m> of the interval<m> [a,b]</m> into a
+        finite number of subintervals.  Basically, the partition
+        <m>P</m> is a finite sequence of numbers 
+        <me>
+          a=x_0\lt x_1\lt x_2\lt\dots \lt x_{n-1}\lt x_n=b 
+          </me>.  
+          In the figure <m>n=5</m>. He then formed the sum
+
+          <md>
+            <mrow>
+              f\left(x_0\right)\left(x_1-x_0\right)\amp{}+f\left(x_1\right)\left(x_2-x_1\right)+\dots
+            </mrow>
+            <mrow>
+              \amp{}\dots
+              +f\left(x_{n-1}\right)\left(x_n-x_{n-1}\right)=\sum^{n-1}_{k=0}{f(x_k)(x_{k+1}-x_k)}
+            </mrow>
+
+          </md>
+      </p>
+      <p>
+
+
+        If <m>f\left(x\right)\ge 0</m> as in <xref
+        ref="FIGURECauchyIntFinitSum" ></xref> we see that we are
+        approximating the area under the curve <m>y=f(x)</m> with the
+        area of a finite sum of boxes whose bases are the subintervals
+        <m>[x_k,x_{k+1}]</m> and whose heights are obtained by
+        evaluating <m>f</m> at some point in <m>[x_k,x_{k+1}]</m>. In
+        our figure we used the left endpoint <m>x_k</m> for
+        convenience.       Notice that the subintervals need not be the
+        same length.
+      </p>
+      <p>
+        Diagrams like this are the source of the common misunderstanding
+        that an integral computes area. In certain special cases it
+        does, and it is often helpful to think of an integral as if it
+        is an area but area is only one possible application of the
+        integral. There are many others.
+      </p>
+      <p>
+
+        We
+        define the <term>norm</term> of the partition <m>\norm{P}</m>
+        to be to be the length of the largest subinterval:
+        <me>
+          \norm{P}=\max_{k=0, 1, \dots    n-1}(x_{k+1}-x_k) 
+          </me>.
+
+          Cauchy said that a function
+          <m>f(x)</m> defined on <m>[a,b]</m> was integrable if there was a
+          number <m>I</m> such that for all <m>\eps >0</m>, there is a
+          <m>\delta >0</m> such that whenever the norm of the partition,
+          <m>\norm{P}</m> is less than <m>\delta{}</m> the difference
+          between <m>I</m> and the  associated sum will be less than
+          <m>\eps{}</m>. Symbolically this is 
+          <me>\norm{P}\lt \delta \imp \abs{\sum^{n-1}_{k=0}{f\left(x_k\right)\left(x_{k+1}-x_k\right)}-I}\lt
+          \eps </me>.
+          Notice that <m>P</m> can be any partition as long as
+          <m>\norm{P}\lt\delta </m>.
+      </p>
+      <p>
+        In this case we write <me>I=\int^b_{x=a}{f(x)\dx{x}}</me>
+      </p>
+      <p>
+        Using this definition Cauchy was then able to show that any
+        continuous function is (Cauchy) integrable and was able to
+        prove the <xref ref="THEOREMFTCCauchy"
+        text="custom">Fundamental Theorem of Calculus</xref> as we
+        indicated in the last section. More formally, Cauchy made
+        the following definition.
+      </p>
+
+      <definition xml:id="DEFINITIONRiemannIntegral">
+        <title>The Riemann Integral</title>
+
+        <idx><h>Definition</h><h>Riemann Integral</h></idx>
+        <idx><h>Riemann Integral</h></idx>
+
+        <statement>
+
+          <p>
+            Given a function <m>f(x)</m> defined on the interval
+            <m>[a,b]</m>, we say <m>f</m> is integrable on
+            <m>[a,b]</m> if and only if there is a number <m>I</m>
+            such that for each <m>\epsilon >0</m>, there is a
+            <m>\delta >0</m> such that for any partition
+            <m>P=\{x_0, x_1, \cdots, x_n\}</m> of <m>[a,b]</m>
+            with <m>\norm{P}\lt\delta </m>, we
+            have
+
+
+            <me>\left|\sum^{n-1}_{k=0}{f\left(x^*_k\right)\left(x_{k+1}-x_k\right)}-I\right|\lt\epsilon </me> 
+
+
+            for any choice of <m>x^*_k</m> where <m>x_k\le x^*_k\le x_{k+1}</m>.
+
+          </p>
+          <!-- <p> -->
+          <!--   Given a function <m>f(x)</m>, defined on the interval -->
+          <!--   <m>[a,b]</m> we say that <m>f</m> is integrable on -->
+          <!--   <m>[a,b]</m> if and only if, for every <m>\eps\gt 0</m>, -->
+          <!--   and  every partition -->
+
+          <!--   <me> -->
+          <!--     P=\left\{x_0, x_1, x_2, \cdots, x_n\right\}  -->
+          <!--     </me> -->
+          <!--     where <m>x_0=a</m>, <m>x_n=b</m>,1 and <m>x_k\lt -->
+          <!--     x_{k+1}</m> <m>\forall</m> <m>k=0,\ldots,n-1</m>,  -->
+          <!--     <m>\exists</m> -->
+          <!--     <m> -->
+          <!--     \delta \gt 0</m> such that -->
+          <!--     <me>\norm{P}\lt\delta \imp -->
+          <!--     \abs{\sum^{n-1}_{k=0}{f\left(x_k^*\right)\left(x_{k+1}-x_k\right)}-I}\lt -->
+          <!--     \eps </me> -->
+          <!--     where <m>x_k\lt{}x_k^*\lt x_{k+1}</m>. -->
+
+          <!-- </p> -->
+          <aside>
+            <title>Riemann Integral vs. Cauchy Integral</title>
+            <p>
+              No doubt you are wondering why this is called the
+              <term>Riemann Integral</term> when it was devised by
+              Cauchy. 
+            </p>
+            <p>
+              It often happens in mathematics that important
+              concepts do not get named for the person who invents
+              them. In this instance Cauchy showed that continuous
+              functions are integrable under his definition, but
+              left open the question, <q>Is it necessary for a
+              function to be continuous for it to be integrable?</q>
+            </p>
+            <p>
+              The answer to that question is emphatically <q>No!</q>
+              as Riemann showed in 1868. In fact Riemann was able to
+              provide necessary and sufficient conditions for a
+              function to be integrable under Cauchy<rsq/>s
+              definition which are far weaker than continuity.  We
+              won<rsq/>t go into that as it does not serve our
+              purposes here, but as a result of Riemann<rsq/>s work
+              Cauchy<rsq/>s definition of the integral came to be
+              called the <term>Riemann integral</term>.
+            </p>
+            <!-- <p> -->
+            <!--   In that case we say that  -->
+            <!--   <me>\int_a^b f(x)\dx{x} =I</me>. -->
+            <!-- </p> -->
+          </aside>
+
+        </statement>
+      </definition>
+      <!-- <p> -->
+
+      <!--   In 1854, <url -->
+      <!--   href="https://mathshistory.st-andrews.ac.uk/Biographies/Riemann/" -->
+      <!--   >Bernhard -->
+      <!--   Riemann</url> presented a generalization of Cauchy<rsq/>s idea for -->
+      <!--   a definite integral to the faculty at the University of Göttingen -->
+      <!--   which was later published in 1868.  His idea was similar to -->
+      <!--   Cauchy<rsq/>s, except that instead of restricting the heights of -->
+      <!--   the boxes to the left endpoints of the subintervals, he allowed -->
+      <!--   the height of <m>k</m>th box to be <m>f(x^*_k)</m> where -->
+      <!--   <m>x^*_k</m> is any point in the subinterval <m>[x_k,x_{k+1}]</m>. -->
+      <!--   Any Riemann integrable function is automatically Cauchy integrable -->
+      <!--   and in this case the integrals are the same.  Furthermore, Riemann -->
+      <!--   was able to provide necessary and sufficient conditions for when a -->
+      <!--   function was Riemann integrable.  We won<rsq/>t go into that as it -->
+      <!--   does not serve our purposes here. -->
+      <!-- </p> -->
+
+      <p>
+        The similarity between <xref ref="DEFINITIONRiemannIntegral"
+        ></xref>  and the definition of a limit is hard to miss so
+        sometimes the Riemann integral is defined via the limit
+        symbol as 
+        <men xml:id="EQUATIONCauchyIntAsLim">
+          \int_a^bf(x)\dx{x} =
+          \limit{\norm{P}}{0}{\sum^{n-1}_{k=0}{f\left(x_k^*\right)\left(x_{k+1}-x_k\right)}}
+        </men>
+        but in our (the authors<rsq/>) opinions this notatation serves to hide the
+        important ideas rather than elucidate them because the limit
+        in <xref ref="EQUATIONCauchyIntAsLim" >equation</xref> is
+        very different from the ones we<rsq/>ve encountered
+        before.
+      </p>
+      <p>
+        In the past, when we had limits like
+        <m>\limitt{x}{2}{\frac{x^2-4}{x-2}}</m> we only had to think
+        about letting the single variable <m>x</m> get <q>close
+        to</q> <m>2</m>. But the limit in <xref
+        ref="EQUATIONCauchyIntAsLim" >equation</xref> is far more
+        complex. It asks us to simultaneously think about all
+        possible partitions with the property that
+        <m>\norm{P}\lt\delta{}</m>, and all possible choices of
+        <m>x_k^*\in \left[x_k,x_{k+1}\right]</m>, in addition to
+        what is happening when <m>\norm{P} \rightarrow 0</m>.
+      </p>
+      <p>
+        Because of these issues we will use an equivalent
+        formulation of the definite integral. One which makes use of a
+        concepts we<rsq/>ve already familiar with: the <xref ref="thm_LUB" text="custom">least upper bound</xref>
+        and <xref ref="PROBLEMGreatestLowerBound" text="custom">greatest lower bound</xref> properties of the real number
+        system.
+
+        <!-- It can be done, but we<rsq/>d prefer something a -->
+        <!-- little easier to think about. Darboux<rsq/>s definition is a -->
+        <!-- bit simpler in that we only need to think about a least -->
+        <!-- upper bounds and a greatest lower bound -->
+      </p>
+    </subsection>
+    <subsection xml:id="SUBSECTIONDarbouxIntegral">
+      <title>Darboux<rsq/>s Integral Definition</title>
+
+      <p>
+        Notice that neither the <xref ref="DEFINITIONRiemannIntegral"
+        text="custom">definition of the integral</xref> nor <xref
+        ref="def_derivative" text="custom">the definition of the
+        derivative</xref> tells us how to compute the quantity in
+        question. In the <m>19</m>th century the computational rules for
+        both integrals and derivatives were as well understood as they are
+        today.  It was the logical support for these methods that was
+        shaky. These definitions are about providing a rigorous foundation
+        for these ideas, not about computing them.
+      </p>
+
+
+
+      <p>
+        In <m>1875</m> <url
+        href="https://mathshistory.st-andrews.ac.uk/Biographies/Darboux/"
+        >Jean Gaston Darboux</url> (1842<ndash/>1917) developed a
+        different (but equivalent) definition of the Riemann integral
+        which uses the least upper and greatest lower bounds we learned
+        about in <xref ref="IVTandEVT" ></xref>.  <!-- There are discontinuous -->
+        <!-- functions which are Darboux (and Riemann) integrable, but to keep -->
+        <!-- things simple we will restrict our attention to continuous -->
+        <!-- functions. -->
+        We assume that <m>f(x)</m> is a bounded (not necessarily
+        continuous) function on an interval <m>[a,b]</m>.
+      </p>
+      <figure  xml:id="FIGUREDarbouxPortrait">
+        <caption>Jean Gaston Darboux</caption>
+
+        <idx><h>Portraits</h><h>Darboux</h></idx>
+        <idx><h>Darboux, Jean</h><h>portrait of</h></idx>
+
+        <image source="images/Darboux.png" width="35%">
+          <shortdescription></shortdescription>
+        </image>
+      </figure>
+      <p>
+        As before, we will start with a partition <m>P=\{x_0, x_1,x_2,
+        \dots , x_n\}</m> of the interval <m>[a,b]</m> where <m>a=x_0\lt
+        x_1\lt \dots \lt x_{n-1}\lt x_n=b</m>.  Let <m>m_k</m> and
+        <m>M_k</m> denote the infimum and supremum of <m>f(x)</m> on
+        <m>[x_k,x_{k+1}]</m>, respectively.  Define the <term>lower (Darboux)
+        sum</term> <m>L(P)</m> by
+        <me>L\left(P\right)=\sum^{n-1}_{k=0}{m_k\left(x_{k+1}-x_k\right)}</me>
+        and <term>upper (Darboux) sum</term> <m>U(P)</m> by
+        <me>
+          U\left(P\right)=\sum^{n-1}_{k=0}{M_k\left(x_{k+1}-x_k\right)}</me>.
+      </p>
+      <p>
+
+
+        Notice that if the integral 
+        <me>
+          \int^b_{x=a}{f(x)\dx{x}}
+        </me>
+        exists, then it is intuitively clear that <me>L\left(P\right)\le
+        \int^b_{x=a}{f(x)\dx{x}}\le U(P)</me> It is also intuitively clear
+        that as the number of intervals gets larger, these bounds get
+        closer to the actual integral (again, if it exists). If you
+        don<rsq/>t see this try drawing a few representative examples.
+      </p>
+      
+      <definition xml:id="DEFINITIONPartitionRefine">
+        <title>Partition Refinement</title>
+
+        <idx><h>partition refinement</h></idx>
+        <idx><h>Definition</h><h>partition refinement</h></idx>
+
+        <statement>
+
+          <p>
+            Given two partitions
+            <me>
+              P^\prime=\{x^\prime_0, x^\prime_1,
+              x^\prime_2, \dots , x^\prime_{m-1},x^\prime_m\}
+            </me>
+            and
+            <me>
+              P=\{x_0, x_1, x_2, \dots , x_{m-1},x_m\}
+            </me>
+            <m>P^\prime </m> is said to be a <term>refinement</term> of
+            <m> P</m> if every point in <m>P</m> is also a point in <m>
+            P^\prime</m>. That is, <m>P\subset P^\prime </m>.
+          </p>
+
+        </statement>
+      </definition>
+
+
+
+      <problem>
+        <idx><h>Problems</h><h>partition refinement</h></idx>
+
+        <statement>
+
+          <p>
+            Show that if <m>P^\prime</m> is a
+            refinement of <m>P</m>, then
+
+            <me>
+              L\left(P\right)\le L\left(P^\prime\right)\le
+              U\left(P^\prime\right)\le U(P)
+            </me>
+          </p>
+
+        </statement>
+
+
+        <hint>
+          <p>
+            First show that this is true if <m>P^\prime</m> is obtained
+            by adding one point to <m>P</m>.
+          </p>
+        </hint>
+
+      </problem>
+
+      <problem xml:id="PROBLEMPartitionIneq1">
+        <idx><h>Problems</h><h>partition of <m>[a,b]</m></h></idx>
+
+        <statement>
+          <p>
+            Let <m>P </m>and <m> \Pi </m> be any two partitions of
+            <m>[a,b]</m>.  Show that <me>L\left(P\right)\le
+            U(\Pi{})</me>
+          </p>
+
+        </statement>
+        <hint>
+          <p>
+            Consider that <m>Q=P\cup \Pi </m> is a refinement of both
+            <m>P</m> and <m>\Pi </m>, and use the previous result.
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        Next observe  that the set of lower sums over all
+        partitions of <m>[a,b]</m> is a non<ndash/>empty set of real
+        numbers which is bounded above.  Therefore by <xref ref="thm_LUB" ></xref>  it has a least upper
+        bound.  We define the lower (Darboux) integral by
+        <men xml:id="EQUATIONLowerDarbInt">b 
+        \underline{\int^b_{x=a}}{f(x)}\dx{x}=\sup_{P}
+        \left(L(P)\right)
+        </men>
+      </p>
+
+      <p>
+        Similarly, the set of all upper sums is a non<ndash/>empty set of
+        real numbers which is bounded below and therefore has a
+        greatest lower bound. We define the upper (Darboux) integral
+        as the greatest lower bound of this set
+
+        <men xml:id="EQUATIONUpperDarbInt">
+          \overline{\int^{b}_{x=a}}{f(x)\dx{x}}=\inf_{P} \left(U(P)\right)
+        </men>
+      </p>
+
+      <problem xml:id="PROBLEMUpLowDarboux">
+        <title>
+          Upper and Lower Darboux Integrals
+        </title>
+
+        <idx><h>Problems</h><h>Prove that <m>\underline{\int^b_{x=a}}{f(x)}\dx{x}\le
+        \overline{\int^{b}_{x=a}}{f(x)\dx{x}}</m></h></idx>
+
+        <statement>
+          <p>
+            Show that <me>\underline{\int^b_{x=a}}{f(x)}\dx{x}\le
+            \overline{\int^{b}_{x=a}}{f(x)\dx{x}}</me>
+          </p>
+
+        </statement>
+        <hint>
+          <p>
+            Let <m>P^\prime</m> be a fixed partition of <m>[a,b]</m>.
+            By <xref ref="PROBLEMPartitionIneq1"></xref>, <m>U(P^\prime)</m> is an upper bound for the
+            set of all lower sums.  This says 
+            <me>
+              \underline{\int^b_{  x=a  }}{f(x)}\dx{x}\le U(P^\prime)
+              </me>.
+          </p>
+          <p>
+            However, <m>P^\prime</m> is an arbitrary partition of
+            <m>[a,b]</m>.]
+          </p>
+        </hint>
+
+      </problem>
+
+      <definition xml:id="DEFINITIONDarbouxIntegral">
+        <title>Darboux Integrability</title>
+
+        <idx><h>Darboux Integrability</h></idx>
+        <idx><h>Definition</h><h>Darboux Integrability</h></idx>
+
+        <statement>
+          <p>
+            A function is said to be (Darboux) integrable provided
+            <me>
+              \underline{\int^b_{x=a}}{f(x)}\dx{x}=\overline{\int^{b}_{x=a}}{f(x)\dx{x}}
+            </me>
+          </p>
+          <p>
+
+            In this case we define the (Darboux) integral by
+
+            <me>
+              \int^b_{x=a}{f(x)\dx{x}}=\underline{\int^b_{x=a}}{f(x)}\dx{x}=\overline{\int^{b}_{x=a}}{f(x)\dx{x}}
+            </me>
+          </p>
+
+        </statement>
+      </definition>
+
+      <p>
+        <!--   We have restricted our attention to continuous functions so -->
+        <!--   that in the definitions of the upper <m>U(P)</m> and lower -->
+        <!--   <m>L(P)</m> sums we could ensure that on each subinterval -->
+        <!--   the function in question has a minimum <m>m_k</m> and a -->
+        <!--   maximum <m>M_k</m>, per the <xref ref="thm_EVT" -->
+        <!--   text="custom">Extreme Value Theorem</xref>.  By tweaking -->
+        <!--   <xref ref="DEFINITIONDarbouxIntegral" ></xref> a bit it is -->
+        <!--   possible to extend integrability to some discontinuous -->
+        <!--   functions, but not all of them. For example a slight -->
+        <!--   modification of either Cauchy<rsq/>s or Darboux<rsq/>s -->
+        <!--   definition of the Riemann integral will allow us to include -->
+        <!--   the step function: -->
+        <!--   <me> -->
+        <!--       S(x)= -->
+        <!--       \begin{cases} -->
+        <!--       0\amp \text{ if } x\lt0\\ -->
+        <!--       1\amp \text{ if } x\gt0 -->
+        <!--       \end{cases} -->
+        <!--       </me> -->
+        <!--       but we will not pursue these extensions any -->
+        <!--       further. -->
+        Since Darboux<rsq/>s  integral is equivalent to the Riemann integral   this definition does not guarantee that a given function will be Darboux (Riemann) integrable.
+      </p>
+      <p>
+        The next problem displays a function invented by <url
+        href="https://mathshistory.st-andrews.ac.uk/Biographies/Dirichlet/">
+        Lejeune Dirichlet</url> (1805<ndash/>1859) in <m>1837</m>
+        which is not Riemann (Darboux) integrable.
+
+
+        <!--     bounded, but not necessarily continuous functions. This would require using the infimum and -->
+        <!-- supremum of <m>f(x)</m> on each subinterval rather than the -->
+        <!-- minimum and maximum, but we won<rsq/>t pursue that extention -->
+        <!-- here. -->
+
+      </p>
+
+      <figure >
+        <caption>Lejeune Dirichlet</caption>
+
+        <idx><h>Portraits</h><h>Dirichlet</h></idx>
+        <idx><h>Dirichlet, Lejeune</h><h>portrait of</h></idx>
+
+        <image source="images/Dirichlet.png" width="35%">
+          <shortdescription>Portrait of Dirichlet</shortdescription>
+        </image>
+      </figure>
+
+
+      <problem xml:id="PROBLEMDirichletCountrExamp">
+        <idx><h>Problems</h><h>Dirichlet<rsq/>s Function</h></idx>
+        <idx><h>Dirichlet<rsq/>s Function</h></idx>
+
+        <statement>
+          <p>
+            In honor of Dirichlet his function is often denoted
+            <m>D(x)</m>. It is defined as follows:
+            <men xml:id="EQUATIONDirichletsFunction">
+              D(x)=
+              \begin{cases}
+              0\amp \text{ if } x \text{ is irrational}\\
+              1\amp \text{ if } x \text{ is rational}
+              \end{cases}
+              </men>.
+
+          </p>
+          <p>
+            Show that <m>D(x)</m> is not Riemann integrable on
+            <m>[0,1]</m>.
+          </p>
+
+        </statement>
+
+        <hint>
+          <p>
+            Use <xref ref="DEFINITIONDarbouxIntegral" text="custom">
+            Darboux<rsq/>s definition</xref> of the Riemann
+            integral.
+          </p>
+        </hint>
+      </problem>
+
+      <p>
+        As we mentioned (but did not prove) earlier, Darboux<rsq/>s
+        definition of the integral is equivalent to the Riemann
+        integral, in the sense that any function which is Riemann
+        integrable is also Darboux integral and <foreign>vice
+        versa</foreign>. This is similar to having both an <xref
+        ref="def_continuity" text="custom">analytic definition of
+        continuity</xref> and a <xref ref="thm_LimDefOfContinuity"
+        text="custom">sequence<ndash/>based definition of
+        continuity</xref>. We can use whichever definition works
+        better for the problem at hand.
+      </p>
+      <p>
+        For example, it is straightforward to derive the properties
+        of definite integrals that you learned in Calculus using
+        Cauchy<rsq/>s formulation.  But to show that a continuous
+        function is integrable it is a little simpler to use
+        Darboux<rsq/>s formulation as we will see next.
+      </p>
+
+      <theorem xml:id="THEROEMContImpInt">
+        <p>
+          If <m>f\left(x\right)</m> is continuous
+          on <m>[a,b]</m>, then
+
+
+          <me>\underline{\int^b_{x=a}}{f(x)}\dx{x}=\overline{\int^{b}_{x=a}}{f(x)\dx{x}}</me>
+          so <m>f(x)</m> is integrable.
+        </p>
+      </theorem>
+
+      <proof  xml:id="THEOREMContImpIntProof">
+        <title>Sketch of Alleged Proof</title>
+        
+        <p>
+          Note that we<rsq/>re calling this an <q>alleged</q>
+          proof. That means that it contains a flaw somewhere. As
+          you read it see if you can find where it goes wrong.
+        </p>
+
+        <p>
+          We already know that
+          <me>\underline{\int^b_{x=a}}{f(x)}\dx{x}\le
+          \overline{\int^{b}_{x=a}}{f(x)\dx{x}}</me>
+        </p>
+        <p>
+          If we can also show that
+
+          <me>
+            \overline{\int^{b}_{x=a}}{f(x)\dx{x}}\le
+            \underline{\int^b_{x=a}}{f(x)}\dx{x}
+          </me>
+          then the conclusion follows immediately.
+        </p>
+        <!-- <p> -->
+
+        <!--   To show that these are equal, we will show that for any <m>\eps >0</m>, -->
+
+        <!--   <me> -->
+        <!--     \overline{\int^{b}_{x=a}}{f(x)\dx{x}}-\underline{\int^b_{x=a}}{f(x)}\dx{x}\lt -->
+        <!--     \eps -->
+        <!--   </me> -->
+        <!-- </p> -->
+        <!-- <p> -->
+
+        <!--   Since <m>\eps >0</m> is arbitrary, this will say that -->
+        <!--   <me> -->
+        <!--     \overline{\int^{b}_{x=a}}{f(x)\dx{x}}-\underline{\int^b_{x=a}}{f(x)}\dx{x}\le -->
+        <!--     0 -->
+        <!--   </me> -->
+        <!--   or -->
+        <!--   <m>\overline{\int^{b}_{x=a}}{f(x)\dx{x}}\le -->
+        <!--   \underline{\int^b_{x=a}}{f(x)}\dx{x}</m> -->
+        <!-- </p> -->
+        <p>
+
+          Let <m>\eps \gt 0</m> be given.  Since <m>f\left(x\right)</m> is continuous at each
+          point in <m>[a,b]</m>, we can choose a <m>\delta >0</m> such that if
+          <men xml:id="EQUATIONUniContFlaw1">
+            \left|x-y\right|\lt \delta 
+            </men>,
+            then
+            <men xml:id="EQUATIONUniContFlaw2">
+              \left|f\left(x\right)-f\left(y\right)\right|\lt
+              \frac{\eps }{b-a} 
+              </men>.  
+        </p>
+        <p>
+          Since <m>f</m> is continuous on <m>[a,b]</m> it is
+          continuous on each subinterval.  Next define <m>m_k</m>
+          and <m>M_k</m> to be the respective minimum and maximum of
+          <m>f(x)</m> on the subinterval <m>[x_k, x_{k+1}]</m>.  If
+          we choose a partition 
+          <me>
+            P_0=\{x_0, x_1, x_2,\dots , x_{n-1}, x_n\}
+          </me>
+          such that <m>\norm{P_0}\lt
+          \delta </m>, then on each subinterval <m>[x_k,
+          x_{k+1}]</m>, we have
+          <me>
+            M_k-m_k\lt \frac{\eps }{b-a}
+            </me>.
+        </p>
+        <p>
+          Thus 
+
+          <md>
+            <mrow>
+              \overline{\int^{b}_{x=a}}{f(x)\dx{x}}-\underline{\int^b_{x=a}}{f(x)}\dx{x}\amp=\inf_{P}
+              \left(U(P)\right) -\sup_{P} \left(L(P)\right)
+            </mrow> 
+            <mrow>
+              \amp{}     \le U\left(P_0\right)-L(P_0)
+            </mrow>
+            <mrow>
+              \amp{}      =\sum^{n-1}_{k=0}{M_k\left(x_{k+1}-x_k\right)}-\sum^{n-1}_{k=0}{m_k\left(x_{k+1}-x_k\right)}
+            </mrow>
+            <mrow>
+              \amp{}      =\sum^{n-1}_{k=0}{\left(M_k-m_k\right)\left(x_{k+1}-x_k\right)}
+            </mrow>
+            <mrow>
+              \amp{}        \lt \sum^{n-1}_{k=0}{\frac{\eps
+              }{b-a}\left(x_{k+1}-x_k\right)}
+            </mrow>
+            <mrow>
+              \amp{}        =\frac{\eps
+              }{b-a}\sum^{n-1}_{k=0}{\left(x_{k+1}-x_k\right)}
+            </mrow>
+            <mrow>
+              \amp{}=\frac{\eps }{b-a}\left(b-a\right)
+            </mrow>
+            <mrow>
+              \amp{}=\eps
+            </mrow>
+          </md>
+        </p>
+        <p>
+
+          <alert>QED?</alert>
+        </p>
+      </proof>
+      <p>
+        Did you find the flaw in the proof? If not, read it
+        carefully once more before reading on.
+      </p>
+      <!-- <p> -->
+
+      <!--   Recall that <xref ref="def_continuity" -->
+      <!--   text="custom">continuity</xref> is defined at a point, not on an -->
+      <!--   interval. That means that that for each <m>x</m>, -->
+      <!--   there is a <m>{\delta }_x>0</m> which guaratees that <xref ref="EQUATIONUniContFlaw2" -->
+      <!--   >equation</xref> will be true. It does <em>not</em> mean -->
+      <!--   that the same <m>\delta_x</m> will work for all values of -->
+      <!--   <m>x</m> in <m>[a,b]</m>.  -->
+      <!-- </p> -->
+      <p>
+        We say alleged proof because there is a subtle problem.  Because
+        <m>f(x)</m> is continuous on <m>[a,b]</m>  it is continuous at
+        each point <m>x\in [a,b]</m>.  This says that for each <m>x</m>,
+        there is a <m>{\delta }_x\gt 0</m>, such that if
+        <m>\abs{x-y}\lt\delta_x</m> then
+        <m>\left|f\left(x\right)-f\left(y\right)\right|\lt\frac{\epsilon
+        }{b-a}</m>. But if you look at our sketch of the alleged proof you see that we need a
+        single <m>\delta >0</m> which works <term>uniformly</term> for all
+        such <m>x, y\in [a,b]</m>.  This leads to the following definition.
+
+      </p>
+
+      <!-- <p> -->
+      <!--   But our alleged proof needs a single <m>\delta >0</m> which -->
+      <!--   works uniformly for all such <m>x, y</m>. Since this is not -->
+      <!--   guaranteed  <xref ref="EQUATIONUniContFlaw2" -->
+      <!--   >equation</xref> is not necessarily true for every <m>x\in -->
+      <!--   [a,b]</m>,  and so our proof fails. -->
+      <!-- </p> -->
+      <!-- <p> -->
+      <!--   That observation suggests  the following definition. -->
+      <!-- </p> -->
+
+      <definition xml:id="DEFINITIONUnifCont">
+        <title>Uniform Continuity</title>
+
+        <idx><h>Uniform Continuity</h></idx>
+        <idx><h>Definition</h><h>Uniform Continuity</h></idx>
+
+        <statement>
+          <p>
+            Suppose <m>S\subset \RR</m>.  We say that <m>f(x)</m> is
+            uniformly continuous on <m>S</m> provided that for all <m>\eps
+            >0</m>, there is a <m>\delta >0</m> such that
+            <m>\left|f\left(x\right)-f\left(y\right)\right|\lt \eps </m> for
+            all <m>x, y\in S</m> with <m>\left|x-y\right|\lt \delta </m>.
+          </p>
+
+        </statement>
+      </definition>
+      <p>
+        This is called <term>uniform continuity</term> because  a single value of 
+        <m>\delta </m>  works uniformly for all <m>x,y\in S</m>, whereas
+        in regular continuity,  <m>\delta </m> may depend on the value of
+        <m>x</m>.  It is  clear that any function which is uniformly
+        continuous on a set <m>S</m> is continuous on <m>S</m>, but   the
+        converse is not always true.
+
+        That is,  <term>uniform continuity</term> is a stronger property than <term>continuity</term>.
+      </p>
+
+      <problem xml:id="PROBLEMContVSUnifCont">
+        <idx><h>Problems</h><h>uniform continuity</h></idx>
+        <p>
+          Consider <m>f(x)=x^2</m> on
+          <m>[0,\infty )</m>.  Show that for any <m>\delta >0</m>,
+          <me>
+            \left(x+\frac{\delta }{2}\right)^2-x^2>1
+          </me>
+          whenever 
+          <me>
+            x>\frac{1-\frac{{\delta }^2}{4}}{\delta }
+            </me>.
+            Explain why this says that <m>f\left(x\right)=x^2</m> is not
+            uniformly continuous on <m>[0,\infty )</m>.
+
+        </p>
+      </problem>
+
+      <!-- <p> -->
+      <!--   It is clear why this is called uniform continuity, since the -->
+      <!--   <m>\delta </m> must work uniformly for all <m>x,y\in S</m>, -->
+      <!--   whereas in regular continuity, the <m>\delta </m> may depend on -->
+      <!--   the value of <m>x</m>.  It is also clear that any function which -->
+      <!--   is uniformly continuous on a set <m>S</m> is continuous on -->
+      <!--   <m>S</m>.  The converse is not always true. -->
+      <!-- </p> -->
+      <!-- <problem> -->
+      <!--   <p> -->
+      <!--     Consider <m>f(x)=x^2</m> on -->
+      <!--     <m>[0,\infty )</m>.  Show that for any <m>\delta >0</m>, -->
+      <!--     <me> -->
+      <!--       \left(x+\frac{\delta }{2}\right)^2-x^2>1 -->
+      <!--     </me> -->
+      <!--     whenever  -->
+      <!--     <me> -->
+      <!--       x>\frac{1-\frac{{\delta }^2}{4}}{\delta } -->
+      <!--       </me>. -->
+      <!--       Explain why this says that <m>f\left(x\right)=x^2</m> is not -->
+      <!--       uniformly continuous on <m>[0,\infty )</m>. -->
+      <!--   </p> -->
+      <!-- </problem> -->
+
+      <p>
+        Our <q>alleged proof</q> of <xref ref="THEROEMContImpInt" ></xref>
+        is in fact a valid proof that a uniformly continuous function is
+        (Darboux) integrable.  But as <xref ref="PROBLEMContVSUnifCont"
+        ></xref> points out, a continuous function need not be uniformly
+        continuous.  The hypothesis of <xref ref="THEROEMContImpInt"
+        ></xref> requires that the function be defined on a closed bounded
+        interval, so the difficulty in <xref ref="PROBLEMContVSUnifCont"
+        ></xref> is that the interval <m>[0,\infty)</m> while closed, is
+        unbounded.  The following lemma closes the gap.
+
+        <!-- Our <xref ref="THEOREMContImpIntProof" text="custom"><q>alleged proof</q></xref>  of <xref ref="THEROEMContImpInt" ></xref> is, in fact, a valid proof that a -->
+        <!-- uniformly continuous function is (Darboux) integrable. But since a continuous function is not necessarily uniformly continuous the <q>alleged proof</q> does -->
+        <!-- not prove that a merely continuous function is (Darboux) -->
+        <!-- integrable. To fix the proof we need to show that  the conditions of <xref ref="THEROEMContImpInt" ></xref> a continuous function is also uniformly continuous. The following lemma will do the trick. -->
+      </p>
+
+
+      <lemma xml:id="LEMMAUnifContImpCont">
+        <p>
+          If <m>f(x)</m> is continuous on the closed, bounded interval <m>[a,b]</m>, then <m>f(x)</m> is uniformly continuous on <m>[a,b]</m>.
+        </p>
+
+      </lemma>
+
+      <proof>
+        <title> Sketch of Proof  </title>
+
+        <p>
+          We will do a proof by contradiction.  Suppose <m>f(x)</m> is not
+          uniformly continuous on <m>[a,b]</m>.  Then there is an <m>\eps
+          >0</m> such that for any <m>\delta >0</m>, there are <m>x,y</m>
+          with <m>\left|x-y\right|\lt \delta </m> , but
+          <m>\left|f\left(x\right)-f\left(y\right)\right|\ge \eps </m>.  If
+          we let <m>\delta =\frac{1}{n}, n\in \mathbb{N}</m>, then we can
+          create two sequences <m>\left(x_n\right), (y_n)</m> with
+          <m>\left|x_n-y_n\right|\lt \frac{1}{n}</m>, but
+          <m>\left|f\left(x_n\right)-f\left(y_n\right)\right|\ge \eps .</m>
+          By the Bolzano<ndash/>Weierstrass Theorem, there is a <m>c\in [a,b]</m>
+          and a subsequence <m>(x_{n_k})</m> with
+          <m>\limit{k}{\infty }{ x_{n_k} }=c</m>.  Given
+          how <m>(y_n)</m> was constructed, <m>\limit{k}{\infty }{ y_{n_k} }=c</m>.  Since <m>f(x)</m> is continuous at
+          <m>c</m>, you should be able to get a contradiction out of this.
+        </p>
+
+      </proof>
+
+      <problem>
+        <idx><h>Problems</h><h>Prove that uniform continuity implies continuity</h></idx>
+        <idx><h>continuity</h><h>uniform</h></idx>
+        <p>
+          Turn the above outline into a proof of <xref
+          ref="LEMMAUnifContImpCont"></xref>.
+        </p>
+      </problem>
+      <problem>
+        <idx><h>Problems</h><h>continuity</h><h>implies integrability</h></idx>
+        <p>
+          Prove <xref ref="THEROEMContImpInt"></xref>.
+        </p>
+      </problem>
+
+
+
+
+      <p>
+        The evolution of the modern definition of a function is
+        parallel to, and intertwined with, the definition of the
+        definite integral.  Issues of integrability were not
+        prevalent in 18th century because for most of that time
+        the words <term>integral</term> and
+        <term>antiderivative</term> were synonymous. Thus the only
+        <term>integrable</term> functions were the ones that were
+        derivatives of some other function. But in the 19th
+        century, and especially after Fourier, we needed to
+        integrate functions that were not clearly derivatives of
+        something else. As a result the need for a precise
+        definition of function became more and more pressing as
+        the years went by.  For example, here is the definition of
+        a function from Euler<rsq/>s
+        <pubtitle>
+          <foreign>Introductio in Analysin Infinitorum</foreign>
+        </pubtitle>
+        (1748).
+      </p>
+
+      <blockquote>
+        <p>
+          <q>A function of a variable quantity is an analytic
+          expression composed in any way whatsoever of the variable quantity
+          and numbers or constant quantities.</q>
+        </p>
+      </blockquote>
+
+      <p>
+        This is the <q>function as input/output machine</q>
+        metaphor that you<rsq/>ve probably used all of your life
+        so far: A number goes in, gears turn or electronic
+        circuits are activated and a new number is generatied as
+        output from those actions. The advent of Fourier series
+        ushered in a need for a much more general definition.
+        Here is Fourier<rsq/>s definition from his
+        <pubtitle>
+          <foreign>Théorie analytique de la Chaleur</foreign>
+        </pubtitle>
+        (1822).
+      </p>
+
+      <blockquote>
+        <p>
+          <q>In general, the function <m>f(x)</m> represents a
+          succession of values or ordinates each of which is arbitrary. An
+          infinity of values being given of the abscissa <m>x</m>,
+          there are an equal number of ordinates<m>f(x)</m>. All
+          have actual numerical values, either positive or negative or
+          nul. We do not suppose these ordinates to be subject to a common
+          law; they succeed each other in any manner whatever, and each of
+          them is given as it were a single quantity.</q>
+        </p>
+      </blockquote>
+
+      <p>
+        This is closer to our modern approach. In the modern
+        definition for each <m>x</m> in the domain, there is a
+        unique <m>f(x)</m> assigned to it.  It is different from
+        Euler<rsq/>s definition in that no formula, and no
+        metaphorical machine is needed to generate an output. A
+        function can be defined by simply giving a list of ordered
+        pairs. No particular rule is needed.
+      </p>
+      <p>
+
+
+
+        As you can see, making the idea of an integral rigorous was a
+        delicate matter.  Perhaps this is why it took so long to develop.
+      </p>
+
+    </subsection>
+  </section>
+</chapter>
+
+<!-- <subsection xml:id="SUBSECTIONStieltjesIntegral"> -->
+<!--   <title>The Stieltjes Integral</title> -->
+
+<!--   <figure  xml:id="FIGUREStieltjesPortrait"> -->
+<!--     <caption>Thomas Jan Stieltjes</caption> -->
+<!--     <image source="images/Stieltjes.png" width="35%"> -->
+<!--       <shortdescription>Portrait of Thomas Jan Stieltjes</shortdescription> -->
+<!--     </image> -->
+<!--   </figure> -->
+
+<!--   <p> -->
+<!--     The various integral definitions we<rsq/>ve seen so far have -->
+<!--     all been equivalent in the sense that the value of the -->
+<!--     integral is the same regardless of which definition is -->
+<!--     used. This is not true of the Stieltjes integral. -->
+<!--   </p> -->
+<!--   <p> -->
+<!--     To begin to understand the Stieltjes integral consider the -->
+<!--     Riemann integral:  -->
+<!--     <me> -->
+<!--       \int_{x=1}^2x^2(2x) \dx{x} -->
+<!--       </me>.  In your -->
+<!--     Calculus you learned how to evaluate this integral as -->
+<!--     follows. First we let <m>\alpha(x) = x^2</m> so that -->
+<!--     <m>\dx{\alpha}=2x\dx{x}</m>, <m>\alpha (1)=1</m>, and -->
+<!--     <m>\alpha (2)=4</m>, so that  -->
+<!--     <me> -->
+<!--       \int_{x=1}^1x^2(2x) \dx{x} = -->
+<!--       \int_{ \alpha =1}^4  \alpha \dx{\alpha }=3 -->
+<!--       </me>.   -->
+<!--   </p> -->
+<!-- </subsection> -->
+
+
+
+<!-- <section xml:id="Continuity-AddProb"> -->
+<!--   <title>Additional Problems</title> -->
+<!--   <problem> -->
+<!--     <idx><h>continuous functions</h><h>a constant function is continuous</h></idx> -->
+
+<!--     <statement> -->
+<!--       <p> -->
+<!--         Use the definition of continuity to prove that the constant -->
+<!--         function <m>g(x)=c</m> is continuous at any point <m>a</m>. -->
+<!--       </p> -->
+<!--     </statement> -->
+<!--   </problem> -->
+
+<!--   <problem> -->
+<!--     <idx><h>continuous functions</h><h><m>\ln x</m> is continuous everywhere</h></idx> -->
+<!--     <task> -->
+<!--       <statement> -->
+<!--         <p> -->
+<!--           Use the definition of continuity to prove that <m>\ln x</m> -->
+<!--           is continuous at <m>1</m>. -->
+<!--         </p> -->
+<!--       </statement> -->
+<!--       <hint> -->
+<!--         <p> -->
+<!--           You may want to use the fact <m>\abs{\ln x}\lt -->
+<!--           \eps\,\Leftrightarrow-\eps\lt \ln x\lt \eps</m> to find a -->
+<!--           <m>\delta</m>. -->
+<!--         </p> -->
+<!-- </hint> -->
+<!-- </task> -->
+<!-- <task> -->
+<!--   <statement> -->
+<!--     <p> -->
+<!--       Use part (a) to prove that <m>\ln x</m> is continuous at any -->
+<!--       positive real number <m>a</m>. -->
+<!--     </p> -->
+<!-- </statement> -->
+<!-- <hint> -->
+<!--   <p> -->
+<!--     <m>\ln(x)=\ln(x/a)+\ln(a)</m>.  This is a combination of functions -->
+<!--     which are continuous at <m>a</m>.  Be sure to explain how you know -->
+<!--     that <m>\ln(x/a)</m> is continuous at <m>a</m>. -->
+<!--   </p> -->
+<!-- </hint> -->
+<!-- </task> -->
+<!-- </problem> -->
+
+<!-- <problem> -->
+<!--   <statement> -->
+<!--     <p> -->
+<!-- <idx><h>continuity</h><h>formal definition of discontinuity</h></idx> -->
+
+<!-- Write a formal definition of the statement <m>f</m> is not continuous -->
+<!-- at <m>a</m>, and use it to prove that the function -->
+<!-- <me> -->
+<!--   f(x)=  -->
+<!--   \begin{cases} -->
+<!--   x\amp \text{ if } x\neq 1\\ -->
+<!--   0\amp \text{if } x=1  -->
+<!--   \end{cases} -->
+<!-- </me> -->
+<!-- is not continuous at <m>a=1</m>. -->
+<!--     </p> -->
+<!-- </statement> -->
+<!-- </problem> -->
+<!-- </section> -->
+
+
+
+

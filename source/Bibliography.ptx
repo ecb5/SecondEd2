@@ -1,0 +1,125 @@
+<references>
+  <title>Bibliography</title>
+  <biblio type="raw" xml:id="Gordon_Integrals">
+    Russell Gordon
+    <pubtitle>
+      The integrals of Lebesgue, Denjoy, Perron, and Henstock
+    </pubtitle>
+  </biblio>
+
+  <biblio type="raw" xml:id="Bartle_Riemann_Integral">
+    Robert G. Bartle
+    <pubtitle>Return to the Riemann Integral</pubtitle>.
+    The American Mathematical Monthly, Oct. 1996, Vol. 103, No. 8
+    Taylor \amp{} Francis, Ltd. on behalf of the Mathematical Association of
+    America
+  </biblio>
+
+  <biblio type="raw" xml:id="bradley09__cauch_cours">
+    Robert E. Bradley and C. Edward Sandifer.
+    <pubtitle><foreign>Cauchy<rsq/>s Cours d<rsq/>analyse</foreign>: An Annotated Translation</pubtitle>.
+    Sources and Studies in the History of Mathematics and Physical
+    Sciences. Springer, 2009.
+  </biblio>
+
+  <biblio type="raw" xml:id="dunham90__journ_throug_genius">
+    William Dunham.
+    <pubtitle>Journey Through Genius</pubtitle>.
+    Penguin Books, 1990.
+  </biblio>
+
+  <biblio type="raw" xml:id="franks10__cantor_other_proof_rr_uncoun">
+    John Franks.
+    Cantor<rsq/>s other proofs that <m>\RR</m> is uncountable.
+    <pubtitle>Mathematics Magazine</pubtitle>, 83(4):283--289, October 2010.
+  </biblio>
+
+  <biblio type="raw" xml:id="grabiner81__origin_cauch_rigor_calculy">
+    Judith Grabiner.
+    <pubtitle>Mathematics>The Origins of Cauchy<rsq/>s Rigorous Calculus</pubtitle>.
+    MIT Press, Cambridge MA, 1981.
+  </biblio>
+
+  <biblio type="raw" xml:id="hawking05__god_creat_integ">
+    Stephen Hawking, editor.
+    <pubtitle>Mathematics>God Created the Integers: The Mathematical Breakthroughs that
+    Changed History</pubtitle>.
+    Running Press, Philadelphia, London, 2005.
+  </biblio>
+
+  <biblio type="raw" xml:id="jahnke03__histor_analy">
+    H. Jahnke, editor.
+    
+    <pubtitle>
+      A History of Analysis
+      </pubtitle>.
+      AMS Publications, Providence RI, 2003.
+  </biblio>
+
+  <biblio type="raw" xml:id="landau66__found_analy">
+    Edmund Landau.
+    <pubtitle>Foundations of Analysis</pubtitle>.
+    Chelsea Publishing Company, New York, NY, 1966.
+    Translated by F. Steinhardt, Columbia University.
+  </biblio>
+
+  <biblio type="raw" xml:id="levenson09__newton_count">
+    Thomas Levenson.
+    <pubtitle>Newton and the Counterfeiter</pubtitle>.
+    Houghton Mifflin Harcourt, 2009.
+  </biblio>
+
+  <biblio type="raw" xml:id="netz07__archim_codex">
+    Reviel Netz and William Noel.
+    <pubtitle>The Archimedes Codex</pubtitle>.
+    Da Capo Press, 2007.
+  </biblio>
+
+  <biblio type="raw" xml:id="newton45__sir_isaac_two_treat_quadr">
+    Isaac Newton.
+    <pubtitle>Sir Isaac Newton<rsq/>s Two Treatises of the Quadrature of Curves and
+    Analysis by Equation of an Infinite Number of Terms, Explained</pubtitle>.
+    Society for the Encouragement of Learning, 1745.
+    Translated from Latin by John Stewart, A. M. Professor of
+    Mathematicks in the Marishal College and University of Aberdeen.
+  </biblio>
+
+  <biblio type="raw" xml:id="Bernoulli_bio_mactutor">
+    J. J. O<rsq/>Connor and E. F. Robertson.
+    <pubtitle>The Brachistochrone Problem</pubtitle>.
+    <url href="https://mathshistory.st-andrews.ac.uk/HistTopics/Brachistochrone/"> MacTutor History of Mathematics archive</url>
+  </biblio>
+
+  <biblio type="raw" xml:id="robinson74__non_stand_analy">
+    Abraham Robinson.
+    <pubtitle>Non-standard analysis</pubtitle>.
+    North-Holland Pub. Co., 1974.
+  </biblio>
+
+  <biblio type="raw" xml:id="russo96__forgot_revol">
+    Lucio Russo, translated by Silvio Levy.
+    <pubtitle>The Forgotten Revolution: How Science Was Born in 300 BC and Why
+    It Had to Be Reborn</pubtitle>.
+    Springer, 1996.
+  </biblio>
+
+  <biblio type="raw" xml:id="sandifer07__early_mathem_leonar_euler">
+    C. Edward Sandifer.
+    <pubtitle>The Early Mathematics of Leonard Euler</pubtitle>.
+    Spectrum, 2007.
+    ISBN 10: 0883855593, ISBN 13: 978-0883855591.
+  </biblio>
+
+  <biblio type="raw" xml:id="struik69__sourc_book_mathem">
+    Dirk Struik, editor.
+    <pubtitle>Source Book in Mathematics, 1200-1800</pubtitle>.
+    Harvard University Press, Cambridge, MA, 1969.
+  </biblio>
+
+  <biblio type="raw" xml:id="thurston56__number_system">
+    H. A. Thurston.
+    <pubtitle>The Number System</pubtitle>.
+    Blackie and Son Limited, London, Glassgow, 1956.
+  </biblio>
+</references>
+

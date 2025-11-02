@@ -1,0 +1,722 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Interegnum">
+  <title>Joseph Fourier: The Man Who Broke Calculus</title>
+  <section><title>Joseph Fourier and His Series</title>
+  <p>
+    Applying mathematics to physical problems such as heat flow in a
+    solid body drew much attention in the latter part of the 1700<rsq/>s
+    and the early part of the 1800<rsq/>s.  One of the people to attack the
+    heat flow problem was <url
+    href="https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
+    >Jean
+    Baptiste Joseph Fourier</url> (1768<ndash/>1839).
+  </p>
+
+  <figure>
+    <caption>  Jean Baptiste Joseph Fourier  </caption>
+
+    <idx><h>Fourier, Jean Baptiste Joseph</h><h>portrait of</h></idx>
+    <idx><h>Portraits</h><h>Fourier</h></idx>
+
+    <image width="35%" source="images/Fourier.png" >
+      <shortdescription></shortdescription>
+    </image>
+  </figure>
+
+  <p>
+    <idx><h>Fourier, Jean Baptiste Joseph</h></idx>
+
+    Fourier submitted a manuscript on the subject, <foreign>Sur la
+    propagation de la chaleur</foreign> (<pubtitle>On the Propagation of
+    Heat</pubtitle>), to the <foreign>Institut National des Sciences et des
+    Arts</foreign> in 1807.  These ideas were subsequently published
+    in <foreign>La theorie analytique de la chaleur</foreign> (<pubtitle>The
+    Analytic Theory of Heat (1822)</pubtitle>).
+  </p>
+
+  <p>
+    To examine Fourier<rsq/>s ideas, consider the example of a thin
+    wire of length one, which is perfectly insulated and whose
+    endpoints are held at a fixed temperature of zero.  Given an
+    initial temperature distribution in the wire, the problem is to
+    monitor the temperature of the wire at any point <m>x</m> and at
+    any time <m>t</m>.  Specifically, if we let <m>u(x,t)</m> denote
+    the temperature of the wire at point <m>x\in[0,1]</m> at time
+    <m>t\geq 0</m>, then it can be shown that <m>u</m> must satisfy
+    the one-dimensional heat equation
+    <m>\rho^2\frac{\partial^2u}{\partial x^2}=\frac{\partial
+    u}{\partial t}</m>, where <m>\rho^2</m> is a positive constant
+    known as the <term>thermal diffusivity</term>.  If the initial
+    temperature distribution is given by the function <m>f(x)</m>,
+    then the <m>u</m> we are seeking must satisfy all of the following.
+
+    <mdn>
+
+      <mrow xml:id="EQUATIONHeatEquation">
+        \rho^2\frac{\partial^2u}{\partial x^2}\amp{}=\frac{\partial u}{\partial t},\amp{}
+      </mrow>
+      <mrow number="no">
+        
+        u(0,t)\amp{} =u(1,t)=0,  
+        \amp{}
+        \forall\  t\amp{}\geq 0,
+      </mrow>
+      <mrow number="no">
+        u(x,0)\amp{} =f(x), 
+        \amp{}
+        \forall\  x\amp{}\in[\,0,1].
+      </mrow>
+
+    </mdn>
+
+  </p>
+
+  <p>
+    To do this, Fourier employed what is now referred to as the method
+    of separation of variables.  Specifically, Fourier looked for
+    solutions of the form <m>u(x,t)=X(x)T(t)</m>; that is, solutions
+    where the <m>x</m><ndash/>part can be separated from the <m>t</m>-part.
+    Assuming that <m>u</m> has this form, we get
+    <m>\frac{\partial^2u}{\partial x^2}=X^{\prime\prime}T</m> and
+    <m>\frac{\partial u}{\partial t}=X\,T^{\prime}</m>.  Substituting
+    these into <xref ref="EQUATIONHeatEquation">equation</xref> we
+    obtain
+
+    <md>
+      <mrow>
+        \rho^2X^{\prime\prime}T=X
+        T^\prime\amp{}\amp{}\text{or}\amp{}\amp{}
+        \frac{X^{\prime\prime}}{X}=\frac{T^\prime}{\rho^2T}
+      </mrow>
+      </md>.
+  </p>
+
+  <p>
+    Since the left-hand side involves no <m>t</m><rsq/>s and the
+    right-hand side involves no <m>x</m><rsq/>s, both sides must equal
+    a constant <m>k</m>.  Thus we have
+
+    <md>
+
+      <mrow>
+        X^{\prime\prime}=k X\amp{}\amp{}\text{and}\amp{}\amp{}
+        T^\prime=\rho^2k T.
+      </mrow>
+
+    </md>
+
+  </p>
+
+  <problem xml:id="prob_HarmonicMotion">
+    <idx><h>Problems</h><h>Heat Equation, the</h></idx>
+
+    <idx><h>Heat Equation, the</h></idx> 
+    <idx><h>Heat Equation, the</h><h>parameter <m>k</m> must be less
+    than zero</h></idx>
+
+    <statement>
+    <p>
+      Show that <m>T=Ce^{\rho^2kt}</m> satisfies the equation
+      <m>T^\prime=\rho^2k T</m>, where <m>C</m> is an arbitrary
+      constant.  Use the physics of the problem to show that if
+      <m>u</m> is not constantly zero, then <m>k\lt 0</m>.
+    </p>
+    </statement>
+    <hint>
+      <p>
+        Consider <m>\limit{t}{\infty}{u(x,t)}</m>.
+      </p>
+    </hint>
+  </problem>
+
+  <p>
+    Using the reslut from <xref ref="prob_HarmonicMotion"></xref> that <m>k\lt 0</m>,
+    we will let <m>k=-p^2</m>.
+  </p>
+
+  <problem>
+    <idx><h>Problems</h><h>Heat Equation, the</h><h>solving for <m>\xi(x)</m></h></idx>
+    <idx><h>Heat Equation, the</h></idx>
+    <idx><h>Heat Equation, the</h><h>solving for <m>\xi(x)</m></h></idx>
+    
+    <statement>
+      <p>
+        Show that <m>X=A\sin\left(px\right)+B\cos\left(px\right)</m>
+        satisfies the equation <m>X^{\prime\prime}=-p^2X</m>, where <m>A</m> and
+        <m>B</m> are arbitrary constants.  Use the boundary conditions
+        <m>u(0,t)=u(1,t)=0</m>, <m>\forall</m> <m>t\geq 0</m> to show that
+        <m>B=0</m> and <m>A\sin p=0</m>.  Conclude that if <m>u</m> is
+        not constantly zero, then <m>p=n\pi</m>, where <m>n</m> is any
+        integer.
+      </p>
+    </statement>
+  </problem>
+
+  <problem>
+    <idx><h>Problems</h><h>Heat Equation, the</h><h>fundamental solutions of</h></idx>  
+    <idx><h>Heat Equation, the</h><h>fundamental solutions of</h></idx>
+
+    <statement>
+      <p>
+        Show that if <m>u_1</m> and <m>u_2</m> satisfy the equations
+        <me>
+          \rho^2\frac{\partial^2u}{\partial x^2}=\frac{\partial
+        u}{\partial t}
+        </me>
+        and 
+
+        <md>
+          <mrow>
+            u(0,t)=u(1,t)=0,\amp{}\amp{} \forall\  t\geq   0
+          </mrow> 
+
+        </md>
+
+          then <m>u=A_1u_1+A_2u_2</m> satisfy them as well, where
+          <m>A_1</m> and <m>A_2</m> are arbitrary constants.
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    
+    <idx><h>Fourier, Jean Baptiste Joseph</h></idx>
+
+    Putting all of these results together, Fourier surmised that the general solution to
+
+    <md>
+      <mrow>
+        \rho^2\frac{\partial^2u}{\partial x^2}=\frac{\partial
+          u}{\partial t} u(0,t)=u(1,t)=0,\amp{}\amp{}\forall\ t\geq 0
+      </mrow>
+
+    </md>
+    could be expressed as the series
+    <me>
+      u(x,t)=\sum_{n=1}^\infty A_ne^{-(\rho n\pi)^2t}\sin\left(n\pi x\right)
+      </me>.
+  </p>
+
+  <p>
+    All that is left is to have <m>u</m> satisfy the initial condition <m>u(x,0)=f(x)</m>,
+    <m>\forall\,x\in[\,0,1]</m>.
+    That is, we need to find coefficients <m>A_n</m>, such that
+    <me>
+      f(x)=u(x,0)=\sum_{n=1}^\infty A_n\sin\left(n\pi x\right)
+      </me>.
+  </p>
+
+  <p>
+    The idea of representing a function as a series of sine waves was proposed by Daniel Bernoulli in 1753 while examining the problem of modeling a vibrating string.
+    Unfortunately for Bernoulli,
+    he didn<rsq/>t know how to compute the coefficients in such a series representation.
+    What distinguished Fourier was that he developed a technique to compute these coefficients.
+    The key is the result of the following problem.
+  </p>
+
+  <problem xml:id="prob_SinOrthogonality">
+    <idx><h>Problems</h><h>orthogonality of <m>\sin x</m></h></idx>
+    <idx><h sortby="sine"><m>\sin x</m></h><h>orthogonality of</h></idx>
+    <idx><h>orthogonality</h><h> of <m>\sin nx</m></h></idx>
+    <statement>
+      <p>
+        Let <m>n</m> and <m>m</m> be positive integers.
+        Show
+        <me>
+          \int_{x=0}^1\sin\left(n\pi x\right)\sin\left(m\pi x\right)\dx{ x}= \left\{\begin{matrix}0\amp \text{ if } n\neq m\\ \frac{1}{2}\amp \text{ if } n=m \end{matrix} \right.. {}
+        </me>
+      </p>
+    </statement>
+  </problem>
+
+  <p>
+    <idx><h>Fourier, Jean Baptiste Joseph</h></idx>
+
+    Armed with the result from <xref
+    ref="prob_SinOrthogonality"></xref>, Fourier could compute the
+    coefficients <m>A_n</m> in the series representation
+    <m>f(x)=\sum_{n=1}^\infty A_n \sin\left(n\pi x\right)</m> in the
+    following manner.  Since we are trying to find <m>A_n</m> for a
+    particular (albeit general) <m>n</m>, we will temporarily change
+    the index in the summation from <m>n</m> to <m>j</m>.  With this
+    in mind, consider
+    <md>
+      <mrow>\int_{x=0}^1f(x)\sin\left(n\pi x\right)\dx{ x} \amp =\int_{x=0}^1\left(\sum_{j=1}^\infty A_j\text{ sin } \left(j\pi x\right)\right)\sin\left(n\pi x\right)\dx{ x}</mrow>
+      <mrow>\amp =\sum_{j=1}^\infty A_j\int_{x=0}^1\sin\left(j\pi x\right)\sin\left(n\pi x\right)\dx{ x}</mrow>
+      <mrow>\amp =\frac{A_n}{2}</mrow>
+    </md>
+    which leads to the formula <m>A_n=2\int_{x=0}^1f(x)\sin\left(n\pi x\right)d x</m>.
+  </p>
+
+    <p>
+      The series <m>f(x)=\sum_{n=1}^\infty A_n\sin\left(n\pi
+      x\right)</m> with
+      <men xml:id="EQUATIONSineCoeffFourier">
+        A_n=2\int_{x=0}^1f(x)\sin\left(n\pi
+        x\right)\dx{ x}
+      </men> 
+      is called the <term>Fourier (sine) series of
+      <m>\boldsymbol{f}</m></term>.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Let<rsq/>s apply this to the function,
+          <m>f(x)=\frac{1}{2}-\abs{x-\frac{1}{2}}</m>, whose graph is
+          seen below.
+        </p>
+        <image width="75%" source="images/FourierEx1.png" >
+          <shortdescription></shortdescription>
+        </image>
+      </statement>
+    </example>
+
+    <problem>
+      <idx><h>Problems</h><h>sine series of an odd function</h></idx>
+      <idx><h>Fourier Series</h><h>sine series of an odd function</h></idx>
+
+      <statement>
+        <p>
+          Let <m>n</m> be a positive integer.
+          Show that if
+          <me>
+            f(x)=\frac{1}{2}-\abs{x-\frac{1}{2}}
+          </me>
+          then
+          <me>
+            \int_{x=0}^1f(x)\sin\left(n\pi x\right)d x = \frac{2}{\left(n\pi\right)^2}\sin\left(\frac{n\pi}{2}\right)
+          </me>
+          and show that the Fourier sine series of <m>f</m> is given by
+
+          <md>
+            <mrow>
+              f(x)\amp{}=\sum_{n=1}^\infty\frac{4}{\left(n\pi\right)^2}\sin\left(\frac{n\pi}{2}
+              \right)\sin\left(n\pi x\right)
+            </mrow>
+            <mrow>
+              \amp{}=\frac{4}{\pi^2}\sum_{k=0}^\infty\frac{\left(-1\right)^k}{\left(2k+1\right)^2}\sin\left(\left(2k+1\right)\pi x\right).{}
+            </mrow>
+          </md>
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      To see evidence that this series really does, in fact, represent
+      <m>f</m> on <m>[0,1]</m>, let
+      <me>
+        S_N(x)=\frac{4}{\pi^2}\sum_{k=0}^N\frac{\left(-1\right)^k}{\left(2k+1\right)^2} \sin\left(\left(2k+1\right)\pi x\right)
+      </me>
+      be the <m>Nth</m> partial sum of the series.
+      <!-- </p> -->
+
+      <!-- <p> -->
+      <!--   That is, <m>S_N</m> denotes the <m>N^{th}</m> partial sum of the -->
+      <!--   series. --> 
+      The sketches below display the graphs of <m>S_N</m> when
+    <m>N=1</m>, <m>N=2</m>, <m>N=5</m>, and <m>N=50</m>.
+  </p>
+  <!-- <aside> -->
+  <!--   <title>Note to self</title> -->
+  <!--   <p> -->
+  <!--     Need to find a way to make all of these graphs live and interactive. -->
+  <!--   </p> -->
+  <!-- </aside> -->
+
+  <sbsgroup widths="45% 45%" margins="auto" valign="middle">
+    <sidebyside>
+      <figure>
+        <caption>
+          Graph of <m>S_1(x)</m>
+        </caption>
+        <image width="75%" source="images/FourierEx2-1.png" />
+      </figure>
+      <figure>
+        <caption> 
+          Graph of <m>S_2(x)</m>
+        </caption>
+        <image width="75%" source="images/FourierEx3-1.png" />
+      </figure>
+    </sidebyside>
+    <sidebyside>
+      <figure>
+        <caption> 
+          Graph of <m>S_5(x)</m>
+        </caption>
+        <image width="75%" source="images/FourierEx4-1.png" />
+      </figure>
+      <figure>
+        <!-- <image width="75%" source="images/FourierEx5.png" /> -->
+        <caption> 
+          Graph of <m>S_{50}(x)</m>
+        </caption>
+        <image width="75%" source="images/FourierEx5-1.png" />
+      </figure>
+
+    </sidebyside>
+  </sbsgroup>
+  <!-- </p> -->
+  <!-- <figure> -->
+  <!-- <caption>The slider controls the number of terms in the partial sum. </caption> -->
+  <!-- <interactive desmos="eru5fcn1ct" width="90%" aspect="2:1" preview="images/FourierEx4-1.png" /> -->
+  <!-- <interactive desmos="eru5fcn1ct" width="90%" aspect="2:1"> --> 
+  <!-- <interactive desmos="https://www.desmos.com/calculator/k3f5wcw8j6" width="90%" aspect="2:1"> -->
+  <!-- <interactive desmos="jp8nvhadqk" width="125%" aspect="2:1"> -->
+  <!-- <static> -->
+  <!-- <caption></caption> -->
+  <!-- <image source="images/FourierEx4.png"> -->
+  <!-- <image width="75%" source="images/FourierEx2-1.png">  -->
+  <!--   <shortdescription></shortdescription> -->
+  <!-- </image> -->
+  <!-- </static> -->
+  <!-- </interactive> -->
+  <!-- </figure> -->
+
+  <p>
+    As you can see, as we add more terms to <m>S_N</m> its graph looks
+    more and more like the original function
+    <m>f(x)=\frac{1}{2}-\abs{x-\frac{1}{2}}</m>.  This would seem to
+    be strong evidence that series converges to the function and
+    therefore
+    <men xml:id="PDE_sol">
+      f(x)=\frac{4}{\pi^2}\sum_{k=0}^\infty\frac{\left(-1\right)^k}{\left(2k+1\right)^2}\sin\left(\left(2k+1\right)\pi x\right)
+      </men>.
+      is a valid representation of <m>f</m> as a Fourier series.
+  </p>
+  <p>
+    But is it?
+  </p>
+<p>
+  Recall, that when we represented a function as a power series,
+  we freely differentiated and integrated the series term by term as though it was a polynomial.
+  Let<rsq/>s do the same with this Fourier series.
+</p>
+
+<p>
+  To start, notice that the derivative of
+  <me>
+    f(x)=\frac{1}{2}-\abs{x-\frac{1}{2}}
+  </me>
+  is given by
+  <me>
+    f^\prime(x) = \begin{cases}1\amp \text{ if } \,\text{ } 0\leq x\lt \frac{1}{2}\\ -1\amp \text{ if } \,\frac{1}{2}\lt x\leq 1 \end{cases} 
+    </me>.
+</p>
+
+<p>
+  This derivative does not exist at
+  <m>x=\frac{1}{2}</m> and its graph is given by  
+</p>
+<figure>
+  <caption>
+    Graph of 
+    <m>
+      f^\prime(x) = 
+      \begin{cases}
+        1\amp \text{ if }  0\leq x\lt \frac{1}{2}\\ 
+        -1\amp \text{ if } \frac{1}{2}\lt x\leq 1 
+      \end{cases} 
+    </m>
+  </caption>
+  <image width="75%" source="images/Ch2fig1-1.png" >
+    <shortdescription></shortdescription>
+  </image>
+</figure>
+<p>
+  If we differentiate the Fourier series in <xref ref="PDE_sol"
+  >equation</xref> term<ndash/>by<ndash/>term, we obtain
+  <men xml:id="EQUATIONPDESolDeriv">
+    \frac{4}{\pi}\sum_{k=0}^\infty\frac{\left(-1\right)^k}{\left(2k+1\right)}
+    \cos\left(\left(2k+1\right)\pi x\right) 
+    </men>.
+    Let
+    <m>C_N(x)=\frac{4}{\pi}\sum_{k=0}^N\frac{\left(-1\right)^k}{\left(2k+1\right)}
+    \cos\left(\left(2k+1\right)\pi x\right)</m> be the <m>Nth</m>
+    partial sum of this Fourier cosine series.
+    The sketches below display the graphs of <m>C_N</m> when
+    <m>N=1</m>, <m>N=2</m>, <m>N=5</m>, and <m>N=50</m>.
+</p>
+<sbsgroup widths="45% 45%" margins="auto" valign="middle">
+  <sidebyside>
+
+    <figure >
+      <caption>Graph of <m>C_1(x)</m></caption>
+      <image width="75%" source="images/FourierEx6-1.png" />
+    </figure>
+
+    <figure >
+      <caption>Graph of <m>C_1(x)</m></caption>
+      <image width="75%" source="images/FourierEx7-1.png" />
+    </figure>
+  </sidebyside>
+  <sidebyside>
+    <figure >
+      <caption>Graph of <m>C_5(x)</m></caption>
+      <image width="75%" source="images/FourierEx8-1.png" />
+    </figure>
+    <figure >
+      <caption>Graph of <m>C_{50}(x)</m></caption>
+      <image width="75%" source="images/FourierEx9-1.png" />
+    </figure>
+  </sidebyside>
+</sbsgroup>
+<!--   <figure> -->
+<!--     <!-\- <caption>The slider controls the number of terms being. .</caption> -\-> -->
+<!--     <interactive desmos="0qatde8f0w" width="125%" aspect="2:1" >   -->
+<!-- <static> -->
+<!-- <figure > -->
+<!--   <caption>Graph of <m>C_1(x)</m></caption> -->
+<!--   <image width="75%" source="images/FourierEx8.png"> -->
+<!--     <shortdescription></shortdescription> -->
+<!--   </image> -->
+<!-- </figure> -->
+<!-- </static> -->
+<!--     </interactive> -->
+<!--   </figure> -->
+
+
+<p>
+  In fact, if we were to graph the series
+  <m>\frac{4}{\pi}\sum_{k=0}^\infty\frac{\left(-1\right)^k}{\left(2k+1\right)}</m> cos<m>\left(\left(2k+1\right)\pi x\right)</m>,
+  we would obtain the following graph:
+</p>
+
+<figure >
+  <caption></caption>
+  <image source="images/FourierEx10-1.png" width="75%">
+    <shortdescription></shortdescription>
+  </image>
+</figure>
+
+<!-- <sidebyside widths="90%" margins="auto" valign="middle"> -->
+<!--   <image width="75%" source="images/FourierEx10.png" /> -->
+<!-- </sidebyside> -->
+
+<p>
+  Notice that this agrees with the graph of <m>f^\prime</m>, except
+  that <m>f^\prime</m> didn<rsq/>t exist at <m>x=\frac{1}{2}</m>, and
+  this series takes on the value <m>0</m> at <m>x=\frac{1}{2}</m>.
+  Notice also, that every partial sum of this series is continuous,
+  since it is a finite combination of continuous cosine functions.
+  This agrees with what you learned in Calculus, the (finite) sum of
+  continuous functions is always continuous.  In the 1700s it was
+  assumed (falsely) that this could be extended to infinite series,
+  because every time a power series converged to a function, that
+  function happened to be continuous.  This never failed for power
+  series, so this example was a bit disconcerting as it is an example
+  of the sum of infinitely many continuous functions which is, in this
+  case, discontinuous.  Was it possible that there was some power
+  series which converged to a function which was not continuous?  Even
+  if there isn<rsq/>t, what is the difference between power series and
+  this Fourier series?
+</p>
+
+<p>
+  Even more disconcerting is what happens if we  differentiate the series
+
+  <me>
+    \frac{4}{\pi}\sum_{k=0}^\infty\frac{\left(-1\right)^k}{\left(2k+1\right)} \cos\left(\left(2k+1\right)\pi x\right)
+  </me>
+
+  term<ndash/>by<ndash/>term as before.  Given the above graph of this
+  series, it appears that the derivative of it should be constantly 0,
+  except at <m>x=\frac{1}{2}</m>, where the derivative doesn<rsq/>t exist.
+  But when we perform the differentiation term<ndash/>by<ndash/>term
+  we obtain the series
+  <me>
+    4\sum_{k=0}^\infty\left(-1\right)^{k+1}\sin\left(\left(2k+1\right)\pi x\right)
+    </me>.
+    and 
+    if we graph the  sum of  the first forty terms of this series,
+    we get: 
+    
+    <!-- <figure> -->
+    <!-- <caption>The slider controls the number of terms being. .</caption> -->
+    <!--     <interactive desmos="pvcgqtqso6" width="125%" aspect="2:1" > -->
+    <!-- <static> -->
+    <!-- <image source="images/FourierEx11.png"> -->
+    <!-- </image> -->
+    <!-- </static> -->
+    <!--     </interactive> -->
+    <!--   </figure> -->
+
+</p>
+    <image width="75%" source="images/FourierEx11-1.png" >
+      <shortdescription></shortdescription>
+    </image>
+    <p>
+      We knew that there might be a problem at <m>x=\frac{1}{2}</m> but this is crazy!
+      The series doesn<rsq/>t seem to be converging to zero at all!
+    </p>
+
+    <problem xml:id="prob_FourierDiverge">
+      <idx><h>Problems</h><h>divergent Fourier series example</h></idx>
+
+      <idx><h>Fourier Series</h></idx>
+      <idx><h>Fourier Series</h><h>divergent Fourier series example</h></idx>
+
+      <statement>
+        <p>
+          Show that when <m>x=\frac{1}{4}</m>
+
+          <md>
+            <mrow>
+              4\sum_{k=0}^\infty\left(-1\right)^{k+1}\amp{} \sin\left(\left(2k+1\right)\pi x\right)
+            </mrow>
+            <mrow>
+              \amp{}=4\left(-\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}- \frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}+\cdots\right).
+            </mrow>
+
+          </md>
+        </p>
+      </statement>
+    </problem>
+
+    <p>
+      <xref ref="prob_FourierDiverge"></xref>
+      shows that when we differentiate the series
+      <me>
+        \frac{4}{\pi}\sum_{k=0}^\infty\frac{\left(-1\right)^k}{\left(2k+1\right)} \cos\left(\left(2k+1\right)\pi x\right)
+      </me>
+      term by term,
+      this differentiated series doesn<rsq/>t converge to anything at <m>x=\frac{1}{4}</m>,
+      let alone converge to zero.
+      In this case,
+      the old Calculus rule that the derivative of a sum is the sum of the derivatives does not apply for this infinite sum,
+      though it did apply before.
+      As if the continuity issue wasn<rsq/>t bad enough before, this was even worse.
+      Power series were routinely differentiated and integrated term-by-term.
+      This was part of their appeal.
+      They were treated like <q>infinite polynomials.</q>
+      Either there is some power series lurking that refuses to behave nicely,
+      or there is some property that power series have that not all Fourier series have. 
+    </p>
+    <p>
+      Could it be that everything we did in <xref ref="CalcIn17th18thCentury" ></xref> and <xref
+      ref="PowerSeriesQuestions"></xref> was bogus?
+    </p>
+
+
+    <p>
+      Fortunately, the answer to that question is, <q>No.</q> Power
+      series are generally much more well<ndash/>behaved than
+      Fourier series.  Whenever a power series converges, the
+      function it converges to will be continuous.  And, as long as
+      one stays inside the interval of convergence, power series can
+      be differentiated and integrated term<ndash/>by<ndash/>term.
+      Power series have something going for them that your average
+      Fourier series does not, but none of this is any more obvious
+      to us than it was to mathematicians at the beginning of the
+      nineteenth century.  What they did (and we do) know was that
+      relying on intuition was perilous and that rigorous
+      formulations were needed to either justify or dismiss these
+      intuitions.  In some sense, the nineteenth century was the
+      <q>morning after</q> the mathematical party that went on
+      throughout the eighteenth century.
+    </p>
+
+    <aside>
+      <title>
+        Convergence: Power Series vs. Fourier Series
+      </title>
+
+      <p>
+        We will prove all of these assertions in <xref ref="PowerSeriesRedux" ></xref>.
+      </p>
+    </aside>
+
+
+    <problem xml:id="prob_Fourier_Series-orthogonality">
+      <idx><h>Problems</h><h>orthogonality of <m>\cos (nx)</m></h></idx>
+      
+      <idx><h sortby="cosine"><m>\cos (nx)</m></h><h>orthogonality of</h></idx>
+      <idx><h>orthogonality</h><h> of <m>\cos nx</m></h></idx>
+
+      <statement>
+        <p>
+          Let <m>n</m> and <m>m</m> be positive integers.
+          Show
+          <me>
+            \int_{x=0}^1\cos\left(n\pi x\right)\cos\left(m\pi x\right)\dx{ x}=\left\{ \begin{matrix}0\amp \text{ if } n\neq m\\ \frac{1}{2}\amp \text{ if } n=m \end{matrix} \right.
+            </me>.
+        </p>
+      </statement>
+    </problem>
+
+        <problem xml:id="prob_fouriercoef">
+          <idx><h>Problems</h><h>Fourier Series</h><h>computing the coefficients of</h></idx>
+          <idx><h>Fourier Series</h><h>computing the coefficients of</h></idx>
+
+          <statement>
+          <p>
+            Use the result of <xref ref="prob_Fourier_Series-orthogonality"></xref> to show that if
+            <me>
+              f(x)=\sum_{n=1}^\infty B_n\cos\left(n\pi x\right)
+            </me>
+            on <m>[0,1]</m>, then
+            <men xml:id="EQUATIONCosineCoeffFourier">
+              B_m=2\int_{x=0}^1f(x)\cos\left(m\pi x\right)\dx{ x}.{}
+            </men>
+          </p>
+          </statement>
+        </problem>
+
+        <problem>
+          <idx><h>Problems</h><h>the Fourier cosine series of <m>f(x)=x-\frac{1}{2}</m></h></idx>
+          <idx><h>Fourier Series</h><h>cosine series</h><h>the Fourier cosine series of <m>f(x)=x-\frac{1}{2}</m></h></idx>
+          <statement>
+            <p>
+              Apply the result of <xref
+              ref="prob_fouriercoef"></xref> to show that the Fourier
+              cosine series of <m>f(x)=x-\frac{1}{2}</m> on <m>[0,1]</m> is
+              given by
+              <me>
+                \frac{-4}{\pi^2}\sum_{k=0}^\infty\frac{1}{\left(2k+1\right)^2}\cos \left((2k+1)\pi x\right)
+                </me>.
+              </p>
+
+              <p>
+                Let 
+                <me>
+                  C(x,N)=\frac{-4}{\pi^2}\sum_{k=0}^N\frac{1}{\left(2k+1\right)^2}\cos
+                  \left((2k+1)\pi x\right)
+                </me>
+                and plot <m>C(x,N)</m> for <m>N=1,2,5,50</m> <m>x\in[\,0,1]</m>.
+                How does this compare to the function <m>f(x)=x-\frac{1}{2}</m> on <m>[\,0,1]</m>?
+                What if you plot it for <m>x\in[\,0,2]?</m>
+              </p>
+            </statement>
+          </problem>
+
+          <problem>
+            <idx><h>Problems</h><h>Fourier Series</h><h>term by term differentiation of</h></idx>
+            
+            <idx><h>Fourier Series</h><h>term by term differentiation of</h></idx>
+
+            <task>
+              <statement>
+                <p>
+                  Differentiate the series
+                  <me>
+                    \frac{-4}{\pi^2}\sum_{k=0}^\infty\frac{1}{\left(2k+1\right)^2}\cos \left((2k+1)\pi x\right)
+</me>
+term by term and plot various partial sums for that series
+on <m>[\,0,1]</m>.  How does this compare to the derivative
+of <m>f(x)=x-\frac{1}{2}</m> on that interval?
+</p>
+</statement>
+</task>
+<task>
+  <statement>
+    <p>
+      Differentiate the series you obtained in part (a) and plot
+      various partial sums of that on <m>[\,0,1]</m>.  How does
+      this compare to the second derivative of
+      <m>f(x)=x-\frac{1}{2}</m> on that interval?
+</p>
+</statement>
+</task>
+</problem>
+
+</section>
+</chapter>

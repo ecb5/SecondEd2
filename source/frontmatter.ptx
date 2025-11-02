@@ -1,0 +1,331 @@
+<frontmatter>
+
+  <bibinfo>
+    <author>
+      <personname>Robert Rogers</personname>
+      <department>Dept. of Mathematics</department>
+      <institution>SUNY, Fredonia</institution>
+    </author>    
+    <author>
+      <personname>Eugene Boman</personname>
+      <institution>The Pennsylvania State University</institution>
+    </author>
+    <date><today/></date>
+    <edition>2.0.2, ISBN: 978-1-956862-03-4</edition>
+    <website>
+      <url href="https://knightscholar.geneseo.edu/oer-ost/20/" >Milne Open Textbooks, State University of New York at Geneseo, Geneseo, NY 14454
+      </url>
+    </website>
+
+
+    <copyright>
+      <!-- In addition to specifying the copyright holder, you should  -->
+      <!-- include a license, such as the cc-by-sa license shown below -->
+      <!-- so people reading your book know how they can use it.       -->
+      <year>2020<ndash/>2025</year>
+      <holder>Eugene Boman and Robert Rogers</holder>
+      <shortlicense>
+        This work is licensed under the Creative Commons
+        Attribution-ShareAlike 4.0 International License.  To view a
+        copy of this license, visit
+        <url 
+            href="http://creativecommons.org/licenses/by-nc/4.0/"
+            >
+        CreativeCommons.org</url>
+      </shortlicense>
+    </copyright>
+    <!-- <editor> -->
+    <!--   ISBN: 978-1-956862-03-4 -->
+    <!--   Published by Milne Open Textbooks, Milne Library -->
+    <!--   State University of New York at Geneseo, -->
+    <!--   Geneseo, NY 14454 -->
+    <!-- </editor> -->
+  </bibinfo>
+
+  <titlepage> 
+    <titlepage-items />
+  </titlepage>
+  <colophon label="front-colophon">
+    <colophon-items />
+  </colophon>
+
+  <acknowledgement>
+    <p>
+      <dl>
+        <li>
+          <title>Mactutor</title>
+          <p>
+            While we have tried to tell the story of the development of
+            Real Analysis as completely as possible, our overriding
+            goal was always to teach mathematics, not history. Thus we
+            have necessarily left the history incomplete.
+          </p>
+          <p>
+            The interested student can fill in the gaps we have left by
+            making use of the extensive resources that can be found at
+            the <url href="https://mathshistory.st-andrews.ac.uk/"
+            > MacTutor</url>
+            history of mathematics repository.
+          </p>
+          <p>
+            All of the portraits of mathematicians used in this text
+            have been taken from MacTutor.
+          </p>
+          <p>
+            MacTutor was created by Professor
+            Edmund Robertson (Emeritus), and Professor John O<rsq/>Connor
+            (Emeritus),  of the University of St. Andrews in
+            Scotland and is hosted by the University of St. Andrews.
+          </p>
+        </li>
+        <!-- <li> -->
+        <!--   <title> -->
+        <!--     Desmos -->
+        <!--   </title> -->
+        <!--   <p> -->
+        <!--     The interactive figures in <xref -->
+        <!--     ref="Interegnum"></xref> were created using the -->
+        <!--     <url href="https://www.desmos.com/" -->
+        <!--          >Desmos online calculator</url>. -->
+        <!--   </p> -->
+        <!-- </li> -->
+    </dl></p>
+  </acknowledgement>
+  <preface>
+    <title>
+      Preface to the Second Edition
+    </title>
+
+    <p>
+      You are viewing the second edition of our open<ndash/>source
+      book originally titled,
+      <pubtitle>
+        How We Got from There to Here: A Story
+        of Real Analysis.
+      </pubtitle>
+      As much as we liked our original title we discovered, much to
+      our dismay, that it led many people to believe that it is about the 
+      history of mathematics  rather than a textbook.  We were so
+      caught up in using history to tell the story behind the
+      nonintuitive, rigorous definitions and theorems found in a
+      typical undergraduate introductory analysis class that we
+      mistakenly assumed that others would understand our intent
+      before actually opening the book.
+      We were wrong so we have
+      changed the title for this second edition. We hope the new title make our intentions clear.
+      </p>
+      <p>
+        When we wrote the first edition we deliberately chose to
+        forego any mention of integration theory in order to keep the
+        size of the text manageable.  We assumed that students were
+        familiar with the methods by which integrals can be computed,
+        especially Integration by Parts, from calculus class and we
+        relied on this knowledge. But in keeping with our intention to
+        follow the historical development of our topic we did not
+        examine any underlying theory of integration, not even
+        Cauchy<rsq/> since the integral was understood as
+        antidifferentiation long before Cauchy and Riemann were born.
+      </p>
+      <p>
+        Upon teaching from the first edition for many years, we came
+        to the concluded that we should really provide at least an
+        introduction to the theory of integration for those students
+        who go on to a course in  <term>Measure Theory</term>, for instance.
+      </p>
+      <p>
+        To that end we have re<ndash/>arranged the topics as follows:
+        <ul>
+          <li>
+            <p>
+              We created a new chapter 10 (<xref ref="LimDerivIntFTC"
+              text="custom">Limits, Derivatives, Integrals, and the
+              Fundamental Theorem of Calculus</xref>) and placed in it
+              the sections on the definitions of limit and derivative
+              which had previously been in <xref ref="Continuity"
+              ></xref>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We also added two new sections to <xref
+              ref="LimDerivIntFTC" ></xref>. In <xref ref="SECTIONFTC"
+              ></xref> we prove the Fundamental Theorem Of Calculus
+              and in <xref ref="SECTIONDefiningIntegral" ></xref> we
+              define the Cauchy, Riemann, and Darboux integrals.  If
+              this seems backwards to you, consider that this is how
+              mathematics is usually created.  Foundational issues are
+              typically the last piece of the puzzle.
+            </p>
+
+          </li>
+          <li>
+
+            <p>
+              Additionally we have expanded <xref ref="BackToFourier"
+              ></xref> (formely Chapter 11) to include <xref
+              ref="SECTIONRiseSetTheory" ></xref> and <xref
+              ref="SECTIONLebesgueIntegration" ></xref> where we
+              define the Lebesgue integral in its historical context.
+            </p>
+            <p>
+              In <xref ref="SECTIONRiseSetTheory" ></xref> we expand
+              more on Cantor<rsq/>s influence and the transferal of
+              analysis to a modern set theoretical setting which
+              provides the interested student with a path to studying
+              <term>point set topology</term> in a future course.  We
+              believe this is appropriate for an introductory book.
+            </p>
+            <p>
+
+              Of course, the rise in <term>set theory</term> leads to
+              <term>Lebesgue measure</term> and the <term>Lebesgue
+              integral</term>. We scratch the surface of those topics
+              in <xref ref="SECTIONLebesgueIntegration" ></xref> in
+              order to provide the interested student with a starting
+              point to begin studying those topics as well.
+            </p>
+          </li>
+        </ul>
+
+      </p>
+      <p>
+        On a more nuts and bolts level, most of the problems in the
+        last edition were embedded in the text, with a few sections
+        labeled <q>Additional Problems.</q> This new edition has
+        absorbed those additional problems into the body of the text.
+        This represents the authors<rsq/> evolution. After learning
+        and teaching from conventional math books for most of our
+        careers we have decided that the problems are part of the
+        story of how we got from there to here and should be treated
+        as such. In particular they should be placed in their proper
+        context.
+      </p>
+  </preface>
+
+  <preface xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="Instructor">
+    <title>To the Instructor</title>
+    <p>
+      The irony of this section is that it exists to tell you that this
+      book was not written for you; it was written for your students.
+      After all, we don<rsq/>t need to teach you about Real Analysis.  You
+      already understand the subject.  The purpose of this text is to
+      help your students make sense of the formal definitions, theorems,
+      and proofs that they will encounter in your course.  We do this by
+      immersing the student in the story of how what is usually called
+      Calculus evolved into modern Real Analysis.  Our hope and
+      intention is that this will help the student to appreciate why
+      their intuitive understanding of topics encountered in Calculus
+      needs to be replaced by the formalism of Real Analysis.
+    </p>
+
+    <p>
+      The traditional approach to this topic (what we might call the
+      <q>logical</q> story of Real Analysis), starts with a rigorous
+      development of the real number system and uses this to provide
+      rigorous definitions of limits, continuity, derivatives and
+      integrals, and convergence of series; typically in that order.
+      This is a perfectly legitimate story of Real Analysis and,
+      logically, it makes the most sense.  Indeed, this is a view of the
+      subject that every mathematician<ndash/>in<ndash/>training should eventually
+      attain.  However, it is our contention that your students will
+      appreciate the subject more, and hopefully retain it better, if
+      they see how the subject developed from the intuitive notions of
+      Leibniz, Newton and others in the seventeenth and eighteenth
+      centuries to the more modern approach developed in the nineteenth
+      and twentieth centuries.  After all, they are coming at it from a
+      viewpoint very similar to that of the mathematicians of the
+      seventeenth and eighteenth centuries.  Our goal is to bring them
+      into the nineteenth and early twentieth centuries, mathematically
+      speaking.
+    </p>
+
+    <p>
+      We hasten to add that this is not a history of analysis book.  It
+      is an introductory textbook on Real Analysis which uses the
+      historical context of the subject to frame the concepts and to
+      show why mathematicians felt the need to develop rigorous,
+      non-intuitive definitions to replace their intuitive notions.
+    </p>
+
+    <p>
+      You will notice that all of the problems are embedded in the
+      chapters, rather than lumped together at the end of each chapter.
+      This is done to provide a context for the problems which, for the
+      most part, are presented on an as<ndash/>needed basis.
+    </p>
+
+    <p>
+      Thus the proofs of nearly all of the theorems appear as problems
+      in the text.  Of course, it would be very unfair to ask most
+      students at this level to prove, say, the Bolzano<ndash/>Weierstrass
+      Theorem without some sort of guidance.  So in each case we provide
+      an outline of the proof and the subsequent problem will be to use
+      the outline to develop a formal proof.  Proof outlines will become
+      less detailed as the students progress.  We have found that this
+      approach helps students develop their proof writing skills.
+    </p>
+
+    <p>
+      We state in the text, and we encourage you to emphasize to your
+      students, that often they will use the results of problems as
+      tools in subsequent problems.  Trained mathematicians do this
+      naturally, but it is our experience that this is still somewhat
+      foreign to students who are accustomed to simply <q>getting the problem
+      done and forgetting about it.</q>
+    </p>
+
+    <p>
+      The problems range from the fairly straightforward to the more
+      challenging.  Some of them require the use of a computer algebra
+      system (for example, to plot partial sums of a power series).
+      These tend to occur earlier in the book where we encourage the
+      students to use technology to explore the wonders of series.  A
+      number of these problems can be done on a sufficiently advanced
+      graphing calculator or even on Wolfram Alpha, so you should
+      assure your students that they do not need to be super
+      programmers to do this.  Of course, this is up to you.
+    </p>
+
+    <p>
+      One testing strategy we have used successfully is to assign the
+      more time consuming problems as collected homework and to assign
+      other problems as possible test questions.  Students were then
+      given (verbatim) a subset of the latter as an in-class test.
+      Not only does this simplify test creation, it provides the
+      opportunity to ask questions that could not otherwise be
+      reasonably asked in a timed setting. One of the authors has even
+      gone so far as to forgo in<ndash/>class testing entirely,
+      relying instead on weekly hand<ndash/>in assignments for his
+      assessments.  If you are shocked by the idea of giving students
+      all of the possible test questions ahead of time, think of how
+      much (re)learning you did while studying the list of possible
+      questions you knew could be asked on a qualifying exam.  In our
+      experience there are worse things than having students study by
+      working together on possible test questions beforehand.
+    </p>
+
+    <p>
+      In the end, use this book as you see fit.  We believe your
+      students will find it readable, as it is intended to be, and we
+      are confident that it will help them to make sense out of the
+      rigorous, non-intuitive definitions and theorems of Real
+      Analysis and help them to develop their proof-writing skills.
+    </p>
+
+    <p>
+      If you have suggestions for improvement, comments or criticisms of
+      our text please contact us at the email addresses below.  We
+      appreciate any feedback you can give us on this.
+    </p>
+
+    <p>
+      Thank you.
+      <me>
+        \begin{array}{lcl} \text{ Robert R. Rogers } \amp \amp \text{
+        Eugene C. Boman } \\ \text{ robert.rogers@fredonia.edu } \amp
+        \amp \text{ budboman@gmail.com } \end{array}
+      </me>
+    </p>
+  </preface>
+  <!-- <xi:include href="./Instructor.ptx" /> -->
+</frontmatter>

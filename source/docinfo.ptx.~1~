@@ -1,0 +1,37 @@
+
+<macros>
+  <!-- \def\theindex{} -->
+  <!-- \def\subitem{\hangindent 40pt \hspace{20pt}} -->
+  <!-- \def\subsubitem{\hangindent 40pt \hspace{30pt}} -->
+  <!-- \def\indexspace{plus 5pt minus 3pt\relax} -->
+  <!-- %\newcommand{\see}[2]{\emph{see} #1} -->
+  <!-- \def\halmos{\mbox{\rule{0.1in}{0.1in}}} -->
+  <!-- \newcommand{\xqedhere}[2]{ -->
+  <!-- \rlap{\hbox to#1{\hfil\llap{#2}}}} -->
+  <!-- \newcommand{\xqed}[1]{\leavevmode\unskip \hbox{}\hfill\quad\hbox{#1}} -->
+  .      <!-- <!-\- \def\IndexCorollaryGeneral#1#2{\index{#2!Corollary~\ref{#1}}} -\-> -->
+  <!-- <!-\- \def\IndexCorollaryTheorems#1#2{\index{corollaries}{Corollary~\ref{#1}!{#2}}} -\-> -->
+  <!-- <!-\- \def\IndexLemmaGeneral#1#2{\index{#2!Lemma~\ref{#1}}} -\-> -->
+  <!-- <!-\- \def\IndexLemmaTheorems#1#2{\index{lemmas}{Lemma~\ref{#1}!{#2}}} -\-> -->
+  <!-- %\newcommand{\abs}[1]{\left|#1\right|} -->
+  <!-- \def\ShowSolutionsP{0} -->
+  <!-- \newcommand{\solution}[1]{\ifnum\ShowSolutionsP=1 {\textbf{Solution: }#1}\fi} -->
+  \newcommand{\imp}{\ \Rightarrow\ }
+  \newcommand{\dx}[1]{\,{\rm d}#1}
+  <!-- \def\dx#1{{\thinspace{\rm d}#1}} -->
+  <!-- \newcommand{\dx}{1}{{\thinspace{\rm d}#1}} -->
+  \newcommand{\dfdx}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}
+  \newcommand{\abs}[1]{\left|#1\right|}
+  \def\limit#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}#3}}
+  \newcommand{\eps}{\varepsilon}
+  \newcommand{\unif}{\stackrel{unif}{\longrightarrow}}
+  \newcommand{\ptwise}{\stackrel{ptwise}{\longrightarrow}}
+  \newcommand{\CC}{\mathbb {C}}
+  \newcommand{\DD}{\mathbb {D}}
+  \newcommand{\RR}{\mathbb {R}}
+  \newcommand{\QQ}{\mathbb {Q}}
+  \newcommand{\NN}{\mathbb {N}}
+  \newcommand{\ZZ}{\mathbb {Z}}
+  </macros>
+  <latex-image-preamble> 
+    </latex-image-preamble>xb

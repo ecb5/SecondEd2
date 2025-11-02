@@ -1,0 +1,142 @@
+<frontmatter>
+
+  <bibinfo>
+    <author>
+      <personname>Robert Rogers</personname>
+      <department>Dept. of Mathematics</department>
+      <institution>SUNY, Fredonia</institution>
+    </author>    
+    <author>
+      <personname>Eugene Boman</personname>
+      <!-- <department>My department</department> -->
+      <institution>The Pennsylvania State University</institution>
+    </author>
+    <date><today/></date>
+
+
+    <copyright>
+      <!-- In addition to specifying the copyright holder, you should  -->
+      <!-- include a license, such as the cc-by-sa license shown below -->
+      <!-- so people reading your book know how they can use it.       -->
+      <year>2020<ndash/>2024</year>
+      <holder>Eugene Boman and Robert Rogers</holder>
+      <minilicense><!-- <image source="DC/images/by-nc.png" /> --></minilicense>
+      <shortlicense>
+        <!-- <image source="DC/images/by-nc.png" width="15%"/> -->
+        This work is licensed under the Creative Commons
+        Attribution-ShareAlike 4.0 International License.  To view a
+        copy of this license, visit
+        <url 
+            href="http://creativecommons.org/licenses/by-nc/4.0/"
+            visual="creativecommons.org/licenses/by-nc/4.0">
+        CreativeCommons.org</url>
+      </shortlicense>
+    </copyright>
+  </bibinfo>
+
+
+
+
+  <titlepage> 
+    <titlepage-items />
+  </titlepage>
+  <colophon label="front-colophon">
+    <colophon-items />
+  </colophon>
+
+  <!-- <colophon xml:id="FrontColophon"> -->
+  <!--   <edition>2.0.2</edition> -->
+  <!--   <pre> -->
+  <!--     ISBN: 978-1-956862-03-4 -->
+  <!--     Published by Milne Open Textbooks, Milne Library -->
+  <!--     State University of New York at Geneseo, -->
+  <!--     Geneseo, NY 14454 -->
+  <!--   </pre> -->
+  <!--   <copyright> -->
+  <!--     <year>2014</year> -->
+  <!--     <holder>Robert Rogers and Eugene Boman</holder> -->
+  <!--     <shortlicense> -->
+  <!--       How We Got from There to Here: A Story of Real Analysis by -->
+  <!--       Robert Rogers and Eugene Boman, is licensed under a -->
+  <!--       <url href="http://creativecommons.org/licenses/by-nc-sa/4.0/" visual="creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</url>. -->
+  <!--     </shortlicense> -->
+  <!--   </copyright> -->
+
+  <!-- </colophon> -->
+
+  <!-- <acknowledgement> -->
+  <!--   <p> -->
+  <!--     <dl> -->
+  <!--       <li> -->
+  <!--         <title>Mactutor</title> -->
+  <!--         <p> -->
+  <!--           While we have tried to tell the story of the development of -->
+  <!--           Real Analysis as completely as possible, our overriding -->
+  <!--           goal was always to teach mathematics, not history. Thus we -->
+  <!--           have necessarily left the history incomplete. -->
+  <!--         </p> -->
+  <!--         <p> -->
+  <!--           The interested student can fill in the gaps we have left by -->
+  <!--           making use of the extensive resources that can be found at -->
+  <!--           the <url href="https://mathshistory.st-andrews.ac.uk/" -->
+  <!--           visual="mathshistory.st-andrews.ac.uk"> MacTutor</url> -->
+  <!--           history of mathematics repository. -->
+  <!--         </p> -->
+  <!--         <p> -->
+  <!--           All of the portraits of mathematicians used in this text -->
+  <!--           have been taken from MacTutor. -->
+  <!--         </p> -->
+  <!--         <p> -->
+  <!--           MacTutor was created, and is maintained by Professor -->
+  <!--           Edmund Robertson (Emeritus), and Professor John O'Connor -->
+  <!--           (Emeritus), both of the University of St. Andrews in -->
+  <!--           Scotland. -->
+  <!--         </p> -->
+  <!--       </li> -->
+  <!--       <li> -->
+  <!--         <title> -->
+  <!--           Desmos -->
+  <!--         </title> -->
+  <!--         <p> -->
+  <!--           The interactive figures in <xref -->
+  <!--           ref="Interegnum">Chapter</xref> were created using the -->
+  <!--           <url href="https://www.desmos.com/" -->
+  <!--                visual="www.desmos.com">Desmos online calculator</url>. -->
+  <!--         </p> -->
+  <!--       </li> -->
+  <!--   </dl></p> -->
+
+  <!--   <!-\- <blockquote><p><alert>Mactutor</alert></p></blockquote> -\-> -->
+  <!--   <!-\-         <p> -\-> -->
+  <!--   <!-\-           While we have tried to tell the story of the development of -\-> -->
+  <!--   <!-\-           Real Analysis as completely as possible, our overriding -\-> -->
+  <!--   <!-\-           goal was always to teach mathematics, not history. Thus we -\-> -->
+  <!--   <!-\-           have necessarily left the history incomplete. -\-> -->
+  <!--   <!-\-         </p> -\-> -->
+  <!--   <!-\-         <p> -\-> -->
+  <!--   <!-\-           The interested student can fill in the gaps we have left by -\-> -->
+  <!--   <!-\-           making extensive use of the resources in the <url -\-> -->
+  <!--   <!-\-           href="https://mathshistory.st-andrews.ac.uk/"> -\-> -->
+  <!--   <!-\-           MacTutor</url> history of mathematics repository. -\-> -->
+  <!--   <!-\-         </p> -\-> -->
+  <!--   <!-\-         <p> -\-> -->
+  <!--   <!-\-           All of the portraits of mathematicians used in this text -\-> -->
+  <!--   <!-\-           have been taken from <url href="https://mathshistory.st-andrews.ac.uk/">  -\-> -->
+  <!--   <!-\-           MacTutor</url>. -\-> -->
+  <!--   <!-\-         </p> -\-> -->
+  <!--   <!-\-         <p> -\-> -->
+  <!--   <!-\-           <url href="https://mathshistory.st-andrews.ac.uk/"> -\-> -->
+  <!--   <!-\-           MacTutor</url> was created, and is maintained by Professor -\-> -->
+  <!--   <!-\-           Edmund Robertson (Emeritus), and Professor John O'Connor -\-> -->
+  <!--   <!-\-           (Emeritus), both of the University of St. Andrews in -\-> -->
+  <!--   <!-\-           Scotland. -\-> -->
+  <!--   <!-\-         </p> -\-> -->
+  <!--   <!-\- <blockquote><p><alert>Desmos</alert></p></blockquote> -\-> -->
+  <!--   <!-\- <p> -\-> -->
+  <!--   <!-\- The interactive figures in <xref ref="Interegnum">Chapter</xref> were created using the <url href="https://www.desmos.com/">Desmos online calculator</url>. -\-> -->
+  <!--   <!-\- </p> -\-> -->
+  <!-- </acknowledgement> -->
+
+
+  <!-- <xi:include href="./Instructor.ptx" /> -->
+</frontmatter>

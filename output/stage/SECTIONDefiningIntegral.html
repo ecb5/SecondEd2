@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Definition of the Integral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="AA Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:author" content="Robert Rogers">
+<meta property="book:author" content="Eugene Boman">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.9.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.65bdf16e03e918ea.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.29d986501a531379.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="ASORA.html"><span class="title">AA Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<p class="byline">Robert Rogers, Eugene Boman</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="SECTIONFTC.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="LimDerivIntFTC.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="PowerSeriesRedux.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\imp}{\ \Rightarrow\ }
+\newcommand{\dx}[1]{\,{\rm d}#1}
+
+
+\newcommand{\dfdx}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\def\limit#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}#3}}
+\def\limitt#1#2#3{{\displaystyle\lim_{#1\rightarrow #2}\textstyle #3}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\unif}{\stackrel{unif}{\longrightarrow}}
+\newcommand{\ptwise}{\stackrel{ptwise}{\longrightarrow}}
+\newcommand{\CC}{\mathbb {C}}
+\newcommand{\DD}{\mathbb {D}}
+\newcommand{\RR}{\mathbb {R}}
+\newcommand{\QQ}{\mathbb {Q}}
+\newcommand{\NN}{\mathbb {N}}
+\newcommand{\ZZ}{\mathbb {Z}}
+\def\eval#1#2#3{\left.\strut{}#1\right|_{#2=#3}}
+\def\geneval#1#2#3{\left.\strut{}#1\right|_{#2#3}}
+\def\mineval#1#2{\left.\strut{}#1\right|_{#2}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 parts focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="ASORA-2.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-acknowledgement"><div class="toc-title-box"><a href="ASORA-2-4.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="ASORA-2-5.html" class="internal"><span class="title">Preface to the Second Edition</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="Instructor.html" class="internal"><span class="title">To the Instructor</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="AskingQuestions.html" class="internal"><span class="codenumber">I</span> <span class="title">In Which We Raise A Number Of Questions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Threelessons.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue: Three Lessons Before We Begin</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons-lesson-one.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Lesson One</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-two.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Lesson Two</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ThreeLessons_lesson-three.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Lesson Three</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="NumbersRealRational.html" class="internal"><span class="codenumber">2</span> <span class="title">Numbers, Real <span class="process-math">\(\left(\RR\right)\)</span> and Rational <span class="process-math">\(\left(\QQ\right)\)</span></span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury.html" class="internal"><span class="codenumber">3</span> <span class="title">Calculus in the 17th and 18th Centuries</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Newton and Leibniz Get Started</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#sec_leibn-calc-rules" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Leibniz’ Calculus Rules</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#LeibnizProductRule" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Leibniz’s Approach to the Product Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="CalcIn17th18thCentury-NewtLeibStart.html#NewtonsApproach" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Newton’s Approach to the Product Rule</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ExponentAdditionProperty.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Power Series as Infinite Polynomials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONPowSerWOTaylor.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Expanding Simple Power Series by Algebraic Methods</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesQuestions.html" class="internal"><span class="codenumber">4</span> <span class="title">Questions Concerning Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-TaylorsFormula.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Taylor’s Formula</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesQuestions-SeriesAnomalies.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Series Anomalies</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="InterregnumPart.html" class="internal"><span class="codenumber">II</span> <span class="title">Interregnum</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Interegnum.html" class="internal"><span class="codenumber">5</span> <span class="title">Joseph Fourier: The Man Who Broke Calculus</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="Interegnum-2.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Joseph Fourier and His Series</span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="FindingAnswers.html" class="internal"><span class="codenumber">III</span> <span class="title">In Which We Find (Some) Answers</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Convergence.html" class="internal"><span class="codenumber">6</span> <span class="title">Convergence of Sequences and Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SeqRealNum.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Sequences of Real Numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="LimitAsPrimary.html" class="internal"><span class="codenumber">6.2</span> <span class="title">The Limit as a Primary Tool</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="DivergentSeq.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Divergence</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="TaylorSeries.html" class="internal"><span class="codenumber">7</span> <span class="title">A “Tayl” of Three Remainders</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-IntFormRem.html" class="internal"><span class="codenumber">7.1</span> <span class="title">The Integral Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-LagrFormRem.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Lagrange’s Form of the Remainder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="TaylorSeries-CauchyFormRem.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Cauchy’s Form of the Remainder</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Continuity.html" class="internal"><span class="codenumber">8</span> <span class="title">Continuity: What It Isn’t and What It Is</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-AnalyticDef.html" class="internal"><span class="codenumber">8.1</span> <span class="title">An Analytic Definition of Continuity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SequencesAndContinuity.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Sequences and Continuity</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="IVTandEVT.html" class="internal"><span class="codenumber">9</span> <span class="title">Intermediate and Extreme Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-Completeness.html" class="internal"><span class="codenumber">9.1</span> <span class="title">The Nested Interval Property: Completeness of the Real Number System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-ProofOfIVT.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Proof of the Intermediate Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-BWT.html" class="internal"><span class="codenumber">9.3</span> <span class="title">The Bolzano–Weierstrass Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="IVTandEVT-SupremumAndEVT.html" class="internal"><span class="codenumber">9.4</span> <span class="title">The Supremum and the Extreme Value Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DefLimit.html" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="Continuity-DerivativeAfterthought.html" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONFTC.html" class="internal"><span class="codenumber">10.3</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="SECTIONDefiningIntegral.html" class="internal"><span class="codenumber">10.4</span> <span class="title">The Definition of the Integral</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONCauchyRiemannInt" class="internal"><span class="codenumber">10.4.1</span> <span class="title">Cauchy’s Definition of the Integral</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONDefiningIntegral.html#SUBSECTIONDarbouxIntegral" class="internal"><span class="codenumber">10.4.2</span> <span class="title">Darboux’s Integral Definition</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="PowerSeriesRedux.html" class="internal"><span class="codenumber">11</span> <span class="title">Back to Power Series</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Uniform Convergence</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Uniform Convergence: Integrals and Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="PowerSeriesRedux-UnifConv-IntsAndDerivs.html#PowerSeriesRedux-UnifConv-IntsAndDerivs-3" class="internal"><span class="codenumber">11.2.1</span> <span class="title">Cauchy Sequences</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-RadiusOfConv.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Radius of Convergence of a Power Series</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="PowerSeriesRedux-AbelsThm.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Boundary Issues and Abel’s Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="BackToFourier.html" class="internal"><span class="codenumber">12</span> <span class="title">Back to the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONRiseSetTheory.html" class="internal"><span class="codenumber">12.1</span> <span class="title">The Rise of Set Theory</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-InfiniteSets.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Infinite Sets</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONLebesgueIntegration.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Road to Lebesgue Integration</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="BackToFourier-CantorsTheorem.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Cantor’s Theorem and Its Consequences</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Epilogues.html" class="internal"><span class="codenumber">13</span> <span class="title">Epilogs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="SECTIONEpilog1.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="SECTIONBuildReals.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Epilog #2: Building the Real Numbers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DecimalExpansion" class="internal"><span class="codenumber">13.2.1</span> <span class="title">The Decimal Expansion</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#CauchySequences" class="internal"><span class="codenumber">13.2.2</span> <span class="title">Cauchy Sequences</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="SECTIONBuildReals.html#DedekindCuts" class="internal"><span class="codenumber">13.2.3</span> <span class="title">Dedekind Cuts</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="ASORA-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-references"><div class="toc-title-box"><a href="ASORA-6-1.html" class="internal"><span class="title">Bibliography</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="ASORA-6-2.html" class="internal"><span class="title">Index</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main" style="background-image:url('data:image/svg+xml;charset=utf-8,&lt;svg version=&quot;1.1&quot; height=&quot;600&quot; width=&quot;600&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;text x=&quot;50%&quot; y=&quot;50%&quot; text-anchor=&quot;middle&quot; transform=&quot;rotate(-45,300,300)&quot; fill=&quot;rgb(204,204,204)&quot; style=&quot;font-family:sans-serif; font-size:2.5cm;&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;DRAFT&lt;/text&gt;&lt;/svg&gt;');background-position:center top;background-repeat:repeat-y;"><div id="ptx-content" class="ptx-content"><section class="section" id="SECTIONDefiningIntegral"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Definition of the Integral</span>
+</h2>
+<p class="watermark">Watermark text: DRAFT</p>
+<section class="introduction" id="SECTIONDefiningIntegral-2"><div class="para" id="SECTIONDefiningIntegral-2-1">In a letter to <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Eratosthenes/" target="_blank">Eratosthenes</a> (circa 250 BC), <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/" target="_blank">Archimedes</a> described what he called a mechanical method for finding areas and volumes.  His method consisted of mentally dividing objects into infinitely thin slices and balancing these slices on an imaginary balance.  Archimedes noted that while his method was not rigorous it was still quite useful. He said:<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="SECTIONDefiningIntegral-2-2">
+<div class="para" id="SECTIONDefiningIntegral-2-2-1">“. . . I thought it might be appropriate to write down for you a special method, by means of which you will be able to recognize certain mathematical questions with the aid of mechanics.  I am convinced that this is no less useful than finding the proofs of these same theorems.”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONDefiningIntegral-2-2-2">“Some things, which first became clear to me by the mechanical method, were afterwards proved geometrically, because their investigation by that method does not furnish an actual demonstration.  It is easier to supply the proof when we have previously acquired, by the method, some knowledge of the questions than it is to find it without any previous knowledge . . .”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#SECTIONDefiningIntegral-2-2" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="SECTIONDefiningIntegral-2-3">Closer to our time <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Cavalieri/" target="_blank">Cavalieri</a>, <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Torricelli/" target="_blank">Torricelli</a>, <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Kepler/" target="_blank">Kepler</a>, <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/" target="_blank">Galileo</a>, <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Roberval/" target="_blank">Roberval</a>, and others explored a similar idea. They mentally cut geometric areas (and volumes) into infinitely thin slices.  But rather than using an imaginary balance they compared them geometrically.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONDefiningIntegral-2-4">This division of objects into infinitely small pieces in order to analyze them is the essential idea underlying integration. As Archimedes observed it is questionable as a method of proof, but for practical applicatons this is still a useful way to think about problems.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONDefiningIntegral-2-5">It was always recognized that the notion of an infinitesimals was problematic as a logical foundation for Calculus but it was not until  the beginning of the <span class="process-math">\(19\)</span>th century that it became imperative to replace them (in large part due to the work of Fourier) with a more rigorous formulation.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONDefiningIntegral-2-6">Fourier’s work raises the question: How random can a function defined on an interval be and still be represented by a Fourier series?  Since the coefficients are computed via integration, a closely related question is how random can a function be and still be integrable?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SECTIONDefiningIntegral-2-7">Since this text is intended as a one semester introduction to real analysis we will not be able to fully answer that question here.  But we will give two equivalent rigorous definitions of the integral and then show that a continuous function on a closed interval is integrable.  This will close the gap in our proof of the <a href="SECTIONFTC.html#THEOREMFTCCauchy" class="xref" data-knowl="./knowl/xref/THEOREMFTCCauchy.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 10.3.3: The Fundamental Theorem of Calculus (Cauchy)">Fundamental Theorem of Calculus</a>.      <div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="SECTIONDefiningIntegral-2-8" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiple Definitions of the Integral.</span>
+</h3></summary><aside class="aside aside-like knowl__content"><div class="para" id="SECTIONDefiningIntegral-2-8-2">The two definitions we will discuss in this chapter are equivalent in the sense that if a function is integrable using one definition then it will be integrable using the other.  But there are other definitions that extend integrability to more general functions. We will look at two of them in <a href="BackToFourier.html" class="internal" title="Chapter 12: Back to the Real Numbers">Chapter 12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONDefiningIntegral-2-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details></section><section class="subsection" id="SUBSECTIONCauchyRiemannInt"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy’s Definition of the Integral</span>
+</h3>
+<div class="para" id="SUBSECTIONCauchyRiemannInt-2">One of the first mathematicians to provide a rigorous definition of a definite integral was <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/" target="_blank">Augustin Louis Cauchy</a> in 1823. Cauchy used the limit idea to bridge the gap between finite sums of (finitely many) very small (but still finite) pieces and infinite sums of infinitesimals.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONCauchyRiemannInt-3">It was common practice to approximate an integral whose antiderivative was not readily computable by a finite sum as seen in <a href="SECTIONDefiningIntegral.html#FIGURECauchyIntFinitSum" class="internal" title="Figure 10.4.1">Figure 10.4.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="FIGURECauchyIntFinitSum"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="external/images/Integration2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 10.4.1"><a href="#FIGURECauchyIntFinitSum" title="Copy heading and permalink for Figure 10.4.1" aria-label="Copy heading and permalink for Figure 10.4.1">🔗</a></div></figcaption></figure><div class="para logical" id="SUBSECTIONCauchyRiemannInt-5">
+<div class="para">To approximate <span class="process-math">\(\int^b_{x=a}{f(x)\dx{x}}\text{,}\)</span> Cauchy started by partitioning <span class="process-math">\(P\)</span> of the interval<span class="process-math">\([a,b]\)</span> into a finite number of subintervals.  Basically, the partition <span class="process-math">\(P\)</span> is a finite sequence of numbers</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a=x_0\lt x_1\lt x_2\lt\dots \lt x_{n-1}\lt x_n=b \text{.}
+\end{equation*}
+</div>
+<div class="para">In the figure <span class="process-math">\(n=5\text{.}\)</span> He then formed the sum</div>
+<div class="displaymath process-math" id="SUBSECTIONCauchyRiemannInt-5-7">
+\begin{align*}
+f\left(x_0\right)\left(x_1-x_0\right)\amp{}+f\left(x_1\right)\left(x_2-x_1\right)+\dots\\
+\amp{}\dots
++f\left(x_{n-1}\right)\left(x_n-x_{n-1}\right)=\sum^{n-1}_{k=0}{f(x_k)(x_{k+1}-x_k)}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONCauchyRiemannInt-6">If <span class="process-math">\(f\left(x\right)\ge 0\)</span> as in <a href="SECTIONDefiningIntegral.html#FIGURECauchyIntFinitSum" class="internal" title="Figure 10.4.1">Figure 10.4.1</a> we see that we are approximating the area under the curve <span class="process-math">\(y=f(x)\)</span> with the area of a finite sum of boxes whose bases are the subintervals <span class="process-math">\([x_k,x_{k+1}]\)</span> and whose heights are obtained by evaluating <span class="process-math">\(f\)</span> at some point in <span class="process-math">\([x_k,x_{k+1}]\text{.}\)</span> In our figure we used the left endpoint <span class="process-math">\(x_k\)</span> for convenience.       Notice that the subintervals need not be the same length.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONCauchyRiemannInt-7">Diagrams like this are the source of the common misunderstanding that an integral computes area. In certain special cases it does, and it is often helpful to think of an integral as if it is an area but area is only one possible application of the integral. There are many others.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SUBSECTIONCauchyRiemannInt-8">
+<div class="para">We define the <dfn class="terminology">norm</dfn> of the partition <span class="process-math">\(\norm{P}\)</span> to be to be the length of the largest subinterval:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\norm{P}=\max_{k=0, 1, \dots    n-1}(x_{k+1}-x_k) \text{.}
+\end{equation*}
+</div>
+<div class="para">Cauchy said that a function <span class="process-math">\(f(x)\)</span> defined on <span class="process-math">\([a,b]\)</span> was integrable if there was a number <span class="process-math">\(I\)</span> such that for all <span class="process-math">\(\eps &gt;0\text{,}\)</span> there is a <span class="process-math">\(\delta &gt;0\)</span> such that whenever the norm of the partition, <span class="process-math">\(\norm{P}\)</span> is less than <span class="process-math">\(\delta{}\)</span> the difference between <span class="process-math">\(I\)</span> and the  associated sum will be less than <span class="process-math">\(\eps{}\text{.}\)</span> Symbolically this is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\norm{P}\lt \delta \imp \abs{\sum^{n-1}_{k=0}{f\left(x_k\right)\left(x_{k+1}-x_k\right)}-I}\lt
+\eps \text{.}
+\end{equation*}
+</div>
+<div class="para">Notice that <span class="process-math">\(P\)</span> can be any partition as long as <span class="process-math">\(\norm{P}\lt\delta \text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SUBSECTIONCauchyRiemannInt-9">
+<div class="para">In this case we write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I=\int^b_{x=a}{f(x)\dx{x}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONCauchyRiemannInt-10">Using this definition Cauchy was then able to show that any continuous function is (Cauchy) integrable and was able to prove the <a href="SECTIONFTC.html#THEOREMFTCCauchy" class="xref" data-knowl="./knowl/xref/THEOREMFTCCauchy.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 10.3.3: The Fundamental Theorem of Calculus (Cauchy)">Fundamental Theorem of Calculus</a> as we indicated in the last section. More formally, Cauchy made the following definition.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="DEFINITIONRiemannIntegral"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Riemann Integral.</span>
+</h4>
+<div class="para logical" id="DEFINITIONRiemannIntegral-4-1">
+<div class="para">Given a function <span class="process-math">\(f(x)\)</span> defined on the interval <span class="process-math">\([a,b]\text{,}\)</span> we say <span class="process-math">\(f\)</span> is integrable on <span class="process-math">\([a,b]\)</span> if and only if there is a number <span class="process-math">\(I\)</span> such that for each <span class="process-math">\(\epsilon &gt;0\text{,}\)</span> there is a <span class="process-math">\(\delta &gt;0\)</span> such that for any partition <span class="process-math">\(P=\{x_0, x_1, \cdots, x_n\}\)</span> of <span class="process-math">\([a,b]\)</span> with <span class="process-math">\(\norm{P}\lt\delta \text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left|\sum^{n-1}_{k=0}{f\left(x^*_k\right)\left(x_{k+1}-x_k\right)}-I\right|\lt\epsilon 
+\end{equation*}
+</div>
+<div class="para">for any choice of <span class="process-math">\(x^*_k\)</span> where <span class="process-math">\(x_k\le x^*_k\le x_{k+1}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONRiemannIntegral-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>                   <details id="DEFINITIONRiemannIntegral-4-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Riemann Integral vs. Cauchy Integral.</span>
+</h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="DEFINITIONRiemannIntegral-4-2-2">No doubt you are wondering why this is called the <dfn class="terminology">Riemann Integral</dfn> when it was devised by Cauchy.<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONRiemannIntegral-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="DEFINITIONRiemannIntegral-4-2-3">It often happens in mathematics that important concepts do not get named for the person who invents them. In this instance Cauchy showed that continuous functions are integrable under his definition, but left open the question, “Is it necessary for a function to be continuous for it to be integrable?”<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONRiemannIntegral-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="DEFINITIONRiemannIntegral-4-2-4">The answer to that question is emphatically “No!” as Riemann showed in 1868. In fact Riemann was able to provide necessary and sufficient conditions for a function to be integrable under Cauchy’s definition which are far weaker than continuity.  We won’t go into that as it does not serve our purposes here, but as a result of Riemann’s work Cauchy’s definition of the integral came to be called the <dfn class="terminology">Riemann integral</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONRiemannIntegral-4-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></aside></details><div class="autopermalink" data-description="Definition 10.4.2: The Riemann Integral"><a href="#DEFINITIONRiemannIntegral" title="Copy heading and permalink for Definition 10.4.2: The Riemann Integral" aria-label="Copy heading and permalink for Definition 10.4.2: The Riemann Integral">🔗</a></div></article><div class="para logical" id="SUBSECTIONCauchyRiemannInt-12">
+<div class="para">The similarity between <a href="SECTIONDefiningIntegral.html#DEFINITIONRiemannIntegral" class="internal" title="Definition 10.4.2: The Riemann Integral">Definition 10.4.2</a>  and the definition of a limit is hard to miss so sometimes the Riemann integral is defined via the limit symbol as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/DEFINITIONRiemannIntegral.html ./knowl/xref/EQUATIONCauchyIntAsLim.html" id="EQUATIONCauchyIntAsLim">
+\begin{equation}
+\int_a^bf(x)\dx{x} =
+\limit{\norm{P}}{0}{\sum^{n-1}_{k=0}{f\left(x_k^*\right)\left(x_{k+1}-x_k\right)}}\tag{10.4.1}
+\end{equation}
+</div>
+<div class="para">but in our (the authors’) opinions this notatation serves to hide the important ideas rather than elucidate them because the limit in <a href="SECTIONDefiningIntegral.html#EQUATIONCauchyIntAsLim" class="internal" title="Equation 10.4.1">equation (10.4.1)</a> is very different from the ones we’ve encountered before.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONCauchyRiemannInt-13">In the past, when we had limits like <span class="process-math">\(\limitt{x}{2}{\frac{x^2-4}{x-2}}\)</span> we only had to think about letting the single variable <span class="process-math">\(x\)</span> get “close to” <span class="process-math">\(2\text{.}\)</span> But the limit in <a href="SECTIONDefiningIntegral.html#EQUATIONCauchyIntAsLim" class="internal" title="Equation 10.4.1">equation (10.4.1)</a> is far more complex. It asks us to simultaneously think about all possible partitions with the property that <span class="process-math">\(\norm{P}\lt\delta{}\text{,}\)</span> and all possible choices of <span class="process-math">\(x_k^*\in \left[x_k,x_{k+1}\right]\text{,}\)</span> in addition to what is happening when <span class="process-math">\(\norm{P} \rightarrow 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONCauchyRiemannInt-14">Because of these issues we will use an equivalent formulation of the definite integral. One which makes use of a concepts we’ve already familiar with: the <a href="IVTandEVT-SupremumAndEVT.html#thm_LUB" class="xref" data-knowl="./knowl/xref/thm_LUB.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">least upper bound</a> and <a href="IVTandEVT-SupremumAndEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/xref/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">greatest lower bound</a> properties of the real number system.    <div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONCauchyRiemannInt-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 10.4.1: Cauchy’s Definition of the Integral"><a href="#SUBSECTIONCauchyRiemannInt" title="Copy heading and permalink for Subsection 10.4.1: Cauchy’s Definition of the Integral" aria-label="Copy heading and permalink for Subsection 10.4.1: Cauchy’s Definition of the Integral">🔗</a></div></section><section class="subsection" id="SUBSECTIONDarbouxIntegral"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Darboux’s Integral Definition</span>
+</h3>
+<div class="para" id="SUBSECTIONDarbouxIntegral-2">Notice that neither the <a href="SECTIONDefiningIntegral.html#DEFINITIONRiemannIntegral" class="internal" title="Definition 10.4.2: The Riemann Integral">definition of the integral</a> nor <a href="Continuity-DerivativeAfterthought.html#def_derivative" class="xref" data-knowl="./knowl/xref/def_derivative.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 10.2.1: The Derivative">the definition of the derivative</a> tells us how to compute the quantity in question. In the <span class="process-math">\(19\)</span>th century the computational rules for both integrals and derivatives were as well understood as they are today.  It was the logical support for these methods that was shaky. These definitions are about providing a rigorous foundation for these ideas, not about computing them.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONDarbouxIntegral-3">In <span class="process-math">\(1875\)</span> <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Darboux/" target="_blank">Jean Gaston Darboux</a> (1842–1917) developed a different (but equivalent) definition of the Riemann integral which uses the least upper and greatest lower bounds we learned about in <a href="IVTandEVT.html" class="internal" title="Chapter 9: Intermediate and Extreme Values">Chapter 9</a>.      We assume that <span class="process-math">\(f(x)\)</span> is a bounded (not necessarily continuous) function on an interval <span class="process-math">\([a,b]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="FIGUREDarbouxPortrait"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Darboux.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Jean Gaston Darboux<div class="autopermalink" data-description="Figure 10.4.3"><a href="#FIGUREDarbouxPortrait" title="Copy heading and permalink for Figure 10.4.3" aria-label="Copy heading and permalink for Figure 10.4.3">🔗</a></div></figcaption></figure><div class="para logical" id="SUBSECTIONDarbouxIntegral-5">
+<div class="para">As before, we will start with a partition <span class="process-math">\(P=\{x_0, x_1,x_2,
+\dots , x_n\}\)</span> of the interval <span class="process-math">\([a,b]\)</span> where <span class="process-math">\(a=x_0\lt
+x_1\lt \dots \lt x_{n-1}\lt x_n=b\text{.}\)</span>  Let <span class="process-math">\(m_k\)</span> and <span class="process-math">\(M_k\)</span> denote the infimum and supremum of <span class="process-math">\(f(x)\)</span> on <span class="process-math">\([x_k,x_{k+1}]\text{,}\)</span> respectively.  Define the <dfn class="terminology">lower (Darboux) sum</dfn> <span class="process-math">\(L(P)\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L\left(P\right)=\sum^{n-1}_{k=0}{m_k\left(x_{k+1}-x_k\right)}
+\end{equation*}
+</div>
+<div class="para">and <dfn class="terminology">upper (Darboux) sum</dfn> <span class="process-math">\(U(P)\)</span> by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+U\left(P\right)=\sum^{n-1}_{k=0}{M_k\left(x_{k+1}-x_k\right)}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SUBSECTIONDarbouxIntegral-6">
+<div class="para">Notice that if the integral</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int^b_{x=a}{f(x)\dx{x}}
+\end{equation*}
+</div>
+<div class="para">exists, then it is intuitively clear that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L\left(P\right)\le
+\int^b_{x=a}{f(x)\dx{x}}\le U(P)
+\end{equation*}
+</div>
+<div class="para">It is also intuitively clear that as the number of intervals gets larger, these bounds get closer to the actual integral (again, if it exists). If you don’t see this try drawing a few representative examples.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="DEFINITIONPartitionRefine"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Partition Refinement.</span>
+</h4>
+<div class="para logical" id="DEFINITIONPartitionRefine-4-1">
+<div class="para">Given two partitions</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P^\prime=\{x^\prime_0, x^\prime_1,
+x^\prime_2, \dots , x^\prime_{m-1},x^\prime_m\}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P=\{x_0, x_1, x_2, \dots , x_{m-1},x_m\}
+\end{equation*}
+</div>
+<div class="para">
+<span class="process-math">\(P^\prime \)</span> is said to be a <dfn class="terminology">refinement</dfn> of <span class="process-math">\(P\)</span> if every point in <span class="process-math">\(P\)</span> is also a point in <span class="process-math">\(P^\prime\text{.}\)</span> That is, <span class="process-math">\(P\subset P^\prime \text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONPartitionRefine-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 10.4.4: Partition Refinement"><a href="#DEFINITIONPartitionRefine" title="Copy heading and permalink for Definition 10.4.4: Partition Refinement" aria-label="Copy heading and permalink for Definition 10.4.4: Partition Refinement">🔗</a></div></article><article class="problem example-like" id="SUBSECTIONDarbouxIntegral-8"><h4 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="SUBSECTIONDarbouxIntegral-8-2-1">
+<div class="para">Show that if <span class="process-math">\(P^\prime\)</span> is a refinement of <span class="process-math">\(P\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L\left(P\right)\le L\left(P^\prime\right)\le
+U\left(P^\prime\right)\le U(P)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="SUBSECTIONDarbouxIntegral-8-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="SUBSECTIONDarbouxIntegral-8-3-1">First show that this is true if <span class="process-math">\(P^\prime\)</span> is obtained by adding one point to <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 10.4.5.1"><a href="#SUBSECTIONDarbouxIntegral-8-3" title="Copy heading and permalink for Hint 10.4.5.1" aria-label="Copy heading and permalink for Hint 10.4.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 10.4.5"><a href="#SUBSECTIONDarbouxIntegral-8" title="Copy heading and permalink for Problem 10.4.5" aria-label="Copy heading and permalink for Problem 10.4.5">🔗</a></div></article><article class="problem example-like" id="PROBLEMPartitionIneq1"><h4 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="PROBLEMPartitionIneq1-2-1">
+<div class="para">Let <span class="process-math">\(P \)</span>and <span class="process-math">\(\Pi \)</span> be any two partitions of <span class="process-math">\([a,b]\text{.}\)</span>  Show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L\left(P\right)\le
+U(\Pi{})
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMPartitionIneq1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="PROBLEMPartitionIneq1-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="PROBLEMPartitionIneq1-3-1">Consider that <span class="process-math">\(Q=P\cup \Pi \)</span> is a refinement of both <span class="process-math">\(P\)</span> and <span class="process-math">\(\Pi \text{,}\)</span> and use the previous result.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMPartitionIneq1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 10.4.6.1"><a href="#PROBLEMPartitionIneq1-3" title="Copy heading and permalink for Hint 10.4.6.1" aria-label="Copy heading and permalink for Hint 10.4.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 10.4.6"><a href="#PROBLEMPartitionIneq1" title="Copy heading and permalink for Problem 10.4.6" aria-label="Copy heading and permalink for Problem 10.4.6">🔗</a></div></article><div class="para logical" id="SUBSECTIONDarbouxIntegral-10">
+<div class="para">Next observe  that the set of lower sums over all partitions of <span class="process-math">\([a,b]\)</span> is a non–empty set of real numbers which is bounded above.  Therefore by <a href="IVTandEVT-SupremumAndEVT.html#thm_LUB" class="xref" data-knowl="./knowl/xref/thm_LUB.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Theorem 9.4.3</a>  it has a least upper bound.  We define the lower (Darboux) integral by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LUB.html" id="EQUATIONLowerDarbInt">
+\begin{equation}
+b 
+\underline{\int^b_{x=a}}{f(x)}\dx{x}=\sup_{P}
+\left(L(P)\right)\tag{10.4.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="SUBSECTIONDarbouxIntegral-11">
+<div class="para">Similarly, the set of all upper sums is a non–empty set of real numbers which is bounded below and therefore has a greatest lower bound. We define the upper (Darboux) integral as the greatest lower bound of this set</div>
+<div class="displaymath process-math" id="EQUATIONUpperDarbInt">
+\begin{equation}
+\overline{\int^{b}_{x=a}}{f(x)\dx{x}}=\inf_{P} \left(U(P)\right)\tag{10.4.3}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="PROBLEMUpLowDarboux"><h4 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Upper and Lower Darboux Integrals.</span>
+</h4>
+<div class="para logical" id="PROBLEMUpLowDarboux-3-1">
+<div class="para">Show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\underline{\int^b_{x=a}}{f(x)}\dx{x}\le
+\overline{\int^{b}_{x=a}}{f(x)\dx{x}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMUpLowDarboux-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="PROBLEMUpLowDarboux-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="PROBLEMUpLowDarboux-4-1">
+<div class="para">Let <span class="process-math">\(P^\prime\)</span> be a fixed partition of <span class="process-math">\([a,b]\text{.}\)</span> By <a href="SECTIONDefiningIntegral.html#PROBLEMPartitionIneq1" class="internal" title="Problem 10.4.6">Problem 10.4.6</a>, <span class="process-math">\(U(P^\prime)\)</span> is an upper bound for the set of all lower sums.  This says</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMPartitionIneq1.html">
+\begin{equation*}
+\underline{\int^b_{  x=a  }}{f(x)}\dx{x}\le U(P^\prime)\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMUpLowDarboux-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="PROBLEMUpLowDarboux-4-2">However, <span class="process-math">\(P^\prime\)</span> is an arbitrary partition of <span class="process-math">\([a,b]\text{.}\)</span>]<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMUpLowDarboux-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 10.4.7.1"><a href="#PROBLEMUpLowDarboux-4" title="Copy heading and permalink for Hint 10.4.7.1" aria-label="Copy heading and permalink for Hint 10.4.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 10.4.7: Upper and Lower Darboux Integrals"><a href="#PROBLEMUpLowDarboux" title="Copy heading and permalink for Problem 10.4.7: Upper and Lower Darboux Integrals" aria-label="Copy heading and permalink for Problem 10.4.7: Upper and Lower Darboux Integrals">🔗</a></div></article><article class="definition definition-like" id="DEFINITIONDarbouxIntegral"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Darboux Integrability.</span>
+</h4>
+<div class="para logical" id="DEFINITIONDarbouxIntegral-4-1">
+<div class="para">A function is said to be (Darboux) integrable provided</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\underline{\int^b_{x=a}}{f(x)}\dx{x}=\overline{\int^{b}_{x=a}}{f(x)\dx{x}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONDarbouxIntegral-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="DEFINITIONDarbouxIntegral-4-2">
+<div class="para">In this case we define the (Darboux) integral by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int^b_{x=a}{f(x)\dx{x}}=\underline{\int^b_{x=a}}{f(x)}\dx{x}=\overline{\int^{b}_{x=a}}{f(x)\dx{x}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONDarbouxIntegral-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 10.4.8: Darboux Integrability"><a href="#DEFINITIONDarbouxIntegral" title="Copy heading and permalink for Definition 10.4.8: Darboux Integrability" aria-label="Copy heading and permalink for Definition 10.4.8: Darboux Integrability">🔗</a></div></article><div class="para" id="SUBSECTIONDarbouxIntegral-14">                     Since Darboux’s  integral is equivalent to the Riemann integral   this definition does not guarantee that a given function will be Darboux (Riemann) integrable.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONDarbouxIntegral-15">The next problem displays a function invented by <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Dirichlet/" target="_blank">Lejeune Dirichlet</a> (1805–1859) in <span class="process-math">\(1837\)</span> which is not Riemann (Darboux) integrable.    <div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="SUBSECTIONDarbouxIntegral-16"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Dirichlet.png" class="contained" alt="Portrait of Dirichlet"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Lejeune Dirichlet<div class="autopermalink" data-description="Figure 10.4.9"><a href="#SUBSECTIONDarbouxIntegral-16" title="Copy heading and permalink for Figure 10.4.9" aria-label="Copy heading and permalink for Figure 10.4.9">🔗</a></div></figcaption></figure><article class="problem example-like" id="PROBLEMDirichletCountrExamp"><h4 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="PROBLEMDirichletCountrExamp-3-1">
+<div class="para">In honor of Dirichlet his function is often denoted <span class="process-math">\(D(x)\text{.}\)</span> It is defined as follows:</div>
+<div class="displaymath process-math" id="EQUATIONDirichletsFunction">
+\begin{equation}
+D(x)=
+\begin{cases}
+0\amp \text{ if } x \text{ is irrational}\\
+1\amp \text{ if } x \text{ is rational}
+\end{cases}\text{.}\tag{10.4.4}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMDirichletCountrExamp-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="PROBLEMDirichletCountrExamp-3-2">Show that <span class="process-math">\(D(x)\)</span> is not Riemann integrable on <span class="process-math">\([0,1]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMDirichletCountrExamp-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="PROBLEMDirichletCountrExamp-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="PROBLEMDirichletCountrExamp-4-1">Use <a href="SECTIONDefiningIntegral.html#DEFINITIONDarbouxIntegral" class="internal" title="Definition 10.4.8: Darboux Integrability">Darboux’s definition</a> of the Riemann integral.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMDirichletCountrExamp-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 10.4.10.1"><a href="#PROBLEMDirichletCountrExamp-4" title="Copy heading and permalink for Hint 10.4.10.1" aria-label="Copy heading and permalink for Hint 10.4.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Problem 10.4.10"><a href="#PROBLEMDirichletCountrExamp" title="Copy heading and permalink for Problem 10.4.10" aria-label="Copy heading and permalink for Problem 10.4.10">🔗</a></div></article><div class="para" id="SUBSECTIONDarbouxIntegral-18">As we mentioned (but did not prove) earlier, Darboux’s definition of the integral is equivalent to the Riemann integral, in the sense that any function which is Riemann integrable is also Darboux integral and <i class="foreign">vice versa</i>. This is similar to having both an <a href="Continuity-AnalyticDef.html#def_continuity" class="xref" data-knowl="./knowl/xref/def_continuity.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 8.1.7: Continuity at a Point">analytic definition of continuity</a> and a <a href="SequencesAndContinuity.html#thm_LimDefOfContinuity" class="xref" data-knowl="./knowl/xref/thm_LimDefOfContinuity.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1">sequence–based definition of continuity</a>. We can use whichever definition works better for the problem at hand.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONDarbouxIntegral-19">For example, it is straightforward to derive the properties of definite integrals that you learned in Calculus using Cauchy’s formulation.  But to show that a continuous function is integrable it is a little simpler to use Darboux’s formulation as we will see next.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="THEROEMContImpInt"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="THEROEMContImpInt-1">
+<div class="para">If <span class="process-math">\(f\left(x\right)\)</span> is continuous on <span class="process-math">\([a,b]\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\underline{\int^b_{x=a}}{f(x)}\dx{x}=\overline{\int^{b}_{x=a}}{f(x)\dx{x}}
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(f(x)\)</span> is integrable.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#THEROEMContImpInt-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 10.4.11"><a href="#THEROEMContImpInt" title="Copy heading and permalink for Theorem 10.4.11" aria-label="Copy heading and permalink for Theorem 10.4.11">🔗</a></div></article><article class="proof" id="THEOREMContImpIntProof"><h4 class="heading"><span class="title">Sketch of Alleged Proof.</span></h4>
+<div class="para" id="THEOREMContImpIntProof-2">Note that we’re calling this an “alleged” proof. That means that it contains a flaw somewhere. As you read it see if you can find where it goes wrong.<div class="autopermalink" data-description="Paragraph"><a href="#THEOREMContImpIntProof-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="THEOREMContImpIntProof-3">
+<div class="para">We already know that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\underline{\int^b_{x=a}}{f(x)}\dx{x}\le
+\overline{\int^{b}_{x=a}}{f(x)\dx{x}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#THEOREMContImpIntProof-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="THEOREMContImpIntProof-4">
+<div class="para">If we can also show that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\overline{\int^{b}_{x=a}}{f(x)\dx{x}}\le
+\underline{\int^b_{x=a}}{f(x)}\dx{x}
+\end{equation*}
+</div>
+<div class="para">then the conclusion follows immediately.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#THEOREMContImpIntProof-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="THEOREMContImpIntProof-5">
+<div class="para">Let <span class="process-math">\(\eps \gt 0\)</span> be given.  Since <span class="process-math">\(f\left(x\right)\)</span> is continuous at each point in <span class="process-math">\([a,b]\text{,}\)</span> we can choose a <span class="process-math">\(\delta &gt;0\)</span> such that if</div>
+<div class="displaymath process-math" id="EQUATIONUniContFlaw1">
+\begin{equation}
+\left|x-y\right|\lt \delta \text{,}\tag{10.4.5}
+\end{equation}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math" id="EQUATIONUniContFlaw2">
+\begin{equation}
+\left|f\left(x\right)-f\left(y\right)\right|\lt
+\frac{\eps }{b-a} \text{.}\tag{10.4.6}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#THEOREMContImpIntProof-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="THEOREMContImpIntProof-6">
+<div class="para">Since <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([a,b]\)</span> it is continuous on each subinterval.  Next define <span class="process-math">\(m_k\)</span> and <span class="process-math">\(M_k\)</span> to be the respective minimum and maximum of <span class="process-math">\(f(x)\)</span> on the subinterval <span class="process-math">\([x_k, x_{k+1}]\text{.}\)</span>  If we choose a partition</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P_0=\{x_0, x_1, x_2,\dots , x_{n-1}, x_n\}
+\end{equation*}
+</div>
+<div class="para">such that <span class="process-math">\(\norm{P_0}\lt
+\delta \text{,}\)</span> then on each subinterval <span class="process-math">\([x_k,
+x_{k+1}]\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M_k-m_k\lt \frac{\eps }{b-a}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#THEOREMContImpIntProof-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="THEOREMContImpIntProof-7">
+<div class="para">Thus</div>
+<div class="displaymath process-math" id="THEOREMContImpIntProof-7-1">
+\begin{align*}
+\overline{\int^{b}_{x=a}}{f(x)\dx{x}}-\underline{\int^b_{x=a}}{f(x)}\dx{x}\amp=\inf_{P}
+\left(U(P)\right) -\sup_{P} \left(L(P)\right)\\
+\amp{}     \le U\left(P_0\right)-L(P_0)\\
+\amp{}      =\sum^{n-1}_{k=0}{M_k\left(x_{k+1}-x_k\right)}-\sum^{n-1}_{k=0}{m_k\left(x_{k+1}-x_k\right)}\\
+\amp{}      =\sum^{n-1}_{k=0}{\left(M_k-m_k\right)\left(x_{k+1}-x_k\right)}\\
+\amp{}        \lt \sum^{n-1}_{k=0}{\frac{\eps
+}{b-a}\left(x_{k+1}-x_k\right)}\\
+\amp{}        =\frac{\eps
+}{b-a}\sum^{n-1}_{k=0}{\left(x_{k+1}-x_k\right)}\\
+\amp{}=\frac{\eps }{b-a}\left(b-a\right)\\
+\amp{}=\eps
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#THEOREMContImpIntProof-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="THEOREMContImpIntProof-8">
+<em class="alert">QED?</em><div class="autopermalink" data-description="Paragraph"><a href="#THEOREMContImpIntProof-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 10.4.2.1: Sketch of Alleged Proof"><a href="#THEOREMContImpIntProof" title="Copy heading and permalink for Proof 10.4.2.1: Sketch of Alleged Proof" aria-label="Copy heading and permalink for Proof 10.4.2.1: Sketch of Alleged Proof">🔗</a></div></article><div class="para" id="SUBSECTIONDarbouxIntegral-22">Did you find the flaw in the proof? If not, read it carefully once more before reading on.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONDarbouxIntegral-23">We say alleged proof because there is a subtle problem.  Because <span class="process-math">\(f(x)\)</span> is continuous on <span class="process-math">\([a,b]\)</span>  it is continuous at each point <span class="process-math">\(x\in [a,b]\text{.}\)</span>  This says that for each <span class="process-math">\(x\text{,}\)</span> there is a <span class="process-math">\({\delta }_x\gt 0\text{,}\)</span> such that if <span class="process-math">\(\abs{x-y}\lt\delta_x\)</span> then <span class="process-math">\(\left|f\left(x\right)-f\left(y\right)\right|\lt\frac{\epsilon
+}{b-a}\text{.}\)</span> But if you look at our sketch of the alleged proof you see that we need a single <span class="process-math">\(\delta &gt;0\)</span> which works <dfn class="terminology">uniformly</dfn> for all such <span class="process-math">\(x, y\in [a,b]\text{.}\)</span>  This leads to the following definition.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="DEFINITIONUnifCont"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Uniform Continuity.</span>
+</h4>
+<div class="para" id="DEFINITIONUnifCont-4-1">Suppose <span class="process-math">\(S\subset \RR\text{.}\)</span>  We say that <span class="process-math">\(f(x)\)</span> is uniformly continuous on <span class="process-math">\(S\)</span> provided that for all <span class="process-math">\(\eps
+&gt;0\text{,}\)</span> there is a <span class="process-math">\(\delta &gt;0\)</span> such that <span class="process-math">\(\left|f\left(x\right)-f\left(y\right)\right|\lt \eps \)</span> for all <span class="process-math">\(x, y\in S\)</span> with <span class="process-math">\(\left|x-y\right|\lt \delta \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONUnifCont-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 10.4.12: Uniform Continuity"><a href="#DEFINITIONUnifCont" title="Copy heading and permalink for Definition 10.4.12: Uniform Continuity" aria-label="Copy heading and permalink for Definition 10.4.12: Uniform Continuity">🔗</a></div></article><div class="para" id="SUBSECTIONDarbouxIntegral-25">This is called <dfn class="terminology">uniform continuity</dfn> because  a single value of <span class="process-math">\(\delta \)</span>  works uniformly for all <span class="process-math">\(x,y\in S\text{,}\)</span> whereas in regular continuity,  <span class="process-math">\(\delta \)</span> may depend on the value of <span class="process-math">\(x\text{.}\)</span>  It is  clear that any function which is uniformly continuous on a set <span class="process-math">\(S\)</span> is continuous on <span class="process-math">\(S\text{,}\)</span> but   the converse is not always true. That is,  <dfn class="terminology">uniform continuity</dfn> is a stronger property than <dfn class="terminology">continuity</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="problem example-like" id="PROBLEMContVSUnifCont"><h4 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="PROBLEMContVSUnifCont-2">
+<div class="para">Consider <span class="process-math">\(f(x)=x^2\)</span> on <span class="process-math">\([0,\infty )\text{.}\)</span>  Show that for any <span class="process-math">\(\delta &gt;0\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left(x+\frac{\delta }{2}\right)^2-x^2&gt;1
+\end{equation*}
+</div>
+<div class="para">whenever</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x&gt;\frac{1-\frac{{\delta }^2}{4}}{\delta }\text{.}
+\end{equation*}
+</div>
+<div class="para">Explain why this says that <span class="process-math">\(f\left(x\right)=x^2\)</span> is not uniformly continuous on <span class="process-math">\([0,\infty )\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMContVSUnifCont-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 10.4.13"><a href="#PROBLEMContVSUnifCont" title="Copy heading and permalink for Problem 10.4.13" aria-label="Copy heading and permalink for Problem 10.4.13">🔗</a></div></article><div class="para" id="SUBSECTIONDarbouxIntegral-27">Our “alleged proof” of <a href="SECTIONDefiningIntegral.html#THEROEMContImpInt" class="internal" title="Theorem 10.4.11">Theorem 10.4.11</a> is in fact a valid proof that a uniformly continuous function is (Darboux) integrable.  But as <a href="SECTIONDefiningIntegral.html#PROBLEMContVSUnifCont" class="internal" title="Problem 10.4.13">Problem 10.4.13</a> points out, a continuous function need not be uniformly continuous.  The hypothesis of <a href="SECTIONDefiningIntegral.html#THEROEMContImpInt" class="internal" title="Theorem 10.4.11">Theorem 10.4.11</a> requires that the function be defined on a closed bounded interval, so the difficulty in <a href="SECTIONDefiningIntegral.html#PROBLEMContVSUnifCont" class="internal" title="Problem 10.4.13">Problem 10.4.13</a> is that the interval <span class="process-math">\([0,\infty)\)</span> while closed, is unbounded.  The following lemma closes the gap.    <div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="LEMMAUnifContImpCont"><h4 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="LEMMAUnifContImpCont-1">If <span class="process-math">\(f(x)\)</span> is continuous on the closed, bounded interval <span class="process-math">\([a,b]\text{,}\)</span> then <span class="process-math">\(f(x)\)</span> is uniformly continuous on <span class="process-math">\([a,b]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LEMMAUnifContImpCont-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Lemma 10.4.14"><a href="#LEMMAUnifContImpCont" title="Copy heading and permalink for Lemma 10.4.14" aria-label="Copy heading and permalink for Lemma 10.4.14">🔗</a></div></article><article class="proof" id="SUBSECTIONDarbouxIntegral-29"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
+<div class="para" id="SUBSECTIONDarbouxIntegral-29-2">We will do a proof by contradiction.  Suppose <span class="process-math">\(f(x)\)</span> is not uniformly continuous on <span class="process-math">\([a,b]\text{.}\)</span>  Then there is an <span class="process-math">\(\eps
+&gt;0\)</span> such that for any <span class="process-math">\(\delta &gt;0\text{,}\)</span> there are <span class="process-math">\(x,y\)</span> with <span class="process-math">\(\left|x-y\right|\lt \delta \)</span> , but <span class="process-math">\(\left|f\left(x\right)-f\left(y\right)\right|\ge \eps \text{.}\)</span>  If we let <span class="process-math">\(\delta =\frac{1}{n}, n\in \mathbb{N}\text{,}\)</span> then we can create two sequences <span class="process-math">\(\left(x_n\right), (y_n)\)</span> with <span class="process-math">\(\left|x_n-y_n\right|\lt \frac{1}{n}\text{,}\)</span> but <span class="process-math">\(\left|f\left(x_n\right)-f\left(y_n\right)\right|\ge \eps .\)</span> By the Bolzano–Weierstrass Theorem, there is a <span class="process-math">\(c\in [a,b]\)</span> and a subsequence <span class="process-math">\((x_{n_k})\)</span> with <span class="process-math">\(\limit{k}{\infty }{ x_{n_k} }=c\text{.}\)</span>  Given how <span class="process-math">\((y_n)\)</span> was constructed, <span class="process-math">\(\limit{k}{\infty }{ y_{n_k} }=c\text{.}\)</span>  Since <span class="process-math">\(f(x)\)</span> is continuous at <span class="process-math">\(c\text{,}\)</span> you should be able to get a contradiction out of this.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-29-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 10.4.2.2: Sketch of Proof"><a href="#SUBSECTIONDarbouxIntegral-29" title="Copy heading and permalink for Proof 10.4.2.2: Sketch of Proof" aria-label="Copy heading and permalink for Proof 10.4.2.2: Sketch of Proof">🔗</a></div></article><article class="problem example-like" id="SUBSECTIONDarbouxIntegral-30"><h4 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="SUBSECTIONDarbouxIntegral-30-3">Turn the above outline into a proof of <a href="SECTIONDefiningIntegral.html#LEMMAUnifContImpCont" class="internal" title="Lemma 10.4.14">Lemma 10.4.14</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-30-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 10.4.15"><a href="#SUBSECTIONDarbouxIntegral-30" title="Copy heading and permalink for Problem 10.4.15" aria-label="Copy heading and permalink for Problem 10.4.15">🔗</a></div></article><article class="problem example-like" id="SUBSECTIONDarbouxIntegral-31"><h4 class="heading">
+<span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="SUBSECTIONDarbouxIntegral-31-2">Prove <a href="SECTIONDefiningIntegral.html#THEROEMContImpInt" class="internal" title="Theorem 10.4.11">Theorem 10.4.11</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-31-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Problem 10.4.16"><a href="#SUBSECTIONDarbouxIntegral-31" title="Copy heading and permalink for Problem 10.4.16" aria-label="Copy heading and permalink for Problem 10.4.16">🔗</a></div></article><div class="para" id="SUBSECTIONDarbouxIntegral-32">The evolution of the modern definition of a function is parallel to, and intertwined with, the definition of the definite integral.  Issues of integrability were not prevalent in 18th century because for most of that time the words <dfn class="terminology">integral</dfn> and <dfn class="terminology">antiderivative</dfn> were synonymous. Thus the only <dfn class="terminology">integrable</dfn> functions were the ones that were derivatives of some other function. But in the 19th century, and especially after Fourier, we needed to integrate functions that were not clearly derivatives of something else. As a result the need for a precise definition of function became more and more pressing as the years went by.  For example, here is the definition of a function from Euler’s <span class="booktitle"><i class="foreign">Introductio in Analysin Infinitorum</i></span> (1748).<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="SUBSECTIONDarbouxIntegral-33">
+<div class="para" id="SUBSECTIONDarbouxIntegral-33-1">“A function of a variable quantity is an analytic expression composed in any way whatsoever of the variable quantity and numbers or constant quantities.”<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-33-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#SUBSECTIONDarbouxIntegral-33" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="SUBSECTIONDarbouxIntegral-34">This is the “function as input/output machine” metaphor that you’ve probably used all of your life so far: A number goes in, gears turn or electronic circuits are activated and a new number is generatied as output from those actions. The advent of Fourier series ushered in a need for a much more general definition. Here is Fourier’s definition from his <span class="booktitle"><i class="foreign">Théorie analytique de la Chaleur</i></span> (1822).<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="SUBSECTIONDarbouxIntegral-35">
+<div class="para" id="SUBSECTIONDarbouxIntegral-35-1">“In general, the function <span class="process-math">\(f(x)\)</span> represents a succession of values or ordinates each of which is arbitrary. An infinity of values being given of the abscissa <span class="process-math">\(x\text{,}\)</span> there are an equal number of ordinates<span class="process-math">\(f(x)\text{.}\)</span> All have actual numerical values, either positive or negative or nul. We do not suppose these ordinates to be subject to a common law; they succeed each other in any manner whatever, and each of them is given as it were a single quantity.”<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-35-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#SUBSECTIONDarbouxIntegral-35" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="SUBSECTIONDarbouxIntegral-36">This is closer to our modern approach. In the modern definition for each <span class="process-math">\(x\)</span> in the domain, there is a unique <span class="process-math">\(f(x)\)</span> assigned to it.  It is different from Euler’s definition in that no formula, and no metaphorical machine is needed to generate an output. A function can be defined by simply giving a list of ordered pairs. No particular rule is needed.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-36" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="SUBSECTIONDarbouxIntegral-37">As you can see, making the idea of an integral rigorous was a delicate matter.  Perhaps this is why it took so long to develop.<div class="autopermalink" data-description="Paragraph"><a href="#SUBSECTIONDarbouxIntegral-37" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 10.4.2: Darboux’s Integral Definition"><a href="#SUBSECTIONDarbouxIntegral" title="Copy heading and permalink for Subsection 10.4.2: Darboux’s Integral Definition" aria-label="Copy heading and permalink for Subsection 10.4.2: Darboux’s Integral Definition">🔗</a></div></section><div class="autopermalink" data-description="Section 10.4: The Definition of the Integral"><a href="#SECTIONDefiningIntegral" title="Copy heading and permalink for Section 10.4: The Definition of the Integral" aria-label="Copy heading and permalink for Section 10.4: The Definition of the Integral">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="SECTIONFTC.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="PowerSeriesRedux.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
