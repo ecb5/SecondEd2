@@ -122,7 +122,7 @@ S_j=\emptyset{}\text{.}\)</span>
 <article class="definition definition-like"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.3.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Open Cover.</span>
 </h4>
-<div class="para">Suppose <span class="process-math">\(\cal{C}\)</span> is a collection of open intervals in <span class="process-math">\(\RR\)</span> and let <span class="process-math">\(S\)</span> be any set in <span class="process-math">\(\RR\text{.}\)</span> Then <span class="process-math">\(\cal{C}\)</span> is called an <dfn class="terminology">open cover</dfn> of <span class="process-math">\(S\)</span> if and only if every element of <span class="process-math">\(S\)</span> is contained in one of the open sets in <span class="process-math">\(\cal{C}\text{.}\)</span> If <span class="process-math">\(\cal{C}\)</span> contains only finitely many open sets then <span class="process-math">\(\cal{C}\)</span> is called a <dfn class="terminology">finite open cover</dfn> of <span class="process-math">\(S\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONOpenCover-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Suppose <span class="process-math">\(\cal{C}\)</span> is a collection of open intervals in <span class="process-math">\(\RR\)</span> and let <span class="process-math">\(S\)</span> be any set in <span class="process-math">\(\RR\text{.}\)</span> Then <span class="process-math">\(\cal{C}\)</span> is called an <dfn class="terminology">open cover</dfn> of <span class="process-math">\(S\)</span> if and only if every element of <span class="process-math">\(S\)</span> is contained in at  least one of the open sets in <span class="process-math">\(\cal{C}\text{.}\)</span> If <span class="process-math">\(\cal{C}\)</span> contains only finitely many open sets then <span class="process-math">\(\cal{C}\)</span> is called a <dfn class="terminology">finite open cover</dfn> of <span class="process-math">\(S\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONOpenCover-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 12.3.12: Open Cover"><a href="#DEFINITIONOpenCover" title="Copy heading and permalink for Definition 12.3.12: Open Cover" aria-label="Copy heading and permalink for Definition 12.3.12: Open Cover">🔗</a></div></article><div class="para">Loosely speaking, an <dfn class="terminology">open cover</dfn> of a set <span class="process-math">\(S\)</span> is a collection of open intervals which “cover” <span class="process-math">\(S\)</span> (hence the name). Obviously every open interval is an open cover of itself.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONLebesgueIntegration-3-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -158,8 +158,8 @@ S_j=\emptyset{}\text{.}\)</span>
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.3.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lebesgue’s Outer Measure.</span>
 </h4>
 <div class="para logical">
-<div class="para">Let <span class="process-math">\(S\subseteq [a,b]\subset{}\RR \)</span> be a set (allowing for the possibility that the left and right endpoints might be <span class="process-math">\(-\infty \)</span> or <span class="process-math">\(\infty \text{,}\)</span> respectively) and let <span class="process-math">\(C\)</span> be the collection of all countable open covers  <span class="process-math">\(\left\{ (a_n, b_n) \left|
-n=1, 2, 3, \ldots{}\right.\right\}  \)</span> of <span class="process-math">\(S\text{.}\)</span>    The <dfn class="terminology">outer measure</dfn> of <span class="process-math">\(S\)</span> is given by</div>
+<div class="para">Let <span class="process-math">\(S\subset\RR \)</span>     and let <span class="process-math">\(C\)</span> be the collection of all countable open covers <span class="process-math">\(\left\{ (a_n, b_n) \left| n=1, 2, 3,
+\ldots{}\right.\right\} \)</span> of <span class="process-math">\(S\text{.}\)</span>     The <dfn class="terminology">outer measure</dfn> of <span class="process-math">\(S\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \mu_o (S)= \inf_{ C}\left( \sum_{n=1}^\infty (b_n-a_n)\right)\text{.}
@@ -194,7 +194,7 @@ n=1, 2, 3, \ldots{}\right.\right\}  \)</span> of <span class="process-math">\(S\
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.3.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lebegue’s Inner Measure.</span>
 </h4>
 <div class="para logical">
-<div class="para">Let <span class="process-math">\(S\subseteq [a,b] \subset \RR \)</span> be a set.  Then the <dfn class="terminology">inner measure</dfn> of <span class="process-math">\(S\)</span> is given by</div>
+<div class="para">Let <span class="process-math">\(S \subset \RR \)</span> be a set.  Then the <dfn class="terminology">inner measure</dfn> of <span class="process-math">\(S\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation}
 \mu_i\left(S\right)=\sup
@@ -209,7 +209,7 @@ n=1, 2, 3, \ldots{}\right.\right\}  \)</span> of <span class="process-math">\(S\
 <article class="definition definition-like"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.3.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lebesgue Measure.</span>
 </h4>
-<div class="para">Given a set <span class="process-math">\(S\subseteq [a,b]\subset \RR\)</span> (allowing for the possibility that the left and right endpoints might be <span class="process-math">\(-\infty \)</span> or <span class="process-math">\(\infty \text{,}\)</span> respectively) if <span class="process-math">\(\mu_o(S)=\mu_i(S)\)</span> then their common value is the <dfn class="terminology">Lebesgue measure</dfn> of <span class="process-math">\(S\text{,}\)</span> denoted <span class="process-math">\(\mu(S)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONLebesgueMeasure-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Given a set <span class="process-math">\(S\subset \RR\)</span>    if <span class="process-math">\(\mu_o(S)=\mu_i(S)\)</span> then their common value is the <dfn class="terminology">Lebesgue measure</dfn> of <span class="process-math">\(S\text{,}\)</span> denoted <span class="process-math">\(\mu(S)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONLebesgueMeasure-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 12.3.17: Lebesgue Measure"><a href="#DEFINITIONLebesgueMeasure" title="Copy heading and permalink for Definition 12.3.17: Lebesgue Measure" aria-label="Copy heading and permalink for Definition 12.3.17: Lebesgue Measure">🔗</a></div></article><div class="para">All seems pretty straightforward at this point, but here is where one of the difficulties lies: For a given set, there is no guarantee that the inner and outer measures must be equal. When they are not the  set is said to be <dfn class="terminology">non–measurable</dfn>.  The first <dfn class="terminology">non–measurable</dfn> set was described by <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Vitali/" target="_blank">Giuseppe Vitali</a> (1875-1932) in <span class="process-math">\(1905\text{.}\)</span> Creating such a set requires the use of something called the <dfn class="terminology">Axiom of Choice</dfn> and careful study of <a class="external" href="https://mathshistory.st-andrews.ac.uk/HistTopics/Beginnings_of_set_theory/" target="_blank">Set Theory</a>.  We will see how complicated sets can be in the next section.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONLebesgueIntegration-3-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -422,7 +422,7 @@ x\in E\text{.}\)</span>
 <div class="autopermalink" data-description="Paragraph"><a href="#DEFINITIONUpAndLowLebesgueIntegrals-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 12.3.25: Upper and Lower Lebesgue Integrals"><a href="#DEFINITIONUpAndLowLebesgueIntegrals" title="Copy heading and permalink for Definition 12.3.25: Upper and Lower Lebesgue Integrals" aria-label="Copy heading and permalink for Definition 12.3.25: Upper and Lower Lebesgue Integrals">🔗</a></div></article><div class="para logical">
-<div class="para">Just as with the upper and lower Darboux integrals (<a href="SECTIONDefiningIntegral.html#PROBLEMUpLowDarboux" class="xref" data-knowl="./knowl/xref/PROBLEMUpLowDarboux.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.4.7: Upper and Lower Darboux Integrals">Problem 10.4.7</a>), want to show that <span class="process-math">\(I_*\le I^*\text{.}\)</span>  We’ll do this in part (b) of <a href="SECTIONLebesgueIntegration.html#PROBLEMSimpleFuncIntIneq" class="internal" title="Problem 12.3.27">Problem 12.3.27</a>. In preparation we’ll first show that for any simple functions, <span class="process-math">\(s(x)\)</span> and <span class="process-math">\(t(x)\)</span> defined on <span class="process-math">\(E\)</span> with <span class="process-math">\(s\left(x\right)\le t(x)\)</span> for all <span class="process-math">\(x\in E\text{,}\)</span> we have</div>
+<div class="para">Just as with the upper and lower Darboux integrals (<a href="SECTIONDefiningIntegral.html#PROBLEMUpLowDarboux" class="xref" data-knowl="./knowl/xref/PROBLEMUpLowDarboux.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.4.7: Upper and Lower Darboux Integrals">Problem 10.4.7</a>), we want to show that <span class="process-math">\(I_*\le I^*\text{.}\)</span>  We’ll do this in part (b) of <a href="SECTIONLebesgueIntegration.html#PROBLEMSimpleFuncIntIneq" class="internal" title="Problem 12.3.27">Problem 12.3.27</a>. In preparation we’ll first show that for any simple functions, <span class="process-math">\(s(x)\)</span> and <span class="process-math">\(t(x)\)</span> defined on <span class="process-math">\(E\)</span> with <span class="process-math">\(s\left(x\right)\le t(x)\)</span> for all <span class="process-math">\(x\in E\text{,}\)</span> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMUpLowDarboux.html ./knowl/xref/PROBLEMSimpleFuncIntIneq.html">
 \begin{equation*}
 \int_E{s\left(x\right)\dx{\mu} }\le \int_E t(x)\dx{\mu}
@@ -476,11 +476,11 @@ s\left(x\right)=\sum^n_{j=1}{a_j{\chi }_{E_j}\left(x\right)}
 \begin{align*}
 s(x)=\sum^n_{j=1}a_j\chi_{E_j}(x)\amp{}\amp{} 
 \text{ and } 
-\amp{}\amp{} t\left(x\right)=\sum^m_{i=1}b_j{\chi
+\amp{}\amp{} t\left(x\right)=\sum^m_{i=1}b_i{\chi
 }_{F_i}\left(x\right).
 \end{align*}
 </div>
-<div class="para">where <span class="process-math">\(\displaystyle{}E=\bigcup_{j=1}^nE_j = \bigcup_{i=1}^nF_i \text{.}\)</span>  Notice that for each <span class="process-math">\(j\text{,}\)</span> we can write</div>
+<div class="para">where <span class="process-math">\(\displaystyle{}E=\bigcup_{j=1}^nE_j = \bigcup_{i=1}^mF_i \text{.}\)</span>  Notice that for each <span class="process-math">\(j\text{,}\)</span> we can write</div>
 <div class="displaymath process-math">
 \begin{align*}
 E_j\amp{}=E_j\cap E\amp{}\\
@@ -641,14 +641,15 @@ C_3\amp{}=C_2-\left[\left(\frac{1}{27},\frac{2}{27}\right)\cup
 <div class="para">Show that the Cantor set, <span class="process-math">\(C\text{,}\)</span> has measure zero by showing that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\mu \left( [0,1] \right) = \mu \left( [0,1]-C\right)
+\mu \left( [0,1]-C\right)
 =1
 \end{equation*}
 </div>
 <div class="para">So that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\mu (C) = \mu \left( [0.1] - \left( [0-1]-C\right) \right) =0\text{.}
+\mu (C) = \mu \left( [0,1] - \left( [0-1]-C\right)
+\right) = 1-1=0\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMCantorSetMeasZero-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
