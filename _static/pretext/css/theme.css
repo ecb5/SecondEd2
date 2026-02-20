@@ -51,6 +51,9 @@ body.standalone {
   font-size: 16px;
   background: var(--page-color, white);
 }
+.ptx-content .print-preview-header {
+  display: none;
+}
 body.pretext > a.assistive {
   padding: 6px;
   position: absolute;
@@ -312,6 +315,7 @@ body.pretext > a.assistive:focus {
   border: 1px solid var(--page-border-color);
   border-radius: 3px;
   box-shadow: 0 0 5px var(--primary-color-gray-80);
+  color: var(--button-text-color);
 }
 .ptx-navbar .embed-popup .embed-code-container {
   width: "100%";
@@ -1466,10 +1470,12 @@ dl.description-list dl dd {
   margin-left: 12ex;
 }
 @media screen and (max-width: 480px) {
-  dl.description-list dt {
+  dl.description-list dt,
+  dl.description-list.narrow dt {
     float: none;
     margin-left: 0;
     text-align: left;
+    width: 25ex;
   }
   dl.description-list dd,
   dl.description-list.narrow dd,
@@ -1521,35 +1527,26 @@ ol > li {
 }
 .fillin {
   display: inline-block;
-  border-bottom-style: solid;
-  border-width: 1px;
-  margin-right: 0.1em;
-  margin-bottom: -0.25em;
-}
-.fillin .underline {
-  display: inline-block;
-  border-bottom-style: solid;
-  border-width: 1px;
-  margin-right: 0.1em;
-  margin-bottom: -0.25em;
-}
-.fillin .box {
-  display: inline-block;
   border: none;
-  margin-left: 0.1em;
-  margin-right: 0.1em;
-  margin-bottom: -0.25em;
-  outline: 1px solid black;
-  height: 1.3em;
-}
-.fillin .shade {
-  display: inline-block;
-  border: none;
+  border-width: 1px;
   margin-right: 0.1em;
   margin-left: 0.1em;
   margin-bottom: -0.25em;
-  background-color: #eee;
+}
+.fillin.underline {
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+.fillin.box {
+  outline: 1px solid var(--body-text-color);
   height: 1.3em;
+}
+.fillin.shade {
+  background-color: var(--fillin-background-color, #eee);
+  height: 1.3em;
+}
+:root.dark-mode {
+  --fillin-background-color: #444;
 }
 .heading:is(h1, h2, h3, h4, h5, h6) {
   margin: 0;
@@ -2152,9 +2149,16 @@ iframe.asymptote,
 img.contained {
   width: 100%;
 }
+.asymptote-fullsize-link {
+  text-align: center;
+  font-size: 0.9em;
+}
 .ptx-content img,
 .ptx-content svg {
   background: var(--ptx-image-bg);
+}
+.mermaid > svg {
+  background: none;
 }
 .image-description summary {
   list-style: none;
@@ -2513,7 +2517,7 @@ pre[class*=language-] .line-highlight {
 }
 .displaymath mjx-container[jax=CHTML][display=true] {
   margin: 0 0 0 0;
-  padding-top: 2px;
+  padding-top: 0.3em;
 }
 .process-math mjx-container svg {
   background: none;
@@ -3040,6 +3044,44 @@ ul[data-component=timedAssessment] {
 :root.dark-mode .ptx-runestone-container pre[class*=language-] {
   color: white;
   background: hsl(0, 0%, 8%);
+}
+@layer spacing {
+  .runestone :is(.exercise-statement, .exercise-content) > *:not(:first-child) {
+    margin-top: 1em;
+  }
+  .ptx-runestone-container + .solutions {
+    margin-top: 0.5em;
+  }
+}
+.interactive-iframe-container {
+  max-width: 100%;
+  overflow: auto;
+}
+.interactive-iframe-container > iframe {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.interactive-iframe-container__opener {
+  display: block;
+  margin-right: 5px;
+  margin-top: 11px;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+.interactive-iframe-container__opener .icon {
+  font-size: 18px;
+}
+.interactive-iframe-container__opener:has(+ figcaption, + .instructions) {
+  float: left;
+  z-index: 1;
+  position: relative;
+}
+.interactive-iframe-container__opener + .instructions + figcaption {
+  clear: left;
+}
+.interactive-iframe-container__opener + .instructions {
+  margin-top: 0.5em;
 }
 .ptx-content .wwprob table.attemptResults {
   margin-left: 2em;

@@ -63,7 +63,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +81,7 @@ window.MathJax = {
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:author" content="Robert Rogers">
 <meta property="book:author" content="Eugene Boman">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -103,16 +103,16 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.10.0';
+eBookConfig.runestone_version = '7.11.15';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.f91c1a4dc12163f2.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.fe35e59c546f8d19.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
@@ -337,7 +337,7 @@ eBookConfig.enable_chatcodes =  false;
 </blockquote>
 <div class="para logical" id="Continuity-AnalyticDef-11">
 <div class="para">However, the complexities associated with Fourier series and the types of functions that they represented caused mathematicians in the early <span class="process-math">\(1800\)</span>s to rethink their notions of continuity.  As we saw in <a href="InterregnumPart.html" class="internal" title="Part II: Interregnum">Part II</a>, the graph of the function defined by the Fourier series</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/InterregnumPart.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/InterregnumPart.html" id="Continuity-AnalyticDef-11-3">
 \begin{equation*}
 \frac{4}{\pi}\sum_{k=0}^\infty\frac{\left(-1\right)^k}{\left(2k+1\right)} \cos \left(\left(2k+1\right)\pi x\right)
 \end{equation*}
@@ -358,7 +358,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Conjecture 8.1.3"><a href="#conj_ContImplyDiff" title="Copy heading and permalink for Conjecture 8.1.3" aria-label="Copy heading and permalink for Conjecture 8.1.3">🔗</a></div></article><div class="para logical" id="Continuity-AnalyticDef-17">
 <div class="para"> Surprisingly, in <span class="process-math">\(1872\text{,}\)</span> <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Weierstrass/" target="_blank">Karl Weierstrass</a> (1815–1897) showed that the above conjecture is <em class="alert">FALSE</em>. He did this by displaying the counterexample:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="Continuity-AnalyticDef-17-6">
 \begin{equation*}
 f(x)=\sum_{n=0}^\infty b^n\cos(a^n\pi x)\text{.}
 \end{equation*}
@@ -416,12 +416,12 @@ f(a)+\eps\text{.}\)</span>” This could also be replaced by the phrase “for a
 </div>
 <div class="sbsgroup">
 <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
-<div class="sbspanel sbspanel--middle middle" style=""><img src="external/images/Ch5fig3a.png" class="contained"></div>
-<div class="sbspanel sbspanel--middle middle" style=""><img src="external/images/Ch5fig3b.png" class="contained"></div>
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><img src="external/images/Ch5fig3a.png" class="contained"></div></div>
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><img src="external/images/Ch5fig3b.png" class="contained"></div></div>
 </div></div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
-<div class="sbspanel sbspanel--middle middle" style=""><img src="external/images/Ch5fig3c.png" class="contained"></div>
-<div class="sbspanel sbspanel--middle middle" style=""><img src="external/images/Ch5fig3d.png" class="contained"></div>
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><img src="external/images/Ch5fig3c.png" class="contained"></div></div>
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><img src="external/images/Ch5fig3d.png" class="contained"></div></div>
 </div></div>
 </div>
 <div class="para" id="Continuity-AnalyticDef-36">The precision of the definition is what allows us to examine continuity without relying on pictures or vague notions such as “nearness” or “getting closer to.” We will now consider some examples to illustrate this precision.<div class="autopermalink" data-description="Paragraph"><a href="#Continuity-AnalyticDef-36" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -436,7 +436,7 @@ f(a)+\eps\text{.}\)</span>” This could also be replaced by the phrase “for a
 <article class="proof" id="Continuity-AnalyticDef-39"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="Continuity-AnalyticDef-39-1">
 <div class="para">Let <span class="process-math">\(\eps&gt;0\text{.}\)</span> Let <span class="process-math">\(\delta=\eps\text{.}\)</span> If <span class="process-math">\(|\,x-a|\lt \delta\text{,}\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="Continuity-AnalyticDef-39-1-4">
 \begin{equation*}
 |f(x)-f(a)|=|\,x-a|\lt \eps
 \end{equation*}
@@ -457,7 +457,7 @@ f(a)+\eps\text{.}\)</span>” This could also be replaced by the phrase “for a
 <article class="task exercise-like" id="Continuity-AnalyticDef-40-6"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para logical" id="Continuity-AnalyticDef-40-6-1-1">
 <div class="para">Use the <a href="Continuity.html#def_continuity" class="internal" title="Definition 8.1.7: Continuity at a Point">definition of continuity</a> to show that if <span class="process-math">\(m\)</span> and <span class="process-math">\(b\)</span> are fixed (but unspecified) real numbers then the function</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html" id="Continuity-AnalyticDef-40-6-1-1-4">
 \begin{equation*}
 f(x) = mx+b
 \end{equation*}
@@ -477,7 +477,7 @@ f(x) = mx+b
 <div class="autopermalink" data-description="Example 8.1.10"><a href="#Continuity-AnalyticDef-41" title="Copy heading and permalink for Example 8.1.10" aria-label="Copy heading and permalink for Example 8.1.10">🔗</a></div></article><article class="proof" id="Continuity-AnalyticDef-42"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="Continuity-AnalyticDef-42-1">
 <div class="para">Let <span class="process-math">\(\eps&gt;0\text{.}\)</span> Let <span class="process-math">\(\delta=\sqrt{\eps}\text{.}\)</span> If <span class="process-math">\(|\,x-0|\lt \delta\text{,}\)</span> then <span class="process-math">\(|\,x|\lt \sqrt{\eps}\text{.}\)</span> Thus</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="Continuity-AnalyticDef-42-1-5">
 \begin{equation*}
 \abs{x^2-0^2}=|\,x|^2\lt \left(\sqrt{\eps}\right)^2=\eps\text{.}
 \end{equation*}
@@ -505,7 +505,7 @@ f(x) = mx+b
 </h4>
 <div class="para logical" id="prob_extended_sqrt_is_continuous_at_zero-2-1">
 <div class="para"> Use the <a href="Continuity.html#def_continuity" class="internal" title="Definition 8.1.7: Continuity at a Point">definition of continuity</a> to show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html" id="prob_extended_sqrt_is_continuous_at_zero-2-1-3">
 \begin{equation*}
 f(x)= \begin{cases}\sqrt{x} \amp  \text{ if }  x\ge0\\ -\sqrt{-x} \amp  \text{ if }  x\lt 0 \end{cases}
 \end{equation*}
@@ -532,7 +532,7 @@ f(x)= \begin{cases}\sqrt{x} \amp  \text{ if }  x\ge0\\ -\sqrt{-x} \amp  \text{ i
 <div class="para">As before, the scrapwork for these problems often consists of simply working backwards.  Specifically, given an <span class="process-math">\(\eps&gt;0\text{,}\)</span> we need to find a <span class="process-math">\(\delta&gt;0\)</span> so that <span class="process-math">\(\abs{\sqrt{x}-\sqrt{1}}\lt \eps\text{,}\)</span> whenever <span class="process-math">\(\abs{x-1}\lt
 \delta\text{.}\)</span>  We work backwards from what we want, keeping an eye on the fact that we can control the size of <span class="process-math">\(\abs{x-1}\text{.}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="example_SqrtContinuous-1-3-6">
 \begin{equation*}
 \abs{\sqrt{x}-\sqrt{1}}=\abs{\frac{\left(\sqrt{x}-1\right)\left(\sqrt{x}+1\right)}{\sqrt{x}+1}|}=\frac{\abs{x-1}}{\sqrt{x}+1}\lt
 \abs{x-1}\text{.}
@@ -544,7 +544,7 @@ f(x)= \begin{cases}\sqrt{x} \amp  \text{ if }  x\ge0\\ -\sqrt{-x} \amp  \text{ i
 <div class="autopermalink" data-description="Example 8.1.14"><a href="#example_SqrtContinuous" title="Copy heading and permalink for Example 8.1.14" aria-label="Copy heading and permalink for Example 8.1.14">🔗</a></div></article><article class="proof" id="Continuity-AnalyticDef-50"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="Continuity-AnalyticDef-50-1">
 <div class="para">Let <span class="process-math">\(\eps&gt;0\text{.}\)</span> Let <span class="process-math">\(\delta=\eps\text{.}\)</span> If <span class="process-math">\(\abs{x-1}\lt \delta\text{,}\)</span> then <span class="process-math">\(\abs{x-1}\lt \eps\text{,}\)</span> and so</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="Continuity-AnalyticDef-50-1-5">
 \begin{equation*}
 \abs{\sqrt{x}-\sqrt{1}}=\abs{\frac{\left(\sqrt{x}-1\right)\left(\sqrt{x}+1\right)}{ \sqrt{x}+1}}=\frac{\abs{x-1}}{\sqrt{x}+1}\lt \abs{x-1}\lt \eps\text{.}
 \end{equation*}
@@ -621,7 +621,7 @@ f(x)= \begin{cases}\sqrt{x} \amp  \text{ if }  x\ge0\\ -\sqrt{-x} \amp  \text{ i
 <div class="solutions"><details id="Continuity-AnalyticDef-59-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
 <div class="para logical" id="Continuity-AnalyticDef-59-5-2-1">
 <div class="para">   Observe that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="Continuity-AnalyticDef-59-5-2-1-1">
 \begin{equation*}
 \abs{\ln \left(x\right) -\ln(a)}=\abs{\ln \left(\frac{x}{a}\right)}=\abs{\ln \left(\frac{x}{a}\right)-\ln \left(1\right)}\text{.}
 \end{equation*}
@@ -633,7 +633,7 @@ f(x)= \begin{cases}\sqrt{x} \amp  \text{ if }  x\ge0\\ -\sqrt{-x} \amp  \text{ i
 </div></details></div>
 <div class="autopermalink" data-description="Task 8.1.19.b"><a href="#Continuity-AnalyticDef-59-5" title="Copy heading and permalink for Task 8.1.19.b" aria-label="Copy heading and permalink for Task 8.1.19.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 8.1.19"><a href="#Continuity-AnalyticDef-59" title="Copy heading and permalink for Problem 8.1.19" aria-label="Copy heading and permalink for Problem 8.1.19">🔗</a></div></article><div class="para logical" id="Continuity-AnalyticDef-60">
 <div class="para">In the above problems, we used the <a href="Continuity.html#def_continuity" class="internal" title="Definition 8.1.7: Continuity at a Point">definition of continuity</a> to verify our intuition about the continuity of familiar functions.  The advantage of this analytic definition is that it can be applied when the function is not so intuitive.  Consider, for example, the function given at the end of the last chapter.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html" id="Continuity-AnalyticDef-60-2">
 \begin{equation*}
 f(x)= \begin{cases}
 x\,\sin\left(\frac{1}{x}\right),\amp \text{ if } x\neq 0\\
@@ -653,7 +653,7 @@ x\,\sin\left(\frac{1}{x}\right),\amp \text{ if } x\neq 0\\
 </h4>
 <div class="para logical" id="Continuity-AnalyticDef-64-3-1">
 <div class="para">Use the <a href="Continuity.html#def_continuity" class="internal" title="Definition 8.1.7: Continuity at a Point">definition of continuity</a> to show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html" id="Continuity-AnalyticDef-64-3-1-2">
 \begin{equation*}
 f(x)= \begin{cases}
 x \sin\left(\frac{1}{x}\right),\amp \text{ if } x\neq 0\\ 
@@ -667,7 +667,7 @@ x \sin\left(\frac{1}{x}\right),\amp \text{ if } x\neq 0\\
 </div>
 <div class="autopermalink" data-description="Problem 8.1.20"><a href="#Continuity-AnalyticDef-64" title="Copy heading and permalink for Problem 8.1.20" aria-label="Copy heading and permalink for Problem 8.1.20">🔗</a></div></article><div class="para logical" id="Continuity-AnalyticDef-65">
 <div class="para">Even more perplexing is the function defined by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="Continuity-AnalyticDef-65-1">
 \begin{equation*}
 D(x)=
 \left\{ 
@@ -692,7 +692,7 @@ x\text{,} \amp \text{ if } x\text{ is rational } \\
 <article class="task exercise-like" id="Continuity-AnalyticDef-69-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para logical" id="Continuity-AnalyticDef-69-3-1-1">
 <div class="para">Use the <a href="Continuity.html#def_continuity" class="internal" title="Definition 8.1.7: Continuity at a Point">definition of continuity</a> to show that the function</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html" id="Continuity-AnalyticDef-69-3-1-1-2">
 \begin{equation*}
 D(x)= \begin{cases}
 x,\amp \text{ if } x\text{ is rational } \\
@@ -716,7 +716,7 @@ x,\amp \text{ if } x\text{ is rational } \\
 </h4>
 <div class="para logical" id="Continuity-AnalyticDef-70-3-1">
 <div class="para">Write a formal definition of the statement <span class="process-math">\(f\)</span> is not continuous at <span class="process-math">\(a\text{,}\)</span> and use it to prove that the function</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="Continuity-AnalyticDef-70-3-1-3">
 \begin{equation*}
 f(x)= 
 \begin{cases}
@@ -734,7 +734,7 @@ x\amp \text{ if } x\neq 1\\
 </h3>
 <div class="para logical" id="SequencesAndContinuity-2">
 <div class="para">There is an alternative way to prove that the function</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-2-1">
 \begin{equation*}
 D(x)=\left\{ \begin{matrix}x\text{,} \amp \text{ if } x\text{ is rational } \\ 0\text{,} \amp \text{ if } x\text{ is irrational } \end{matrix} \right.
 \end{equation*}
@@ -747,7 +747,7 @@ D(x)=\left\{ \begin{matrix}x\text{,} \amp \text{ if } x\text{ is rational } \\ 0
 </h4>
 <div class="para logical" id="thm_LimDefOfContinuity-2-1">
 <div class="para">The function <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(a\)</span> if and only if <span class="process-math">\(f\)</span> satisfies the following property:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_LimDefOfContinuity-2-1-4">
 \begin{equation*}
 \forall\text{ sequences } \left(x_n\right)\text{,  if }
 \,\,\limit{n}{\infty}{x_n}=a \text{ then} \limit{n}{\infty}{f(x_n)}=f(a).
@@ -766,7 +766,7 @@ D(x)=\left\{ \begin{matrix}x\text{,} \amp \text{ if } x\text{ is rational } \\ 0
 </h4>
 <div class="para logical" id="example_HeavisideNotContinuous-1-1">
 <div class="para">Use <a href="Continuity.html#thm_LimDefOfContinuity" class="internal" title="Theorem 8.2.1">Theorem 8.2.1</a> to prove that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimDefOfContinuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimDefOfContinuity.html" id="example_HeavisideNotContinuous-1-1-2">
 \begin{equation*}
 f(x)= \begin{cases}\frac{|x|}{x}\text{,} \amp \text{ if } x\neq 0\\ 0\text{,} \amp \text{ if } x=0 \end{cases}
 \end{equation*}
@@ -778,7 +778,7 @@ f(x)= \begin{cases}\frac{|x|}{x}\text{,} \amp \text{ if } x\neq 0\\ 0\text{,} \a
 <div class="autopermalink" data-description="Example 8.2.2"><a href="#example_HeavisideNotContinuous" title="Copy heading and permalink for Example 8.2.2" aria-label="Copy heading and permalink for Example 8.2.2">🔗</a></div></article><article class="proof" id="SequencesAndContinuity-8"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="SequencesAndContinuity-8-1">
 <div class="para">First notice that <span class="process-math">\(f\)</span> can be written as</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-8-1-2">
 \begin{equation*}
 f(x)= \begin{cases}1\amp \text{ if } x&gt;0\\ -1\amp \text{ if } x\lt 0\\ 0\amp \text{ if } x=0 \end{cases} \text{.}
 \end{equation*}
@@ -795,7 +795,7 @@ f(x)= \begin{cases}1\amp \text{ if } x&gt;0\\ -1\amp \text{ if } x\lt 0\\ 0\amp 
 </h4>
 <div class="para logical" id="SequencesAndContinuity-9-3-1">
 <div class="para">Use <a href="Continuity.html#thm_LimDefOfContinuity" class="internal" title="Theorem 8.2.1">Theorem 8.2.1</a> to show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimDefOfContinuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimDefOfContinuity.html" id="SequencesAndContinuity-9-3-1-2">
 \begin{equation*}
 f(x)= \begin{cases}
 \frac{\abs{x}}{x},\amp \text{ if } x\neq 0\\
@@ -824,7 +824,7 @@ x, \amp \text{ if } x\text{ is rational } \\
 </h4>
 <div class="para logical" id="SequencesAndContinuity-11-4-1">
 <div class="para">The function</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-11-4-1-1">
 \begin{equation*}
 T(x)=\sin\left(\frac{1}{x}\right)
 \end{equation*}
@@ -835,7 +835,7 @@ x\)</span> has roots at <span class="process-math">\(n\pi\text{,}\)</span> <span
 <div class="autopermalink" data-description="Paragraph"><a href="#SequencesAndContinuity-11-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/images/Ch5fig7.png" class="contained"></div> <div class="para logical" id="SequencesAndContinuity-11-4-3">
 <div class="para">Notice that <span class="process-math">\(T\)</span> is not even defined at <span class="process-math">\(x=0\text{.}\)</span> We can extend <span class="process-math">\(T\)</span> to be defined at <span class="process-math">\(0\)</span> by simply choosing a value at  <span class="process-math">\(0\text{.}\)</span> Since this will be a new function we give it a new name.</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-11-4-3-6">
 \begin{equation*}
 T_b(x)= \begin{cases}
 \sin\left(\frac{1}{x}\right),\amp \text{ if } x\neq 0\\ 
@@ -850,7 +850,7 @@ b,\amp \text{ if } x=0 \end{cases} \text{.}
 </div>
 <div class="para logical" id="SequencesAndContinuity-12-3">
 <div class="para">The forward direction is fairly straightforward.  We assume that <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(a\)</span> and start with a sequence <span class="process-math">\(\left(x_n\right)\)</span> which converges to <span class="process-math">\(a\text{.}\)</span> We now need to show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html ./knowl/xref/def_ConvergenceOfASequence.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def_continuity.html ./knowl/xref/def_ConvergenceOfASequence.html" id="SequencesAndContinuity-12-3-5">
 \begin{equation*}
 \limit{n}{\infty}{f(x_n)}=f(a)\text{,}
 \end{equation*}
@@ -862,7 +862,7 @@ b,\amp \text{ if } x=0 \end{cases} \text{.}
 </div>
 <div class="para logical" id="SequencesAndContinuity-12-5">
 <div class="para">First we need to recognize what it means for <span class="process-math">\(f\)</span> to not be continuous at <span class="process-math">\(a\text{.}\)</span>  It means that somewhere there exists an <span class="process-math">\(\eps&gt;0\text{,}\)</span> such that no choice of <span class="process-math">\(\delta&gt;0\)</span> will work for that <span class="process-math">\(\eps\text{.}\)</span>  More formally, for any such <span class="process-math">\(\delta\text{,}\)</span> there will exist <span class="process-math">\(x\text{,}\)</span> such that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-12-5-8">
 \begin{equation*}
 \abs{x-a}\lt \delta,\text{ but
 }\abs{f(x)-f(a)}\geq\eps.
@@ -914,12 +914,12 @@ b,\amp \text{ if } x=0 \end{cases} \text{.}
 <div class="para logical" id="SequencesAndContinuity-19">
 <div class="para">Let <span class="process-math">\(\eps&gt;0\text{.}\)</span>  Since <span class="process-math">\(f_j\)</span> is continuous at <span class="process-math">\(a\text{,}\)</span> then there exists <span class="process-math">\(\delta_j&gt;0\)</span> such that if <span class="process-math">\(|\,x-a|\lt
 \delta_j\text{,}\)</span> then <span class="process-math">\(|f_j(x)-f_j(a)|\lt \frac{\eps}{2^j}\text{.}\)</span> Let <span class="process-math">\(\delta=\)</span>min<span class="process-math">\(\left(\delta_1,\,\delta_2,\,\ldots\right)\text{.}\)</span> If <span class="process-math">\(|\,x-a|\lt \delta\text{,}\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-19-10">
 \begin{equation*}
 \left|\sum_{j=1}^\infty f_j(x)-\sum_{j=1}^\infty f_j(a)\right|=\left|\sum_{j=1}^\infty\left(f_j(x)-f_j(a)\right)\right|
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-19-11">
 \begin{equation*}
 \leq\,\sum_{j=1}^\infty|f_j(x)-f_j(a)|\lt \sum_{j=1}^\infty\frac{ \eps}{2^j}=\eps\text{.}
 \end{equation*}
@@ -980,7 +980,7 @@ f)(x)=g(f(x))\text{.}\)</span>)<div class="autopermalink" data-description="Para
 </div>
 <div class="autopermalink" data-description="Task 8.2.13.b"><a href="#SequencesAndContinuity-29-6" title="Copy heading and permalink for Task 8.2.13.b" aria-label="Copy heading and permalink for Task 8.2.13.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 8.2.13"><a href="#SequencesAndContinuity-29" title="Copy heading and permalink for Problem 8.2.13" aria-label="Copy heading and permalink for Problem 8.2.13">🔗</a></div></article><div class="para logical" id="SequencesAndContinuity-30">
 <div class="para">The above theorems allow us to build continuous functions from other continuous functions.  For example, knowing that <span class="process-math">\(f(x)=x\)</span> and <span class="process-math">\(g(x)=c\)</span> are continuous, we can conclude that any polynomial,</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SequencesAndContinuity-30-3">
 \begin{equation*}
 p(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0
 \end{equation*}
@@ -1014,7 +1014,7 @@ p(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0
 <div class="autopermalink" data-description="Task 8.2.15.d"><a href="#SequencesAndContinuity-32-7" title="Copy heading and permalink for Task 8.2.15.d" aria-label="Copy heading and permalink for Task 8.2.15.d">🔗</a></div></article><div class="autopermalink" data-description="Problem 8.2.15"><a href="#SequencesAndContinuity-32" title="Copy heading and permalink for Problem 8.2.15" aria-label="Copy heading and permalink for Problem 8.2.15">🔗</a></div></article><div class="para logical" id="SequencesAndContinuity-33">
 <div class="para">
 <a href="Continuity.html#thm_LimDefOfContinuity" class="internal" title="Theorem 8.2.1">Theorem 8.2.1</a> can also be used to study the convergence of sequences.  For example, since <span class="process-math">\(f(x)=e^x\)</span> is continuous at any point and <span class="process-math">\(\limitt{n}{\infty}{\frac{n+1}{n}}=1\text{,}\)</span> then <span class="process-math">\(\limitt{n}{\infty}{e^{\left(\frac{n+1}{n}\right)}}=e\text{.}\)</span> This also illustrates a certain way of thinking about continuous functions.  They are the ones where we can <dfn class="terminology">commute</dfn> the function and a limit of a sequence.  Specifically, if <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\(a\)</span> and <span class="process-math">\(\limit{n}{\infty}{x_n}=a\text{,}\)</span> then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimDefOfContinuity.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimDefOfContinuity.html" id="SequencesAndContinuity-33-9">
 \begin{equation*}
 \limit{n}{\infty}{f(x_n)}=f(a)=f\left(\limit{n}{\infty}{x_n}\right)\text{.}
 \end{equation*}

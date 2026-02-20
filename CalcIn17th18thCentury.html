@@ -63,7 +63,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +81,7 @@ window.MathJax = {
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:author" content="Robert Rogers">
 <meta property="book:author" content="Eugene Boman">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -103,16 +103,16 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.10.0';
+eBookConfig.runestone_version = '7.11.15';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.f91c1a4dc12163f2.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.fe35e59c546f8d19.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
@@ -330,7 +330,7 @@ x=x_2-x_1\text{,}\)</span> is very small.  He expanded this idea to say that if 
 </div>
 <div class="para logical" id="sec_leibn-calc-rules-7">
 <div class="para">In his paper Leibniz gave rules for dealing with these infinitely small differentials.  Specifically, given a variable quantity <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\dx{x}\)</span> represented an infinitesimal change in <span class="process-math">\(x\text{.}\)</span>  Differentials are related via the slope of the tangent line to a curve.  That is, if <span class="process-math">\(y=f(x)\text{,}\)</span> then <span class="process-math">\(\dx{ y}\)</span> and <span class="process-math">\(\dx{ x}\)</span> are related by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_leibn-calc-rules-7-7">
 \begin{equation*}
 \dx{ y}=\text{ (slope of the tangent line) } \cdot \dx{ x}\text{.}
 \end{equation*}
@@ -339,7 +339,7 @@ x=x_2-x_1\text{,}\)</span> is very small.  He expanded this idea to say that if 
 </div>
 <div class="para logical" id="sec_leibn-calc-rules-8">
 <div class="para">Leibniz then divided by <span class="process-math">\(\dx{ x}\)</span> giving</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_leibn-calc-rules-8-2">
 \begin{equation*}
 \dfdx{y}{x}= \text{ (slope of the tangent line). }
 \end{equation*}
@@ -355,9 +355,11 @@ x=x_2-x_1\text{,}\)</span> is very small.  He expanded this idea to say that if 
 \dx{(\text{ constant } )}\amp =0\\
 \dx{(z-y+w+x)}\amp =\dx{ z}-\dx{ y}+\dx{ w}+\dx{ x}\\
 \dx{(xv)}\amp =x\dx{ v}+v\dx{ x}\\
-\dx{\left(\frac{v}{y}\right)}\amp =\frac{y\dx{ v}-v\dx{ y}}{yy}\\
+\dx{\left(\frac{v}{y}\right)}\amp =\frac{y\dx{ v}-v\dx{ y}}{yy}
 \end{align*}
+</div>
 <div class="para intertext">and, when <span class="process-math">\(a\)</span> is an integer:</div>
+<div class="displaymath process-math" id="sec_leibn-calc-rules-10-5">
 \begin{align*}
 \dx{(x^a)}\amp =ax^{a-1}\dx{ x}\text{.}
 \end{align*}
@@ -366,13 +368,13 @@ x=x_2-x_1\text{,}\)</span> is very small.  He expanded this idea to say that if 
 </div>
 <div class="para logical" id="sec_leibn-calc-rules-11">
 <div class="para">Leibniz states these rules without proof: “. . . the demonstration of all this will be easy to one who is experienced in such matters . . .”. Mathematicians in Leibniz’s day would have been expected to understand intuitively that if <span class="process-math">\(c\)</span> is a constant, then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_leibn-calc-rules-11-4">
 \begin{equation*}
 \dx(c)=c-c=0\text{.}
 \end{equation*}
 </div>
 <div class="para">Likewise, <span class="process-math">\(\dx(x+y)=\dx{x}+\dx{y}\)</span> is really an extension of</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="sec_leibn-calc-rules-11-6">
 \begin{equation*}
 \underbrace{(x_2+y_2)-(x_1+y_1)}_{\Delta
 (x+y)}=\underbrace{(x_2-x_1)}_{\Delta
@@ -401,7 +403,7 @@ x}+\underbrace{(y_2-y_1)}_{\Delta{y}} \text{.}
 </div>
 <div class="para logical" id="LeibnizProductRule-7">
 <div class="para">Even though <span class="process-math">\(\dx{ x}\)</span> and <span class="process-math">\(\dx{ v}\)</span> are infinitely small, Leibniz reasoned that <span class="process-math">\(\dx{ x}\,\dx{ v}\)</span> is <em class="emphasis">even more</em> infinitely small (quadratically infinitely small?)  compared to <span class="process-math">\(x\dx{ v}\)</span> and <span class="process-math">\(v\dx{ x}\)</span> and can thus be ignored leaving</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="LeibnizProductRule-7-7">
 \begin{equation*}
 \dx{ (xv)}=x\dx{ v}+v\dx{ x}\text{.}
 \end{equation*}
@@ -442,7 +444,7 @@ x}{2}\)</span> and <span class="process-math">\(\frac{\Delta v}{2}\)</span> resp
 </div>
 <div class="para logical" id="NewtonsApproach-7">
 <div class="para">Subtracting  <a href="CalcIn17th18thCentury.html#eq_prodruledec" class="internal" title="Equation 3.1.3">equation (3.1.3)</a> from  <a href="CalcIn17th18thCentury.html#eq_prodruleinc" class="internal" title="Equation 3.1.2">equation (3.1.2)</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_prodruledec.html ./knowl/xref/eq_prodruleinc.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_prodruledec.html ./knowl/xref/eq_prodruleinc.html" id="NewtonsApproach-7-3">
 \begin{equation*}
 \Delta R = x\Delta v + v\Delta x
 \end{equation*}
@@ -458,14 +460,14 @@ x}{2}\)</span> and <span class="process-math">\(\frac{\Delta v}{2}\)</span> resp
 </div>
 <div class="para logical" id="NewtonsApproach-11">
 <div class="para">Both Newton and Leibniz were satisfied that their Calculus provided answers that agreed with what was known at the time.  For example the formulas</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-11-1">
 \begin{equation*}
 \dx{ \left(x^2\right)}=\dx{\left(xx\right)}=x\dx{ x}+x\dx{
 x}=2x\dx{ x} 
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-11-2">
 \begin{equation*}
 \dx{\left(x^3\right)}=\dx{\left(x^2x\right)}=x^2\dx{
 x}+x\dx{\left(x^2\right)}=x^2+x\left(2x\dx{
@@ -483,7 +485,7 @@ x}\right)=3x^2\dx{ x}\text{,}
 <article class="task exercise-like" id="NewtonsApproach-12-3"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para logical" id="NewtonsApproach-12-3-1-1">
 <div class="para">Use Leibniz’ product rule <span class="process-math">\(\dx{\left(xv\right)}=x\dx{v}+v\dx{x}\)</span> to show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-12-3-1-1-3">
 \begin{equation*}
 \dx{\left(x^n\right)}=nx^{n-1}\dx{x}
 \end{equation*}
@@ -493,7 +495,7 @@ x}\right)=3x^2\dx{ x}\text{,}
 <div class="autopermalink" data-description="Task 3.1.5.a"><a href="#NewtonsApproach-12-3" title="Copy heading and permalink for Task 3.1.5.a" aria-label="Copy heading and permalink for Task 3.1.5.a">🔗</a></div></article><article class="task exercise-like" id="NewtonsApproach-12-4"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para logical" id="NewtonsApproach-12-4-1-1">
 <div class="para">Suppose <span class="process-math">\(y=x^{-1}=\frac{1}{x}\text{,}\)</span> Use Leibniz’ product rule to show</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-12-4-1-1-3">
 \begin{equation*}
 dy=-1x^{-2}\dx{x}
 \end{equation*}
@@ -503,7 +505,7 @@ dy=-1x^{-2}\dx{x}
 <div class="autopermalink" data-description="Task 3.1.5.b"><a href="#NewtonsApproach-12-4" title="Copy heading and permalink for Task 3.1.5.b" aria-label="Copy heading and permalink for Task 3.1.5.b">🔗</a></div></article><article class="task exercise-like" id="NewtonsApproach-12-5"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para logical" id="NewtonsApproach-12-5-1-1">
 <div class="para">Use the product rule and the result of part (b) to derive the quotient rule</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-12-5-1-1-1">
 \begin{equation*}
 d\left(\frac{v}{x}\right)=\frac{x\dx{v}-v\dx{x}}{x^2}
 \end{equation*}
@@ -513,7 +515,7 @@ d\left(\frac{v}{x}\right)=\frac{x\dx{v}-v\dx{x}}{x^2}
 <div class="autopermalink" data-description="Task 3.1.5.c"><a href="#NewtonsApproach-12-5" title="Copy heading and permalink for Task 3.1.5.c" aria-label="Copy heading and permalink for Task 3.1.5.c">🔗</a></div></article><article class="task exercise-like" id="NewtonsApproach-12-6"><h6 class="heading"><span class="codenumber">(d)</span></h6>
 <div class="para logical" id="NewtonsApproach-12-6-1-1">
 <div class="para">Use the quotient rule to show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-12-6-1-1-1">
 \begin{equation*}
 d\left(x^{-n}\right)=-nx^{-n-1}\dx{x}
 \end{equation*}
@@ -525,7 +527,7 @@ d\left(x^{-n}\right)=-nx^{-n-1}\dx{x}
 </h5>
 <div class="para logical" id="NewtonsApproach-13-3-1">
 <div class="para">Suppose <span class="process-math">\(y=x^{\frac{p}{q}}\)</span> with <span class="process-math">\(q\neq 0\text{,}\)</span> where <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are integers. Show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-13-3-1-5">
 \begin{equation*}
 \dx{y}=\dx{
 \left(x^{\frac{p}{q}}\right)}=\frac{p}{q}x^{\frac{p}{q}-1}\dx{
@@ -546,7 +548,7 @@ x}\text{.}
 </div>
 <figure class="figure figure-like" id="snellfig2"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/images/snellfig2-1.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 3.1.9"><a href="#snellfig2" title="Copy heading and permalink for Figure 3.1.9" aria-label="Copy heading and permalink for Figure 3.1.9">🔗</a></div></figcaption></figure><div class="para logical" id="NewtonsApproach-21">
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-21-1">
 \begin{equation*}
 T=\frac{\sqrt{x^2+a^2}}{v_a}+\frac{\sqrt{(c-x)^2+b^2}}{v_w}
 \end{equation*}
@@ -566,7 +568,7 @@ T=\frac{\sqrt{x^2+a^2}}{v_a}+\frac{\sqrt{(c-x)^2+b^2}}{v_w}
 <div class="para logical" id="NewtonsApproach-23">
 <div class="para">Using the fact that at the minimum value for <span class="process-math">\(T\text{,}\)</span> <span class="process-math">\(\dx{
 T}=0\text{,}\)</span> we see that the fastest path from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> must satisfy</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-23-5">
 \begin{equation*}
 \frac{1}{v_a}\frac{x}{\sqrt{x^2+a^2}}=\frac{1}{v_w}\frac{c-x}{\sqrt{(c-x)^2+b^2}}\text{.}
 \end{equation*}
@@ -608,7 +610,7 @@ T}=0\text{,}\)</span> we see that the fastest path from <span class="process-mat
 <figure class="figure figure-like" id="brachfig2"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/images/brachfig2-1.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 3.1.13"><a href="#brachfig2" title="Copy heading and permalink for Figure 3.1.13" aria-label="Copy heading and permalink for Figure 3.1.13">🔗</a></div></figcaption></figure><div class="para logical" id="NewtonsApproach-39">
 <div class="para">By repeatedly applying Snell’s Law he concluded that the fastest path must satisfy</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="NewtonsApproach-39-2">
 \begin{equation*}
 \frac{\sin \theta_1}{v_1}=\frac{\sin \theta_2}{v_2}=\frac{\sin\theta_3}{v_3}=\cdots\text{.}
 \end{equation*}
@@ -619,7 +621,7 @@ T}=0\text{,}\)</span> we see that the fastest path from <span class="process-mat
 </div>
 <div class="para logical" id="NewtonsApproach-41">
 <div class="para">If we think of a continuously changing medium as stratified into infinitesimal layers and extend Snell’s law to an object whose speed is constantly changing, then along the fastest path, the ratio of the sine of the angle that the curve’s tangent makes with the vertical, <span class="process-math">\(\alpha\text{,}\)</span> and the speed, <span class="process-math">\(v\text{,}\)</span> must remain constant,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/snellfig4.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/snellfig4.html" id="NewtonsApproach-41-5">
 \begin{equation*}
 \frac{\sin\alpha}{v}=c
 \end{equation*}
@@ -633,7 +635,7 @@ T}=0\text{,}\)</span> we see that the fastest path from <span class="process-mat
 <figure class="figure figure-like" id="snellfig5"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/images/snellfig5-1.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 3.1.15"><a href="#snellfig5" title="Copy heading and permalink for Figure 3.1.15" aria-label="Copy heading and permalink for Figure 3.1.15">🔗</a></div></figcaption></figure><div class="para logical" id="NewtonsApproach-45">
 <div class="para">In <a href="CalcIn17th18thCentury.html#snellfig5" class="internal" title="Figure 3.1.15">Figure 3.1.15</a>, <span class="process-math">\(s\)</span> denotes the length that the bead has traveled down to point <span class="process-math">\(P\)</span> (that is, the arc length of the curve from the origin to that point) and <span class="process-math">\(a\)</span> denotes the tangential component of the acceleration due to gravity <span class="process-math">\(g\text{.}\)</span>  Since  acceleration is the rate of change of velocity with respect to time we see that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/snellfig5.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/snellfig5.html" id="NewtonsApproach-45-6">
 \begin{equation*}
 \dfdx{v}{t}=a\text{.}
 \end{equation*}
@@ -644,7 +646,7 @@ T}=0\text{,}\)</span> we see that the fastest path from <span class="process-mat
 </div>
 <div class="para logical" id="NewtonsApproach-47">
 <div class="para">By similar triangles we have <span class="process-math">\(\frac{a}{g}=\frac{\dx{ y}}{\dx{ s}}\text{.}\)</span> As a student of Leibniz, Bernoulli would have regarded <span class="process-math">\(\frac{\dx{ y}}{\dx{ s}}\)</span> as a fraction so</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONDifferentialDemo.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONDifferentialDemo.html" id="NewtonsApproach-47-3">
 \begin{equation*}
 a\dx{s}  = g\dx{y}
 \end{equation*}
@@ -656,13 +658,13 @@ a\dx{s}  = g\dx{y}
 \end{equation}
 </div>
 <div class="para">In the seventeenth, eighteenth, and even well into the nineteenth centuries, European mathematicians regarded <span class="process-math">\(\dx{ v}, \dx{ t}\text{,}\)</span> and <span class="process-math">\(\dx{ s}\)</span> as infinitesimally small numbers which nevertheless obey all of the usual rules of algebra. Thus they would simply  rearrange <a href="CalcIn17th18thCentury.html#EQUATIONDifferentialDemo" class="internal" title="Equation 3.1.4">equation (3.1.4)</a>,  to get</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONDifferentialDemo.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONDifferentialDemo.html" id="NewtonsApproach-47-8">
 \begin{equation*}
 \frac{\dx{s}}{\dx{t}}\dx{ v}  = g\dx{y}\text{.}
 \end{equation*}
 </div>
 <div class="para">Since <span class="process-math">\(\frac{\dx{ s}}{\dx{ t}}\)</span> is the rate of change of position with respect to time it is, in fact, the velocity of the bead. That is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONDifferentialDemo.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONDifferentialDemo.html" id="NewtonsApproach-47-10">
 \begin{equation*}
 v\dx{ v}  = g\dx{ y}\text{.}
 \end{equation*}
@@ -687,31 +689,43 @@ v=\sqrt{2gy}\text{.}\tag{3.1.5}
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_brach_vel.html" id="NewtonsApproach-48-5">
 \begin{align*}
 \frac{a}{g}\amp = \dfdx{y}{s}\\
-a \amp = g\dfdx{y}{s}.\\
+a \amp = g\dfdx{y}{s}.
 \end{align*}
+</div>
 <div class="para intertext">Moreover, since acceleration is the derivative of velocity this is the same as:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_brach_vel.html" id="NewtonsApproach-48-7">
 \begin{align*}
-\dfdx{v}{t} \amp = g\dfdx{y}{s}.\\
+\dfdx{v}{t} \amp = g\dfdx{y}{s}.
 \end{align*}
+</div>
 <div class="para intertext">Now observe that by the Chain Rule <span class="process-math">\(\dfdx{v}{t} =
 \dfdx{v}{s}\dfdx{s}{t}\text{.}\)</span> The physical interpretation of this formula is that velocity will depend on <span class="process-math">\(s\text{,}\)</span> how far down the wire the bead has moved, but that the distance traveled will depend on how much time has elapsed. Therefore</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_brach_vel.html" id="NewtonsApproach-48-9">
 \begin{align*}
-\dfdx{v}{s}\dfdx{s}{t} \amp = g\dfdx{y}{s}\\
+\dfdx{v}{s}\dfdx{s}{t} \amp = g\dfdx{y}{s}
 \end{align*}
+</div>
 <div class="para intertext">or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_brach_vel.html" id="NewtonsApproach-48-11">
 \begin{align*}
-\dfdx{s}{t}\dfdx{v}{s} \amp = g\dfdx{y}{s}\\
+\dfdx{s}{t}\dfdx{v}{s} \amp = g\dfdx{y}{s}
 \end{align*}
+</div>
 <div class="para intertext">and since <span class="process-math">\(\dfdx{s}{t} = v\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_brach_vel.html" id="NewtonsApproach-48-13">
 \begin{align*}
-v\dfdx{v}{s} \amp = g\dfdx{y}{s}\\
+v\dfdx{v}{s} \amp = g\dfdx{y}{s}
 \end{align*}
+</div>
 <div class="para intertext">Integrating both sides with respect to <span class="process-math">\(s\)</span> gives:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_brach_vel.html" id="NewtonsApproach-48-15">
 \begin{align*}
 \int{}v\dfdx{v}{s}d s \amp = g\int{}\dfdx{y}{s}d s\\
-\int{}vd v \amp = g\int{}d y\\
+\int{}vd v \amp = g\int{}d y
 \end{align*}
+</div>
 <div class="para intertext">and integrating gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_brach_vel.html" id="NewtonsApproach-48-17">
 \begin{align*}
 \frac{v^2}{2} \amp = gy
 \end{align*}
@@ -726,10 +740,12 @@ v\dfdx{v}{s} \amp = g\dfdx{y}{s}\\
 <div class="para logical" id="NewtonsApproach-51">
 <div class="para">Returning to the Brachistochrone problem we observe that</div>
 <div class="displaymath process-math" id="NewtonsApproach-51-1">
-\begin{align}
-\frac{\sin\alpha}{v} \amp = c\notag\\
-\end{align}
+\begin{align*}
+\frac{\sin\alpha}{v} \amp = c
+\end{align*}
+</div>
 <div class="para intertext">and since <span class="process-math">\(\sin\alpha = \frac{d x}{d s}\)</span>   we see that</div>
+<div class="displaymath process-math" id="NewtonsApproach-51-3">
 \begin{align}
 \frac{\frac{d x}{d s}}{\sqrt{2gy}} \amp = c\notag\\
 \frac{d x}{\sqrt{2gy(ds)^2}} \amp = c\notag\\
@@ -744,7 +760,7 @@ v\dfdx{v}{s} \amp = g\dfdx{y}{s}\\
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="NewtonsApproach-53-3-1">Show that the equations <span class="process-math">\(x=\frac{\phi-\sin
-\phi}{4gc^2},\,y=\frac{1-\cos \phi}{4gc^2}\)</span> satisfy equation <a href="CalcIn17th18thCentury.html#NewtonsApproach-51-1" class="internal" title="Equation 3.1.6">equation (3.1.6)</a>. Bernoulli recognized this solution to be an inverted cycloid, the curve traced by a fixed point on a circle as the circle rolls along a horizontal surface.<div class="autopermalink" data-description="Paragraph"><a href="#NewtonsApproach-53-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+\phi}{4gc^2},\,y=\frac{1-\cos \phi}{4gc^2}\)</span> satisfy equation <a href="CalcIn17th18thCentury.html#NewtonsApproach-51-3" class="internal" title="Equation 3.1.6">equation (3.1.6)</a>. Bernoulli recognized this solution to be an inverted cycloid, the curve traced by a fixed point on a circle as the circle rolls along a horizontal surface.<div class="autopermalink" data-description="Paragraph"><a href="#NewtonsApproach-53-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Problem 3.1.16"><a href="#NewtonsApproach-53" title="Copy heading and permalink for Problem 3.1.16" aria-label="Copy heading and permalink for Problem 3.1.16">🔗</a></div></article><div class="para" id="NewtonsApproach-54">This illustrates the state of Calculus in the late 1600s and early 1700s; the foundations of the subject were a bit shaky but there was no denying its power.<div class="autopermalink" data-description="Paragraph"><a href="#NewtonsApproach-54" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -759,7 +775,7 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 </h4>
 <div class="para logical" id="def_PowerSeries-3-1">
 <div class="para">A <dfn class="terminology">power series centered at <span class="process-math">\(\boldsymbol{a}\)</span></dfn> is a series of the form</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="def_PowerSeries-3-1-2">
 \begin{equation*}
 \sum_{n=0}^\infty a_n(x-a)^n=a_0+a_1(x-a)+a_2(x-a)^2+\cdots\text{.}
 \end{equation*}
@@ -768,7 +784,7 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 </div>
 <div class="autopermalink" data-description="Definition 3.2.1"><a href="#def_PowerSeries" title="Copy heading and permalink for Definition 3.2.1" aria-label="Copy heading and permalink for Definition 3.2.1">🔗</a></div></article><div class="para logical" id="ExponentAdditionProperty-4">
 <div class="para">Thus a power series centered around zero has the form</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/SECTIONPowSerWOTaylor.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/SECTIONPowSerWOTaylor.html" id="ExponentAdditionProperty-4-1">
 \begin{equation*}
 \sum_{n=0}^\infty a_nx^n \text{.}
 \end{equation*}
@@ -781,7 +797,7 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 </div>
 <div class="autopermalink" data-description="Paragraphs: A useful comment on notation:"><a href="#ExponentAdditionProperty-5" title="Copy heading and permalink for Paragraphs: A useful comment on notation:" aria-label="Copy heading and permalink for Paragraphs: A useful comment on notation:">🔗</a></div></section><div class="para logical" id="ExponentAdditionProperty-6">
 <div class="para"> Returning to our definition of a power series, consider the power series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-6-2">
 \begin{equation*}
 \sum_{n=0}^\infty x^n=1+x+x^2+\cdots \text{.}
 \end{equation*}
@@ -817,7 +833,7 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 \end{align*}
 </div>
 <div class="para">But substituting into the right side yields</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html" id="ExponentAdditionProperty-8-8">
 \begin{equation*}
 \frac{1}{1-\frac{1}{10}}=\frac{10}{9}. 
 \end{equation*}
@@ -828,13 +844,13 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 </div>
 <div class="para logical" id="ExponentAdditionProperty-10">
 <div class="para">If <span class="process-math">\(1.111\ldots=\frac{10}{9}\text{,}\)</span> then subtracting <span class="process-math">\(1\)</span> from both sides and multiplying by <span class="process-math">\(3\)</span> gives</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-10-4">
 \begin{equation*}
 0.333\ldots = \frac{1}{3}
 \end{equation*}
 </div>
 <div class="para">which has probably come up on your calculator more than once. But what seems wierder still is that if we multiply by <span class="process-math">\(3\)</span> again we get</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-10-6">
 \begin{equation*}
 0.999\ldots
 =1\text{,}
@@ -846,7 +862,7 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 </div>
 <div class="para logical" id="ExponentAdditionProperty-11">
 <div class="para">There are other issues with these formal manipulations too. Substituting <span class="process-math">\(x=1\)</span> or <span class="process-math">\(x=2\)</span> into <a href="CalcIn17th18thCentury.html#EQUATIONGeometricSeries" class="internal" title="Equation 3.2.1">equation (3.2.1)</a> yields the questionable results</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html" id="ExponentAdditionProperty-11-4">
 \begin{equation*}
 \frac{1}{0}=1+1+1+\cdots \text{  and  } \frac{1}{-1}=1+2+2^2+\cdots\text{.}
 \end{equation*}
@@ -877,7 +893,7 @@ x}}=y,\amp{}\amp{}y(0)=1.
 </h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="ExponentAdditionProperty-15-2-2-2">A few seconds of thought should convince you that the solution of this problem is <span class="process-math">\(y(x) = e^x\text{.}\)</span>  We will ignore this for now in favor of emphasising the technique.<div class="autopermalink" data-description="Paragraph"><a href="#ExponentAdditionProperty-15-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></aside></details> <div class="para logical" id="ExponentAdditionProperty-15-2-3">
 <div class="para">Assuming the solution can be expressed as a power series we have</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-15-2-3-1">
 \begin{equation*}
 y=\sum_{n=0}^\infty
 a_nx^n=a_0+a_1x+a_2x^2+\cdots \text{.}
@@ -886,7 +902,7 @@ a_nx^n=a_0+a_1x+a_2x^2+\cdots \text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#ExponentAdditionProperty-15-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ExponentAdditionProperty-15-2-4">
 <div class="para">Differentiating gives us</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-15-2-4-1">
 \begin{equation*}
 \frac{\dx{ y}}{\dx{
 x}}=a_1+2a_2x+3a_3x^2+4a_4x^3+\ldots \text{.}
@@ -895,7 +911,7 @@ x}}=a_1+2a_2x+3a_3x^2+4a_4x^3+\ldots \text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#ExponentAdditionProperty-15-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ExponentAdditionProperty-15-2-5">
 <div class="para">Since <span class="process-math">\(\frac{\dx{ y}}{\dx{ x}}=y\)</span> we see that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-15-2-5-2">
 \begin{equation*}
 a_1=a_0\,,\,2a_2=a_1\,,\,3a_3=a_2\,,\,\ldots,\,na_n=a_{n-1}\,,\ldots\text{.}
 \end{equation*}
@@ -903,7 +919,7 @@ a_1=a_0\,,\,2a_2=a_1\,,\,3a_3=a_2\,,\,\ldots,\,na_n=a_{n-1}\,,\ldots\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#ExponentAdditionProperty-15-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ExponentAdditionProperty-15-2-6">
 <div class="para">This leads to the relationship</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-15-2-6-1">
 \begin{equation*}
 a_n=\frac{1}{n}a_{n-1}=\frac{1}{n(n-1)}a_{n-2}=\cdots=\frac{1}{n!}a_0\text{.}
 \end{equation*}
@@ -911,7 +927,7 @@ a_n=\frac{1}{n}a_{n-1}=\frac{1}{n(n-1)}a_{n-2}=\cdots=\frac{1}{n!}a_0\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#ExponentAdditionProperty-15-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="ExponentAdditionProperty-15-2-7">
 <div class="para">Thus the power series solution of the differential equation is</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-15-2-7-1">
 \begin{equation*}
 y=\sum_{n=0}^\infty\frac{a_0}{n!}x^n
 =a_0\sum_{n=0}^\infty\frac{1}{n!}x^n \text{.}
@@ -1002,7 +1018,7 @@ E(x)E(y) =  E(x+y)\text{.}\tag{3.2.4}
 </div>
 <div class="autopermalink" data-description="Definition 3.2.7"><a href="#def_e" title="Copy heading and permalink for Definition 3.2.7" aria-label="Copy heading and permalink for Definition 3.2.7">🔗</a></div></article><div class="para logical" id="ExponentAdditionProperty-29">
 <div class="para">In light of Property 6, we see that for any rational number <span class="process-math">\(r\text{,}\)</span> <span class="process-math">\(E(r)=e^r\text{.}\)</span>  Not only does this give us the power series representation <span class="process-math">\(e^r=\sum_{n=0}^\infty\frac{1}{n!}r^n\)</span> for any rational number <span class="process-math">\(r\text{,}\)</span> but it gives us a way to define <span class="process-math">\(e^x\)</span> for irrational values of <span class="process-math">\(x\)</span> as well.  That is, we can define</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-29-7">
 \begin{equation*}
 e^x=E(x)=\sum_{n=0}^\infty\frac{1}{n!}x^n
 \end{equation*}
@@ -1013,7 +1029,7 @@ e^x=E(x)=\sum_{n=0}^\infty\frac{1}{n!}x^n
 </div>
 <div class="para logical" id="ExponentAdditionProperty-30">
 <div class="para">As an illustration, we now have <span class="process-math">\(e^{\sqrt{2}}=\sum_{n=0}^\infty\frac{1}{n!}\left(\sqrt{2}\right)^n\text{.}\)</span> The expression <span class="process-math">\(e^{\sqrt{2}}\)</span> is meaningless if we try to interpret it as one irrational number raised to another. What does it mean to raise anything to the <span class="process-math">\(\sqrt{2}\)</span> power?  However the power series <span class="process-math">\(\sum_{n=0}^\infty\frac{1}{n!}\left(\sqrt{2}\right)^n\)</span> does seem to have meaning and it can be used to extend the exponential function to irrational exponents.  In fact, defining the exponential function via this power series answers the question we raised in <a href="NumbersRealRational.html" class="internal" title="Chapter 2: Numbers, Real \left(\RR\right) and Rational \left(\QQ\right)">Chapter 2</a>: What does <span class="process-math">\(4^{\sqrt{2}}\)</span> mean? It means</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/NumbersRealRational.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/NumbersRealRational.html" id="ExponentAdditionProperty-30-7">
 \begin{equation*}
 4^{\sqrt{2}} = e^{\sqrt{2}\log 4} =
 \sum_{n=0}^\infty\frac{(\sqrt{2}\log 4)^n}{n!}  \text{.}
@@ -1048,7 +1064,7 @@ e^{-\frac{x^2}{2}}\dx{x} \amp =\frac{1}{\sqrt{2\pi}}
 </h4>
 <div class="para logical" id="ExponentAdditionProperty-34-2-1">
 <div class="para">Write <span class="process-math">\(e^{-x^3}\)</span> as a power series expanded about <span class="process-math">\(0\)</span> and use your series to represent</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-34-2-1-3">
 \begin{equation*}
 \int^b_{x=0}{e^{-x^3}\dx{x}}
 \end{equation*}
@@ -1081,7 +1097,7 @@ e^{-\frac{x^2}{2}}\dx{x} \amp =\frac{1}{\sqrt{2\pi}}
 \end{equation}
 </div>
 <div class="para">then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMSinPwrSeries-4-1-1-3">
 \begin{equation*}
 a_{n+2}=\frac{-1}{\left(n+2\right)\left(n+1\right)}\,a_n
 \end{equation*}
@@ -1139,13 +1155,13 @@ x\amp{}=1-\frac{1}{2!}\,x^2+\frac{1}{4!}x^4-\frac{1}{6!}x^6+\cdots\\
 <div class="autopermalink" data-description="Task 3.2.11.a"><a href="#PROBLEMSinCosPwrSeries-4" title="Copy heading and permalink for Task 3.2.11.a" aria-label="Copy heading and permalink for Task 3.2.11.a">🔗</a></div></article><article class="task exercise-like" id="PROBLEMSinCosPwrSeries-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="PROBLEMSinCosPwrSeries-5-1-1">
 <div class="para">Let</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMSinCosPwrSeries-5-1-1-1">
 \begin{equation*}
 s(x,N)=\sum_{n=0}^N\frac{\left(-1\right)^n}{\left(2n+1\right)!}x^{2n+1}
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMSinCosPwrSeries-5-1-1-2">
 \begin{equation*}
 c(x,N)=\sum_{n=0}^N\frac{\left(-1\right)^n}{\left(2n\right)!}x^{2n}
 \end{equation*}
@@ -1159,7 +1175,7 @@ c(x,N)=\sum_{n=0}^N\frac{\left(-1\right)^n}{\left(2n\right)!}x^{2n}
 </h4>
 <div class="para logical" id="ExponentAdditionProperty-38-2-1">
 <div class="para">Use the power series for <span class="process-math">\(\sin (x)\)</span> to compute</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-38-2-1-2">
 \begin{equation*}
 \int^b_{x=0}\sin\left(x^2\right)\dx{x}
 \end{equation*}
@@ -1173,7 +1189,7 @@ c(x,N)=\sum_{n=0}^N\frac{\left(-1\right)^n}{\left(2n\right)!}x^{2n}
 <article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para logical" id="PROBLEMResultsFromGeometricSeries-4-1-1">
 <div class="para">Use the <a href="CalcIn17th18thCentury.html#EQUATIONGeometricSeries" class="internal" title="Equation 3.2.1">Geometric series</a> to obtain a power series for</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html" id="PROBLEMResultsFromGeometricSeries-4-1-1-2">
 \begin{equation*}
 f(x)=\frac{1}{1+x}\text{,}
 \end{equation*}
@@ -1186,7 +1202,7 @@ f(x)=\frac{1}{1+x}\text{,}
 <div class="autopermalink" data-description="Task 3.2.13.a"><a href="#PROBLEMResultsFromGeometricSeries-4" title="Copy heading and permalink for Task 3.2.13.a" aria-label="Copy heading and permalink for Task 3.2.13.a">🔗</a></div></article><article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="PROBLEMResultsFromGeometricSeries-5-1-1">
 <div class="para">Use the power series you found  in part (a) to obtain a power series for</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMResultsFromGeometricSeries-5-1-1-1">
 \begin{equation*}
 f(x)=\frac{1}{1+x^2}\text{,}
 \end{equation*}
@@ -1199,7 +1215,7 @@ f(x)=\frac{1}{1+x^2}\text{,}
 <div class="autopermalink" data-description="Task 3.2.13.b"><a href="#PROBLEMResultsFromGeometricSeries-5" title="Copy heading and permalink for Task 3.2.13.b" aria-label="Copy heading and permalink for Task 3.2.13.b">🔗</a></div></article><article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para logical" id="PROBLEMResultsFromGeometricSeries-6-1-1">
 <div class="para">Use the result in part (b) to obtain the power series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMResultsFromGeometricSeries-6-1-1-1">
 \begin{equation*}
 \arctan
 x=x-\frac{1}{3}x^3+\frac{1}{5}x^5-\cdots
@@ -1251,7 +1267,7 @@ x=x-\frac{1}{3}x^3+\frac{1}{5}x^5-\cdots
 </div>
 <div class="autopermalink" data-description="Problem 3.2.15"><a href="#ExponentAdditionProperty-41" title="Copy heading and permalink for Problem 3.2.15" aria-label="Copy heading and permalink for Problem 3.2.15">🔗</a></div></article><div class="para logical" id="ExponentAdditionProperty-42">
 <div class="para"> The power series for arctangent was known by <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Gregory/" target="_blank">James Gregory</a> (1638-1675) and it is sometimes referred to as “Gregory’s series.” Leibniz independently discovered <span class="process-math">\(\frac{\pi}{4}=1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots\)</span> by examining the area of a circle.  Though it gives us a means for approximating <span class="process-math">\(\pi\)</span> to any desired accuracy, the power series converges too slowly to be of any practical use.  For example, if we compute the sum of the first <span class="process-math">\(1000\)</span> terms we get</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-42-7">
 \begin{equation*}
 4\left(\sum_{n=0}^{1000}(-1)^n\frac{1}{2n+1}\right)\approx 3.142591654
 \end{equation*}
@@ -1264,7 +1280,7 @@ x=x-\frac{1}{3}x^3+\frac{1}{5}x^5-\cdots
 </div>
 <div class="para logical" id="ExponentAdditionProperty-45">
 <div class="para">To this end we start with the binomial theorem</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-45-1">
 \begin{equation*}
 \left(a+b\right)^N=\sum_{n=0}^N\binom{N}{n}a^{N-n}b^n\text{,}
 \end{equation*}
@@ -1283,14 +1299,14 @@ x=x-\frac{1}{3}x^3+\frac{1}{5}x^5-\cdots
 </div>
 <div class="para logical" id="ExponentAdditionProperty-47">
 <div class="para">This last expression is becoming awkward in much the same way that an expression like</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-47-1">
 \begin{equation*}
 1+\frac{1}{2}+\left(\frac{1}{2}\right)^2+\left(\frac{1}{2}\right)^3+\ldots+\left(\frac{1}{2}\right)^k
 \end{equation*}
 </div>
 <div class="para">is awkward.  Just as this sum is less cumbersome when written as <span class="process-math">\(\sum_{n=0}^k\left(\frac{1}{2}\right)^n\)</span> the <em class="emphasis">product</em>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-47-4">
 \begin{equation*}
 N\left(N-1\right)\left(N-2\right)\cdots\left(N-n+1\,\right)
 \end{equation*}
@@ -1301,7 +1317,7 @@ N\left(N-1\right)\left(N-2\right)\cdots\left(N-n+1\,\right)
 </div>
 <div class="para logical" id="ExponentAdditionProperty-48">
 <div class="para">A capital pi <span class="process-math">\(\left(\Pi\right)\)</span> is used to denote a product in the same way that a capital sigma <span class="process-math">\(\left(\Sigma\right)\)</span> is used to denote a sum.  The most familiar example would be writing</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-48-3">
 \begin{equation*}
 n!=\prod_{j=1}^{n}j\text{.}
 \end{equation*}
@@ -1310,7 +1326,7 @@ n!=\prod_{j=1}^{n}j\text{.}
 </div>
 <div class="para logical" id="ExponentAdditionProperty-49">
 <div class="para">Just as it is convenient to define <span class="process-math">\(0!=1\text{,}\)</span> we will find it convenient to define</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-49-2">
 \begin{equation*}
 \prod_{j=1}^{0}\left(\text{whatever}\right)=1\text{.}
 \end{equation*}
@@ -1321,13 +1337,13 @@ n!=\prod_{j=1}^{n}j\text{.}
 </div>
 <div class="para logical" id="ExponentAdditionProperty-50">
 <div class="para">Returning to the binomial expansion and recalling our convention</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-50-1">
 \begin{equation*}
 \prod_{j=0}^{-1}\left(N-j\right)=1\text{,}
 \end{equation*}
 </div>
 <div class="para">we can write,</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-50-2">
 \begin{equation*}
 \left(1+x\right)^N=1+\sum_{n=1}^N\left(\frac{\prod_{j=0}^{n-1}\left(N-j\right)}{n!}\right)x^n = \sum_{n=0}^N\left(\frac{\prod_{j=0}^{n-1}\left(N-j\right)}{n!}\right)x^n\text{.}
 \end{equation*}
@@ -1340,13 +1356,13 @@ n!=\prod_{j=1}^{n}j\text{.}
 </div>
 <div class="para logical" id="ExponentAdditionProperty-53">
 <div class="para">Notice that we can extend the above definition of <span class="process-math">\(\binom{N}{n}\)</span> to values <span class="process-math">\(n&gt;N\text{.}\)</span>  In this case, <span class="process-math">\(\prod_{j=0}^{n-1}\left(N-j\right)\)</span> will equal 0 as one of the factors in the product will be <span class="process-math">\(0\)</span> (the one where <span class="process-math">\(j=N\)</span>).  This gives us that <span class="process-math">\(\binom{N}{n}=0\)</span> when <span class="process-math">\(n&gt;N\)</span> and so</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-53-8">
 \begin{equation*}
 \left(1+x\right)^N=1+\sum_{n=1}^\infty\left(\frac{\prod_{j=0}^{n-1}\left(N-j\right)}{n!}\text{ } \right)x^n= \sum_{n=0}^\infty\left(\frac{\prod_{j=0}^{n-1}\left(N-j\right)}{n!}\text{ } \right)x^n
 \end{equation*}
 </div>
 <div class="para">holds true for any nonnegative integer <span class="process-math">\(N\text{.}\)</span> Essentially Newton asked if it could be possible that the above equation could hold values of <span class="process-math">\(N\)</span> which are not non–negative integers.  For example, if the equation held true for <span class="process-math">\(N=\frac{1}{2}\)</span> , we would obtain</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-53-13">
 \begin{equation*}
 \left(1+x\right)^{\frac{1}{2}}=1+\sum_{n=1}^\infty\left(\frac{ \prod_{j=0}^{n-1}\left(\frac{1}{2}-j\right)}{n!}\right)x^n=\sum_{n=0}^\infty\left(\frac{ \prod_{j=0}^{n-1}\left(\frac{1}{2}-j\right)}{n!}\right)x^n
 \end{equation*}
@@ -1380,7 +1396,7 @@ n!=\prod_{j=1}^{n}j\text{.}
 </h4>
 <div class="para logical" id="prob_SqrtSeriesProb-3-1">
 <div class="para">Let</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="prob_SqrtSeriesProb-3-1-1">
 \begin{equation*}
 S(x,M)=\sum_{n=0}^M\frac{\prod_{j=0}^{n-1}\left(\frac{1}{2}-j \right)}{n!}x^n\text{.}
 \end{equation*}
@@ -1417,13 +1433,13 @@ S(x,M)=\sum_{n=0}^M\frac{\prod_{j=0}^{n-1}\left(\frac{1}{2}-j \right)}{n!}x^n\te
 <li id="ExponentAdditionProperty-60-3-1-1-1">
 <div class="para logical" id="ExponentAdditionProperty-60-3-1-1-1-1">
 <div class="para">Show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-60-3-1-1-1-1-1">
 \begin{equation*}
 \int_{x=0}^{1/2}\sqrt{x-x^2}\dx{ x}=\sum_{n=0}^\infty\frac{(-1)^n\,\,\prod_{j=0}^{n-1}\left(\frac{1}{2}-j\right)}{\sqrt{2\,}n!\left(2n+3\right)2^n}
 \end{equation*}
 </div>
 <div class="para">and use this to show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-60-3-1-1-1-1-2">
 \begin{equation*}
 \pi=16\left(\sum_{n=0}^\infty\frac{(-1)^n\,\,\prod_{j=0}^{n-1}\left(\frac{1}{2}-j\right)}{\sqrt{2\,}n!\left(2n+3\right)2^n}\right)\text{.}
 \end{equation*}
@@ -1435,20 +1451,20 @@ S(x,M)=\sum_{n=0}^M\frac{\prod_{j=0}^{n-1}\left(\frac{1}{2}-j \right)}{n!}x^n\te
 <li id="ExponentAdditionProperty-60-3-1-1-2">
 <div class="para logical" id="ExponentAdditionProperty-60-3-1-1-2-1">
 <div class="para">We now have two power series for calculating <span class="process-math">\(\pi\text{:}\)</span> the one from part (a) and the one derived earlier, namely</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-60-3-1-1-2-1-2">
 \begin{equation*}
 \pi=4\left(\sum_{n=0}^\infty\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 \end{equation*}
 </div>
 <div class="para">We will explore which one converges to <span class="process-math">\(\pi\)</span> faster. First define</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-60-3-1-1-2-1-4">
 \begin{equation*}
 S1(N)=16\left(\sum_{n=0}^N\frac{(-1)^n\,\,\prod_{j=0}^{n-1}\left(
 \frac{1}{2}-j\right)}{\sqrt{2\,}n!\left(2n+3\right)2^n}\right)
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-60-3-1-1-2-1-5">
 \begin{equation*}
 S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 \end{equation*}
@@ -1533,7 +1549,7 @@ S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 <div class="autopermalink" data-description="Task 3.2.22.c"><a href="#ExponentAdditionProperty-64-8" title="Copy heading and permalink for Task 3.2.22.c" aria-label="Copy heading and permalink for Task 3.2.22.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 3.2.22"><a href="#ExponentAdditionProperty-64" title="Copy heading and permalink for Problem 3.2.22" aria-label="Copy heading and permalink for Problem 3.2.22">🔗</a></div></article><div class="para logical" id="ExponentAdditionProperty-65">
 <div class="para">
 <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Euler/" target="_blank">Leonhard Euler</a> (1707–1783) was a master at exploiting power series.  In 1735, the 28 year-old Euler won acclaim for what is now called the Basel problem: to evaluate the sum</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-65-3">
 \begin{equation*}
 \sum_{n=1}^\infty\frac{1}{n^2}\text{.}
 \end{equation*}
@@ -1553,7 +1569,7 @@ S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 <div class="autopermalink" data-description="Task 3.2.24.a"><a href="#ExponentAdditionProperty-67-5" title="Copy heading and permalink for Task 3.2.24.a" aria-label="Copy heading and permalink for Task 3.2.24.a">🔗</a></div></article><article class="task exercise-like" id="ExponentAdditionProperty-67-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="ExponentAdditionProperty-67-6-1-1">
 <div class="para">Use part (a) to infer that the roots of <span class="process-math">\(1-\frac{1}{3!}x^2+\frac{1}{5!}x^4-\cdots\)</span> are given by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-67-6-1-1-2">
 \begin{equation*}
 x=\pm\pi,\,\pm 2\pi,\,\pm 3\pi,\,\ldots
 \end{equation*}
@@ -1563,7 +1579,7 @@ x=\pm\pi,\,\pm 2\pi,\,\pm 3\pi,\,\ldots
 <div class="autopermalink" data-description="Task 3.2.24.b"><a href="#ExponentAdditionProperty-67-6" title="Copy heading and permalink for Task 3.2.24.b" aria-label="Copy heading and permalink for Task 3.2.24.b">🔗</a></div></article><article class="task exercise-like" id="ExponentAdditionProperty-67-7"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para logical" id="ExponentAdditionProperty-67-7-1-1">
 <div class="para">Suppose <span class="process-math">\(p(x)=a_0+a_1x+\cdots+a_nx^n\)</span> is a polynomial with roots <span class="process-math">\(r_1,\,r_2,\,\ldots,r_n\text{.}\)</span> Show that if <span class="process-math">\(a_0\neq\)</span> <span class="process-math">\(0\text{,}\)</span> then all the roots are non-zero and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-67-7-1-1-5">
 \begin{equation*}
 p(x)=a_0\left(1-\frac{x}{r_1}\right)\left(1-\frac{x}{r_2}\right)\cdots\left(1-\frac{x}{r_n}\right)\text{.}
 \end{equation*}
@@ -1573,7 +1589,7 @@ p(x)=a_0\left(1-\frac{x}{r_1}\right)\left(1-\frac{x}{r_2}\right)\cdots\left(1-\f
 <div class="autopermalink" data-description="Task 3.2.24.c"><a href="#ExponentAdditionProperty-67-7" title="Copy heading and permalink for Task 3.2.24.c" aria-label="Copy heading and permalink for Task 3.2.24.c">🔗</a></div></article><article class="task exercise-like" id="ExponentAdditionProperty-67-8"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para logical" id="ExponentAdditionProperty-67-8-1-1">
 <div class="para">Assuming that the result in part (c) holds for an infinite polynomial (power series), deduce that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-67-8-1-1-1">
 \begin{equation*}
 1-\frac{1}{3!}x^2+\frac{1}{5!}x^4-\cdots =
 \left(1-\left(\frac{x}{\pi}\right)^2\right)
@@ -1586,7 +1602,7 @@ p(x)=a_0\left(1-\frac{x}{r_1}\right)\left(1-\frac{x}{r_2}\right)\cdots\left(1-\f
 <div class="autopermalink" data-description="Task 3.2.24.d"><a href="#ExponentAdditionProperty-67-8" title="Copy heading and permalink for Task 3.2.24.d" aria-label="Copy heading and permalink for Task 3.2.24.d">🔗</a></div></article><article class="task exercise-like" id="ExponentAdditionProperty-67-9"><h5 class="heading"><span class="codenumber">(e)</span></h5>
 <div class="para logical" id="ExponentAdditionProperty-67-9-1-1">
 <div class="para">Expand this product to deduce that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-67-9-1-1-1">
 \begin{equation*}
 \sum_{n=1}^\infty\frac{1}{n^2}=\frac{\pi^2}{6}.{}
 \end{equation*}
@@ -1600,7 +1616,7 @@ p(x)=a_0\left(1-\frac{x}{r_1}\right)\left(1-\frac{x}{r_2}\right)\cdots\left(1-\f
 <div class="para logical" id="ExponentAdditionProperty-68-4-1-1">
 <div class="para">Use the power series expansion of <span class="process-math">\(e^x\text{,}\)</span> <span class="process-math">\(\sin
 x,\)</span> and <span class="process-math">\(\cos x\)</span> to derive <dfn class="terminology">Euler’s Formula</dfn>:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-68-4-1-1-5">
 \begin{equation*}
 e^{i\theta} = \cos\theta+i\sin\theta.
 \end{equation*}
@@ -1610,12 +1626,12 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 <div class="autopermalink" data-description="Task 3.2.25.a"><a href="#ExponentAdditionProperty-68-4" title="Copy heading and permalink for Task 3.2.25.a" aria-label="Copy heading and permalink for Task 3.2.25.a">🔗</a></div></article><article class="task exercise-like" id="ExponentAdditionProperty-68-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="ExponentAdditionProperty-68-5-1-1">
 <div class="para">Use Euler’s formula to derive the Addition/Subtraction formulas from Trigonometry:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-68-5-1-1-2">
 \begin{equation*}
 \sin(\alpha\pm\beta) = \sin\alpha\cos\beta\pm\sin\beta\cos\alpha
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-68-5-1-1-3">
 \begin{equation*}
 \cos(\alpha\pm\beta) = \cos\alpha\cos\beta\mp\sin\alpha\sin\beta
 \end{equation*}
@@ -1625,12 +1641,12 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 <div class="autopermalink" data-description="Task 3.2.25.b"><a href="#ExponentAdditionProperty-68-5" title="Copy heading and permalink for Task 3.2.25.b" aria-label="Copy heading and permalink for Task 3.2.25.b">🔗</a></div></article><article class="task exercise-like" id="ExponentAdditionProperty-68-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para logical" id="ExponentAdditionProperty-68-6-1-1">
 <div class="para">Use Euler’s formula to show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-68-6-1-1-2">
 \begin{equation*}
 \sin 2\theta = 2\cos\theta\sin\theta
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-68-6-1-1-3">
 \begin{equation*}
 \cos 2\theta =\cos^2\theta-\sin^2\theta
 \end{equation*}
@@ -1640,12 +1656,12 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 <div class="autopermalink" data-description="Task 3.2.25.c"><a href="#ExponentAdditionProperty-68-6" title="Copy heading and permalink for Task 3.2.25.c" aria-label="Copy heading and permalink for Task 3.2.25.c">🔗</a></div></article><article class="task exercise-like" id="ExponentAdditionProperty-68-7"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para logical" id="ExponentAdditionProperty-68-7-1-1">
 <div class="para">Use Euler’s formula to show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-68-7-1-1-2">
 \begin{equation*}
 \sin 3\theta = 3\cos^2\theta\sin\theta-\sin^3\theta
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="ExponentAdditionProperty-68-7-1-1-3">
 \begin{equation*}
 \cos 3\theta=\cos^3\theta-3\cos\theta\sin^2\theta
 \end{equation*}
@@ -1665,7 +1681,7 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 <div class="para logical" id="SECTIONPowSerWOTaylor-4">
 <div class="para">But we are not confined to expanding about zero.  Consider that the following is a power series for <span class="process-math">\(f(x)=\frac{1}{x}\)</span> expanded about <span class="process-math">\(a=1\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PowerSeriesQuestions-TaylorsFormula.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PowerSeriesQuestions-TaylorsFormula.html" id="SECTIONPowSerWOTaylor-4-3">
 \begin{equation*}
 \frac{1}{x}=\frac{1}{1+\left(x-1\right)}=\sum^{\infty}_{n=0}{-1^n{\left(x-1\right)}^n}\text{.}
 \end{equation*}

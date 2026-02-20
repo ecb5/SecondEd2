@@ -63,7 +63,7 @@ window.MathJax = {
       "[pretext]/mathjaxknowl3.js"
     ],
     "paths": {
-      "pretext": "_static/pretext/js/lib"
+      "pretext": "_static/pretext/js"
     }
   },
   "startup": {
@@ -81,7 +81,7 @@ window.MathJax = {
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:author" content="Robert Rogers">
 <meta property="book:author" content="Eugene Boman">
-<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -103,16 +103,16 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.10.0';
+eBookConfig.runestone_version = '7.11.15';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.f91c1a4dc12163f2.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.fe35e59c546f8d19.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.557d81b04b3ec0e4.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
@@ -315,14 +315,14 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para logical" id="BackToFourier-2-2">
 <div class="para"> For example, consider the question of uniqueness.  We saw in <a href="TaylorSeries.html" class="internal" title='Chapter 7: A "Tayl" of Three Remainders'>Chapter 7</a> that if a function could be represented by a power series, then that series must be the Taylor series.  More precisely, if</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/TaylorSeries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/TaylorSeries.html" id="BackToFourier-2-2-3">
 \begin{equation*}
 f(x)=\displaystyle\sum_{n=0}^\infty
 a_n(x-a)^n \text{,}
 \end{equation*}
 </div>
 <div class="para">then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/TaylorSeries.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/TaylorSeries.html" id="BackToFourier-2-2-4">
 \begin{equation*}
 a_n=\frac{f^{(n)}(a)}{n!} 
 \end{equation*}
@@ -332,7 +332,7 @@ a_n=\frac{f^{(n)}(a)}{n!}
 </div>
 <div class="para logical" id="BackToFourier-2-3">
 <div class="para">Using the techniques that he employed to solve the heat flow problem (see <a href="Interegnum.html" class="internal" title="Chapter 5: Joseph Fourier: The Man Who Broke Calculus">Chapter 5</a>), Fourier showed that if a “general” function <span class="process-math">\(f(x)\)</span> defined on the interval <span class="process-math">\([0,1]\)</span> could be expressed as a trigonometric series</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/Interegnum.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/Interegnum.html" id="BackToFourier-2-3-5">
 \begin{equation*}
 f(x) = \sum_{m=0}^\infty \left[ a_n\cos(2n \pi x) + b_n\sin (2n\pi
 x)\right] 
@@ -362,14 +362,14 @@ x)\right] \)</span> converges uniformly to <span class="process-math">\(f\)</spa
 </div></aside></details><figure class="figure figure-like" id="BackToFourier-2-8"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Cantor.png" class="contained" alt="Portrait of Georg Cantor"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.0.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Cantor/" target="_blank">Georg Cantor</a><div class="autopermalink" data-description="Figure 12.0.1"><a href="#BackToFourier-2-8" title="Copy heading and permalink for Figure 12.0.1" aria-label="Copy heading and permalink for Figure 12.0.1">🔗</a></div></figcaption></figure><div class="para logical" id="BackToFourier-2-9">
 <div class="para">To begin we suppress the underlying function. Suppose we have the two series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="BackToFourier-2-9-1">
 \begin{equation*}
 \sum_{n=0}^\infty\left[{}a_n\cos (2n\pi x)+b_n\sin (2n\pi
 x)\right] 
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="BackToFourier-2-9-2">
 \begin{equation*}
 \sum_{n=0}^\infty\left[ a^\prime_n\cos (2n\pi x)+b^\prime_n\sin (2n\pi
 x)\right]\text{.}
@@ -379,7 +379,7 @@ x)\right]\text{.}
 </div>
 <div class="para logical" id="BackToFourier-2-10">
 <div class="para">We ask: If these two series are equal must it be true that <span class="process-math">\(a_n=a^\prime_n\)</span> and <span class="process-math">\(b_n=b^\prime_n\text{?}\)</span>  We can reformulate this uniqueness question as follows: Suppose</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="BackToFourier-2-10-3">
 \begin{equation*}
 \displaystyle\sum_{n=0}^\infty\left[(a_n-a^\prime_n)\cos (2n\pi
 x) +(b_n-b^\prime_n)\sin (2n\pi x)\right] = 0 \text{.}
@@ -387,7 +387,7 @@ x) +(b_n-b^\prime_n)\sin (2n\pi x)\right] = 0 \text{.}
 </div>
 <div class="para">If we let <span class="process-math">\(c_n = a_n-a^\prime_n\)</span> and <span class="process-math">\(d_n =
 b_n-b^\prime_n\text{,}\)</span> then the question becomes: If</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="BackToFourier-2-10-6">
 \begin{equation*}
 \sum_{n=0}^\infty\left[c_n\cos (2n\pi x)+d_n\sin (2n\pi
 x)\right] = 0\text{,}
@@ -406,7 +406,7 @@ x)\right] = 0\text{,}
 </h3>
 <div class="para logical" id="thm_Cantor-uniqueness-of-trig-series-5-1">
 <div class="para">If the trigonometric series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_Cantor-uniqueness-of-trig-series-5-1-1">
 \begin{equation*}
 \sum_{n=0}^\infty\left[c_n\cos (2n\pi  x)+d_n\sin (2n\pi x)\right] = 0\text{,}
 \end{equation*}
@@ -426,7 +426,7 @@ x)\right] = 0\text{,}
 </h3>
 <div class="para logical" id="thm_Cantor_1870-4-1">
 <div class="para">If the trigonometric series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_Cantor_1870-4-1-1">
 \begin{equation*}
 \sum_{n=0}^\infty\left[c_n\cos (2n\pi  x)+d_n\sin (2n\pi x)\right] = 0\text{,}
 \end{equation*}
@@ -441,7 +441,7 @@ x)\right] = 0\text{,}
 </h3>
 <div class="para logical" id="thm_Cantor-1871-b-4-1">
 <div class="para">If the trigonometric series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_Cantor-1871-b-4-1-1">
 \begin{equation*}
 \sum_{n=0}^\infty\left[c_n\cos (2n\pi x)+d_n\sin (2n\pi
 x)\right] = 0 \text{,}
@@ -465,7 +465,7 @@ x)\right] = 0 \text{,}
 <div class="para" id="PROBLEMAccumulationPoint-4-1">Let <span class="process-math">\(S\subseteq\RR\)</span> and let <span class="process-math">\(a\)</span> be a real number. Prove that <span class="process-math">\(a\)</span> is a limit point of <span class="process-math">\(S\)</span> if and only if for every <span class="process-math">\(\eps&gt;0\)</span> the intersection of the interval <span class="process-math">\((a-\eps, a+\eps)\)</span> with <span class="process-math">\(S\)</span> contains more than the single point <span class="process-math">\({a}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMAccumulationPoint-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="PROBLEMAccumulationPoint-4-2">
 <div class="para">That is,</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMAccumulationPoint-4-2-1">
 \begin{equation*}
 (a-\eps, a+\eps) \cap S -\left\{a\right\} \neq \emptyset. 
 \end{equation*}
@@ -565,7 +565,7 @@ S^{\prime}\text{.}\)</span><div class="autopermalink" data-description="Paragrap
 </div>
 <div class="autopermalink" data-description="Problem 12.0.9"><a href="#BackToFourier-2-28" title="Copy heading and permalink for Problem 12.0.9" aria-label="Copy heading and permalink for Problem 12.0.9">🔗</a></div></article><div class="para logical" id="BackToFourier-2-29">
 <div class="para">The notion of the derived set forms the foundation of Cantor’s exceptional set of values.  Specifically, let <span class="process-math">\(S\)</span> again be a set of real numbers and consider the following sequence of sets:</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="BackToFourier-2-29-3">
 \begin{equation*}
 S^{\prime}\supseteq \left(S^\prime\right)^\prime\supseteq \left(\left(S^\prime\right)^\prime\right)^\prime\supseteq \cdots\text{.}
 \end{equation*}
@@ -579,7 +579,7 @@ S^{\prime}\supseteq \left(S^\prime\right)^\prime\supseteq \left(\left(S^\prime\r
 </h3>
 <div class="para logical" id="thm_Cantor-1871-2-1">
 <div class="para">Let <span class="process-math">\(S\)</span> be a subset of the real numbers with the property that one of its derived sets is empty.  Then if the trigonometric series</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_Cantor-1871-2-1-2">
 \begin{equation*}
 \displaystyle\sum_{n=0}^\infty\left(c_n\cos (2n\pi x)+d_n\sin (2n\pi
 x)\right)
@@ -718,7 +718,7 @@ x)\right)
 <li id="DEFINITIONOpenByPreImage-7-1-1-1">
 <div class="para logical" id="DEFINITIONOpenByPreImage-7-1-1-1-1">
 <div class="para">Let <span class="process-math">\(S\subset D\text{.}\)</span> If we define the <dfn class="terminology">image</dfn> of <span class="process-math">\(S\)</span> by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="DEFINITIONOpenByPreImage-7-1-1-1-1-4">
 \begin{equation*}
 f\left(S\right)=\left\{f\left(x\right)\right|x\in
 S\}
@@ -731,7 +731,7 @@ S\}
 <li id="DEFINITIONOpenByPreImage-7-1-1-2">
 <div class="para logical" id="DEFINITIONOpenByPreImage-7-1-1-2-1">
 <div class="para">For any <span class="process-math">\(T\subset \mathbb{R}\text{,}\)</span> we define the <dfn class="terminology">preimage</dfn> of <span class="process-math">\(T\)</span> by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="DEFINITIONOpenByPreImage-7-1-1-2-1-4">
 \begin{equation*}
 f^{-1}\left(T\right)=\left\{x\in D\right|f\left(x\right)\in T\}
 \end{equation*}
@@ -811,14 +811,14 @@ V\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a hre
 </h4>
 <div class="para logical" id="thm_WeakNIP-3-1">
 <div class="para">Let</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_WeakNIP-3-1-1">
 \begin{equation*}
 [x_1, y_1] \supseteq [x_2, y_2]\supseteq [x_3,y_3]
 \supseteq \cdots  
 \end{equation*}
 </div>
 <div class="para">be a sequence of closed, nested intervals. Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="thm_WeakNIP-3-1-2">
 \begin{equation*}
 \bigcap_{n=1}^\infty [x_n,y_n] \neq 0\text{.}
 \end{equation*}
@@ -851,7 +851,7 @@ y_i\right]\right)_{i=1}^\infty\text{.}\)</span><div class="autopermalink" data-d
 </div>
 <div class="para logical" id="BackToFourier-InfiniteSets-8-3">
 <div class="para">Next we assume that <span class="process-math">\(\left[x_{n-1}, y_{n-1}\right]\)</span> has been constructed and build <span class="process-math">\(\left[x_n, y_n\right]\)</span> as follows.  Observe that there are infinitely many elements of <span class="process-math">\(S\)</span> in <span class="process-math">\(\left(x_{n-1}, y_{n-1}\right)\)</span> since <span class="process-math">\(S=\RR\text{.}\)</span>  Let <span class="process-math">\(x_n\)</span> and <span class="process-math">\(y_n\)</span> be the first two distinct elements of <span class="process-math">\(S\)</span> such that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="BackToFourier-InfiniteSets-8-3-9">
 \begin{equation*}
 x_n, y_n \in
 \left(x_{n-1}, y_{n-1}\right) 
@@ -863,7 +863,7 @@ y_n\right]\)</span> is the <span class="process-math">\(n\)</span>th interval.</
 </div>
 <div class="para logical" id="BackToFourier-InfiniteSets-8-4">
 <div class="para">From the way we constructed them it is clear that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="BackToFourier-InfiniteSets-8-4-1">
 \begin{equation*}
 \left[x_1, y_1\right] \supseteq \left[x_2, y_2\right]
 \supseteq \left[x_3, y_3\right] \supseteq \ldots \text{.}
@@ -873,7 +873,7 @@ y_n\right]\)</span> is the <span class="process-math">\(n\)</span>th interval.</
 </div>
 <div class="para logical" id="BackToFourier-InfiniteSets-8-5">
 <div class="para">Therefore by <a href="BackToFourier.html#thm_WeakNIP" class="internal" title="Theorem 12.2.1: Weak Nested Interval Property">Theorem 12.2.1</a> there is a real number, say <span class="process-math">\(c\text{,}\)</span> such that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_WeakNIP.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_WeakNIP.html" id="BackToFourier-InfiniteSets-8-5-3">
 \begin{equation*}
 c\in\left[x_n,
 y_n\right] \text{ for all } n\in\NN \text{.}
@@ -1117,7 +1117,7 @@ f_n\right) \)</span> converging pointwise to <span class="process-math">\(f\)</s
 </div>
 <div class="para logical" id="SECTIONLebesgueIntegration-2-5">
 <div class="para">In  <a href="PowerSeriesRedux.html#PROBLEMMonomialsOnUnitInterval" class="xref" data-knowl="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 11.1.8">Problem 11.1.8</a> you showed that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html ./knowl/xref/FIGUREPolynomGraphs.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html ./knowl/xref/FIGUREPolynomGraphs.html" id="SECTIONLebesgueIntegration-2-5-2">
 \begin{equation*}
 \limit{n}{\infty}{x^n} 
 = 
@@ -1139,14 +1139,14 @@ f_n\right) \)</span> converging pointwise to <span class="process-math">\(f\)</s
 <article class="task exercise-like" id="PROBLEMPtwiseConveCommute-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para logical" id="PROBLEMPtwiseConveCommute-2-1-1">
 <div class="para">As in <a href="PowerSeriesRedux.html#PROBLEMMonomialsOnUnitInterval" class="xref" data-knowl="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 11.1.8">Problem 11.1.8</a> let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html ./knowl/xref/DEFINITIONDarbouxIntegral.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html ./knowl/xref/DEFINITIONDarbouxIntegral.html" id="PROBLEMPtwiseConveCommute-2-1-1-2">
 \begin{equation*}
 f(x)=  \begin{cases}0\amp \text{
 if } x\in[0,1)\\ 1\amp \text{ if } x=1 \end{cases} \text{.}
 \end{equation*}
 </div>
 <div class="para">Use   <a href="LimDerivIntFTC.html#DEFINITIONDarbouxIntegral" class="xref" data-knowl="./knowl/xref/DEFINITIONDarbouxIntegral.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 10.4.8: Darboux Integrability">Definition 10.4.8</a> to show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html ./knowl/xref/DEFINITIONDarbouxIntegral.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMMonomialsOnUnitInterval.html ./knowl/xref/DEFINITIONDarbouxIntegral.html" id="PROBLEMPtwiseConveCommute-2-1-1-4">
 \begin{equation*}
 \int_{x=0}^1f(x)\dx{x} =0\text{.}
 \end{equation*}
@@ -1163,7 +1163,7 @@ if } x\in[0,1)\\ 1\amp \text{ if } x=1 \end{cases} \text{.}
 <div class="autopermalink" data-description="Task 12.3.2.a"><a href="#PROBLEMPtwiseConveCommute-2" title="Copy heading and permalink for Task 12.3.2.a" aria-label="Copy heading and permalink for Task 12.3.2.a">🔗</a></div></article><article class="task exercise-like" id="PROBLEMPtwiseConveCommute-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para logical" id="PROBLEMPtwiseConveCommute-3-1-1">
 <div class="para">Use the result of part (a) to conclude that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMPtwiseConveCommute-3-1-1-1">
 \begin{equation*}
 \limit{n}{\infty}{\left( \int_{x=0}^1x^n\dx{x}\right)} =
 \int_{x=0}^1\limit{n}{\infty }{x^n}\dx{x}\text{.}
@@ -1179,14 +1179,14 @@ if } x\in[0,1)\\ 1\amp \text{ if } x=1 \end{cases} \text{.}
 <article class="task exercise-like" id="PROBLEMRiemannIntFiniteDiscont-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para logical" id="PROBLEMRiemannIntFiniteDiscont-2-1-1">
 <div class="para">Suppose <span class="process-math">\(f\)</span> is a continuous function  on the interval <span class="process-math">\([a,b]\)</span> and let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMPtwiseConveCommute.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMPtwiseConveCommute.html" id="PROBLEMRiemannIntFiniteDiscont-2-1-1-3">
 \begin{equation*}
 f_L(x)= \begin{cases} f(x)\amp{}\text{ if }x\neq c\\ L
 \amp{}\text{ if }x=c \end{cases} \text{.}
 \end{equation*}
 </div>
 <div class="para">   Generalize your solution of <a href="BackToFourier.html#PROBLEMPtwiseConveCommute" class="internal" title="Problem 12.3.2">Problem 12.3.2</a> to show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMPtwiseConveCommute.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMPtwiseConveCommute.html" id="PROBLEMRiemannIntFiniteDiscont-2-1-1-5">
 \begin{equation*}
 \int_{x=a}^bf_L(x)\dx{x}= \int_{x=a}^bf(x)\dx{x}\text{.}
 \end{equation*}
@@ -1196,7 +1196,7 @@ f_L(x)= \begin{cases} f(x)\amp{}\text{ if }x\neq c\\ L
 <div class="solutions"><details id="PROBLEMRiemannIntFiniteDiscont-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
 <div class="para logical" id="PROBLEMRiemannIntFiniteDiscont-2-2-1">
 <div class="para">Suppose that <span class="process-math">\(f(c)\gt L \text{.}\)</span>  You can use an argument similar to the one in part (a) of <a href="BackToFourier.html#PROBLEMPtwiseConveCommute" class="internal" title="Problem 12.3.2">Problem 12.3.2</a> to  show that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMPtwiseConveCommute.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMPtwiseConveCommute.html" id="PROBLEMRiemannIntFiniteDiscont-2-2-1-3">
 \begin{equation*}
 \int_{x=a}^b \left(f(x)-f_L(x)\right) \dx{x} =0\text{,}
 \end{equation*}
@@ -1249,7 +1249,7 @@ P_n(x)\right)_{n-1}^\infty
 <div class="para logical" id="THEOREMArzealBddConv-2">
 <div class="para">Assume <span class="process-math">\(\left(f_n\left(x\right)\right)\)</span> is a sequence of Riemann–integrable functions which converges pointwise to a Riemann integrable function <span class="process-math">\(f(x)\)</span> on <span class="process-math">\([a,b]\text{.}\)</span>  Assume also that this sequence is uniformly bounded, namely, that there is a real number <span class="process-math">\(B\)</span> with <span class="process-math">\(\abs{f_n\left(x\right)}\le B,\ \)</span>for all <span class="process-math">\(x\in
 [a,b]\)</span> and for all <span class="process-math">\(n\text{.}\)</span>  Then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="THEOREMArzealBddConv-2-9">
 \begin{equation*}
 \limit{n}{\infty}
 {\left(\int^b_{x=a}{f_n(x)\dx{x}}\right)}=\int^b_{x=a}f(x)\dx{x}\text{.}
@@ -1269,13 +1269,13 @@ P_n(x)\right)_{n-1}^\infty
 </div>
 <div class="para logical" id="SECTIONLebesgueIntegration-2-15-3">
 <div class="para">Since the rational numbers are a countably infinite set, they can be written sequentially (and in no particular order) as</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-2-15-3-1">
 \begin{equation*}
 \mathbb{Q}=\left\{r_1,\ r_2,\ r_3,\ \dots \right\}\text{,}
 \end{equation*}
 </div>
 <div class="para">so we define the function <span class="process-math">\(f_n\)</span> as follows</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-2-15-3-3">
 \begin{equation*}
 f_n\left(x\right)=
 \begin{cases}
@@ -1288,7 +1288,7 @@ f_n\left(x\right)=
 </div>
 <div class="para logical" id="SECTIONLebesgueIntegration-2-15-4">
 <div class="para">From <a href="BackToFourier.html#PROBLEMRiemannIntFiniteDiscont" class="internal" title="Problem 12.3.3">Problem 12.3.3</a> we see that each <span class="process-math">\(f_n\)</span> is Riemann integrable.  Show that the sequence<span class="process-math">\(\left(f_n\right)_{n=1}^\infty \)</span> converges pointwise to the Dirichlet Function</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMRiemannIntFiniteDiscont.html ./knowl/xref/PROBLEMDirichletCountrExamp.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMRiemannIntFiniteDiscont.html ./knowl/xref/PROBLEMDirichletCountrExamp.html" id="SECTIONLebesgueIntegration-2-15-4-4">
 \begin{equation*}
 D\left(x\right)=
 \begin{cases} 
@@ -1309,7 +1309,7 @@ D\left(x\right)=
 <div class="para logical" id="SECTIONLebesgueIntegration-3-4">
 <div class="para">As an entry point into this world, consider the <dfn class="terminology">Dirichlet Function</dfn> again.  Recall from <a href="LimDerivIntFTC.html#PROBLEMDirichletCountrExamp" class="xref" data-knowl="./knowl/xref/PROBLEMDirichletCountrExamp.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.4.10">Problem 10.4.10</a> that the <dfn class="terminology">Dirichlet Function</dfn>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMDirichletCountrExamp.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMDirichletCountrExamp.html" id="SECTIONLebesgueIntegration-3-4-4">
 \begin{equation*}
 D(x)=
 \begin{cases}
@@ -1345,7 +1345,7 @@ D(x)=
 <li id="DEFINITIONMeasureProperties-3-1-4-2">
 <div class="para logical" id="DEFINITIONMeasureProperties-3-1-4-2-1">
 <div class="para">If <span class="process-math">\(\left( S_i\right)_{i=1}^\infty  \)</span> is a sequence of  sets in <span class="process-math">\(\RR \)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="DEFINITIONMeasureProperties-3-1-4-2-1-3">
 \begin{equation*}
 \mu\left( \bigcup_{i=1}^\infty S_i\right)\leq \sum_{i=1}^\infty
 \mu\left(S_i\right)
@@ -1363,7 +1363,7 @@ S_j=\emptyset{}\text{.}\)</span>
 <div class="para">
 <span class="process-math">\(\mu{}\)</span> is translation invariant. More precisely, if <span class="process-math">\(S \)</span> is a subset of <span class="process-math">\(\RR \text{,}\)</span> <span class="process-math">\(x\)</span> is any real number, and <span class="process-math">\(S_x=\left\{s+x\left| s\in S
 \right.\right\}  \)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="DEFINITIONMeasureProperties-3-1-4-3-1-6">
 \begin{equation*}
 \mu (S)=\mu(S_x).
 \end{equation*}
@@ -1378,7 +1378,7 @@ S_j=\emptyset{}\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Definition 12.3.11: Properties of a Measure"><a href="#DEFINITIONMeasureProperties" title="Copy heading and permalink for Definition 12.3.11: Properties of a Measure" aria-label="Copy heading and permalink for Definition 12.3.11: Properties of a Measure">🔗</a></div></article><div class="para logical" id="SECTIONLebesgueIntegration-3-11">
 <div class="para">The purpose of the first and third statements in <a href="BackToFourier.html#DEFINITIONMeasureProperties" class="internal" title="Definition 12.3.11: Properties of a Measure">Definition 12.3.11</a> should be clear. Since we are looking to generalize the concept of length the <dfn class="terminology">measure</dfn> of an interval should be its length, which does not depend on its position. For example,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/DEFINITIONMeasureProperties.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/DEFINITIONMeasureProperties.html" id="SECTIONLebesgueIntegration-3-11-3">
 \begin{equation*}
 \mu
 \left( (a,b)\right) = \mu \left( [a,b]\right) =  \mu \left(
@@ -1387,7 +1387,7 @@ S_j=\emptyset{}\text{.}\)</span>
 </div>
 <div class="para">and if <span class="process-math">\(\gamma{}\in\RR{}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/DEFINITIONMeasureProperties.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/DEFINITIONMeasureProperties.html" id="SECTIONLebesgueIntegration-3-11-5">
 \begin{equation*}
 \mu
 \left( (a,b)\right) = \mu \left( a+\gamma{},b+\gamma{}])\right) = b-a\text{,}
@@ -1443,7 +1443,7 @@ S_j=\emptyset{}\text{.}\)</span>
 <div class="para logical" id="DEFINITIONOuterMeasure-3-1">
 <div class="para">Let <span class="process-math">\(S\subset\RR \)</span>     and let <span class="process-math">\(C\)</span> be the collection of all countable open covers <span class="process-math">\(\left\{ (a_n, b_n) \left| n=1, 2, 3,
 \ldots{}\right.\right\} \)</span> of <span class="process-math">\(S\text{.}\)</span>     The <dfn class="terminology">outer measure</dfn> of <span class="process-math">\(S\)</span> is given by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="DEFINITIONOuterMeasure-3-1-7">
 \begin{equation*}
 \mu_o (S)= \inf_{ C}\left( \sum_{n=1}^\infty (b_n-a_n)\right)\text{.}
 \end{equation*}
@@ -1535,14 +1535,14 @@ S_j=\emptyset{}\text{.}\)</span>
 <div class="para logical" id="THEOREMMeasureZero-3-1">
 <div class="para">Let <span class="process-math">\(S=\{s_1, s_2, s_3, \dots \}\)</span> be countably infinite set of real numbers.  Let <span class="process-math">\(\eps \gt 0\)</span> be given.  There is a collection of open intervals <span class="process-math">\((a_n,\
 b_n)\)</span> with</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="THEOREMMeasureZero-3-1-4">
 \begin{equation*}
 S\subset \bigcup^{\infty
 }_{n=1}{\left(a_n,\ b_n\right)}
 \end{equation*}
 </div>
 <div class="para">and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="THEOREMMeasureZero-3-1-5">
 \begin{equation*}
 \sum^{\infty
 }_{n=1}{\left(b_n-a_n\right)}=\eps 
@@ -1604,7 +1604,7 @@ S\subset \bigcup^{\infty
 </h5>
 <div class="para logical" id="EXAMPLESimpleFunction-2">
 <div class="para">An example of a simple function on <span class="process-math">\([0,10]\)</span> is given by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/FIGURESimpleFuntion1.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/FIGURESimpleFuntion1.html" id="EXAMPLESimpleFunction-2-2">
 \begin{equation*}
 s\left(x\right)=
 \begin{cases}
@@ -1622,7 +1622,7 @@ s\left(x\right)=
 <figure class="figure figure-like" id="FIGURESimpleFuntion1"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/images/SimpleFunction1.png" class="contained" alt="Graph of s(x)"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.3.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graph of a <dfn class="terminology">simple function</dfn><div class="autopermalink" data-description="Figure 12.3.23"><a href="#FIGURESimpleFuntion1" title="Copy heading and permalink for Figure 12.3.23" aria-label="Copy heading and permalink for Figure 12.3.23">🔗</a></div></figcaption></figure><div class="para logical" id="EXAMPLESimpleFunction-4">
 <div class="para">For a simple function <span class="process-math">\(s\)</span> on <span class="process-math">\(E\)</span> with <span class="process-math">\(s\left(E\right)=\{a_1, a_2, \dots, a_n\}\)</span> we would define the Lebesgue integral of <span class="process-math">\(s(x)\)</span> on <span class="process-math">\(E\)</span> by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="EXAMPLESimpleFunction-4-6">
 \begin{equation*}
 \int_Es(x) \dx{\mu}=\sum^n_{j=1}{a_j\mu
 (s^{-1}\left(\left\{a_j\right\}\right)}
@@ -1656,7 +1656,7 @@ s\left(x\right)=
 <article class="task exercise-like" id="SECTIONLebesgueIntegration-3-38-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para logical" id="SECTIONLebesgueIntegration-3-38-2-1-1">
 <div class="para">Show that the Dirichlet function</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-38-2-1-1-1">
 \begin{equation*}
 D\left(x\right)=
 \begin{cases}
@@ -1675,7 +1675,7 @@ D\left(x\right)=
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Indices in the Lebesgue Integral.</span>
 </h6></summary><aside class="aside aside-like knowl__content"><div class="para logical" id="SECTIONLebesgueIntegration-3-38-3-1-2-2">
 <div class="para">When we work with the <dfn class="terminology">Lebesgue Integral</dfn> we modify our notation to: <span class="process-math">\(\int_{[a,b]}\)</span> instead of <span class="process-math">\(\int_a^b \)</span> because the Lebesgue Integral is meaningful even when the domain over which it is computed is not necessarily an interval. For example it is meaningful to compute a Lebesgue integral of some function <span class="process-math">\(f(x)\)</span> over only the rational numbers in an interval <span class="process-math">\([a,b]\text{.}\)</span> In that case we’d express the integral as</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-38-3-1-2-2-7">
 \begin{equation*}
 \int_{\QQ\cap[0,1]}f(x)\dx{\mu} \text{.}
 \end{equation*}
@@ -1688,13 +1688,13 @@ D\left(x\right)=
 </h5>
 <div class="para logical" id="DEFINITIONUpAndLowLebesgueIntegrals-3-1">
 <div class="para">Suppose <span class="process-math">\(f\)</span> is a bounded function defined on a measurable set <span class="process-math">\(E\)</span> with <span class="process-math">\(\mu \left(E\right)\lt{}\infty \text{.}\)</span>  We define the <dfn class="terminology">upper and lower Lebesgue integrals</dfn>, respectively, by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="DEFINITIONUpAndLowLebesgueIntegrals-3-1-5">
 \begin{equation*}
 I^*=\inf\left\{ \int_E s(x)\dx{\mu}\right\}
 \end{equation*}
 </div>
 <div class="para">where <span class="process-math">\(s\)</span> is simple and <span class="process-math">\(s(x)\ge f(x)\text{,}\)</span> <span class="process-math">\(\forall\ x\in E\text{,}\)</span> and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="DEFINITIONUpAndLowLebesgueIntegrals-3-1-9">
 \begin{equation*}
 I_*=\sup \left\{\int_E s(x)\dx{\mu}\right\}
 \end{equation*}
@@ -1706,7 +1706,7 @@ x\in E\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Definition 12.3.25: Upper and Lower Lebesgue Integrals"><a href="#DEFINITIONUpAndLowLebesgueIntegrals" title="Copy heading and permalink for Definition 12.3.25: Upper and Lower Lebesgue Integrals" aria-label="Copy heading and permalink for Definition 12.3.25: Upper and Lower Lebesgue Integrals">🔗</a></div></article><div class="para logical" id="SECTIONLebesgueIntegration-3-41">
 <div class="para">Just as with the upper and lower Darboux integrals (<a href="LimDerivIntFTC.html#PROBLEMUpLowDarboux" class="xref" data-knowl="./knowl/xref/PROBLEMUpLowDarboux.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.4.7: Upper and Lower Darboux Integrals">Problem 10.4.7</a>), we want to show that <span class="process-math">\(I_*\le I^*\text{.}\)</span>  We’ll do this in part (b) of <a href="BackToFourier.html#PROBLEMSimpleFuncIntIneq" class="internal" title="Problem 12.3.27">Problem 12.3.27</a>. In preparation we’ll first show that for any simple functions, <span class="process-math">\(s(x)\)</span> and <span class="process-math">\(t(x)\)</span> defined on <span class="process-math">\(E\)</span> with <span class="process-math">\(s\left(x\right)\le t(x)\)</span> for all <span class="process-math">\(x\in E\text{,}\)</span> we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMUpLowDarboux.html ./knowl/xref/PROBLEMSimpleFuncIntIneq.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMUpLowDarboux.html ./knowl/xref/PROBLEMSimpleFuncIntIneq.html" id="SECTIONLebesgueIntegration-3-41-11">
 \begin{equation*}
 \int_E{s\left(x\right)\dx{\mu} }\le \int_E t(x)\dx{\mu}
 \end{equation*}
@@ -1715,7 +1715,7 @@ x\in E\text{.}\)</span>
 </div>
 <div class="para logical" id="SECTIONLebesgueIntegration-3-42">
 <div class="para"> We  introduce the following notation. Let <span class="process-math">\(S\subset \RR \)</span> and   consider the function <span class="process-math">\(\chi_S(x)\)</span> defined by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-42-4">
 \begin{equation*}
 \chi_S(x)=
 \begin{cases}
@@ -1739,7 +1739,7 @@ x\in E\text{.}\)</span>
 <div class="para">Note that if <span class="process-math">\(S=S_1\cup S_2\)</span> and <span class="process-math">\(S_1\cap
 S_2=\emptyset \text{,}\)</span> then <span class="process-math">\({\chi }_S={\chi }_{S_1}+{\chi
 }_{S_2}\text{.}\)</span>  This can be extended to more than two sets, namely if <span class="process-math">\(S=\bigcup^n_{j=1}{S_j}\)</span> where <span class="process-math">\(S_j\)</span> are pairwise disjoint, then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-44-6">
 \begin{equation*}
 {\chi }_S(x)=\sum^n_{j=1}{{\chi }_{S_j(x)}} \text{.}
 \end{equation*}
@@ -1749,7 +1749,7 @@ S_2=\emptyset \text{,}\)</span> then <span class="process-math">\({\chi }_S={\ch
 </div>
 <div class="para logical" id="SECTIONLebesgueIntegration-3-45">
 <div class="para">With this notation we can write a simple function on <span class="process-math">\(E\)</span> as follows</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-45-2">
 \begin{equation*}
 s\left(x\right)=\sum^n_{j=1}{a_j{\chi }_{E_j}\left(x\right)}
 \end{equation*}
@@ -1787,14 +1787,14 @@ F_i}}\right)}\\
 \end{align*}
 </div>
 <div class="para">In a similar fashion we have</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-46-2">
 \begin{equation*}
 t=\sum^{n,m}_{j=1,i=1}{b_i{\chi }_{E_j\cap F_i}}
 \end{equation*}
 </div>
 <div class="para">But on <span class="process-math">\(E_j\cap F_i\text{,}\)</span>
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-46-4">
 \begin{equation*}
 a_j=s\left(x\right)\le t\left(x\right)=b_i
 \end{equation*}
@@ -1808,7 +1808,7 @@ a_j=s\left(x\right)\le t\left(x\right)=b_i
 <div class="para logical" id="PROBLEMSimpleFuncIntIneq-2-1-1">
 <div class="para">Use the above ideas to show that if <span class="process-math">\(s\left(x\right),\ t(x)\)</span> are two simple functions defined on a measurable set <span class="process-math">\(E\)</span> with <span class="process-math">\(\mu
 \left(E\right)\lt\infty \)</span> with <span class="process-math">\(s\left(x\right)\le t(x)\text{,}\)</span> then</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMSimpleFuncIntIneq-2-1-1-5">
 \begin{equation*}
 \int_E{s\left(x\right)\dx{\mu} }\le \int_E{t\left(x\right)\dx{\mu} }
 \end{equation*}
@@ -1832,7 +1832,7 @@ a_j=s\left(x\right)\le t\left(x\right)=b_i
 <article class="task exercise-like" id="PROBLEMRiemanIntImpLebInt-3"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para logical" id="PROBLEMRiemanIntImpLebInt-3-1-1">
 <div class="para">Use the observation above to show that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMRiemanIntImpLebInt-3-1-1-1">
 \begin{equation*}
 \int^b_{\underline{x=a}}{f\left(x\right)\dx{x}\le }I_*\le
 I^*\le \overline{\int^{b}_{x=a}}{f\left(x\right)\dx{x}}
@@ -1867,7 +1867,7 @@ I^*\le \overline{\int^{b}_{x=a}}{f\left(x\right)\dx{x}}
 </div>
 <div class="para logical" id="SECTIONLebesgueIntegration-3-55">
 <div class="para">Loosely speaking, the Cantor middle–third set is constructed iteratively by deleting the “middle–third” of the interval <span class="process-math">\([0,1]\text{,}\)</span> then deleting the “middle–third” of what is left, and continuing at each subsequent step to delete “middle–thirds” of what remains. More precisely, let <span class="process-math">\(C_0=[0,1]\)</span> and define</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="SECTIONLebesgueIntegration-3-55-7">
 \begin{equation*}
 C_1=C_0-\left(\frac{1}{3},\frac{2}{3}\right)=\left[0,\frac{1}{3}\right]\cup
 \left[\frac{2}{3},\ 1\right]=\left[\frac{0}{3},\frac{1}{3}\right]\cup
@@ -1922,14 +1922,14 @@ C_3\amp{}=C_2-\left[\left(\frac{1}{27},\frac{2}{27}\right)\cup
 </h5>
 <div class="para logical" id="PROBLEMCantorSetMeasZero-4-1">
 <div class="para">Show that the Cantor set, <span class="process-math">\(C\text{,}\)</span> has measure zero by showing that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMCantorSetMeasZero-4-1-2">
 \begin{equation*}
 \mu \left( [0,1]-C\right)
 =1
 \end{equation*}
 </div>
 <div class="para">So that</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMCantorSetMeasZero-4-1-3">
 \begin{equation*}
 1=\mu \left(\left[0,1\right]\right)=\mu
 \left(\left[0,1\right]-C)+\mu (C\right)=1+\mu (C)\text{.}
@@ -1951,7 +1951,7 @@ C_3\amp{}=C_2-\left[\left(\frac{1}{27},\frac{2}{27}\right)\cup
 <div class="para logical" id="THEOREMLebDomConvThm-2">
 <div class="para">Suppose <span class="process-math">\(E\)</span> is a measurable set with <span class="process-math">\(\mu
 \left(E\right)\lt{}\infty \)</span> and <span class="process-math">\(\left(f_n\right)\)</span> is a sequence of Lebesgue integrable functions on <span class="process-math">\(E\)</span> which converges pointwise to <span class="process-math">\(f\)</span> on <span class="process-math">\(E\)</span> except possibly on a set <span class="process-math">\(M\)</span> of measure 0.  If there is a Lebesgue integrable function <span class="process-math">\(g\)</span> such that <span class="process-math">\(\left|f_n\left(x\right)\right|\le g(x)\)</span> for all <span class="process-math">\(x\in E-M\)</span> and for all <span class="process-math">\(n\text{,}\)</span> then <span class="process-math">\(f\)</span> is Lebesgue integrable and</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="THEOREMLebDomConvThm-2-13">
 \begin{equation*}
 \limit{n}{\infty}{ \left(\int_E f_n\left(x\right)\dx{\mu}
 \right)}=\int_E f\left(x\right)\dx{\mu }\text{.}
@@ -2097,13 +2097,13 @@ X\)</span> is countably infinite.  Prove that <span class="process-math">\(X\)</
 <div class="para logical" id="PROBLEMDeleteCountable2-4-1">
 <div class="para">Let <span class="process-math">\(Y=Y_0\text{.}\)</span>  Since <span class="process-math">\(X-Y_0\)</span> is an infinite set, then by the previous problem it contains a countably infinite subset <span class="process-math">\(Y_1\text{.}\)</span>  Likewise since <span class="process-math">\(X-(Y_0\cup
 Y_1)\)</span> is infinite it also contains a countably infinite subset <span class="process-math">\(Y_2\text{.}\)</span>  Again, since <span class="process-math">\(X-(Y_0\cup Y_1\cup Y_2)\)</span> is an infinite set then it contains a countably infinite subset <span class="process-math">\(Y_3\text{,}\)</span> etc.  For <span class="process-math">\(n=1, 2, 3,\cdots \text{,}\)</span> let <span class="process-math">\(f_n:Y_{n-1}\rightarrow Y_n\)</span> be a one–to–one correspondence and define <span class="process-math">\(f:X\rightarrow X-Y\)</span> by</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="PROBLEMDeleteCountable2-4-1-13">
 \begin{equation*}
 f(x) =
 \begin{cases}
 f_n(x), \amp \text{ if }  x\in Y_n, n=0,1,2,\cdots\\
 x, \amp \text{ if }  x\in X-\left(\bigcup_{n=0}^\infty Y_n \right) 
-\end{cases}\text{.}
+\text{.}\end{cases}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMDeleteCountable2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2116,7 +2116,7 @@ x, \amp \text{ if }  x\in X-\left(\bigcup_{n=0}^\infty Y_n \right)
 </div>
 <div class="para logical" id="BackToFourier-CantorsTheorem-26">
 <div class="para">To see this, we will express the real numbers in <span class="process-math">\([0,1]\)</span> in ternary (base three) form in a manner analogous to the binary representation seen in <a href="BackToFourier.html#EQUATIONBinaryRepR" class="internal" title="Equation 12.4.2">equation (12.4.2)</a>.  That is, each number in <span class="process-math">\([0, 1]\)</span> can be written in the form</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONBinaryRepR.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONBinaryRepR.html" id="BackToFourier-CantorsTheorem-26-4">
 \begin{equation*}
 \left(0.a_1a_2a_3\dots \right)_3=\sum^{\infty }_{j=1}{\frac{a_j}{3^j}}
 \end{equation*}
@@ -2228,7 +2228,7 @@ C_3=\amp{}\left[\frac{0}{3^3},\frac{1}{3^3}\right]\cup
 </h4>
 <div class="para logical" id="RussellParadox-2">
 <div class="para">Consider the set of all sets which are not elements of themselves.  We call this set <span class="process-math">\(D\)</span> and ask, “Is <span class="process-math">\(D\in D?\)</span>” Symbolically, this set is</div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" id="RussellParadox-2-3">
 \begin{equation*}
 D=\{S\ |\ S\not \in S\} \text{.}
 \end{equation*}
@@ -2264,8 +2264,10 @@ D=\{S\ |\ S\not \in S\} \text{.}
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Zermelo-Fraenkel Axioms.</span>
 </h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="BackToFourier-CantorsTheorem-46-2">One of the formal axiomatic approaches to set theory established by Ernst Zermelo in 1908 and revised by Abraham Fraenkel in 1921.<div class="autopermalink" data-description="Paragraph"><a href="#BackToFourier-CantorsTheorem-46-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></aside></details><div class="sbsgroup"><div class="sidebyside"><div class="sbsrow" style="margin-left:7.5%;margin-right:7.5%;grid-template-columns:41.1764705882353% 41.1764705882353%;column-gap:15%;">
-<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="BackToFourier-CantorsTheorem-47-1-1"><img src="external/images/Godel.png" class="contained" alt="Portrait of Kurt Gödel"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Kurt Gödel<div class="autopermalink" data-description="Figure 12.4.16"><a href="#BackToFourier-CantorsTheorem-47-1-1" title="Copy heading and permalink for Figure 12.4.16" aria-label="Copy heading and permalink for Figure 12.4.16">🔗</a></div></figcaption></figure></div>
-<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="FIGURECohenPortrait"><img src="external/images/Cohen.png" class="contained" alt="Portrait of Paul Cohen"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Paul Cohen<div class="autopermalink" data-description="Figure 12.4.17"><a href="#FIGURECohenPortrait" title="Copy heading and permalink for Figure 12.4.17" aria-label="Copy heading and permalink for Figure 12.4.17">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="BackToFourier-CantorsTheorem-47-1-1"><div class="image-box"><img src="external/images/Godel.png" class="contained" alt="Portrait of Kurt Gödel"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Kurt Gödel<div class="autopermalink" data-description="Figure 12.4.16"><a href="#BackToFourier-CantorsTheorem-47-1-1" title="Copy heading and permalink for Figure 12.4.16" aria-label="Copy heading and permalink for Figure 12.4.16">🔗</a></div></figcaption></figure></div>
+<div class="sbspanel sbspanel--top top" style=""><figure class="figure figure-like" id="FIGURECohenPortrait"><div class="image-box"><img src="external/images/Cohen.png" class="contained" alt="Portrait of Paul Cohen"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Paul Cohen<div class="autopermalink" data-description="Figure 12.4.17"><a href="#FIGURECohenPortrait" title="Copy heading and permalink for Figure 12.4.17" aria-label="Copy heading and permalink for Figure 12.4.17">🔗</a></div></figcaption></figure></div>
 </div></div></div>
 <div class="para" id="BackToFourier-CantorsTheorem-48">We are willing to bet that at this point your head might be swimming a bit.  If so, then know that these are the same feelings that the mathematical community experienced in the mid–twentieth century.  In the past, mathematics was seen as a model of logical certainty.  It is disconcerting to find that there are statements that are <dfn class="terminology">undecidable</dfn>. In fact, Gödel proved in <span class="process-math">\(1931\)</span> that a consistent finite axiom system that contained the axioms of arithmetic would always contain undecidable statements which could neither be proved true nor false with those axioms.  Mathematical knowledge would always be incomplete.<div class="autopermalink" data-description="Paragraph"><a href="#BackToFourier-CantorsTheorem-48" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
