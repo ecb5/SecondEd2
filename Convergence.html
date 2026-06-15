@@ -20,65 +20,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:title" content="A CContextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:author" content="Robert Rogers">
 <meta property="book:author" content="Eugene Boman">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
@@ -103,21 +55,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.15';
+eBookConfig.runestone_version = '8.1.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<h1 class="heading"><a href="ASORA.html"><span class="title">A CContextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -308,10 +260,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="Convergence"><h2 class="heading">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="chapter" id="Convergence">
+<h2 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Convergence of Sequences and Series</span>
 </h2>
-<section class="section" id="SeqRealNum"><h3 class="heading hide-type">
+<section class="section" id="SeqRealNum">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequences of Real Numbers</span>
 </h3>
 <div class="para logical" id="SeqRealNum-2">
@@ -336,7 +291,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <details id="SeqRealNum-5" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequence vs. Series.</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="SeqRealNum-5-3">We assume that you are familiar with the distinction between a sequence and a series from your Calculus course. However, for the sake of clarity we’ll make this explicit here. A <dfn class="terminology">sequence</dfn> of numbers is simply a comma–separated list of numbers. A single number from a sequence is an <dfn class="terminology">element</dfn> of the sequence.  A <dfn class="terminology">series</dfn> is the sum of the elements of a <dfn class="terminology">sequence</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="SeqRealNum-5-3">We assume that you are familiar with the distinction between a sequence and a series from your Calculus course. However, for the sake of clarity we’ll make this explicit here. A <dfn class="terminology">sequence</dfn> of numbers is simply a comma–separated list of numbers. A single number from a sequence is an <dfn class="terminology">element</dfn> of the sequence.  A <dfn class="terminology">series</dfn> is the sum of the elements of a <dfn class="terminology">sequence</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="SeqRealNum-5-4">
 <div class="para">For  example,</div>
@@ -355,7 +312,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para">is a Geometric <dfn class="terminology">Series</dfn>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para logical" id="SeqRealNum-6">
+</div>
+</aside></details>
+<div class="para logical" id="SeqRealNum-6">
 <div class="para">From <a href="Convergence.html#EQUATIONSeqVsSer" class="internal" title="Equation 6.1.1">equation (6.1.1)</a> we would have the following <dfn class="terminology">sequence</dfn> of <dfn class="terminology">partial sums</dfn>.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONSeqVsSer.html" id="SeqRealNum-6-4">
 \begin{equation*}
@@ -404,7 +363,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_ConvergeToZero-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 6.1.1: Convergence to Zero of a Sequence"><a href="#def_ConvergeToZero" title="Copy heading and permalink for Definition 6.1.1: Convergence to Zero of a Sequence" aria-label="Copy heading and permalink for Definition 6.1.1: Convergence to Zero of a Sequence">🔗</a></div></article><div class="para logical" id="SeqRealNum-16">
+<div class="autopermalink" data-description="Definition 6.1.1: Convergence to Zero of a Sequence"><a href="#def_ConvergeToZero" title="Copy heading and permalink for Definition 6.1.1: Convergence to Zero of a Sequence" aria-label="Copy heading and permalink for Definition 6.1.1: Convergence to Zero of a Sequence">🔗</a></div>
+</article>
+<div class="para logical" id="SeqRealNum-16">
 <div class="para">
 <dfn class="terminology">Notes on <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a></dfn>:</div>
 <ol class="decimal" id="SeqRealNum-16-2">
@@ -435,14 +396,19 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="prob_absolute_value-3-1">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be real numbers with <span class="process-math">\(b&gt;0\text{.}\)</span> Prove <span class="process-math">\(|a|\lt b\)</span> if and only if <span class="process-math">\(-b\lt a\lt b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_absolute_value-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="prob_absolute_value-3-2">Notice that this can be extended to <span class="process-math">\(\abs{a}\leq b\)</span> if and only if <span class="process-math">\(-b\leq a\leq b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_absolute_value-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="prob_absolute_value-3-2">Notice that this can be extended to <span class="process-math">\(\abs{a}\leq b\)</span> if and only if <span class="process-math">\(-b\leq a\leq b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_absolute_value-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.1.2"><a href="#prob_absolute_value" title="Copy heading and permalink for Problem 6.1.2" aria-label="Copy heading and permalink for Problem 6.1.2">🔗</a></div></article><div class="para" id="SeqRealNum-18">To illustrate how <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a> makes the above ideas rigorous, let’s use it to prove that <span class="process-math">\(\limit{n}{\infty}{\textstyle\frac{1}{n}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 6.1.2"><a href="#prob_absolute_value" title="Copy heading and permalink for Problem 6.1.2" aria-label="Copy heading and permalink for Problem 6.1.2">🔗</a></div>
+</article>
+<div class="para" id="SeqRealNum-18">To illustrate how <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a> makes the above ideas rigorous, let’s use it to prove that <span class="process-math">\(\limit{n}{\infty}{\textstyle\frac{1}{n}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proof" id="SeqRealNum-19"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="SeqRealNum-19-1">Let <span class="process-math">\(\eps&gt;0\)</span> be given. Let <span class="process-math">\(N=\frac{1}{\eps}\text{.}\)</span> If <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(n&gt;\frac{1}{\eps}\)</span> and so <span class="process-math">\(\abs{\frac{1}{n}}=\frac{1}{n}\lt \eps\text{.}\)</span> Hence by definition, <span class="process-math">\(\limitt{n}{\infty}{\frac{1}{n}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.1.1"><a href="#SeqRealNum-19" title="Copy heading and permalink for Proof 6.1.1" aria-label="Copy heading and permalink for Proof 6.1.1">🔗</a></div></article><div class="para logical" id="SeqRealNum-20">
+<div class="autopermalink" data-description="Proof 6.1.1"><a href="#SeqRealNum-19" title="Copy heading and permalink for Proof 6.1.1" aria-label="Copy heading and permalink for Proof 6.1.1">🔗</a></div>
+</article>
+<div class="para logical" id="SeqRealNum-20">
 <div class="para">Notice that this proof is rigorous and makes no reference to vague notions such as “getting smaller” or “approaching infinity.” It has three components:</div>
 <ol class="decimal" id="SeqRealNum-20-3">
 <li id="SeqRealNum-20-3-1">
@@ -475,25 +441,36 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-21-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.1.3"><a href="#SeqRealNum-21" title="Copy heading and permalink for Example 6.1.3" aria-label="Copy heading and permalink for Example 6.1.3">🔗</a></div></article><article class="proof" id="SeqRealNum-22"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Example 6.1.3"><a href="#SeqRealNum-21" title="Copy heading and permalink for Example 6.1.3" aria-label="Copy heading and permalink for Example 6.1.3">🔗</a></div>
+</article>
+<article class="proof" id="SeqRealNum-22"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="SeqRealNum-22-1">Let <span class="process-math">\(\eps&gt;0\text{.}\)</span> Let <span class="process-math">\(N=\frac{1}{\eps}\text{.}\)</span> If <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(n&gt;\frac{1}{\eps}\)</span> and <span class="process-math">\(\frac{1}{n}\lt \eps\text{.}\)</span> Thus <span class="process-math">\(\abs{\frac{\sin(n)}{n}}\leq\frac{1}{n}\lt \eps\text{.}\)</span> Hence by definition, <span class="process-math">\(\limitt{n}{\infty}{\frac{\sin n}{n}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-22-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.1.2"><a href="#SeqRealNum-22" title="Copy heading and permalink for Proof 6.1.2" aria-label="Copy heading and permalink for Proof 6.1.2">🔗</a></div></article><div class="para" id="SeqRealNum-23">Notice that the <span class="process-math">\(N\)</span> came out of nowhere, but you can probably see the thought process that went into this choice: We needed to use the inequality <span class="process-math">\(\abs{\sin n}\leq 1\text{.}\)</span> Again this scrapwork is not part of the formal proof, but it is typically necessary for finding what <span class="process-math">\(N\)</span> should be. You might be able to do the next problem without doing any scrapwork first, but don’t hesitate to do scrapwork if you need it.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 6.1.2"><a href="#SeqRealNum-22" title="Copy heading and permalink for Proof 6.1.2" aria-label="Copy heading and permalink for Proof 6.1.2">🔗</a></div>
+</article>
+<div class="para" id="SeqRealNum-23">Notice that the <span class="process-math">\(N\)</span> came out of nowhere, but you can probably see the thought process that went into this choice: We needed to use the inequality <span class="process-math">\(\abs{\sin n}\leq 1\text{.}\)</span> Again this scrapwork is not part of the formal proof, but it is typically necessary for finding what <span class="process-math">\(N\)</span> should be. You might be able to do the next problem without doing any scrapwork first, but don’t hesitate to do scrapwork if you need it.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="SeqRealNum-24"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="SeqRealNum-24-3"><div class="para" id="SeqRealNum-24-3-1">Use <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a>  to prove the following.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-24-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="SeqRealNum-24-3">
+<div class="para" id="SeqRealNum-24-3-1">Use <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a>  to prove the following.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-24-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="SeqRealNum-24-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="SeqRealNum-24-4-1-1">
 <span class="process-math">\(\limit{n}{\infty}{\frac{1}{n^2}}=0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-24-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.4.a"><a href="#SeqRealNum-24-4" title="Copy heading and permalink for Task 6.1.4.a" aria-label="Copy heading and permalink for Task 6.1.4.a">🔗</a></div></article><article class="task exercise-like" id="SeqRealNum-24-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.1.4.a"><a href="#SeqRealNum-24-4" title="Copy heading and permalink for Task 6.1.4.a" aria-label="Copy heading and permalink for Task 6.1.4.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SeqRealNum-24-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="SeqRealNum-24-5-1-1">
 <span class="process-math">\(\limit{n}{\infty}{\frac{1}{\sqrt{n}}}=0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-24-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.4.b"><a href="#SeqRealNum-24-5" title="Copy heading and permalink for Task 6.1.4.b" aria-label="Copy heading and permalink for Task 6.1.4.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.1.4"><a href="#SeqRealNum-24" title="Copy heading and permalink for Problem 6.1.4" aria-label="Copy heading and permalink for Problem 6.1.4">🔗</a></div></article><article class="example example-like" id="sec_defin-conv-sequ"><h4 class="heading">
+<div class="autopermalink" data-description="Task 6.1.4.b"><a href="#SeqRealNum-24-5" title="Copy heading and permalink for Task 6.1.4.b" aria-label="Copy heading and permalink for Task 6.1.4.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.1.4"><a href="#SeqRealNum-24" title="Copy heading and permalink for Problem 6.1.4" aria-label="Copy heading and permalink for Problem 6.1.4">🔗</a></div>
+</article>
+<article class="example example-like" id="sec_defin-conv-sequ"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec_defin-conv-sequ-1-1">
@@ -504,12 +481,17 @@ eBookConfig.enable_chatcodes =  false;
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec_defin-conv-sequ-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_defin-conv-sequ-1-2">As the sequences get more complicated, doing scrapwork ahead of time becomes more necessary.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defin-conv-sequ-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_defin-conv-sequ-1-3">
+</div> 
+<div class="para" id="sec_defin-conv-sequ-1-2">As the sequences get more complicated, doing scrapwork ahead of time becomes more necessary.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defin-conv-sequ-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sec_defin-conv-sequ-1-3">
 <dfn class="terminology">SCRAPWORK</dfn><div class="autopermalink" data-description="Paragraph"><a href="#sec_defin-conv-sequ-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="sec_defin-conv-sequ-1-4">Given an <span class="process-math">\(\eps&gt;0\text{,}\)</span> we need to see how large to make <span class="process-math">\(n\)</span> in order to guarantee that <span class="process-math">\(|\frac{n+4}{n^2+1}|\lt \eps\text{.}\)</span> First notice that <span class="process-math">\(\frac{n+4}{n^2+1}\lt \frac{n+4}{n^2}\text{.}\)</span> Also, notice that if <span class="process-math">\(n&gt;4\text{,}\)</span> then <span class="process-math">\(n+4\lt n+n=2n\text{.}\)</span> So as long as <span class="process-math">\(n&gt;4\text{,}\)</span> we have <span class="process-math">\(\frac{n+4}{n^2+1}\lt \frac{n+4}{n^2}\lt \frac{2n}{n^2}=\frac{2}{n}\text{.}\)</span> We can make this less than <span class="process-math">\(\eps\)</span> if we make <span class="process-math">\(n&gt;\frac{2}{\eps}\text{.}\)</span> This means we need to make <span class="process-math">\(n&gt;4\)</span> and <span class="process-math">\(n&gt;\frac{2}{\eps}\text{,}\)</span> simultaneously. These can be done if we let <span class="process-math">\(N\)</span> be the maximum of these two numbers. This sort of thing comes up regularly, so the notation <span class="process-math">\(N=\max\left(4,\frac{2}{\eps}\right)\)</span> was developed to mean the maximum of these two numbers. Notice that if <span class="process-math">\(N=\max\left(4, \frac{2}{\eps}\right)\)</span> then <span class="process-math">\(N\geq 4\)</span> and <span class="process-math">\(N\geq\frac{2}{\eps}\text{.}\)</span> We’re now ready for the formal proof.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defin-conv-sequ-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="sec_defin-conv-sequ-1-4">Given an <span class="process-math">\(\eps&gt;0\text{,}\)</span> we need to see how large to make <span class="process-math">\(n\)</span> in order to guarantee that <span class="process-math">\(|\frac{n+4}{n^2+1}|\lt \eps\text{.}\)</span> First notice that <span class="process-math">\(\frac{n+4}{n^2+1}\lt \frac{n+4}{n^2}\text{.}\)</span> Also, notice that if <span class="process-math">\(n&gt;4\text{,}\)</span> then <span class="process-math">\(n+4\lt n+n=2n\text{.}\)</span> So as long as <span class="process-math">\(n&gt;4\text{,}\)</span> we have <span class="process-math">\(\frac{n+4}{n^2+1}\lt \frac{n+4}{n^2}\lt \frac{2n}{n^2}=\frac{2}{n}\text{.}\)</span> We can make this less than <span class="process-math">\(\eps\)</span> if we make <span class="process-math">\(n&gt;\frac{2}{\eps}\text{.}\)</span> This means we need to make <span class="process-math">\(n&gt;4\)</span> and <span class="process-math">\(n&gt;\frac{2}{\eps}\text{,}\)</span> simultaneously. These can be done if we let <span class="process-math">\(N\)</span> be the maximum of these two numbers. This sort of thing comes up regularly, so the notation <span class="process-math">\(N=\max\left(4,\frac{2}{\eps}\right)\)</span> was developed to mean the maximum of these two numbers. Notice that if <span class="process-math">\(N=\max\left(4, \frac{2}{\eps}\right)\)</span> then <span class="process-math">\(N\geq 4\)</span> and <span class="process-math">\(N\geq\frac{2}{\eps}\text{.}\)</span> We’re now ready for the formal proof.<div class="autopermalink" data-description="Paragraph"><a href="#sec_defin-conv-sequ-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.1.5"><a href="#sec_defin-conv-sequ" title="Copy heading and permalink for Example 6.1.5" aria-label="Copy heading and permalink for Example 6.1.5">🔗</a></div></article><article class="proof" id="SeqRealNum-26"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Example 6.1.5"><a href="#sec_defin-conv-sequ" title="Copy heading and permalink for Example 6.1.5" aria-label="Copy heading and permalink for Example 6.1.5">🔗</a></div>
+</article>
+<article class="proof" id="SeqRealNum-26"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="SeqRealNum-26-1">
 <div class="para">Let <span class="process-math">\(\eps&gt;0\text{.}\)</span> Let <span class="process-math">\(N=\max\left(4,\frac{2}{\eps}\right)\text{.}\)</span> If <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(n&gt;4\)</span> and <span class="process-math">\(n&gt;\frac{2}{\eps}\text{.}\)</span> Thus we have <span class="process-math">\(n&gt;4\)</span> and <span class="process-math">\(\frac{2}{n}\lt \eps\text{.}\)</span> Therefore</div>
 <div class="displaymath process-math" id="SeqRealNum-26-1-8">
@@ -521,7 +503,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="SeqRealNum-26-2">Hence by definition, <span class="process-math">\(\limit{n}{\infty}{\frac{n+4}{n^2+1}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-26-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.1.3"><a href="#SeqRealNum-26" title="Copy heading and permalink for Proof 6.1.3" aria-label="Copy heading and permalink for Proof 6.1.3">🔗</a></div></article><div class="para" id="SeqRealNum-27">Again we emphasize that the scrapwork is not <em class="alert">explicitly</em> a part of the formal proof.  However, if you look carefully, you can always find the scrapwork in the formal proof.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 6.1.3"><a href="#SeqRealNum-26" title="Copy heading and permalink for Proof 6.1.3" aria-label="Copy heading and permalink for Proof 6.1.3">🔗</a></div>
+</article>
+<div class="para" id="SeqRealNum-27">Again we emphasize that the scrapwork is not <em class="alert">explicitly</em> a part of the formal proof.  However, if you look carefully, you can always find the scrapwork in the formal proof.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="SeqRealNum-28"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -535,21 +519,32 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-28-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.1.6"><a href="#SeqRealNum-28" title="Copy heading and permalink for Problem 6.1.6" aria-label="Copy heading and permalink for Problem 6.1.6">🔗</a></div></article><article class="problem example-like" id="prob_sequences3"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 6.1.6"><a href="#SeqRealNum-28" title="Copy heading and permalink for Problem 6.1.6" aria-label="Copy heading and permalink for Problem 6.1.6">🔗</a></div>
+</article>
+<article class="problem example-like" id="prob_sequences3"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="prob_sequences3-3"><div class="para" id="prob_sequences3-3-1">Let <span class="process-math">\(b\)</span> be a nonzero real number with <span class="process-math">\(|b|\lt 1\)</span> and let <span class="process-math">\(\eps&gt;0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_sequences3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="prob_sequences3-3">
+<div class="para" id="prob_sequences3-3-1">Let <span class="process-math">\(b\)</span> be a nonzero real number with <span class="process-math">\(|b|\lt 1\)</span> and let <span class="process-math">\(\eps&gt;0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_sequences3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="prob_sequences3-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="prob_sequences3-4-1-1">Solve the inequality <span class="process-math">\(|b|^n\lt \eps\)</span> for <span class="process-math">\(n\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_sequences3-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.7.a"><a href="#prob_sequences3-4" title="Copy heading and permalink for Task 6.1.7.a" aria-label="Copy heading and permalink for Task 6.1.7.a">🔗</a></div></article><article class="task exercise-like" id="prob_sequences3-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.1.7.a"><a href="#prob_sequences3-4" title="Copy heading and permalink for Task 6.1.7.a" aria-label="Copy heading and permalink for Task 6.1.7.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="prob_sequences3-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="prob_sequences3-5-1-1">Use part (a) to prove <span class="process-math">\(\limit{n}{\infty}{b^n}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_sequences3-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.7.b"><a href="#prob_sequences3-5" title="Copy heading and permalink for Task 6.1.7.b" aria-label="Copy heading and permalink for Task 6.1.7.b">🔗</a></div></article><article class="task exercise-like" id="prob_sequences3-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 6.1.7.b"><a href="#prob_sequences3-5" title="Copy heading and permalink for Task 6.1.7.b" aria-label="Copy heading and permalink for Task 6.1.7.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="prob_sequences3-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="prob_sequences3-6-1-1">Where does your proof in part (b) break down if <span class="process-math">\(\abs{b}\ge 1\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_sequences3-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.7.c"><a href="#prob_sequences3-6" title="Copy heading and permalink for Task 6.1.7.c" aria-label="Copy heading and permalink for Task 6.1.7.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.1.7"><a href="#prob_sequences3" title="Copy heading and permalink for Problem 6.1.7" aria-label="Copy heading and permalink for Problem 6.1.7">🔗</a></div></article><div class="para" id="SeqRealNum-30">We can negate <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a> to prove that a particular sequence does not converge to zero. Before we look at an example, let’s analyze what it means for a sequence <span class="process-math">\(\left(s_n\right)\)</span> to not converge to zero.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 6.1.7.c"><a href="#prob_sequences3-6" title="Copy heading and permalink for Task 6.1.7.c" aria-label="Copy heading and permalink for Task 6.1.7.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.1.7"><a href="#prob_sequences3" title="Copy heading and permalink for Problem 6.1.7" aria-label="Copy heading and permalink for Problem 6.1.7">🔗</a></div>
+</article>
+<div class="para" id="SeqRealNum-30">We can negate <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a> to prove that a particular sequence does not converge to zero. Before we look at an example, let’s analyze what it means for a sequence <span class="process-math">\(\left(s_n\right)\)</span> to not converge to zero.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SeqRealNum-31">Converging to zero means that any time a distance <span class="process-math">\(\eps&gt;0\)</span> is given, we must be able to respond with a number <span class="process-math">\(N\)</span> such that <span class="process-math">\(|s_n|\lt \eps\)</span> for every <span class="process-math">\(n&gt;N\text{.}\)</span>  To have this not happen, we must be able to find some <span class="process-math">\(\eps&gt;0\)</span> such that no choice of <span class="process-math">\(N\)</span> will work.  Of course, if we find such an <span class="process-math">\(\eps\text{,}\)</span> then any smaller value will also fail to have such an <span class="process-math">\(N\text{,}\)</span> but we only need one.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -566,28 +561,39 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para">does not converge to zero.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex_zero-two-not-converge-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.1.8"><a href="#ex_zero-two-not-converge" title="Copy heading and permalink for Example 6.1.8" aria-label="Copy heading and permalink for Example 6.1.8">🔗</a></div></article><article class="proof" id="SeqRealNum-33"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Example 6.1.8"><a href="#ex_zero-two-not-converge" title="Copy heading and permalink for Example 6.1.8" aria-label="Copy heading and permalink for Example 6.1.8">🔗</a></div>
+</article>
+<article class="proof" id="SeqRealNum-33"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="SeqRealNum-33-1">If you stare at the example long enough, you see that any <span class="process-math">\(\eps\)</span> with <span class="process-math">\(0\lt \eps\leq 2\)</span> will cause problems. For the sake of specificity (rigor) we will let <span class="process-math">\(\eps=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-33-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SeqRealNum-33-2">Also let <span class="process-math">\(N\in\RR\)</span> be any real number. If we let <span class="process-math">\(k\)</span> be any non–negative integer with <span class="process-math">\(k&gt;\frac{N}{2}\text{,}\)</span> then <span class="process-math">\(n=2k&gt;N\text{,}\)</span> but <span class="process-math">\(|1+(-1)^n|=2\text{.}\)</span> Thus no choice of <span class="process-math">\(N\)</span> will satisfy the conditions of the definition for this <span class="process-math">\(\eps\text{,}\)</span> (namely that <span class="process-math">\(|1+(-1)^n|\lt 2\)</span> for all <span class="process-math">\(n&gt;N\)</span>) and so <span class="process-math">\(\limit{n}{\infty}{\left(1+(-1)^n\right)}\neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-33-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.1.4"><a href="#SeqRealNum-33" title="Copy heading and permalink for Proof 6.1.4" aria-label="Copy heading and permalink for Proof 6.1.4">🔗</a></div></article><article class="problem example-like" id="prob_sequences-not_converge_to_zero"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 6.1.4"><a href="#SeqRealNum-33" title="Copy heading and permalink for Proof 6.1.4" aria-label="Copy heading and permalink for Proof 6.1.4">🔗</a></div>
+</article>
+<article class="problem example-like" id="prob_sequences-not_converge_to_zero"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="prob_sequences-not_converge_to_zero-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="prob_sequences-not_converge_to_zero-3-1-1">Negate <a href="Convergence.html#def_ConvergeToZero" class="internal" title="Definition 6.1.1: Convergence to Zero of a Sequence">Definition 6.1.1</a> to provide a formal definition for <span class="process-math">\(\limitt{n}{\infty}{s_n}\neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_sequences-not_converge_to_zero-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.9.a"><a href="#prob_sequences-not_converge_to_zero-3" title="Copy heading and permalink for Task 6.1.9.a" aria-label="Copy heading and permalink for Task 6.1.9.a">🔗</a></div></article><article class="task exercise-like" id="prob_sequences-not_converge_to_zero-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.1.9.a"><a href="#prob_sequences-not_converge_to_zero-3" title="Copy heading and permalink for Task 6.1.9.a" aria-label="Copy heading and permalink for Task 6.1.9.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="prob_sequences-not_converge_to_zero-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="prob_sequences-not_converge_to_zero-4-1-1">Use your definition from part (a) to prove <span class="process-math">\(\limitt{n}{\infty}{\frac{n}{n+100}}\neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_sequences-not_converge_to_zero-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.9.b"><a href="#prob_sequences-not_converge_to_zero-4" title="Copy heading and permalink for Task 6.1.9.b" aria-label="Copy heading and permalink for Task 6.1.9.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.1.9"><a href="#prob_sequences-not_converge_to_zero" title="Copy heading and permalink for Problem 6.1.9" aria-label="Copy heading and permalink for Problem 6.1.9">🔗</a></div></article><div class="para" id="SeqRealNum-35">Now that we have a handle on how to rigorously prove that a sequence converges to zero, let’s generalize this to a formal definition for a sequence converging to something else. Basically, we want to say that a sequence <span class="process-math">\(\left(s_n\right)\)</span> converges to a real number <span class="process-math">\(s\text{,}\)</span> provided the difference <span class="process-math">\(\left(s_n-s\right)\)</span> converges to zero. This leads to the following definition:<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 6.1.9.b"><a href="#prob_sequences-not_converge_to_zero-4" title="Copy heading and permalink for Task 6.1.9.b" aria-label="Copy heading and permalink for Task 6.1.9.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.1.9"><a href="#prob_sequences-not_converge_to_zero" title="Copy heading and permalink for Problem 6.1.9" aria-label="Copy heading and permalink for Problem 6.1.9">🔗</a></div>
+</article>
+<div class="para" id="SeqRealNum-35">Now that we have a handle on how to rigorously prove that a sequence converges to zero, let’s generalize this to a formal definition for a sequence converging to something else. Basically, we want to say that a sequence <span class="process-math">\(\left(s_n\right)\)</span> converges to a real number <span class="process-math">\(s\text{,}\)</span> provided the difference <span class="process-math">\(\left(s_n-s\right)\)</span> converges to zero. This leads to the following definition:<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="def_ConvergenceOfASequence"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Convergence of a Sequence.</span>
 </h4>
 <div class="para" id="def_ConvergenceOfASequence-2-1"> Let <span class="process-math">\(\left(s_n\right)=\left(s_1,s_2,s_3,\ldots\right)\)</span> be a sequence of real numbers and let <span class="process-math">\(s\)</span> be a real number. We say that <span class="process-math">\(\left(\boldsymbol{s}_{\boldsymbol{n}}\right)\)</span> converges to <span class="process-math">\(\boldsymbol{s}\)</span> and write <span class="process-math">\(\limitt{n}{\infty}{s_n}=s\)</span> provided for any <span class="process-math">\(\eps&gt;0\text{,}\)</span> there is a real number <span class="process-math">\(N\)</span> such that if <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(|s_n-s|\lt \eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_ConvergenceOfASequence-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 6.1.10: Convergence of a Sequence"><a href="#def_ConvergenceOfASequence" title="Copy heading and permalink for Definition 6.1.10: Convergence of a Sequence" aria-label="Copy heading and permalink for Definition 6.1.10: Convergence of a Sequence">🔗</a></div></article><div class="para logical" id="SeqRealNum-37">
+<div class="autopermalink" data-description="Definition 6.1.10: Convergence of a Sequence"><a href="#def_ConvergenceOfASequence" title="Copy heading and permalink for Definition 6.1.10: Convergence of a Sequence" aria-label="Copy heading and permalink for Definition 6.1.10: Convergence of a Sequence">🔗</a></div>
+</article>
+<div class="para logical" id="SeqRealNum-37">
 <div class="para">Notes on <a href="Convergence.html#def_ConvergenceOfASequence" class="internal" title="Definition 6.1.10: Convergence of a Sequence">Definition 6.1.10</a>
 </div>
 <ol class="decimal" id="SeqRealNum-37-2">
@@ -642,7 +648,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <details id="SeqRealNum-38" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Double Implication.</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="SeqRealNum-38-2">The phrase “if and only if” (seen in item 1 above) is a term of art in mathematics. The symbol “<span class="process-math">\(\Leftrightarrow \)</span>” is equivalent.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-38-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="SeqRealNum-38-2">The phrase “if and only if” (seen in item 1 above) is a term of art in mathematics. The symbol “<span class="process-math">\(\Leftrightarrow \)</span>” is equivalent.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-38-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="SeqRealNum-38-3">
 <div class="para">Formally it means that each statement follows logically from the other. If you are asked to prove the statement</div>
@@ -656,15 +664,19 @@ A\Leftrightarrow B
 <div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-38-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SeqRealNum-38-4">In a classroom setting it is often abbreviated as “iff.”<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-38-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="SeqRealNum-39">As an example, let’s use this definition to prove that the sequence in part (b) of <a href="Convergence.html#prob_sequences-not_converge_to_zero" class="internal" title="Problem 6.1.9">Problem 6.1.9</a> converges to <span class="process-math">\(1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-39" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="SeqRealNum-39">As an example, let’s use this definition to prove that the sequence in part (b) of <a href="Convergence.html#prob_sequences-not_converge_to_zero" class="internal" title="Problem 6.1.9">Problem 6.1.9</a> converges to <span class="process-math">\(1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-39" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example_SeriesConverge"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="example_SeriesConverge-1-1">Prove <span class="process-math">\(\limitt{n}{\infty}{\frac{n}{n+100}}=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example_SeriesConverge-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="example_SeriesConverge-1-2">
+</div> 
+<div class="para" id="example_SeriesConverge-1-2">
 <dfn class="terminology">SCRAPWORK</dfn><div class="autopermalink" data-description="Paragraph"><a href="#example_SeriesConverge-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="example_SeriesConverge-1-3">
+</div> 
+<div class="para logical" id="example_SeriesConverge-1-3">
 <div class="para">Given an <span class="process-math">\(\eps&gt;0\text{,}\)</span> we need to get <span class="process-math">\(\abs{\frac{n}{n+100}-1}\lt \eps\text{.}\)</span> This prompts us to do some algebra.</div>
 <div class="displaymath process-math" id="example_SeriesConverge-1-3-3">
 \begin{equation*}
@@ -672,9 +684,12 @@ A\Leftrightarrow B
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example_SeriesConverge-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="example_SeriesConverge-1-4">This in turn, seems to suggest that <span class="process-math">\(N=\frac{100}{\eps}\)</span> should work.<div class="autopermalink" data-description="Paragraph"><a href="#example_SeriesConverge-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="example_SeriesConverge-1-4">This in turn, seems to suggest that <span class="process-math">\(N=\frac{100}{\eps}\)</span> should work.<div class="autopermalink" data-description="Paragraph"><a href="#example_SeriesConverge-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.1.11"><a href="#example_SeriesConverge" title="Copy heading and permalink for Example 6.1.11" aria-label="Copy heading and permalink for Example 6.1.11">🔗</a></div></article><article class="proof" id="SeqRealNum-41"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Example 6.1.11"><a href="#example_SeriesConverge" title="Copy heading and permalink for Example 6.1.11" aria-label="Copy heading and permalink for Example 6.1.11">🔗</a></div>
+</article>
+<article class="proof" id="SeqRealNum-41"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="SeqRealNum-41-1">
 <div class="para">Let <span class="process-math">\(\eps&gt;0\text{.}\)</span> Let <span class="process-math">\(N=\frac{100}{\eps}\text{.}\)</span> If <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(n&gt;\frac{100}{\eps}\)</span> and so <span class="process-math">\(\frac{100}{n}\lt \eps\text{.}\)</span> Hence</div>
 <div class="displaymath process-math" id="SeqRealNum-41-1-6">
@@ -686,7 +701,9 @@ A\Leftrightarrow B
 </div>
 <div class="para" id="SeqRealNum-41-2">Thus by definition <span class="process-math">\(\limitt{n}{\infty}{\frac{n}{n+100}} =1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-41-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.1.5"><a href="#SeqRealNum-41" title="Copy heading and permalink for Proof 6.1.5" aria-label="Copy heading and permalink for Proof 6.1.5">🔗</a></div></article><div class="para logical" id="SeqRealNum-42">
+<div class="autopermalink" data-description="Proof 6.1.5"><a href="#SeqRealNum-41" title="Copy heading and permalink for Proof 6.1.5" aria-label="Copy heading and permalink for Proof 6.1.5">🔗</a></div>
+</article>
+<div class="para logical" id="SeqRealNum-42">
 <div class="para">Notice again that the scrapwork is not part of the formal proof and the author of a proof is not obligated to explain where the choice of <span class="process-math">\(N\)</span> came from (although the thought process can usually be seen in the formal proof).  The formal proof contains only these requisite three parts:</div>
 <ul class="disc" id="SeqRealNum-42-2">
 <li id="SeqRealNum-42-2-1">
@@ -719,12 +736,17 @@ A\Leftrightarrow B
 </h4>
 <div class="para" id="SeqRealNum-47-3-1">Let <span class="process-math">\(b&gt;0\text{.}\)</span>  Use <a href="Convergence.html#def_ConvergenceOfASequence" class="internal" title="Definition 6.1.10: Convergence of a Sequence">Definition 6.1.10</a> to prove <span class="process-math">\(\limitt{n}{\infty}{b^{\left(\frac{1}{n}\right)}}=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-47-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="SeqRealNum-47-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="SeqRealNum-47-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="SeqRealNum-47-4-1">You will probably need to separate this into three cases: <span class="process-math">\(0\lt b\lt 1\text{,}\)</span> <span class="process-math">\(b=1\text{,}\)</span> and <span class="process-math">\(b\gt 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-47-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.1.12.1"><a href="#SeqRealNum-47-4" title="Copy heading and permalink for Hint 6.1.12.1" aria-label="Copy heading and permalink for Hint 6.1.12.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 6.1.12"><a href="#SeqRealNum-47" title="Copy heading and permalink for Problem 6.1.12" aria-label="Copy heading and permalink for Problem 6.1.12">🔗</a></div></article><article class="problem example-like" id="prob_series-geometric"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 6.1.12"><a href="#SeqRealNum-47" title="Copy heading and permalink for Problem 6.1.12" aria-label="Copy heading and permalink for Problem 6.1.12">🔗</a></div>
+</article>
+<article class="problem example-like" id="prob_series-geometric"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="prob_series-geometric-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
@@ -737,59 +759,91 @@ A\Leftrightarrow B
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#prob_series-geometric-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.13.a"><a href="#prob_series-geometric-3" title="Copy heading and permalink for Task 6.1.13.a" aria-label="Copy heading and permalink for Task 6.1.13.a">🔗</a></div></article><article class="task exercise-like" id="prob_series-geometric-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.1.13.a"><a href="#prob_series-geometric-3" title="Copy heading and permalink for Task 6.1.13.a" aria-label="Copy heading and permalink for Task 6.1.13.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="prob_series-geometric-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="prob_series-geometric-4-1-1">Use (a) to prove that if <span class="process-math">\(|x|\lt 1\text{,}\)</span> then <span class="process-math">\(\limit{n}{\infty}{\left(\sum_{j=0}^nx^j\right)}=\frac{1}{1-x}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_series-geometric-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.13.b"><a href="#prob_series-geometric-4" title="Copy heading and permalink for Task 6.1.13.b" aria-label="Copy heading and permalink for Task 6.1.13.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.1.13"><a href="#prob_series-geometric" title="Copy heading and permalink for Problem 6.1.13" aria-label="Copy heading and permalink for Problem 6.1.13">🔗</a></div></article><article class="problem example-like" id="SeqRealNum-49"><h4 class="heading">
+<div class="autopermalink" data-description="Task 6.1.13.b"><a href="#prob_series-geometric-4" title="Copy heading and permalink for Task 6.1.13.b" aria-label="Copy heading and permalink for Task 6.1.13.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.1.13"><a href="#prob_series-geometric" title="Copy heading and permalink for Problem 6.1.13" aria-label="Copy heading and permalink for Problem 6.1.13">🔗</a></div>
+</article>
+<article class="problem example-like" id="SeqRealNum-49"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="SeqRealNum-49-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="SeqRealNum-49-4-1-1">Provide a rigorous definition for <span class="process-math">\(\limitt{n}{\infty}{s_n}\neq s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-49-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.14.a"><a href="#SeqRealNum-49-4" title="Copy heading and permalink for Task 6.1.14.a" aria-label="Copy heading and permalink for Task 6.1.14.a">🔗</a></div></article><article class="task exercise-like" id="SeqRealNum-49-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.1.14.a"><a href="#SeqRealNum-49-4" title="Copy heading and permalink for Task 6.1.14.a" aria-label="Copy heading and permalink for Task 6.1.14.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SeqRealNum-49-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="SeqRealNum-49-5-1-1">Use your definition from part (a) to show that for any real number <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(\limitt{n}{\infty}{\left(\left(-1\right)^n\right)}\neq a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-49-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="SeqRealNum-49-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="SeqRealNum-49-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="SeqRealNum-49-5-2-1">Choose <span class="process-math">\(\eps=1\)</span> and use the fact that <span class="process-math">\(\abs{a-(-1)^n}\lt 1\)</span> is equivalent to <span class="process-math">\(\left(-1\right)^n-1\lt a\lt \left(-1\right)^n+1\)</span> to show that no choice of <span class="process-math">\(N\)</span> will work for this <span class="process-math">\(\eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-49-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.1.14.b.1"><a href="#SeqRealNum-49-5-2" title="Copy heading and permalink for Hint 6.1.14.b.1" aria-label="Copy heading and permalink for Hint 6.1.14.b.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 6.1.14.b"><a href="#SeqRealNum-49-5" title="Copy heading and permalink for Task 6.1.14.b" aria-label="Copy heading and permalink for Task 6.1.14.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.1.14"><a href="#SeqRealNum-49" title="Copy heading and permalink for Problem 6.1.14" aria-label="Copy heading and permalink for Problem 6.1.14">🔗</a></div></article><article class="problem example-like" id="SeqRealNum-50"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.1.14.b"><a href="#SeqRealNum-49-5" title="Copy heading and permalink for Task 6.1.14.b" aria-label="Copy heading and permalink for Task 6.1.14.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.1.14"><a href="#SeqRealNum-49" title="Copy heading and permalink for Problem 6.1.14" aria-label="Copy heading and permalink for Problem 6.1.14">🔗</a></div>
+</article>
+<article class="problem example-like" id="SeqRealNum-50"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="SeqRealNum-50-3-1">Prove that if <span class="process-math">\(\limit{n}{\infty}{s_n}=s\)</span> then <span class="process-math">\(\limit{n}{\infty}{\abs{s_n}}=\abs{s}\text{.}\)</span>  Prove that the converse is true when <span class="process-math">\(s=0\text{,}\)</span> but it is not necessarily true otherwise.<div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-50-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.1.15"><a href="#SeqRealNum-50" title="Copy heading and permalink for Problem 6.1.15" aria-label="Copy heading and permalink for Problem 6.1.15">🔗</a></div></article><article class="problem example-like" id="SeqRealNum-51"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 6.1.15"><a href="#SeqRealNum-50" title="Copy heading and permalink for Problem 6.1.15" aria-label="Copy heading and permalink for Problem 6.1.15">🔗</a></div>
+</article>
+<article class="problem example-like" id="SeqRealNum-51"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="SeqRealNum-51-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="SeqRealNum-51-3-1-1">Let <span class="process-math">\(\left(s_n\right)\)</span> and <span class="process-math">\(\left(t_n\right)\)</span> be sequences with <span class="process-math">\(s_n\leq t_n,\forall\  n\text{.}\)</span>  Suppose <span class="process-math">\(\limit{n}{\infty}{s_n}=s\)</span> and <span class="process-math">\(\limit{n}{\infty}{t_n}=t\text{.}\)</span> Prove <span class="process-math">\(s\leq t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-51-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="SeqRealNum-51-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="SeqRealNum-51-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="SeqRealNum-51-3-2-1">Assume for contradiction, that <span class="process-math">\(s&gt;t\)</span> and use the definition of convergence with <span class="process-math">\(\eps=\frac{s-t}{2}\)</span> to produce an <span class="process-math">\(n\)</span> with <span class="process-math">\(s_n&gt;t_n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-51-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.1.16.a.1"><a href="#SeqRealNum-51-3-2" title="Copy heading and permalink for Hint 6.1.16.a.1" aria-label="Copy heading and permalink for Hint 6.1.16.a.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 6.1.16.a"><a href="#SeqRealNum-51-3" title="Copy heading and permalink for Task 6.1.16.a" aria-label="Copy heading and permalink for Task 6.1.16.a">🔗</a></div></article><article class="task exercise-like" id="SeqRealNum-51-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.1.16.a"><a href="#SeqRealNum-51-3" title="Copy heading and permalink for Task 6.1.16.a" aria-label="Copy heading and permalink for Task 6.1.16.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SeqRealNum-51-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="SeqRealNum-51-4-1-1">Prove that if a sequence converges, then its limit is unique.  That is, prove that if <span class="process-math">\(\limit{n}{\infty}{s_n}=s\)</span> and <span class="process-math">\(\limit{n}{\infty}{s_n}=t\text{,}\)</span> then <span class="process-math">\(s=t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-51-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.16.b"><a href="#SeqRealNum-51-4" title="Copy heading and permalink for Task 6.1.16.b" aria-label="Copy heading and permalink for Task 6.1.16.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.1.16"><a href="#SeqRealNum-51" title="Copy heading and permalink for Problem 6.1.16" aria-label="Copy heading and permalink for Problem 6.1.16">🔗</a></div></article><article class="problem example-like" id="SeqRealNum-52"><h4 class="heading">
+<div class="autopermalink" data-description="Task 6.1.16.b"><a href="#SeqRealNum-51-4" title="Copy heading and permalink for Task 6.1.16.b" aria-label="Copy heading and permalink for Task 6.1.16.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.1.16"><a href="#SeqRealNum-51" title="Copy heading and permalink for Problem 6.1.16" aria-label="Copy heading and permalink for Problem 6.1.16">🔗</a></div>
+</article>
+<article class="problem example-like" id="SeqRealNum-52"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="SeqRealNum-52-4-1">Prove that if <span class="process-math">\(\limit{n}{\infty}{s_n}=s\)</span> and <span class="process-math">\(\limit{n}{\infty}{\left(s_n-t_n\right)}=0\text{,}\)</span> then <span class="process-math">\(\limit{n}{\infty}{t_n}=s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SeqRealNum-52-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.1.17"><a href="#SeqRealNum-52" title="Copy heading and permalink for Problem 6.1.17" aria-label="Copy heading and permalink for Problem 6.1.17">🔗</a></div></article><article class="problem example-like" id="PROBLEMUpperLowerBndsForSequences"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 6.1.17"><a href="#SeqRealNum-52" title="Copy heading and permalink for Problem 6.1.17" aria-label="Copy heading and permalink for Problem 6.1.17">🔗</a></div>
+</article>
+<article class="problem example-like" id="PROBLEMUpperLowerBndsForSequences"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="PROBLEMUpperLowerBndsForSequences-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="PROBLEMUpperLowerBndsForSequences-3-1-1">Prove that if <span class="process-math">\(\limit{n}{\infty}{s_n}=s\)</span> and <span class="process-math">\(s\lt
 t\text{,}\)</span> then there exists a real number <span class="process-math">\(N\)</span> such that if <span class="process-math">\(n&gt;N\)</span> then <span class="process-math">\(s_n\lt t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMUpperLowerBndsForSequences-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.18.a"><a href="#PROBLEMUpperLowerBndsForSequences-3" title="Copy heading and permalink for Task 6.1.18.a" aria-label="Copy heading and permalink for Task 6.1.18.a">🔗</a></div></article><article class="task exercise-like" id="PROBLEMUpperLowerBndsForSequences-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.1.18.a"><a href="#PROBLEMUpperLowerBndsForSequences-3" title="Copy heading and permalink for Task 6.1.18.a" aria-label="Copy heading and permalink for Task 6.1.18.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="PROBLEMUpperLowerBndsForSequences-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="PROBLEMUpperLowerBndsForSequences-4-1-1">Prove that if <span class="process-math">\(\limit{n}{\infty}{s_n}=s\)</span> and <span class="process-math">\(r\lt
 s\text{,}\)</span> then there exists a real number <span class="process-math">\(M\)</span> such that if <span class="process-math">\(n&gt;M\)</span> then <span class="process-math">\(r\lt s_n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMUpperLowerBndsForSequences-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.1.18.b"><a href="#PROBLEMUpperLowerBndsForSequences-4" title="Copy heading and permalink for Task 6.1.18.b" aria-label="Copy heading and permalink for Task 6.1.18.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.1.18"><a href="#PROBLEMUpperLowerBndsForSequences" title="Copy heading and permalink for Problem 6.1.18" aria-label="Copy heading and permalink for Problem 6.1.18">🔗</a></div></article><div class="autopermalink" data-description="Section 6.1: Sequences of Real Numbers"><a href="#SeqRealNum" title="Copy heading and permalink for Section 6.1: Sequences of Real Numbers" aria-label="Copy heading and permalink for Section 6.1: Sequences of Real Numbers">🔗</a></div></section><section class="section" id="LimitAsPrimary"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Task 6.1.18.b"><a href="#PROBLEMUpperLowerBndsForSequences-4" title="Copy heading and permalink for Task 6.1.18.b" aria-label="Copy heading and permalink for Task 6.1.18.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.1.18"><a href="#PROBLEMUpperLowerBndsForSequences" title="Copy heading and permalink for Problem 6.1.18" aria-label="Copy heading and permalink for Problem 6.1.18">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 6.1: Sequences of Real Numbers"><a href="#SeqRealNum" title="Copy heading and permalink for Section 6.1: Sequences of Real Numbers" aria-label="Copy heading and permalink for Section 6.1: Sequences of Real Numbers">🔗</a></div>
+</section>
+<section class="section" id="LimitAsPrimary">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Limit as a Primary Tool</span>
 </h3>
 <div class="para" id="LimitAsPrimary-2">As you saw in the <a href="Convergence.html#SeqRealNum" class="internal" title="Section 6.1: Sequences of Real Numbers">previous section</a> the formal definition of the convergence of a sequence is meant to capture rigorously our intuitive understanding of convergence.  However, the definition itself is an unwieldy tool. If only there were some way to be rigorous without having to run back to the definition each time.  Fortunately, there is a way.  If we can use the definition to prove some general rules about limits then we could use these rules whenever they apply and be assured that everything was still rigorous.  A number of these should look familiar from Calculus.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -799,7 +853,9 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 </h4>
 <div class="para" id="PROBLEMLimConst-5-1">Let <span class="process-math">\(\left(c\right)_{n=1}^\infty=(c,c,c,\ldots)\)</span> be a constant sequence.  Show that <span class="process-math">\(\limitt{n}{\infty}{c}=c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMLimConst-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.2.1: Limit of a Constant Sequence is the Constant"><a href="#PROBLEMLimConst" title="Copy heading and permalink for Problem 6.2.1: Limit of a Constant Sequence is the Constant" aria-label="Copy heading and permalink for Problem 6.2.1: Limit of a Constant Sequence is the Constant">🔗</a></div></article><div class="para" id="LimitAsPrimary-4">In proving the familiar limit theorems, the following will be a very useful tool.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 6.2.1: Limit of a Constant Sequence is the Constant"><a href="#PROBLEMLimConst" title="Copy heading and permalink for Problem 6.2.1: Limit of a Constant Sequence is the Constant" aria-label="Copy heading and permalink for Problem 6.2.1: Limit of a Constant Sequence is the Constant">🔗</a></div>
+</article>
+<div class="para" id="LimitAsPrimary-4">In proving the familiar limit theorems, the following will be a very useful tool.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="lemma theorem-like" id="Tri-RevTri-Ineq"><h4 class="heading">
 <span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -808,7 +864,8 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 <dl class="description-list">
 <dt id="TriangleIneq">Triangle Inequality:<div class="autopermalink" data-description="Item: Triangle Inequality:"><a href="#TriangleIneq" title="Copy heading and permalink for Item: Triangle Inequality:" aria-label="Copy heading and permalink for Item: Triangle Inequality:">🔗</a></div>
 </dt>
-<dd><div class="para logical" id="TriangleIneq-2">
+<dd>
+<div class="para logical" id="TriangleIneq-2">
 <div class="para">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be real numbers. Then</div>
 <div class="displaymath process-math" id="TriangleIneq-2-3">
 \begin{equation*}
@@ -816,10 +873,12 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#TriangleIneq-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 <dt id="InvTriangleIneq">Reverse Triangle Inequality:<div class="autopermalink" data-description="Item: Reverse Triangle Inequality:"><a href="#InvTriangleIneq" title="Copy heading and permalink for Item: Reverse Triangle Inequality:" aria-label="Copy heading and permalink for Item: Reverse Triangle Inequality:">🔗</a></div>
 </dt>
-<dd><div class="para logical" id="InvTriangleIneq-2">
+<dd>
+<div class="para logical" id="InvTriangleIneq-2">
 <div class="para">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be real numbers. Then</div>
 <div class="displaymath process-math" id="InvTriangleIneq-2-3">
 \begin{equation*}
@@ -827,25 +886,35 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#InvTriangleIneq-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 </dl>
 <div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Lemma 6.2.2"><a href="#Tri-RevTri-Ineq" title="Copy heading and permalink for Lemma 6.2.2" aria-label="Copy heading and permalink for Lemma 6.2.2">🔗</a></div></article><article class="problem example-like" id="Tri-RevTri-Ineq_prob"><h4 class="heading">
+<div class="autopermalink" data-description="Lemma 6.2.2"><a href="#Tri-RevTri-Ineq" title="Copy heading and permalink for Lemma 6.2.2" aria-label="Copy heading and permalink for Lemma 6.2.2">🔗</a></div>
+</article>
+<article class="problem example-like" id="Tri-RevTri-Ineq_prob"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="Tri-RevTri-Ineq_prob-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="Tri-RevTri-Ineq_prob-3-1-1">Prove <a href="Convergence.html#Tri-RevTri-Ineq" class="internal" title="Lemma 6.2.2">Lemma 6.2.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="Tri-RevTri-Ineq_prob-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="Tri-RevTri-Ineq_prob-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="Tri-RevTri-Ineq_prob-3-2-1">For the Reverse Triangle Inequality, consider <span class="process-math">\(\abs{a}=\abs{a-b+b}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.2.3.a.1"><a href="#Tri-RevTri-Ineq_prob-3-2" title="Copy heading and permalink for Hint 6.2.3.a.1" aria-label="Copy heading and permalink for Hint 6.2.3.a.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 6.2.3.a"><a href="#Tri-RevTri-Ineq_prob-3" title="Copy heading and permalink for Task 6.2.3.a" aria-label="Copy heading and permalink for Task 6.2.3.a">🔗</a></div></article><article class="task exercise-like" id="Tri-RevTri-Ineq_prob-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.2.3.a"><a href="#Tri-RevTri-Ineq_prob-3" title="Copy heading and permalink for Task 6.2.3.a" aria-label="Copy heading and permalink for Task 6.2.3.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="Tri-RevTri-Ineq_prob-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="Tri-RevTri-Ineq_prob-4-1-1">Show <span class="process-math">\(\Big||a|-|b|\Big|\leq|a-b|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="Tri-RevTri-Ineq_prob-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="Tri-RevTri-Ineq_prob-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para logical" id="Tri-RevTri-Ineq_prob-4-2-1">
 <div class="para">You want to show that</div>
 <div class="displaymath process-math" id="Tri-RevTri-Ineq_prob-4-2-1-1">
@@ -862,8 +931,12 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 <div class="autopermalink" data-description="Paragraph"><a href="#Tri-RevTri-Ineq_prob-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.2.3.b.1"><a href="#Tri-RevTri-Ineq_prob-4-2" title="Copy heading and permalink for Hint 6.2.3.b.1" aria-label="Copy heading and permalink for Hint 6.2.3.b.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 6.2.3.b"><a href="#Tri-RevTri-Ineq_prob-4" title="Copy heading and permalink for Task 6.2.3.b" aria-label="Copy heading and permalink for Task 6.2.3.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.2.3"><a href="#Tri-RevTri-Ineq_prob" title="Copy heading and permalink for Problem 6.2.3" aria-label="Copy heading and permalink for Problem 6.2.3">🔗</a></div></article><article class="theorem theorem-like" id="thm_SumOfSequences"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.2.3.b"><a href="#Tri-RevTri-Ineq_prob-4" title="Copy heading and permalink for Task 6.2.3.b" aria-label="Copy heading and permalink for Task 6.2.3.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.2.3"><a href="#Tri-RevTri-Ineq_prob" title="Copy heading and permalink for Problem 6.2.3" aria-label="Copy heading and permalink for Problem 6.2.3">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm_SumOfSequences"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of a Sum of Sequences is the Sum of the Limits.</span>
 </h4>
 <div class="para logical" id="thm_SumOfSequences-3-1">
@@ -875,7 +948,9 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm_SumOfSequences-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits"><a href="#thm_SumOfSequences" title="Copy heading and permalink for Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">🔗</a></div></article><div class="para" id="LimitAsPrimary-8">We  often state this theorem informally as “the limit of a sum is the sum of the limits.” However, to be absolutely precise, what it says is that if we already know that two sequences converge, then the sequence formed by summing their corresponding terms  will also converge and in fact, it will converge to the sum of those individual limits.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits"><a href="#thm_SumOfSequences" title="Copy heading and permalink for Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">🔗</a></div>
+</article>
+<div class="para" id="LimitAsPrimary-8">We  often state this theorem informally as “the limit of a sum is the sum of the limits.” However, to be absolutely precise, what it says is that if we already know that two sequences converge, then the sequence formed by summing their corresponding terms  will also converge and in fact, it will converge to the sum of those individual limits.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="LimitAsPrimary-9">We’ll provide the scrapwork and leave the formal write–up to you in <a href="Convergence.html#PROBLEMLimitOfSum" class="internal" title="Problem 6.2.5">Problem 6.2.5</a>. Be sure you justify every step. Also, note the role of the <a href="Convergence.html#Tri-RevTri-Ineq" class="internal" title="Lemma 6.2.2">triangle inequality</a> in the proof.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -903,12 +978,16 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 </h4>
 <div class="para" id="PROBLEMLimitOfSum-3-1">Prove <a href="Convergence.html#thm_SumOfSequences" class="internal" title="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">Theorem 6.2.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMLimitOfSum-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.2.5"><a href="#PROBLEMLimitOfSum" title="Copy heading and permalink for Problem 6.2.5" aria-label="Copy heading and permalink for Problem 6.2.5">🔗</a></div></article><article class="theorem theorem-like" id="thm_LimitOfProduct"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 6.2.5"><a href="#PROBLEMLimitOfSum" title="Copy heading and permalink for Problem 6.2.5" aria-label="Copy heading and permalink for Problem 6.2.5">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm_LimitOfProduct"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of the Product of Sequences is the Product of the Limits.</span>
 </h4>
 <div class="para" id="thm_LimitOfProduct-4-1">If <span class="process-math">\(\limit{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=b\text{,}\)</span> then <span class="process-math">\(\limit{n}{\infty}{\left(a_n b_n\right)}=a b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_LimitOfProduct-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits"><a href="#thm_LimitOfProduct" title="Copy heading and permalink for Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">🔗</a></div></article><div class="para logical" id="LimitAsPrimary-16">
+<div class="autopermalink" data-description="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits"><a href="#thm_LimitOfProduct" title="Copy heading and permalink for Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">🔗</a></div>
+</article>
+<div class="para logical" id="LimitAsPrimary-16">
 <div class="para">
 <dfn class="terminology">SCRAPWORK:</dfn> Given <span class="process-math">\(\eps&gt;0\text{,}\)</span> we want <span class="process-math">\(N\)</span> so that if <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(\abs{a_n  b_n-a  b}\lt \eps\text{.}\)</span> One of the standard tricks in analysis is to “uncancel.” In this case we will subtract and add a convenient term. Normally these would “cancel out,” which is why we say that we will uncancel to put them back in. You already saw an example of this in proving the Reverse Triangle Inequality (<a href="Convergence.html#Tri-RevTri-Ineq_prob" class="internal" title="Problem 6.2.3">Problem 6.2.3</a>). In the present case, consider</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/Tri-RevTri-Ineq_prob.html" id="LimitAsPrimary-16-9">
@@ -945,19 +1024,27 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 </h4>
 <div class="para" id="lemma_BoundedConvergent-2-1">
 <em class="alert">A Convergent Sequence Is Bounded.</em><div class="autopermalink" data-description="Paragraph"><a href="#lemma_BoundedConvergent-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="lemma_BoundedConvergent-2-2">If <span class="process-math">\(\limitt{n}{\infty}{a_n}=a\text{,}\)</span> then there exists <span class="process-math">\(B&gt;0\)</span> such that <span class="process-math">\(\abs{a_n}\leq B\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lemma_BoundedConvergent-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="lemma_BoundedConvergent-2-2">If <span class="process-math">\(\limitt{n}{\infty}{a_n}=a\text{,}\)</span> then there exists <span class="process-math">\(B&gt;0\)</span> such that <span class="process-math">\(\abs{a_n}\leq B\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lemma_BoundedConvergent-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Lemma 6.2.7"><a href="#lemma_BoundedConvergent" title="Copy heading and permalink for Lemma 6.2.7" aria-label="Copy heading and permalink for Lemma 6.2.7">🔗</a></div></article><article class="problem example-like" id="prob_BoundedConvergent"><h4 class="heading">
+<div class="autopermalink" data-description="Lemma 6.2.7"><a href="#lemma_BoundedConvergent" title="Copy heading and permalink for Lemma 6.2.7" aria-label="Copy heading and permalink for Lemma 6.2.7">🔗</a></div>
+</article>
+<article class="problem example-like" id="prob_BoundedConvergent"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="prob_BoundedConvergent-3-1">Prove <a href="Convergence.html#lemma_BoundedConvergent" class="internal" title="Lemma 6.2.7">Lemma 6.2.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#prob_BoundedConvergent-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="prob_BoundedConvergent-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="prob_BoundedConvergent-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="prob_BoundedConvergent-4-1">We know that there exists <span class="process-math">\(N\)</span> such that if <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(\abs{a_n-a}\lt 1\text{.}\)</span>  Let <span class="process-math">\(B=\)</span>max<span class="process-math">\(\left(\abs{a_1},\abs{a_2},\ldots,\abs{a_{\lceil{N}\rceil}},\abs{a}+1\right)\text{,}\)</span> where <span class="process-math">\(\lceil{N}\rceil\)</span> represents the smallest integer greater than or equal to <span class="process-math">\(N\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_BoundedConvergent-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.2.8.1"><a href="#prob_BoundedConvergent-4" title="Copy heading and permalink for Hint 6.2.8.1" aria-label="Copy heading and permalink for Hint 6.2.8.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 6.2.8"><a href="#prob_BoundedConvergent" title="Copy heading and permalink for Problem 6.2.8" aria-label="Copy heading and permalink for Problem 6.2.8">🔗</a></div></article><div class="para logical" id="LimitAsPrimary-23">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.8"><a href="#prob_BoundedConvergent" title="Copy heading and permalink for Problem 6.2.8" aria-label="Copy heading and permalink for Problem 6.2.8">🔗</a></div>
+</article>
+<div class="para logical" id="LimitAsPrimary-23">
 <div class="para">Armed with <a href="Convergence.html#lemma_BoundedConvergent" class="internal" title="Lemma 6.2.7">Lemma 6.2.7</a> we can add the following inequality to the scrapwork above.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lemma_BoundedConvergent.html" id="LimitAsPrimary-23-2">
 \begin{align*}
@@ -979,22 +1066,29 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 </h4>
 <div class="para" id="LimitAsPrimary-26-3-1">Prove <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-26-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.2.9"><a href="#LimitAsPrimary-26" title="Copy heading and permalink for Problem 6.2.9" aria-label="Copy heading and permalink for Problem 6.2.9">🔗</a></div></article><article class="corollary theorem-like" id="cor_1"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 6.2.9"><a href="#LimitAsPrimary-26" title="Copy heading and permalink for Problem 6.2.9" aria-label="Copy heading and permalink for Problem 6.2.9">🔗</a></div>
+</article>
+<article class="corollary theorem-like" id="cor_1"><h4 class="heading">
 <span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">(to Theorem 6.2.6).</span>
 </h4>
 <div class="para" id="cor_1-2-1">If <span class="process-math">\(\limit{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(c\in\mathbb{R}\text{,}\)</span> then <span class="process-math">\(\limit{n}{\infty}{c\cdot a_n}=c\cdot a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>      <div class="autopermalink" data-description="Corollary 6.2.10: (to Theorem 6.2.6)"><a href="#cor_1" title="Copy heading and permalink for Corollary 6.2.10: (to Theorem 6.2.6)" aria-label="Copy heading and permalink for Corollary 6.2.10: (to Theorem 6.2.6)">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-28"><h4 class="heading">
+</div>      <div class="autopermalink" data-description="Corollary 6.2.10: (to Theorem 6.2.6)"><a href="#cor_1" title="Copy heading and permalink for Corollary 6.2.10: (to Theorem 6.2.6)" aria-label="Copy heading and permalink for Corollary 6.2.10: (to Theorem 6.2.6)">🔗</a></div>
+</article>
+<article class="problem example-like" id="LimitAsPrimary-28"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="LimitAsPrimary-28-4-1">Prove  <a href="Convergence.html#cor_1" class="internal" title="Corollary 6.2.10: (to Theorem 6.2.6)">Corollary 6.2.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-28-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.2.11"><a href="#LimitAsPrimary-28" title="Copy heading and permalink for Problem 6.2.11" aria-label="Copy heading and permalink for Problem 6.2.11">🔗</a></div></article><div class="para" id="LimitAsPrimary-29">The following theorem is the analog of <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a> for quotients.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 6.2.11"><a href="#LimitAsPrimary-28" title="Copy heading and permalink for Problem 6.2.11" aria-label="Copy heading and permalink for Problem 6.2.11">🔗</a></div>
+</article>
+<div class="para" id="LimitAsPrimary-29">The following theorem is the analog of <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a> for quotients.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_LimitOfQuotient"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of the Quotient of Sequences is the Quotient of the Limits.</span>
 </h4>
 <div class="para" id="thm_LimitOfQuotient-3-1">Suppose <span class="process-math">\(\limitt{n}{\infty}{a_n}=a\)</span> and <span class="process-math">\(\limitt{n}{\infty}{b_n}=b\text{.}\)</span> Also suppose <span class="process-math">\(b\neq 0\)</span> and <span class="process-math">\(b_n\neq 0, \forall n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_LimitOfQuotient-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="thm_LimitOfQuotient-3-2">
+</div> 
+<div class="para logical" id="thm_LimitOfQuotient-3-2">
 <div class="para">Then</div>
 <div class="displaymath process-math" id="thm_LimitOfQuotient-3-2-1">
 \begin{equation*}
@@ -1003,13 +1097,17 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm_LimitOfQuotient-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits"><a href="#thm_LimitOfQuotient" title="Copy heading and permalink for Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-31"><h4 class="heading">
+<div class="autopermalink" data-description="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits"><a href="#thm_LimitOfQuotient" title="Copy heading and permalink for Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits" aria-label="Copy heading and permalink for Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">🔗</a></div>
+</article>
+<article class="problem example-like" id="LimitAsPrimary-31"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="LimitAsPrimary-31-3-1">Prove <a href="Convergence.html#thm_LimitOfQuotient" class="internal" title="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">Theorem 6.2.12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="LimitAsPrimary-31-3-2">
+</div> 
+<div class="para" id="LimitAsPrimary-31-3-2">
 <dfn class="terminology">SCRAPWORK</dfn><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="LimitAsPrimary-31-3-3">
+</div> 
+<div class="para logical" id="LimitAsPrimary-31-3-3">
 <div class="para">It is helpful to look first at the special case</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_LimitOfProduct.html" id="LimitAsPrimary-31-3-3-1">
 \begin{equation*}
@@ -1018,10 +1116,14 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 </div>
 <div class="para">The general case will follow from this and from <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="LimitAsPrimary-31-3-4">Consider <span class="process-math">\(\big|\frac{1}{b_n}-\frac{1}{b}\big|=\frac{|b-b_n|}{|b_n||b|}\text{.}\)</span> We are faced with the same dilemma we had when we were proving <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>; we need to get <span class="process-math">\(\big|\frac{1}{b_n}\big|\)</span> bounded above. This means we need to get <span class="process-math">\(\abs{b_n}\)</span> bounded away from zero (at least for large enough <span class="process-math">\(n\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="LimitAsPrimary-31-3-5">This can be done as follows. Since <span class="process-math">\(b\neq 0\text{,}\)</span> then <span class="process-math">\(\frac{|b|}{2}&gt;0\text{.}\)</span> Thus, by the definition of <span class="process-math">\(\limit{n}{\infty}{b_n}=b\)</span> there exists <span class="process-math">\(N_1\)</span> such that if <span class="process-math">\(n&gt;N_1\text{,}\)</span> then <span class="process-math">\(\abs{b}-\abs{b_n}\leq\big|b-b_n\big|\lt \frac{\abs{b}}{2}\text{.}\)</span> Thus when <span class="process-math">\(n&gt;N_1\text{,}\)</span> <span class="process-math">\(\frac{\abs{b}}{2}\lt \abs{b_n}\)</span> and so <span class="process-math">\(\frac{1}{\abs{b_n}}\lt \frac{2}{\abs{b}}\text{.}\)</span> This says that for <span class="process-math">\(n&gt;N_1\text{,}\)</span> <span class="process-math">\(\frac{\abs{b-b_n}}{\abs{b_n}\abs{b}}\lt \frac{2}{\abs{b}^2}\abs{b-b_n}\text{.}\)</span> We should be able to make this smaller than a given <span class="process-math">\(\eps&gt;0\text{,}\)</span> provided we make <span class="process-math">\(n\)</span> large enough.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="LimitAsPrimary-31-3-4">Consider <span class="process-math">\(\big|\frac{1}{b_n}-\frac{1}{b}\big|=\frac{|b-b_n|}{|b_n||b|}\text{.}\)</span> We are faced with the same dilemma we had when we were proving <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>; we need to get <span class="process-math">\(\big|\frac{1}{b_n}\big|\)</span> bounded above. This means we need to get <span class="process-math">\(\abs{b_n}\)</span> bounded away from zero (at least for large enough <span class="process-math">\(n\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="LimitAsPrimary-31-3-5">This can be done as follows. Since <span class="process-math">\(b\neq 0\text{,}\)</span> then <span class="process-math">\(\frac{|b|}{2}&gt;0\text{.}\)</span> Thus, by the definition of <span class="process-math">\(\limit{n}{\infty}{b_n}=b\)</span> there exists <span class="process-math">\(N_1\)</span> such that if <span class="process-math">\(n&gt;N_1\text{,}\)</span> then <span class="process-math">\(\abs{b}-\abs{b_n}\leq\big|b-b_n\big|\lt \frac{\abs{b}}{2}\text{.}\)</span> Thus when <span class="process-math">\(n&gt;N_1\text{,}\)</span> <span class="process-math">\(\frac{\abs{b}}{2}\lt \abs{b_n}\)</span> and so <span class="process-math">\(\frac{1}{\abs{b_n}}\lt \frac{2}{\abs{b}}\text{.}\)</span> This says that for <span class="process-math">\(n&gt;N_1\text{,}\)</span> <span class="process-math">\(\frac{\abs{b-b_n}}{\abs{b_n}\abs{b}}\lt \frac{2}{\abs{b}^2}\abs{b-b_n}\text{.}\)</span> We should be able to make this smaller than a given <span class="process-math">\(\eps&gt;0\text{,}\)</span> provided we make <span class="process-math">\(n\)</span> large enough.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-31-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.2.13"><a href="#LimitAsPrimary-31" title="Copy heading and permalink for Problem 6.2.13" aria-label="Copy heading and permalink for Problem 6.2.13">🔗</a></div></article><div class="para" id="LimitAsPrimary-32">The results of <a href="Convergence.html#PROBLEMLimConst" class="internal" title="Problem 6.2.1: Limit of a Constant Sequence is the Constant">Problem 6.2.1</a>, <a href="Convergence.html#thm_SumOfSequences" class="internal" title="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">Theorem 6.2.4</a>, <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>, and <a href="Convergence.html#thm_LimitOfQuotient" class="internal" title="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">Theorem 6.2.12</a> allow us to find the limits of complicated sequences and then rigorously verify that these are in fact, the correct limits without resorting to the definition of a limit.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 6.2.13"><a href="#LimitAsPrimary-31" title="Copy heading and permalink for Problem 6.2.13" aria-label="Copy heading and permalink for Problem 6.2.13">🔗</a></div>
+</article>
+<div class="para" id="LimitAsPrimary-32">The results of <a href="Convergence.html#PROBLEMLimConst" class="internal" title="Problem 6.2.1: Limit of a Constant Sequence is the Constant">Problem 6.2.1</a>, <a href="Convergence.html#thm_SumOfSequences" class="internal" title="Theorem 6.2.4: Limit of a Sum of Sequences is the Sum of the Limits">Theorem 6.2.4</a>, <a href="Convergence.html#thm_LimitOfProduct" class="internal" title="Theorem 6.2.6: Limit of the Product of Sequences is the Product of the Limits">Theorem 6.2.6</a>, and <a href="Convergence.html#thm_LimitOfQuotient" class="internal" title="Theorem 6.2.12: Limit of the Quotient of Sequences is the Quotient of the Limits">Theorem 6.2.12</a> allow us to find the limits of complicated sequences and then rigorously verify that these are in fact, the correct limits without resorting to the definition of a limit.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="LimitAsPrimary-33"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -1037,7 +1139,9 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>    <div class="autopermalink" data-description="Task 6.2.14.a"><a href="#LimitAsPrimary-33-4" title="Copy heading and permalink for Task 6.2.14.a" aria-label="Copy heading and permalink for Task 6.2.14.a">🔗</a></div></article><article class="task exercise-like" id="LimitAsPrimary-33-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+</div>    <div class="autopermalink" data-description="Task 6.2.14.a"><a href="#LimitAsPrimary-33-4" title="Copy heading and permalink for Task 6.2.14.a" aria-label="Copy heading and permalink for Task 6.2.14.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="LimitAsPrimary-33-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="LimitAsPrimary-33-5-1-1">
 <div class="para">Prove that</div>
 <div class="displaymath process-math" id="LimitAsPrimary-33-5-1-1-1">
@@ -1049,32 +1153,47 @@ s\text{,}\)</span> then there exists a real number <span class="process-math">\(
 <div class="para">provided <span class="process-math">\(b_k\neq 0\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="LimitAsPrimary-33-5-1-2">Be sure to explain why division by zero is not an issue. (See the hint.)<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="LimitAsPrimary-33-5-1-2">Be sure to explain why division by zero is not an issue. (See the hint.)<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="LimitAsPrimary-33-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="LimitAsPrimary-33-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="LimitAsPrimary-33-5-2-1">A polynomial only has finitely many roots.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-33-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.2.14.b.1"><a href="#LimitAsPrimary-33-5-2" title="Copy heading and permalink for Hint 6.2.14.b.1" aria-label="Copy heading and permalink for Hint 6.2.14.b.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 6.2.14.b"><a href="#LimitAsPrimary-33-5" title="Copy heading and permalink for Task 6.2.14.b" aria-label="Copy heading and permalink for Task 6.2.14.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.2.14"><a href="#LimitAsPrimary-33" title="Copy heading and permalink for Problem 6.2.14" aria-label="Copy heading and permalink for Problem 6.2.14">🔗</a></div></article><div class="para" id="LimitAsPrimary-34">There is one more theorem which  will prove to be a valuable tool.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.2.14.b"><a href="#LimitAsPrimary-33-5" title="Copy heading and permalink for Task 6.2.14.b" aria-label="Copy heading and permalink for Task 6.2.14.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.2.14"><a href="#LimitAsPrimary-33" title="Copy heading and permalink for Problem 6.2.14" aria-label="Copy heading and permalink for Problem 6.2.14">🔗</a></div>
+</article>
+<div class="para" id="LimitAsPrimary-34">There is one more theorem which  will prove to be a valuable tool.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_SqueezeTheorem"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Squeeze Theorem for Sequences.</span>
 </h4>
-<div class="para" id="thm_SqueezeTheorem-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#thm_SqueezeTheorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <div class="para" id="thm_SqueezeTheorem-3-2">Let <span class="process-math">\(\left(r_n\right),\left(s_n\right)\text{,}\)</span> and <span class="process-math">\(\left(t_n\right)\)</span> be sequences of real numbers with <span class="process-math">\(r_n\leq s_n\leq t_n,\forall\)</span> positive integers <span class="process-math">\(n\text{.}\)</span> Suppose <span class="process-math">\(\limit{n}{\infty}{r_n}=s=\limit{n}{\infty}{t_n}\text{.}\)</span> Then <span class="process-math">\(\left(s_n\right)\)</span> must converge and <span class="process-math">\(\limit{n}{\infty}{s_n}=s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_SqueezeTheorem-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="thm_SqueezeTheorem-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#thm_SqueezeTheorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> 
+<div class="para" id="thm_SqueezeTheorem-3-2">Let <span class="process-math">\(\left(r_n\right),\left(s_n\right)\text{,}\)</span> and <span class="process-math">\(\left(t_n\right)\)</span> be sequences of real numbers with <span class="process-math">\(r_n\leq s_n\leq t_n,\forall\)</span> positive integers <span class="process-math">\(n\text{.}\)</span> Suppose <span class="process-math">\(\limit{n}{\infty}{r_n}=s=\limit{n}{\infty}{t_n}\text{.}\)</span> Then <span class="process-math">\(\left(s_n\right)\)</span> must converge and <span class="process-math">\(\limit{n}{\infty}{s_n}=s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_SqueezeTheorem-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 6.2.15: The Squeeze Theorem for Sequences"><a href="#thm_SqueezeTheorem" title="Copy heading and permalink for Theorem 6.2.15: The Squeeze Theorem for Sequences" aria-label="Copy heading and permalink for Theorem 6.2.15: The Squeeze Theorem for Sequences">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-36"><h4 class="heading">
+<div class="autopermalink" data-description="Theorem 6.2.15: The Squeeze Theorem for Sequences"><a href="#thm_SqueezeTheorem" title="Copy heading and permalink for Theorem 6.2.15: The Squeeze Theorem for Sequences" aria-label="Copy heading and permalink for Theorem 6.2.15: The Squeeze Theorem for Sequences">🔗</a></div>
+</article>
+<article class="problem example-like" id="LimitAsPrimary-36"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="LimitAsPrimary-36-3-1">Prove the <a href="Convergence.html#thm_SqueezeTheorem" class="internal" title="Theorem 6.2.15: The Squeeze Theorem for Sequences">Squeeze Theorem for Sequences</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-36-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="LimitAsPrimary-36-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="LimitAsPrimary-36-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="LimitAsPrimary-36-4-1">This is probably a place where you would want to use <span class="process-math">\(s-\eps\lt s_n\lt s+\eps\)</span> instead of <span class="process-math">\(|s_n-s|\lt
 \eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-36-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.2.16.1"><a href="#LimitAsPrimary-36-4" title="Copy heading and permalink for Hint 6.2.16.1" aria-label="Copy heading and permalink for Hint 6.2.16.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 6.2.16"><a href="#LimitAsPrimary-36" title="Copy heading and permalink for Problem 6.2.16" aria-label="Copy heading and permalink for Problem 6.2.16">🔗</a></div></article><div class="para logical" id="LimitAsPrimary-37">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 6.2.16"><a href="#LimitAsPrimary-36" title="Copy heading and permalink for Problem 6.2.16" aria-label="Copy heading and permalink for Problem 6.2.16">🔗</a></div>
+</article>
+<div class="para logical" id="LimitAsPrimary-37">
 <div class="para">The Squeeze Theorem is true even if <span class="process-math">\(r_n\leq s_n\leq
 t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\text{;}\)</span> i.e., for <span class="process-math">\(n\)</span> larger than some fixed <span class="process-math">\(N_0\text{.}\)</span>  This is true because when you find an <span class="process-math">\(N_1\)</span> that works in the original proof, this can be modified by choosing <span class="process-math">\(N=\)</span>max<span class="process-math">\(\left(N_0,N_1\right)\text{.}\)</span>  Also note that this theorem really says two things:</div>
 <ol class="decimal" id="LimitAsPrimary-37-8">
@@ -1097,10 +1216,14 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 </h4>
 <div class="para" id="example_SqzeEx-1-1">Prove <span class="process-math">\(\limit{n}{\infty}{\frac{n+1}{n^2}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example_SqzeEx-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.2.17"><a href="#example_SqzeEx" title="Copy heading and permalink for Example 6.2.17" aria-label="Copy heading and permalink for Example 6.2.17">🔗</a></div></article><article class="proof" id="LimitAsPrimary-39"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="autopermalink" data-description="Example 6.2.17"><a href="#example_SqzeEx" title="Copy heading and permalink for Example 6.2.17" aria-label="Copy heading and permalink for Example 6.2.17">🔗</a></div>
+</article>
+<article class="proof" id="LimitAsPrimary-39"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="LimitAsPrimary-39-1">Notice that <span class="process-math">\(0\leq\frac{n+1}{n^2}\leq\frac{n+n}{n^2}=\frac{2}{n}\text{.}\)</span> Since <span class="process-math">\(\limit{n}{\infty}{0}=0=\limit{n}{\infty}{\frac{2}{n}}\text{,}\)</span> then by the Squeeze Theorem, <span class="process-math">\(\limit{n}{\infty}{\frac{n+1}{n^2}}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-39-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 6.2.1"><a href="#LimitAsPrimary-39" title="Copy heading and permalink for Proof 6.2.1" aria-label="Copy heading and permalink for Proof 6.2.1">🔗</a></div></article><div class="para" id="LimitAsPrimary-40">Our proof in <a href="Convergence.html#example_SqzeEx" class="internal" title="Example 6.2.17">Example 6.2.17</a> is completely rigorous and is the proper way to use the <a href="Convergence.html#thm_SqueezeTheorem" class="internal" title="Theorem 6.2.15: The Squeeze Theorem for Sequences">Squeeze Theorem</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-40" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 6.2.1"><a href="#LimitAsPrimary-39" title="Copy heading and permalink for Proof 6.2.1" aria-label="Copy heading and permalink for Proof 6.2.1">🔗</a></div>
+</article>
+<div class="para" id="LimitAsPrimary-40">Our proof in <a href="Convergence.html#example_SqzeEx" class="internal" title="Example 6.2.17">Example 6.2.17</a> is completely rigorous and is the proper way to use the <a href="Convergence.html#thm_SqueezeTheorem" class="internal" title="Theorem 6.2.15: The Squeeze Theorem for Sequences">Squeeze Theorem</a>.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-40" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="LimitAsPrimary-41">Next we give an example of an improper use of the Squeeze Theorem. It is easy to fall into this error. Be careful.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-41" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1130,7 +1253,9 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 </div>
 <div class="para" id="EXAMPLENotUseSquzTheorem-3">This is incorrect in form because it presumes that <span class="process-math">\(\limitt{n}{\infty}{\frac{n+1}{n^2}}\)</span> exists, which we don’t yet know. If we knew that the limit existed to begin with, then this would be fine. The Squeeze Theorem proves that the limit does in fact exist, but it must be so stated.<div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLENotUseSquzTheorem-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.2.18: How Not to Use the Squeeze Theorem"><a href="#EXAMPLENotUseSquzTheorem" title="Copy heading and permalink for Example 6.2.18: How Not to Use the Squeeze Theorem" aria-label="Copy heading and permalink for Example 6.2.18: How Not to Use the Squeeze Theorem">🔗</a></div></article><article class="problem example-like" id="LimitAsPrimary-43"><h4 class="heading">
+<div class="autopermalink" data-description="Example 6.2.18: How Not to Use the Squeeze Theorem"><a href="#EXAMPLENotUseSquzTheorem" title="Copy heading and permalink for Example 6.2.18: How Not to Use the Squeeze Theorem" aria-label="Copy heading and permalink for Example 6.2.18: How Not to Use the Squeeze Theorem">🔗</a></div>
+</article>
+<article class="problem example-like" id="LimitAsPrimary-43"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="LimitAsPrimary-43-3-1">
@@ -1142,10 +1267,13 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-43-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.2.19"><a href="#LimitAsPrimary-43" title="Copy heading and permalink for Problem 6.2.19" aria-label="Copy heading and permalink for Problem 6.2.19">🔗</a></div></article><article class="problem example-like" id="prob_RatioTest"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 6.2.19"><a href="#LimitAsPrimary-43" title="Copy heading and permalink for Problem 6.2.19" aria-label="Copy heading and permalink for Problem 6.2.19">🔗</a></div>
+</article>
+<article class="problem example-like" id="prob_RatioTest"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Ratio Test.</span>
 </h4>
-<div class="introduction" id="prob_RatioTest-4"><div class="para logical" id="prob_RatioTest-4-1">
+<div class="introduction" id="prob_RatioTest-4">
+<div class="para logical" id="prob_RatioTest-4-1">
 <div class="para">Suppose <span class="process-math">\(\left(s_n\right)\)</span> is a sequence of positive numbers such that</div>
 <div class="displaymath process-math" id="prob_RatioTest-4-1-2">
 \begin{equation*}
@@ -1153,23 +1281,35 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#prob_RatioTest-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+</div>
+</div>
 <article class="task exercise-like" id="prob_RatioTest-5"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="prob_RatioTest-5-1-1">Prove that if <span class="process-math">\(L\lt 1\text{,}\)</span> then <span class="process-math">\(\limit{n}{\infty}{s_n}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_RatioTest-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="prob_RatioTest-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="prob_RatioTest-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="prob_RatioTest-5-2-1">Choose <span class="process-math">\(R\)</span> with <span class="process-math">\(L\lt R\lt 1\text{.}\)</span>  By the <a href="Convergence.html#PROBLEMUpperLowerBndsForSequences" class="internal" title="Problem 6.1.18">Problem 6.1.18</a>, <span class="process-math">\(\exists\)</span> <span class="process-math">\(N\)</span> such that if <span class="process-math">\(n&gt;N\text{,}\)</span> then <span class="process-math">\(\frac{s_{n+1}}{s_n}\lt R\text{.}\)</span>  Let <span class="process-math">\(n_0&gt;N\)</span> be fixed and show <span class="process-math">\(s_{n_0+k}\lt R^ks_{n_0}\text{.}\)</span> Conclude that <span class="process-math">\(\limit{k}{\infty}{s_{n_0+k}}=0\)</span> and let <span class="process-math">\(n=n_0+k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_RatioTest-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 6.2.20.a.1"><a href="#prob_RatioTest-5-2" title="Copy heading and permalink for Hint 6.2.20.a.1" aria-label="Copy heading and permalink for Hint 6.2.20.a.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 6.2.20.a"><a href="#prob_RatioTest-5" title="Copy heading and permalink for Task 6.2.20.a" aria-label="Copy heading and permalink for Task 6.2.20.a">🔗</a></div></article><article class="task exercise-like" id="prob_RatioTest-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.2.20.a"><a href="#prob_RatioTest-5" title="Copy heading and permalink for Task 6.2.20.a" aria-label="Copy heading and permalink for Task 6.2.20.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="prob_RatioTest-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="prob_RatioTest-6-1-1">Let <span class="process-math">\(c\)</span> be a positive real number.  Prove <span class="process-math">\(\limit{n}{\infty}{\left(\frac{c^n}{n!}\right)}=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_RatioTest-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.2.20.b"><a href="#prob_RatioTest-6" title="Copy heading and permalink for Task 6.2.20.b" aria-label="Copy heading and permalink for Task 6.2.20.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.2.20: The Ratio Test"><a href="#prob_RatioTest" title="Copy heading and permalink for Problem 6.2.20: The Ratio Test" aria-label="Copy heading and permalink for Problem 6.2.20: The Ratio Test">🔗</a></div></article><div class="para" id="LimitAsPrimary-45">The general theorems we have seen in this section will allow us to rigorously explore convergence of power series in the next chapter without appealing directly to the definitions.  However there will still be times when we will need to apply the definition directly.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-45" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 6.2.20.b"><a href="#prob_RatioTest-6" title="Copy heading and permalink for Task 6.2.20.b" aria-label="Copy heading and permalink for Task 6.2.20.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.2.20: The Ratio Test"><a href="#prob_RatioTest" title="Copy heading and permalink for Problem 6.2.20: The Ratio Test" aria-label="Copy heading and permalink for Problem 6.2.20: The Ratio Test">🔗</a></div>
+</article>
+<div class="para" id="LimitAsPrimary-45">The general theorems we have seen in this section will allow us to rigorously explore convergence of power series in the next chapter without appealing directly to the definitions.  However there will still be times when we will need to apply the definition directly.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-45" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="LimitAsPrimary-46">But before we go into that let’s examine divergence a bit more closely.<div class="autopermalink" data-description="Paragraph"><a href="#LimitAsPrimary-46" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Section 6.2: The Limit as a Primary Tool"><a href="#LimitAsPrimary" title="Copy heading and permalink for Section 6.2: The Limit as a Primary Tool" aria-label="Copy heading and permalink for Section 6.2: The Limit as a Primary Tool">🔗</a></div></section><section class="section" id="DivergentSeq"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Section 6.2: The Limit as a Primary Tool"><a href="#LimitAsPrimary" title="Copy heading and permalink for Section 6.2: The Limit as a Primary Tool" aria-label="Copy heading and permalink for Section 6.2: The Limit as a Primary Tool">🔗</a></div>
+</section>
+<section class="section" id="DivergentSeq">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divergence</span>
 </h3>
 <div class="para" id="DivergentSeq-2">In <a href="PowerSeriesQuestions.html#thm_rearrangements" class="xref" data-knowl="./knowl/xref/thm_rearrangements.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.2.3">Theorem 4.2.3</a> we saw that there is a rearrangment of the alternating Harmonic series which diverges to <span class="process-math">\(\infty\)</span> or <span class="process-math">\(-\infty\text{.}\)</span> In that section we did not fuss over any formal notions of divergence. We assumed instead that you are already familiar with the concept of divergence, probably from taking Calculus in the past.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1181,7 +1321,9 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 </h4>
 <div class="para" id="thm_divergence_of_a_sequence-4-1">A sequence of real numbers <span class="process-math">\(\left(s_n\right)_{n=1}^\infty\)</span> diverges if it does not converge to any <span class="process-math">\(a\in\RR\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_divergence_of_a_sequence-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 6.3.1"><a href="#thm_divergence_of_a_sequence" title="Copy heading and permalink for Definition 6.3.1" aria-label="Copy heading and permalink for Definition 6.3.1">🔗</a></div></article><div class="para" id="DivergentSeq-5">It may seem unnecessarily pedantic of us to insist on formally stating such an obvious definition. After all “converge” and “diverge” are opposites in ordinary English. Why wouldn’t they be mathematically opposite too? Why do we have to go to the trouble of formally defining both of them? Since they are opposites defining one implicitly defines the other doesn’t it?<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 6.3.1"><a href="#thm_divergence_of_a_sequence" title="Copy heading and permalink for Definition 6.3.1" aria-label="Copy heading and permalink for Definition 6.3.1">🔗</a></div>
+</article>
+<div class="para" id="DivergentSeq-5">It may seem unnecessarily pedantic of us to insist on formally stating such an obvious definition. After all “converge” and “diverge” are opposites in ordinary English. Why wouldn’t they be mathematically opposite too? Why do we have to go to the trouble of formally defining both of them? Since they are opposites defining one implicitly defines the other doesn’t it?<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="DivergentSeq-6">One way to answer that criticism is to state that in mathematics we <em class="emphasis">always</em> work from precisely stated definitions and tightly reasoned logical arguments.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1195,8 +1337,12 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 </div>
 <details id="DivergentSeq-11" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Open Sets vs. Closed Sets.</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="DivergentSeq-11-2">It is also true that <span class="process-math">\((-\infty,\infty)\)</span> is <em class="emphasis">both</em> open and closed. We will discuss this a bit further in <a href="BackToFourier.html#SECTIONRiseSetTheory" class="internal" title="Section 12.1: The Rise of Set Theory">Section 12.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="DivergentSeq-12">Mathematicians have learned to be extremely careful about this sort of thing. In the case of convergence and divergence of a series, even though these words are actually opposites mathematically (every sequence either converges or diverges and no sequence converges <em class="emphasis">and</em> diverges) it is better to say this explicitly so there can be no confusion.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="DivergentSeq-11-2">It is also true that <span class="process-math">\((-\infty,\infty)\)</span> is <em class="emphasis">both</em> open and closed. We will discuss this a bit further in <a href="BackToFourier.html#SECTIONRiseSetTheory" class="internal" title="Section 12.1: The Rise of Set Theory">Section 12.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="DivergentSeq-12">Mathematicians have learned to be extremely careful about this sort of thing. In the case of convergence and divergence of a series, even though these words are actually opposites mathematically (every sequence either converges or diverges and no sequence converges <em class="emphasis">and</em> diverges) it is better to say this explicitly so there can be no confusion.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="DivergentSeq-13">A sequence <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\)</span> can only converge to a real number, <span class="process-math">\(a\text{,}\)</span> in one way: by getting arbitrarily close to <span class="process-math">\(a\text{.}\)</span> However there are several ways a sequence might diverge.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1204,10 +1350,14 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="EXAMPLEDivOfn-1-1">Consider the sequence, <span class="process-math">\(\left(n\right)_{n=1}^\infty\text{.}\)</span> This clearly diverges by getting larger and larger <span class="process-math">\(\ldots\)</span> Ooops! Let’s be careful. The sequence <span class="process-math">\(\left(1-\frac1n\right)_{n=1}^\infty\)</span> gets larger and larger too, but it converges. What we meant to say was that the terms of the sequence <span class="process-math">\(\left(n\right)_{n=1}^\infty\)</span> become <dfn class="terminology">arbitrarily</dfn> large as <span class="process-math">\(n\)</span> increases.<div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="EXAMPLEDivOfn-1-2">This is clearly a divergent sequence but it may not be clear how to prove it formally. Here’s one way.<div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="EXAMPLEDivOfn-1-3">To show divergence we must show that the sequence satisfies the negation of the definition of convergence. That is, we must show that for every <span class="process-math">\(r\in\RR\)</span> there is an <span class="process-math">\(\eps&gt;0\)</span> such that for every <span class="process-math">\(N\in\RR\text{,}\)</span> there is an <span class="process-math">\(n&gt;N\)</span> with <span class="process-math">\(\left|n-r\right|\ge\eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="EXAMPLEDivOfn-1-4">To prove that the sequence diverges let <span class="process-math">\(N\in \RR \)</span> and <span class="process-math">\(r\in \RR \)</span> be given. Take <span class="process-math">\(\eps=1\text{.}\)</span> Let <span class="process-math">\(N_0\)</span> be the smallest positive integer which is greater than <span class="process-math">\(r\text{.}\)</span> Finally take <span class="process-math">\(n\)</span> to be greater than <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(N_0\)</span> and <span class="process-math">\(r+2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="EXAMPLEDivOfn-1-5">
+</div> 
+<div class="para" id="EXAMPLEDivOfn-1-2">This is clearly a divergent sequence but it may not be clear how to prove it formally. Here’s one way.<div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="EXAMPLEDivOfn-1-3">To show divergence we must show that the sequence satisfies the negation of the definition of convergence. That is, we must show that for every <span class="process-math">\(r\in\RR\)</span> there is an <span class="process-math">\(\eps&gt;0\)</span> such that for every <span class="process-math">\(N\in\RR\text{,}\)</span> there is an <span class="process-math">\(n&gt;N\)</span> with <span class="process-math">\(\left|n-r\right|\ge\eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="EXAMPLEDivOfn-1-4">To prove that the sequence diverges let <span class="process-math">\(N\in \RR \)</span> and <span class="process-math">\(r\in \RR \)</span> be given. Take <span class="process-math">\(\eps=1\text{.}\)</span> Let <span class="process-math">\(N_0\)</span> be the smallest positive integer which is greater than <span class="process-math">\(r\text{.}\)</span> Finally take <span class="process-math">\(n\)</span> to be greater than <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(N_0\)</span> and <span class="process-math">\(r+2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="EXAMPLEDivOfn-1-5">
 <div class="para">Since <span class="process-math">\(n\gt N_0 \gt r\)</span> we see that <span class="process-math">\(\abs{n-r}=n-r\gt 0\text{.}\)</span> Thus</div>
 <div class="displaymath process-math" id="EQUATIONIntSerDiv">
 \begin{equation}
@@ -1217,14 +1367,18 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 <div class="para">Therefore the sequence <span class="process-math">\(\left(n\right)_{n-1}^\infty \)</span> diverges.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#EXAMPLEDivOfn-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 6.3.2"><a href="#EXAMPLEDivOfn" title="Copy heading and permalink for Example 6.3.2" aria-label="Copy heading and permalink for Example 6.3.2">🔗</a></div></article><div class="para" id="DivergentSeq-15">The fact that <span class="process-math">\(\left(n\right)_{n=1}^\infty \)</span> diverges can be proved by simpler means than we used in <a href="Convergence.html#EXAMPLEDivOfn" class="internal" title="Example 6.3.2">Example 6.3.2</a>. For example, we could  use <a href="Convergence.html#lemma_BoundedConvergent" class="internal" title="Lemma 6.2.7">Lemma 6.2.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 6.3.2"><a href="#EXAMPLEDivOfn" title="Copy heading and permalink for Example 6.3.2" aria-label="Copy heading and permalink for Example 6.3.2">🔗</a></div>
+</article>
+<div class="para" id="DivergentSeq-15">The fact that <span class="process-math">\(\left(n\right)_{n=1}^\infty \)</span> diverges can be proved by simpler means than we used in <a href="Convergence.html#EXAMPLEDivOfn" class="internal" title="Example 6.3.2">Example 6.3.2</a>. For example, we could  use <a href="Convergence.html#lemma_BoundedConvergent" class="internal" title="Lemma 6.2.7">Lemma 6.2.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="PROBLEMBoundedSeqConv"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="PROBLEMBoundedSeqConv-2">Prove that <span class="process-math">\(\left(n\right)_{n=1}^\infty \)</span> diverges using <a href="Convergence.html#lemma_BoundedConvergent" class="internal" title="Lemma 6.2.7">Lemma 6.2.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMBoundedSeqConv-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.3.3"><a href="#PROBLEMBoundedSeqConv" title="Copy heading and permalink for Problem 6.3.3" aria-label="Copy heading and permalink for Problem 6.3.3">🔗</a></div></article><div class="para" id="DivergentSeq-17">We could also  make <a href="Convergence.html#def_DivToInf" class="internal" title="Definition 6.3.4: Divergence to Infinity">Definition 6.3.4</a> (below), and then use <a href="Convergence.html#DivToInfImpDiv" class="internal" title="Lemma 6.3.5">Lemma 6.3.5</a> which follows it. After proving the lemma of course.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 6.3.3"><a href="#PROBLEMBoundedSeqConv" title="Copy heading and permalink for Problem 6.3.3" aria-label="Copy heading and permalink for Problem 6.3.3">🔗</a></div>
+</article>
+<div class="para" id="DivergentSeq-17">We could also  make <a href="Convergence.html#def_DivToInf" class="internal" title="Definition 6.3.4: Divergence to Infinity">Definition 6.3.4</a> (below), and then use <a href="Convergence.html#DivToInfImpDiv" class="internal" title="Lemma 6.3.5">Lemma 6.3.5</a> which follows it. After proving the lemma of course.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="DivergentSeq-18">Since these (much) simpler methods were available to us why do you suppose we chose to present a tedious and difficult proof based on the negation of <a href="Convergence.html#def_ConvergenceOfASequence" class="internal" title="Definition 6.1.10: Convergence of a Sequence">Definition 6.1.10</a>?<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1234,31 +1388,44 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divergence to Infinity.</span>
 </h4>
 <div class="para" id="def_DivToInf-8-1">A sequence, <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\text{,}\)</span> <dfn class="terminology">diverges to positive infinity</dfn> if for every real number <span class="process-math">\(r\text{,}\)</span> there is a real number <span class="process-math">\(N\)</span> such that <span class="process-math">\(n&gt;N\imp a_n&gt;r\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_DivToInf-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="def_DivToInf-8-2">A sequence, <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\text{,}\)</span> <dfn class="terminology">diverges to negative infinity</dfn> if for every real number <span class="process-math">\(r\text{,}\)</span> there is a real number <span class="process-math">\(N\)</span> such that <span class="process-math">\(n&gt;N\imp a_n\lt r\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_DivToInf-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="def_DivToInf-8-3">A sequence is said to <dfn class="terminology">diverge to infinity</dfn> if it diverges to either positive or negative infinity.<div class="autopermalink" data-description="Paragraph"><a href="#def_DivToInf-8-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="def_DivToInf-8-2">A sequence, <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\text{,}\)</span> <dfn class="terminology">diverges to negative infinity</dfn> if for every real number <span class="process-math">\(r\text{,}\)</span> there is a real number <span class="process-math">\(N\)</span> such that <span class="process-math">\(n&gt;N\imp a_n\lt r\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_DivToInf-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="def_DivToInf-8-3">A sequence is said to <dfn class="terminology">diverge to infinity</dfn> if it diverges to either positive or negative infinity.<div class="autopermalink" data-description="Paragraph"><a href="#def_DivToInf-8-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 6.3.4: Divergence to Infinity"><a href="#def_DivToInf" title="Copy heading and permalink for Definition 6.3.4: Divergence to Infinity" aria-label="Copy heading and permalink for Definition 6.3.4: Divergence to Infinity">🔗</a></div></article><div class="para" id="DivergentSeq-21">Speaking informally, <a href="Convergence.html#def_DivToInf" class="internal" title="Definition 6.3.4: Divergence to Infinity">Definition 6.3.4</a> says that <span class="process-math">\(\left(a_n\right)_{n=1}^\infty{}\)</span> diverges to infinity if it becomes arbitrarily large in either the positive or the negative direction as <span class="process-math">\(n\)</span> increases.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 6.3.4: Divergence to Infinity"><a href="#def_DivToInf" title="Copy heading and permalink for Definition 6.3.4: Divergence to Infinity" aria-label="Copy heading and permalink for Definition 6.3.4: Divergence to Infinity">🔗</a></div>
+</article>
+<div class="para" id="DivergentSeq-21">Speaking informally, <a href="Convergence.html#def_DivToInf" class="internal" title="Definition 6.3.4: Divergence to Infinity">Definition 6.3.4</a> says that <span class="process-math">\(\left(a_n\right)_{n=1}^\infty{}\)</span> diverges to infinity if it becomes arbitrarily large in either the positive or the negative direction as <span class="process-math">\(n\)</span> increases.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="lemma theorem-like" id="DivToInfImpDiv"><h4 class="heading">
 <span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="DivToInfImpDiv-3-1">Show that if <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\)</span> diverges to infinity then <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\)</span> diverges.<div class="autopermalink" data-description="Paragraph"><a href="#DivToInfImpDiv-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Lemma 6.3.5"><a href="#DivToInfImpDiv" title="Copy heading and permalink for Lemma 6.3.5" aria-label="Copy heading and permalink for Lemma 6.3.5">🔗</a></div></article><article class="problem example-like" id="PROBLEMDivToInfImpDiv"><h4 class="heading">
+<div class="autopermalink" data-description="Lemma 6.3.5"><a href="#DivToInfImpDiv" title="Copy heading and permalink for Lemma 6.3.5" aria-label="Copy heading and permalink for Lemma 6.3.5">🔗</a></div>
+</article>
+<article class="problem example-like" id="PROBLEMDivToInfImpDiv"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="PROBLEMDivToInfImpDiv-2">Prove <a href="Convergence.html#DivToInfImpDiv" class="internal" title="Lemma 6.3.5">Lemma 6.3.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMDivToInfImpDiv-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.3.6"><a href="#PROBLEMDivToInfImpDiv" title="Copy heading and permalink for Problem 6.3.6" aria-label="Copy heading and permalink for Problem 6.3.6">🔗</a></div></article><article class="problem example-like" id="DivergentSeq-24"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 6.3.6"><a href="#PROBLEMDivToInfImpDiv" title="Copy heading and permalink for Problem 6.3.6" aria-label="Copy heading and permalink for Problem 6.3.6">🔗</a></div>
+</article>
+<article class="problem example-like" id="DivergentSeq-24"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="DivergentSeq-24-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="DivergentSeq-24-3-1-1">Show that <span class="process-math">\(\left(n^2\right)_{n=1}^\infty\)</span> diverges to infinity.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-24-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.7.a"><a href="#DivergentSeq-24-3" title="Copy heading and permalink for Task 6.3.7.a" aria-label="Copy heading and permalink for Task 6.3.7.a">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-24-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.7.a"><a href="#DivergentSeq-24-3" title="Copy heading and permalink for Task 6.3.7.a" aria-label="Copy heading and permalink for Task 6.3.7.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-24-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="DivergentSeq-24-4-1-1">Show that <span class="process-math">\(\left(-n\right)_{n=1}^\infty\)</span> diverges to infinity.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-24-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.7.b"><a href="#DivergentSeq-24-4" title="Copy heading and permalink for Task 6.3.7.b" aria-label="Copy heading and permalink for Task 6.3.7.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.3.7"><a href="#DivergentSeq-24" title="Copy heading and permalink for Problem 6.3.7" aria-label="Copy heading and permalink for Problem 6.3.7">🔗</a></div></article><div class="para logical" id="DivergentSeq-25">
+<div class="autopermalink" data-description="Task 6.3.7.b"><a href="#DivergentSeq-24-4" title="Copy heading and permalink for Task 6.3.7.b" aria-label="Copy heading and permalink for Task 6.3.7.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.3.7"><a href="#DivergentSeq-24" title="Copy heading and permalink for Problem 6.3.7" aria-label="Copy heading and permalink for Problem 6.3.7">🔗</a></div>
+</article>
+<div class="para logical" id="DivergentSeq-25">
 <div class="para">We will denote divergence to infinity as</div>
 <div class="displaymath process-math" id="DivergentSeq-25-1">
 \begin{equation*}
@@ -1274,78 +1441,118 @@ t_n\)</span> only holds for sufficiently large <span class="process-math">\(n\te
 <article class="problem example-like" id="DivergentSeq-28"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="DivergentSeq-28-3"><div class="para" id="DivergentSeq-28-3-1">Suppose <span class="process-math">\(\limit{n}{\infty}{a_n}=\infty\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=\infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-28-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="DivergentSeq-28-3">
+<div class="para" id="DivergentSeq-28-3-1">Suppose <span class="process-math">\(\limit{n}{\infty}{a_n}=\infty\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=\infty\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-28-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="DivergentSeq-28-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="DivergentSeq-28-4-1-1">Show that <span class="process-math">\(\limit{n}{\infty}{(a_n+b_n)}=\infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-28-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.8.a"><a href="#DivergentSeq-28-4" title="Copy heading and permalink for Task 6.3.8.a" aria-label="Copy heading and permalink for Task 6.3.8.a">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-28-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.8.a"><a href="#DivergentSeq-28-4" title="Copy heading and permalink for Task 6.3.8.a" aria-label="Copy heading and permalink for Task 6.3.8.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-28-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="DivergentSeq-28-5-1-1">Show that <span class="process-math">\(\limit{n}{\infty}{a_nb_n}=\infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-28-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.8.b"><a href="#DivergentSeq-28-5" title="Copy heading and permalink for Task 6.3.8.b" aria-label="Copy heading and permalink for Task 6.3.8.b">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-28-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.8.b"><a href="#DivergentSeq-28-5" title="Copy heading and permalink for Task 6.3.8.b" aria-label="Copy heading and permalink for Task 6.3.8.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-28-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="DivergentSeq-28-6-1-1">Is it true that <span class="process-math">\(\limit{n}{\infty}{\frac{a_n}{b_n}}=\infty?\)</span> Explain.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-28-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.8.c"><a href="#DivergentSeq-28-6" title="Copy heading and permalink for Task 6.3.8.c" aria-label="Copy heading and permalink for Task 6.3.8.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.3.8"><a href="#DivergentSeq-28" title="Copy heading and permalink for Problem 6.3.8" aria-label="Copy heading and permalink for Problem 6.3.8">🔗</a></div></article><div class="para" id="DivergentSeq-29">Because divergence to positive or negative infinity shares some of the properties of convergence it is easy to get careless with it.  Remember that even though we write <span class="process-math">\(\limit{n}{\infty}{a_n}=\infty\)</span> this is still a divergent sequence in the sense that <span class="process-math">\(\limit{n}{\infty}{a_n}\)</span> does not exist.  The symbol <span class="process-math">\(\infty\)</span> does not represent a real number.  This is just a convenient notational shorthand telling us that the sequence diverges by becoming arbitrarily large.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 6.3.8.c"><a href="#DivergentSeq-28-6" title="Copy heading and permalink for Task 6.3.8.c" aria-label="Copy heading and permalink for Task 6.3.8.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.3.8"><a href="#DivergentSeq-28" title="Copy heading and permalink for Problem 6.3.8" aria-label="Copy heading and permalink for Problem 6.3.8">🔗</a></div>
+</article>
+<div class="para" id="DivergentSeq-29">Because divergence to positive or negative infinity shares some of the properties of convergence it is easy to get careless with it.  Remember that even though we write <span class="process-math">\(\limit{n}{\infty}{a_n}=\infty\)</span> this is still a divergent sequence in the sense that <span class="process-math">\(\limit{n}{\infty}{a_n}\)</span> does not exist.  The symbol <span class="process-math">\(\infty\)</span> does not represent a real number.  This is just a convenient notational shorthand telling us that the sequence diverges by becoming arbitrarily large.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="DivergentSeq-30"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="DivergentSeq-30-3"><div class="para" id="DivergentSeq-30-3-1">Suppose <span class="process-math">\(\limit{n}{\infty}{a_n}=\infty\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=-\infty\)</span> and <span class="process-math">\(\alpha\in\RR\text{.}\)</span>  Prove or give a counterexample:<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-30-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="DivergentSeq-30-3">
+<div class="para" id="DivergentSeq-30-3-1">Suppose <span class="process-math">\(\limit{n}{\infty}{a_n}=\infty\)</span> and <span class="process-math">\(\limit{n}{\infty}{b_n}=-\infty\)</span> and <span class="process-math">\(\alpha\in\RR\text{.}\)</span>  Prove or give a counterexample:<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-30-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="DivergentSeq-30-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="DivergentSeq-30-4-1-1">
 <span class="process-math">\(\limit{n}{\infty}{a_n+b_n}=\infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-30-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.9.a"><a href="#DivergentSeq-30-4" title="Copy heading and permalink for Task 6.3.9.a" aria-label="Copy heading and permalink for Task 6.3.9.a">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-30-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.9.a"><a href="#DivergentSeq-30-4" title="Copy heading and permalink for Task 6.3.9.a" aria-label="Copy heading and permalink for Task 6.3.9.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-30-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="DivergentSeq-30-5-1-1">
 <span class="process-math">\(\limit{n}{\infty}{a_nb_n}=-\infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-30-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.9.b"><a href="#DivergentSeq-30-5" title="Copy heading and permalink for Task 6.3.9.b" aria-label="Copy heading and permalink for Task 6.3.9.b">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-30-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.9.b"><a href="#DivergentSeq-30-5" title="Copy heading and permalink for Task 6.3.9.b" aria-label="Copy heading and permalink for Task 6.3.9.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-30-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="DivergentSeq-30-6-1-1">
 <span class="process-math">\(\limit{n}{\infty}{\alpha a_n}=\infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-30-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.9.c"><a href="#DivergentSeq-30-6" title="Copy heading and permalink for Task 6.3.9.c" aria-label="Copy heading and permalink for Task 6.3.9.c">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-30-7"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.9.c"><a href="#DivergentSeq-30-6" title="Copy heading and permalink for Task 6.3.9.c" aria-label="Copy heading and permalink for Task 6.3.9.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-30-7"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para" id="DivergentSeq-30-7-1-1">
 <span class="process-math">\(\limit{n}{\infty}{\alpha b_n}=-\infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-30-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.9.d"><a href="#DivergentSeq-30-7" title="Copy heading and permalink for Task 6.3.9.d" aria-label="Copy heading and permalink for Task 6.3.9.d">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.3.9"><a href="#DivergentSeq-30" title="Copy heading and permalink for Problem 6.3.9" aria-label="Copy heading and permalink for Problem 6.3.9">🔗</a></div></article><div class="para" id="DivergentSeq-31">Finally, a sequence can diverge but not to infinity as the following problem displays.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 6.3.9.d"><a href="#DivergentSeq-30-7" title="Copy heading and permalink for Task 6.3.9.d" aria-label="Copy heading and permalink for Task 6.3.9.d">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.3.9"><a href="#DivergentSeq-30" title="Copy heading and permalink for Problem 6.3.9" aria-label="Copy heading and permalink for Problem 6.3.9">🔗</a></div>
+</article>
+<div class="para" id="DivergentSeq-31">Finally, a sequence can diverge but not to infinity as the following problem displays.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="DivergentSeq-32"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="DivergentSeq-32-4"><div class="para" id="DivergentSeq-32-4-1">Show that each of the following sequences diverges.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-32-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="DivergentSeq-32-4">
+<div class="para" id="DivergentSeq-32-4-1">Show that each of the following sequences diverges.<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-32-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="DivergentSeq-32-5"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="DivergentSeq-32-5-1-1">
 <span class="process-math">\(a_n=\left(-1\right)^n\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-32-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.10.a"><a href="#DivergentSeq-32-5" title="Copy heading and permalink for Task 6.3.10.a" aria-label="Copy heading and permalink for Task 6.3.10.a">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-32-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.10.a"><a href="#DivergentSeq-32-5" title="Copy heading and permalink for Task 6.3.10.a" aria-label="Copy heading and permalink for Task 6.3.10.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-32-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="DivergentSeq-32-6-1-1">
 <span class="process-math">\(a_n = \begin{cases}1\amp \text{ if \(n=2^p\) for some \(p\in\NN\) } \\ \frac1n\amp \text{ otherwise. } \end{cases}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-32-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.10.b"><a href="#DivergentSeq-32-6" title="Copy heading and permalink for Task 6.3.10.b" aria-label="Copy heading and permalink for Task 6.3.10.b">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-32-7"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.10.b"><a href="#DivergentSeq-32-6" title="Copy heading and permalink for Task 6.3.10.b" aria-label="Copy heading and permalink for Task 6.3.10.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-32-7"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="DivergentSeq-32-7-1-1">
 <span class="process-math">\(a_n=2^{\left[(-1)^nn\right]}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-32-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.10.c"><a href="#DivergentSeq-32-7" title="Copy heading and permalink for Task 6.3.10.c" aria-label="Copy heading and permalink for Task 6.3.10.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.3.10"><a href="#DivergentSeq-32" title="Copy heading and permalink for Problem 6.3.10" aria-label="Copy heading and permalink for Problem 6.3.10">🔗</a></div></article><article class="problem example-like" id="DivergentSeq-33"><h4 class="heading">
+<div class="autopermalink" data-description="Task 6.3.10.c"><a href="#DivergentSeq-32-7" title="Copy heading and permalink for Task 6.3.10.c" aria-label="Copy heading and permalink for Task 6.3.10.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.3.10"><a href="#DivergentSeq-32" title="Copy heading and permalink for Problem 6.3.10" aria-label="Copy heading and permalink for Problem 6.3.10">🔗</a></div>
+</article>
+<article class="problem example-like" id="DivergentSeq-33"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="DivergentSeq-33-3"><div class="para" id="DivergentSeq-33-3-1">Suppose that <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\)</span> diverges but not to infinity and that <span class="process-math">\(\alpha\)</span> is a real number. What conditions on <span class="process-math">\(\alpha\)</span> will guarantee that:<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-33-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="DivergentSeq-33-3">
+<div class="para" id="DivergentSeq-33-3-1">Suppose that <span class="process-math">\(\left(a_n\right)_{n=1}^\infty\)</span> diverges but not to infinity and that <span class="process-math">\(\alpha\)</span> is a real number. What conditions on <span class="process-math">\(\alpha\)</span> will guarantee that:<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-33-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="DivergentSeq-33-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="DivergentSeq-33-4-1-1">
 <span class="process-math">\(\left(\alpha a_n\right)_{n=1}^\infty\)</span> converges?<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-33-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.11.a"><a href="#DivergentSeq-33-4" title="Copy heading and permalink for Task 6.3.11.a" aria-label="Copy heading and permalink for Task 6.3.11.a">🔗</a></div></article><article class="task exercise-like" id="DivergentSeq-33-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 6.3.11.a"><a href="#DivergentSeq-33-4" title="Copy heading and permalink for Task 6.3.11.a" aria-label="Copy heading and permalink for Task 6.3.11.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="DivergentSeq-33-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="DivergentSeq-33-5-1-1">
 <span class="process-math">\(\left(\alpha a_n\right)_{n=1}^\infty\)</span> diverges?<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-33-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 6.3.11.b"><a href="#DivergentSeq-33-5" title="Copy heading and permalink for Task 6.3.11.b" aria-label="Copy heading and permalink for Task 6.3.11.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 6.3.11"><a href="#DivergentSeq-33" title="Copy heading and permalink for Problem 6.3.11" aria-label="Copy heading and permalink for Problem 6.3.11">🔗</a></div></article><article class="problem example-like" id="DivergentSeq-34"><h4 class="heading">
+<div class="autopermalink" data-description="Task 6.3.11.b"><a href="#DivergentSeq-33-5" title="Copy heading and permalink for Task 6.3.11.b" aria-label="Copy heading and permalink for Task 6.3.11.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 6.3.11"><a href="#DivergentSeq-33" title="Copy heading and permalink for Problem 6.3.11" aria-label="Copy heading and permalink for Problem 6.3.11">🔗</a></div>
+</article>
+<article class="problem example-like" id="DivergentSeq-34"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="DivergentSeq-34-4-1">Show that if <span class="process-math">\(\abs{r}&gt;1\)</span> then <span class="process-math">\(\left(r^n\right)_{n=1}^\infty\)</span> diverges.  Will it diverge to infinity?<div class="autopermalink" data-description="Paragraph"><a href="#DivergentSeq-34-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 6.3.12"><a href="#DivergentSeq-34" title="Copy heading and permalink for Problem 6.3.12" aria-label="Copy heading and permalink for Problem 6.3.12">🔗</a></div></article><div class="autopermalink" data-description="Section 6.3: Divergence"><a href="#DivergentSeq" title="Copy heading and permalink for Section 6.3: Divergence" aria-label="Copy heading and permalink for Section 6.3: Divergence">🔗</a></div></section><div class="autopermalink" data-description="Chapter 6: Convergence of Sequences and Series"><a href="#Convergence" title="Copy heading and permalink for Chapter 6: Convergence of Sequences and Series" aria-label="Copy heading and permalink for Chapter 6: Convergence of Sequences and Series">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Problem 6.3.12"><a href="#DivergentSeq-34" title="Copy heading and permalink for Problem 6.3.12" aria-label="Copy heading and permalink for Problem 6.3.12">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 6.3: Divergence"><a href="#DivergentSeq" title="Copy heading and permalink for Section 6.3: Divergence" aria-label="Copy heading and permalink for Section 6.3: Divergence">🔗</a></div>
+</section><div class="autopermalink" data-description="Chapter 6: Convergence of Sequences and Series"><a href="#Convergence" title="Copy heading and permalink for Chapter 6: Convergence of Sequences and Series" aria-label="Copy heading and permalink for Chapter 6: Convergence of Sequences and Series">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="FindingAnswers.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="TaylorSeries.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

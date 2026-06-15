@@ -20,65 +20,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:title" content="A CContextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:author" content="Robert Rogers">
 <meta property="book:author" content="Eugene Boman">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
@@ -103,21 +55,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.15';
+eBookConfig.runestone_version = '8.1.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<h1 class="heading"><a href="ASORA.html"><span class="title">A CContextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -308,18 +260,25 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="Threelessons"><h2 class="heading">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="chapter" id="Threelessons">
+<h2 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Prologue: Three Lessons Before We Begin</span>
 </h2>
-<section class="section" id="ThreeLessons-lesson-one"><h3 class="heading hide-type">
+<section class="section" id="ThreeLessons-lesson-one">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lesson One</span>
 </h3>
 <div class="para" id="ThreeLessons-lesson-one-2">Get a pad of paper and write down the answer to this question: What is . . . No, really.  We’re serious. <em class="emphasis">Get a writing pad.</em> We’ll wait.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="ThreeLessons-lesson-one-3" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Get Something to Write On!</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="ThreeLessons-lesson-one-3-2">We really are serious about this.  Get a pad of paper! (Or some device you can do scratch work on.)<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="ThreeLessons-lesson-one-4">Got it?  Good. Now write down your answer to this question: What is a number?  Don’t think about it.  Don’t analyze it. Don’t consider it.  Just write down the best answer you can without thinking.  You are the only person who ever needs to see what you’ve written.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="ThreeLessons-lesson-one-3-2">We really are serious about this.  Get a pad of paper! (Or some device you can do scratch work on.)<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="ThreeLessons-lesson-one-4">Got it?  Good. Now write down your answer to this question: What is a number?  Don’t think about it.  Don’t analyze it. Don’t consider it.  Just write down the best answer you can without thinking.  You are the only person who ever needs to see what you’ve written.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ThreeLessons-lesson-one-5">Done?  Good.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -386,10 +345,17 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <details id="ThreeLessons-lesson-one-10" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Not Knowing.</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="ThreeLessons-lesson-one-10-2">Sometimes it is even encouraged.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="ThreeLessons-lesson-one-11">A principal goal of this course of study is to rectify this, at least a little bit.  When the course is over you may or may not be able to give a better definition of the word “number” but you will have a deeper understanding of the real numbers at least.  That is enough for now.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="ThreeLessons-lesson-one-10-2">Sometimes it is even encouraged.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Section 1.1: Lesson One"><a href="#ThreeLessons-lesson-one" title="Copy heading and permalink for Section 1.1: Lesson One" aria-label="Copy heading and permalink for Section 1.1: Lesson One">🔗</a></div></section><section class="section" id="ThreeLessons_lesson-two"><h3 class="heading hide-type">
+</aside></details>
+<div class="para" id="ThreeLessons-lesson-one-11">A principal goal of this course of study is to rectify this, at least a little bit.  When the course is over you may or may not be able to give a better definition of the word “number” but you will have a deeper understanding of the real numbers at least.  That is enough for now.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons-lesson-one-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Section 1.1: Lesson One"><a href="#ThreeLessons-lesson-one" title="Copy heading and permalink for Section 1.1: Lesson One" aria-label="Copy heading and permalink for Section 1.1: Lesson One">🔗</a></div>
+</section>
+<section class="section" id="ThreeLessons_lesson-two">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lesson Two</span>
 </h3>
 <div class="para" id="ThreeLessons_lesson-two-2">Read and understand the following development of the <dfn class="terminology">Quadratic Formula</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -436,8 +402,12 @@ x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\tag{1.2.5}
 </div>
 <details id="ThreeLessons_lesson-two-7" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Get Something to Write On!</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="ThreeLessons_lesson-two-7-2">If you <em class="emphasis">still</em> haven’t gotten out a pad of paper, give up now.  You’re going to fail this course.  Seriously. Do you think we would spend so much time on this, that we would repeat it so many times, if it weren’t important. <em class="alert">GET OUT A PAD OF PAPER NOW!</em> Last chance. You’ve been warned.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="ThreeLessons_lesson-two-8">Done?  Good.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="ThreeLessons_lesson-two-7-2">If you <em class="emphasis">still</em> haven’t gotten out a pad of paper, give up now.  You’re going to fail this course.  Seriously. Do you think we would spend so much time on this, that we would repeat it so many times, if it weren’t important. <em class="alert">GET OUT A PAD OF PAPER NOW!</em> Last chance. You’ve been warned.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="ThreeLessons_lesson-two-8">Done?  Good.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ThreeLessons_lesson-two-9">Perhaps you haven’t been able to fill in the details on your own.  That’s ok.  Many people can’t.  If not then get help: from a classmate, a friend, your instructor, whomever. Unfortunately most people won’t get help in this situation. Instead they will perceive this as “failure,” hide it and berate themselves or the problem as “stupid.” In short they will let their personal insecurities and demons overwhelm them. <em class="emphasis">Don’t do this.  Get help.</em> You are neither dumb nor incapable.  There are a thousand reasons that on any given day you might not be able to solve this problem.  But don’t let a bad day interfere with the education you are here for.  Get someone to help you over this hump.  Later you will be able to help your helper in the same way.  Really.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -453,8 +423,12 @@ x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\tag{1.2.5}
 </div>
 <details id="ThreeLessons_lesson-two-15" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fill in the Details!</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="ThreeLessons_lesson-two-15-2">If you didn’t fill in those details then you are depriving yourself of the education you are here to obtain. This is sad.  There is a good reason for putting these three lessons first.  Stop wasting your time and intellect! Go do it now.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para logical" id="ThreeLessons_lesson-two-16">
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="ThreeLessons_lesson-two-15-2">If you didn’t fill in those details then you are depriving yourself of the education you are here to obtain. This is sad.  There is a good reason for putting these three lessons first.  Stop wasting your time and intellect! Go do it now.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para logical" id="ThreeLessons_lesson-two-16">
 <div class="para">As you saw when you filled in the details of our development of the <dfn class="terminology">Quadratic Formula</dfn> the substitution <span class="process-math">\(x=y-\frac{b}{2a}\)</span> was crucial because it turned</div>
 <div class="displaymath process-math" id="ThreeLessons_lesson-two-16-3">
 \begin{equation*}
@@ -488,12 +462,20 @@ y^3 +py+q=0
 </div>
 <details id="ThreeLessons_lesson-two-18" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Depressed Cubic Polynomials.</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="ThreeLessons_lesson-two-18-2">It is not entirely clear why eliminating the quadratic term should be depressing, but there it is.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><figure class="figure figure-like" id="ThreeLessons_lesson-two-19"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Tartaglia.png" class="contained" alt="Portrait of Tartaglia"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Niccolò Fontana, “Tartaglia”<div class="autopermalink" data-description="Figure 1.2.1"><a href="#ThreeLessons_lesson-two-19" title="Copy heading and permalink for Figure 1.2.1" aria-label="Copy heading and permalink for Figure 1.2.1">🔗</a></div></figcaption></figure><div class="para" id="ThreeLessons_lesson-two-20">Ferrari also knew how to compute the general solution of the <dfn class="terminology">depressed quartic</dfn> so when he and his teacher <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Cardan" target="_blank">Girolomo Cardano</a> (1501-1576) figured out how to depress a general quartic they had a complete solution of the general quartic as well.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="ThreeLessons_lesson-two-18-2">It is not entirely clear why eliminating the quadratic term should be depressing, but there it is.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<figure class="figure figure-like" id="ThreeLessons_lesson-two-19"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Tartaglia.png" class="contained" alt="Portrait of Tartaglia"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Niccolò Fontana, “Tartaglia”<div class="autopermalink" data-description="Figure 1.2.1"><a href="#ThreeLessons_lesson-two-19" title="Copy heading and permalink for Figure 1.2.1" aria-label="Copy heading and permalink for Figure 1.2.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ThreeLessons_lesson-two-20">Ferrari also knew how to compute the general solution of the <dfn class="terminology">depressed quartic</dfn> so when he and his teacher <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Cardan" target="_blank">Girolomo Cardano</a> (1501-1576) figured out how to depress a general quartic they had a complete solution of the general quartic as well.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="ThreeLessons_lesson-two-21"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Cardan.png" class="contained" alt="Portrait of Cardano"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Girolomo Cardano<div class="autopermalink" data-description="Figure 1.2.2"><a href="#ThreeLessons_lesson-two-21" title="Copy heading and permalink for Figure 1.2.2" aria-label="Copy heading and permalink for Figure 1.2.2">🔗</a></div></figcaption></figure><div class="para" id="ThreeLessons_lesson-two-22">Alas, their methods broke down entirely when they tried to solve the general quintic equation.  Unfortunately the rest of this story belongs in a course on Abstract Algebra, not Real Analysis.  But the lesson in this story applies to all of mathematics: Every problem solved is a new theorem which then becomes a tool for later use.  Depressing a cubic would have been utterly useless had not Tartaglia had a solution of the depressed cubic in hand.  The technique they used, with slight modifications, then allowed for a solution of the general quartic as well.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Girolomo Cardano<div class="autopermalink" data-description="Figure 1.2.2"><a href="#ThreeLessons_lesson-two-21" title="Copy heading and permalink for Figure 1.2.2" aria-label="Copy heading and permalink for Figure 1.2.2">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ThreeLessons_lesson-two-22">Alas, their methods broke down entirely when they tried to solve the general quintic equation.  Unfortunately the rest of this story belongs in a course on Abstract Algebra, not Real Analysis.  But the lesson in this story applies to all of mathematics: Every problem solved is a new theorem which then becomes a tool for later use.  Depressing a cubic would have been utterly useless had not Tartaglia had a solution of the depressed cubic in hand.  The technique they used, with slight modifications, then allowed for a solution of the general quartic as well.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ThreeLessons_lesson-two-23">Keep this in mind as you proceed through this course and your mathematical education.  Every problem you solve is really a theorem, a potential tool that you can use later.  We have chosen the problems in this text deliberately with this in mind. Don’t just solve the problems and move on.  Just because you have solved a problem does not mean you should stop thinking about it.  Keep thinking about the problems you’ve solved. Internalize them.  Make the ideas your own so that when you need them later you will have them at hand to use.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -520,14 +502,21 @@ y^3 +py+q=0
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-24-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 1.2.3: The Quadratic Formula"><a href="#ThreeLessons_lesson-two-24" title="Copy heading and permalink for Problem 1.2.3: The Quadratic Formula" aria-label="Copy heading and permalink for Problem 1.2.3: The Quadratic Formula">🔗</a></div></article><article class="problem example-like" id="ThreeLessons_lesson-two-25"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 1.2.3: The Quadratic Formula"><a href="#ThreeLessons_lesson-two-24" title="Copy heading and permalink for Problem 1.2.3: The Quadratic Formula" aria-label="Copy heading and permalink for Problem 1.2.3: The Quadratic Formula">🔗</a></div>
+</article>
+<article class="problem example-like" id="ThreeLessons_lesson-two-25"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Another Derivation of the Quadratic Formula.</span>
 </h4>
 <div class="para" id="ThreeLessons_lesson-two-25-4-1">Here is yet another way to solve a quadratic equation.  Read the development below with pencil and paper handy.  Confirm all of the computations that are not completely transparent to you.  Then use your notes to present the solution with <em class="emphasis">all</em> steps filled in.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-25-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <details id="ThreeLessons_lesson-two-25-4-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+</div> 
+<details id="ThreeLessons_lesson-two-25-4-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The purpose of these problems.</span>
-</h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="ThreeLessons_lesson-two-25-4-2-2">Be sure you are clear on the purpose of this problem before you begin.  This is not about solving the Quadratic Equation.  You already know how to do that.  Our purpose here is to give you practice filling in the skipped details of mathematical exposition.  We’ve chosen this particular problem because it should be a comfortable setting for you, but this particular solution is probably outside of your previous experience.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-25-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details> <div class="para logical" id="ThreeLessons_lesson-two-25-4-3">
+</h5></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="ThreeLessons_lesson-two-25-4-2-2">Be sure you are clear on the purpose of this problem before you begin.  This is not about solving the Quadratic Equation.  You already know how to do that.  Our purpose here is to give you practice filling in the skipped details of mathematical exposition.  We’ve chosen this particular problem because it should be a comfortable setting for you, but this particular solution is probably outside of your previous experience.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-25-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details> 
+<div class="para logical" id="ThreeLessons_lesson-two-25-4-3">
 <div class="para">Suppose that <span class="process-math">\(r_1\)</span> and <span class="process-math">\(r_2\)</span> are solutions of <span class="process-math">\(ax^2+bx+c=0\text{.}\)</span> Without loss of generality suppose that <span class="process-math">\(a&gt;0\text{.}\)</span>  Suppose further that <span class="process-math">\(r_1\ge r_2\text{.}\)</span>  Then</div>
 <div class="displaymath process-math" id="ThreeLessons_lesson-two-25-4-3-6">
 \begin{align*}
@@ -537,7 +526,8 @@ a\left[x^2-(r_1+r_2)x+(r_1+r_2)^2-(r_1-r_2)^2-3r_1r_2\right].
 \end{align*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-25-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ThreeLessons_lesson-two-25-4-4">
+</div> 
+<div class="para logical" id="ThreeLessons_lesson-two-25-4-4">
 <div class="para">Therefore</div>
 <div class="displaymath process-math" id="ThreeLessons_lesson-two-25-4-4-1">
 \begin{align}
@@ -551,7 +541,8 @@ r_1-r_2 \amp = \sqrt{\left(\frac{b}{a}\right)^2-\frac{4c}{a}}\text{.}\tag{1.2.8}
 \end{align}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-25-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="ThreeLessons_lesson-two-25-4-5">
+</div> 
+<div class="para logical" id="ThreeLessons_lesson-two-25-4-5">
 <div class="para">Equations <a href="Threelessons.html#ThreeLessons_lesson-two-25-4-4-1" class="internal" title="Equation 1.2.7">(1.2.7)</a> and <a href="Threelessons.html#ThreeLessons_lesson-two-25-4-4-3" class="internal" title="Equation 1.2.8">(1.2.8)</a> can be solved simultaneously to yield</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_LagrangeQuadratic1.html ./knowl/xref/eq_LagrangeQuadratic2.html" id="ThreeLessons_lesson-two-25-4-5-3">
 \begin{align*}
@@ -561,7 +552,11 @@ r_2\amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-two-25-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 1.2.4: Another Derivation of the Quadratic Formula"><a href="#ThreeLessons_lesson-two-25" title="Copy heading and permalink for Problem 1.2.4: Another Derivation of the Quadratic Formula" aria-label="Copy heading and permalink for Problem 1.2.4: Another Derivation of the Quadratic Formula">🔗</a></div></article><div class="autopermalink" data-description="Section 1.2: Lesson Two"><a href="#ThreeLessons_lesson-two" title="Copy heading and permalink for Section 1.2: Lesson Two" aria-label="Copy heading and permalink for Section 1.2: Lesson Two">🔗</a></div></section><section class="section" id="ThreeLessons_lesson-three"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Problem 1.2.4: Another Derivation of the Quadratic Formula"><a href="#ThreeLessons_lesson-two-25" title="Copy heading and permalink for Problem 1.2.4: Another Derivation of the Quadratic Formula" aria-label="Copy heading and permalink for Problem 1.2.4: Another Derivation of the Quadratic Formula">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 1.2: Lesson Two"><a href="#ThreeLessons_lesson-two" title="Copy heading and permalink for Section 1.2: Lesson Two" aria-label="Copy heading and permalink for Section 1.2: Lesson Two">🔗</a></div>
+</section>
+<section class="section" id="ThreeLessons_lesson-three">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lesson Three</span>
 </h3>
 <div class="para" id="ThreeLessons_lesson-three-2">In the hustle and bustle of a typical college semester, with a lot of demands on your time and very little time to think, it becomes very easy to see each problem you solve as a small, isolated victory and then move on to the next challenge.  This is understandable.  Each problem you solve <em class="emphasis">is</em> a small victory and you’ve every right to be proud of it.  But it is not isolated and it is a mistake to think that it is.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -593,7 +588,9 @@ r_2\amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="ThreeLessons_lesson-three-4"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Polya.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>George Polya<div class="autopermalink" data-description="Figure 1.3.1"><a href="#ThreeLessons_lesson-three-4" title="Copy heading and permalink for Figure 1.3.1" aria-label="Copy heading and permalink for Figure 1.3.1">🔗</a></div></figcaption></figure><div class="para" id="ThreeLessons_lesson-three-5">This process is iterative.  That is, once a plan is formulated and executed we often find that our plan was not up to the task. So we have to ask what went wrong, form a new plan and try again.  This is the fourth step: Reflect on what you’ve done.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>George Polya<div class="autopermalink" data-description="Figure 1.3.1"><a href="#ThreeLessons_lesson-three-4" title="Copy heading and permalink for Figure 1.3.1" aria-label="Copy heading and permalink for Figure 1.3.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ThreeLessons_lesson-three-5">This process is iterative.  That is, once a plan is formulated and executed we often find that our plan was not up to the task. So we have to ask what went wrong, form a new plan and try again.  This is the fourth step: Reflect on what you’ve done.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ThreeLessons_lesson-three-6">Almost everyone remembers this fourth step when their plan <em class="emphasis">doesn’t</em> work.  After all, you’ve got to try again so you have to ask what went wrong.  But it is all too easy to neglect that crucial fourth step when the plan succeeds.  In that case, flush with success we usually move on to the next problem and start over from scratch.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -633,77 +630,112 @@ r_2\amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\text{.}
 </h4>
 <div class="para" id="thm_FTA-2-1">Any integer greater than <span class="process-math">\(1\)</span> is either prime or it is a product of prime numbers.  Furthermore, this prime decomposition is unique up to the order of the factors.<div class="autopermalink" data-description="Paragraph"><a href="#thm_FTA-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.3.2: The Fundamental Theorem of Arithmetic"><a href="#thm_FTA" title="Copy heading and permalink for Theorem 1.3.2: The Fundamental Theorem of Arithmetic" aria-label="Copy heading and permalink for Theorem 1.3.2: The Fundamental Theorem of Arithmetic">🔗</a></div></article><div class="para" id="ThreeLessons_lesson-three-14">We will not prove <a href="Threelessons.html#thm_FTA" class="internal" title="Theorem 1.3.2: The Fundamental Theorem of Arithmetic">The Fundamental Theorem of Arithmetic</a>. We will assume that is is true and use it as a starting point to examine the following problems, eventually arriving at the result known as <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a>:<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 1.3.2: The Fundamental Theorem of Arithmetic"><a href="#thm_FTA" title="Copy heading and permalink for Theorem 1.3.2: The Fundamental Theorem of Arithmetic" aria-label="Copy heading and permalink for Theorem 1.3.2: The Fundamental Theorem of Arithmetic">🔗</a></div>
+</article>
+<div class="para" id="ThreeLessons_lesson-three-14">We will not prove <a href="Threelessons.html#thm_FTA" class="internal" title="Theorem 1.3.2: The Fundamental Theorem of Arithmetic">The Fundamental Theorem of Arithmetic</a>. We will assume that is is true and use it as a starting point to examine the following problems, eventually arriving at the result known as <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a>:<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_FermatsLittleTheorem"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fermat’s Little Theorem.</span>
 </h4>
 <div class="para" id="thm_FermatsLittleTheorem-3-1">If <span class="process-math">\(p\)</span> is a prime number then <span class="process-math">\(p\,|(n^p-n)\)</span> for all positive integers <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_FermatsLittleTheorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.3.3: Fermat’s Little Theorem"><a href="#thm_FermatsLittleTheorem" title="Copy heading and permalink for Theorem 1.3.3: Fermat’s Little Theorem" aria-label="Copy heading and permalink for Theorem 1.3.3: Fermat’s Little Theorem">🔗</a></div></article><div class="para" id="ThreeLessons_lesson-three-16">As you work through these problems, notice how each subsequent problem makes use of the previous results. The notation <span class="process-math">\(p\,|a\)</span> simply means that the integer <span class="process-math">\(p\)</span> divides the integer <span class="process-math">\(a\)</span> with no remainder.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 1.3.3: Fermat’s Little Theorem"><a href="#thm_FermatsLittleTheorem" title="Copy heading and permalink for Theorem 1.3.3: Fermat’s Little Theorem" aria-label="Copy heading and permalink for Theorem 1.3.3: Fermat’s Little Theorem">🔗</a></div>
+</article>
+<div class="para" id="ThreeLessons_lesson-three-16">As you work through these problems, notice how each subsequent problem makes use of the previous results. The notation <span class="process-math">\(p\,|a\)</span> simply means that the integer <span class="process-math">\(p\)</span> divides the integer <span class="process-math">\(a\)</span> with no remainder.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="PROBLEMFermLittl1"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="PROBLEMFermLittl1-3-1">Let <span class="process-math">\(p\)</span> be a prime number and <span class="process-math">\(a, b\)</span> positive integers such that <span class="process-math">\(p\, | (a\cdot b)\text{.}\)</span>  Show that <span class="process-math">\(p\,|a\)</span> or <span class="process-math">\(p\,|b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="PROBLEMFermLittl1-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="PROBLEMFermLittl1-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="PROBLEMFermLittl1-4-1">If <span class="process-math">\(p\,|a\)</span> then we are done.  If not then notice that <span class="process-math">\(p\)</span> is a prime factor of <span class="process-math">\(a\cdot b\text{.}\)</span>  What does the Fundamental Theorem of Arithmetic say about the prime factors of <span class="process-math">\(a\cdot b\)</span> compared to the prime factors of <span class="process-math">\(a\)</span> and <span class="process-math">\(b?\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 1.3.4.1"><a href="#PROBLEMFermLittl1-4" title="Copy heading and permalink for Hint 1.3.4.1" aria-label="Copy heading and permalink for Hint 1.3.4.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 1.3.4"><a href="#PROBLEMFermLittl1" title="Copy heading and permalink for Problem 1.3.4" aria-label="Copy heading and permalink for Problem 1.3.4">🔗</a></div></article><article class="problem example-like" id="PROBLEMFermLittl2"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 1.3.4"><a href="#PROBLEMFermLittl1" title="Copy heading and permalink for Problem 1.3.4" aria-label="Copy heading and permalink for Problem 1.3.4">🔗</a></div>
+</article>
+<article class="problem example-like" id="PROBLEMFermLittl2"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="PROBLEMFermLittl2-3-1">Let <span class="process-math">\(p\)</span> be a prime number and let <span class="process-math">\(a_1, a_2, \ldots,
 a_n\)</span> be positive integers such that <span class="process-math">\(p\,|\left(a_1\cdot
 a_2\cdot a_3\cdot\ldots\cdot a_n\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="PROBLEMFermLittl2-3-2">Use <a href="Threelessons.html#PROBLEMFermLittl1" class="internal" title="Problem 1.3.4">Problem 1.3.4</a> to show that <span class="process-math">\(p\,|a_k\)</span> for some <span class="process-math">\(k\in\{1, 2, 3, \ldots, n\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="PROBLEMFermLittl2-3-2">Use <a href="Threelessons.html#PROBLEMFermLittl1" class="internal" title="Problem 1.3.4">Problem 1.3.4</a> to show that <span class="process-math">\(p\,|a_k\)</span> for some <span class="process-math">\(k\in\{1, 2, 3, \ldots, n\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="PROBLEMFermLittl2-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="PROBLEMFermLittl2-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="PROBLEMFermLittl2-4-1">Use induction on <span class="process-math">\(n\)</span> and the result of the previous problem.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 1.3.5.1"><a href="#PROBLEMFermLittl2-4" title="Copy heading and permalink for Hint 1.3.5.1" aria-label="Copy heading and permalink for Hint 1.3.5.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 1.3.5"><a href="#PROBLEMFermLittl2" title="Copy heading and permalink for Problem 1.3.5" aria-label="Copy heading and permalink for Problem 1.3.5">🔗</a></div></article><article class="problem example-like" id="PROBLEMFermLittl3"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 1.3.5"><a href="#PROBLEMFermLittl2" title="Copy heading and permalink for Problem 1.3.5" aria-label="Copy heading and permalink for Problem 1.3.5">🔗</a></div>
+</article>
+<article class="problem example-like" id="PROBLEMFermLittl3"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="PROBLEMFermLittl3-3-1">Let <span class="process-math">\(p\)</span> be a prime number and let <span class="process-math">\(k\)</span> be an integer with <span class="process-math">\(1\le k\le p-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="PROBLEMFermLittl3-3-2">Use <a href="Threelessons.html#PROBLEMFermLittl2" class="internal" title="Problem 1.3.5">Problem 1.3.5</a> to prove that <span class="process-math">\(p\left|{p \choose{}k}\right.\text{,}\)</span> where <span class="process-math">\({p
+</div> 
+<div class="para" id="PROBLEMFermLittl3-3-2">Use <a href="Threelessons.html#PROBLEMFermLittl2" class="internal" title="Problem 1.3.5">Problem 1.3.5</a> to prove that <span class="process-math">\(p\left|{p \choose{}k}\right.\text{,}\)</span> where <span class="process-math">\({p
 \choose{}k}\)</span> is the binomial coefficient <span class="process-math">\(\frac{p!}{k!(p-k)!}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="PROBLEMFermLittl3-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="PROBLEMFermLittl3-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="PROBLEMFermLittl3-4-1">We know <span class="process-math">\(p\,|p\,!\text{,}\)</span> so <span class="process-math">\(p\,|{p \choose{}k}k!(p-k)!\text{.}\)</span> How does the previous result apply?<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMFermLittl3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 1.3.6.1"><a href="#PROBLEMFermLittl3-4" title="Copy heading and permalink for Hint 1.3.6.1" aria-label="Copy heading and permalink for Hint 1.3.6.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 1.3.6"><a href="#PROBLEMFermLittl3" title="Copy heading and permalink for Problem 1.3.6" aria-label="Copy heading and permalink for Problem 1.3.6">🔗</a></div></article><div class="para" id="ThreeLessons_lesson-three-20">We now have all the machinery in place to prove one of the really cool theorems from number theory.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 1.3.6"><a href="#PROBLEMFermLittl3" title="Copy heading and permalink for Problem 1.3.6" aria-label="Copy heading and permalink for Problem 1.3.6">🔗</a></div>
+</article>
+<div class="para" id="ThreeLessons_lesson-three-20">We now have all the machinery in place to prove one of the really cool theorems from number theory.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="DRILLPROBLEMFermLittl4"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="DRILLPROBLEMFermLittl4-3-1">Use <a href="Threelessons.html#PROBLEMFermLittl3" class="internal" title="Problem 1.3.6">Problem 1.3.6</a> to show that <span class="process-math">\(p|(n^p-n)\)</span> for all positive integers <span class="process-math">\(n\text{,}\)</span> thus proving <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a>.<div class="autopermalink" data-description="Paragraph"><a href="#DRILLPROBLEMFermLittl4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="DRILLPROBLEMFermLittl4-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="DRILLPROBLEMFermLittl4-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="DRILLPROBLEMFermLittl4-4-1">Use induction on <span class="process-math">\(n\text{.}\)</span>  To get from <span class="process-math">\(n\)</span> to <span class="process-math">\(n+1\text{,}\)</span> use the binomial theorem on <span class="process-math">\((n+1)^p\)</span> and the result of <a href="Threelessons.html#PROBLEMFermLittl3" class="internal" title="Problem 1.3.6">Problem 1.3.6</a> .<div class="autopermalink" data-description="Paragraph"><a href="#DRILLPROBLEMFermLittl4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 1.3.7.1"><a href="#DRILLPROBLEMFermLittl4-4" title="Copy heading and permalink for Hint 1.3.7.1" aria-label="Copy heading and permalink for Hint 1.3.7.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 1.3.7"><a href="#DRILLPROBLEMFermLittl4" title="Copy heading and permalink for Problem 1.3.7" aria-label="Copy heading and permalink for Problem 1.3.7">🔗</a></div></article><div class="para" id="ThreeLessons_lesson-three-22">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 1.3.7"><a href="#DRILLPROBLEMFermLittl4" title="Copy heading and permalink for Problem 1.3.7" aria-label="Copy heading and permalink for Problem 1.3.7">🔗</a></div>
+</article>
+<div class="para" id="ThreeLessons_lesson-three-22">
 <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a> is the foundational basis for a number of results in number theory and encryption.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="ThreeLessons_lesson-three-23"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="ThreeLessons_lesson-three-23-2"><div class="para" id="ThreeLessons_lesson-three-23-2-1">Recall what we said above: Having solved a problem is no reason to stop thinking about it. Reflect upon your proof of <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a> by answering these questions.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="ThreeLessons_lesson-three-23-2">
+<div class="para" id="ThreeLessons_lesson-three-23-2-1">Recall what we said above: Having solved a problem is no reason to stop thinking about it. Reflect upon your proof of <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a> by answering these questions.<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="ThreeLessons_lesson-three-23-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="ThreeLessons_lesson-three-23-3-1-1">Will the result of Fermat’s Little Theorem hold if <span class="process-math">\(p\)</span> is not a prime number?<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-23-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 1.3.8.a"><a href="#ThreeLessons_lesson-three-23-3" title="Copy heading and permalink for Task 1.3.8.a" aria-label="Copy heading and permalink for Task 1.3.8.a">🔗</a></div></article><article class="task exercise-like" id="ThreeLessons_lesson-three-23-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 1.3.8.a"><a href="#ThreeLessons_lesson-three-23-3" title="Copy heading and permalink for Task 1.3.8.a" aria-label="Copy heading and permalink for Task 1.3.8.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="ThreeLessons_lesson-three-23-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="ThreeLessons_lesson-three-23-4-1-1">If not, then which of the steps in the proof breaks down?<div class="autopermalink" data-description="Paragraph"><a href="#ThreeLessons_lesson-three-23-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 1.3.8.b"><a href="#ThreeLessons_lesson-three-23-4" title="Copy heading and permalink for Task 1.3.8.b" aria-label="Copy heading and permalink for Task 1.3.8.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 1.3.8"><a href="#ThreeLessons_lesson-three-23" title="Copy heading and permalink for Problem 1.3.8" aria-label="Copy heading and permalink for Problem 1.3.8">🔗</a></div></article><div class="autopermalink" data-description="Section 1.3: Lesson Three"><a href="#ThreeLessons_lesson-three" title="Copy heading and permalink for Section 1.3: Lesson Three" aria-label="Copy heading and permalink for Section 1.3: Lesson Three">🔗</a></div></section><div class="autopermalink" data-description="Chapter 1: Prologue: Three Lessons Before We Begin"><a href="#Threelessons" title="Copy heading and permalink for Chapter 1: Prologue: Three Lessons Before We Begin" aria-label="Copy heading and permalink for Chapter 1: Prologue: Three Lessons Before We Begin">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Task 1.3.8.b"><a href="#ThreeLessons_lesson-three-23-4" title="Copy heading and permalink for Task 1.3.8.b" aria-label="Copy heading and permalink for Task 1.3.8.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 1.3.8"><a href="#ThreeLessons_lesson-three-23" title="Copy heading and permalink for Problem 1.3.8" aria-label="Copy heading and permalink for Problem 1.3.8">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 1.3: Lesson Three"><a href="#ThreeLessons_lesson-three" title="Copy heading and permalink for Section 1.3: Lesson Three" aria-label="Copy heading and permalink for Section 1.3: Lesson Three">🔗</a></div>
+</section><div class="autopermalink" data-description="Chapter 1: Prologue: Three Lessons Before We Begin"><a href="#Threelessons" title="Copy heading and permalink for Chapter 1: Prologue: Three Lessons Before We Begin" aria-label="Copy heading and permalink for Chapter 1: Prologue: Three Lessons Before We Begin">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="AskingQuestions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="NumbersRealRational.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

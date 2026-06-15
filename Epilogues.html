@@ -20,65 +20,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:title" content="A CContextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:author" content="Robert Rogers">
 <meta property="book:author" content="Eugene Boman">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
@@ -103,21 +55,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.15';
+eBookConfig.runestone_version = '8.1.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<h1 class="heading"><a href="ASORA.html"><span class="title">A CContextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -308,10 +260,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="Epilogues"><h2 class="heading">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="chapter" id="Epilogues">
+<h2 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epilogs</span>
 </h2>
-<section class="section" id="SECTIONEpilog1"><h3 class="heading hide-type">
+<section class="section" id="SECTIONEpilog1">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)</span>
 </h3>
 <div class="para" id="SECTIONEpilog1-2">
@@ -578,12 +533,16 @@ c\amp a\amp c\amp b
 </h4>
 <div class="para" id="AXIOMDefOfOp-2-1">They can be combined by two operations, denoted “<span class="process-math">\(\cdot\)</span>” and “+”.<div class="autopermalink" data-description="Paragraph"><a href="#AXIOMDefOfOp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.1: Definition of Operations"><a href="#AXIOMDefOfOp" title="Copy heading and permalink for Axiom 13.1.1: Definition of Operations" aria-label="Copy heading and permalink for Axiom 13.1.1: Definition of Operations">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMClosure"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.1: Definition of Operations"><a href="#AXIOMDefOfOp" title="Copy heading and permalink for Axiom 13.1.1: Definition of Operations" aria-label="Copy heading and permalink for Axiom 13.1.1: Definition of Operations">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMClosure"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Closure.</span>
 </h4>
 <div class="para" id="AXIOMClosure-2-1">If <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> are numbers then <span class="process-math">\(x+y\)</span> is also a number. <span class="process-math">\(x\cdot y\)</span> is also a number.<div class="autopermalink" data-description="Paragraph"><a href="#AXIOMClosure-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.2: Closure"><a href="#AXIOMClosure" title="Copy heading and permalink for Axiom 13.1.2: Closure" aria-label="Copy heading and permalink for Axiom 13.1.2: Closure">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMCommute"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.2: Closure"><a href="#AXIOMClosure" title="Copy heading and permalink for Axiom 13.1.2: Closure" aria-label="Copy heading and permalink for Axiom 13.1.2: Closure">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMCommute"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Commutativity.</span>
 </h4>
 <div class="para logical" id="AXIOMCommute-2-1">
@@ -599,7 +558,9 @@ x\cdot y=y\cdot x
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#AXIOMCommute-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.3: Commutativity"><a href="#AXIOMCommute" title="Copy heading and permalink for Axiom 13.1.3: Commutativity" aria-label="Copy heading and permalink for Axiom 13.1.3: Commutativity">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMAssoc"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.3: Commutativity"><a href="#AXIOMCommute" title="Copy heading and permalink for Axiom 13.1.3: Commutativity" aria-label="Copy heading and permalink for Axiom 13.1.3: Commutativity">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMAssoc"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Associativity.</span>
 </h4>
 <div class="para logical" id="AXIOMAssoc-2-1">
@@ -615,7 +576,9 @@ x\cdot y=y\cdot x
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#AXIOMAssoc-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.4: Associativity"><a href="#AXIOMAssoc" title="Copy heading and permalink for Axiom 13.1.4: Associativity" aria-label="Copy heading and permalink for Axiom 13.1.4: Associativity">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMAddId"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.4: Associativity"><a href="#AXIOMAssoc" title="Copy heading and permalink for Axiom 13.1.4: Associativity" aria-label="Copy heading and permalink for Axiom 13.1.4: Associativity">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMAddId"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Additive Identity.</span>
 </h4>
 <div class="para logical" id="AXIOMAddId-2-1">
@@ -628,7 +591,9 @@ x+0=x\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#AXIOMAddId-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.5: Additive Identity"><a href="#AXIOMAddId" title="Copy heading and permalink for Axiom 13.1.5: Additive Identity" aria-label="Copy heading and permalink for Axiom 13.1.5: Additive Identity">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMMultId"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.5: Additive Identity"><a href="#AXIOMAddId" title="Copy heading and permalink for Axiom 13.1.5: Additive Identity" aria-label="Copy heading and permalink for Axiom 13.1.5: Additive Identity">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMMultId"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiplicative Identity.</span>
 </h4>
 <div class="para logical" id="AXIOMMultId-2-1">
@@ -641,7 +606,9 @@ x+0=x\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#AXIOMMultId-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.6: Multiplicative Identity"><a href="#AXIOMMultId" title="Copy heading and permalink for Axiom 13.1.6: Multiplicative Identity" aria-label="Copy heading and permalink for Axiom 13.1.6: Multiplicative Identity">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMAddInv"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.6: Multiplicative Identity"><a href="#AXIOMMultId" title="Copy heading and permalink for Axiom 13.1.6: Multiplicative Identity" aria-label="Copy heading and permalink for Axiom 13.1.6: Multiplicative Identity">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMAddInv"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Additive Inverses.</span>
 </h4>
 <div class="para logical" id="AXIOMAddInv-2-1">
@@ -653,7 +620,9 @@ x+(-x)=0\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#AXIOMAddInv-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.7: Additive Inverses"><a href="#AXIOMAddInv" title="Copy heading and permalink for Axiom 13.1.7: Additive Inverses" aria-label="Copy heading and permalink for Axiom 13.1.7: Additive Inverses">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMMultInv"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.7: Additive Inverses"><a href="#AXIOMAddInv" title="Copy heading and permalink for Axiom 13.1.7: Additive Inverses" aria-label="Copy heading and permalink for Axiom 13.1.7: Additive Inverses">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMMultInv"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiplicative Inverse.</span>
 </h4>
 <div class="para logical" id="AXIOMMultInv-2-1">
@@ -665,7 +634,9 @@ x\cdot x^{-1} =1\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#AXIOMMultInv-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.8: Multiplicative Inverse"><a href="#AXIOMMultInv" title="Copy heading and permalink for Axiom 13.1.8: Multiplicative Inverse" aria-label="Copy heading and permalink for Axiom 13.1.8: Multiplicative Inverse">🔗</a></div></article><article class="axiom theorem-like" id="AXIOMDistrib"><h4 class="heading">
+<div class="autopermalink" data-description="Axiom 13.1.8: Multiplicative Inverse"><a href="#AXIOMMultInv" title="Copy heading and permalink for Axiom 13.1.8: Multiplicative Inverse" aria-label="Copy heading and permalink for Axiom 13.1.8: Multiplicative Inverse">🔗</a></div>
+</article>
+<article class="axiom theorem-like" id="AXIOMDistrib"><h4 class="heading">
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Distributive Property.</span>
 </h4>
 <div class="para logical" id="AXIOMDistrib-2-1">
@@ -677,7 +648,9 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#AXIOMDistrib-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 13.1.9: The Distributive Property"><a href="#AXIOMDistrib" title="Copy heading and permalink for Axiom 13.1.9: The Distributive Property" aria-label="Copy heading and permalink for Axiom 13.1.9: The Distributive Property">🔗</a></div></article><div class="para" id="SECTIONEpilog1-87">
+<div class="autopermalink" data-description="Axiom 13.1.9: The Distributive Property"><a href="#AXIOMDistrib" title="Copy heading and permalink for Axiom 13.1.9: The Distributive Property" aria-label="Copy heading and permalink for Axiom 13.1.9: The Distributive Property">🔗</a></div>
+</article>
+<div class="para" id="SECTIONEpilog1-87">
 <em class="alert">Sagredo</em>: My friend, this is a thing of surpassing beauty!  All seems clear to me now.  Numbers are any group of objects which satisfy our axioms.  That is, a number is anything that acts like a number.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-87" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONEpilog1-88">
@@ -699,29 +672,44 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 <article class="problem example-like" id="SECTIONEpilog1-93"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="SECTIONEpilog1-93-2"><div class="para" id="SECTIONEpilog1-93-2-1">Any non–empty set with operations satisfying <a href="Epilogues.html#AXIOMDefOfOp" class="internal" title="Axiom 13.1.1: Definition of Operations">Axiom 13.1.1</a> through <a href="Epilogues.html#AXIOMDistrib" class="internal" title="Axiom 13.1.9: The Distributive Property">Axiom 13.1.9</a> is called a field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="SECTIONEpilog1-93-2">
+<div class="para" id="SECTIONEpilog1-93-2-1">Any non–empty set with operations satisfying <a href="Epilogues.html#AXIOMDefOfOp" class="internal" title="Axiom 13.1.1: Definition of Operations">Axiom 13.1.1</a> through <a href="Epilogues.html#AXIOMDistrib" class="internal" title="Axiom 13.1.9: The Distributive Property">Axiom 13.1.9</a> is called a field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="SECTIONEpilog1-93-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="SECTIONEpilog1-93-3-1-1">Show that the set <span class="process-math">\(\{0\}\)</span> with operations <span class="process-math">\(0+0=0,\ 0\cdot 0=0\)</span> satisfies all the axioms of a field. What is the multiplicative identity in this field?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.1.10.a"><a href="#SECTIONEpilog1-93-3" title="Copy heading and permalink for Task 13.1.10.a" aria-label="Copy heading and permalink for Task 13.1.10.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-93-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 13.1.10.a"><a href="#SECTIONEpilog1-93-3" title="Copy heading and permalink for Task 13.1.10.a" aria-label="Copy heading and permalink for Task 13.1.10.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SECTIONEpilog1-93-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="SECTIONEpilog1-93-4-1-1">Show that in any field <span class="process-math">\(0\cdot x=0\)</span> for all elements <span class="process-math">\(x\)</span> in the field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="SECTIONEpilog1-93-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="SECTIONEpilog1-93-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="SECTIONEpilog1-93-4-2-1">
 <span class="process-math">\(0\cdot x+0\cdot x=\left(0+0\right)\cdot x=0\cdot x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 13.1.10.b.1"><a href="#SECTIONEpilog1-93-4-2" title="Copy heading and permalink for Hint 13.1.10.b.1" aria-label="Copy heading and permalink for Hint 13.1.10.b.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 13.1.10.b"><a href="#SECTIONEpilog1-93-4" title="Copy heading and permalink for Task 13.1.10.b" aria-label="Copy heading and permalink for Task 13.1.10.b">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-93-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 13.1.10.b"><a href="#SECTIONEpilog1-93-4" title="Copy heading and permalink for Task 13.1.10.b" aria-label="Copy heading and permalink for Task 13.1.10.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SECTIONEpilog1-93-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="SECTIONEpilog1-93-5-1-1">Show that if a field contains <span class="process-math">\(x\neq 0\text{,}\)</span> then <span class="process-math">\(1\neq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="SECTIONEpilog1-93-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="SECTIONEpilog1-93-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="SECTIONEpilog1-93-5-2-1">If <span class="process-math">\(1=0\)</span> then <span class="process-math">\(1\cdot x=0\cdot x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-93-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 13.1.10.c.1"><a href="#SECTIONEpilog1-93-5-2" title="Copy heading and permalink for Hint 13.1.10.c.1" aria-label="Copy heading and permalink for Hint 13.1.10.c.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 13.1.10.c"><a href="#SECTIONEpilog1-93-5" title="Copy heading and permalink for Task 13.1.10.c" aria-label="Copy heading and permalink for Task 13.1.10.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.1.10"><a href="#SECTIONEpilog1-93" title="Copy heading and permalink for Problem 13.1.10" aria-label="Copy heading and permalink for Problem 13.1.10">🔗</a></div></article><article class="problem example-like" id="SECTIONEpilog1-94"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 13.1.10.c"><a href="#SECTIONEpilog1-93-5" title="Copy heading and permalink for Task 13.1.10.c" aria-label="Copy heading and permalink for Task 13.1.10.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 13.1.10"><a href="#SECTIONEpilog1-93" title="Copy heading and permalink for Problem 13.1.10" aria-label="Copy heading and permalink for Problem 13.1.10">🔗</a></div>
+</article>
+<article class="problem example-like" id="SECTIONEpilog1-94"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="introduction" id="SECTIONEpilog1-94-3">
@@ -744,13 +732,15 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 <div class="para logical" id="SECTIONEpilog1-94-3-2">
 <ul class="disc" id="SECTIONEpilog1-94-3-2-1">
 <li id="SECTIONEpilog1-94-3-2-1-1">
-<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span><div class="para" id="SECTIONEpilog1-94-3-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span>
+<div class="para" id="SECTIONEpilog1-94-3-2-1-1-2">
 <span class="process-math">\(\displaystyle (a,b)+(c,d) = (ad+bc, bd)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-3-2-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item: Addition:"><a href="#SECTIONEpilog1-94-3-2-1-1" title="Copy heading and permalink for Item: Addition:" aria-label="Copy heading and permalink for Item: Addition:">🔗</a></div>
 </li>
 <li id="SECTIONEpilog1-94-3-2-1-2">
-<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span><div class="para" id="SECTIONEpilog1-94-3-2-1-2-2">
+<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span>
+<div class="para" id="SECTIONEpilog1-94-3-2-1-2-2">
 <span class="process-math">\((a,b)\cdot(c,d) = (ac, bd)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-3-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item: Multiplication:"><a href="#SECTIONEpilog1-94-3-2-1-2" title="Copy heading and permalink for Item: Multiplication:" aria-label="Copy heading and permalink for Item: Multiplication:">🔗</a></div>
@@ -762,10 +752,15 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 <article class="task exercise-like" id="SECTIONEpilog1-94-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="SECTIONEpilog1-94-4-1-1">Show that this set with these operations forms a number field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.1.11.a"><a href="#SECTIONEpilog1-94-4" title="Copy heading and permalink for Task 13.1.11.a" aria-label="Copy heading and permalink for Task 13.1.11.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-94-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 13.1.11.a"><a href="#SECTIONEpilog1-94-4" title="Copy heading and permalink for Task 13.1.11.a" aria-label="Copy heading and permalink for Task 13.1.11.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SECTIONEpilog1-94-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="SECTIONEpilog1-94-5-1-1">Which number field is this?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-94-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.1.11.b"><a href="#SECTIONEpilog1-94-5" title="Copy heading and permalink for Task 13.1.11.b" aria-label="Copy heading and permalink for Task 13.1.11.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.1.11"><a href="#SECTIONEpilog1-94" title="Copy heading and permalink for Problem 13.1.11" aria-label="Copy heading and permalink for Problem 13.1.11">🔗</a></div></article><article class="problem example-like" id="SECTIONEpilog1-95"><h4 class="heading">
+<div class="autopermalink" data-description="Task 13.1.11.b"><a href="#SECTIONEpilog1-94-5" title="Copy heading and permalink for Task 13.1.11.b" aria-label="Copy heading and permalink for Task 13.1.11.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 13.1.11"><a href="#SECTIONEpilog1-94" title="Copy heading and permalink for Problem 13.1.11" aria-label="Copy heading and permalink for Problem 13.1.11">🔗</a></div>
+</article>
+<article class="problem example-like" id="SECTIONEpilog1-95"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="introduction" id="SECTIONEpilog1-95-4">
@@ -774,13 +769,15 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 <div class="para logical" id="SECTIONEpilog1-95-4-2">
 <ul class="disc" id="SECTIONEpilog1-95-4-2-1">
 <li id="SECTIONEpilog1-95-4-2-1-1">
-<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span><div class="para" id="SECTIONEpilog1-95-4-2-1-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span>
+<div class="para" id="SECTIONEpilog1-95-4-2-1-1-2">
 <span class="process-math">\(\displaystyle (a,b)+(c,d) = (a+c, b+d)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-4-2-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item: Addition:"><a href="#SECTIONEpilog1-95-4-2-1-1" title="Copy heading and permalink for Item: Addition:" aria-label="Copy heading and permalink for Item: Addition:">🔗</a></div>
 </li>
 <li id="SECTIONEpilog1-95-4-2-1-2">
-<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span><div class="para" id="SECTIONEpilog1-95-4-2-1-2-2">
+<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span>
+<div class="para" id="SECTIONEpilog1-95-4-2-1-2-2">
 <span class="process-math">\((a,b)\cdot(c,d) = (ac- bd,ad+bc)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-4-2-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item: Multiplication:"><a href="#SECTIONEpilog1-95-4-2-1-2" title="Copy heading and permalink for Item: Multiplication:" aria-label="Copy heading and permalink for Item: Multiplication:">🔗</a></div>
@@ -792,13 +789,21 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 <article class="task exercise-like" id="SECTIONEpilog1-95-5"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="SECTIONEpilog1-95-5-1-1">Show that this set with these operations forms a number field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.1.12.a"><a href="#SECTIONEpilog1-95-5" title="Copy heading and permalink for Task 13.1.12.a" aria-label="Copy heading and permalink for Task 13.1.12.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONEpilog1-95-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 13.1.12.a"><a href="#SECTIONEpilog1-95-5" title="Copy heading and permalink for Task 13.1.12.a" aria-label="Copy heading and permalink for Task 13.1.12.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SECTIONEpilog1-95-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="SECTIONEpilog1-95-6-1-1">Which number field is this?<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONEpilog1-95-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.1.12.b"><a href="#SECTIONEpilog1-95-6" title="Copy heading and permalink for Task 13.1.12.b" aria-label="Copy heading and permalink for Task 13.1.12.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.1.12"><a href="#SECTIONEpilog1-95" title="Copy heading and permalink for Problem 13.1.12" aria-label="Copy heading and permalink for Problem 13.1.12">🔗</a></div></article><div class="autopermalink" data-description="Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)"><a href="#SECTIONEpilog1" title="Copy heading and permalink for Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)" aria-label="Copy heading and permalink for Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)">🔗</a></div></section><section class="section" id="SECTIONBuildReals"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Task 13.1.12.b"><a href="#SECTIONEpilog1-95-6" title="Copy heading and permalink for Task 13.1.12.b" aria-label="Copy heading and permalink for Task 13.1.12.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 13.1.12"><a href="#SECTIONEpilog1-95" title="Copy heading and permalink for Problem 13.1.12" aria-label="Copy heading and permalink for Problem 13.1.12">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)"><a href="#SECTIONEpilog1" title="Copy heading and permalink for Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)" aria-label="Copy heading and permalink for Section 13.1: Epilog #1: On the Nature of Numbers: A Dialogue (with Apologies to Galileo)">🔗</a></div>
+</section>
+<section class="section" id="SECTIONBuildReals">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Epilog #2: Building the Real Numbers</span>
 </h3>
-<section class="introduction" id="SECTIONBuildReals-2"><div class="para" id="SECTIONBuildReals-2-1">Contrary to the title of this section we will not be rigorously building the real numbers here.  Instead our goal is to show why such a build is logically necessary, and to give a sense of some of the ways this has been accomplished in the past.  This may seem odd given our uniform emphasis on mathematical rigor, especially in the third part of the text, but there are very good reasons for this.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="SECTIONBuildReals-2">
+<div class="para" id="SECTIONBuildReals-2-1">Contrary to the title of this section we will not be rigorously building the real numbers here.  Instead our goal is to show why such a build is logically necessary, and to give a sense of some of the ways this has been accomplished in the past.  This may seem odd given our uniform emphasis on mathematical rigor, especially in the third part of the text, but there are very good reasons for this.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-2">One is simple practicality.  The fact is that rigorously building the real numbers and then showing that they have the required properties is extraordinarily detailed work, even for mathematics.  If we want to keep this text to a manageable size (we do), we simply don’t have the room.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -811,16 +816,26 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 </div>
 <details id="SECTIONBuildReals-2-6" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Andrew Wiles.</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="SECTIONBuildReals-2-6-2">The man who proved <a class="external" href="https://mathshistory.st-andrews.ac.uk/HistTopics/Fermat's_last_theorem/" target="_blank">Fermat’s Last Theorem</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><figure class="figure figure-like" id="FIGUREWilesPortrait"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Wiles.png" class="contained" alt="Portrait of Andrew Wiles"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Andrew Wiles<div class="autopermalink" data-description="Figure 13.2.1"><a href="#FIGUREWilesPortrait" title="Copy heading and permalink for Figure 13.2.1" aria-label="Copy heading and permalink for Figure 13.2.1">🔗</a></div></figcaption></figure><div class="para" id="SECTIONBuildReals-2-8">But, and this is the point, there is no way to know what you will find there until you walk into that dark corner and begin exploring.  Perhaps nothing.  But perhaps something wonderful.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="SECTIONBuildReals-2-6-2">The man who proved <a class="external" href="https://mathshistory.st-andrews.ac.uk/HistTopics/Fermat's_last_theorem/" target="_blank">Fermat’s Last Theorem</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<figure class="figure figure-like" id="FIGUREWilesPortrait"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Wiles.png" class="contained" alt="Portrait of Andrew Wiles"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Andrew Wiles<div class="autopermalink" data-description="Figure 13.2.1"><a href="#FIGUREWilesPortrait" title="Copy heading and permalink for Figure 13.2.1" aria-label="Copy heading and permalink for Figure 13.2.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="SECTIONBuildReals-2-8">But, and this is the point, there is no way to know what you will find there until you walk into that dark corner and begin exploring.  Perhaps nothing.  But perhaps something wonderful.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-9"> This is what happened in the late nineteenth century.  The real numbers had been used since the Pythagoreans learned that <span class="process-math">\(\sqrt{2}\)</span> was irrational.  But really, most calculations were (and still are) done with just the rational numbers. Moreover, since <span class="process-math">\(\QQ\)</span> forms a “set of measure zero,” it is clear that most of the real numbers had gone completely unused.  The set of real numbers was thus one of those dark corners of mathematics.  It had to be explored.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="SECTIONBuildReals-2-10" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Measure Zero Sets.</span>
-</h4></summary><aside class="aside aside-like knowl__content"><div class="para" id="SECTIONBuildReals-2-10-2">See <a href="BackToFourier.html#THEOREMMeasureZero" class="xref" data-knowl="./knowl/xref/THEOREMMeasureZero.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 12.3.19">Theorem 12.3.19</a> of <a href="BackToFourier.html" class="internal" title="Chapter 12: Back to the Real Numbers">Chapter 12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="SECTIONBuildReals-2-11">“But even if that is true,” you might ask, “I have no interest in the logical foundations of the real numbers, especially if such knowledge won’t tell me anything I don’t already know.  Why do I need to know all of the details of constructing <span class="process-math">\(\RR\)</span> from <span class="process-math">\(\QQ?\)</span>”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="SECTIONBuildReals-2-10-2">See <a href="BackToFourier.html#THEOREMMeasureZero" class="xref" data-knowl="./knowl/xref/THEOREMMeasureZero.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 12.3.19">Theorem 12.3.19</a> of <a href="BackToFourier.html" class="internal" title="Chapter 12: Back to the Real Numbers">Chapter 12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="SECTIONBuildReals-2-11">“But even if that is true,” you might ask, “I have no interest in the logical foundations of the real numbers, especially if such knowledge won’t tell me anything I don’t already know.  Why do I need to know all of the details of constructing <span class="process-math">\(\RR\)</span> from <span class="process-math">\(\QQ?\)</span>”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-12">The answer is very simple: You don’t.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -840,7 +855,8 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear Ordering.</span>
 </h4>
 <div class="para" id="def_NumberField-5-1">A number field is said to be <dfn class="terminology">linearly ordered</dfn> if there is a relation, denoted “<span class="process-math">\(\lt \)</span>”, on the elements of the field which satisfies all of the following for all <span class="process-math">\(x, y\text{,}\)</span> and <span class="process-math">\(z\)</span> in the field.<div class="autopermalink" data-description="Paragraph"><a href="#def_NumberField-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="def_NumberField-5-2">
+</div> 
+<div class="para logical" id="def_NumberField-5-2">
 <ol class="decimal" id="def_NumberField-5-2-1">
 <li id="def_NumberField-5-2-1-1">
 <div class="para" id="def_NumberField-5-2-1-1-1">For all numbers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in the field, exactly one of the following holds:<div class="autopermalink" data-description="Paragraph"><a href="#def_NumberField-5-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -888,14 +904,17 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_NumberField-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.2: Linear Ordering"><a href="#def_NumberField" title="Copy heading and permalink for Definition 13.2.2: Linear Ordering" aria-label="Copy heading and permalink for Definition 13.2.2: Linear Ordering">🔗</a></div></article><div class="para" id="SECTIONBuildReals-2-20">Any number field with such a relation is called a <dfn class="terminology">linearly ordered number field</dfn> and as the following problem shows, not every number field is linearly ordered.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.2: Linear Ordering"><a href="#def_NumberField" title="Copy heading and permalink for Definition 13.2.2: Linear Ordering" aria-label="Copy heading and permalink for Definition 13.2.2: Linear Ordering">🔗</a></div>
+</article>
+<div class="para" id="SECTIONBuildReals-2-20">Any number field with such a relation is called a <dfn class="terminology">linearly ordered number field</dfn> and as the following problem shows, not every number field is linearly ordered.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="SECTIONBuildReals-2-21"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="SECTIONBuildReals-2-21-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="SECTIONBuildReals-2-21-3-1-1">Prove that the following must hold in any linearly ordered number field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-21-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="SECTIONBuildReals-2-21-3-1-2">
+</div> 
+<div class="para logical" id="SECTIONBuildReals-2-21-3-1-2">
 <ol class="decimal" id="SECTIONBuildReals-2-21-3-1-2-1">
 <li id="SECTIONBuildReals-2-21-3-1-2-1-1">
 <div class="para" id="SECTIONBuildReals-2-21-3-1-2-1-1-1">
@@ -922,24 +941,33 @@ x\cdot(y+z) = x\cdot y+x\cdot z\text{.}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-21-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.3.a"><a href="#SECTIONBuildReals-2-21-3" title="Copy heading and permalink for Task 13.2.3.a" aria-label="Copy heading and permalink for Task 13.2.3.a">🔗</a></div></article><article class="task exercise-like" id="SECTIONBuildReals-2-21-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 13.2.3.a"><a href="#SECTIONBuildReals-2-21-3" title="Copy heading and permalink for Task 13.2.3.a" aria-label="Copy heading and permalink for Task 13.2.3.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="SECTIONBuildReals-2-21-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="SECTIONBuildReals-2-21-4-1-1">Show that the set of complex numbers (<span class="process-math">\(\CC\)</span>) is not a linearly ordered field.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-21-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.3.b"><a href="#SECTIONBuildReals-2-21-4" title="Copy heading and permalink for Task 13.2.3.b" aria-label="Copy heading and permalink for Task 13.2.3.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.2.3"><a href="#SECTIONBuildReals-2-21" title="Copy heading and permalink for Problem 13.2.3" aria-label="Copy heading and permalink for Problem 13.2.3">🔗</a></div></article><div class="para" id="SECTIONBuildReals-2-22">In a thorough, rigorous presentation we would now assume the existence of the natural numbers <span class="process-math">\((\NN)\text{,}\)</span> and their properties and use these to define the integers, <span class="process-math">\((\ZZ)\text{.}\)</span>  We would then use the integers to define the rational numbers, <span class="process-math">\((\QQ)\text{.}\)</span>  We could then show that the rationals satisfy the field axioms worked out in the previous section, and that they are linearly ordered.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 13.2.3.b"><a href="#SECTIONBuildReals-2-21-4" title="Copy heading and permalink for Task 13.2.3.b" aria-label="Copy heading and permalink for Task 13.2.3.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 13.2.3"><a href="#SECTIONBuildReals-2-21" title="Copy heading and permalink for Problem 13.2.3" aria-label="Copy heading and permalink for Problem 13.2.3">🔗</a></div>
+</article>
+<div class="para" id="SECTIONBuildReals-2-22">In a thorough, rigorous presentation we would now assume the existence of the natural numbers <span class="process-math">\((\NN)\text{,}\)</span> and their properties and use these to define the integers, <span class="process-math">\((\ZZ)\text{.}\)</span>  We would then use the integers to define the rational numbers, <span class="process-math">\((\QQ)\text{.}\)</span>  We could then show that the rationals satisfy the field axioms worked out in the previous section, and that they are linearly ordered.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-23">Then — at last — we would use <span class="process-math">\(\QQ\)</span> to define the real numbers <span class="process-math">\((\RR)\text{,}\)</span> show that these satisfy the field axioms and also have the other properties we expect:  The <a href="IVTandEVT.html#NIP" class="xref" data-knowl="./knowl/xref/NIP.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">Nested Interval Property</a> , the <a href="IVTandEVT.html#def_LeastUpperBound" class="xref" data-knowl="./knowl/xref/def_LeastUpperBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 9.4.2: Least Upper Bound">Least Upper Bound Property</a>, the <a href="IVTandEVT.html#BolzanoWeierstrass" class="xref" data-knowl="./knowl/xref/BolzanoWeierstrass.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a>, the <a href="PowerSeriesRedux.html#thm_Cauchy-_Converge" class="xref" data-knowl="./knowl/xref/thm_Cauchy-_Converge.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 11.2.15: Cauchy Sequences Converge in \RR ">convergence of all Cauchy sequences</a>, and <a href="Epilogues.html#def_NumberField" class="internal" title="Definition 13.2.2: Linear Ordering">linear ordering</a>.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-24">We would start with the natural numbers because they seem to be simple enough that we can simply assume their properties. As <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Kronecker/" target="_blank">Leopold Kronecker</a> (1823–1891) said: “God made the natural numbers, all else is the work of man.”<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="FIGUREKronecker"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/Kronecker.png" class="contained" alt='A  German stamp honoring Kronecker, containing the quote, "Die ganzen Zahlen hat der liebe Gott gemacth, alle andere ist Menschenwerk," which translates to "God made the whole numbers, everything else is the work of man."'></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Leopold Kronecker.<div class="autopermalink" data-description="Figure 13.2.4"><a href="#FIGUREKronecker" title="Copy heading and permalink for Figure 13.2.4" aria-label="Copy heading and permalink for Figure 13.2.4">🔗</a></div></figcaption></figure><div class="para" id="SECTIONBuildReals-2-26">Unfortunately this is rather a lot to fit into this epilog so we will have to abbreviate the process rather severely.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Leopold Kronecker.<div class="autopermalink" data-description="Figure 13.2.4"><a href="#FIGUREKronecker" title="Copy heading and permalink for Figure 13.2.4" aria-label="Copy heading and permalink for Figure 13.2.4">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="SECTIONBuildReals-2-26">Unfortunately this is rather a lot to fit into this epilog so we will have to abbreviate the process rather severely.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-27">We will assume the existence and properties of the rational numbers.  Building <span class="process-math">\(\QQ\)</span> from the integers is not especially hard and it is easy to show that they satisfy the axioms worked out by Salviati, Sagredo and Simplicio in the previous section.  But the level of detail required for rigor quickly becomes onerous.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-28">Even starting at this fairly advanced position in the chain of logic there is still a considerable level of detail needed to complete the process.  Therefore our exposition will necessarily be incomplete.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONBuildReals-2-29">Rather than display, in full rigor, how the real numbers can be built up from the rationals we will show, in fairly broad terms, three ways this has been done in the past.  We will give references later in case you’d like to follow up and learn more.<div class="autopermalink" data-description="Paragraph"><a href="#SECTIONBuildReals-2-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></section><section class="subsection" id="DecimalExpansion"><h4 class="heading hide-type">
+</div></section>
+<section class="subsection" id="DecimalExpansion">
+<h4 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Decimal Expansion</span>
 </h4>
 <div class="para" id="DecimalExpansion-2">This is by far the most straightforward method we will examine.  Observe that if <span class="process-math">\(x\in\QQ\)</span> then expressing <span class="process-math">\(x\)</span> as a decimal gives a <dfn class="terminology">repeating infinite decimal</dfn>. For example <span class="process-math">\(\frac{1}{4}=0.25000\ldots{}\)</span> where zero is repeated and <span class="process-math">\(\frac13 =0.333\ldots{}\)</span> where three is repeated.<div class="autopermalink" data-description="Paragraph"><a href="#DecimalExpansion-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -997,12 +1025,17 @@ x+y= \sum_{i=1}^\infty\frac{e_i}{10^i} \text{ where \(e_i =d_i+\delta_i\). }
 </h5>
 <div class="para" id="DecimalExpansion-16-3-1">Define addition on infinite decimals in a manner that is closed.<div class="autopermalink" data-description="Paragraph"><a href="#DecimalExpansion-16-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="DecimalExpansion-16-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="DecimalExpansion-16-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="DecimalExpansion-16-4-1">Find an appropriate “carry” operation for our definition.<div class="autopermalink" data-description="Paragraph"><a href="#DecimalExpansion-16-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 13.2.5.1"><a href="#DecimalExpansion-16-4" title="Copy heading and permalink for Hint 13.2.5.1" aria-label="Copy heading and permalink for Hint 13.2.5.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 13.2.5"><a href="#DecimalExpansion-16" title="Copy heading and permalink for Problem 13.2.5" aria-label="Copy heading and permalink for Problem 13.2.5">🔗</a></div></article><div class="para logical" id="DecimalExpansion-17">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 13.2.5"><a href="#DecimalExpansion-16" title="Copy heading and permalink for Problem 13.2.5" aria-label="Copy heading and permalink for Problem 13.2.5">🔗</a></div>
+</article>
+<div class="para logical" id="DecimalExpansion-17">
 <div class="para">A similar difficulty arises when we try to define multiplication.  Once we have a notion of carrying in place, we could define multiplication as just the multiplication of series.  Specifically, we could define</div>
 <div class="displaymath process-math" id="DecimalExpansion-17-1">
 \begin{align*}
@@ -1018,7 +1051,10 @@ x+y= \sum_{i=1}^\infty\frac{e_i}{10^i} \text{ where \(e_i =d_i+\delta_i\). }
 </div>
 <div class="para" id="DecimalExpansion-20">Another way of looking at this is to think of an infinite decimal representation as a (Cauchy) sequence of finite decimal approximations.  Since we know how to add and multiply finite decimal representations, we can just add and multiply the individual terms in the sequences.  Of course, there is no reason to restrict ourselves to only these specific types of Cauchy sequences, as we see in our next approach.<div class="autopermalink" data-description="Paragraph"><a href="#DecimalExpansion-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 13.2.1: The Decimal Expansion"><a href="#DecimalExpansion" title="Copy heading and permalink for Subsection 13.2.1: The Decimal Expansion" aria-label="Copy heading and permalink for Subsection 13.2.1: The Decimal Expansion">🔗</a></div></section><section class="subsection" id="CauchySequences"><h4 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection 13.2.1: The Decimal Expansion"><a href="#DecimalExpansion" title="Copy heading and permalink for Subsection 13.2.1: The Decimal Expansion" aria-label="Copy heading and permalink for Subsection 13.2.1: The Decimal Expansion">🔗</a></div>
+</section>
+<section class="subsection" id="CauchySequences">
+<h4 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy Sequences</span>
 </h4>
 <div class="para" id="CauchySequences-2"> As we’ve seen, Georg Cantor began his career studying Fourier series and quickly moved on to more foundational matters in the theory of infinite sets.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1053,31 +1089,45 @@ x+y= \sum_{i=1}^\infty\frac{e_i}{10^i} \text{ where \(e_i =d_i+\delta_i\). }
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_EquivCauchySeq-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="def_EquivCauchySeq-4-2">We will denote equivalence by writing, <span class="process-math">\(x\equiv y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_EquivCauchySeq-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="def_EquivCauchySeq-4-2">We will denote equivalence by writing, <span class="process-math">\(x\equiv y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_EquivCauchySeq-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.6"><a href="#def_EquivCauchySeq" title="Copy heading and permalink for Definition 13.2.6" aria-label="Copy heading and permalink for Definition 13.2.6">🔗</a></div></article><article class="problem example-like" id="prob_EquivalentCauchySequences"><h5 class="heading">
+<div class="autopermalink" data-description="Definition 13.2.6"><a href="#def_EquivCauchySeq" title="Copy heading and permalink for Definition 13.2.6" aria-label="Copy heading and permalink for Definition 13.2.6">🔗</a></div>
+</article>
+<article class="problem example-like" id="prob_EquivalentCauchySequences"><h5 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
-<div class="introduction" id="prob_EquivalentCauchySequences-3"><div class="para" id="prob_EquivalentCauchySequences-3-1">Show that:<div class="autopermalink" data-description="Paragraph"><a href="#prob_EquivalentCauchySequences-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="prob_EquivalentCauchySequences-3">
+<div class="para" id="prob_EquivalentCauchySequences-3-1">Show that:<div class="autopermalink" data-description="Paragraph"><a href="#prob_EquivalentCauchySequences-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="prob_EquivalentCauchySequences-4"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para" id="prob_EquivalentCauchySequences-4-1-1">
 <span class="process-math">\(x\equiv x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_EquivalentCauchySequences-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.7.a"><a href="#prob_EquivalentCauchySequences-4" title="Copy heading and permalink for Task 13.2.7.a" aria-label="Copy heading and permalink for Task 13.2.7.a">🔗</a></div></article><article class="task exercise-like" id="prob_EquivalentCauchySequences-5"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="autopermalink" data-description="Task 13.2.7.a"><a href="#prob_EquivalentCauchySequences-4" title="Copy heading and permalink for Task 13.2.7.a" aria-label="Copy heading and permalink for Task 13.2.7.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="prob_EquivalentCauchySequences-5"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="prob_EquivalentCauchySequences-5-1-1">
 <span class="process-math">\(x\equiv y \imp y\equiv x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_EquivalentCauchySequences-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.7.b"><a href="#prob_EquivalentCauchySequences-5" title="Copy heading and permalink for Task 13.2.7.b" aria-label="Copy heading and permalink for Task 13.2.7.b">🔗</a></div></article><article class="task exercise-like" id="prob_EquivalentCauchySequences-6"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="autopermalink" data-description="Task 13.2.7.b"><a href="#prob_EquivalentCauchySequences-5" title="Copy heading and permalink for Task 13.2.7.b" aria-label="Copy heading and permalink for Task 13.2.7.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="prob_EquivalentCauchySequences-6"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="prob_EquivalentCauchySequences-6-1-1">
 <span class="process-math">\(x\equiv y\)</span> and <span class="process-math">\(y\equiv z \imp x\equiv z\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prob_EquivalentCauchySequences-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.7.c"><a href="#prob_EquivalentCauchySequences-6" title="Copy heading and permalink for Task 13.2.7.c" aria-label="Copy heading and permalink for Task 13.2.7.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.2.7"><a href="#prob_EquivalentCauchySequences" title="Copy heading and permalink for Problem 13.2.7" aria-label="Copy heading and permalink for Problem 13.2.7">🔗</a></div></article><article class="definition definition-like" id="def_RealsViaCauchy"><h5 class="heading">
+<div class="autopermalink" data-description="Task 13.2.7.c"><a href="#prob_EquivalentCauchySequences-6" title="Copy heading and permalink for Task 13.2.7.c" aria-label="Copy heading and permalink for Task 13.2.7.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 13.2.7"><a href="#prob_EquivalentCauchySequences" title="Copy heading and permalink for Problem 13.2.7" aria-label="Copy heading and permalink for Problem 13.2.7">🔗</a></div>
+</article>
+<article class="definition definition-like" id="def_RealsViaCauchy"><h5 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="def_RealsViaCauchy-4-1">Every set of all equivalent Cauchy sequences defines a real number.<div class="autopermalink" data-description="Paragraph"><a href="#def_RealsViaCauchy-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.8"><a href="#def_RealsViaCauchy" title="Copy heading and permalink for Definition 13.2.8" aria-label="Copy heading and permalink for Definition 13.2.8">🔗</a></div></article><div class="para" id="CauchySequences-15">A very nice feature of Cantor’s method is that it is very clear how addition and multiplication should be defined.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.8"><a href="#def_RealsViaCauchy" title="Copy heading and permalink for Definition 13.2.8" aria-label="Copy heading and permalink for Definition 13.2.8">🔗</a></div>
+</article>
+<div class="para" id="CauchySequences-15">A very nice feature of Cantor’s method is that it is very clear how addition and multiplication should be defined.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="def_AddTimesViaCauchy"><h5 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -1098,13 +1148,15 @@ y= \left\{\left.\left(\sigma_n\right)_{k=1}^\infty \right| \left(\sigma_n\right)
 <div class="para">then we define the following:</div>
 <ul class="disc" id="def_AddTimesViaCauchy-5-1-3">
 <li id="def_AddTimesViaCauchy-5-1-3-1">
-<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span><div class="para" id="def_AddTimesViaCauchy-5-1-3-1-2">
+<span class="heading li--heading"><span class="title li--heading-title">Addition:.</span></span>
+<div class="para" id="def_AddTimesViaCauchy-5-1-3-1-2">
 <span class="process-math">\(\displaystyle x+y = \left\{\left.\left(t_n\right)_{k=1}^\infty \right| t_k = s_k+\sigma_k, \forall (s_n) \in x, \text{ and } (\sigma_n)\in y\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_AddTimesViaCauchy-5-1-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item: Addition:"><a href="#def_AddTimesViaCauchy-5-1-3-1" title="Copy heading and permalink for Item: Addition:" aria-label="Copy heading and permalink for Item: Addition:">🔗</a></div>
 </li>
 <li id="def_AddTimesViaCauchy-5-1-3-2">
-<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span><div class="para" id="def_AddTimesViaCauchy-5-1-3-2-2">
+<span class="heading li--heading"><span class="title li--heading-title">Multiplication:.</span></span>
+<div class="para" id="def_AddTimesViaCauchy-5-1-3-2-2">
 <span class="process-math">\(\displaystyle x\cdot y = \left\{\left.\left(t_n\right)_{k=1}^\infty \right| t_k = s_k\sigma_k, \forall (s_n) \in x, \text{ and } (\sigma_n)\in y\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_AddTimesViaCauchy-5-1-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item: Multiplication:"><a href="#def_AddTimesViaCauchy-5-1-3-2" title="Copy heading and permalink for Item: Multiplication:" aria-label="Copy heading and permalink for Item: Multiplication:">🔗</a></div>
@@ -1112,7 +1164,9 @@ y= \left\{\left.\left(\sigma_n\right)_{k=1}^\infty \right| \left(\sigma_n\right)
 </ul>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_AddTimesViaCauchy-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.9"><a href="#def_AddTimesViaCauchy" title="Copy heading and permalink for Definition 13.2.9" aria-label="Copy heading and permalink for Definition 13.2.9">🔗</a></div></article><div class="para" id="CauchySequences-17">The notation used in <a href="Epilogues.html#def_RealsViaCauchy" class="internal" title="Definition 13.2.8">Definition 13.2.8</a> can be difficult to read at first, but basically it says that addition and multiplication are done component–wise.  However since <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> consist of all equivalent sequences we have to take every possible choice of <span class="process-math">\((s_n)\in
+<div class="autopermalink" data-description="Definition 13.2.9"><a href="#def_AddTimesViaCauchy" title="Copy heading and permalink for Definition 13.2.9" aria-label="Copy heading and permalink for Definition 13.2.9">🔗</a></div>
+</article>
+<div class="para" id="CauchySequences-17">The notation used in <a href="Epilogues.html#def_RealsViaCauchy" class="internal" title="Definition 13.2.8">Definition 13.2.8</a> can be difficult to read at first, but basically it says that addition and multiplication are done component–wise.  However since <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> consist of all equivalent sequences we have to take every possible choice of <span class="process-math">\((s_n)\in
 x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> form the sum (product) <span class="process-math">\((s_n+\sigma_n)_{n=1}^\infty\)</span> (<span class="process-math">\((s_n\sigma_n)_{n=1}^\infty\)</span>) and then show that all such sums (products) are equivalent.  Otherwise addition (multiplication) is not well–defined: It would depend on which sequence we choose to represent <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="prob_CauchyAdditionWellDefined"><h5 class="heading">
@@ -1127,7 +1181,9 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#prob_CauchyAdditionWellDefined-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 13.2.10"><a href="#prob_CauchyAdditionWellDefined" title="Copy heading and permalink for Problem 13.2.10" aria-label="Copy heading and permalink for Problem 13.2.10">🔗</a></div></article><article class="theorem theorem-like" id="thm_ZeroInCauchySequences"><h5 class="heading">
+<div class="autopermalink" data-description="Problem 13.2.10"><a href="#prob_CauchyAdditionWellDefined" title="Copy heading and permalink for Problem 13.2.10" aria-label="Copy heading and permalink for Problem 13.2.10">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="thm_ZeroInCauchySequences"><h5 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para logical" id="thm_ZeroInCauchySequences-3-1">
@@ -1139,7 +1195,9 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm_ZeroInCauchySequences-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 13.2.11"><a href="#thm_ZeroInCauchySequences" title="Copy heading and permalink for Theorem 13.2.11" aria-label="Copy heading and permalink for Theorem 13.2.11">🔗</a></div></article><article class="proof" id="CauchySequences-20"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="autopermalink" data-description="Theorem 13.2.11"><a href="#thm_ZeroInCauchySequences" title="Copy heading and permalink for Theorem 13.2.11" aria-label="Copy heading and permalink for Theorem 13.2.11">🔗</a></div>
+</article>
+<article class="proof" id="CauchySequences-20"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="para" id="CauchySequences-20-1">From <a href="Epilogues.html#prob_CauchyAdditionWellDefined" class="internal" title="Problem 13.2.10">Problem 13.2.10</a> it is clear that in forming <span class="process-math">\(0^*+x\)</span> we can choose any sequence in <span class="process-math">\(0^*\)</span> to represent <span class="process-math">\(0^*\)</span> and any sequence in <span class="process-math">\(x\)</span> to represent <span class="process-math">\(x\text{.}\)</span>  (This is because any other choice will yield a sequence equivalent to <span class="process-math">\(0^*+x\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="CauchySequences-20-2">
@@ -1162,7 +1220,9 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-20-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 13.2.2.1"><a href="#CauchySequences-20" title="Copy heading and permalink for Proof 13.2.2.1" aria-label="Copy heading and permalink for Proof 13.2.2.1">🔗</a></div></article><article class="problem example-like" id="CauchySequences-21"><h5 class="heading">
+<div class="autopermalink" data-description="Proof 13.2.2.1"><a href="#CauchySequences-20" title="Copy heading and permalink for Proof 13.2.2.1" aria-label="Copy heading and permalink for Proof 13.2.2.1">🔗</a></div>
+</article>
+<article class="problem example-like" id="CauchySequences-21"><h5 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para logical" id="CauchySequences-21-4-1">
@@ -1174,35 +1234,54 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-21-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 13.2.12"><a href="#CauchySequences-21" title="Copy heading and permalink for Problem 13.2.12" aria-label="Copy heading and permalink for Problem 13.2.12">🔗</a></div></article><article class="problem example-like" id="CauchySequences-22"><h5 class="heading">
+<div class="autopermalink" data-description="Problem 13.2.12"><a href="#CauchySequences-21" title="Copy heading and permalink for Problem 13.2.12" aria-label="Copy heading and permalink for Problem 13.2.12">🔗</a></div>
+</article>
+<article class="problem example-like" id="CauchySequences-22"><h5 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
-<div class="introduction" id="CauchySequences-22-5"><div class="para" id="CauchySequences-22-5-1">Let <span class="process-math">\(x, y\text{,}\)</span> and <span class="process-math">\(z\)</span> be real numbers (equivalent sets of Cauchy sequences). Show that with addition and multiplication defined as above we have:<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-22-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="CauchySequences-22-5">
+<div class="para" id="CauchySequences-22-5-1">Let <span class="process-math">\(x, y\text{,}\)</span> and <span class="process-math">\(z\)</span> be real numbers (equivalent sets of Cauchy sequences). Show that with addition and multiplication defined as above we have:<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-22-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="CauchySequences-22-6"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para" id="CauchySequences-22-6-1-1">
 <span class="process-math">\(x+y=y+x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-22-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.13.a"><a href="#CauchySequences-22-6" title="Copy heading and permalink for Task 13.2.13.a" aria-label="Copy heading and permalink for Task 13.2.13.a">🔗</a></div></article><article class="task exercise-like" id="CauchySequences-22-7"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="autopermalink" data-description="Task 13.2.13.a"><a href="#CauchySequences-22-6" title="Copy heading and permalink for Task 13.2.13.a" aria-label="Copy heading and permalink for Task 13.2.13.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="CauchySequences-22-7"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="CauchySequences-22-7-1-1">
 <span class="process-math">\((x+y)+z=x+(y+z)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-22-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.13.b"><a href="#CauchySequences-22-7" title="Copy heading and permalink for Task 13.2.13.b" aria-label="Copy heading and permalink for Task 13.2.13.b">🔗</a></div></article><article class="task exercise-like" id="CauchySequences-22-8"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="autopermalink" data-description="Task 13.2.13.b"><a href="#CauchySequences-22-7" title="Copy heading and permalink for Task 13.2.13.b" aria-label="Copy heading and permalink for Task 13.2.13.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="CauchySequences-22-8"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="CauchySequences-22-8-1-1">
 <span class="process-math">\(x\cdot y=y\cdot x\)</span><div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-22-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.13.c"><a href="#CauchySequences-22-8" title="Copy heading and permalink for Task 13.2.13.c" aria-label="Copy heading and permalink for Task 13.2.13.c">🔗</a></div></article><article class="task exercise-like" id="CauchySequences-22-9"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="autopermalink" data-description="Task 13.2.13.c"><a href="#CauchySequences-22-8" title="Copy heading and permalink for Task 13.2.13.c" aria-label="Copy heading and permalink for Task 13.2.13.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="CauchySequences-22-9"><h6 class="heading"><span class="codenumber">(d)</span></h6>
 <div class="para" id="CauchySequences-22-9-1-1">
 <span class="process-math">\((x\cdot y)\cdot z=x\cdot (y\cdot z)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-22-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.13.d"><a href="#CauchySequences-22-9" title="Copy heading and permalink for Task 13.2.13.d" aria-label="Copy heading and permalink for Task 13.2.13.d">🔗</a></div></article><article class="task exercise-like" id="CauchySequences-22-10"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="autopermalink" data-description="Task 13.2.13.d"><a href="#CauchySequences-22-9" title="Copy heading and permalink for Task 13.2.13.d" aria-label="Copy heading and permalink for Task 13.2.13.d">🔗</a></div>
+</article>
+<article class="task exercise-like" id="CauchySequences-22-10"><h6 class="heading"><span class="codenumber">(e)</span></h6>
 <div class="para" id="CauchySequences-22-10-1-1">
 <span class="process-math">\(x\cdot(y+z)=x\cdot y+x\cdot z\)</span><div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-22-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 13.2.13.e"><a href="#CauchySequences-22-10" title="Copy heading and permalink for Task 13.2.13.e" aria-label="Copy heading and permalink for Task 13.2.13.e">🔗</a></div></article><div class="autopermalink" data-description="Problem 13.2.13"><a href="#CauchySequences-22" title="Copy heading and permalink for Problem 13.2.13" aria-label="Copy heading and permalink for Problem 13.2.13">🔗</a></div></article><details id="CauchySequences-23" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<div class="autopermalink" data-description="Task 13.2.13.e"><a href="#CauchySequences-22-10" title="Copy heading and permalink for Task 13.2.13.e" aria-label="Copy heading and permalink for Task 13.2.13.e">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 13.2.13"><a href="#CauchySequences-22" title="Copy heading and permalink for Problem 13.2.13" aria-label="Copy heading and permalink for Problem 13.2.13">🔗</a></div>
+</article>
+<details id="CauchySequences-23" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comment.</span>
-</h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="CauchySequences-23-2">We will not address this issue here, but you should give some thought to how this might be accomplished.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-23-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="CauchySequences-24">Once the existence of additive and multiplicative inverses is established the collection of all sets of equivalent Cauchy sequences, with addition and multiplication defined as above satisfy all of the field axioms.  It is clear that they form a number field and thus deserve to be called numbers.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h5></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="CauchySequences-23-2">We will not address this issue here, but you should give some thought to how this might be accomplished.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-23-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="CauchySequences-24">Once the existence of additive and multiplicative inverses is established the collection of all sets of equivalent Cauchy sequences, with addition and multiplication defined as above satisfy all of the field axioms.  It is clear that they form a number field and thus deserve to be called numbers.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="CauchySequences-25">However this does not necessarily show that they form <span class="process-math">\(\RR\text{.}\)</span>  We also need to show that they are complete in the sense of <a href="IVTandEVT.html" class="internal" title="Chapter 9: Intermediate and Extreme Values">Chapter 9</a>.  It is perhaps not too surprising that when we build the real numbers using equivalent Cauchy sequences the most natural completeness property we can show is that if a sequence of real numbers is Cauchy then it converges.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1212,8 +1291,14 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </div>
 <details id="CauchySequences-28" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Thurston’s approach.</span>
-</h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="CauchySequences-28-2">Thurston first builds <span class="process-math">\(\RR\)</span> as we’ve indicated in this section.  Then as a final remark he shows that the real numbers must be exactly the infinite decimals we saw in the previous section.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-28-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="autopermalink" data-description="Subsection 13.2.2: Cauchy Sequences"><a href="#CauchySequences" title="Copy heading and permalink for Subsection 13.2.2: Cauchy Sequences" aria-label="Copy heading and permalink for Subsection 13.2.2: Cauchy Sequences">🔗</a></div></section><section class="subsection" id="DedekindCuts"><h4 class="heading hide-type">
+</h5></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="CauchySequences-28-2">Thurston first builds <span class="process-math">\(\RR\)</span> as we’ve indicated in this section.  Then as a final remark he shows that the real numbers must be exactly the infinite decimals we saw in the previous section.<div class="autopermalink" data-description="Paragraph"><a href="#CauchySequences-28-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details><div class="autopermalink" data-description="Subsection 13.2.2: Cauchy Sequences"><a href="#CauchySequences" title="Copy heading and permalink for Subsection 13.2.2: Cauchy Sequences" aria-label="Copy heading and permalink for Subsection 13.2.2: Cauchy Sequences">🔗</a></div>
+</section>
+<section class="subsection" id="DedekindCuts">
+<h4 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Dedekind Cuts</span>
 </h4>
 <div class="para" id="DedekindCuts-2">An advantage of building the reals via Cauchy sequences in the previous section is that once we’ve identified equivalent sequences with real numbers it is very clear how addition and multiplication should be defined.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1224,8 +1309,12 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </div>
 <details id="DedekindCuts-5" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">“Clear” vs. “Easy”.</span>
-</h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="DedekindCuts-5-2">“Clear” does not mean “easy to do” as we will see.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="DedekindCuts-6"> In addition, Dedekind’s method also has the advantage that very little mathematical knowledge is required to get started.  This is intentional.  In the preface to the first edition of his book, Dedekind states:<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h5></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="DedekindCuts-5-2">“Clear” does not mean “easy to do” as we will see.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="DedekindCuts-6"> In addition, Dedekind’s method also has the advantage that very little mathematical knowledge is required to get started.  This is intentional.  In the preface to the first edition of his book, Dedekind states:<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <blockquote class="blockquote" id="DedekindCuts-7">
 <div class="para" id="DedekindCuts-7-1">This memoir can be understood by anyone possessing what is usually called common sense; no technical philosophic, or mathematical, knowledge is in the least degree required. (quoted in <a href="ASORA-6-1.html#hawking05__god_creat_integ" class="xref" data-knowl="./knowl/xref/hawking05__god_creat_integ.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry 7">[7]</a>)<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1260,43 +1349,62 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Dedekind Cut.</span>
 </h5>
 <div class="para" id="def_dedekind-cuts-5-1">A set of positive rational numbers is called a <dfn class="terminology">cut</dfn> if<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <details id="def_dedekind-cuts-5-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading">
+</div> 
+<details id="def_dedekind-cuts-5-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comment.</span>
-</h6></summary><aside class="aside aside-like knowl__content"><div class="para" id="def_dedekind-cuts-5-2-2">Take special notice that we are not using the negative rational numbers or zero to build our cuts.  The reason for this will become clear shortly.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details> <div class="para logical" id="def_dedekind-cuts-5-3">
+</h6></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="def_dedekind-cuts-5-2-2">Take special notice that we are not using the negative rational numbers or zero to build our cuts.  The reason for this will become clear shortly.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details> 
+<div class="para logical" id="def_dedekind-cuts-5-3">
 <dl class="description-list">
 <dt id="def_dedekind-cuts-5-3-1-1">Property I<div class="autopermalink" data-description="Item: Property I"><a href="#def_dedekind-cuts-5-3-1-1" title="Copy heading and permalink for Item: Property I" aria-label="Copy heading and permalink for Item: Property I">🔗</a></div>
 </dt>
-<dd><div class="para" id="def_dedekind-cuts-5-3-1-1-2">It contains a positive rational number but does not contain all positive rational numbers.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-3-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+<dd>
+<div class="para" id="def_dedekind-cuts-5-3-1-1-2">It contains a positive rational number but does not contain all positive rational numbers.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-3-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
 <dt id="def_dedekind-cuts-5-3-1-2">Property II<div class="autopermalink" data-description="Item: Property II"><a href="#def_dedekind-cuts-5-3-1-2" title="Copy heading and permalink for Item: Property II" aria-label="Copy heading and permalink for Item: Property II">🔗</a></div>
 </dt>
-<dd><div class="para" id="def_dedekind-cuts-5-3-1-2-2">Every positive rational number in the set is less than every positive rational number not in the set.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-3-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+<dd>
+<div class="para" id="def_dedekind-cuts-5-3-1-2-2">Every positive rational number in the set is less than every positive rational number not in the set.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-3-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
 <dt id="def_dedekind-cuts-5-3-1-3">Property III<div class="autopermalink" data-description="Item: Property III"><a href="#def_dedekind-cuts-5-3-1-3" title="Copy heading and permalink for Item: Property III" aria-label="Copy heading and permalink for Item: Property III">🔗</a></div>
 </dt>
-<dd><div class="para" id="def_dedekind-cuts-5-3-1-3-2">There is no element of the set which is greater than every other element of the set.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-3-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+<dd>
+<div class="para" id="def_dedekind-cuts-5-3-1-3-2">There is no element of the set which is greater than every other element of the set.<div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-3-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
 </dl>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.14: The Dedekind Cut"><a href="#def_dedekind-cuts" title="Copy heading and permalink for Definition 13.2.14: The Dedekind Cut" aria-label="Copy heading and permalink for Definition 13.2.14: The Dedekind Cut">🔗</a></div></article><div class="para" id="DedekindCuts-14"> Because of their intended audiences, Dedekind and Landau shied away from using too much notation.  However, we will include the following for those who are more comfortable with the symbolism as it may help provide more perspective. Specifically the properties defining a Dedekind cut <span class="process-math">\(\alpha\)</span> can be written as follows.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.14: The Dedekind Cut"><a href="#def_dedekind-cuts" title="Copy heading and permalink for Definition 13.2.14: The Dedekind Cut" aria-label="Copy heading and permalink for Definition 13.2.14: The Dedekind Cut">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-14"> Because of their intended audiences, Dedekind and Landau shied away from using too much notation.  However, we will include the following for those who are more comfortable with the symbolism as it may help provide more perspective. Specifically the properties defining a Dedekind cut <span class="process-math">\(\alpha\)</span> can be written as follows.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="DedekindCuts-15">
 <dl class="description-list">
 <dt id="DedekindCuts-15-1-1">Property I<div class="autopermalink" data-description="Item: Property I"><a href="#DedekindCuts-15-1-1" title="Copy heading and permalink for Item: Property I" aria-label="Copy heading and permalink for Item: Property I">🔗</a></div>
 </dt>
-<dd><div class="para" id="DedekindCuts-15-1-1-2">
+<dd>
+<div class="para" id="DedekindCuts-15-1-1-2">
 <span class="process-math">\(\alpha\ne\emptyset\)</span> and <span class="process-math">\(\QQ^+-\alpha\ne\emptyset\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-15-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 <dt id="DedekindCuts-15-1-2">Property II<div class="autopermalink" data-description="Item: Property II"><a href="#DedekindCuts-15-1-2" title="Copy heading and permalink for Item: Property II" aria-label="Copy heading and permalink for Item: Property II">🔗</a></div>
 </dt>
-<dd><div class="para" id="DedekindCuts-15-1-2-2">If <span class="process-math">\(x\in\alpha\)</span> and <span class="process-math">\(y\in\QQ^+-\alpha\text{,}\)</span> then <span class="process-math">\(x\lt y\text{.}\)</span> (Alternatively, if <span class="process-math">\(x\in\alpha\)</span> and <span class="process-math">\(y\lt x\text{,}\)</span> then <span class="process-math">\(y\in\alpha\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-15-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+<dd>
+<div class="para" id="DedekindCuts-15-1-2-2">If <span class="process-math">\(x\in\alpha\)</span> and <span class="process-math">\(y\in\QQ^+-\alpha\text{,}\)</span> then <span class="process-math">\(x\lt y\text{.}\)</span> (Alternatively, if <span class="process-math">\(x\in\alpha\)</span> and <span class="process-math">\(y\lt x\text{,}\)</span> then <span class="process-math">\(y\in\alpha\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-15-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
 <dt id="DedekindCuts-15-1-3">Property III<div class="autopermalink" data-description="Item: Property III"><a href="#DedekindCuts-15-1-3" title="Copy heading and permalink for Item: Property III" aria-label="Copy heading and permalink for Item: Property III">🔗</a></div>
 </dt>
-<dd><div class="para" id="DedekindCuts-15-1-3-2">If <span class="process-math">\(x\in\alpha\text{,}\)</span> then <span class="process-math">\(\exists\ z\in\alpha\)</span> such that <span class="process-math">\(x\lt z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-15-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+<dd>
+<div class="para" id="DedekindCuts-15-1-3-2">If <span class="process-math">\(x\in\alpha\text{,}\)</span> then <span class="process-math">\(\exists\ z\in\alpha\)</span> such that <span class="process-math">\(x\lt z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-15-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</dd>
 </dl>
 <div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1337,14 +1445,18 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-ordering-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.15"><a href="#def_dedekind-cuts-ordering" title="Copy heading and permalink for Definition 13.2.15" aria-label="Copy heading and permalink for Definition 13.2.15">🔗</a></div></article><div class="para" id="DedekindCuts-19">Note that, in light of what we said prior to <a href="Epilogues.html#def_dedekind-cuts-ordering" class="internal" title="Definition 13.2.15">Definition 13.2.15</a> (which is taken directly from Landau), we notice the following.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.15"><a href="#def_dedekind-cuts-ordering" title="Copy heading and permalink for Definition 13.2.15" aria-label="Copy heading and permalink for Definition 13.2.15">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-19">Note that, in light of what we said prior to <a href="Epilogues.html#def_dedekind-cuts-ordering" class="internal" title="Definition 13.2.15">Definition 13.2.15</a> (which is taken directly from Landau), we notice the following.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_OrderingCuts"><h5 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="thm_OrderingCuts-2-1">Let <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> be cuts.  Then <span class="process-math">\(\alpha\lt \beta\)</span> if and only if <span class="process-math">\(\alpha\subset\beta\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_OrderingCuts-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 13.2.16"><a href="#thm_OrderingCuts" title="Copy heading and permalink for Theorem 13.2.16" aria-label="Copy heading and permalink for Theorem 13.2.16">🔗</a></div></article><article class="problem example-like" id="DedekindCuts-21"><h5 class="heading">
+<div class="autopermalink" data-description="Theorem 13.2.16"><a href="#thm_OrderingCuts" title="Copy heading and permalink for Theorem 13.2.16" aria-label="Copy heading and permalink for Theorem 13.2.16">🔗</a></div>
+</article>
+<article class="problem example-like" id="DedekindCuts-21"><h5 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para logical" id="DedekindCuts-21-4-1">
@@ -1371,7 +1483,9 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-21-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 13.2.17"><a href="#DedekindCuts-21" title="Copy heading and permalink for Problem 13.2.17" aria-label="Copy heading and permalink for Problem 13.2.17">🔗</a></div></article><div class="para" id="DedekindCuts-22">We will need first to define addition and multiplication for our cuts and eventually these will need to be extended to <span class="process-math">\(\RR\)</span> (once the non-positive reals have also been constructed).  It will be necessary to show that the extended definitions satisfy the field axioms.  As you can see there is a lot to do.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 13.2.17"><a href="#DedekindCuts-21" title="Copy heading and permalink for Problem 13.2.17" aria-label="Copy heading and permalink for Problem 13.2.17">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-22">We will need first to define addition and multiplication for our cuts and eventually these will need to be extended to <span class="process-math">\(\RR\)</span> (once the non-positive reals have also been constructed).  It will be necessary to show that the extended definitions satisfy the field axioms.  As you can see there is a lot to do.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="DedekindCuts-23"> As we did with Cauchy sequences and with infinite decimals, we will stop well short of the full construction.  If you are interested in exploring the details of Dedekind’s construction, Landau’s book <a href="ASORA-6-1.html#landau66__found_analy" class="xref" data-knowl="./knowl/xref/landau66__found_analy.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry 9">[9]</a> is very thorough and was written with the explicit intention that it would be accessible to students.  In his “Preface for the Teacher” he says<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1390,21 +1504,27 @@ x\)</span> and <span class="process-math">\((\sigma_n)\in y\text{,}\)</span> for
 <div class="para" id="def_dedekind-cuts-addition-5-1">Let <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> be cuts.  We will denote the set <span class="process-math">\(\left\{x+y|x\in\alpha,
 y\in\beta\right\}\)</span> by <span class="process-math">\(\alpha+\beta\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-addition-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.18: Addition on cuts"><a href="#def_dedekind-cuts-addition" title="Copy heading and permalink for Definition 13.2.18: Addition on cuts" aria-label="Copy heading and permalink for Definition 13.2.18: Addition on cuts">🔗</a></div></article><article class="definition definition-like" id="def_dedekind-cuts-multiplication"><h5 class="heading">
+<div class="autopermalink" data-description="Definition 13.2.18: Addition on cuts"><a href="#def_dedekind-cuts-addition" title="Copy heading and permalink for Definition 13.2.18: Addition on cuts" aria-label="Copy heading and permalink for Definition 13.2.18: Addition on cuts">🔗</a></div>
+</article>
+<article class="definition definition-like" id="def_dedekind-cuts-multiplication"><h5 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiplication on cuts.</span>
 </h5>
 <div class="para" id="def_dedekind-cuts-multiplication-5-1">Let <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> be cuts.  We will denote the set <span class="process-math">\(\left\{xy|x\in\alpha,
 y\in\beta\right\}\)</span> by <span class="process-math">\(\alpha\beta \text{ or }
 \alpha\cdot\beta\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-cuts-multiplication-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.19: Multiplication on cuts"><a href="#def_dedekind-cuts-multiplication" title="Copy heading and permalink for Definition 13.2.19: Multiplication on cuts" aria-label="Copy heading and permalink for Definition 13.2.19: Multiplication on cuts">🔗</a></div></article><div class="para" id="DedekindCuts-29">If we are to have a hope that these objects will serve as our real numbers we must have closure with respect to addition and multiplication.  We will show closure with respect to addition.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.19: Multiplication on cuts"><a href="#def_dedekind-cuts-multiplication" title="Copy heading and permalink for Definition 13.2.19: Multiplication on cuts" aria-label="Copy heading and permalink for Definition 13.2.19: Multiplication on cuts">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-29">If we are to have a hope that these objects will serve as our real numbers we must have closure with respect to addition and multiplication.  We will show closure with respect to addition.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_dedekind-cuts-closure"><h5 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Closure with Respect to Addition.</span>
 </h5>
 <div class="para" id="thm_dedekind-cuts-closure-3-1">If <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> are cuts then <span class="process-math">\(\alpha+\beta\)</span> is a cut.<div class="autopermalink" data-description="Paragraph"><a href="#thm_dedekind-cuts-closure-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 13.2.20: Closure with Respect to Addition"><a href="#thm_dedekind-cuts-closure" title="Copy heading and permalink for Theorem 13.2.20: Closure with Respect to Addition" aria-label="Copy heading and permalink for Theorem 13.2.20: Closure with Respect to Addition">🔗</a></div></article><article class="proof" id="DedekindCuts-31"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="autopermalink" data-description="Theorem 13.2.20: Closure with Respect to Addition"><a href="#thm_dedekind-cuts-closure" title="Copy heading and permalink for Theorem 13.2.20: Closure with Respect to Addition" aria-label="Copy heading and permalink for Theorem 13.2.20: Closure with Respect to Addition">🔗</a></div>
+</article>
+<article class="proof" id="DedekindCuts-31"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="para" id="DedekindCuts-31-1">We need to show that the set <span class="process-math">\(\alpha+\beta\)</span> satisfies all three of the properties of a cut.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-31-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="DedekindCuts-31-2">
@@ -1477,12 +1597,16 @@ w=x_1+y&gt;x+y=z\text{.}
 </dl>
 <div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-31-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 13.2.3.1"><a href="#DedekindCuts-31" title="Copy heading and permalink for Proof 13.2.3.1" aria-label="Copy heading and permalink for Proof 13.2.3.1">🔗</a></div></article><article class="problem example-like" id="DedekindCuts-32"><h5 class="heading">
+<div class="autopermalink" data-description="Proof 13.2.3.1"><a href="#DedekindCuts-31" title="Copy heading and permalink for Proof 13.2.3.1" aria-label="Copy heading and permalink for Proof 13.2.3.1">🔗</a></div>
+</article>
+<article class="problem example-like" id="DedekindCuts-32"><h5 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="DedekindCuts-32-3-1">Show that if <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> are cuts then <span class="process-math">\(\alpha\cdot\beta\)</span> is also a cut.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-32-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 13.2.21"><a href="#DedekindCuts-32" title="Copy heading and permalink for Problem 13.2.21" aria-label="Copy heading and permalink for Problem 13.2.21">🔗</a></div></article><div class="para" id="DedekindCuts-33">At this point we have built our cuts and we have defined addition and multiplication for cuts.  However, as observed earlier the cuts we have will (very soon) correspond only to the positive real numbers.  This may appear to be a problem but it really isn’t because the non–positive real numbers can be defined in terms of the positives, that is, in terms of our cuts.  We quote from Landau <a href="ASORA-6-1.html#landau66__found_analy" class="xref" data-knowl="./knowl/xref/landau66__found_analy.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry 9">[9]</a>:<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 13.2.21"><a href="#DedekindCuts-32" title="Copy heading and permalink for Problem 13.2.21" aria-label="Copy heading and permalink for Problem 13.2.21">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-33">At this point we have built our cuts and we have defined addition and multiplication for cuts.  However, as observed earlier the cuts we have will (very soon) correspond only to the positive real numbers.  This may appear to be a problem but it really isn’t because the non–positive real numbers can be defined in terms of the positives, that is, in terms of our cuts.  We quote from Landau <a href="ASORA-6-1.html#landau66__found_analy" class="xref" data-knowl="./knowl/xref/landau66__found_analy.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry 9">[9]</a>:<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <blockquote class="blockquote" id="DedekindCuts-34">
 <div class="para" id="DedekindCuts-34-1">These cuts will henceforth be called the “positive numbers;”  .  .  .<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-34-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1548,7 +1672,9 @@ w=x_1+y&gt;x+y=z\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_absolute-value-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.22"><a href="#def_absolute-value" title="Copy heading and permalink for Definition 13.2.22" aria-label="Copy heading and permalink for Definition 13.2.22">🔗</a></div></article><div class="para" id="DedekindCuts-42">With this definition in place it is possible to show that <span class="process-math">\(\RR\)</span> is linearly ordered.  We will not do this explicitly.  Instead we will simply assume that the symbols “<span class="process-math">\(\lt\)</span>” “<span class="process-math">\(&gt;\text{,}\)</span>” and “<span class="process-math">\(=\)</span>” have been defined and have all of the properties we have learned to expect from them.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-42" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.22"><a href="#def_absolute-value" title="Copy heading and permalink for Definition 13.2.22" aria-label="Copy heading and permalink for Definition 13.2.22">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-42">With this definition in place it is possible to show that <span class="process-math">\(\RR\)</span> is linearly ordered.  We will not do this explicitly.  Instead we will simply assume that the symbols “<span class="process-math">\(\lt\)</span>” “<span class="process-math">\(&gt;\text{,}\)</span>” and “<span class="process-math">\(=\)</span>” have been defined and have all of the properties we have learned to expect from them.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-42" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="DedekindCuts-43">We now extend our definitions of addition and multiplication from the positive real numbers (cuts) to all of them. Curiously, multiplication is the simpler of the two.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-43" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1564,7 +1690,9 @@ w=x_1+y&gt;x+y=z\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-multiplication-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.23: Multiplication"><a href="#def_dedekind-multiplication" title="Copy heading and permalink for Definition 13.2.23: Multiplication" aria-label="Copy heading and permalink for Definition 13.2.23: Multiplication">🔗</a></div></article><div class="para" id="DedekindCuts-45">Notice that the case where <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> are both positive was already handled by <a href="Epilogues.html#def_dedekind-cuts-multiplication" class="internal" title="Definition 13.2.19: Multiplication on cuts">Definition 13.2.19</a> because in that case they are both cuts.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-45" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.23: Multiplication"><a href="#def_dedekind-multiplication" title="Copy heading and permalink for Definition 13.2.23: Multiplication" aria-label="Copy heading and permalink for Definition 13.2.23: Multiplication">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-45">Notice that the case where <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> are both positive was already handled by <a href="Epilogues.html#def_dedekind-cuts-multiplication" class="internal" title="Definition 13.2.19: Multiplication on cuts">Definition 13.2.19</a> because in that case they are both cuts.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-45" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="DedekindCuts-46">Next we define addition.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-46" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1589,10 +1717,16 @@ w=x_1+y&gt;x+y=z\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_dedekind-addition-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.24: Addition"><a href="#def_dedekind-addition" title="Copy heading and permalink for Definition 13.2.24: Addition" aria-label="Copy heading and permalink for Definition 13.2.24: Addition">🔗</a></div></article><details id="DedekindCuts-48" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<div class="autopermalink" data-description="Definition 13.2.24: Addition"><a href="#def_dedekind-addition" title="Copy heading and permalink for Definition 13.2.24: Addition" aria-label="Copy heading and permalink for Definition 13.2.24: Addition">🔗</a></div>
+</article>
+<details id="DedekindCuts-48" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comment.</span>
-</h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="DedekindCuts-48-2">Notice also that the fifth case refers to the addition as defined in the second case.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-48-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><div class="para" id="DedekindCuts-49">But wait!  In the second and fourth cases of our definition we’ve actually defined addition in terms of subtraction. But we haven’t defined subtraction yet!  Oops!<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-49" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h5></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="DedekindCuts-48-2">Notice also that the fifth case refers to the addition as defined in the second case.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-48-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<div class="para" id="DedekindCuts-49">But wait!  In the second and fourth cases of our definition we’ve actually defined addition in terms of subtraction. But we haven’t defined subtraction yet!  Oops!<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-49" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="DedekindCuts-50">This is handled with the definition below, but it illuminates very clearly the care that must be taken in these constructions.  The real numbers are so familiar to us that it is extraordinarily easy to make unjustified assumptions.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-50" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1616,7 +1750,9 @@ w=x_1+y&gt;x+y=z\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_CutSubtraction-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.25"><a href="#def_CutSubtraction" title="Copy heading and permalink for Definition 13.2.25" aria-label="Copy heading and permalink for Definition 13.2.25">🔗</a></div></article><div class="para" id="DedekindCuts-53">Of course, there is the detail of showing that there is such a cut <span class="process-math">\(\delta\text{.}\)</span>  (We warned you of the tediousness of all this.) Landau goes through the details of showing that such a cut exists. We will present an alternative by defining the cut <span class="process-math">\(\alpha-\beta\)</span> directly (assuming <span class="process-math">\(\beta\lt \alpha\)</span>).  To motivate this definition, consider something we are familiar with: <span class="process-math">\(3-2=1\text{.}\)</span>  In terms of cuts, we want to say that the open interval from <span class="process-math">\(0\)</span> to <span class="process-math">\(3\)</span> “minus” the open interval from <span class="process-math">\(0\)</span> to <span class="process-math">\(2\)</span> should give us the open interval from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span>  Taking elements from <span class="process-math">\((0,3)\)</span> and subtracting elements from <span class="process-math">\((0,2)\)</span> won’t do it as we would have differences such as <span class="process-math">\(2.9-0.9=2\)</span> which is not in the cut <span class="process-math">\((0,1)\text{.}\)</span>  A moment’s thought tells us that what we need to do is take all the elements from <span class="process-math">\((0,3)\)</span> and subtract all the elements from <span class="process-math">\((2,\infty)\text{,}\)</span> restricting ourselves only to those which are positive rational numbers.  This prompts the following definition.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-53" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.25"><a href="#def_CutSubtraction" title="Copy heading and permalink for Definition 13.2.25" aria-label="Copy heading and permalink for Definition 13.2.25">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-53">Of course, there is the detail of showing that there is such a cut <span class="process-math">\(\delta\text{.}\)</span>  (We warned you of the tediousness of all this.) Landau goes through the details of showing that such a cut exists. We will present an alternative by defining the cut <span class="process-math">\(\alpha-\beta\)</span> directly (assuming <span class="process-math">\(\beta\lt \alpha\)</span>).  To motivate this definition, consider something we are familiar with: <span class="process-math">\(3-2=1\text{.}\)</span>  In terms of cuts, we want to say that the open interval from <span class="process-math">\(0\)</span> to <span class="process-math">\(3\)</span> “minus” the open interval from <span class="process-math">\(0\)</span> to <span class="process-math">\(2\)</span> should give us the open interval from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span>  Taking elements from <span class="process-math">\((0,3)\)</span> and subtracting elements from <span class="process-math">\((0,2)\)</span> won’t do it as we would have differences such as <span class="process-math">\(2.9-0.9=2\)</span> which is not in the cut <span class="process-math">\((0,1)\text{.}\)</span>  A moment’s thought tells us that what we need to do is take all the elements from <span class="process-math">\((0,3)\)</span> and subtract all the elements from <span class="process-math">\((2,\infty)\text{,}\)</span> restricting ourselves only to those which are positive rational numbers.  This prompts the following definition.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-53" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="def_SubtractionOfCutsAsSets"><h5 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.26</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -1630,48 +1766,68 @@ w=x_1+y&gt;x+y=z\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_SubtractionOfCutsAsSets-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 13.2.26"><a href="#def_SubtractionOfCutsAsSets" title="Copy heading and permalink for Definition 13.2.26" aria-label="Copy heading and permalink for Definition 13.2.26">🔗</a></div></article><div class="para" id="DedekindCuts-55">To show that, in fact, <span class="process-math">\(\beta+(\alpha-\beta)=\alpha\text{,}\)</span> the following technical lemma will be helpful.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-55" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 13.2.26"><a href="#def_SubtractionOfCutsAsSets" title="Copy heading and permalink for Definition 13.2.26" aria-label="Copy heading and permalink for Definition 13.2.26">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-55">To show that, in fact, <span class="process-math">\(\beta+(\alpha-\beta)=\alpha\text{,}\)</span> the following technical lemma will be helpful.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-55" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="lemma theorem-like" id="lem_Technical"><h5 class="heading">
 <span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.27</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="lem_Technical-1-1">Let <span class="process-math">\(\beta\)</span> be a cut, <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> be positive rational numbers not in <span class="process-math">\(\beta\)</span> with <span class="process-math">\(y\lt z\text{,}\)</span> and let <span class="process-math">\(\eps&gt;0\)</span> be any rational number.  Then there exist positive rational numbers <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> with <span class="process-math">\(r\in\beta\text{,}\)</span> and <span class="process-math">\(s\not\in\beta\text{,}\)</span> such that <span class="process-math">\(s\lt z\text{,}\)</span> and <span class="process-math">\(s-r\lt \eps\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lem_Technical-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Lemma 13.2.27"><a href="#lem_Technical" title="Copy heading and permalink for Lemma 13.2.27" aria-label="Copy heading and permalink for Lemma 13.2.27">🔗</a></div></article><article class="problem example-like" id="DedekindCuts-57"><h5 class="heading">
+<div class="autopermalink" data-description="Lemma 13.2.27"><a href="#lem_Technical" title="Copy heading and permalink for Lemma 13.2.27" aria-label="Copy heading and permalink for Lemma 13.2.27">🔗</a></div>
+</article>
+<article class="problem example-like" id="DedekindCuts-57"><h5 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.28</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="DedekindCuts-57-3-1">Prove <a href="Epilogues.html#lem_Technical" class="internal" title="Lemma 13.2.27">Lemma 13.2.27</a>.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-57-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="DedekindCuts-57-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="DedekindCuts-57-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="DedekindCuts-57-4-1">Since <span class="process-math">\(\beta\)</span> is a cut there exists <span class="process-math">\(r_1\in\beta\text{.}\)</span> Let <span class="process-math">\(s_1=y\not\in\beta\text{.}\)</span>  We know that <span class="process-math">\(r_1\lt s_1\lt
 z\text{.}\)</span>  Consider the midpoint <span class="process-math">\(\frac{s_1+r_1}{2}\text{.}\)</span>  If this is in <span class="process-math">\(\beta\)</span> then relabel it as <span class="process-math">\(r_2\)</span> and relabel <span class="process-math">\(s_1\)</span> as <span class="process-math">\(s_2\text{.}\)</span>  If it is not in <span class="process-math">\(\beta\)</span> then relabel it as <span class="process-math">\(s_2\)</span> and relabel <span class="process-math">\(r_1\)</span> as <span class="process-math">\(r_2\text{,}\)</span> etc.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-57-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 13.2.28.1"><a href="#DedekindCuts-57-4" title="Copy heading and permalink for Hint 13.2.28.1" aria-label="Copy heading and permalink for Hint 13.2.28.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 13.2.28"><a href="#DedekindCuts-57" title="Copy heading and permalink for Problem 13.2.28" aria-label="Copy heading and permalink for Problem 13.2.28">🔗</a></div></article><article class="problem example-like" id="DedekindCuts-58"><h5 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 13.2.28"><a href="#DedekindCuts-57" title="Copy heading and permalink for Problem 13.2.28" aria-label="Copy heading and permalink for Problem 13.2.28">🔗</a></div>
+</article>
+<article class="problem example-like" id="DedekindCuts-58"><h5 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.29</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="DedekindCuts-58-3-1">Let <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> be cuts with <span class="process-math">\(\beta\lt
 \alpha\text{.}\)</span>  Prove that <span class="process-math">\(\beta+(\alpha-\beta)=\alpha\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-58-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="DedekindCuts-58-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="DedekindCuts-58-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="DedekindCuts-58-4-1">It is pretty straightforward to show that <span class="process-math">\(\beta+(\alpha-\beta)\subseteq\alpha\text{.}\)</span>  To show that <span class="process-math">\(\alpha\subseteq\beta+(\alpha-\beta)\text{,}\)</span> we let <span class="process-math">\(x\in\alpha\text{.}\)</span>  Since <span class="process-math">\(\beta\lt \alpha\text{,}\)</span> we have <span class="process-math">\(y\in\alpha\)</span> with <span class="process-math">\(y\not\in\beta\text{.}\)</span> We can assume without loss of generality that <span class="process-math">\(x\lt
 y\text{.}\)</span> (Why?) Choose <span class="process-math">\(z\in\alpha\)</span> with <span class="process-math">\(y\lt
 z\text{.}\)</span>  By the <a href="Epilogues.html#lem_Technical" class="internal" title="Lemma 13.2.27">Lemma 13.2.27</a>, there exists positive rational numbers <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> with <span class="process-math">\(r\in\beta\text{,}\)</span> <span class="process-math">\(s\in\beta\text{,}\)</span> <span class="process-math">\(s\lt z\text{,}\)</span> and <span class="process-math">\(s-r\lt z-x\text{.}\)</span>  Show that <span class="process-math">\(x\lt r+(z-s)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-58-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 13.2.29.1"><a href="#DedekindCuts-58-4" title="Copy heading and permalink for Hint 13.2.29.1" aria-label="Copy heading and permalink for Hint 13.2.29.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 13.2.29"><a href="#DedekindCuts-58" title="Copy heading and permalink for Problem 13.2.29" aria-label="Copy heading and permalink for Problem 13.2.29">🔗</a></div></article><div class="para" id="DedekindCuts-59">We will end by saying that no matter how you construct the real number system, there is really only one.  More precisely we have the following theorem which we state without proof.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-59" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 13.2.29"><a href="#DedekindCuts-58" title="Copy heading and permalink for Problem 13.2.29" aria-label="Copy heading and permalink for Problem 13.2.29">🔗</a></div>
+</article>
+<div class="para" id="DedekindCuts-59">We will end by saying that no matter how you construct the real number system, there is really only one.  More precisely we have the following theorem which we state without proof.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-59" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="DedekindCuts-60" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comment.</span>
-</h5></summary><aside class="aside aside-like knowl__content"><div class="para" id="DedekindCuts-60-2">In fact, not proving this result seems to be standard in real analysis references.  Most often it is simply stated as we do here.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-60-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></aside></details><article class="theorem theorem-like" id="thm_R-is-R"><h5 class="heading">
+</h5></summary>
+<aside class="aside aside-like knowl__content">
+<div class="para" id="DedekindCuts-60-2">In fact, not proving this result seems to be standard in real analysis references.  Most often it is simply stated as we do here.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-60-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</aside></details>
+<article class="theorem theorem-like" id="thm_R-is-R"><h5 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.30</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h5>
 <div class="para" id="thm_R-is-R-3-1">Any complete, linearly ordered field is isomorphic to <span class="process-math">\(\RR\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_R-is-R-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 13.2.30"><a href="#thm_R-is-R" title="Copy heading and permalink for Theorem 13.2.30" aria-label="Copy heading and permalink for Theorem 13.2.30">🔗</a></div></article><div class="para logical" id="DedekindCuts-62">
+<div class="autopermalink" data-description="Theorem 13.2.30"><a href="#thm_R-is-R" title="Copy heading and permalink for Theorem 13.2.30" aria-label="Copy heading and permalink for Theorem 13.2.30">🔗</a></div>
+</article>
+<div class="para logical" id="DedekindCuts-62">
 <div class="para">Two linearly ordered number fields are said to be isomorphic if there is a one–to–one, onto mapping between them (such a mapping is called a bijection) which preserves addition, multiplication, and order. More precisely, if <span class="process-math">\({\cal F}_1\)</span> and <span class="process-math">\({\cal
 F}_2\)</span> are both linearly ordered fields, <span class="process-math">\(x, y
 \in{\cal F}_1\)</span> and <span class="process-math">\(\phi:{\cal F}_1\rightarrow{\cal
@@ -1702,7 +1858,11 @@ F}_2\)</span> is the mapping then</div>
 </div>
 <div class="para" id="DedekindCuts-64">But we will stop here in order, to paraphrase Descartes, to leave for you the joy of further discovery.<div class="autopermalink" data-description="Paragraph"><a href="#DedekindCuts-64" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 13.2.3: Dedekind Cuts"><a href="#DedekindCuts" title="Copy heading and permalink for Subsection 13.2.3: Dedekind Cuts" aria-label="Copy heading and permalink for Subsection 13.2.3: Dedekind Cuts">🔗</a></div></section><div class="autopermalink" data-description="Section 13.2: Epilog #2: Building the Real Numbers"><a href="#SECTIONBuildReals" title="Copy heading and permalink for Section 13.2: Epilog #2: Building the Real Numbers" aria-label="Copy heading and permalink for Section 13.2: Epilog #2: Building the Real Numbers">🔗</a></div></section><div class="autopermalink" data-description="Chapter 13: Epilogs"><a href="#Epilogues" title="Copy heading and permalink for Chapter 13: Epilogs" aria-label="Copy heading and permalink for Chapter 13: Epilogs">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Subsection 13.2.3: Dedekind Cuts"><a href="#DedekindCuts" title="Copy heading and permalink for Subsection 13.2.3: Dedekind Cuts" aria-label="Copy heading and permalink for Subsection 13.2.3: Dedekind Cuts">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 13.2: Epilog #2: Building the Real Numbers"><a href="#SECTIONBuildReals" title="Copy heading and permalink for Section 13.2: Epilog #2: Building the Real Numbers" aria-label="Copy heading and permalink for Section 13.2: Epilog #2: Building the Real Numbers">🔗</a></div>
+</section><div class="autopermalink" data-description="Chapter 13: Epilogs"><a href="#Epilogues" title="Copy heading and permalink for Chapter 13: Epilogs" aria-label="Copy heading and permalink for Chapter 13: Epilogs">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="BackToFourier.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ASORA-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

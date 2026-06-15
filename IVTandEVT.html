@@ -20,65 +20,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math"
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
+<meta property="book:title" content="A CContextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:author" content="Robert Rogers">
 <meta property="book:author" content="Eugene Boman">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
@@ -103,21 +55,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.15';
+eBookConfig.runestone_version = '8.1.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<h1 class="heading"><a href="ASORA.html"><span class="title">A CContextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
@@ -308,10 +260,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="IVTandEVT"><h2 class="heading">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="chapter" id="IVTandEVT">
+<h2 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Intermediate and Extreme Values</span>
 </h2>
-<section class="section" id="IVTandEVT-Completeness"><h3 class="heading hide-type">
+<section class="section" id="IVTandEVT-Completeness">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Nested Interval Property: Completeness of the Real Number System</span>
 </h3>
 <div class="para" id="IVTandEVT-Completeness-2">In deriving the <a href="TaylorSeries.html#thm_LagrangeRemainder" class="xref" data-knowl="./knowl/xref/thm_LagrangeRemainder.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.2.1: Lagrange’s Form of the Remainder">Lagrange</a> and <a href="TaylorSeries.html#thm_CauchyRemainder" class="xref" data-knowl="./knowl/xref/thm_CauchyRemainder.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 7.3.2: Cauchy’s Form of the Remainder">Cauchy</a> forms of the remainder for Taylor series, we made use of the <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">Extreme Value Theorem</a> (<dfn class="terminology">EVT</dfn>) and <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">Intermediate Value Theorem</a> (<dfn class="terminology">IVT</dfn>).  In <a href="Continuity.html" class="internal" title="Chapter 8: Continuity: What It Isn’t and What It Is">Chapter 8</a>, we produced an analytic definition of continuity that we can use to prove these theorems.  Before we can work out the rest of the tools needed for those proofs we need to explore the make–up of the real number system.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -338,7 +293,8 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Axiom</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Nested Interval Property of the Real Number System (NIP).</span>
 </h4>
 <div class="para" id="NIP-3-1">Suppose we have two sequences of real numbers <span class="process-math">\(\left(x_n\right)\)</span> and <span class="process-math">\(\left(y_n\right)\)</span> satisfying the following conditions:<div class="autopermalink" data-description="Paragraph"><a href="#NIP-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="NIP-3-2">
+</div> 
+<div class="para logical" id="NIP-3-2">
 <ol class="decimal" id="NIP-3-2-1">
 <li id="NIP-3-2-1-1">
 <div class="para" id="NIP-3-2-1-1-1">
@@ -366,9 +322,12 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#NIP-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="NIP-3-3">Then there exists a unique number <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\leq c\leq y_n\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#NIP-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="NIP-3-3">Then there exists a unique number <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\leq c\leq y_n\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#NIP-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)"><a href="#NIP" title="Copy heading and permalink for Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)" aria-label="Copy heading and permalink for Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">🔗</a></div></article><div class="para" id="IVTandEVT-Completeness-14">Geometrically, we have the following situation.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)"><a href="#NIP" title="Copy heading and permalink for Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)" aria-label="Copy heading and permalink for Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-Completeness-14">Geometrically, we have the following situation.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/images/Ch6fig3.png" class="contained"></div>
 <div class="para" id="IVTandEVT-Completeness-16">Notice that we have two sequences <span class="process-math">\(\left(x_n\right)\)</span> and <span class="process-math">\(\left(y_n\right)\text{,}\)</span> one increasing (really non-decreasing) and one decreasing (non-increasing).  These sequences do not pass each other.  In fact, the following is true:<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -378,7 +337,9 @@ eBookConfig.enable_chatcodes =  false;
 </h4>
 <div class="para" id="PROBLEMEndpointsNIP-3-1">Let <span class="process-math">\((x_n), (y_n)\)</span> be sequences as in the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>. Show that for all <span class="process-math">\(n, m \in\NN\text{,}\)</span> <span class="process-math">\(x_n\le y_m\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMEndpointsNIP-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.1.2"><a href="#PROBLEMEndpointsNIP" title="Copy heading and permalink for Problem 9.1.2" aria-label="Copy heading and permalink for Problem 9.1.2">🔗</a></div></article><div class="para" id="IVTandEVT-Completeness-18">They are also coming together in the sense that <span class="process-math">\(\limit{n}{\infty}{\left(y_n-x_n\right)}=0\text{.}\)</span>  The <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> says that in this case there is a unique real number <span class="process-math">\(c\)</span> in the middle of all of this: <span class="process-math">\(x_n\leq c\leq y_n\)</span> for all <span class="process-math">\(n\in\NN\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 9.1.2"><a href="#PROBLEMEndpointsNIP" title="Copy heading and permalink for Problem 9.1.2" aria-label="Copy heading and permalink for Problem 9.1.2">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-Completeness-18">They are also coming together in the sense that <span class="process-math">\(\limit{n}{\infty}{\left(y_n-x_n\right)}=0\text{.}\)</span>  The <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> says that in this case there is a unique real number <span class="process-math">\(c\)</span> in the middle of all of this: <span class="process-math">\(x_n\leq c\leq y_n\)</span> for all <span class="process-math">\(n\in\NN\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/images/Ch6fig4.png" class="contained"></div>
 <div class="para" id="IVTandEVT-Completeness-20">If there was no such <span class="process-math">\(c\)</span> then there would be a hole where these two sequences come together.  The <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> guarantees that there is no such hole. We do not need to prove this since an axiom is, by definition, a self evident truth.  We are taking it on faith that the real number system has this property.  The next problem shows that the completeness property distinguishes the real number system from the rational number system.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -389,15 +350,23 @@ eBookConfig.enable_chatcodes =  false;
 <article class="task exercise-like" id="IVTandEVT-Completeness-21-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="IVTandEVT-Completeness-21-3-1-1">Find two sequences of rational numbers <span class="process-math">\(\left(x_n\right)\)</span>and <span class="process-math">\(\left(y_n\right)\)</span> which satisfy all four conditions of the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> and such that there is no rational number <span class="process-math">\(c\)</span> satisfying the conclusion of the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-21-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="IVTandEVT-Completeness-21-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="IVTandEVT-Completeness-21-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="IVTandEVT-Completeness-21-3-2-1">Consider the decimal expansion of an irrational number.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-21-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 9.1.3.a.1"><a href="#IVTandEVT-Completeness-21-3-2" title="Copy heading and permalink for Hint 9.1.3.a.1" aria-label="Copy heading and permalink for Hint 9.1.3.a.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Task 9.1.3.a"><a href="#IVTandEVT-Completeness-21-3" title="Copy heading and permalink for Task 9.1.3.a" aria-label="Copy heading and permalink for Task 9.1.3.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-Completeness-21-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 9.1.3.a"><a href="#IVTandEVT-Completeness-21-3" title="Copy heading and permalink for Task 9.1.3.a" aria-label="Copy heading and permalink for Task 9.1.3.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-Completeness-21-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="IVTandEVT-Completeness-21-4-1-1">Find two sequences of rational numbers <span class="process-math">\(\left(x_n\right)\)</span> and <span class="process-math">\(\left(y_n\right)\)</span> which satisfy all four conditions of the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> and such that there is a rational number <span class="process-math">\(c\)</span> satisfying the conclusion of the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-21-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.1.3.b"><a href="#IVTandEVT-Completeness-21-4" title="Copy heading and permalink for Task 9.1.3.b" aria-label="Copy heading and permalink for Task 9.1.3.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 9.1.3"><a href="#IVTandEVT-Completeness-21" title="Copy heading and permalink for Problem 9.1.3" aria-label="Copy heading and permalink for Problem 9.1.3">🔗</a></div></article><div class="para logical" id="IVTandEVT-Completeness-22">
+<div class="autopermalink" data-description="Task 9.1.3.b"><a href="#IVTandEVT-Completeness-21-4" title="Copy heading and permalink for Task 9.1.3.b" aria-label="Copy heading and permalink for Task 9.1.3.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 9.1.3"><a href="#IVTandEVT-Completeness-21" title="Copy heading and permalink for Problem 9.1.3" aria-label="Copy heading and permalink for Problem 9.1.3">🔗</a></div>
+</article>
+<div class="para logical" id="IVTandEVT-Completeness-22">
 <div class="para">You might find the name <dfn class="terminology">Nested Interval Property</dfn> to be somewhat curious since it doesn’t explicitly identify any intervals as such. But in light of <a href="IVTandEVT.html#PROBLEMEndpointsNIP" class="internal" title="Problem 9.1.2">Problem 9.1.2</a> it should be clear that the sequences <span class="process-math">\((x_n)\)</span> and <span class="process-math">\((y_n)\)</span> are the left and right endpoints of a set of nested intervals <span class="process-math">\([x_1,y_1]\supseteq[x_2,y_2]\supseteq[x_3,y_3]\supseteq\cdots\text{,}\)</span> whose lengths <span class="process-math">\(y_n-x_n\)</span> are shrinking to <span class="process-math">\(0\text{.}\)</span>  The conclusion says that the intersection of these intervals is non–empty and in fact, consists of a single point.  That is, it says</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PROBLEMEndpointsNIP.html" id="IVTandEVT-Completeness-22-10">
 \begin{equation*}
@@ -420,19 +389,25 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#thm_ConvergeToC-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.1.4"><a href="#thm_ConvergeToC" title="Copy heading and permalink for Theorem 9.1.4" aria-label="Copy heading and permalink for Theorem 9.1.4">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-Completeness-25"><h4 class="heading">
+<div class="autopermalink" data-description="Theorem 9.1.4"><a href="#thm_ConvergeToC" title="Copy heading and permalink for Theorem 9.1.4" aria-label="Copy heading and permalink for Theorem 9.1.4">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-Completeness-25"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-Completeness-25-3-1">Prove <a href="IVTandEVT.html#thm_ConvergeToC" class="internal" title="Theorem 9.1.4">Theorem 9.1.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-25-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.1.5"><a href="#IVTandEVT-Completeness-25" title="Copy heading and permalink for Problem 9.1.5" aria-label="Copy heading and permalink for Problem 9.1.5">🔗</a></div></article><div class="para" id="IVTandEVT-Completeness-26">To illustrate the idea that the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>  plugs the holes in the real line, we will prove the existence of square roots of non–negative real numbers.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 9.1.5"><a href="#IVTandEVT-Completeness-25" title="Copy heading and permalink for Problem 9.1.5" aria-label="Copy heading and permalink for Problem 9.1.5">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-Completeness-26">To illustrate the idea that the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>  plugs the holes in the real line, we will prove the existence of square roots of non–negative real numbers.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_SqrtsExist"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="thm_SqrtsExist-2-1">Suppose <span class="process-math">\(a\in\mathbb{R},\,a\geq 0\text{.}\)</span>  There exists a real number <span class="process-math">\(c\geq 0\)</span> such that <span class="process-math">\(c^2=a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_SqrtsExist-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.1.6"><a href="#thm_SqrtsExist" title="Copy heading and permalink for Theorem 9.1.6" aria-label="Copy heading and permalink for Theorem 9.1.6">🔗</a></div></article><div class="para" id="IVTandEVT-Completeness-28">Notice that we can’t just say, “Let <span class="process-math">\(c=\sqrt{a}\text{,}\)</span>” since the idea is to show that this square root exists.  In fact, throughout this proof, we cannot really use a square root symbol as we haven’t yet proved that square roots exist.  The idea behind the proof illustrates how the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> is used in practice.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 9.1.6"><a href="#thm_SqrtsExist" title="Copy heading and permalink for Theorem 9.1.6" aria-label="Copy heading and permalink for Theorem 9.1.6">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-Completeness-28">Notice that we can’t just say, “Let <span class="process-math">\(c=\sqrt{a}\text{,}\)</span>” since the idea is to show that this square root exists.  In fact, throughout this proof, we cannot really use a square root symbol as we haven’t yet proved that square roots exist.  The idea behind the proof illustrates how the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> is used in practice.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proof" id="IVTandEVT-Completeness-29"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
 <div class="para" id="IVTandEVT-Completeness-29-2">Our strategy is to construct two sequences which will narrow in on the number <span class="process-math">\(c\)</span> that we seek.  Observe that we need to find a number <span class="process-math">\(x_1\)</span> such that <span class="process-math">\(x_1^2\leq a\)</span> and a number <span class="process-math">\(y_1\)</span> such that <span class="process-math">\(y_1^2\geq a\text{.}\)</span>  (Remember that we can’t say <span class="process-math">\(x_1\lt\sqrt{a}\)</span> and <span class="process-math">\(y_1\gt\sqrt{a}\)</span> since our goal is to show that <span class="process-math">\(\sqrt{a} \)</span> exists.) There are many possibilities, but how about <span class="process-math">\(x_1=0\)</span> and <span class="process-math">\(y_1=a+1?\)</span> You can check that these will satisfy <span class="process-math">\(x_1^2\leq a\leq\)</span> <span class="process-math">\(y_1^2\text{.}\)</span>  Furthermore <span class="process-math">\(x_1\leq
@@ -495,27 +470,36 @@ y_3-x_3=\frac{1}{2}\left(y_2-x_2\right)=\frac{1}{2^2}\left(y_1-x_1\right).
 <dl class="description-list">
 <dt id="IVTandEVT-Completeness-29-9-3-1">Condition 1:<div class="autopermalink" data-description="Item: Condition 1:"><a href="#IVTandEVT-Completeness-29-9-3-1" title="Copy heading and permalink for Item: Condition 1:" aria-label="Copy heading and permalink for Item: Condition 1:">🔗</a></div>
 </dt>
-<dd><div class="para" id="IVTandEVT-Completeness-29-9-3-1-2">
+<dd>
+<div class="para" id="IVTandEVT-Completeness-29-9-3-1-2">
 <span class="process-math">\(\displaystyle x_1\leq x_2\leq x_3\leq\ldots\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-29-9-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 <dt id="IVTandEVT-Completeness-29-9-3-2">Condition 2:<div class="autopermalink" data-description="Item: Condition 2:"><a href="#IVTandEVT-Completeness-29-9-3-2" title="Copy heading and permalink for Item: Condition 2:" aria-label="Copy heading and permalink for Item: Condition 2:">🔗</a></div>
 </dt>
-<dd><div class="para" id="IVTandEVT-Completeness-29-9-3-2-2">
+<dd>
+<div class="para" id="IVTandEVT-Completeness-29-9-3-2-2">
 <span class="process-math">\(\displaystyle y_1\geq y_2\geq y_3\geq\ldots\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-29-9-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 <dt id="IVTandEVT-Completeness-29-9-3-3">Condition 3:<div class="autopermalink" data-description="Item: Condition 3:"><a href="#IVTandEVT-Completeness-29-9-3-3" title="Copy heading and permalink for Item: Condition 3:" aria-label="Copy heading and permalink for Item: Condition 3:">🔗</a></div>
 </dt>
-<dd><div class="para" id="IVTandEVT-Completeness-29-9-3-3-2">
+<dd>
+<div class="para" id="IVTandEVT-Completeness-29-9-3-3-2">
 <span class="process-math">\(\forall\ n\text{,}\)</span> <span class="process-math">\(x_n\leq y_n\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-29-9-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 <dt id="IVTandEVT-Completeness-29-9-3-4">Condition 4:<div class="autopermalink" data-description="Item: Condition 4:"><a href="#IVTandEVT-Completeness-29-9-3-4" title="Copy heading and permalink for Item: Condition 4:" aria-label="Copy heading and permalink for Item: Condition 4:">🔗</a></div>
 </dt>
-<dd><div class="para" id="IVTandEVT-Completeness-29-9-3-4-2">
+<dd>
+<div class="para" id="IVTandEVT-Completeness-29-9-3-4-2">
 <span class="process-math">\(\displaystyle \limit{n}{\infty}{\left(y_n-x_n\right)}=\limit{n}{\infty}{\left[\frac{1}{2^{n-1}}\left(y_1-x_1\right)\right]}=0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-29-9-3-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 <dt id="IVTandEVT-Completeness-29-9-3-5">Condition 5:<div class="autopermalink" data-description="Item: Condition 5:"><a href="#IVTandEVT-Completeness-29-9-3-5" title="Copy heading and permalink for Item: Condition 5:" aria-label="Copy heading and permalink for Item: Condition 5:">🔗</a></div>
 </dt>
-<dd><div class="para logical" id="IVTandEVT-Completeness-29-9-3-5-2">
+<dd>
+<div class="para logical" id="IVTandEVT-Completeness-29-9-3-5-2">
 <div class="para">These sequences also satisfy the following property:</div>
 <div class="displaymath process-math" id="IVTandEVT-Completeness-29-9-3-5-2-1">
 \begin{equation*}
@@ -523,18 +507,23 @@ y_3-x_3=\frac{1}{2}\left(y_2-x_2\right)=\frac{1}{2^2}\left(y_1-x_1\right).
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-29-9-3-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></dd>
+</div>
+</dd>
 </dl>
 <div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-29-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="IVTandEVT-Completeness-29-10">Conditions 1 through 4 tell us that <span class="process-math">\(\left(x_n\right)\)</span>and <span class="process-math">\(\left(y_n\right)\)</span> satisfy all of the conditions of the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>, so we can conclude that there must exist a real number <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\leq c\leq y_n\)</span> for all <span class="process-math">\(n\text{.}\)</span> At this point, you should be able to use Condition 5. to show that <span class="process-math">\(c^2=a\)</span> as desired.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-29-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 9.1.1: Sketch of Proof"><a href="#IVTandEVT-Completeness-29" title="Copy heading and permalink for Proof 9.1.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.1.1: Sketch of Proof">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-Completeness-30"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 9.1.1: Sketch of Proof"><a href="#IVTandEVT-Completeness-29" title="Copy heading and permalink for Proof 9.1.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.1.1: Sketch of Proof">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-Completeness-30"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-Completeness-30-4-1">Turn the above outline into a formal proof of <a href="IVTandEVT.html#thm_SqrtsExist" class="internal" title="Theorem 9.1.6">Theorem 9.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-30-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.1.7"><a href="#IVTandEVT-Completeness-30" title="Copy heading and permalink for Problem 9.1.7" aria-label="Copy heading and permalink for Problem 9.1.7">🔗</a></div></article><div class="para" id="IVTandEVT-Completeness-31">The bisection method we employed to prove <a href="IVTandEVT.html#thm_SqrtsExist" class="internal" title="Theorem 9.1.6">Theorem 9.1.6</a> is also pretty typical of how we will use the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>, as it ensures that we will create a sequence of nested intervals which meet all of the conditions specified in the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>. We will employ this strategy in the proofs of the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> and <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">EVT</a>. Deciding how to relabel the endpoints of our intervals will be determined by what we want to do with these two sequences of real numbers.  This will typically lead to a fifth property, which will be crucial in proving that the <span class="process-math">\(c\)</span> guaranteed by the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> does what we want it to do. Specifically, in the above example, we always wanted our candidate for <span class="process-math">\(\sqrt{a}\)</span> to be in the interval <span class="process-math">\([\,x_n,y_n]\text{.}\)</span>  This judicious choice led to the extra Condition 5: <span class="process-math">\(\forall\)</span> <span class="process-math">\(n,\,x_n^2\leq a\leq y_n^2\text{.}\)</span> In applying the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> to prove the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> and <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">EVT</a>, Condition 5 is what will change based on the property we want <span class="process-math">\(c\)</span> to have.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 9.1.7"><a href="#IVTandEVT-Completeness-30" title="Copy heading and permalink for Problem 9.1.7" aria-label="Copy heading and permalink for Problem 9.1.7">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-Completeness-31">The bisection method we employed to prove <a href="IVTandEVT.html#thm_SqrtsExist" class="internal" title="Theorem 9.1.6">Theorem 9.1.6</a> is also pretty typical of how we will use the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>, as it ensures that we will create a sequence of nested intervals which meet all of the conditions specified in the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>. We will employ this strategy in the proofs of the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> and <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">EVT</a>. Deciding how to relabel the endpoints of our intervals will be determined by what we want to do with these two sequences of real numbers.  This will typically lead to a fifth property, which will be crucial in proving that the <span class="process-math">\(c\)</span> guaranteed by the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> does what we want it to do. Specifically, in the above example, we always wanted our candidate for <span class="process-math">\(\sqrt{a}\)</span> to be in the interval <span class="process-math">\([\,x_n,y_n]\text{.}\)</span>  This judicious choice led to the extra Condition 5: <span class="process-math">\(\forall\)</span> <span class="process-math">\(n,\,x_n^2\leq a\leq y_n^2\text{.}\)</span> In applying the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> to prove the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> and <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">EVT</a>, Condition 5 is what will change based on the property we want <span class="process-math">\(c\)</span> to have.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="IVTandEVT-Completeness-32"> Before we tackle the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> and <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">EVT</a>, let’s use the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> to address an interesting question about the Harmonic Series.   Recall that the Harmonic Series, <span class="process-math">\(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots\text{,}\)</span> grows without bound. That is, <span class="process-math">\(\sum_{n=1}^\infty\frac{1}{n}=\infty\text{.}\)</span>  The question is how slowly does this series grow?  For example, how many terms would it take before the series surpasses 100? Or 1000?  Or 10000?<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -579,24 +568,35 @@ x_1\leq x_2\leq x_3\leq\cdots
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-35-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="image-box" style="width: 84%; margin-left: 8%; margin-right: 8%;"><img src="external/images/Ch6fig7.png" class="contained"></div>
-<div class="autopermalink" data-description="Task 9.1.8.a"><a href="#IVTandEVT-Completeness-35-3" title="Copy heading and permalink for Task 9.1.8.a" aria-label="Copy heading and permalink for Task 9.1.8.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-Completeness-35-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.1.8.a"><a href="#IVTandEVT-Completeness-35-3" title="Copy heading and permalink for Task 9.1.8.a" aria-label="Copy heading and permalink for Task 9.1.8.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-Completeness-35-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="IVTandEVT-Completeness-35-4-1-1">Let <span class="process-math">\(z_n=\ln\left(n+1\right)-\left(\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n+1}
 \right)\text{.}\)</span>  Use a similar diagram to show that <span class="process-math">\(z_1\leq z_2\leq z_3\leq\cdots\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-35-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.1.8.b"><a href="#IVTandEVT-Completeness-35-4" title="Copy heading and permalink for Task 9.1.8.b" aria-label="Copy heading and permalink for Task 9.1.8.b">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-Completeness-35-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 9.1.8.b"><a href="#IVTandEVT-Completeness-35-4" title="Copy heading and permalink for Task 9.1.8.b" aria-label="Copy heading and permalink for Task 9.1.8.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-Completeness-35-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="IVTandEVT-Completeness-35-5-1-1">Let <span class="process-math">\(y_n=1-z_n\text{.}\)</span>  Show that <span class="process-math">\(\left(x_n\right)\)</span> and <span class="process-math">\(\left(y_n\right)\)</span> satisfy the hypotheses of the nested interval property and use the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>  to conclude that there is a real number <span class="process-math">\(\gamma\)</span> such that <span class="process-math">\(x_n\leq\gamma\leq y_n\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-35-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.1.8.c"><a href="#IVTandEVT-Completeness-35-5" title="Copy heading and permalink for Task 9.1.8.c" aria-label="Copy heading and permalink for Task 9.1.8.c">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-Completeness-35-6"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="autopermalink" data-description="Task 9.1.8.c"><a href="#IVTandEVT-Completeness-35-5" title="Copy heading and permalink for Task 9.1.8.c" aria-label="Copy heading and permalink for Task 9.1.8.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-Completeness-35-6"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para" id="IVTandEVT-Completeness-35-6-1-1">Conclude that <span class="process-math">\(\limit{n}{\infty}{\left[\left(1+\frac{1}{2}+\frac{1}{3}+\cdots+
 \frac{1}{n}\right)-\ln\left(n+1\right)\right]}=\gamma\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-35-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.1.8.d"><a href="#IVTandEVT-Completeness-35-6" title="Copy heading and permalink for Task 9.1.8.d" aria-label="Copy heading and permalink for Task 9.1.8.d">🔗</a></div></article><div class="autopermalink" data-description="Problem 9.1.8"><a href="#IVTandEVT-Completeness-35" title="Copy heading and permalink for Problem 9.1.8" aria-label="Copy heading and permalink for Problem 9.1.8">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-Completeness-36"><h4 class="heading">
+<div class="autopermalink" data-description="Task 9.1.8.d"><a href="#IVTandEVT-Completeness-35-6" title="Copy heading and permalink for Task 9.1.8.d" aria-label="Copy heading and permalink for Task 9.1.8.d">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 9.1.8"><a href="#IVTandEVT-Completeness-35" title="Copy heading and permalink for Problem 9.1.8" aria-label="Copy heading and permalink for Problem 9.1.8">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-Completeness-36"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="IVTandEVT-Completeness-36-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="IVTandEVT-Completeness-36-3-1-1">Use the inequality <span class="process-math">\(x_n\leq\gamma\leq y_n\)</span> for all <span class="process-math">\(n\)</span> to approximate <span class="process-math">\(\gamma\)</span> to three decimal places.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-36-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.1.9.a"><a href="#IVTandEVT-Completeness-36-3" title="Copy heading and permalink for Task 9.1.9.a" aria-label="Copy heading and permalink for Task 9.1.9.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-Completeness-36-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.1.9.a"><a href="#IVTandEVT-Completeness-36-3" title="Copy heading and permalink for Task 9.1.9.a" aria-label="Copy heading and permalink for Task 9.1.9.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-Completeness-36-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="IVTandEVT-Completeness-36-4-1-1">
 <div class="para">Use the fact that for large <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}\approx
 \ln\left(n+1\right)+ \gamma\)</span> to determine approximately how large <span class="process-math">\(n\)</span> must be to make</div>
@@ -607,10 +607,17 @@ x_1\leq x_2\leq x_3\leq\cdots
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-36-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.1.9.b"><a href="#IVTandEVT-Completeness-36-4" title="Copy heading and permalink for Task 9.1.9.b" aria-label="Copy heading and permalink for Task 9.1.9.b">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-Completeness-36-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 9.1.9.b"><a href="#IVTandEVT-Completeness-36-4" title="Copy heading and permalink for Task 9.1.9.b" aria-label="Copy heading and permalink for Task 9.1.9.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-Completeness-36-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="IVTandEVT-Completeness-36-5-1-1">Suppose we have a supercomputer which can add <span class="process-math">\(10\)</span> trillion terms of the Harmonic Series per second.  Approximately how many times the current age of the Earth would it take for this computer to sum the Harmonic Series until it surpasses <span class="process-math">\(100\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-Completeness-36-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.1.9.c"><a href="#IVTandEVT-Completeness-36-5" title="Copy heading and permalink for Task 9.1.9.c" aria-label="Copy heading and permalink for Task 9.1.9.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 9.1.9"><a href="#IVTandEVT-Completeness-36" title="Copy heading and permalink for Problem 9.1.9" aria-label="Copy heading and permalink for Problem 9.1.9">🔗</a></div></article><div class="autopermalink" data-description="Section 9.1: The Nested Interval Property: Completeness of the Real Number System"><a href="#IVTandEVT-Completeness" title="Copy heading and permalink for Section 9.1: The Nested Interval Property: Completeness of the Real Number System" aria-label="Copy heading and permalink for Section 9.1: The Nested Interval Property: Completeness of the Real Number System">🔗</a></div></section><section class="section" id="IVTandEVT-ProofOfIVT"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Task 9.1.9.c"><a href="#IVTandEVT-Completeness-36-5" title="Copy heading and permalink for Task 9.1.9.c" aria-label="Copy heading and permalink for Task 9.1.9.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 9.1.9"><a href="#IVTandEVT-Completeness-36" title="Copy heading and permalink for Problem 9.1.9" aria-label="Copy heading and permalink for Problem 9.1.9">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 9.1: The Nested Interval Property: Completeness of the Real Number System"><a href="#IVTandEVT-Completeness" title="Copy heading and permalink for Section 9.1: The Nested Interval Property: Completeness of the Real Number System" aria-label="Copy heading and permalink for Section 9.1: The Nested Interval Property: Completeness of the Real Number System">🔗</a></div>
+</section>
+<section class="section" id="IVTandEVT-ProofOfIVT">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof of the Intermediate Value Theorem</span>
 </h3>
 <div class="para" id="IVTandEVT-ProofOfIVT-3">We now have all of the tools we need to prove the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">Intermediate Value Theorem</a> (<dfn class="terminology">IVT</dfn>).<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-ProofOfIVT-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -620,7 +627,9 @@ x_1\leq x_2\leq x_3\leq\cdots
 </h4>
 <div class="para" id="IntermediateValueTheorem-3-1">Suppose <span class="process-math">\(f(x)\)</span> is continuous on <span class="process-math">\([a,b]\)</span> and <span class="process-math">\(v\)</span> is any real number between <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\text{.}\)</span>  Then there exists a real number <span class="process-math">\(c\in[\,a,b]\)</span> such that <span class="process-math">\(f(c)=v\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IntermediateValueTheorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.2.1: Intermediate Value Theorem (IVT)"><a href="#IntermediateValueTheorem" title="Copy heading and permalink for Theorem 9.2.1: Intermediate Value Theorem (IVT)" aria-label="Copy heading and permalink for Theorem 9.2.1: Intermediate Value Theorem (IVT)">🔗</a></div></article><article class="proof" id="IVTandEVT-ProofOfIVT-5"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
+<div class="autopermalink" data-description="Theorem 9.2.1: Intermediate Value Theorem (IVT)"><a href="#IntermediateValueTheorem" title="Copy heading and permalink for Theorem 9.2.1: Intermediate Value Theorem (IVT)" aria-label="Copy heading and permalink for Theorem 9.2.1: Intermediate Value Theorem (IVT)">🔗</a></div>
+</article>
+<article class="proof" id="IVTandEVT-ProofOfIVT-5"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
 <div class="para" id="IVTandEVT-ProofOfIVT-5-2">We have two cases to consider: <span class="process-math">\(f(a)\leq v\leq f(b)\)</span> and <span class="process-math">\(f(a)\geq v\geq f(b)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-ProofOfIVT-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="IVTandEVT-ProofOfIVT-5-3">
@@ -666,25 +675,36 @@ f(x_2)\leq v\leq f(y_2)\text{.}
 <div class="para" id="IVTandEVT-ProofOfIVT-5-4">Now play the same game with the interval <span class="process-math">\([\,x_2,y_2]\text{.}\)</span> If we keep playing this game, we will generate two sequences <span class="process-math">\(\left(x_n\right)\)</span> and <span class="process-math">\(\left(y_n\right)\text{,}\)</span> satisfying all of the conditions of the nested interval property.  These sequences will also satisfy the following extra property: <span class="process-math">\(\forall\)</span> <span class="process-math">\(n,\,f(x_n)\leq v\leq
 f(y_n)\text{.}\)</span>  By the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>, there exists a <span class="process-math">\(c\)</span> such that <span class="process-math">\(\,x_n\leq c\leq y_n\text{,}\)</span> <span class="process-math">\(\forall\)</span> <span class="process-math">\(n\text{.}\)</span>  This should be the <span class="process-math">\(c\)</span> that we seek though this is not obvious.  Specifically, we need to show that <span class="process-math">\(f(c)=v\text{.}\)</span> This should be where the continuity of <span class="process-math">\(f\)</span> at <span class="process-math">\(c\)</span> and the extra property on <span class="process-math">\(\left(x_n\right)\)</span>and <span class="process-math">\(\left(y_n\right)\)</span> come into play.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-ProofOfIVT-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 9.2.1: Sketch of Proof"><a href="#IVTandEVT-ProofOfIVT-5" title="Copy heading and permalink for Proof 9.2.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.2.1: Sketch of Proof">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-ProofOfIVT-6"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 9.2.1: Sketch of Proof"><a href="#IVTandEVT-ProofOfIVT-5" title="Copy heading and permalink for Proof 9.2.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.2.1: Sketch of Proof">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-ProofOfIVT-6"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <article class="task exercise-like" id="IVTandEVT-ProofOfIVT-6-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="IVTandEVT-ProofOfIVT-6-3-1-1">Turn the ideas of the previous paragraphs into a formal proof of the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> for the case <span class="process-math">\(f(a)\leq v\leq
 f(b)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-ProofOfIVT-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.2.2.a"><a href="#IVTandEVT-ProofOfIVT-6-3" title="Copy heading and permalink for Task 9.2.2.a" aria-label="Copy heading and permalink for Task 9.2.2.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-ProofOfIVT-6-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.2.2.a"><a href="#IVTandEVT-ProofOfIVT-6-3" title="Copy heading and permalink for Task 9.2.2.a" aria-label="Copy heading and permalink for Task 9.2.2.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-ProofOfIVT-6-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="IVTandEVT-ProofOfIVT-6-4-1">The most straightforward way to handle the case <span class="process-math">\(f(a)\geq
 v\geq f(b)\)</span> is to modify the proof you created in part (a).  However, there is a sneakier way.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-ProofOfIVT-6-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="IVTandEVT-ProofOfIVT-6-4-2">To prove the case <span class="process-math">\(f(a)\geq v\geq f(b)\)</span> apply the result in part (a) to the function <span class="process-math">\(-f\text{.}\)</span> Be sure you explain why this is sufficient.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-ProofOfIVT-6-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.2.2.b"><a href="#IVTandEVT-ProofOfIVT-6-4" title="Copy heading and permalink for Task 9.2.2.b" aria-label="Copy heading and permalink for Task 9.2.2.b">🔗</a></div></article><div class="autopermalink" data-description="Problem 9.2.2"><a href="#IVTandEVT-ProofOfIVT-6" title="Copy heading and permalink for Problem 9.2.2" aria-label="Copy heading and permalink for Problem 9.2.2">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-ProofOfIVT-7"><h4 class="heading">
+<div class="autopermalink" data-description="Task 9.2.2.b"><a href="#IVTandEVT-ProofOfIVT-6-4" title="Copy heading and permalink for Task 9.2.2.b" aria-label="Copy heading and permalink for Task 9.2.2.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 9.2.2"><a href="#IVTandEVT-ProofOfIVT-6" title="Copy heading and permalink for Problem 9.2.2" aria-label="Copy heading and permalink for Problem 9.2.2">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-ProofOfIVT-7"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-ProofOfIVT-7-4-1">Use the <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> to prove that any polynomial of odd degree must have a real root.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-ProofOfIVT-7-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.2.3"><a href="#IVTandEVT-ProofOfIVT-7" title="Copy heading and permalink for Problem 9.2.3" aria-label="Copy heading and permalink for Problem 9.2.3">🔗</a></div></article><div class="autopermalink" data-description="Section 9.2: Proof of the Intermediate Value Theorem"><a href="#IVTandEVT-ProofOfIVT" title="Copy heading and permalink for Section 9.2: Proof of the Intermediate Value Theorem" aria-label="Copy heading and permalink for Section 9.2: Proof of the Intermediate Value Theorem">🔗</a></div></section><section class="section" id="IVTandEVT-BWT"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Problem 9.2.3"><a href="#IVTandEVT-ProofOfIVT-7" title="Copy heading and permalink for Problem 9.2.3" aria-label="Copy heading and permalink for Problem 9.2.3">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 9.2: Proof of the Intermediate Value Theorem"><a href="#IVTandEVT-ProofOfIVT" title="Copy heading and permalink for Section 9.2: Proof of the Intermediate Value Theorem" aria-label="Copy heading and permalink for Section 9.2: Proof of the Intermediate Value Theorem">🔗</a></div>
+</section>
+<section class="section" id="IVTandEVT-BWT">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Bolzano–Weierstrass Theorem</span>
 </h3>
 <div class="para" id="IVTandEVT-BWT-2">The <a href="IVTandEVT.html#IntermediateValueTheorem" class="internal" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">Intermediate Value Theorem</a> followed pretty readily once we introduced the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">Nested Interval Property</a>.  The proof of <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">Extreme Value Theorem</a> takes a bit more work.  First we need the result of <a href="IVTandEVT.html#thm_CompactBounded" class="internal" title="Theorem 9.3.1">Theorem 9.3.1</a> below.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -694,7 +714,9 @@ v\geq f(b)\)</span> is to modify the proof you created in part (a).  However, th
 </h4>
 <div class="para" id="thm_CompactBounded-2-1">A continuous function defined on a closed, bounded interval must be bounded.  That is, let <span class="process-math">\(f\)</span> be a continuous function defined on <span class="process-math">\([\,a,b]\text{.}\)</span>  Then there exists a positive real number <span class="process-math">\(B\)</span> such that <span class="process-math">\(|f(x)|\leq B\)</span> for all <span class="process-math">\(x\in[\,a,b]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_CompactBounded-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.3.1"><a href="#thm_CompactBounded" title="Copy heading and permalink for Theorem 9.3.1" aria-label="Copy heading and permalink for Theorem 9.3.1">🔗</a></div></article><div class="para" id="IVTandEVT-BWT-4">
+<div class="autopermalink" data-description="Theorem 9.3.1"><a href="#thm_CompactBounded" title="Copy heading and permalink for Theorem 9.3.1" aria-label="Copy heading and permalink for Theorem 9.3.1">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-BWT-4">
 <em class="alert">Sketch of Alleged Proof:</em> Let’s assume, for contradiction, that there is no such bound <span class="process-math">\(B\text{.}\)</span> This says that for any positive integer <span class="process-math">\(n\text{,}\)</span> there must exist <span class="process-math">\(x_n\in[a,b]\)</span> such that <span class="process-math">\(\abs{f(x_n)}&gt;n\text{.}\)</span> (Otherwise <span class="process-math">\(n\)</span> would be a bound for <span class="process-math">\(f\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="IVTandEVT-BWT-5">
@@ -707,43 +729,63 @@ v\geq f(b)\)</span> is to modify the proof you created in part (a).  However, th
 </h4>
 <div class="para" id="def_subsequences-4-1">Let <span class="process-math">\(\left(n_k\right)_{k=1}^\infty\)</span> be a strictly increasing sequence of positive integers; that is, <span class="process-math">\(n_1\lt n_2\lt n_3\lt \cdots\)</span> . If <span class="process-math">\(\left(x_n\right)_{n=1}^\infty\)</span> is a sequence, then <span class="process-math">\(\left(x_{n_k}\right)_{k=1}^\infty=\left(x_{n_1},x_{n_2},x_{n_3},\ldots \right)\)</span> is called a subsequence of <span class="process-math">\(\left(x_n\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_subsequences-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 9.3.2"><a href="#def_subsequences" title="Copy heading and permalink for Definition 9.3.2" aria-label="Copy heading and permalink for Definition 9.3.2">🔗</a></div></article><div class="para" id="IVTandEVT-BWT-8">The idea is that a subsequence of a sequence is a part of the sequence, <span class="process-math">\((x_n)\text{,}\)</span> which is itself a sequence. However, it is a little more restrictive. We can choose any term in our sequence to be part of the subsequence, but once we choose that term, we can’t go backwards. This is where the condition <span class="process-math">\(n_1\lt n_2\lt n_3\lt \cdots\)</span> comes in. For example, suppose we started our subsequence with the term <span class="process-math">\(x_{100}\text{.}\)</span> We could not choose our next term to be <span class="process-math">\(x_{99}\text{.}\)</span> The subscript of the next term would have to be greater than 100. In fact, the thing about a subsequence is that it is all in the subscripts; we are really choosing a subsequence <span class="process-math">\(\left(n_k\right)\)</span> of the sequence of subscripts <span class="process-math">\(\left(n\right)\)</span> in <span class="process-math">\(\left(x_n\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 9.3.2"><a href="#def_subsequences" title="Copy heading and permalink for Definition 9.3.2" aria-label="Copy heading and permalink for Definition 9.3.2">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-BWT-8">The idea is that a subsequence of a sequence is a part of the sequence, <span class="process-math">\((x_n)\text{,}\)</span> which is itself a sequence. However, it is a little more restrictive. We can choose any term in our sequence to be part of the subsequence, but once we choose that term, we can’t go backwards. This is where the condition <span class="process-math">\(n_1\lt n_2\lt n_3\lt \cdots\)</span> comes in. For example, suppose we started our subsequence with the term <span class="process-math">\(x_{100}\text{.}\)</span> We could not choose our next term to be <span class="process-math">\(x_{99}\text{.}\)</span> The subscript of the next term would have to be greater than 100. In fact, the thing about a subsequence is that it is all in the subscripts; we are really choosing a subsequence <span class="process-math">\(\left(n_k\right)\)</span> of the sequence of subscripts <span class="process-math">\(\left(n\right)\)</span> in <span class="process-math">\(\left(x_n\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="IVTandEVT-BWT-9"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="IVTandEVT-BWT-9-2"><div class="para" id="IVTandEVT-BWT-9-2-1">Given the sequence <span class="process-math">\(\left(x_n\right)\text{,}\)</span> the following are subsequences.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="IVTandEVT-BWT-9-2">
+<div class="para" id="IVTandEVT-BWT-9-2-1">Given the sequence <span class="process-math">\(\left(x_n\right)\text{,}\)</span> the following are subsequences.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="IVTandEVT-BWT-9-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="IVTandEVT-BWT-9-3-1-1">
 <span class="process-math">\(\left(x_2,\,x_4,\,x_6,\,\ldots\right)=\left(x_{2k}\right)_{k=1}^\infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-9-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.3.3.a"><a href="#IVTandEVT-BWT-9-3" title="Copy heading and permalink for Task 9.3.3.a" aria-label="Copy heading and permalink for Task 9.3.3.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-BWT-9-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.3.3.a"><a href="#IVTandEVT-BWT-9-3" title="Copy heading and permalink for Task 9.3.3.a" aria-label="Copy heading and permalink for Task 9.3.3.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-BWT-9-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="IVTandEVT-BWT-9-4-1-1">
 <span class="process-math">\(\left(x_1,\,x_4,\,x_9,\,\ldots\right)=\left(x_{k^2}\right)_{k=1}^ \infty\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-9-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.3.3.b"><a href="#IVTandEVT-BWT-9-4" title="Copy heading and permalink for Task 9.3.3.b" aria-label="Copy heading and permalink for Task 9.3.3.b">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-BWT-9-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 9.3.3.b"><a href="#IVTandEVT-BWT-9-4" title="Copy heading and permalink for Task 9.3.3.b" aria-label="Copy heading and permalink for Task 9.3.3.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-BWT-9-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="IVTandEVT-BWT-9-5-1-1">
 <span class="process-math">\(\left(x_n\right)\)</span> itself.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-9-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.3.3.c"><a href="#IVTandEVT-BWT-9-5" title="Copy heading and permalink for Task 9.3.3.c" aria-label="Copy heading and permalink for Task 9.3.3.c">🔗</a></div></article><div class="autopermalink" data-description="Example 9.3.3"><a href="#IVTandEVT-BWT-9" title="Copy heading and permalink for Example 9.3.3" aria-label="Copy heading and permalink for Example 9.3.3">🔗</a></div></article><article class="example example-like" id="IVTandEVT-BWT-10"><h4 class="heading">
+<div class="autopermalink" data-description="Task 9.3.3.c"><a href="#IVTandEVT-BWT-9-5" title="Copy heading and permalink for Task 9.3.3.c" aria-label="Copy heading and permalink for Task 9.3.3.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Example 9.3.3"><a href="#IVTandEVT-BWT-9" title="Copy heading and permalink for Example 9.3.3" aria-label="Copy heading and permalink for Example 9.3.3">🔗</a></div>
+</article>
+<article class="example example-like" id="IVTandEVT-BWT-10"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="IVTandEVT-BWT-10-2"><div class="para" id="IVTandEVT-BWT-10-2-1">The following are <em class="alert">NOT</em> subsequences.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="IVTandEVT-BWT-10-2">
+<div class="para" id="IVTandEVT-BWT-10-2-1">The following are <em class="alert">NOT</em> subsequences.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="IVTandEVT-BWT-10-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="IVTandEVT-BWT-10-3-1-1">
 <span class="process-math">\(\left(x_1,\,x_1,\,x_1,\,\ldots\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-10-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.3.4.a"><a href="#IVTandEVT-BWT-10-3" title="Copy heading and permalink for Task 9.3.4.a" aria-label="Copy heading and permalink for Task 9.3.4.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-BWT-10-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.3.4.a"><a href="#IVTandEVT-BWT-10-3" title="Copy heading and permalink for Task 9.3.4.a" aria-label="Copy heading and permalink for Task 9.3.4.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-BWT-10-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="IVTandEVT-BWT-10-4-1-1">
 <span class="process-math">\(\left(x_{99},\,x_{100},\,x_{99},\,\ldots\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-10-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.3.4.b"><a href="#IVTandEVT-BWT-10-4" title="Copy heading and permalink for Task 9.3.4.b" aria-label="Copy heading and permalink for Task 9.3.4.b">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-BWT-10-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 9.3.4.b"><a href="#IVTandEVT-BWT-10-4" title="Copy heading and permalink for Task 9.3.4.b" aria-label="Copy heading and permalink for Task 9.3.4.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-BWT-10-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="IVTandEVT-BWT-10-5-1-1">
 <span class="process-math">\(\left(x_1,\,x_2,\,x_3\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-10-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.3.4.c"><a href="#IVTandEVT-BWT-10-5" title="Copy heading and permalink for Task 9.3.4.c" aria-label="Copy heading and permalink for Task 9.3.4.c">🔗</a></div></article><div class="autopermalink" data-description="Example 9.3.4"><a href="#IVTandEVT-BWT-10" title="Copy heading and permalink for Example 9.3.4" aria-label="Copy heading and permalink for Example 9.3.4">🔗</a></div></article><div class="para logical" id="IVTandEVT-BWT-11">
+<div class="autopermalink" data-description="Task 9.3.4.c"><a href="#IVTandEVT-BWT-10-5" title="Copy heading and permalink for Task 9.3.4.c" aria-label="Copy heading and permalink for Task 9.3.4.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Example 9.3.4"><a href="#IVTandEVT-BWT-10" title="Copy heading and permalink for Example 9.3.4" aria-label="Copy heading and permalink for Example 9.3.4">🔗</a></div>
+</article>
+<div class="para logical" id="IVTandEVT-BWT-11">
 <div class="para">The subscripts in the examples we have seen so far have a discernable pattern, but this need not be the case. For example,</div>
 <div class="displaymath process-math" id="IVTandEVT-BWT-11-1">
 \begin{equation*}
@@ -758,19 +800,26 @@ v\geq f(b)\)</span> is to modify the proof you created in part (a).  However, th
 </h4>
 <div class="para" id="IVTandEVT-BWT-12-3-1">Suppose <span class="process-math">\(\limit{n}{\infty}{x_n}=c\text{.}\)</span>  Prove that <span class="process-math">\(\limit{k}{\infty}{x_{n_k}}=c\)</span> for any subsequence <span class="process-math">\(\left(x_{n_k}\right)\)</span> of <span class="process-math">\(\left(x_n\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-12-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="IVTandEVT-BWT-12-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="IVTandEVT-BWT-12-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="IVTandEVT-BWT-12-4-1">First prove that <span class="process-math">\(n_k\geq k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-12-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 9.3.5.1"><a href="#IVTandEVT-BWT-12-4" title="Copy heading and permalink for Hint 9.3.5.1" aria-label="Copy heading and permalink for Hint 9.3.5.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 9.3.5"><a href="#IVTandEVT-BWT-12" title="Copy heading and permalink for Problem 9.3.5" aria-label="Copy heading and permalink for Problem 9.3.5">🔗</a></div></article><div class="para" id="IVTandEVT-BWT-13"> A very important theorem about subsequences was introduced by Bernhard Bolzano and was later proven independently by Karl Weierstrass. Basically, this theorem says that any bounded sequence of real numbers has a convergent subsequence.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 9.3.5"><a href="#IVTandEVT-BWT-12" title="Copy heading and permalink for Problem 9.3.5" aria-label="Copy heading and permalink for Problem 9.3.5">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-BWT-13"> A very important theorem about subsequences was introduced by Bernhard Bolzano and was later proven independently by Karl Weierstrass. Basically, this theorem says that any bounded sequence of real numbers has a convergent subsequence.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="BolzanoWeierstrass"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Bolzano–Weierstrass Theorem.</span>
 </h4>
 <div class="para" id="BolzanoWeierstrass-4-1">Let <span class="process-math">\(\left(x_n\right)\)</span> be a sequence of real numbers such that <span class="process-math">\(x_n\in[\,a,b]\text{,}\)</span> <span class="process-math">\(\forall\)</span> <span class="process-math">\(n\text{.}\)</span>  Then there exists <span class="process-math">\(c\in[\,a,b]\)</span> and a subsequence <span class="process-math">\(\left(x_{n_k}\right)\text{,}\)</span> such that <span class="process-math">\(\limit{k}{\infty}{x_{n_k}}=c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#BolzanoWeierstrass-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.3.6: The Bolzano–Weierstrass Theorem"><a href="#BolzanoWeierstrass" title="Copy heading and permalink for Theorem 9.3.6: The Bolzano–Weierstrass Theorem" aria-label="Copy heading and permalink for Theorem 9.3.6: The Bolzano–Weierstrass Theorem">🔗</a></div></article><div class="para logical" id="IVTandEVT-BWT-15">
+<div class="autopermalink" data-description="Theorem 9.3.6: The Bolzano–Weierstrass Theorem"><a href="#BolzanoWeierstrass" title="Copy heading and permalink for Theorem 9.3.6: The Bolzano–Weierstrass Theorem" aria-label="Copy heading and permalink for Theorem 9.3.6: The Bolzano–Weierstrass Theorem">🔗</a></div>
+</article>
+<div class="para logical" id="IVTandEVT-BWT-15">
 <div class="para">As an example of this theorem, consider the sequence</div>
 <div class="displaymath process-math" id="IVTandEVT-BWT-15-1">
 \begin{equation*}
@@ -850,17 +899,25 @@ v\geq f(b)\)</span> is to modify the proof you created in part (a).  However, th
 </div>
 <div class="para" id="IVTandEVT-BWT-18-6">We have our <span class="process-math">\(c\text{.}\)</span> Now we need to construct a subsequence converging to it. Since <span class="process-math">\(x_n\in[a_1,b_1]\)</span> for infinitely many <span class="process-math">\(n\text{,}\)</span> choose an integer <span class="process-math">\(n_1\)</span> such that <span class="process-math">\(x_{n_1}\in[a_1,b_1]\text{.}\)</span> Since <span class="process-math">\(x_n\in[a_2,b_2]\)</span> for infinitely many <span class="process-math">\(n\text{,}\)</span> choose an integer <span class="process-math">\(n_2&gt;n_1\)</span> such that <span class="process-math">\(x_{n_2}\in[a_2,b_2]\text{.}\)</span> (Notice that to make a subsequence it is crucial that <span class="process-math">\(n_2&gt;n_1\text{,}\)</span> and this is why we needed to insist that <span class="process-math">\(x_n\in[a_2,b_2]\)</span> for infinitely many <span class="process-math">\(n\text{.}\)</span>) Continuing in this manner, we should be able to build a subsequence <span class="process-math">\(\left(x_{n_k}\right)\)</span> that will converge to <span class="process-math">\(c\text{.}\)</span> You can supply the details in the following problem.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-18-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 9.3.1: Sketch of a Proof of the Bolzano–Weierstrass Theorem"><a href="#IVTandEVT-BWT-18" title="Copy heading and permalink for Proof 9.3.1: Sketch of a Proof of the Bolzano–Weierstrass Theorem" aria-label="Copy heading and permalink for Proof 9.3.1: Sketch of a Proof of the Bolzano–Weierstrass Theorem">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-BWT-19"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 9.3.1: Sketch of a Proof of the Bolzano–Weierstrass Theorem"><a href="#IVTandEVT-BWT-18" title="Copy heading and permalink for Proof 9.3.1: Sketch of a Proof of the Bolzano–Weierstrass Theorem" aria-label="Copy heading and permalink for Proof 9.3.1: Sketch of a Proof of the Bolzano–Weierstrass Theorem">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-BWT-19"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-BWT-19-3-1">Turn the ideas of the above outline into a formal proof of the Bolzano–Weierstrass Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-19-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.3.7"><a href="#IVTandEVT-BWT-19" title="Copy heading and permalink for Problem 9.3.7" aria-label="Copy heading and permalink for Problem 9.3.7">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-BWT-20"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 9.3.7"><a href="#IVTandEVT-BWT-19" title="Copy heading and permalink for Problem 9.3.7" aria-label="Copy heading and permalink for Problem 9.3.7">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-BWT-20"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-BWT-20-5-1">Use the Bolzano–Weierstrass Theorem to complete the proof of <a href="IVTandEVT.html#thm_CompactBounded" class="internal" title="Theorem 9.3.1">Theorem 9.3.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-BWT-20-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.3.8"><a href="#IVTandEVT-BWT-20" title="Copy heading and permalink for Problem 9.3.8" aria-label="Copy heading and permalink for Problem 9.3.8">🔗</a></div></article><div class="autopermalink" data-description="Section 9.3: The Bolzano–Weierstrass Theorem"><a href="#IVTandEVT-BWT" title="Copy heading and permalink for Section 9.3: The Bolzano–Weierstrass Theorem" aria-label="Copy heading and permalink for Section 9.3: The Bolzano–Weierstrass Theorem">🔗</a></div></section><section class="section" id="IVTandEVT-SupremumAndEVT"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Problem 9.3.8"><a href="#IVTandEVT-BWT-20" title="Copy heading and permalink for Problem 9.3.8" aria-label="Copy heading and permalink for Problem 9.3.8">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 9.3: The Bolzano–Weierstrass Theorem"><a href="#IVTandEVT-BWT" title="Copy heading and permalink for Section 9.3: The Bolzano–Weierstrass Theorem" aria-label="Copy heading and permalink for Section 9.3: The Bolzano–Weierstrass Theorem">🔗</a></div>
+</section>
+<section class="section" id="IVTandEVT-SupremumAndEVT">
+<h3 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Supremum and the Extreme Value Theorem</span>
 </h3>
 <div class="para" id="IVTandEVT-SupremumAndEVT-2">
@@ -876,13 +933,16 @@ v\geq f(b)\)</span> is to modify the proof you created in part (a).  However, th
 </h4>
 <div class="para" id="def_UpperBound-3-1">Let <span class="process-math">\(S\subseteq\mathbb{R}\)</span> and let <span class="process-math">\(b\)</span> be a real number. We say that <span class="process-math">\(b\)</span> is an upper bound of <span class="process-math">\(S\)</span> provided <span class="process-math">\(b\geq x\)</span> for all <span class="process-math">\(x\in S\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def_UpperBound-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 9.4.1"><a href="#def_UpperBound" title="Copy heading and permalink for Definition 9.4.1" aria-label="Copy heading and permalink for Definition 9.4.1">🔗</a></div></article><div class="para" id="IVTandEVT-SupremumAndEVT-7">For example, if <span class="process-math">\(S=(0,1)\text{,}\)</span> then any <span class="process-math">\(b\)</span> with <span class="process-math">\(b\geq 1\)</span> would be an upper bound of <span class="process-math">\(S\text{.}\)</span> Furthermore, the fact that <span class="process-math">\(b\)</span> is not an element of the set <span class="process-math">\(S\)</span> is immaterial. Indeed, if <span class="process-math">\(T=[\,0,1]\text{,}\)</span> then any <span class="process-math">\(b\)</span> with <span class="process-math">\(b\geq 1\)</span> would still be an upper bound of <span class="process-math">\(T\text{.}\)</span> Notice that, in general, if a set has an upper bound, then it has infinitely many since any number larger than that upper bound would also be an upper bound. However, there is something special about the smallest upper bound.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 9.4.1"><a href="#def_UpperBound" title="Copy heading and permalink for Definition 9.4.1" aria-label="Copy heading and permalink for Definition 9.4.1">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-SupremumAndEVT-7">For example, if <span class="process-math">\(S=(0,1)\text{,}\)</span> then any <span class="process-math">\(b\)</span> with <span class="process-math">\(b\geq 1\)</span> would be an upper bound of <span class="process-math">\(S\text{.}\)</span> Furthermore, the fact that <span class="process-math">\(b\)</span> is not an element of the set <span class="process-math">\(S\)</span> is immaterial. Indeed, if <span class="process-math">\(T=[\,0,1]\text{,}\)</span> then any <span class="process-math">\(b\)</span> with <span class="process-math">\(b\geq 1\)</span> would still be an upper bound of <span class="process-math">\(T\text{.}\)</span> Notice that, in general, if a set has an upper bound, then it has infinitely many since any number larger than that upper bound would also be an upper bound. However, there is something special about the smallest upper bound.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="def_LeastUpperBound"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Least Upper Bound.</span>
 </h4>
 <div class="para" id="def_LeastUpperBound-5-1">Let <span class="process-math">\(S\subseteq\mathbb{R}\)</span> and let <span class="process-math">\(b\)</span> be a real number.  We say that <span class="process-math">\(b\)</span> is the <em class="emphasis">least upper bound</em> of <span class="process-math">\(S\)</span> provided<div class="autopermalink" data-description="Paragraph"><a href="#def_LeastUpperBound-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="def_LeastUpperBound-5-2">
+</div> 
+<div class="para logical" id="def_LeastUpperBound-5-2">
 <ol class="lower-alpha ol-marker-1" id="def_LeastUpperBound-5-2-1">
 <li id="def_LeastUpperBound-5-2-1-1">
 <div class="para" id="def_LeastUpperBound-5-2-1-1-1">
@@ -897,7 +957,8 @@ v\geq f(b)\)</span> is to modify the proof you created in part (a).  However, th
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_LeastUpperBound-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="def_LeastUpperBound-5-3">
+</div> 
+<div class="para logical" id="def_LeastUpperBound-5-3">
 <div class="para">In this case, we also say that <span class="process-math">\(b\)</span> <em class="emphasis">is the supremum</em> of <span class="process-math">\(S\)</span> and we write</div>
 <div class="displaymath process-math" id="def_LeastUpperBound-5-3-4">
 \begin{equation*}
@@ -906,7 +967,9 @@ b=\sup S\text{.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#def_LeastUpperBound-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 9.4.2: Least Upper Bound"><a href="#def_LeastUpperBound" title="Copy heading and permalink for Definition 9.4.2: Least Upper Bound" aria-label="Copy heading and permalink for Definition 9.4.2: Least Upper Bound">🔗</a></div></article><div class="para logical" id="IVTandEVT-SupremumAndEVT-9">
+<div class="autopermalink" data-description="Definition 9.4.2: Least Upper Bound"><a href="#def_LeastUpperBound" title="Copy heading and permalink for Definition 9.4.2: Least Upper Bound" aria-label="Copy heading and permalink for Definition 9.4.2: Least Upper Bound">🔗</a></div>
+</article>
+<div class="para logical" id="IVTandEVT-SupremumAndEVT-9">
 <div class="para">Notice that the definition really says that <span class="process-math">\(b\)</span> is the smallest upper bound of <span class="process-math">\(S\text{.}\)</span> Also notice that the second condition can be replaced by its contrapositive so we can say that <span class="process-math">\(b=\sup S\)</span> if and only if</div>
 <ol class="lower-alpha ol-marker-1" id="IVTandEVT-SupremumAndEVT-9-4">
 <li id="IVTandEVT-SupremumAndEVT-9-4-1">
@@ -932,7 +995,9 @@ b=\sup S\text{.}
 </h4>
 <div class="para" id="thm_LUB-3-1">Let <span class="process-math">\(S\)</span> be a non–empty subset of <span class="process-math">\(\mathbb{R}\)</span> which is bounded above. Then <span class="process-math">\(S\)</span> has a supremum.<div class="autopermalink" data-description="Paragraph"><a href="#thm_LUB-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.4.3: The Least Upper Bound Property (LUBP)"><a href="#thm_LUB" title="Copy heading and permalink for Theorem 9.4.3: The Least Upper Bound Property (LUBP)" aria-label="Copy heading and permalink for Theorem 9.4.3: The Least Upper Bound Property (LUBP)">🔗</a></div></article><article class="proof" id="IVTandEVT-SupremumAndEVT-13"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
+<div class="autopermalink" data-description="Theorem 9.4.3: The Least Upper Bound Property (LUBP)"><a href="#thm_LUB" title="Copy heading and permalink for Theorem 9.4.3: The Least Upper Bound Property (LUBP)" aria-label="Copy heading and permalink for Theorem 9.4.3: The Least Upper Bound Property (LUBP)">🔗</a></div>
+</article>
+<article class="proof" id="IVTandEVT-SupremumAndEVT-13"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
 <div class="para logical" id="IVTandEVT-SupremumAndEVT-13-2">
 <div class="para">Since <span class="process-math">\(S\neq\emptyset\text{,}\)</span> then there exists <span class="process-math">\(s\in S\text{.}\)</span> Since <span class="process-math">\(S\)</span> is bounded above then it has an upper bound, say <span class="process-math">\(b\text{.}\)</span> We will set ourselves up to use the Nested Interval Property. With this in mind, let <span class="process-math">\(x_1=s\)</span> and <span class="process-math">\(y_1=b\)</span> and notice that <span class="process-math">\(\exists\)</span> <span class="process-math">\(x\in S\)</span> such that <span class="process-math">\(x\geq x_1\)</span> (namely, <span class="process-math">\(x_1\)</span> itself) and <span class="process-math">\(\forall\,x\in S\text{,}\)</span> <span class="process-math">\(y_1\geq x\text{.}\)</span> You probably guessed what’s coming next: let <span class="process-math">\(m_1\)</span> be the midpoint of <span class="process-math">\([\,x_1,y_1]\text{.}\)</span> Notice that either <span class="process-math">\(m_1\geq x,\,\forall\,x\in S\)</span> or <span class="process-math">\(\exists\)</span> <span class="process-math">\(x\in S\)</span> such that <span class="process-math">\(x\geq m_1\text{.}\)</span> In the former case, we relabel, letting <span class="process-math">\(x_2=x_1\)</span> and <span class="process-math">\(y_2=m_1\text{.}\)</span> In the latter case, we let <span class="process-math">\(x_2=m_1\)</span> and <span class="process-math">\(y_2=y_1\text{.}\)</span> In either case, we end up with <span class="process-math">\(x_1\leq x_2\leq y_2\leq y_1\text{,}\)</span> <span class="process-math">\(y_2-x_2=\frac{1}{2}\left(y_1-x_1\right)\text{,}\)</span> and <span class="process-math">\(\exists\)</span> <span class="process-math">\(x\in S\)</span> such that <span class="process-math">\(x\geq x_2\)</span> and <span class="process-math">\(\forall\,x\in S\text{,}\)</span> <span class="process-math">\(y_2\geq x\text{.}\)</span> If we continue this process, we end up with two sequences, <span class="process-math">\(\left(x_n\right)\)</span>and <span class="process-math">\(\left(y_n\right)\text{,}\)</span> satisfying the following conditions:</div>
 <ol class="decimal" id="IVTandEVT-SupremumAndEVT-13-2-33">
@@ -972,12 +1037,16 @@ b=\sup S\text{.}
 </div>
 <div class="para" id="IVTandEVT-SupremumAndEVT-13-3">By properties 1–4 and the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>  there exists <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\leq c\leq y_n,\,\forall\,n\text{.}\)</span> We will leave it to you to use property 5 to show that <span class="process-math">\(c=\sup S\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-13-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 9.4.1: Sketch of Proof"><a href="#IVTandEVT-SupremumAndEVT-13" title="Copy heading and permalink for Proof 9.4.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.4.1: Sketch of Proof">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-14"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 9.4.1: Sketch of Proof"><a href="#IVTandEVT-SupremumAndEVT-13" title="Copy heading and permalink for Proof 9.4.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.4.1: Sketch of Proof">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-14"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-14-4-1">Complete the above ideas to provide a formal proof of <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Theorem 9.4.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-14-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.4.4"><a href="#IVTandEVT-SupremumAndEVT-14" title="Copy heading and permalink for Problem 9.4.4" aria-label="Copy heading and permalink for Problem 9.4.4">🔗</a></div></article><div class="para" id="IVTandEVT-SupremumAndEVT-15">Notice that we really used the fact that <span class="process-math">\(S\)</span> was non-empty and bounded above in the proof of <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Theorem 9.4.3</a>. This makes sense, since a set which is not bounded above cannot possibly have a least upper bound. In fact, any real number is an upper bound of the empty set so that the empty set would not have a least upper bound.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 9.4.4"><a href="#IVTandEVT-SupremumAndEVT-14" title="Copy heading and permalink for Problem 9.4.4" aria-label="Copy heading and permalink for Problem 9.4.4">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-SupremumAndEVT-15">Notice that we really used the fact that <span class="process-math">\(S\)</span> was non-empty and bounded above in the proof of <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Theorem 9.4.3</a>. This makes sense, since a set which is not bounded above cannot possibly have a least upper bound. In fact, any real number is an upper bound of the empty set so that the empty set would not have a least upper bound.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="IVTandEVT-SupremumAndEVT-16">The following corollary to <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Theorem 9.4.3</a> can be very useful.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -986,20 +1055,28 @@ b=\sup S\text{.}
 </h4>
 <div class="para" id="cor_IncBoundedConverge-1-1">Let <span class="process-math">\((x_n)\)</span> be a bounded, increasing sequence of real numbers. That is, <span class="process-math">\(x_1\leq x_2\leq x_3\leq\cdots\text{.}\)</span> Then <span class="process-math">\((x_n)\)</span> converges to some real number <span class="process-math">\(c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_IncBoundedConverge-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 9.4.5"><a href="#cor_IncBoundedConverge" title="Copy heading and permalink for Corollary 9.4.5" aria-label="Copy heading and permalink for Corollary 9.4.5">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-18"><h4 class="heading">
+<div class="autopermalink" data-description="Corollary 9.4.5"><a href="#cor_IncBoundedConverge" title="Copy heading and permalink for Corollary 9.4.5" aria-label="Copy heading and permalink for Corollary 9.4.5">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-18"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-18-3-1">Prove <a href="IVTandEVT.html#cor_IncBoundedConverge" class="internal" title="Corollary 9.4.5">Corollary 9.4.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-18-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="IVTandEVT-SupremumAndEVT-18-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="IVTandEVT-SupremumAndEVT-18-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="IVTandEVT-SupremumAndEVT-18-4-1">Let <span class="process-math">\(c=\sup\{x_n|\,n=1,2,3,\ldots\}\text{.}\)</span> To show that <span class="process-math">\(\limit{n}{\infty}{x_n}=c\text{,}\)</span> let <span class="process-math">\(\eps &gt;0.\)</span>Note that <span class="process-math">\(c-\eps \)</span> is not an upper bound. You take it from here!<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-18-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 9.4.6.1"><a href="#IVTandEVT-SupremumAndEVT-18-4" title="Copy heading and permalink for Hint 9.4.6.1" aria-label="Copy heading and permalink for Hint 9.4.6.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 9.4.6"><a href="#IVTandEVT-SupremumAndEVT-18" title="Copy heading and permalink for Problem 9.4.6" aria-label="Copy heading and permalink for Problem 9.4.6">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-19"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 9.4.6"><a href="#IVTandEVT-SupremumAndEVT-18" title="Copy heading and permalink for Problem 9.4.6" aria-label="Copy heading and permalink for Problem 9.4.6">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-19"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="IVTandEVT-SupremumAndEVT-19-2"><div class="para logical" id="IVTandEVT-SupremumAndEVT-19-2-1">
+<div class="introduction" id="IVTandEVT-SupremumAndEVT-19-2">
+<div class="para logical" id="IVTandEVT-SupremumAndEVT-19-2-1">
 <div class="para">Consider the following curious expression</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_IncBoundedConverge.html" id="IVTandEVT-SupremumAndEVT-19-2-1-1">
 \begin{equation*}
@@ -1018,81 +1095,122 @@ x_{n+1}=\sqrt{2+x_n}\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-19-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+</div>
+</div>
 <article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-19-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-19-3-1-1">Use induction to show that <span class="process-math">\(x_n\lt 2\)</span> for <span class="process-math">\(n=1,\,2,\,3,\,\ldots\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-19-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.7.a"><a href="#IVTandEVT-SupremumAndEVT-19-3" title="Copy heading and permalink for Task 9.4.7.a" aria-label="Copy heading and permalink for Task 9.4.7.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-19-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.7.a"><a href="#IVTandEVT-SupremumAndEVT-19-3" title="Copy heading and permalink for Task 9.4.7.a" aria-label="Copy heading and permalink for Task 9.4.7.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-19-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-19-4-1-1">Use the result from part (a) to show that <span class="process-math">\(x_n\lt x_{n+1}\)</span> for <span class="process-math">\(n=1,\,2,\,3,\,\ldots\)</span> .<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-19-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.7.b"><a href="#IVTandEVT-SupremumAndEVT-19-4" title="Copy heading and permalink for Task 9.4.7.b" aria-label="Copy heading and permalink for Task 9.4.7.b">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-19-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.7.b"><a href="#IVTandEVT-SupremumAndEVT-19-4" title="Copy heading and permalink for Task 9.4.7.b" aria-label="Copy heading and permalink for Task 9.4.7.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-19-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-19-5-1-1">From <a href="IVTandEVT.html#cor_IncBoundedConverge" class="internal" title="Corollary 9.4.5">Corollary 9.4.5</a>, we have that <span class="process-math">\(\left(x_n\right)\)</span> must converge to some number <span class="process-math">\(c\text{.}\)</span> Use the fact that <span class="process-math">\(\left(x_{n+1}\right)\)</span> must converge to <span class="process-math">\(c\)</span> as well to compute what <span class="process-math">\(c\)</span> must be.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-19-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.7.c"><a href="#IVTandEVT-SupremumAndEVT-19-5" title="Copy heading and permalink for Task 9.4.7.c" aria-label="Copy heading and permalink for Task 9.4.7.c">🔗</a></div></article><div class="autopermalink" data-description="Problem 9.4.7"><a href="#IVTandEVT-SupremumAndEVT-19" title="Copy heading and permalink for Problem 9.4.7" aria-label="Copy heading and permalink for Problem 9.4.7">🔗</a></div></article><article class="problem example-like" id="PROBLEMGreatestLowerBound"><h4 class="heading">
+<div class="autopermalink" data-description="Task 9.4.7.c"><a href="#IVTandEVT-SupremumAndEVT-19-5" title="Copy heading and permalink for Task 9.4.7.c" aria-label="Copy heading and permalink for Task 9.4.7.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 9.4.7"><a href="#IVTandEVT-SupremumAndEVT-19" title="Copy heading and permalink for Problem 9.4.7" aria-label="Copy heading and permalink for Problem 9.4.7">🔗</a></div>
+</article>
+<article class="problem example-like" id="PROBLEMGreatestLowerBound"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="PROBLEMGreatestLowerBound-7"><div class="para" id="PROBLEMGreatestLowerBound-7-1">Let <span class="process-math">\(S\subseteq\RR\)</span> and let <span class="process-math">\(T=\{-x|\,x\in S\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMGreatestLowerBound-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="PROBLEMGreatestLowerBound-7">
+<div class="para" id="PROBLEMGreatestLowerBound-7-1">Let <span class="process-math">\(S\subseteq\RR\)</span> and let <span class="process-math">\(T=\{-x|\,x\in S\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMGreatestLowerBound-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="PROBLEMGreatestLowerBound-8"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="PROBLEMGreatestLowerBound-8-1-1">Mimic the definitions of an upper bound of a set and the least upper bound (supremum) of a set to give definitions for a lower bound of a set and the greatest lower bound (infimum) of a set.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMGreatestLowerBound-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="PROBLEMGreatestLowerBound-8-1-2">
+</div> 
+<div class="para" id="PROBLEMGreatestLowerBound-8-1-2">
 <em class="alert">Note</em>: The infimum of a set <span class="process-math">\(S\)</span> is denoted by <span class="process-math">\(\inf S\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMGreatestLowerBound-8-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.8.a"><a href="#PROBLEMGreatestLowerBound-8" title="Copy heading and permalink for Task 9.4.8.a" aria-label="Copy heading and permalink for Task 9.4.8.a">🔗</a></div></article><article class="task exercise-like" id="PROBLEMGreatestLowerBound-9"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.8.a"><a href="#PROBLEMGreatestLowerBound-8" title="Copy heading and permalink for Task 9.4.8.a" aria-label="Copy heading and permalink for Task 9.4.8.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="PROBLEMGreatestLowerBound-9"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="PROBLEMGreatestLowerBound-9-1-1">Prove that <span class="process-math">\(b\)</span> is an upper bound of <span class="process-math">\(S\)</span> if and only if <span class="process-math">\(-b\)</span> is a lower bound of <span class="process-math">\(T\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMGreatestLowerBound-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.8.b"><a href="#PROBLEMGreatestLowerBound-9" title="Copy heading and permalink for Task 9.4.8.b" aria-label="Copy heading and permalink for Task 9.4.8.b">🔗</a></div></article><article class="task exercise-like" id="PROBLEMGreatestLowerBound-10"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.8.b"><a href="#PROBLEMGreatestLowerBound-9" title="Copy heading and permalink for Task 9.4.8.b" aria-label="Copy heading and permalink for Task 9.4.8.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="PROBLEMGreatestLowerBound-10"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="PROBLEMGreatestLowerBound-10-1-1">Prove that <span class="process-math">\(b=\sup S\)</span> if and only if <span class="process-math">\(-b=\inf T\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMGreatestLowerBound-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.8.c"><a href="#PROBLEMGreatestLowerBound-10" title="Copy heading and permalink for Task 9.4.8.c" aria-label="Copy heading and permalink for Task 9.4.8.c">🔗</a></div></article><article class="task exercise-like" id="PROBLEMGreatestLowerBound-11"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.8.c"><a href="#PROBLEMGreatestLowerBound-10" title="Copy heading and permalink for Task 9.4.8.c" aria-label="Copy heading and permalink for Task 9.4.8.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="PROBLEMGreatestLowerBound-11"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para" id="PROBLEMGreatestLowerBound-11-1-1">Use parts (b) and (c) to show that the real number system satisfies the <dfn class="terminology">Greatest Lower Bound Property</dfn>: Any non–empty subset of real numbers which is bounded below has an infimum.<div class="autopermalink" data-description="Paragraph"><a href="#PROBLEMGreatestLowerBound-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.8.d"><a href="#PROBLEMGreatestLowerBound-11" title="Copy heading and permalink for Task 9.4.8.d" aria-label="Copy heading and permalink for Task 9.4.8.d">🔗</a></div></article><div class="autopermalink" data-description="Problem 9.4.8"><a href="#PROBLEMGreatestLowerBound" title="Copy heading and permalink for Problem 9.4.8" aria-label="Copy heading and permalink for Problem 9.4.8">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-21"><h4 class="heading">
+<div class="autopermalink" data-description="Task 9.4.8.d"><a href="#PROBLEMGreatestLowerBound-11" title="Copy heading and permalink for Task 9.4.8.d" aria-label="Copy heading and permalink for Task 9.4.8.d">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 9.4.8"><a href="#PROBLEMGreatestLowerBound" title="Copy heading and permalink for Problem 9.4.8" aria-label="Copy heading and permalink for Problem 9.4.8">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-21"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<div class="introduction" id="IVTandEVT-SupremumAndEVT-21-6"><div class="para" id="IVTandEVT-SupremumAndEVT-21-6-1">Find the least upper bound (supremum) and greatest lower bound (infimum) of the following sets of real numbers, if they exist. (If one does not exist then say so.)<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div></div>
+<div class="introduction" id="IVTandEVT-SupremumAndEVT-21-6">
+<div class="para" id="IVTandEVT-SupremumAndEVT-21-6-1">Find the least upper bound (supremum) and greatest lower bound (infimum) of the following sets of real numbers, if they exist. (If one does not exist then say so.)<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
 <article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-7"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-21-7-1-1">
 <span class="process-math">\(S=\left\{\frac{1}{n}\,|\,n=1,2,3,\ldots\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.9.a"><a href="#IVTandEVT-SupremumAndEVT-21-7" title="Copy heading and permalink for Task 9.4.9.a" aria-label="Copy heading and permalink for Task 9.4.9.a">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-8"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.9.a"><a href="#IVTandEVT-SupremumAndEVT-21-7" title="Copy heading and permalink for Task 9.4.9.a" aria-label="Copy heading and permalink for Task 9.4.9.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-8"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-21-8-1-1">
 <span class="process-math">\(T=\left\{r\,|\,r\right.\)</span> is rational and <span class="process-math">\(\left.r^2\lt 2\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.9.b"><a href="#IVTandEVT-SupremumAndEVT-21-8" title="Copy heading and permalink for Task 9.4.9.b" aria-label="Copy heading and permalink for Task 9.4.9.b">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-9"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.9.b"><a href="#IVTandEVT-SupremumAndEVT-21-8" title="Copy heading and permalink for Task 9.4.9.b" aria-label="Copy heading and permalink for Task 9.4.9.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-9"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-21-9-1-1">
 <span class="process-math">\((-\infty,0)\cup(1,\infty)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.9.c"><a href="#IVTandEVT-SupremumAndEVT-21-9" title="Copy heading and permalink for Task 9.4.9.c" aria-label="Copy heading and permalink for Task 9.4.9.c">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-10"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.9.c"><a href="#IVTandEVT-SupremumAndEVT-21-9" title="Copy heading and permalink for Task 9.4.9.c" aria-label="Copy heading and permalink for Task 9.4.9.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-10"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-21-10-1-1">
 <span class="process-math">\(R=\left\{\frac{(-1)^n}{n}\,|\,n=1,2,3,\ldots\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.9.d"><a href="#IVTandEVT-SupremumAndEVT-21-10" title="Copy heading and permalink for Task 9.4.9.d" aria-label="Copy heading and permalink for Task 9.4.9.d">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-11"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.9.d"><a href="#IVTandEVT-SupremumAndEVT-21-10" title="Copy heading and permalink for Task 9.4.9.d" aria-label="Copy heading and permalink for Task 9.4.9.d">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-11"><h5 class="heading"><span class="codenumber">(e)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-21-11-1-1">
 <span class="process-math">\((2,3\pi]\cap\QQ\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.9.e"><a href="#IVTandEVT-SupremumAndEVT-21-11" title="Copy heading and permalink for Task 9.4.9.e" aria-label="Copy heading and permalink for Task 9.4.9.e">🔗</a></div></article><article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-12"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="autopermalink" data-description="Task 9.4.9.e"><a href="#IVTandEVT-SupremumAndEVT-21-11" title="Copy heading and permalink for Task 9.4.9.e" aria-label="Copy heading and permalink for Task 9.4.9.e">🔗</a></div>
+</article>
+<article class="task exercise-like" id="IVTandEVT-SupremumAndEVT-21-12"><h5 class="heading"><span class="codenumber">(f)</span></h5>
 <div class="para" id="IVTandEVT-SupremumAndEVT-21-12-1-1">The empty set <span class="process-math">\(\emptyset\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-21-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 9.4.9.f"><a href="#IVTandEVT-SupremumAndEVT-21-12" title="Copy heading and permalink for Task 9.4.9.f" aria-label="Copy heading and permalink for Task 9.4.9.f">🔗</a></div></article><div class="autopermalink" data-description="Problem 9.4.9"><a href="#IVTandEVT-SupremumAndEVT-21" title="Copy heading and permalink for Problem 9.4.9" aria-label="Copy heading and permalink for Problem 9.4.9">🔗</a></div></article><div class="para" id="IVTandEVT-SupremumAndEVT-22">We now have all the tools we need to tackle the Extreme Value Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Task 9.4.9.f"><a href="#IVTandEVT-SupremumAndEVT-21-12" title="Copy heading and permalink for Task 9.4.9.f" aria-label="Copy heading and permalink for Task 9.4.9.f">🔗</a></div>
+</article><div class="autopermalink" data-description="Problem 9.4.9"><a href="#IVTandEVT-SupremumAndEVT-21" title="Copy heading and permalink for Problem 9.4.9" aria-label="Copy heading and permalink for Problem 9.4.9">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-SupremumAndEVT-22">We now have all the tools we need to tackle the Extreme Value Theorem.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_EVT"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extreme Value Theorem (EVT).</span>
 </h4>
 <div class="para" id="thm_EVT-3-1">Suppose <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([a,b]\text{.}\)</span> Then there exists <span class="process-math">\(c,d\in[a,b]\)</span> such that <span class="process-math">\(f(d)\leq f(x)\leq f(c)\text{,}\)</span> for all <span class="process-math">\(x\in[a,b]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_EVT-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.4.10: Extreme Value Theorem (EVT)"><a href="#thm_EVT" title="Copy heading and permalink for Theorem 9.4.10: Extreme Value Theorem (EVT)" aria-label="Copy heading and permalink for Theorem 9.4.10: Extreme Value Theorem (EVT)">🔗</a></div></article><article class="proof" id="IVTandEVT-SupremumAndEVT-24"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
+<div class="autopermalink" data-description="Theorem 9.4.10: Extreme Value Theorem (EVT)"><a href="#thm_EVT" title="Copy heading and permalink for Theorem 9.4.10: Extreme Value Theorem (EVT)" aria-label="Copy heading and permalink for Theorem 9.4.10: Extreme Value Theorem (EVT)">🔗</a></div>
+</article>
+<article class="proof" id="IVTandEVT-SupremumAndEVT-24"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-24-2">We will first show that <span class="process-math">\(f\)</span> attains its maximum.  To this end, recall that <a href="IVTandEVT.html#thm_CompactBounded" class="internal" title="Theorem 9.3.1">Theorem 9.3.1</a> tells us that <span class="process-math">\(f[\,a,b]=\{f(x)|\,x\in[\,a,b]\}\)</span> is a non–empty, bounded set.  By the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a>, <span class="process-math">\(f[a,b]\)</span> must have a least upper bound which we will label <span class="process-math">\(s\text{,}\)</span> so that <span class="process-math">\(s=\sup
 f[a,b]\text{.}\)</span>  This says that <span class="process-math">\(s\geq f(x)\text{,}\)</span>for all <span class="process-math">\(x\in[a,b]\text{.}\)</span>  All we need to do now is find a <span class="process-math">\(c\in[\,a,b]\)</span> with <span class="process-math">\(f(c)=s\text{.}\)</span>  With this in mind, notice that since <span class="process-math">\(s=\sup f[\,a,b]\text{,}\)</span> then for any positive integer <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(s-\frac{1}{n}\)</span> is not an upper bound of <span class="process-math">\(f[\,a,b]\text{.}\)</span>  Thus there exists <span class="process-math">\(x_n\in[\,a,b]\)</span> with<span class="process-math">\(\,s-\frac{1}{n}\lt f(x_n)\leq
 s\text{.}\)</span>  Now, by the <a href="IVTandEVT.html#BolzanoWeierstrass" class="internal" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a>, <span class="process-math">\(\left(x_n\right)\)</span> has a convergent subsequence<span class="process-math">\(\,\left(x_{n_k}\right)\)</span> converging to some <span class="process-math">\(c\in[\,a,b]\text{.}\)</span>  Using the continuity of <span class="process-math">\(f\)</span> at <span class="process-math">\(c\text{,}\)</span> you should be able to show that <span class="process-math">\(f(c)=s\text{.}\)</span>  To find the minimum of <span class="process-math">\(f\text{,}\)</span> find the maximum of <span class="process-math">\(-f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-24-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 9.4.2: Sketch of Proof"><a href="#IVTandEVT-SupremumAndEVT-24" title="Copy heading and permalink for Proof 9.4.2: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.4.2: Sketch of Proof">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-25"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 9.4.2: Sketch of Proof"><a href="#IVTandEVT-SupremumAndEVT-24" title="Copy heading and permalink for Proof 9.4.2: Sketch of Proof" aria-label="Copy heading and permalink for Proof 9.4.2: Sketch of Proof">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-25"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-25-3-1">Formalize the above ideas into a proof of the <a href="IVTandEVT.html#thm_EVT" class="internal" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">EVT</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-25-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.4.11"><a href="#IVTandEVT-SupremumAndEVT-25" title="Copy heading and permalink for Problem 9.4.11" aria-label="Copy heading and permalink for Problem 9.4.11">🔗</a></div></article><div class="para" id="IVTandEVT-SupremumAndEVT-26">Notice that we used the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> to prove both the <a href="IVTandEVT.html#BolzanoWeierstrass" class="internal" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a> and the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a>. This is really unavoidable, as it turns out that all of those statements are equivalent in the sense that any one of them can be taken as the completeness axiom for the real number system and the others proved as theorems.  This is not uncommon in mathematics, as people tend to gravitate toward ideas that suit the particular problem they are working on.  In this case, people realized at some point that they needed some sort of completeness property for the real number system to prove various theorems.  Each individual’s formulation of completeness fit in with his understanding of the problem at hand.  Only in hindsight do we see that they were really talking about the same concept: the completeness of the real number system.  In point of fact, most modern textbooks use the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a> as the axiom of completeness and prove all other formulations as theorems.  We will finish this section by showing that either the <a href="IVTandEVT.html#BolzanoWeierstrass" class="internal" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a> or the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a> can be used to prove the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>. This says that they are all equivalent and that any one of them could be taken as the completeness axiom.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 9.4.11"><a href="#IVTandEVT-SupremumAndEVT-25" title="Copy heading and permalink for Problem 9.4.11" aria-label="Copy heading and permalink for Problem 9.4.11">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-SupremumAndEVT-26">Notice that we used the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> to prove both the <a href="IVTandEVT.html#BolzanoWeierstrass" class="internal" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a> and the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a>. This is really unavoidable, as it turns out that all of those statements are equivalent in the sense that any one of them can be taken as the completeness axiom for the real number system and the others proved as theorems.  This is not uncommon in mathematics, as people tend to gravitate toward ideas that suit the particular problem they are working on.  In this case, people realized at some point that they needed some sort of completeness property for the real number system to prove various theorems.  Each individual’s formulation of completeness fit in with his understanding of the problem at hand.  Only in hindsight do we see that they were really talking about the same concept: the completeness of the real number system.  In point of fact, most modern textbooks use the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a> as the axiom of completeness and prove all other formulations as theorems.  We will finish this section by showing that either the <a href="IVTandEVT.html#BolzanoWeierstrass" class="internal" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a> or the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a> can be used to prove the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>. This says that they are all equivalent and that any one of them could be taken as the completeness axiom.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="IVTandEVT-SupremumAndEVT-27"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -1126,16 +1244,21 @@ s\text{.}\)</span>  Now, by the <a href="IVTandEVT.html#BolzanoWeierstrass" clas
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-27-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="IVTandEVT-SupremumAndEVT-27-3-2">Prove that there is a unique real number <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\le c\le y_n\text{,}\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-27-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="IVTandEVT-SupremumAndEVT-27-3-2">Prove that there is a unique real number <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\le c\le y_n\text{,}\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-27-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.4.12"><a href="#IVTandEVT-SupremumAndEVT-27" title="Copy heading and permalink for Problem 9.4.12" aria-label="Copy heading and permalink for Problem 9.4.12">🔗</a></div></article><div class="para" id="IVTandEVT-SupremumAndEVT-28">Since the <a href="IVTandEVT.html#BolzanoWeierstrass" class="internal" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a> and the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">Nested Interval Property</a> are equivalent, it follows that the Bolzano–Weierstrass Theorem is not true in the rational number system.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 9.4.12"><a href="#IVTandEVT-SupremumAndEVT-27" title="Copy heading and permalink for Problem 9.4.12" aria-label="Copy heading and permalink for Problem 9.4.12">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-SupremumAndEVT-28">Since the <a href="IVTandEVT.html#BolzanoWeierstrass" class="internal" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a> and the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">Nested Interval Property</a> are equivalent, it follows that the Bolzano–Weierstrass Theorem is not true in the rational number system.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="IVTandEVT-SupremumAndEVT-29"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-29-3-1">Find a bounded sequence of rational numbers such that no subsequence of it converges to a rational number.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-29-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.4.13"><a href="#IVTandEVT-SupremumAndEVT-29" title="Copy heading and permalink for Problem 9.4.13" aria-label="Copy heading and permalink for Problem 9.4.13">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-30"><h4 class="heading">
+<div class="autopermalink" data-description="Problem 9.4.13"><a href="#IVTandEVT-SupremumAndEVT-29" title="Copy heading and permalink for Problem 9.4.13" aria-label="Copy heading and permalink for Problem 9.4.13">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-30"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="IVTandEVT-SupremumAndEVT-30-3-1">
@@ -1167,44 +1290,63 @@ s\text{.}\)</span>  Now, by the <a href="IVTandEVT.html#BolzanoWeierstrass" clas
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-30-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="IVTandEVT-SupremumAndEVT-30-3-2">Prove that there is a unique real number <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\le c\le y_n\text{,}\)</span> for all n.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-30-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="IVTandEVT-SupremumAndEVT-30-3-2">Prove that there is a unique real number <span class="process-math">\(c\)</span> such that <span class="process-math">\(x_n\le c\le y_n\text{,}\)</span> for all n.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-30-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="IVTandEVT-SupremumAndEVT-30-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="IVTandEVT-SupremumAndEVT-30-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="IVTandEVT-SupremumAndEVT-30-4-1">
 <a href="IVTandEVT.html#cor_IncBoundedConverge" class="internal" title="Corollary 9.4.5">Corollary 9.4.5</a> might work well here.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-30-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 9.4.14.1"><a href="#IVTandEVT-SupremumAndEVT-30-4" title="Copy heading and permalink for Hint 9.4.14.1" aria-label="Copy heading and permalink for Hint 9.4.14.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 9.4.14"><a href="#IVTandEVT-SupremumAndEVT-30" title="Copy heading and permalink for Problem 9.4.14" aria-label="Copy heading and permalink for Problem 9.4.14">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-31"><h4 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 9.4.14"><a href="#IVTandEVT-SupremumAndEVT-30" title="Copy heading and permalink for Problem 9.4.14" aria-label="Copy heading and permalink for Problem 9.4.14">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-31"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-31-3-1">Since the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUBP</a> is equivalent to the <a href="IVTandEVT.html#NIP" class="internal" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> it does not hold for the rational number system. Demonstrate this by finding a non–empty set of rational numbers which is bounded above, but whose supremum is an irrational number.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-31-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.4.15"><a href="#IVTandEVT-SupremumAndEVT-31" title="Copy heading and permalink for Problem 9.4.15" aria-label="Copy heading and permalink for Problem 9.4.15">🔗</a></div></article><div class="para" id="IVTandEVT-SupremumAndEVT-32"> We now have the machinery in place to prove the <a href="NumbersRealRational.html#ArchimedeanProperty" class="xref" data-knowl="./knowl/xref/ArchimedeanProperty.html" data-reveal-label="Reveal" data-close-label="Close" title="Principle 2.0.14: The Archimedean Property">Archimedean Property</a> of the real number system as we promised we’d to back in <a href="NumbersRealRational.html" class="internal" title="Chapter 2: Numbers, Real \left(\RR\right) and Rational \left(\QQ\right)">Chapter 2</a>. We mentioned in <a href="NumbersRealRational.html" class="internal" title="Chapter 2: Numbers, Real \left(\RR\right) and Rational \left(\QQ\right)">Chapter 2</a>, that until the invention of Calculus this was taken to be intuitively obvious but we can now prove it as a formal theorem. The proof depends on the completeness of the real number system.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Problem 9.4.15"><a href="#IVTandEVT-SupremumAndEVT-31" title="Copy heading and permalink for Problem 9.4.15" aria-label="Copy heading and permalink for Problem 9.4.15">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-SupremumAndEVT-32"> We now have the machinery in place to prove the <a href="NumbersRealRational.html#ArchimedeanProperty" class="xref" data-knowl="./knowl/xref/ArchimedeanProperty.html" data-reveal-label="Reveal" data-close-label="Close" title="Principle 2.0.14: The Archimedean Property">Archimedean Property</a> of the real number system as we promised we’d to back in <a href="NumbersRealRational.html" class="internal" title="Chapter 2: Numbers, Real \left(\RR\right) and Rational \left(\QQ\right)">Chapter 2</a>. We mentioned in <a href="NumbersRealRational.html" class="internal" title="Chapter 2: Numbers, Real \left(\RR\right) and Rational \left(\QQ\right)">Chapter 2</a>, that until the invention of Calculus this was taken to be intuitively obvious but we can now prove it as a formal theorem. The proof depends on the completeness of the real number system.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="thm_ArchmedeanProperty"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Archimedean Property of <span class="process-math">\(\RR\)</span>.</span>
 </h4>
 <div class="para" id="thm_ArchmedeanProperty-3-1">Given any positive real numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> there exists a positive integer <span class="process-math">\(n\text{,}\)</span> such that <span class="process-math">\(na&gt;b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm_ArchmedeanProperty-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 9.4.16: Archimedean Property of \RR"><a href="#thm_ArchmedeanProperty" title="Copy heading and permalink for Theorem 9.4.16: Archimedean Property of \RR" aria-label="Copy heading and permalink for Theorem 9.4.16: Archimedean Property of \RR">🔗</a></div></article><article class="problem example-like" id="IVTandEVT-SupremumAndEVT-34"><h4 class="heading">
+<div class="autopermalink" data-description="Theorem 9.4.16: Archimedean Property of \RR"><a href="#thm_ArchmedeanProperty" title="Copy heading and permalink for Theorem 9.4.16: Archimedean Property of \RR" aria-label="Copy heading and permalink for Theorem 9.4.16: Archimedean Property of \RR">🔗</a></div>
+</article>
+<article class="problem example-like" id="IVTandEVT-SupremumAndEVT-34"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-34-4-1">Prove <a href="IVTandEVT.html#thm_ArchmedeanProperty" class="internal" title="Theorem 9.4.16: Archimedean Property of \RR">Theorem 9.4.16</a>.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-34-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="IVTandEVT-SupremumAndEVT-34-5" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="solutions">
+<details id="IVTandEVT-SupremumAndEVT-34-5" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
 <div class="para" id="IVTandEVT-SupremumAndEVT-34-5-1">Assume that there are positive real numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> such that <span class="process-math">\(na\le b\)</span> <span class="process-math">\(\forall\  n\in \NN\text{.}\)</span> Then <span class="process-math">\(\NN\)</span> would be bounded above by <span class="process-math">\(b/a\text{.}\)</span> Let <span class="process-math">\(s=\sup(\NN)\)</span> and consider <span class="process-math">\(s-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-34-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 9.4.17.1"><a href="#IVTandEVT-SupremumAndEVT-34-5" title="Copy heading and permalink for Hint 9.4.17.1" aria-label="Copy heading and permalink for Hint 9.4.17.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Problem 9.4.17"><a href="#IVTandEVT-SupremumAndEVT-34" title="Copy heading and permalink for Problem 9.4.17" aria-label="Copy heading and permalink for Problem 9.4.17">🔗</a></div></article><div class="para" id="IVTandEVT-SupremumAndEVT-35">You might reasonably ask if the <a href="IVTandEVT.html#thm_ArchmedeanProperty" class="internal" title="Theorem 9.4.16: Archimedean Property of \RR">Archimedean Property</a> is equivalent to the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Least Upper Bound Property</a> (and thus could be taken as an axiom).  The answer lies in the following problem.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Problem 9.4.17"><a href="#IVTandEVT-SupremumAndEVT-34" title="Copy heading and permalink for Problem 9.4.17" aria-label="Copy heading and permalink for Problem 9.4.17">🔗</a></div>
+</article>
+<div class="para" id="IVTandEVT-SupremumAndEVT-35">You might reasonably ask if the <a href="IVTandEVT.html#thm_ArchmedeanProperty" class="internal" title="Theorem 9.4.16: Archimedean Property of \RR">Archimedean Property</a> is equivalent to the <a href="IVTandEVT.html#thm_LUB" class="internal" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Least Upper Bound Property</a> (and thus could be taken as an axiom).  The answer lies in the following problem.<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="problem example-like" id="IVTandEVT-SupremumAndEVT-36"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="IVTandEVT-SupremumAndEVT-36-3-1">Does <span class="process-math">\(\QQ\)</span> satisfy the <a href="IVTandEVT.html#thm_ArchmedeanProperty" class="internal" title="Theorem 9.4.16: Archimedean Property of \RR">Archimedean Property</a> and what does this have to do with the question of taking the Archimedean Property as an axiom of completeness?<div class="autopermalink" data-description="Paragraph"><a href="#IVTandEVT-SupremumAndEVT-36-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Problem 9.4.18"><a href="#IVTandEVT-SupremumAndEVT-36" title="Copy heading and permalink for Problem 9.4.18" aria-label="Copy heading and permalink for Problem 9.4.18">🔗</a></div></article><div class="autopermalink" data-description="Section 9.4: The Supremum and the Extreme Value Theorem"><a href="#IVTandEVT-SupremumAndEVT" title="Copy heading and permalink for Section 9.4: The Supremum and the Extreme Value Theorem" aria-label="Copy heading and permalink for Section 9.4: The Supremum and the Extreme Value Theorem">🔗</a></div></section><div class="autopermalink" data-description="Chapter 9: Intermediate and Extreme Values"><a href="#IVTandEVT" title="Copy heading and permalink for Chapter 9: Intermediate and Extreme Values" aria-label="Copy heading and permalink for Chapter 9: Intermediate and Extreme Values">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Problem 9.4.18"><a href="#IVTandEVT-SupremumAndEVT-36" title="Copy heading and permalink for Problem 9.4.18" aria-label="Copy heading and permalink for Problem 9.4.18">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 9.4: The Supremum and the Extreme Value Theorem"><a href="#IVTandEVT-SupremumAndEVT" title="Copy heading and permalink for Section 9.4: The Supremum and the Extreme Value Theorem" aria-label="Copy heading and permalink for Section 9.4: The Supremum and the Extreme Value Theorem">🔗</a></div>
+</section><div class="autopermalink" data-description="Chapter 9: Intermediate and Extreme Values"><a href="#IVTandEVT" title="Copy heading and permalink for Chapter 9: Intermediate and Extreme Values" aria-label="Copy heading and permalink for Chapter 9: Intermediate and Extreme Values">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="Continuity.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="LimDerivIntFTC.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
