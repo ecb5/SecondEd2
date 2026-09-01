@@ -26,6 +26,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,7 @@ htmlPresentation: false,
 <meta property="og:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -56,21 +57,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></div>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="ptx-search-box">
@@ -83,7 +84,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -219,7 +230,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, and Integrals</span></a></div>
 <ul id="ptx-toc-group-LimDerivIntFTC" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DefLimit" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DerivativeAfterthought" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
@@ -280,16 +291,16 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="chapter" id="NumbersRealRational">
-<h2 class="heading">
+<h1 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Numbers, Real <span class="process-math">\(\left(\RR\right)\)</span> and Rational <span class="process-math">\(\left(\QQ\right)\)</span></span>
-</h2>
+</h1>
 <div class="para" id="NumbersRealRational-2">The set of real numbers (denoted, <span class="process-math">\(\RR\)</span>) is badly named.  The real numbers are no more or less real — in the non-mathematical sense that they exist — than any other set of numbers, just like the set of rational numbers (<span class="process-math">\(\QQ\)</span>), the set of integers (<span class="process-math">\(\ZZ\)</span>), or the set of natural numbers (<span class="process-math">\(\NN\)</span>).  The name “real numbers” is (almost) an historical anomaly not unlike the name “Pythagorean Theorem” which was actually known and understood long before Pythagoras lived.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="NumbersRealRational-3">When Calculus was being invented in the <span class="process-math">\(17\)</span>th century, numbers were thoroughly understood, or so it was believed.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="NumbersRealRational-4" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="NumbersRealRational-4" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How Old is Calculus?</span>
-</h3></summary>
+</h2></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="NumbersRealRational-4-2">Some would say “re-invented.” See <a href="ASORA-6-1.html#russo96__forgot_revol" class="xref" data-knowl="./knowl/xref/russo96__forgot_revol.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry 15">[15]</a>, or <a href="ASORA-6-1.html#netz07__archim_codex" class="xref" data-knowl="./knowl/xref/netz07__archim_codex.html" data-reveal-label="Reveal" data-close-label="Close" title="Bibliographic Entry 11">[11]</a>.  <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -310,9 +321,9 @@ eBookConfig.enable_chatcodes =  false;
 </figure>
 <div class="para" id="NumbersRealRational-11">This seems to work as a visualization because the <dfn class="terminology">rational numbers</dfn> and the points on a line seem to share certain properties.  Chief among these is that between any two points on the rational line there is another point, just as between any two rational numbers there is another rational number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="NumbersRealRational-12"><h3 class="heading">
+<article class="problem example-like" id="NumbersRealRational-12"><h2 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="para" id="NumbersRealRational-12-3-1">Let <span class="process-math">\(a, b, c, d\in\NN\)</span> and find a rational number between <span class="process-math">\(a/b\)</span> and <span class="process-math">\(c/d\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-12-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 2.0.3"><a tabindex="-1" href="#NumbersRealRational-12" title="Copy heading and permalink for Problem 2.0.3" aria-label="Copy heading and permalink for Problem 2.0.3">🔗</a></div>
@@ -321,21 +332,21 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="NumbersRealRational-14">You may be wondering what we’re making all of this fuss about.  <em class="emphasis">Obviously</em> this is <em class="emphasis">always</em> true.  In fact the previous paragraph gives an outline of a very nice little proof of this.  Here are the theorem and its proof presented formally.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_CommonDenominatorsExist"><h3 class="heading">
+<article class="theorem theorem-like" id="thm_CommonDenominatorsExist"><h2 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="para" id="thm_CommonDenominatorsExist-2-1">Suppose <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> and <span class="process-math">\(d\)</span> are integers, with <span class="process-math">\(b, d \neq 0\text{.}\)</span>  There is a number <span class="process-math">\(\alpha\in\QQ\)</span> such that <span class="process-math">\(M\alpha=a/b\)</span> and <span class="process-math">\(N\alpha=c/d\)</span> where <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> are also integers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_CommonDenominatorsExist-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 2.0.4"><a tabindex="-1" href="#thm_CommonDenominatorsExist" title="Copy heading and permalink for Theorem 2.0.4" aria-label="Copy heading and permalink for Theorem 2.0.4">🔗</a></div>
 </article>
-<article class="proof" id="NumbersRealRational-16"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
+<article class="proof" id="NumbersRealRational-16"><h2 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
 <div class="para" id="NumbersRealRational-16-1">To prove this theorem we will display <span class="process-math">\(\alpha\text{,}\)</span> <span class="process-math">\(M\)</span> and <span class="process-math">\(N\text{.}\)</span>  It is your responsibility to confirm that these actually work.  Here they are: <span class="process-math">\(\alpha=1/bd\text{,}\)</span> <span class="process-math">\(M=ad\text{,}\)</span> and <span class="process-math">\(N=cb\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 2.1"><a tabindex="-1" href="#NumbersRealRational-16" title="Copy heading and permalink for Proof 2.1" aria-label="Copy heading and permalink for Proof 2.1">🔗</a></div>
 </article>
-<article class="problem example-like" id="NumbersRealRational-17"><h3 class="heading">
+<article class="problem example-like" id="NumbersRealRational-17"><h2 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="para" id="NumbersRealRational-17-3-1">Confirm that <span class="process-math">\(\alpha, M, \text{ and } N\)</span> as given in the proof of <a href="NumbersRealRational.html#thm_CommonDenominatorsExist" class="internal" title="Theorem 2.0.4">Theorem 2.0.4</a> satisfy the requirements of the theorem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-17-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 2.0.5"><a tabindex="-1" href="#NumbersRealRational-17" title="Copy heading and permalink for Problem 2.0.5" aria-label="Copy heading and permalink for Problem 2.0.5">🔗</a></div>
@@ -386,75 +397,75 @@ a^2 \amp = 2b^2.
 </div>
 <div class="para" id="NumbersRealRational-29">Therefore our error must be in the initial assumption that <span class="process-math">\(\sqrt{2}\)</span> could be expressed as a fraction.  That assumption must therefore be false.  In other words, <span class="process-math">\(\sqrt{2}\)</span> cannot be so expressed.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="NumbersRealRational-30"><h3 class="heading">
+<article class="problem example-like" id="NumbersRealRational-30"><h2 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Irrational Numbers.</span>
-</h3>
+</h2>
 <div class="introduction" id="NumbersRealRational-30-4">
 <div class="para" id="NumbersRealRational-30-4-1">Show that each of the following numbers is irrational:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-30-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="NumbersRealRational-30-5"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-30-5"><h3 class="heading"><span class="codenumber">(a)</span></h3>
 <div class="para" id="NumbersRealRational-30-5-1-1">
 <span class="process-math">\(\sqrt{3}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-30-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.7.a"><a tabindex="-1" href="#NumbersRealRational-30-5" title="Copy heading and permalink for Task 2.0.7.a" aria-label="Copy heading and permalink for Task 2.0.7.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-30-6"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-30-6"><h3 class="heading"><span class="codenumber">(b)</span></h3>
 <div class="para" id="NumbersRealRational-30-6-1-1">
 <span class="process-math">\(\sqrt{5}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-30-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.7.b"><a tabindex="-1" href="#NumbersRealRational-30-6" title="Copy heading and permalink for Task 2.0.7.b" aria-label="Copy heading and permalink for Task 2.0.7.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-30-7"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-30-7"><h3 class="heading"><span class="codenumber">(c)</span></h3>
 <div class="para" id="NumbersRealRational-30-7-1-1">
 <span class="process-math">\(\sqrt[3]{2}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-30-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.7.c"><a tabindex="-1" href="#NumbersRealRational-30-7" title="Copy heading and permalink for Task 2.0.7.c" aria-label="Copy heading and permalink for Task 2.0.7.c">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-30-8"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-30-8"><h3 class="heading"><span class="codenumber">(d)</span></h3>
 <div class="para" id="NumbersRealRational-30-8-1-1">
 <span class="process-math">\(i\)</span> <span class="process-math">\((=\sqrt{-1})\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-30-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.7.d"><a tabindex="-1" href="#NumbersRealRational-30-8" title="Copy heading and permalink for Task 2.0.7.d" aria-label="Copy heading and permalink for Task 2.0.7.d">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-30-9"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-30-9"><h3 class="heading"><span class="codenumber">(e)</span></h3>
 <div class="para" id="NumbersRealRational-30-9-1-1">The square root of every positive integer which is not the square of an integer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-30-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.7.e"><a tabindex="-1" href="#NumbersRealRational-30-9" title="Copy heading and permalink for Task 2.0.7.e" aria-label="Copy heading and permalink for Task 2.0.7.e">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 2.0.7: Irrational Numbers"><a tabindex="-1" href="#NumbersRealRational-30" title="Copy heading and permalink for Problem 2.0.7: Irrational Numbers" aria-label="Copy heading and permalink for Problem 2.0.7: Irrational Numbers">🔗</a></div>
 </article>
-<article class="problem example-like" id="NumbersRealRational-31"><h3 class="heading">
+<article class="problem example-like" id="NumbersRealRational-31"><h2 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="introduction" id="NumbersRealRational-31-3">
 <div class="para" id="NumbersRealRational-31-3-1">Determine if each of the following is always rational or always irrational. Justify your answers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-31-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="NumbersRealRational-31-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-31-4"><h3 class="heading"><span class="codenumber">(a)</span></h3>
 <div class="para" id="NumbersRealRational-31-4-1-1">The sum of two rational numbers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-31-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.8.a"><a tabindex="-1" href="#NumbersRealRational-31-4" title="Copy heading and permalink for Task 2.0.8.a" aria-label="Copy heading and permalink for Task 2.0.8.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-31-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-31-5"><h3 class="heading"><span class="codenumber">(b)</span></h3>
 <div class="para" id="NumbersRealRational-31-5-1-1">The sum of two irrational numbers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-31-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.8.b"><a tabindex="-1" href="#NumbersRealRational-31-5" title="Copy heading and permalink for Task 2.0.8.b" aria-label="Copy heading and permalink for Task 2.0.8.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-31-6"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-31-6"><h3 class="heading"><span class="codenumber">(c)</span></h3>
 <div class="para" id="NumbersRealRational-31-6-1-1">The sum of a rational and an irrational number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-31-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.8.c"><a tabindex="-1" href="#NumbersRealRational-31-6" title="Copy heading and permalink for Task 2.0.8.c" aria-label="Copy heading and permalink for Task 2.0.8.c">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 2.0.8"><a tabindex="-1" href="#NumbersRealRational-31" title="Copy heading and permalink for Problem 2.0.8" aria-label="Copy heading and permalink for Problem 2.0.8">🔗</a></div>
 </article>
-<article class="problem example-like" id="NumbersRealRational-32"><h3 class="heading">
+<article class="problem example-like" id="NumbersRealRational-32"><h2 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
-<article class="task exercise-like" id="NumbersRealRational-32-5"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+</h2>
+<article class="task exercise-like" id="NumbersRealRational-32-5"><h3 class="heading"><span class="codenumber">(a)</span></h3>
 <div class="para" id="NumbersRealRational-32-5-1-1">Decide if it is possible to have two rational numbers, <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> such that <span class="process-math">\(a^b\)</span> is irrational. If so, display an example of such <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span>  If not, prove that it is not possible.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-32-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.9.a"><a tabindex="-1" href="#NumbersRealRational-32-5" title="Copy heading and permalink for Task 2.0.9.a" aria-label="Copy heading and permalink for Task 2.0.9.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-32-6"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-32-6"><h3 class="heading"><span class="codenumber">(b)</span></h3>
 <div class="para" id="NumbersRealRational-32-6-1-1">Decide if it is possible to have two irrational numbers, <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> such that <span class="process-math">\(a^b\)</span> is rational.  If so, display an example of such <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span>  If not, prove that it is not possible.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-32-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -499,9 +510,9 @@ a^2 \amp = 2b^2.
 </div>
 <div class="para" id="NumbersRealRational-46">And yet, the following theorem is true<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-46" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_IrrationalBetweenIrrationals"><h3 class="heading">
+<article class="theorem theorem-like" id="thm_IrrationalBetweenIrrationals"><h2 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="para logical" id="thm_IrrationalBetweenIrrationals-2-1">
 <ol class="lower-alpha ol-marker-1" id="thm_IrrationalBetweenIrrationals-2-1-1">
 <li id="thm_IrrationalBetweenIrrationals-2-1-1-1">
@@ -521,9 +532,9 @@ a^2 \amp = 2b^2.
 </article>
 <div class="para" id="NumbersRealRational-48"> Both parts of this theorem rely on a judicious use of what is now called the <dfn class="terminology">Archimedean Property</dfn> of the Real Number System, which can be formally stated as follows.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-48" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="principle theorem-like" id="ArchimedeanProperty"><h3 class="heading">
+<article class="principle theorem-like" id="ArchimedeanProperty"><h2 class="heading">
 <span class="type">Principle</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Archimedean Property.</span>
-</h3>
+</h2>
 <div class="para" id="ArchimedeanProperty-2-1"> Given any two positive real numbers, <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> there is a positive integer, <span class="process-math">\(n\)</span> such that <span class="process-math">\(na&gt;b\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ArchimedeanProperty-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Principle 2.0.14: The Archimedean Property"><a tabindex="-1" href="#ArchimedeanProperty" title="Copy heading and permalink for Principle 2.0.14: The Archimedean Property" aria-label="Copy heading and permalink for Principle 2.0.14: The Archimedean Property">🔗</a></div>
@@ -544,7 +555,7 @@ y}\)</span> and <span class="process-math">\(\dx{ x}\)</span> used to form the d
 <figure class="figure figure-like" id="FIGURERobinsonPortrait"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Robinson.png" class="contained" alt="Portrait of Abraham Robinson"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Abraham Robinson<div class="autopermalink" aria-hidden="true" data-description="Figure 2.0.15"><a tabindex="-1" href="#FIGURERobinsonPortrait" title="Copy heading and permalink for Figure 2.0.15" aria-label="Copy heading and permalink for Figure 2.0.15">🔗</a></div></figcaption>
 </figure>
-<article class="proof" id="NumbersRealRational-57"><h3 class="heading"><span class="title">Sketch of Proof.</span></h3>
+<article class="proof" id="NumbersRealRational-57"><h2 class="heading"><span class="title">Sketch of Proof.</span></h2>
 <div class="para" id="NumbersRealRational-57-2">We will outline the proof of part (a) of <a href="NumbersRealRational.html#thm_IrrationalBetweenIrrationals" class="internal" title="Theorem 2.0.13">Theorem 2.0.13</a> and indicate how it can be used to prove part (b).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-57-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="NumbersRealRational-57-3">
@@ -572,15 +583,15 @@ n\alpha-n\beta &gt; 1\text{.}\)</span>  Now there will be an integer between <sp
 </article>
 <div class="para" id="NumbersRealRational-58">For part (b), divide <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> by any positive irrational number and apply part a.  There are a couple of details to keep in mind.  These are considered in the following problem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-58" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="NumbersRealRational-59"><h3 class="heading">
+<article class="problem example-like" id="NumbersRealRational-59"><h2 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.0.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
-<article class="task exercise-like" id="NumbersRealRational-59-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+</h2>
+<article class="task exercise-like" id="NumbersRealRational-59-3"><h3 class="heading"><span class="codenumber">(a)</span></h3>
 <div class="para" id="NumbersRealRational-59-3-1-1">Prove that the product of a nonzero rational number and an irrational number is irrational.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-59-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.16.a"><a tabindex="-1" href="#NumbersRealRational-59-3" title="Copy heading and permalink for Task 2.0.16.a" aria-label="Copy heading and permalink for Task 2.0.16.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NumbersRealRational-59-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<article class="task exercise-like" id="NumbersRealRational-59-4"><h3 class="heading"><span class="codenumber">(b)</span></h3>
 <div class="para" id="NumbersRealRational-59-4-1-1">Use the result of part (a) to prove <a href="NumbersRealRational.html#thm_IrrationalBetweenIrrationals" class="internal" title="Theorem 2.0.13">Theorem 2.0.13</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NumbersRealRational-59-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 2.0.16.b"><a tabindex="-1" href="#NumbersRealRational-59-4" title="Copy heading and permalink for Task 2.0.16.b" aria-label="Copy heading and permalink for Task 2.0.16.b">🔗</a></div>

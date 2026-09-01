@@ -26,6 +26,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,7 @@ htmlPresentation: false,
 <meta property="og:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -56,21 +57,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></div>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="ptx-search-box">
@@ -83,7 +84,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -219,7 +230,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, and Integrals</span></a></div>
 <ul id="ptx-toc-group-LimDerivIntFTC" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DefLimit" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DerivativeAfterthought" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
@@ -280,26 +291,26 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="chapter" id="CalcIn17th18thCentury">
-<h2 class="heading">
+<h1 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Calculus in the 17th and 18th Centuries</span>
-</h2>
+</h1>
 <section class="section" id="CalcIn17th18thCentury-NewtLeibStart">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Newton and Leibniz Get Started</span>
-</h3>
+</h2>
 <section class="subsection" id="sec_leibn-calc-rules">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Leibniz’ Calculus Rules</span>
-</h4>
+</h3>
 <div class="para" id="sec_leibn-calc-rules-2"> The rules for Calculus were first laid out in the 1684 paper <i class="foreign">Nova methodus pro maximis et minimis, itemque tangentibus, quae nec fractas nec irrationales, quantitates moratur, et singulare pro illi calculi genus</i> (A New Method for Maxima and Minima as Well as Tangents, Which is Impeded Neither by Fractional Nor by Irrational Quantities, and a Remarkable Type of Calculus for This) written by <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/" target="_blank">Gottfried Wilhelm Leibniz</a> (1646–1716).  Leibniz started with subtraction.  That is, if <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> are very close together then their difference, <span class="process-math">\(\Delta
 x=x_2-x_1\text{,}\)</span> is very small.  He expanded this idea to say that if <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> are <em class="emphasis">infinitely</em> close together (but still distinct) then their difference <span class="process-math">\(\dx{ x}\text{,}\)</span> is infinitesimally small (but not zero).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_leibn-calc-rules-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="sec_leibn-calc-rules-3"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Leibniz.png" class="contained" alt="Portrait of Gottfried Wilhelm Leibniz"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Gottfried Wilhelm Leibniz<div class="autopermalink" aria-hidden="true" data-description="Figure 3.1.1"><a tabindex="-1" href="#sec_leibn-calc-rules-3" title="Copy heading and permalink for Figure 3.1.1" aria-label="Copy heading and permalink for Figure 3.1.1">🔗</a></div></figcaption>
 </figure>
-<details id="sec_leibn-calc-rules-4" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<details id="sec_leibn-calc-rules-4" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><i class="foreign">Calculus Differentialis</i>.</span>
-</h5></summary>
+</h4></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="sec_leibn-calc-rules-4-2">This translates, loosely, as the “Calculus of Differences”.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_leibn-calc-rules-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -366,9 +377,9 @@ x}+\underbrace{(y_2-y_1)}_{\Delta{y}} \text{.}
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 3.1.1: Leibniz’ Calculus Rules"><a tabindex="-1" href="#sec_leibn-calc-rules" title="Copy heading and permalink for Subsection 3.1.1: Leibniz’ Calculus Rules" aria-label="Copy heading and permalink for Subsection 3.1.1: Leibniz’ Calculus Rules">🔗</a></div>
 </section>
 <section class="subsection" id="LeibnizProductRule">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Leibniz’s Approach to the Product Rule</span>
-</h4>
+</h3>
 <div class="para" id="LeibnizProductRule-2"> The explanation of the product rule using differentials is a bit more involved, but Leibniz expected that mathematicans would be fluent enough to derive it.  The product <span class="process-math">\(p=xv\)</span> can be thought of as the area of the following rectangle<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#LeibnizProductRule-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/fig1-1.png" class="contained" alt="A rectangle with height labeled v, and width labeld x. Inside the rectangle is area its area is labeled p=xv."></div>
@@ -376,7 +387,7 @@ x}+\underbrace{(y_2-y_1)}_{\Delta{y}} \text{.}
 </figure>
 <div class="para" id="LeibnizProductRule-4">With this in mind, <span class="process-math">\(\dx{ p}=\dx{(xv)}\)</span> can be thought of as the change in area when <span class="process-math">\(x\)</span> is changed by <span class="process-math">\(\dx{ x}\)</span> and <span class="process-math">\(v\)</span> is changed by <span class="process-math">\(\dx{ v}\text{.}\)</span>  This can be seen as the L shaped region in the following drawing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#LeibnizProductRule-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="fig2"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/images/fig2-1.png" class="contained"></div>
+<figure class="figure figure-like" id="fig2"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/images/fig2-1.png" class="contained" alt="Picture of two copies of a rectangle with bottom labeled x, left side labeled v, and area p=xv. The rectangle on the left is extended horizontally by dx and vertically by dv. The resulting L-shaped region around the top and right side is labeled dp=d(xv). On the right the corner of L shaped region is marked off and labeled dxdv."></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" aria-hidden="true" data-description="Figure 3.1.3"><a tabindex="-1" href="#fig2" title="Copy heading and permalink for Figure 3.1.3" aria-label="Copy heading and permalink for Figure 3.1.3">🔗</a></div></figcaption>
 </figure>
 <div class="para logical" id="LeibnizProductRule-6">
@@ -404,13 +415,13 @@ x}+\underbrace{(y_2-y_1)}_{\Delta{y}} \text{.}
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 3.1.2: Leibniz’s Approach to the Product Rule"><a tabindex="-1" href="#LeibnizProductRule" title="Copy heading and permalink for Subsection 3.1.2: Leibniz’s Approach to the Product Rule" aria-label="Copy heading and permalink for Subsection 3.1.2: Leibniz’s Approach to the Product Rule">🔗</a></div>
 </section>
 <section class="subsection" id="NewtonsApproach">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Newton’s Approach to the Product Rule</span>
-</h4>
+</h3>
 <div class="para" id="NewtonsApproach-2">
 <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Newton/" target="_blank">Isaac Newton’s</a> (1643–1727) approach to Calculus — his ‘Method of Fluxions’ — depended fundamentally on motion.  He conceived of variables (fluents) as changing (flowing or fluxing) in time.  The rate of change of a fluent he called a fluxion.  As a theoretical foundation both Leibniz’s and Newton’s approaches have fallen out of favor, although both are still universally used as a conceptual approach, a “way of thinking,” about the ideas of Calculus.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="Newton"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Newton.png" class="contained" alt="Bust of Isaac Newton"></div>
+<figure class="figure figure-like" id="Newton"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Newton.png" class="contained" alt="Picture of a bust of Isaac Newton"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Isaac Newton<div class="autopermalink" aria-hidden="true" data-description="Figure 3.1.4: "><a tabindex="-1" href="#Newton" title="Copy heading and permalink for Figure 3.1.4: " aria-label="Copy heading and permalink for Figure 3.1.4: ">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="NewtonsApproach-4">In <span class="booktitle">Philosophiae naturalis principia mathematica</span> (this is usually shortened to <span class="booktitle">Principia</span>) Newton “proved” the Product Rule as follows: Let <span class="process-math">\(x\)</span> and <span class="process-math">\(v\)</span> be “flowing quantites” and consider the rectangle, <span class="process-math">\(R\text{,}\)</span> whose sides are <span class="process-math">\(x\)</span> and <span class="process-math">\(v\text{.}\)</span>  <span class="process-math">\(R\)</span> is also a flowing quantity and we wish to find its fluxion (derivative) at any time.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -469,14 +480,14 @@ x}\right)=3x^2\dx{ x}\text{,}
 <div class="para">were results that had been derived by others using other methods.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="NewtonsApproach-12"><h5 class="heading">
+<article class="problem example-like" id="NewtonsApproach-12"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="introduction" id="NewtonsApproach-12-2">
 <div class="para" id="NewtonsApproach-12-2-1">Assume <span class="process-math">\(n\)</span> is a positive integer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="NewtonsApproach-12-3"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<article class="task exercise-like" id="NewtonsApproach-12-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para logical" id="NewtonsApproach-12-3-1-1">
 <div class="para">Use Leibniz’ product rule <span class="process-math">\(\dx{\left(xv\right)}=x\dx{v}+v\dx{x}\)</span> to show that</div>
 <div class="displaymath process-math" id="NewtonsApproach-12-3-1-1-3">
@@ -488,7 +499,7 @@ x}\right)=3x^2\dx{ x}\text{,}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.1.5.a"><a tabindex="-1" href="#NewtonsApproach-12-3" title="Copy heading and permalink for Task 3.1.5.a" aria-label="Copy heading and permalink for Task 3.1.5.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NewtonsApproach-12-4"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<article class="task exercise-like" id="NewtonsApproach-12-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="NewtonsApproach-12-4-1-1">
 <div class="para">Suppose <span class="process-math">\(y=x^{-1}=\frac{1}{x}\text{,}\)</span> Use Leibniz’ product rule to show</div>
 <div class="displaymath process-math" id="NewtonsApproach-12-4-1-1-3">
@@ -500,7 +511,7 @@ dy=-1x^{-2}\dx{x}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.1.5.b"><a tabindex="-1" href="#NewtonsApproach-12-4" title="Copy heading and permalink for Task 3.1.5.b" aria-label="Copy heading and permalink for Task 3.1.5.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NewtonsApproach-12-5"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<article class="task exercise-like" id="NewtonsApproach-12-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para logical" id="NewtonsApproach-12-5-1-1">
 <div class="para">Use the product rule and the result of part (b) to derive the quotient rule</div>
 <div class="displaymath process-math" id="NewtonsApproach-12-5-1-1-1">
@@ -512,7 +523,7 @@ d\left(\frac{v}{x}\right)=\frac{x\dx{v}-v\dx{x}}{x^2}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.1.5.c"><a tabindex="-1" href="#NewtonsApproach-12-5" title="Copy heading and permalink for Task 3.1.5.c" aria-label="Copy heading and permalink for Task 3.1.5.c">🔗</a></div>
 </article>
-<article class="task exercise-like" id="NewtonsApproach-12-6"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<article class="task exercise-like" id="NewtonsApproach-12-6"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para logical" id="NewtonsApproach-12-6-1-1">
 <div class="para">Use the quotient rule to show that</div>
 <div class="displaymath process-math" id="NewtonsApproach-12-6-1-1-1">
@@ -525,9 +536,9 @@ d\left(x^{-n}\right)=-nx^{-n-1}\dx{x}
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.1.5.d"><a tabindex="-1" href="#NewtonsApproach-12-6" title="Copy heading and permalink for Task 3.1.5.d" aria-label="Copy heading and permalink for Task 3.1.5.d">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.1.5"><a tabindex="-1" href="#NewtonsApproach-12" title="Copy heading and permalink for Problem 3.1.5" aria-label="Copy heading and permalink for Problem 3.1.5">🔗</a></div>
 </article>
-<article class="problem example-like" id="NewtonsApproach-13"><h5 class="heading">
+<article class="problem example-like" id="NewtonsApproach-13"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para logical" id="NewtonsApproach-13-3-1">
 <div class="para">Suppose <span class="process-math">\(y=x^{\frac{p}{q}}\)</span> with <span class="process-math">\(q\neq 0\text{,}\)</span> where <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are integers. Show that</div>
 <div class="displaymath process-math" id="NewtonsApproach-13-3-1-5">
@@ -548,8 +559,8 @@ x}\text{.}
 </figure>
 <div class="para" id="NewtonsApproach-16">Given that light travels through air at a speed of <span class="process-math">\(v_a\)</span> and travels through water at a speed of <span class="process-math">\(v_w\)</span> the problem is to find the fastest path from point <span class="process-math">\(A\)</span> to point <span class="process-math">\(B\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="snellfig"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/images/snellfig-1.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" aria-hidden="true" data-description="Figure 3.1.8: "><a tabindex="-1" href="#snellfig" title="Copy heading and permalink for Figure 3.1.8: " aria-label="Copy heading and permalink for Figure 3.1.8: ">🔗</a></div></figcaption>
+<figure class="figure figure-like" id="snellfig"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/images/snellfig-1.png" class="contained" alt="A horizontal line represents the boundary between air (above) and water (below). Another line represents the path of a light beam as it travels from point A above the boundary on the left to the point B below the boundary on the right. The path of the light beam bend at the boundary becoming steeper below."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" aria-hidden="true" data-description="Figure 3.1.8"><a tabindex="-1" href="#snellfig" title="Copy heading and permalink for Figure 3.1.8" aria-label="Copy heading and permalink for Figure 3.1.8">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="NewtonsApproach-18">According to <a class="external" href="https://en.wikipedia.org/wiki/Fermat%27s_principle" target="_blank">Fermat’s Principle of Least Time</a>, this fastest path is the one that light will travel.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -619,9 +630,9 @@ T}=0\text{,}\)</span> we see that the fastest path from <span class="process-mat
 </div>
 <div class="para" id="NewtonsApproach-35">Newton submitted his solution anonymously, presumably to avoid more controversy. Nevertheless the methods he used were so distinctively Newton’s that Bernoulli is said to have exclaimed “<i class="foreign">Tanquam ex ungue leonem</i>.”<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="NewtonsApproach-36" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<details id="NewtonsApproach-36" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><i class="foreign">Tanquam ex ungue leonem</i>.</span>
-</h5></summary>
+</h4></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="NewtonsApproach-36-2">“Translation: I know the lion by his claw.”<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-36-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -783,9 +794,9 @@ v\dfdx{v}{s} \amp = g\dfdx{y}{s}
 </div>
 <div class="para" id="NewtonsApproach-52">Bernoulli was then able to solve this differential equation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-52" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="NewtonsApproach-53"><h5 class="heading">
+<article class="problem example-like" id="NewtonsApproach-53"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="NewtonsApproach-53-3-1">Show that the equations <span class="process-math">\(x=\frac{\phi-\sin
 \phi}{4gc^2},\,y=\frac{1-\cos \phi}{4gc^2}\)</span> satisfy equation <a href="CalcIn17th18thCentury.html#NewtonsApproach-51-3" class="internal" title="Equation 3.1.6">equation (3.1.6)</a>. Bernoulli recognized this solution to be an inverted cycloid, the curve traced by a fixed point on a circle as the circle rolls along a horizontal surface.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#NewtonsApproach-53-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -797,15 +808,15 @@ v\dfdx{v}{s} \amp = g\dfdx{y}{s}
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 3.1: Newton and Leibniz Get Started"><a tabindex="-1" href="#CalcIn17th18thCentury-NewtLeibStart" title="Copy heading and permalink for Section 3.1: Newton and Leibniz Get Started" aria-label="Copy heading and permalink for Section 3.1: Newton and Leibniz Get Started">🔗</a></div>
 </section>
 <section class="section" id="ExponentAdditionProperty">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Power Series as Infinite Polynomials</span>
-</h3>
+</h2>
 <div class="para" id="ExponentAdditionProperty-2"> Applied to polynomials, the rules of differential and integral Calculus are straightforward.  Indeed, differentiating and integrating polynomials represent some of the easiest tasks in a Calculus course.  For example, computing <span class="process-math">\(\int(7-x+x^2)\dx{
 x}\)</span> is relatively easy compared to computing <span class="process-math">\(\int\sqrt[3]{1+x^3}\dx{ x}\text{.}\)</span>  Unfortunately, not all functions can be expressed as a polynomial.  For example, <span class="process-math">\(f(x)=\sin x\)</span> cannot be since a polynomial has only finitely many roots and the sine function has infinitely many roots, namely <span class="process-math">\(\{n\pi|\,n\in\ZZ\}\text{.}\)</span>  A standard technique in the 18th century was to write such functions as an “infinite polynomial,” or what today we refer to as a <dfn class="terminology">power series</dfn>.  Unfortunately an “infinite polynomial” is a much more subtle object than a mere polynomial, which by definition is finite.  For now we will not concern ourselves with these subtleties. Instead we will follow the example of our forebears and manipulate all “polynomial–like” objects (finite or infinite) as if they are polynomials.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="def_PowerSeries"><h4 class="heading">
+<article class="definition definition-like" id="def_PowerSeries"><h3 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="def_PowerSeries-3-1">
 <div class="para">A <dfn class="terminology">power series centered at <span class="process-math">\(\boldsymbol{a}\)</span></dfn> is a series of the form</div>
 <div class="displaymath process-math" id="def_PowerSeries-3-1-2">
@@ -827,7 +838,7 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 <div class="para">In this section we will focus on power series centered around zero. In <a href="CalcIn17th18thCentury.html#SECTIONPowSerWOTaylor" class="internal" title="Section 3.3: Expanding Simple Power Series by Algebraic Methods">the next section</a> we will look at power series centered about points other than zero.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<section class="paragraphs" id="ExponentAdditionProperty-5"><h4 class="heading"><span class="title">A useful comment on notation.</span></h4>
+<section class="paragraphs" id="ExponentAdditionProperty-5"><h3 class="heading"><span class="title">A useful comment on notation.</span></h3>
 <div class="para" id="ExponentAdditionProperty-5-2">The most advantageous way to represent a power series is using summation notation since there can be no doubt about the pattern in the terms.  After all, this notation contains a formula for the general term.  However, there are instances where summation notation is not practical.  In these cases, it is acceptable to indicate the sum by supplying the first few terms and using ellipses (the three dots).  If this is done, then enough terms must be included to make the pattern clear to the reader.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraphs: A useful comment on notation"><a tabindex="-1" href="#ExponentAdditionProperty-5" title="Copy heading and permalink for Paragraphs: A useful comment on notation" aria-label="Copy heading and permalink for Paragraphs: A useful comment on notation">🔗</a></div>
@@ -906,9 +917,9 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ExponentAdditionProperty-12" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ExponentAdditionProperty-12" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Formal Manipulation.</span>
-</h4></summary>
+</h3></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ExponentAdditionProperty-12-2">When we say “formal manipulations” we mean that we will perform purely algebraic operations on an given expression without concerning ourselves (much) about whether the operations make sense in context. We will formalize them in <a href="TaylorSeries.html" class="internal" title='Chapter 7: A "Tayl" of Three Remainders'>Chapter 7</a><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-12-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -917,9 +928,9 @@ x}\)</span> is relatively easy compared to computing <span class="process-math">
 </div>
 <div class="para" id="ExponentAdditionProperty-14">Power series became an important tool in analysis in the 1700s. By representing various functions as power series they could be dealt with as if they were (infinite) polynomials.  The following is an example.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="ExponentAdditionProperty-15"><h4 class="heading">
+<article class="example example-like" id="ExponentAdditionProperty-15"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="ExponentAdditionProperty-15-2-1">
 <div class="para">Solve the following Initial Value problem: Find <span class="process-math">\(y(x)\)</span> given that</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-15-2-1-2">
@@ -930,9 +941,9 @@ x}}=y,\amp{}\amp{}y(0)=1.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<details id="ExponentAdditionProperty-15-2-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<details id="ExponentAdditionProperty-15-2-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comment.</span>
-</h5></summary>
+</h4></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ExponentAdditionProperty-15-2-2-2">A few seconds of thought should convince you that the solution of this problem is <span class="process-math">\(y(x) = e^x\text{.}\)</span>  We will ignore this for now in favor of emphasizing the technique.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-15-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1035,9 +1046,9 @@ E(x)E(y) =  E(x+y)\text{.}
 <div class="para" id="ExponentAdditionProperty-20">
 <dfn class="terminology">Property 3</dfn>. If <span class="process-math">\(m\)</span> is a positive integer then <span class="process-math">\(E(mx)=\left(E(x\right))^m\text{.}\)</span> In particular, <span class="process-math">\(E(m)=\left(E(1)\right)^m\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-21"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-21"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="ExponentAdditionProperty-21-2-1">Prove Property 3.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-21-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.3"><a tabindex="-1" href="#ExponentAdditionProperty-21" title="Copy heading and permalink for Problem 3.2.3" aria-label="Copy heading and permalink for Problem 3.2.3">🔗</a></div>
@@ -1045,9 +1056,9 @@ E(x)E(y) =  E(x+y)\text{.}
 <div class="para" id="ExponentAdditionProperty-22">
 <dfn class="terminology">Property 4</dfn>. <span class="process-math">\(E(-x)=\frac{1}{E(x)}=\left(E(x)\right)^{-1}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-23"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-23"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="ExponentAdditionProperty-23-2-1">Prove Property 4.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.4"><a tabindex="-1" href="#ExponentAdditionProperty-23" title="Copy heading and permalink for Problem 3.2.4" aria-label="Copy heading and permalink for Problem 3.2.4">🔗</a></div>
@@ -1055,9 +1066,9 @@ E(x)E(y) =  E(x+y)\text{.}
 <div class="para" id="ExponentAdditionProperty-24">
 <dfn class="terminology">Property 5</dfn>. If <span class="process-math">\(n\)</span> is an integer with <span class="process-math">\(n\neq 0\text{,}\)</span> then <span class="process-math">\(E(\frac{1}{n})=\sqrt[n]{E(1)}=\left(E(1)\right)^{1/n}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-25"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-25"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="ExponentAdditionProperty-25-2-1">Prove Property 5.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-25-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.5"><a tabindex="-1" href="#ExponentAdditionProperty-25" title="Copy heading and permalink for Problem 3.2.5" aria-label="Copy heading and permalink for Problem 3.2.5">🔗</a></div>
@@ -1065,16 +1076,16 @@ E(x)E(y) =  E(x+y)\text{.}
 <div class="para" id="ExponentAdditionProperty-26">
 <dfn class="terminology">Property 6</dfn>. If <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are integers with <span class="process-math">\(n\neq 0\text{,}\)</span> then <span class="process-math">\(E\left(\frac{m}{n}\right)=\left(E(1)\right)^{m/n}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-27"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-27"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="ExponentAdditionProperty-27-2-1">Prove Property 6.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-27-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.6"><a tabindex="-1" href="#ExponentAdditionProperty-27" title="Copy heading and permalink for Problem 3.2.6" aria-label="Copy heading and permalink for Problem 3.2.6">🔗</a></div>
 </article>
-<article class="definition definition-like" id="def_e"><h4 class="heading">
+<article class="definition definition-like" id="def_e"><h3 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="def_e-3-1">Let <span class="process-math">\(E(1)\)</span> be denoted by the number <span class="process-math">\(e\text{.}\)</span> Using the power series <span class="process-math">\(e=E(1)=\sum_{n=0}^\infty\frac{1}{n!}\text{,}\)</span> we can approximate <span class="process-math">\(e\)</span> to any degree of accuracy. In particular <span class="process-math">\(e\approx 2.71828\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def_e-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Definition 3.2.7"><a tabindex="-1" href="#def_e" title="Copy heading and permalink for Definition 3.2.7" aria-label="Copy heading and permalink for Definition 3.2.7">🔗</a></div>
@@ -1122,9 +1133,9 @@ e^{-\frac{x^2}{2}}\dx{x} \amp =\frac{1}{\sqrt{2\pi}}
 </div>
 <div class="para" id="ExponentAdditionProperty-33">This power series can be used to approximate the integral to any degree of accuracy.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-34"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-34"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="ExponentAdditionProperty-34-2-1">
 <div class="para">Write <span class="process-math">\(e^{-x^3}\)</span> as a power series expanded about <span class="process-math">\(0\)</span> and use your series to represent</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-34-2-1-3">
@@ -1137,9 +1148,9 @@ e^{-\frac{x^2}{2}}\dx{x} \amp =\frac{1}{\sqrt{2\pi}}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.8"><a tabindex="-1" href="#ExponentAdditionProperty-34" title="Copy heading and permalink for Problem 3.2.8" aria-label="Copy heading and permalink for Problem 3.2.8">🔗</a></div>
 </article>
-<article class="problem example-like" id="ExponentAdditionProperty-35"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-35"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="ExponentAdditionProperty-35-2-1">Let <span class="process-math">\(a&gt;0\text{.}\)</span>  Find a power series expansion about “0”  for <span class="process-math">\(a^x\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-35-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1153,14 +1164,14 @@ e^{-\frac{x^2}{2}}\dx{x} \amp =\frac{1}{\sqrt{2\pi}}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.9"><a tabindex="-1" href="#ExponentAdditionProperty-35" title="Copy heading and permalink for Problem 3.2.9" aria-label="Copy heading and permalink for Problem 3.2.9">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMSinPwrSeries"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMSinPwrSeries"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="introduction" id="PROBLEMSinPwrSeries-3">
 <div class="para" id="PROBLEMSinPwrSeries-3-1">The ability to express complex functions as <dfn class="terminology">power series</dfn> (“infinite polynomials”) became a tool of paramount importance for solving differential equations in the 1700s.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMSinPwrSeries-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="PROBLEMSinPwrSeries-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<article class="task exercise-like" id="PROBLEMSinPwrSeries-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="PROBLEMSinPwrSeries-4-1-1">
 <div class="para">Show that if <span class="process-math">\(y=\sum_{n=0}^\infty a_nx^n\)</span> satisfies the differential equation</div>
 <div class="displaymath process-math" id="EQUATIONSinCosDiffeq">
@@ -1185,7 +1196,7 @@ y=a_0+a_1x-\amp{}\frac{1}{2!}a_0x^2-\frac{1}{3!}a_1x^3+\frac{1}{4!}a_0x^4+\frac{
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.10.a"><a tabindex="-1" href="#PROBLEMSinPwrSeries-4" title="Copy heading and permalink for Task 3.2.10.a" aria-label="Copy heading and permalink for Task 3.2.10.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMSinPwrSeries-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PROBLEMSinPwrSeries-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para logical" id="PROBLEMSinPwrSeries-5-1-1">
 <div class="para">Since <span class="process-math">\(y=\sin x\)</span> also satisfies <a href="CalcIn17th18thCentury.html#EQUATIONSinCosDiffeq" class="internal" title="Equation 3.2.4">equation (3.2.4)</a>, we see that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONSinCosDiffeq.html" id="PROBLEMSinPwrSeries-5-1-1-3">
@@ -1207,10 +1218,10 @@ x\amp{}=x-\frac{1}{3!}\,x^3+\frac{1}{5!}x^5-\frac{1}{7!}x^7+\cdots\\
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.10.b"><a tabindex="-1" href="#PROBLEMSinPwrSeries-5" title="Copy heading and permalink for Task 3.2.10.b" aria-label="Copy heading and permalink for Task 3.2.10.b">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.10"><a tabindex="-1" href="#PROBLEMSinPwrSeries" title="Copy heading and permalink for Problem 3.2.10" aria-label="Copy heading and permalink for Problem 3.2.10">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMSinCosPwrSeries"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMSinCosPwrSeries"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<article class="task exercise-like" id="PROBLEMSinCosPwrSeries-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+</h3>
+<article class="task exercise-like" id="PROBLEMSinCosPwrSeries-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="PROBLEMSinCosPwrSeries-4-1-1">
 <div class="para">Use the power series</div>
 <div class="displaymath process-math" id="PROBLEMSinCosPwrSeries-4-1-1-1">
@@ -1231,7 +1242,7 @@ x\amp{}=1-\frac{1}{2!}\,x^2+\frac{1}{4!}x^4-\frac{1}{6!}x^6+\cdots\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.11.a"><a tabindex="-1" href="#PROBLEMSinCosPwrSeries-4" title="Copy heading and permalink for Task 3.2.11.a" aria-label="Copy heading and permalink for Task 3.2.11.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMSinCosPwrSeries-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PROBLEMSinCosPwrSeries-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para logical" id="PROBLEMSinCosPwrSeries-5-1-1">
 <div class="para">Let</div>
 <div class="displaymath process-math" id="PROBLEMSinCosPwrSeries-5-1-1-1">
@@ -1252,9 +1263,9 @@ c(x,N)=\sum_{n=0}^N\frac{\left(-1\right)^n}{\left(2n\right)!}x^{2n}
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.11.b"><a tabindex="-1" href="#PROBLEMSinCosPwrSeries-5" title="Copy heading and permalink for Task 3.2.11.b" aria-label="Copy heading and permalink for Task 3.2.11.b">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.11"><a tabindex="-1" href="#PROBLEMSinCosPwrSeries" title="Copy heading and permalink for Problem 3.2.11" aria-label="Copy heading and permalink for Problem 3.2.11">🔗</a></div>
 </article>
-<article class="problem example-like" id="ExponentAdditionProperty-38"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-38"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="ExponentAdditionProperty-38-2-1">
 <div class="para">Use the power series for <span class="process-math">\(\sin (x)\)</span> to compute</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-38-2-1-2">
@@ -1267,10 +1278,10 @@ c(x,N)=\sum_{n=0}^N\frac{\left(-1\right)^n}{\left(2n\right)!}x^{2n}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.12"><a tabindex="-1" href="#ExponentAdditionProperty-38" title="Copy heading and permalink for Problem 3.2.12" aria-label="Copy heading and permalink for Problem 3.2.12">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMResultsFromGeometricSeries"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMResultsFromGeometricSeries"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+</h3>
+<article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="PROBLEMResultsFromGeometricSeries-4-1-1">
 <div class="para">Use the <a href="CalcIn17th18thCentury.html#EQUATIONGeometricSeries" class="internal" title="Equation 3.2.1">Geometric series</a> to obtain a power series for</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html" id="PROBLEMResultsFromGeometricSeries-4-1-1-2">
@@ -1285,7 +1296,7 @@ f(x)=\frac{1}{1+x}\text{,}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.13.a"><a tabindex="-1" href="#PROBLEMResultsFromGeometricSeries-4" title="Copy heading and permalink for Task 3.2.13.a" aria-label="Copy heading and permalink for Task 3.2.13.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para logical" id="PROBLEMResultsFromGeometricSeries-5-1-1">
 <div class="para">Use the power series you found  in part (a) to obtain a power series for</div>
 <div class="displaymath process-math" id="PROBLEMResultsFromGeometricSeries-5-1-1-1">
@@ -1300,7 +1311,7 @@ f(x)=\frac{1}{1+x^2}\text{,}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.13.b"><a tabindex="-1" href="#PROBLEMResultsFromGeometricSeries-5" title="Copy heading and permalink for Task 3.2.13.b" aria-label="Copy heading and permalink for Task 3.2.13.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like" id="PROBLEMResultsFromGeometricSeries-6"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para logical" id="PROBLEMResultsFromGeometricSeries-6-1-1">
 <div class="para">Use the result in part (b) to obtain the power series</div>
 <div class="displaymath process-math" id="PROBLEMResultsFromGeometricSeries-6-1-1-1">
@@ -1318,10 +1329,10 @@ x=x-\frac{1}{3}x^3+\frac{1}{5}x^5-\cdots
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.13.c"><a tabindex="-1" href="#PROBLEMResultsFromGeometricSeries-6" title="Copy heading and permalink for Task 3.2.13.c" aria-label="Copy heading and permalink for Task 3.2.13.c">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.13"><a tabindex="-1" href="#PROBLEMResultsFromGeometricSeries" title="Copy heading and permalink for Problem 3.2.13" aria-label="Copy heading and permalink for Problem 3.2.13">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMLnSeriesFromGeoSeries"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMLnSeriesFromGeoSeries"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<article class="task exercise-like" id="PROBLEMLnSeriesFromGeoSeries-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+</h3>
+<article class="task exercise-like" id="PROBLEMLnSeriesFromGeoSeries-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="PROBLEMLnSeriesFromGeoSeries-4-1-1">
 <div class="para">Use the <a href="CalcIn17th18thCentury.html#EQUATIONGeometricSeries" class="internal" title="Equation 3.2.1">Geometric series</a> to obtain the power series</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/EQUATIONGeometricSeries.html" id="PROBLEMLnSeriesFromGeoSeries-4-1-1-2">
@@ -1342,13 +1353,13 @@ x=x-\frac{1}{3}x^3+\frac{1}{5}x^5-\cdots
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.14.a"><a tabindex="-1" href="#PROBLEMLnSeriesFromGeoSeries-4" title="Copy heading and permalink for Task 3.2.14.a" aria-label="Copy heading and permalink for Task 3.2.14.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMLnSeriesFromGeoSeries-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PROBLEMLnSeriesFromGeoSeries-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="PROBLEMLnSeriesFromGeoSeries-5-1-1">Use the result of part (a) to represent the function <span class="process-math">\(\ln
 \left(1+x^2\right)\)</span> as a power series expanded about <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMLnSeriesFromGeoSeries-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.14.b"><a tabindex="-1" href="#PROBLEMLnSeriesFromGeoSeries-5" title="Copy heading and permalink for Task 3.2.14.b" aria-label="Copy heading and permalink for Task 3.2.14.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMLnSeriesFromGeoSeries-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like" id="PROBLEMLnSeriesFromGeoSeries-6"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para" id="PROBLEMLnSeriesFromGeoSeries-6-1-1">Use the result of part (a) represent the function <span class="process-math">\(\ln
 \left(2+x\right)\)</span> as power series expanded about <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMLnSeriesFromGeoSeries-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1364,9 +1375,9 @@ x=x-\frac{1}{3}x^3+\frac{1}{5}x^5-\cdots
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.14.c"><a tabindex="-1" href="#PROBLEMLnSeriesFromGeoSeries-6" title="Copy heading and permalink for Task 3.2.14.c" aria-label="Copy heading and permalink for Task 3.2.14.c">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.14"><a tabindex="-1" href="#PROBLEMLnSeriesFromGeoSeries" title="Copy heading and permalink for Problem 3.2.14" aria-label="Copy heading and permalink for Problem 3.2.14">🔗</a></div>
 </article>
-<article class="problem example-like" id="ExponentAdditionProperty-41"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-41"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="ExponentAdditionProperty-41-2-1">Use the <a href="CalcIn17th18thCentury.html#EQUATIONGeometricSeries" class="internal" title="Equation 3.2.1">Geometric series</a> to find a power series representation for <span class="process-math">\(\frac{2x}{1+x^2}\text{.}\)</span>  Integrate this to obtain a power series representation for <span class="process-math">\(\ln\left(1+x^2\right)\)</span> and compare your answer to part (b) of the previous problem. (This shows that there may be more than one way to obtain a power series representation.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-41-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.15"><a tabindex="-1" href="#ExponentAdditionProperty-41" title="Copy heading and permalink for Problem 3.2.15" aria-label="Copy heading and permalink for Problem 3.2.15">🔗</a></div>
@@ -1485,9 +1496,9 @@ n!=\prod_{j=1}^{n}j\text{.}
 </div>
 <div class="para" id="ExponentAdditionProperty-54">Notice that since <span class="process-math">\(\frac{1}{2}\)</span> is not an integer the power series no longer terminates.  Although Newton did not prove that this power series was correct (nor did we), he tested it by multiplying the power series by itself.  When he saw that by squaring the power series he started to obtain <span class="process-math">\(1+x+0\,x^2+0\,x^3+\cdots\text{,}\)</span> he was convinced that the power series was exactly equal to <span class="process-math">\(\sqrt{1+x}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-54" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-55"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-55"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="ExponentAdditionProperty-55-3-1">
 <div class="para">Consider the power series representation</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-55-3-1-1">
@@ -1502,9 +1513,9 @@ n!=\prod_{j=1}^{n}j\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.17"><a tabindex="-1" href="#ExponentAdditionProperty-55" title="Copy heading and permalink for Problem 3.2.17" aria-label="Copy heading and permalink for Problem 3.2.17">🔗</a></div>
 </article>
-<article class="problem example-like" id="prob_SqrtSeriesProb"><h4 class="heading">
+<article class="problem example-like" id="prob_SqrtSeriesProb"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="prob_SqrtSeriesProb-3-1">
 <div class="para">Let</div>
 <div class="displaymath process-math" id="prob_SqrtSeriesProb-3-1-1">
@@ -1521,9 +1532,9 @@ S(x,M)=\sum_{n=0}^M\frac{\prod_{j=0}^{n-1}\left(\frac{1}{2}-j \right)}{n!}x^n\te
 <div class="para" id="ExponentAdditionProperty-57">Convinced that he had the correct power series, Newton used it to find a power series representation of <span class="process-math">\(\int_{x=0}^1\sqrt{1-x^2}
 \dx{ x}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-57" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-58"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-58"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="ExponentAdditionProperty-58-3-1">
 <div class="para">Use the power series <span class="process-math">\(\displaystyle
 \left(1+x\right)^{\frac{1}{2}}=\sum_{n=0}^\infty\frac{\prod_{j=0}^{n-1}\left(\frac{1}{2}-j\right)}{n!}x^n\)</span> to obtain the power series</div>
@@ -1542,9 +1553,9 @@ S(x,M)=\sum_{n=0}^M\frac{\prod_{j=0}^{n-1}\left(\frac{1}{2}-j \right)}{n!}x^n\te
 </article>
 <div class="para" id="ExponentAdditionProperty-59">Again, Newton had a power series which could be verified (somewhat) computationally.  This convinced him even further that he had the correct power series.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-59" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-60"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-60"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="ExponentAdditionProperty-60-3-1">
 <ol class="lower-alpha ol-marker-1" id="ExponentAdditionProperty-60-3-1-1">
 <li id="ExponentAdditionProperty-60-3-1-1-1">
@@ -1617,10 +1628,10 @@ S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 </div>
 <div class="para" id="ExponentAdditionProperty-62">In fact, the binomial series is the correct power series representation for all values of the exponent <span class="process-math">\(\alpha\)</span> (though we haven’t proved this yet).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-62" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ExponentAdditionProperty-63"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-63"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<article class="task exercise-like" id="ExponentAdditionProperty-63-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+</h3>
+<article class="task exercise-like" id="ExponentAdditionProperty-63-2"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-63-2-1-1">
 <div class="para">Assuming that the binomial series works for <span class="process-math">\(\alpha =-\frac{1}{2}\text{,}\)</span> show that</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-63-2-1-1-2">
@@ -1634,7 +1645,7 @@ S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.21.a"><a tabindex="-1" href="#ExponentAdditionProperty-63-2" title="Copy heading and permalink for Task 3.2.21.a" aria-label="Copy heading and permalink for Task 3.2.21.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-63-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-63-3"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-63-3-1-1">
 <div class="para">Integrate the above to obtain the following power series for <span class="process-math">\(\arcsin (x)\text{.}\)</span>
 </div>
@@ -1649,7 +1660,7 @@ S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.21.b"><a tabindex="-1" href="#ExponentAdditionProperty-63-3" title="Copy heading and permalink for Task 3.2.21.b" aria-label="Copy heading and permalink for Task 3.2.21.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-63-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-63-4"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para" id="ExponentAdditionProperty-63-4-1-1">Substitute <span class="process-math">\(x=\frac{1}{2}\)</span> into the above power series to obtain a power series representation for <span class="process-math">\(\frac{\pi
 }{6}\text{.}\)</span>  Add the first four terms of this power series to obtain an approximation for <span class="process-math">\(\pi \text{,}\)</span> and compare with <span class="process-math">\(\pi
 \approx 3.14159265359\text{.}\)</span>  How close did your approximation come?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-63-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1657,25 +1668,25 @@ S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.21.c"><a tabindex="-1" href="#ExponentAdditionProperty-63-4" title="Copy heading and permalink for Task 3.2.21.c" aria-label="Copy heading and permalink for Task 3.2.21.c">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.21"><a tabindex="-1" href="#ExponentAdditionProperty-63" title="Copy heading and permalink for Problem 3.2.21" aria-label="Copy heading and permalink for Problem 3.2.21">🔗</a></div>
 </article>
-<article class="problem example-like" id="ExponentAdditionProperty-64"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-64"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="introduction" id="ExponentAdditionProperty-64-5">
 <div class="para" id="ExponentAdditionProperty-64-5-1">Let <span class="process-math">\(k\)</span> be a positive integer.  Find the power series, centered at zero, for <span class="process-math">\(f(x) =
 \left(1-x\right)^{-k}\)</span> by<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-64-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="ExponentAdditionProperty-64-6"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-64-6"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="ExponentAdditionProperty-64-6-1-1">Differentiating the <a href="CalcIn17th18thCentury.html#EQUATIONGeometricSeries" class="internal" title="Equation 3.2.1">Geometric series</a> <span class="process-math">\(\left(k-1\right)\)</span> times.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-64-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.22.a"><a tabindex="-1" href="#ExponentAdditionProperty-64-6" title="Copy heading and permalink for Task 3.2.22.a" aria-label="Copy heading and permalink for Task 3.2.22.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-64-7"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-64-7"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="ExponentAdditionProperty-64-7-1-1">Applying the binomial series.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-64-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.22.b"><a tabindex="-1" href="#ExponentAdditionProperty-64-7" title="Copy heading and permalink for Task 3.2.22.b" aria-label="Copy heading and permalink for Task 3.2.22.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-64-8"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-64-8"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para" id="ExponentAdditionProperty-64-8-1-1">Compare the results in parts (a) and (b).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-64-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.22.c"><a tabindex="-1" href="#ExponentAdditionProperty-64-8" title="Copy heading and permalink for Task 3.2.22.c" aria-label="Copy heading and permalink for Task 3.2.22.c">🔗</a></div>
@@ -1695,19 +1706,19 @@ S2(N)=4\left(\sum_{n=0}^N\frac{(-1)^n\,\,}{2n+1}\right)\text{.}
 <figure class="figure figure-like" id="ExponentAdditionProperty-66"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Euler.png" class="contained" alt="Portrait of Euler"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Leonhard Euler<div class="autopermalink" aria-hidden="true" data-description="Figure 3.2.23"><a tabindex="-1" href="#ExponentAdditionProperty-66" title="Copy heading and permalink for Figure 3.2.23" aria-label="Copy heading and permalink for Figure 3.2.23">🔗</a></div></figcaption>
 </figure>
-<article class="problem example-like" id="ExponentAdditionProperty-67"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-67"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Basel Problem.</span>
-</h4>
+</h3>
 <div class="introduction" id="ExponentAdditionProperty-67-4">
 <div class="para" id="ExponentAdditionProperty-67-4-1">Recall that in <a href="CalcIn17th18thCentury.html#PROBLEMSinCosPwrSeries" class="internal" title="Problem 3.2.11">Problem 3.2.11</a> we developed a power series representation of the function  <span class="process-math">\(\sin x\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-67-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="ExponentAdditionProperty-67-5"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-67-5"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="ExponentAdditionProperty-67-5-1-1">Show that the power series for <span class="process-math">\(\frac{\sin x}{x}\)</span> is given by <span class="process-math">\(1-\frac{1}{3!}x^2+\frac{1}{5!}x^4-\cdots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-67-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.24.a"><a tabindex="-1" href="#ExponentAdditionProperty-67-5" title="Copy heading and permalink for Task 3.2.24.a" aria-label="Copy heading and permalink for Task 3.2.24.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-67-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-67-6"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-67-6-1-1">
 <div class="para">Use part (a) to infer that the roots of <span class="process-math">\(1-\frac{1}{3!}x^2+\frac{1}{5!}x^4-\cdots\)</span> are given by</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-67-6-1-1-2">
@@ -1719,7 +1730,7 @@ x=\pm\pi,\,\pm 2\pi,\,\pm 3\pi,\,\ldots
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.24.b"><a tabindex="-1" href="#ExponentAdditionProperty-67-6" title="Copy heading and permalink for Task 3.2.24.b" aria-label="Copy heading and permalink for Task 3.2.24.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-67-7"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-67-7"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-67-7-1-1">
 <div class="para">Suppose <span class="process-math">\(p(x)=a_0+a_1x+\cdots+a_nx^n\)</span> is a polynomial with roots <span class="process-math">\(r_1,\,r_2,\,\ldots,r_n\text{.}\)</span> Show that if <span class="process-math">\(a_0\neq\)</span> <span class="process-math">\(0\text{,}\)</span> then all the roots are non-zero and</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-67-7-1-1-5">
@@ -1731,7 +1742,7 @@ p(x)=a_0\left(1-\frac{x}{r_1}\right)\left(1-\frac{x}{r_2}\right)\cdots\left(1-\f
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.24.c"><a tabindex="-1" href="#ExponentAdditionProperty-67-7" title="Copy heading and permalink for Task 3.2.24.c" aria-label="Copy heading and permalink for Task 3.2.24.c">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-67-8"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-67-8"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-67-8-1-1">
 <div class="para">Assuming that the result in part (c) holds for an infinite polynomial (power series), deduce that</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-67-8-1-1-1">
@@ -1746,7 +1757,7 @@ p(x)=a_0\left(1-\frac{x}{r_1}\right)\left(1-\frac{x}{r_2}\right)\cdots\left(1-\f
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.24.d"><a tabindex="-1" href="#ExponentAdditionProperty-67-8" title="Copy heading and permalink for Task 3.2.24.d" aria-label="Copy heading and permalink for Task 3.2.24.d">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-67-9"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-67-9"><h4 class="heading"><span class="codenumber">(e)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-67-9-1-1">
 <div class="para">Expand this product to deduce that</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-67-9-1-1-1">
@@ -1759,10 +1770,10 @@ p(x)=a_0\left(1-\frac{x}{r_1}\right)\left(1-\frac{x}{r_2}\right)\cdots\left(1-\f
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.24.e"><a tabindex="-1" href="#ExponentAdditionProperty-67-9" title="Copy heading and permalink for Task 3.2.24.e" aria-label="Copy heading and permalink for Task 3.2.24.e">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.2.24: The Basel Problem"><a tabindex="-1" href="#ExponentAdditionProperty-67" title="Copy heading and permalink for Problem 3.2.24: The Basel Problem" aria-label="Copy heading and permalink for Problem 3.2.24: The Basel Problem">🔗</a></div>
 </article>
-<article class="problem example-like" id="ExponentAdditionProperty-68"><h4 class="heading">
+<article class="problem example-like" id="ExponentAdditionProperty-68"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.25</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Euler’s Formula.</span>
-</h4>
-<article class="task exercise-like" id="ExponentAdditionProperty-68-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+</h3>
+<article class="task exercise-like" id="ExponentAdditionProperty-68-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-68-4-1-1">
 <div class="para">Use the power series expansion of <span class="process-math">\(e^x\text{,}\)</span> <span class="process-math">\(\sin
 x,\)</span> and <span class="process-math">\(\cos x\)</span> to derive <dfn class="terminology">Euler’s Formula</dfn>:</div>
@@ -1775,7 +1786,7 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.25.a"><a tabindex="-1" href="#ExponentAdditionProperty-68-4" title="Copy heading and permalink for Task 3.2.25.a" aria-label="Copy heading and permalink for Task 3.2.25.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-68-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-68-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-68-5-1-1">
 <div class="para">Use Euler’s formula to derive the Addition/Subtraction formulas from Trigonometry:</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-68-5-1-1-2">
@@ -1792,7 +1803,7 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.25.b"><a tabindex="-1" href="#ExponentAdditionProperty-68-5" title="Copy heading and permalink for Task 3.2.25.b" aria-label="Copy heading and permalink for Task 3.2.25.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-68-6"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-68-6"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-68-6-1-1">
 <div class="para">Use Euler’s formula to show that</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-68-6-1-1-2">
@@ -1809,7 +1820,7 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.25.c"><a tabindex="-1" href="#ExponentAdditionProperty-68-6" title="Copy heading and permalink for Task 3.2.25.c" aria-label="Copy heading and permalink for Task 3.2.25.c">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-68-7"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-68-7"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="para logical" id="ExponentAdditionProperty-68-7-1-1">
 <div class="para">Use Euler’s formula to show that</div>
 <div class="displaymath process-math" id="ExponentAdditionProperty-68-7-1-1-2">
@@ -1826,7 +1837,7 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.25.d"><a tabindex="-1" href="#ExponentAdditionProperty-68-7" title="Copy heading and permalink for Task 3.2.25.d" aria-label="Copy heading and permalink for Task 3.2.25.d">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ExponentAdditionProperty-68-8"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<article class="task exercise-like" id="ExponentAdditionProperty-68-8"><h4 class="heading"><span class="codenumber">(e)</span></h4>
 <div class="para" id="ExponentAdditionProperty-68-8-1-1">Find a formula <span class="process-math">\(\sin(n\theta)\)</span> and <span class="process-math">\(\cos(n\theta)\)</span> for any positive integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ExponentAdditionProperty-68-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.2.25.e"><a tabindex="-1" href="#ExponentAdditionProperty-68-8" title="Copy heading and permalink for Task 3.2.25.e" aria-label="Copy heading and permalink for Task 3.2.25.e">🔗</a></div>
@@ -1834,9 +1845,9 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 </article><div class="autopermalink" aria-hidden="true" data-description="Section 3.2: Power Series as Infinite Polynomials"><a tabindex="-1" href="#ExponentAdditionProperty" title="Copy heading and permalink for Section 3.2: Power Series as Infinite Polynomials" aria-label="Copy heading and permalink for Section 3.2: Power Series as Infinite Polynomials">🔗</a></div>
 </section>
 <section class="section" id="SECTIONPowSerWOTaylor">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Expanding Simple Power Series by Algebraic Methods</span>
-</h3>
+</h2>
 <div class="para" id="SECTIONPowSerWOTaylor-2">We call the power series expansions we’ll see in this section “simple” because all that is needed to generate them is prior knowledge of a few series (e.g.,the <a href="CalcIn17th18thCentury.html#EQUATIONGeometricSeries" class="internal" title="Equation 3.2.1">Geometric Series</a>, the <a href="CalcIn17th18thCentury.html#PROBLEMSinCosPwrSeries" class="internal" title="Problem 3.2.11">sine and cosine series</a>, the <a href="CalcIn17th18thCentury.html#EQUATIONExpSeries" class="internal" title="Equation 3.2.2">exponential series</a>, the <a href="CalcIn17th18thCentury.html#eq_BinomialSeries" class="internal" title="Equation 3.2.5">Binomial Series</a>), and a creative use of algebra. In particular <a href="PowerSeriesQuestions.html#TaylorsTheorem" class="xref" data-knowl="./knowl/xref/TaylorsTheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.12: Taylor’s Theorem">Taylor’s Theorem</a> is not needed. We assume that you are familiar with the use of Taylor’s Theorem from your Calculus course.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#SECTIONPowSerWOTaylor-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="SECTIONPowSerWOTaylor-3">As we saw in the last section, it can be particularly fruitful to expand a function as a power series centered at <span class="process-math">\(a=0\text{.}\)</span> Unfortunately, this isn’t always possible. For example, it is not possible to expand the function <span class="process-math">\(f\left(x\right)=\frac{1}{x}\)</span> about zero. (Why not?)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#SECTIONPowSerWOTaylor-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1852,14 +1863,14 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 <div class="para">Of course, there are still questions that need to be resolved. Chief among these is the question, “For which values of <span class="process-math">\(x\)</span> is this series a valid representation of the function we started with?” We will explore this in <a href="PowerSeriesQuestions.html#PowerSeriesQuestions-TaylorsFormula" class="internal" title="Section 4.1: Taylor’s Formula">Section 4.1</a>. For now we will content ourselves with having a representation which seems reasonable.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#SECTIONPowSerWOTaylor-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="PROBLEMOneOverXTayl"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMOneOverXTayl"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="introduction" id="PROBLEMOneOverXTayl-2">
 <div class="para" id="PROBLEMOneOverXTayl-2-1">Let <span class="process-math">\(a\neq 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMOneOverXTayl-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="PROBLEMOneOverXTayl-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<article class="task exercise-like" id="PROBLEMOneOverXTayl-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="PROBLEMOneOverXTayl-3-1-1">Represent <span class="process-math">\(\frac{1}{x}\)</span> as a power series expanded about <span class="process-math">\(a\text{.}\)</span>  That is, as a power series of the form <span class="process-math">\(\sum^{\infty }_{n=0}{a_n{(x-a)}^n}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMOneOverXTayl-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1873,36 +1884,36 @@ e^{i\theta} = \cos\theta+i\sin\theta.
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.3.1.a"><a tabindex="-1" href="#PROBLEMOneOverXTayl-3" title="Copy heading and permalink for Task 3.3.1.a" aria-label="Copy heading and permalink for Task 3.3.1.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMOneOverXTayl-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PROBLEMOneOverXTayl-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="PROBLEMOneOverXTayl-4-1-1">Represent <span class="process-math">\(\ln (x)\)</span> as a power series expanded about <span class="process-math">\(a\)</span> by integrating your solution to part (a).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMOneOverXTayl-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 3.3.1.b"><a tabindex="-1" href="#PROBLEMOneOverXTayl-4" title="Copy heading and permalink for Task 3.3.1.b" aria-label="Copy heading and permalink for Task 3.3.1.b">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 3.3.1"><a tabindex="-1" href="#PROBLEMOneOverXTayl" title="Copy heading and permalink for Problem 3.3.1" aria-label="Copy heading and permalink for Problem 3.3.1">🔗</a></div>
 </article>
-<article class="problem example-like" id="SECTIONPowSerWOTaylor-6"><h4 class="heading">
+<article class="problem example-like" id="SECTIONPowSerWOTaylor-6"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="SECTIONPowSerWOTaylor-6-2">Let <span class="process-math">\(a&gt;0\)</span> and use <a href="CalcIn17th18thCentury.html#eq_BinomialSeries" class="internal" title="Equation 3.2.5">equation (3.2.5)</a> to represent <span class="process-math">\(\sqrt{x}\)</span> as a power series expanded about <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#SECTIONPowSerWOTaylor-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.3.2"><a tabindex="-1" href="#SECTIONPowSerWOTaylor-6" title="Copy heading and permalink for Problem 3.3.2" aria-label="Copy heading and permalink for Problem 3.3.2">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMExpTaylAta"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMExpTaylAta"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PROBLEMExpTaylAta-2">Let <span class="process-math">\(a\)</span> be a real number.  Represent <span class="process-math">\(e^x\)</span> as power series expanded about <span class="process-math">\(a\text{.}\)</span>  Notice there is no restriction on <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMExpTaylAta-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.3.3"><a tabindex="-1" href="#PROBLEMExpTaylAta" title="Copy heading and permalink for Problem 3.3.3" aria-label="Copy heading and permalink for Problem 3.3.3">🔗</a></div>
 </article>
-<article class="problem example-like" id="SECTIONPowSerWOTaylor-8"><h4 class="heading">
+<article class="problem example-like" id="SECTIONPowSerWOTaylor-8"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="SECTIONPowSerWOTaylor-8-2">Let <span class="process-math">\(a\)</span> be a real number.  Represent <span class="process-math">\(x^3+2x^2+3\)</span> as a power series expanded about <span class="process-math">\(a\text{.}\)</span>  What happens if <span class="process-math">\(a=0\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#SECTIONPowSerWOTaylor-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 3.3.4"><a tabindex="-1" href="#SECTIONPowSerWOTaylor-8" title="Copy heading and permalink for Problem 3.3.4" aria-label="Copy heading and permalink for Problem 3.3.4">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMSinExpandedAta"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMSinExpandedAta"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="PROBLEMSinExpandedAta-2-1">
 <div class="para">Let <span class="process-math">\(a\)</span> be a real number.  Use the power series expansions</div>
 <div class="displaymath process-math" id="PROBLEMSinExpandedAta-2-1-2">

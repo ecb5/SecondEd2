@@ -26,6 +26,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,7 @@ htmlPresentation: false,
 <meta property="og:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -56,21 +57,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></div>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="indexnav">
@@ -86,7 +87,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -222,7 +233,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, and Integrals</span></a></div>
 <ul id="ptx-toc-group-LimDerivIntFTC" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DefLimit" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DerivativeAfterthought" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
@@ -283,9 +294,9 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="index" id="ASORA-6-2">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Index</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Index</span>
-</h2>
+</h1>
 <div class="indexletter" id="indexletter-a">
 <div class="indexitem">Abel, Niels Henrik</div>
 <div class="subindexitem">Abel’s Lemma<span class="indexknowl"> <a href="PowerSeriesRedux.html#PowerSeriesRedux-AbelsThm-14" class="xref" data-knowl="./knowl/index/PowerSeriesRedux-AbelsThm-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 11.4.6">Problem</a></span>
@@ -309,16 +320,16 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="indexitem">addition of Dedekind cuts<span class="indexknowl"> <a href="Epilogues.html#def_dedekind-cuts-addition" class="xref" data-knowl="./knowl/index/def_dedekind-cuts-addition.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 13.2.18: Addition on cuts">Definition</a> <a href="Epilogues.html#def_dedekind-addition" class="xref" data-knowl="./knowl/index/def_dedekind-addition.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 13.2.24: Addition">Definition</a></span>
 </div>
-<div class="indexitem">Archimedean Property<span class="indexknowl"> <a href="NumbersRealRational.html#NumbersRealRational-48" class="xref" data-knowl="./knowl/index/NumbersRealRational-48.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="NumbersRealRational.html#ArchimedeanProperty" class="xref" data-knowl="./knowl/index/ArchimedeanProperty.html" data-reveal-label="Reveal" data-close-label="Close" title="Principle 2.0.14: The Archimedean Property">Principle</a> <a href="NumbersRealRational.html#NumbersRealRational-51" class="xref" data-knowl="./knowl/index/NumbersRealRational-51.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-32" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-32.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+<div class="indexitem">Archimedean Property<span class="indexknowl"> <a href="NumbersRealRational.html#NumbersRealRational-48" class="xref" data-knowl="./knowl/index/NumbersRealRational-48.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="NumbersRealRational.html#ArchimedeanProperty" class="xref" data-knowl="./knowl/index/ArchimedeanProperty.html" data-reveal-label="Reveal" data-close-label="Close" title="Principle 2.0.14: The Archimedean Property">Principle</a> <a href="NumbersRealRational.html#NumbersRealRational-51" class="xref" data-knowl="./knowl/index/NumbersRealRational-51.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-33" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-33.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="subindexitem">and <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-36" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-36.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.18">Problem</a></span>
+<div class="subindexitem">and <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-37" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-37.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.19">Problem</a></span>
 </div>
-<div class="subindexitem">and LUBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-34" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.17">Problem</a></span>
+<div class="subindexitem">and LUBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-35" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-35.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.18">Problem</a></span>
 </div>
 </div>
 <div class="indexletter" id="indexletter-b">
 <div class="indexitem">
-<span class="process-math">\(b\)</span> is an upper bound of <span class="process-math">\(S\subseteq \RR\)</span> if and only if <span class="process-math">\(-b\)</span> is a lower bound of <span class="process-math">\(-S\)</span><span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">Problem</a></span>
+<span class="process-math">\(b\)</span> is an upper bound of <span class="process-math">\(S\subseteq \RR\)</span> if and only if <span class="process-math">\(-b\)</span> is a lower bound of <span class="process-math">\(-S\)</span><span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
 </div>
 <div class="indexitem">Bernoulli</div>
 <div class="subindexitem">Jacob<span class="indexknowl"> <a href="CalcIn17th18thCentury.html#NewtonsApproach-31" class="xref" data-knowl="./knowl/index/NewtonsApproach-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
@@ -349,7 +360,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="subindexitem">implies that a continuous functions on a closed set is bounded<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-BWT-20" class="xref" data-knowl="./knowl/index/IVTandEVT-BWT-20.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.3.8">Problem</a></span>
 </div>
-<div class="subindexitem">implies the NIP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-27" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-27.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.12">Problem</a></span>
+<div class="subindexitem">implies the NIP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-28" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.13">Problem</a></span>
 </div>
 <div class="subindexitem">proof of<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-BWT-19" class="xref" data-knowl="./knowl/index/IVTandEVT-BWT-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.3.7">Problem</a></span>
 </div>
@@ -420,16 +431,16 @@ eBookConfig.enable_chatcodes =  false;
 <div class="indexitem">continuity<span class="indexknowl"> <a href="Continuity.html#SequencesAndContinuity-34" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.16">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(\pm\sqrt{x}\)</span> is continuous at zero<span class="indexknowl"> <a href="Continuity.html#prob_extended_sqrt_is_continuous_at_zero" class="xref" data-knowl="./knowl/index/prob_extended_sqrt_is_continuous_at_zero.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.12">Problem</a></span>
+<span class="process-math">\(\pm\sqrt{x}\)</span> is continuous at zero<span class="indexknowl"> <a href="Continuity.html#prob_extended_sqrt_is_continuous_at_zero" class="xref" data-knowl="./knowl/index/prob_extended_sqrt_is_continuous_at_zero.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.13">Problem</a></span>
 </div>
 <div class="subindexitem">
 <span class="process-math">\(\sin e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#SequencesAndContinuity-31" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.14">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-58" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-58.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.18">Problem</a></span>
+<span class="process-math">\(e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-58" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-58.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.19">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(f(x) = mx +b\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.9">Problem</a></span>
+<span class="process-math">\(f(x) = mx +b\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.10">Problem</a></span>
 </div>
 <div class="subindexitem">and sequences<span class="indexknowl"> <a href="Continuity.html#thm_LimDefOfContinuity" class="xref" data-knowl="./knowl/index/thm_LimDefOfContinuity.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.1">Theorem</a></span>
 </div>
@@ -443,7 +454,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="subindexitem">Extreme Value Theorem (EVT) and<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-29" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-29.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="subindexitem">formal definition of discontinuity<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-70" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-70.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.22">Problem</a></span>
+<div class="subindexitem">formal definition of discontinuity<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-70" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-70.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.23">Problem</a></span>
 </div>
 <div class="subindexitem">Heaviside’s function is not continuous at zero<span class="indexknowl"> <a href="Continuity.html#SequencesAndContinuity-9" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.3">Problem</a></span>
 </div>
@@ -451,22 +462,22 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="subindexitem">Intermediate Value Theorem and<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-29" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-29.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="subindexitem">larger <span class="process-math">\(\eps\)</span> works in definition<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-44" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.11">Problem</a></span>
+<div class="subindexitem">larger <span class="process-math">\(\eps\)</span> works in definition<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-44" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.12">Problem</a></span>
 </div>
-<div class="subindexitem">of <span class="process-math">\(\ln{x}\)</span><span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-59" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-59.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.19">Problem</a></span>
+<div class="subindexitem">of <span class="process-math">\(\ln{x}\)</span><span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-59" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-59.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.20">Problem</a></span>
 </div>
 <div class="subindexitem">of <span class="process-math">\(D(x)= \begin{cases}x,\amp \text{ if } x\text{ is
 rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 \end{cases} \)</span> using sequences<span class="indexknowl"> <a href="Continuity.html#SequencesAndContinuity-10" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.4">Problem</a></span>
 </div>
 <div class="subindexitem">of <span class="process-math">\(D(x)= \begin{cases}x,\amp \text{ if } x\text{ is rational }
-\\ 0,\amp \text{ if } x\text{ is irrational } \end{cases}\)</span> using the definition<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-69" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-69.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.21">Problem</a></span>
+\\ 0,\amp \text{ if } x\text{ is irrational } \end{cases}\)</span> using the definition<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-69" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-69.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.22">Problem</a></span>
 </div>
-<div class="subindexitem">of <span class="process-math">\(f(x)=0\)</span> at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-41" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-41.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.10">Example</a></span>
+<div class="subindexitem">of <span class="process-math">\(f(x)=0\)</span> at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-41" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-41.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.1.11">Example</a></span>
 </div>
 <div class="subindexitem">of a composition<span class="indexknowl"> <a href="Continuity.html#thm_ContComp" class="xref" data-knowl="./knowl/index/thm_ContComp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.2.12">Theorem</a> <a href="Continuity.html#SequencesAndContinuity-29" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-29.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.13">Problem</a></span>
 </div>
-<div class="subindexitem">of a constant function<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.9">Problem</a></span>
+<div class="subindexitem">of a constant function<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.10">Problem</a></span>
 </div>
 <div class="subindexitem">of a product<span class="indexknowl"> <a href="Continuity.html#SequencesAndContinuity-17" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-17.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.8">Problem</a></span>
 </div>
@@ -476,7 +487,7 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 </div>
 <div class="subindexitem">on an interval<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-28" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="subindexitem">smaller <span class="process-math">\(\delta\)</span> works in definition<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-44" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.11">Problem</a></span>
+<div class="subindexitem">smaller <span class="process-math">\(\delta\)</span> works in definition<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-44" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.12">Problem</a></span>
 </div>
 <div class="subindexitem">uniform<span class="indexknowl"> <a href="LimDerivIntFTC.html#SUBSECTIONDarbouxIntegral-30" class="xref" data-knowl="./knowl/index/SUBSECTIONDarbouxIntegral-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.4.15">Problem</a></span>
 </div>
@@ -486,12 +497,12 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 </div>
 <div class="indexitem">continuous functions</div>
 <div class="subindexitem">
-<span class="process-math">\(\ln x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-59" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-59.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.19">Problem</a></span>
+<span class="process-math">\(\ln x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-59" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-59.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.20">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-58" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-58.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.18">Problem</a></span>
+<span class="process-math">\(e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-58" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-58.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.19">Problem</a></span>
 </div>
-<div class="subindexitem">a constant function is continuous<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.9">Problem</a></span>
+<div class="subindexitem">a constant function is continuous<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.10">Problem</a></span>
 </div>
 <div class="subindexitem">continuous function on a closed, bounded interval is bounded<span class="indexknowl"> <a href="IVTandEVT.html#thm_CompactBounded" class="xref" data-knowl="./knowl/index/thm_CompactBounded.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.1">Theorem</a></span>
 </div>
@@ -544,7 +555,7 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 <div class="subindexitem">uniform convergence<span class="indexknowl"> <a href="PowerSeriesRedux.html#PROBLEMPtwConvNoCommute" class="xref" data-knowl="./knowl/index/PROBLEMPtwConvNoCommute.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 11.2.3">Problem</a></span>
 </div>
 <div class="indexitem"><span class="process-math">\(\cos (nx)\)</span></div>
-<div class="subindexitem">orthogonality of<span class="indexknowl"> <a href="Interegnum.html#prob_Fourier_Series-orthogonality" class="xref" data-knowl="./knowl/index/prob_Fourier_Series-orthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.19">Problem</a></span>
+<div class="subindexitem">orthogonality of<span class="indexknowl"> <a href="Interegnum.html#prob_Fourier_Series-orthogonality" class="xref" data-knowl="./knowl/index/prob_Fourier_Series-orthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.13">Problem</a></span>
 </div>
 <div class="indexitem"><span class="process-math">\(\cos x\)</span></div>
 <div class="subindexitem">Taylor’s series for<span class="indexknowl"> <a href="PowerSeriesQuestions.html#PowerSeriesQuestions-TaylorsFormula-19" class="xref" data-knowl="./knowl/index/PowerSeriesQuestions-TaylorsFormula-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 4.1.7">Problem</a></span>
@@ -642,11 +653,11 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 <div class="subindexitem">
 <span class="process-math">\(e^x\)</span><span class="indexknowl"> <a href="CalcIn17th18thCentury.html#def_e" class="xref" data-knowl="./knowl/index/def_e.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 3.2.7">Definition</a></span>
 </div>
-<div class="subindexitem">Greatest Lower Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">Problem</a></span>
+<div class="subindexitem">Greatest Lower Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
 </div>
 <div class="subindexitem">image<span class="indexknowl"> <a href="BackToFourier.html#DEFINITIONOpenByPreImage" class="xref" data-knowl="./knowl/index/DEFINITIONOpenByPreImage.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 12.1.7">Definition</a><span class="seealso"> (<em>see also</em> pre–image)</span></span>
 </div>
-<div class="subindexitem">infimum<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">Problem</a></span>
+<div class="subindexitem">infimum<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
 </div>
 <div class="subindexitem">inner measure<span class="indexknowl"> <a href="BackToFourier.html#DEFINITIONInnerMeasure" class="xref" data-knowl="./knowl/index/DEFINITIONInnerMeasure.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 12.3.16: Lebegue’s Inner Measure">Definition</a></span>
 </div>
@@ -777,9 +788,9 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 </div>
 <div class="subindexitem">Taylor’s series for<span class="indexknowl"> <a href="PowerSeriesQuestions.html#PowerSeriesQuestions-TaylorsFormula-19" class="xref" data-knowl="./knowl/index/PowerSeriesQuestions-TaylorsFormula-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 4.1.7">Problem</a></span>
 </div>
-<div class="indexitem">Extreme Value Theorem<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-25" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-25.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.11">Problem</a></span>
+<div class="indexitem">Extreme Value Theorem<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-26" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-26.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.12">Problem</a></span>
 </div>
-<div class="indexitem">Extreme Value Theorem (EVT)<span class="indexknowl"> <a href="TaylorSeries.html#TaylorSeries-LagrFormRem-7" class="xref" data-knowl="./knowl/index/TaylorSeries-LagrFormRem-7.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="IVTandEVT.html#thm_EVT" class="xref" data-knowl="./knowl/index/thm_EVT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">Theorem</a></span>
+<div class="indexitem">Extreme Value Theorem (EVT)<span class="indexknowl"> <a href="TaylorSeries.html#TaylorSeries-LagrFormRem-7" class="xref" data-knowl="./knowl/index/TaylorSeries-LagrFormRem-7.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a> <a href="IVTandEVT.html#thm_EVT" class="xref" data-knowl="./knowl/index/thm_EVT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.11: Extreme Value Theorem (EVT)">Theorem</a></span>
 </div>
 <div class="subindexitem">continuity and<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-29" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-29.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -800,7 +811,7 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 <div class="indexitem">fields</div>
 <div class="subindexitem">any complete, linearly ordered field is isomorphic to <span class="process-math">\(\RR\text{.}\)</span><span class="indexknowl"> <a href="Epilogues.html#thm_R-is-R" class="xref" data-knowl="./knowl/index/thm_R-is-R.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 13.2.30">Theorem</a></span>
 </div>
-<div class="indexitem">Fourier Series<span class="indexknowl"> <a href="Interegnum.html#prob_FourierDiverge" class="xref" data-knowl="./knowl/index/prob_FourierDiverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.18">Problem</a></span>
+<div class="indexitem">Fourier Series<span class="indexknowl"> <a href="Interegnum.html#prob_FourierDiverge" class="xref" data-knowl="./knowl/index/prob_FourierDiverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.12">Problem</a></span>
 </div>
 <div class="subindexitem">Cantor’s first theorem on uniqueness<span class="indexknowl"> <a href="BackToFourier.html#thm_Cantor-uniqueness-of-trig-series" class="xref" data-knowl="./knowl/index/thm_Cantor-uniqueness-of-trig-series.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 12.0.2: Cantor">Theorem</a></span>
 </div>
@@ -808,16 +819,16 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 </div>
 <div class="subindexitem">Cantor’s third theorem on uniqueness<span class="indexknowl"> <a href="BackToFourier.html#thm_Cantor-1871-b" class="xref" data-knowl="./knowl/index/thm_Cantor-1871-b.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 12.0.4: Cantor, (1871)">Theorem</a></span>
 </div>
-<div class="subindexitem">computing the coefficients of<span class="indexknowl"> <a href="Interegnum.html#prob_fouriercoef" class="xref" data-knowl="./knowl/index/prob_fouriercoef.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.20">Problem</a></span>
+<div class="subindexitem">computing the coefficients of<span class="indexknowl"> <a href="Interegnum.html#prob_fouriercoef" class="xref" data-knowl="./knowl/index/prob_fouriercoef.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.14">Problem</a></span>
 </div>
 <div class="subindexitem">cosine series</div>
-<div class="subsubindexitem">the Fourier cosine series of <span class="process-math">\(f(x)=x-\frac{1}{2}\)</span><span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-43" class="xref" data-knowl="./knowl/index/Interegnum-2-43.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.21">Problem</a></span>
+<div class="subsubindexitem">the Fourier cosine series of <span class="process-math">\(f(x)=x-\frac{1}{2}\)</span><span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-42" class="xref" data-knowl="./knowl/index/Interegnum-2-42.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.15">Problem</a></span>
 </div>
-<div class="subindexitem">divergent Fourier series example<span class="indexknowl"> <a href="Interegnum.html#prob_FourierDiverge" class="xref" data-knowl="./knowl/index/prob_FourierDiverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.18">Problem</a></span>
+<div class="subindexitem">divergent Fourier series example<span class="indexknowl"> <a href="Interegnum.html#prob_FourierDiverge" class="xref" data-knowl="./knowl/index/prob_FourierDiverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.12">Problem</a></span>
 </div>
-<div class="subindexitem">sine series of an odd function<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-19" class="xref" data-knowl="./knowl/index/Interegnum-2-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.7">Problem</a></span>
+<div class="subindexitem">sine series of an odd function<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-19" class="xref" data-knowl="./knowl/index/Interegnum-2-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.8">Problem</a></span>
 </div>
-<div class="subindexitem">term by term differentiation of<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-44" class="xref" data-knowl="./knowl/index/Interegnum-2-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.22">Problem</a></span>
+<div class="subindexitem">term by term differentiation of<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-43" class="xref" data-knowl="./knowl/index/Interegnum-2-43.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.16">Problem</a></span>
 </div>
 <div class="subindexitem">uniform convergence and<span class="indexknowl"> <a href="PowerSeriesRedux.html#PowerSeriesRedux-RadiusOfConv-12" class="xref" data-knowl="./knowl/index/PowerSeriesRedux-RadiusOfConv-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 11.3.7">Problem</a></span>
 </div>
@@ -832,12 +843,12 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 <div class="indexitem">
 <span class="process-math">\(g(c)=\frac{c-x}{1+c}\)</span> is increasing on <span class="process-math">\([x,0]\)</span><span class="indexknowl"> <a href="TaylorSeries.html#TaylorSeries-CauchyFormRem-11" class="xref" data-knowl="./knowl/index/TaylorSeries-CauchyFormRem-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 7.3.4">Problem</a></span>
 </div>
-<div class="indexitem">GLBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-21" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
+<div class="indexitem">GLBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-22" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.10">Problem</a></span>
 </div>
-<div class="indexitem">Greatest Lower Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-21" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
+<div class="indexitem">Greatest Lower Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-22" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.10">Problem</a></span>
 </div>
 <div class="indexitem">Greatest Lower Bound Property (GLBP)</div>
-<div class="subindexitem">definition of<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">Problem</a></span>
+<div class="subindexitem">definition of<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
 </div>
 <div class="indexitem">Gregory, James</div>
 <div class="subindexitem">portrait of<span class="indexknowl"> <a href="CalcIn17th18thCentury.html#FIGUREJamesGregoryPortrait" class="xref" data-knowl="./knowl/index/FIGUREJamesGregoryPortrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.16">Figure</a></span>
@@ -849,7 +860,7 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 <div class="indexletter" id="indexletter-h">
 <div class="indexitem">Halmos, Paul<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-53" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-53.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
-<div class="subindexitem">portrait of<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-52" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-52.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.1.15">Figure</a></span>
+<div class="subindexitem">portrait of<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-52" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-52.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.1.16">Figure</a></span>
 </div>
 <div class="indexitem">Heat Equation, the<span class="indexknowl"> <a href="Interegnum.html#prob_HarmonicMotion" class="xref" data-knowl="./knowl/index/prob_HarmonicMotion.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.2">Problem</a> <a href="Interegnum.html#Interegnum-2-10" class="xref" data-knowl="./knowl/index/Interegnum-2-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.3">Problem</a></span>
 </div>
@@ -903,17 +914,17 @@ rational } \\ 0,\amp \text{ if } x\text{ is irrational }
 </div>
 <div class="indexitem">Least Upper Bound<span class="indexknowl"> <a href="IVTandEVT.html#def_LeastUpperBound" class="xref" data-knowl="./knowl/index/def_LeastUpperBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 9.4.2: Least Upper Bound">Definition</a></span>
 </div>
-<div class="indexitem">Least Upper Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#thm_LUB" class="xref" data-knowl="./knowl/index/thm_LUB.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">Theorem</a> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">Problem</a> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-21" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
+<div class="indexitem">Least Upper Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#thm_LUB" class="xref" data-knowl="./knowl/index/thm_LUB.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.4: The Least Upper Bound Property (LUBP)">Theorem</a> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-22" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.10">Problem</a></span>
 </div>
-<div class="subindexitem">doesn’t hold in <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-31" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.15">Problem</a></span>
+<div class="subindexitem">doesn’t hold in <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-32" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-32.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.16">Problem</a></span>
 </div>
-<div class="subindexitem">identifying suprema and infima<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-21" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
+<div class="subindexitem">identifying suprema and infima<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-22" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.10">Problem</a></span>
 </div>
-<div class="subindexitem">implies the Archimedean Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-34" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.17">Problem</a></span>
+<div class="subindexitem">implies the Archimedean Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-35" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-35.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.18">Problem</a></span>
 </div>
 <div class="subindexitem">implies the existence of irrational numbers<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-Completeness-21" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.3">Problem</a></span>
 </div>
-<div class="subindexitem">implies the Nested Interval Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-30" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.14">Problem</a></span>
+<div class="subindexitem">implies the Nested Interval Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-31" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.15">Problem</a></span>
 </div>
 <div class="indexitem">Lebesgue, Henri<span class="indexknowl"> <a href="BackToFourier.html#BackToFourier-2-5" class="xref" data-knowl="./knowl/index/BackToFourier-2-5.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
@@ -1011,7 +1022,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">implies the existence of square roots of integers<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-Completeness-30" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.7">Problem</a></span>
 </div>
-<div class="subindexitem">implies the LUBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-14" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.4">Problem</a></span>
+<div class="subindexitem">implies the LUBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-15" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.5">Problem</a></span>
 </div>
 <div class="subindexitem">square roots of integers, and<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-Completeness-30" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.7">Problem</a></span>
 </div>
@@ -1046,7 +1057,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="indexitem">ordering of Dedekind cuts<span class="indexknowl"> <a href="Epilogues.html#def_dedekind-cuts-ordering" class="xref" data-knowl="./knowl/index/def_dedekind-cuts-ordering.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 13.2.15">Definition</a></span>
 </div>
 <div class="indexitem">orthogonality</div>
-<div class="subindexitem">of <span class="process-math">\(\cos nx\)</span><span class="indexknowl"> <a href="Interegnum.html#prob_Fourier_Series-orthogonality" class="xref" data-knowl="./knowl/index/prob_Fourier_Series-orthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.19">Problem</a></span>
+<div class="subindexitem">of <span class="process-math">\(\cos nx\)</span><span class="indexknowl"> <a href="Interegnum.html#prob_Fourier_Series-orthogonality" class="xref" data-knowl="./knowl/index/prob_Fourier_Series-orthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.13">Problem</a></span>
 </div>
 <div class="subindexitem">of <span class="process-math">\(\sin nx\)</span><span class="indexknowl"> <a href="Interegnum.html#prob_SinOrthogonality" class="xref" data-knowl="./knowl/index/prob_SinOrthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.5">Problem</a></span>
 </div>
@@ -1103,7 +1114,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">Gödel<span class="indexknowl"> <a href="BackToFourier.html#BackToFourier-CantorsTheorem-47-1-1" class="xref" data-knowl="./knowl/index/BackToFourier-CantorsTheorem-47-1-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 12.4.16">Figure</a></span>
 </div>
-<div class="subindexitem">Halmos<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-52" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-52.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.1.15">Figure</a></span>
+<div class="subindexitem">Halmos<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-52" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-52.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.1.16">Figure</a></span>
 </div>
 <div class="subindexitem">Hilbert<span class="indexknowl"> <a href="BackToFourier.html#FIGUREHilbertPortrait" class="xref" data-knowl="./knowl/index/FIGUREHilbertPortrait.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 12.4.14">Figure</a></span>
 </div>
@@ -1161,7 +1172,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="indexitem">Problems</div>
 <div class="subindexitem">
-<span class="process-math">\(f(x) = mx +b\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.9">Problem</a></span>
+<span class="process-math">\(f(x) = mx +b\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.10">Problem</a></span>
 </div>
 <div class="subindexitem">
 <span class="process-math">\(f^\prime(a)&gt;0\)</span> implies <span class="process-math">\(f\)</span> is increasing nearby<span class="indexknowl"> <a href="LimDerivIntFTC.html#Continuity-DerivativeAfterthought-34" class="xref" data-knowl="./knowl/index/Continuity-DerivativeAfterthought-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.2.14">Problem</a></span>
@@ -1198,7 +1209,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="subindexitem">antiderivative</div>
 <div class="subsubindexitem">Does every continuous function have an antiderivative?<span class="indexknowl"> <a href="LimDerivIntFTC.html#SECTIONFTC-12" class="xref" data-knowl="./knowl/index/SECTIONFTC-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.3.2">Problem</a></span>
 </div>
-<div class="subindexitem">Archimedean Property and <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-36" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-36.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.18">Problem</a></span>
+<div class="subindexitem">Archimedean Property and <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-37" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-37.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.19">Problem</a></span>
 </div>
 <div class="subindexitem">Binomial series<span class="indexknowl"> <a href="CalcIn17th18thCentury.html#ExponentAdditionProperty-55" class="xref" data-knowl="./knowl/index/ExponentAdditionProperty-55.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 3.2.17">Problem</a> <a href="CalcIn17th18thCentury.html#ExponentAdditionProperty-63" class="xref" data-knowl="./knowl/index/ExponentAdditionProperty-63.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 3.2.21">Problem</a> <a href="CalcIn17th18thCentury.html#ExponentAdditionProperty-64" class="xref" data-knowl="./knowl/index/ExponentAdditionProperty-64.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 3.2.22">Problem</a> <a href="PowerSeriesQuestions.html#PowerSeriesQuestions-TaylorsFormula-40" class="xref" data-knowl="./knowl/index/PowerSeriesQuestions-TaylorsFormula-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 4.1.11">Problem</a> <a href="TaylorSeries.html#TaylorSeries-CauchyFormRem-11" class="xref" data-knowl="./knowl/index/TaylorSeries-CauchyFormRem-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 7.3.4">Problem</a></span>
 </div>
@@ -1207,13 +1218,13 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="subindexitem">Bolzano–Weierstrass Theorem</div>
 <div class="subsubindexitem">implies that a continuous functions on a closed set is bounded<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-BWT-20" class="xref" data-knowl="./knowl/index/IVTandEVT-BWT-20.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.3.8">Problem</a></span>
 </div>
-<div class="subsubindexitem">implies the NIP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-27" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-27.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.12">Problem</a></span>
+<div class="subsubindexitem">implies the NIP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-28" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.13">Problem</a></span>
 </div>
 <div class="subsubindexitem">proof of<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-BWT-19" class="xref" data-knowl="./knowl/index/IVTandEVT-BWT-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.3.7">Problem</a></span>
 </div>
 <div class="subindexitem">Bounded Convergence<span class="indexknowl"> <a href="BackToFourier.html#SECTIONLebesgueIntegration-2-14" class="xref" data-knowl="./knowl/index/SECTIONLebesgueIntegration-2-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 12.3.8">Problem</a> <a href="BackToFourier.html#SECTIONLebesgueIntegration-2-15" class="xref" data-knowl="./knowl/index/SECTIONLebesgueIntegration-2-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 12.3.9">Problem</a></span>
 </div>
-<div class="subindexitem">bounded, non–decreasing sequences<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-18" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.6">Problem</a></span>
+<div class="subindexitem">bounded, non–decreasing sequences<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-19" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.7">Problem</a></span>
 </div>
 <div class="subindexitem">Cantor set is uncountable<span class="indexknowl"> <a href="BackToFourier.html#PROBLEMCantorSetUncountable" class="xref" data-knowl="./knowl/index/PROBLEMCantorSetUncountable.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 12.4.9: The Cantor Set is Uncountable">Problem</a></span>
 </div>
@@ -1243,9 +1254,9 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="subindexitem"><span class="process-math">\(\CC{}\)</span></div>
 <div class="subsubindexitem">is a number field<span class="indexknowl"> <a href="Epilogues.html#SECTIONEpilog1-95" class="xref" data-knowl="./knowl/index/SECTIONEpilog1-95.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 13.1.12">Problem</a></span>
 </div>
-<div class="subindexitem">constant functions are continuous<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.9">Problem</a></span>
+<div class="subindexitem">constant functions are continuous<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-40" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-40.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.10">Problem</a></span>
 </div>
-<div class="subindexitem">continuity<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-44" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.11">Problem</a> <a href="Continuity.html#prob_extended_sqrt_is_continuous_at_zero" class="xref" data-knowl="./knowl/index/prob_extended_sqrt_is_continuous_at_zero.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.12">Problem</a> <a href="Continuity.html#Continuity-AnalyticDef-69" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-69.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.21">Problem</a> <a href="Continuity.html#SequencesAndContinuity-10" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.4">Problem</a> <a href="Continuity.html#SequencesAndContinuity-34" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.16">Problem</a></span>
+<div class="subindexitem">continuity<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-44" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.12">Problem</a> <a href="Continuity.html#prob_extended_sqrt_is_continuous_at_zero" class="xref" data-knowl="./knowl/index/prob_extended_sqrt_is_continuous_at_zero.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.13">Problem</a> <a href="Continuity.html#Continuity-AnalyticDef-69" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-69.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.22">Problem</a> <a href="Continuity.html#SequencesAndContinuity-10" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.4">Problem</a> <a href="Continuity.html#SequencesAndContinuity-34" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.16">Problem</a></span>
 </div>
 <div class="subsubindexitem">implies integrability<span class="indexknowl"> <a href="LimDerivIntFTC.html#SUBSECTIONDarbouxIntegral-31" class="xref" data-knowl="./knowl/index/SUBSECTIONDarbouxIntegral-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.4.16">Problem</a></span>
 </div>
@@ -1289,7 +1300,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">defining infinite decimal addition<span class="indexknowl"> <a href="Epilogues.html#DecimalExpansion-16" class="xref" data-knowl="./knowl/index/DecimalExpansion-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 13.2.5">Problem</a></span>
 </div>
-<div class="subindexitem">definition of continuitycon<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-70" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-70.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.22">Problem</a></span>
+<div class="subindexitem">definition of continuitycon<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-70" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-70.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.23">Problem</a></span>
 </div>
 <div class="subindexitem">definition of divergence<span class="indexknowl"> <a href="Convergence.html#SeqRealNum-49" class="xref" data-knowl="./knowl/index/SeqRealNum-49.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.1.14">Problem</a></span>
 </div>
@@ -1320,7 +1331,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">divergence, but not to infinity<span class="indexknowl"> <a href="Convergence.html#DivergentSeq-32" class="xref" data-knowl="./knowl/index/DivergentSeq-32.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.3.10">Problem</a> <a href="Convergence.html#DivergentSeq-33" class="xref" data-knowl="./knowl/index/DivergentSeq-33.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.3.11">Problem</a></span>
 </div>
-<div class="subindexitem">divergent Fourier series example<span class="indexknowl"> <a href="Interegnum.html#prob_FourierDiverge" class="xref" data-knowl="./knowl/index/prob_FourierDiverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.18">Problem</a></span>
+<div class="subindexitem">divergent Fourier series example<span class="indexknowl"> <a href="Interegnum.html#prob_FourierDiverge" class="xref" data-knowl="./knowl/index/prob_FourierDiverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.12">Problem</a></span>
 </div>
 <div class="subindexitem">Euler’s constant <span class="process-math">\((\gamma)\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-Completeness-35" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-35.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.8">Problem</a> <a href="IVTandEVT.html#IVTandEVT-Completeness-36" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-36.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.9">Problem</a></span>
 </div>
@@ -1331,20 +1342,20 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="subindexitem">expand <span class="process-math">\(e^{-x^3}\)</span> as a power series<span class="indexknowl"> <a href="CalcIn17th18thCentury.html#ExponentAdditionProperty-34" class="xref" data-knowl="./knowl/index/ExponentAdditionProperty-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 3.2.8">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-58" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-58.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.18">Problem</a></span>
+<span class="process-math">\(e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-58" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-58.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.19">Problem</a></span>
 </div>
-<div class="subindexitem">Extreme Value Theorem<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-25" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-25.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.11">Problem</a></span>
+<div class="subindexitem">Extreme Value Theorem<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-26" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-26.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.12">Problem</a></span>
 </div>
 <div class="subindexitem">Fermat’s Little Theorem<span class="indexknowl"> <a href="Threelessons.html#PROBLEMFermLittl1" class="xref" data-knowl="./knowl/index/PROBLEMFermLittl1.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 1.3.4">Problem</a> <a href="Threelessons.html#PROBLEMFermLittl2" class="xref" data-knowl="./knowl/index/PROBLEMFermLittl2.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 1.3.5">Problem</a> <a href="Threelessons.html#PROBLEMFermLittl3" class="xref" data-knowl="./knowl/index/PROBLEMFermLittl3.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 1.3.6">Problem</a> <a href="Threelessons.html#DRILLPROBLEMFermLittl4" class="xref" data-knowl="./knowl/index/DRILLPROBLEMFermLittl4.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 1.3.7">Problem</a> <a href="Threelessons.html#ThreeLessons_lesson-three-23" class="xref" data-knowl="./knowl/index/ThreeLessons_lesson-three-23.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 1.3.8">Problem</a></span>
 </div>
 <div class="subindexitem">Fermat’s Theorem<span class="indexknowl"> <a href="LimDerivIntFTC.html#PROBLEMFermatsTheorem" class="xref" data-knowl="./knowl/index/PROBLEMFermatsTheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.2.6">Problem</a></span>
 </div>
-<div class="subindexitem">find a bounded sequence of rational numbers such that no subsequence converges to a rational number<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-29" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-29.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.13">Problem</a></span>
+<div class="subindexitem">find a bounded sequence of rational numbers such that no subsequence converges to a rational number<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-30" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.14">Problem</a></span>
 </div>
 <div class="subindexitem">Fourier Series</div>
-<div class="subsubindexitem">computing the coefficients of<span class="indexknowl"> <a href="Interegnum.html#prob_fouriercoef" class="xref" data-knowl="./knowl/index/prob_fouriercoef.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.20">Problem</a></span>
+<div class="subsubindexitem">computing the coefficients of<span class="indexknowl"> <a href="Interegnum.html#prob_fouriercoef" class="xref" data-knowl="./knowl/index/prob_fouriercoef.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.14">Problem</a></span>
 </div>
-<div class="subsubindexitem">term by term differentiation of<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-44" class="xref" data-knowl="./knowl/index/Interegnum-2-44.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.22">Problem</a></span>
+<div class="subsubindexitem">term by term differentiation of<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-43" class="xref" data-knowl="./knowl/index/Interegnum-2-43.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.16">Problem</a></span>
 </div>
 <div class="subindexitem">Fourier Series and uniform convergence<span class="indexknowl"> <a href="PowerSeriesRedux.html#PowerSeriesRedux-RadiusOfConv-12" class="xref" data-knowl="./knowl/index/PowerSeriesRedux-RadiusOfConv-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 11.3.7">Problem</a></span>
 </div>
@@ -1356,7 +1367,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">Geometric series as a Taylor series<span class="indexknowl"> <a href="TaylorSeries.html#TaylorSeries-LagrFormRem-10" class="xref" data-knowl="./knowl/index/TaylorSeries-LagrFormRem-10.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 7.2.3">Problem</a></span>
 </div>
-<div class="subindexitem">Greatest Lower Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">Problem</a></span>
+<div class="subindexitem">Greatest Lower Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMGreatestLowerBound" class="xref" data-knowl="./knowl/index/PROBLEMGreatestLowerBound.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
 </div>
 <div class="subindexitem">Heat Equation, the<span class="indexknowl"> <a href="Interegnum.html#prob_HarmonicMotion" class="xref" data-knowl="./knowl/index/prob_HarmonicMotion.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.2">Problem</a></span>
 </div>
@@ -1386,15 +1397,15 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">Lagrange’s idea<span class="indexknowl"> <a href="PowerSeriesQuestions.html#PowerSeriesQuestions-TaylorsFormula-18" class="xref" data-knowl="./knowl/index/PowerSeriesQuestions-TaylorsFormula-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 4.1.6">Problem</a></span>
 </div>
-<div class="subindexitem">Least Upper Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-21" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.9">Problem</a></span>
+<div class="subindexitem">Least Upper Bound Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-22" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-22.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.10">Problem</a></span>
 </div>
 <div class="subsubindexitem">implies the existence of irrational numbers<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-Completeness-21" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-21.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.3">Problem</a></span>
 </div>
-<div class="subindexitem">Least Upper Bound Property doesn’t hold in <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-31" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.15">Problem</a></span>
+<div class="subindexitem">Least Upper Bound Property doesn’t hold in <span class="process-math">\(\QQ\)</span><span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-32" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-32.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.16">Problem</a></span>
 </div>
-<div class="subindexitem">Least Upper Bound Property implies the Archimedean Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-34" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.17">Problem</a></span>
+<div class="subindexitem">Least Upper Bound Property implies the Archimedean Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-35" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-35.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.18">Problem</a></span>
 </div>
-<div class="subindexitem">Least Upper Bound Property implies the Nested Interval Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-30" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.14">Problem</a></span>
+<div class="subindexitem">Least Upper Bound Property implies the Nested Interval Property<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-31" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.15">Problem</a></span>
 </div>
 <div class="subindexitem">Lebesgue’s Dominated Convergence Theorem implies Arzelà’s Bounded Convergence Theorem<span class="indexknowl"> <a href="BackToFourier.html#PROBLEMLebImplyArz" class="xref" data-knowl="./knowl/index/PROBLEMLebImplyArz.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 12.3.35">Problem</a></span>
 </div>
@@ -1421,7 +1432,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="subindexitem">limits<span class="indexknowl"> <a href="LimDerivIntFTC.html#PROBLEMBasicLimits" class="xref" data-knowl="./knowl/index/PROBLEMBasicLimits.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.1.17">Problem</a> <a href="LimDerivIntFTC.html#PROBLEMLimUppLow" class="xref" data-knowl="./knowl/index/PROBLEMLimUppLow.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.1.19">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(\ln x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-59" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-59.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.19">Problem</a></span>
+<span class="process-math">\(\ln x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-59" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-59.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.20">Problem</a></span>
 </div>
 <div class="subindexitem">lower and upper bounds for sequences<span class="indexknowl"> <a href="Convergence.html#PROBLEMUpperLowerBndsForSequences" class="xref" data-knowl="./knowl/index/PROBLEMUpperLowerBndsForSequences.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.1.18">Problem</a></span>
 </div>
@@ -1431,7 +1442,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">Nested Interval Property<span class="indexknowl"> <a href="IVTandEVT.html#PROBLEMEndpointsNIP" class="xref" data-knowl="./knowl/index/PROBLEMEndpointsNIP.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.2">Problem</a> <a href="IVTandEVT.html#IVTandEVT-Completeness-25" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-25.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.5">Problem</a></span>
 </div>
-<div class="subsubindexitem">implies the LUBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-14" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.4">Problem</a></span>
+<div class="subsubindexitem">implies the LUBP<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-15" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-15.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.5">Problem</a></span>
 </div>
 <div class="subsubindexitem">square roots of integers, and<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-Completeness-30" class="xref" data-knowl="./knowl/index/IVTandEVT-Completeness-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.1.7">Problem</a></span>
 </div>
@@ -1457,7 +1468,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">open sets<span class="indexknowl"> <a href="BackToFourier.html#SECTIONRiseSetTheory-9" class="xref" data-knowl="./knowl/index/SECTIONRiseSetTheory-9.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 12.1.4">Problem</a></span>
 </div>
-<div class="subindexitem">orthogonality of <span class="process-math">\(\cos (nx)\)</span><span class="indexknowl"> <a href="Interegnum.html#prob_Fourier_Series-orthogonality" class="xref" data-knowl="./knowl/index/prob_Fourier_Series-orthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.19">Problem</a></span>
+<div class="subindexitem">orthogonality of <span class="process-math">\(\cos (nx)\)</span><span class="indexknowl"> <a href="Interegnum.html#prob_Fourier_Series-orthogonality" class="xref" data-knowl="./knowl/index/prob_Fourier_Series-orthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.13">Problem</a></span>
 </div>
 <div class="subindexitem">orthogonality of <span class="process-math">\(\sin x\)</span><span class="indexknowl"> <a href="Interegnum.html#prob_SinOrthogonality" class="xref" data-knowl="./knowl/index/prob_SinOrthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.5">Problem</a></span>
 </div>
@@ -1553,18 +1564,18 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <span class="process-math">\(\sin e^x\)</span> is continuous everywhere<span class="indexknowl"> <a href="Continuity.html#SequencesAndContinuity-31" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-31.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.14">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(\sin x\)</span> is continuous for <span class="process-math">\(0\leq x\lt \frac{\pi}{2}\)</span><span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-57" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-57.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.17">Problem</a></span>
+<span class="process-math">\(\sin x\)</span> is continuous for <span class="process-math">\(0\leq x\lt \frac{\pi}{2}\)</span><span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-57" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-57.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.18">Problem</a></span>
 </div>
-<div class="subindexitem">sine series of an odd function<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-19" class="xref" data-knowl="./knowl/index/Interegnum-2-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.7">Problem</a></span>
+<div class="subindexitem">sine series of an odd function<span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-19" class="xref" data-knowl="./knowl/index/Interegnum-2-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.8">Problem</a></span>
 </div>
 <div class="subindexitem"><span class="process-math">\(\sqrt{x}\)</span></div>
-<div class="subsubindexitem">is continuous at every positive real number<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-56" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-56.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.16">Problem</a></span>
+<div class="subsubindexitem">is continuous at every positive real number<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-56" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-56.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.17">Problem</a></span>
 </div>
 <div class="subindexitem"><span class="process-math">\(\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{...}}}}\)</span></div>
-<div class="subsubindexitem">value of<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-19" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.7">Problem</a></span>
+<div class="subsubindexitem">value of<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-20" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-20.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.8">Problem</a></span>
 </div>
 <div class="subindexitem">
-<span class="process-math">\(\sqrt{x}\)</span> is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-47" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-47.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.13">Problem</a></span>
+<span class="process-math">\(\sqrt{x}\)</span> is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-47" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-47.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.14">Problem</a></span>
 </div>
 <div class="subindexitem">Squeeze Theorem for functions<span class="indexknowl"> <a href="LimDerivIntFTC.html#Continuity-DefLimit-37" class="xref" data-knowl="./knowl/index/Continuity-DefLimit-37.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 10.1.14">Problem</a></span>
 </div>
@@ -1606,7 +1617,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">the difference of sequences<span class="indexknowl"> <a href="Convergence.html#SeqRealNum-52" class="xref" data-knowl="./knowl/index/SeqRealNum-52.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.1.17">Problem</a></span>
 </div>
-<div class="subindexitem">the Fourier cosine series of <span class="process-math">\(f(x)=x-\frac{1}{2}\)</span><span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-43" class="xref" data-knowl="./knowl/index/Interegnum-2-43.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.21">Problem</a></span>
+<div class="subindexitem">the Fourier cosine series of <span class="process-math">\(f(x)=x-\frac{1}{2}\)</span><span class="indexknowl"> <a href="Interegnum.html#Interegnum-2-42" class="xref" data-knowl="./knowl/index/Interegnum-2-42.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.15">Problem</a></span>
 </div>
 <div class="subindexitem">the limit of a constant times a sequence<span class="indexknowl"> <a href="Convergence.html#LimitAsPrimary-28" class="xref" data-knowl="./knowl/index/LimitAsPrimary-28.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.2.11">Problem</a></span>
 </div>
@@ -1622,7 +1633,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">The Squeeze Theorem<span class="indexknowl"> <a href="Convergence.html#LimitAsPrimary-36" class="xref" data-knowl="./knowl/index/LimitAsPrimary-36.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.2.16">Problem</a></span>
 </div>
-<div class="subindexitem">the Topologist’s sine function is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-64" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-64.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.20">Problem</a></span>
+<div class="subindexitem">the Topologist’s sine function is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-64" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-64.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.21">Problem</a></span>
 </div>
 <div class="subindexitem">The Triangle Inequality<span class="indexknowl"> <a href="Convergence.html#Tri-RevTri-Ineq_prob" class="xref" data-knowl="./knowl/index/Tri-RevTri-Ineq_prob.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.2.3">Problem</a></span>
 </div>
@@ -1729,7 +1740,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="indexitem">sequences</div>
 <div class="subindexitem">all subsequences of a convergent sequence converge<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-BWT-12" class="xref" data-knowl="./knowl/index/IVTandEVT-BWT-12.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.3.5">Problem</a></span>
 </div>
-<div class="subindexitem">bounded and non–decreasing<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-18" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-18.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.6">Problem</a></span>
+<div class="subindexitem">bounded and non–decreasing<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-19" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-19.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.7">Problem</a></span>
 </div>
 <div class="subindexitem">Cauchy sequences<span class="indexknowl"> <a href="PowerSeriesRedux.html#def_CauchySequence" class="xref" data-knowl="./knowl/index/def_CauchySequence.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 11.2.10: Cauchy Sequence">Definition</a></span>
 </div>
@@ -1781,7 +1792,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="subindexitem">equivalent Cauchy sequences<span class="indexknowl"> <a href="Epilogues.html#def_EquivCauchySeq" class="xref" data-knowl="./knowl/index/def_EquivCauchySeq.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 13.2.6">Definition</a></span>
 </div>
-<div class="subindexitem">find a bounded sequence of rational numbers such that no subsequence converges to a rational number<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-29" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-29.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.13">Problem</a></span>
+<div class="subindexitem">find a bounded sequence of rational numbers such that no subsequence converges to a rational number<span class="indexknowl"> <a href="IVTandEVT.html#IVTandEVT-SupremumAndEVT-30" class="xref" data-knowl="./knowl/index/IVTandEVT-SupremumAndEVT-30.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 9.4.14">Problem</a></span>
 </div>
 <div class="subindexitem">Geometric<span class="indexknowl"> <a href="Convergence.html#DivergentSeq-34" class="xref" data-knowl="./knowl/index/DivergentSeq-34.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.3.12">Problem</a></span>
 </div>
@@ -1897,7 +1908,7 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="indexitem"><span class="process-math">\(\sin x\)</span></div>
 <div class="subindexitem">derivative of the power series representation<span class="indexknowl"> <a href="CalcIn17th18thCentury.html#PROBLEMSinCosPwrSeries" class="xref" data-knowl="./knowl/index/PROBLEMSinCosPwrSeries.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 3.2.11">Problem</a></span>
 </div>
-<div class="subindexitem">is continuous for <span class="process-math">\(0\leq x\lt \frac{\pi}{2}\)</span><span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-57" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-57.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.17">Problem</a></span>
+<div class="subindexitem">is continuous for <span class="process-math">\(0\leq x\lt \frac{\pi}{2}\)</span><span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-57" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-57.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.18">Problem</a></span>
 </div>
 <div class="subindexitem">orthogonality of<span class="indexknowl"> <a href="Interegnum.html#prob_SinOrthogonality" class="xref" data-knowl="./knowl/index/prob_SinOrthogonality.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 5.1.5">Problem</a></span>
 </div>
@@ -1909,9 +1920,9 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 <div class="subindexitem">meaning of<span class="indexknowl"> <a href="NumbersRealRational.html#NumbersRealRational-33" class="xref" data-knowl="./knowl/index/NumbersRealRational-33.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
 </div>
 <div class="indexitem"><span class="process-math">\(\sqrt{x}\)</span></div>
-<div class="subindexitem">is continuous at every positive real number<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-56" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-56.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.16">Problem</a></span>
+<div class="subindexitem">is continuous at every positive real number<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-56" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-56.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.17">Problem</a></span>
 </div>
-<div class="subindexitem">is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-47" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-47.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.13">Problem</a></span>
+<div class="subindexitem">is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-47" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-47.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.14">Problem</a></span>
 </div>
 <div class="indexitem">square roots exist<span class="indexknowl"> <a href="IVTandEVT.html#thm_SqrtsExist" class="xref" data-knowl="./knowl/index/thm_SqrtsExist.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.1.6">Theorem</a></span>
 </div>
@@ -1938,10 +1949,10 @@ x}{x}}=1\)</span><span class="indexknowl"> <a href="LimDerivIntFTC.html#Continui
 </div>
 <div class="indexitem">Taylor’s Theorem<span class="indexknowl"> <a href="PowerSeriesQuestions.html#TaylorsTheorem" class="xref" data-knowl="./knowl/index/TaylorsTheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.12: Taylor’s Theorem">Theorem</a> <a href="PowerSeriesQuestions.html#PowerSeriesQuestions-TaylorsFormula-48" class="xref" data-knowl="./knowl/index/PowerSeriesQuestions-TaylorsFormula-48.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 4.1.13">Problem</a></span>
 </div>
-<div class="indexitem">The Archimedean Property<span class="indexknowl"> <a href="IVTandEVT.html#thm_ArchmedeanProperty" class="xref" data-knowl="./knowl/index/thm_ArchmedeanProperty.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.16: Archimedean Property of \RR">Theorem</a></span>
+<div class="indexitem">The Archimedean Property<span class="indexknowl"> <a href="IVTandEVT.html#thm_ArchmedeanProperty" class="xref" data-knowl="./knowl/index/thm_ArchmedeanProperty.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.17: Archimedean Property of \RR">Theorem</a></span>
 </div>
 <div class="indexitem">Topologist’s sine function</div>
-<div class="subindexitem">is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-64" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-64.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.20">Problem</a></span>
+<div class="subindexitem">is continuous at zero<span class="indexknowl"> <a href="Continuity.html#Continuity-AnalyticDef-64" class="xref" data-knowl="./knowl/index/Continuity-AnalyticDef-64.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.1.21">Problem</a></span>
 </div>
 <div class="subindexitem">modified version is not continuous at zero<span class="indexknowl"> <a href="Continuity.html#SequencesAndContinuity-11" class="xref" data-knowl="./knowl/index/SequencesAndContinuity-11.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 8.2.5: The Topologist’s Sine Curve">Problem</a></span>
 </div>

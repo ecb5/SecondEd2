@@ -26,6 +26,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,7 @@ htmlPresentation: false,
 <meta property="og:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -56,21 +57,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></div>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="ptx-search-box">
@@ -83,7 +84,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -219,7 +230,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, and Integrals</span></a></div>
 <ul id="ptx-toc-group-LimDerivIntFTC" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DefLimit" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DerivativeAfterthought" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
@@ -280,14 +291,14 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="chapter" id="PowerSeriesRedux">
-<h2 class="heading">
+<h1 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Back to Power Series</span>
-</h2>
+</h1>
 <section class="section" id="PowerSeriesRedux-UnifConv">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Uniform Convergence</span>
-</h3>
-<div class="para" id="PowerSeriesRedux-UnifConv-2">We have developed precise analytic definitions of the convergence of a sequence and continuity of a function and we have used these to prove the <a href="IVTandEVT.html#thm_EVT" class="xref" data-knowl="./knowl/xref/thm_EVT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Extreme Value Theorem (EVT)">EVT</a> and <a href="IVTandEVT.html#IntermediateValueTheorem" class="xref" data-knowl="./knowl/xref/IntermediateValueTheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> for continuous functions. We have also carefully defined the derivative and the integral and used those definitions to prove the <a href="LimDerivIntFTC.html#THEOREMFTCCauchy" class="xref" data-knowl="./knowl/xref/THEOREMFTCCauchy.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 10.3.3: The Fundamental Theorem of Calculus (Cauchy)">Fundamental Theorem of Calculus</a>, which was instrumental in developing the three forms of the remainder for <a href="TaylorSeries.html" class="internal" title='Chapter 7: A "Tayl" of Three Remainders'>Taylor Series</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h2>
+<div class="para" id="PowerSeriesRedux-UnifConv-2">We have developed precise analytic definitions of the convergence of a sequence and continuity of a function and we have used these to prove the <a href="IVTandEVT.html#thm_EVT" class="xref" data-knowl="./knowl/xref/thm_EVT.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.11: Extreme Value Theorem (EVT)">EVT</a> and <a href="IVTandEVT.html#IntermediateValueTheorem" class="xref" data-knowl="./knowl/xref/IntermediateValueTheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.2.1: Intermediate Value Theorem (IVT)">IVT</a> for continuous functions. We have also carefully defined the derivative and the integral and used those definitions to prove the <a href="LimDerivIntFTC.html#THEOREMFTCCauchy" class="xref" data-knowl="./knowl/xref/THEOREMFTCCauchy.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 10.3.3: The Fundamental Theorem of Calculus (Cauchy)">Fundamental Theorem of Calculus</a>, which was instrumental in developing the three forms of the remainder for <a href="TaylorSeries.html" class="internal" title='Chapter 7: A "Tayl" of Three Remainders'>Taylor Series</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="PowerSeriesRedux-UnifConv-3">We now return to the question that originally motivated these definitions, “Why are Taylor series well behaved, but Fourier series are not necessarily?” More precisely, we mentioned that whenever a power series converges then the function it converges to is continuous and that if we differentiate or integrate a convergent power series term by term then the resulting series will converge to the derivative or integral of the original series, but this was not always the case for Fourier series.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -314,7 +325,7 @@ f_3(x)=\amp \frac{4}{\pi}\left(\cos\left(\pi x\right)-\frac{1}{3}\cos\left(3\pi 
 \amp \vdots
 \end{align*}
 </div>
-<div class="para">we see the sequence of continuous functions <span class="process-math">\(\left(f_n\right)\)</span> converges to the non–continuous function <span class="process-math">\(f\)</span> for each real number <span class="process-math">\(x\text{.}\)</span>  This didn’t happen with Taylor series.  The partial sums for a Taylor series were polynomials and hence continuous but what they converged to was continuous as well.</div>
+<div class="para">we see the sequence of continuous functions <span class="process-math">\(\left(f_n\right)\)</span> converges to the non–continuous function <span class="process-math">\(f\text{.}\)</span>  This didn’t happen with Taylor series. The partial sums for a Taylor series were polynomials and hence continuous but what they converged to was continuous as well.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="PowerSeriesRedux-UnifConv-7">The difficulty is quite delicate and it took mathematicians quite a while to determine that there are two very subtly different ways that a sequence of functions can converge: pointwise or uniformly.  This distinction was touched upon by <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Abel/" target="_blank">Niels Henrik Abel</a> (1802–1829) in <span class="process-math">\(1826\)</span> while studying the domain of convergence of a power series.  However, the necessary formal definitions were not made explicit until Weierstrass did it in his <span class="process-math">\(1841\)</span> paper <span class="booktitle">Zur Theorie der Potenzreihen (On the Theory of Power Series)</span>. This was published in his collected works in <span class="process-math">\(1894\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -322,11 +333,11 @@ f_3(x)=\amp \frac{4}{\pi}\left(\cos\left(\pi x\right)-\frac{1}{3}\cos\left(3\pi 
 <figure class="figure figure-like" id="FIGUREAbelPortrait"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/images/Abel.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Niels Henrik Abel<div class="autopermalink" aria-hidden="true" data-description="Figure 11.1.1"><a tabindex="-1" href="#FIGUREAbelPortrait" title="Copy heading and permalink for Figure 11.1.1" aria-label="Copy heading and permalink for Figure 11.1.1">🔗</a></div></figcaption>
 </figure>
-<div class="para" id="PowerSeriesRedux-UnifConv-9">It will be instructive to take a look at an argument that doesn’t quite work before looking at the formal definitions we will need.  In <span class="process-math">\(1821\)</span> Augustin Cauchy “proved” that the infinite sum of continuous functions is continuous.  Of course, it is obvious (to us) that this is not true because we’ve seen several counterexamples.  But Cauchy, who was a first rate mathematician was so sure of the correctness of his argument that he included it in his textbook on analysis, <i class="foreign">Cours d’analyse</i> <span class="process-math">\((1821)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="PowerSeriesRedux-UnifConv-9">It will be instructive to take a look at an argument that doesn’t quite work before looking at the formal definitions we will need.  In <span class="process-math">\(1821\)</span> Augustin Cauchy “proved” that the infinite sum of continuous functions is continuous.  Of course, it is obvious (to us) that this is not true because we’ve seen several counterexamples.  But Cauchy, who was a first rate mathematician, was so sure of the correctness of his argument that he included it in his textbook on analysis, <i class="foreign">Cours d’analyse</i> <span class="process-math">\((1821)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="prob_Cauchy_s_incorrect_proof"><h4 class="heading">
+<article class="problem example-like" id="prob_Cauchy_s_incorrect_proof"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="prob_Cauchy_s_incorrect_proof-4-1">Find the flaw in the following “proof” that  if  <span class="process-math">\(f_1, f_2, f_3, f_4 \ldots\)</span> are all continuous at <span class="process-math">\(a\)</span> then  <span class="process-math">\(f=\sum_{n=1}^\infty f_n\)</span> is also continuous at <span class="process-math">\(a\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#prob_Cauchy_s_incorrect_proof-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <div class="para logical" id="prob_Cauchy_s_incorrect_proof-4-2">
@@ -349,9 +360,9 @@ f_3(x)=\amp \frac{4}{\pi}\left(\cos\left(\pi x\right)-\frac{1}{3}\cos\left(3\pi 
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.1.2"><a tabindex="-1" href="#prob_Cauchy_s_incorrect_proof" title="Copy heading and permalink for Problem 11.1.2" aria-label="Copy heading and permalink for Problem 11.1.2">🔗</a></div>
 </article>
-<article class="definition definition-like" id="def_PointwiseConvergence"><h4 class="heading">
+<article class="definition definition-like" id="def_PointwiseConvergence"><h3 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Pointwise Convergence.</span>
-</h4>
+</h3>
 <div class="para" id="def_PointwiseConvergence-5-1">Let <span class="process-math">\(S\)</span> be a subset of the real number system and let <span class="process-math">\(\left(f_n\right)=\left(f_1,f_2,f_3,\,\ldots\right)\)</span> be a sequence of functions defined on <span class="process-math">\(S\text{.}\)</span>  Let <span class="process-math">\(f\)</span> be a function defined on <span class="process-math">\(S\)</span> as well.  We say that <span class="process-math">\(\left(f_n\right)\)</span> <em class="alert">converges to <span class="process-math">\(f\)</span> pointwise on <span class="process-math">\(S\)</span></em> provided that for all <span class="process-math">\(x\in
 S,\)</span> the sequence of real numbers <span class="process-math">\(\left(f_n(x)\right)\)</span> converges to the number <span class="process-math">\(f(x)\text{.}\)</span>  In this case we write<span class="process-math">\(\,f_n\ptwise f\)</span> on <span class="process-math">\(S\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def_PointwiseConvergence-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -364,9 +375,9 @@ N\)</span> such that <span class="process-math">\(\left(n&gt;N \Rightarrow|f_n(x
 </div>
 <div class="para" id="PowerSeriesRedux-UnifConv-13">This is the type of convergence we have been observing to this point.  By contrast we have the following new definition.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="def_UniformConvergence"><h4 class="heading">
+<article class="definition definition-like" id="def_UniformConvergence"><h3 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Uniform Convergence.</span>
-</h4>
+</h3>
 <div class="para" id="def_UniformConvergence-5-1">Let <span class="process-math">\(S\)</span> be a subset of the real number system and let <span class="process-math">\(\left(f_n\right)=\left(f_1,f_2,f_3,\,\ldots\right)\)</span> be a sequence of functions defined on <span class="process-math">\(S\text{.}\)</span>  Let <span class="process-math">\(f\)</span> be a function defined on <span class="process-math">\(S\)</span> as well.  We say that <span class="process-math">\(\left(f_n\right)\)</span> <em class="alert">converges to <span class="process-math">\(f\)</span> uniformly on <span class="process-math">\(S\)</span></em> provided <span class="process-math">\(\forall\
 \eps&gt;0,\,\exists\ N\)</span> such that <span class="process-math">\(n&gt;N\Rightarrow|f_n(x)-f(x)|\lt \eps\text{ , } \forall\
 x\in S\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def_UniformConvergence-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -377,9 +388,9 @@ x\in S\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-descri
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-15">The difference between these two definitions is subtle.  In <dfn class="terminology">pointwise convergence</dfn>, we are given a fixed <span class="process-math">\(x\in S\)</span> and an <span class="process-math">\(\eps&gt;0\text{.}\)</span>  Then the task is to find an <span class="process-math">\(N\)</span> that works for that particular <span class="process-math">\(x\)</span> and that <span class="process-math">\(\eps\text{.}\)</span>  In <dfn class="terminology">uniform convergence</dfn>, we are given <span class="process-math">\(\eps&gt;0\)</span> and must find a single <span class="process-math">\(N\)</span> that works for that particular <span class="process-math">\(\eps\)</span> but also simultaneously (uniformly) for all <span class="process-math">\(x\in S\text{.}\)</span>  Clearly uniform convergence implies pointwise convergence as an <span class="process-math">\(N\)</span> which works uniformly for all <span class="process-math">\(x,\)</span> works for each individual <span class="process-math">\(x\)</span> also.  However the reverse is not true. This will become evident, but first consider the following example.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="prob_uniform_convergence"><h4 class="heading">
+<article class="problem example-like" id="prob_uniform_convergence"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="prob_uniform_convergence-3-1">Let <span class="process-math">\(0\lt b\lt 1\)</span> and consider the sequence of functions <span class="process-math">\(\left(f_n\right)\)</span> defined on <span class="process-math">\([0,b]\)</span> by <span class="process-math">\(f_n(x)=x^n\text{.}\)</span>  Use the definition to show that <span class="process-math">\(f_n\unif 0\)</span> on <span class="process-math">\([0,b]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#prob_uniform_convergence-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -395,14 +406,14 @@ x\in S\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-descri
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-17">Uniform convergence is not only dependent on the sequence of functions but also on the set <span class="process-math">\(S\text{.}\)</span>  For example, the sequence <span class="process-math">\(\left(f_n(x)\right)=\left(x^n\right)_{n=0}^\infty\)</span> of <a href="PowerSeriesRedux.html#prob_uniform_convergence" class="internal" title="Problem 11.1.5">Problem 11.1.5</a> does not converge uniformly on <span class="process-math">\([0,1]\text{.}\)</span>  We could use the negation of the definition to prove this, but instead, it will be a consequence of the following theorem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_UnifConv-_Continuity"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_UnifConv-_Continuity"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="thm_UnifConv-_Continuity-4-1">Consider a sequence of functions <span class="process-math">\(\left(f_n\right)\)</span> which are all continuous on an interval <span class="process-math">\(I\text{.}\)</span>  Suppose <span class="process-math">\(f_n\unif f\)</span> on <span class="process-math">\(I\text{.}\)</span>  Then <span class="process-math">\(f\)</span> must be continuous on <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_UnifConv-_Continuity-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.1.6"><a tabindex="-1" href="#thm_UnifConv-_Continuity" title="Copy heading and permalink for Theorem 11.1.6" aria-label="Copy heading and permalink for Theorem 11.1.6">🔗</a></div>
 </article>
-<article class="proof" id="PowerSeriesRedux-UnifConv-19"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
+<article class="proof" id="PowerSeriesRedux-UnifConv-19"><h3 class="heading"><span class="title">Sketch of Proof.</span></h3>
 <div class="para logical" id="PowerSeriesRedux-UnifConv-19-2">
 <div class="para">Let <span class="process-math">\(a\in I\)</span> and let <span class="process-math">\(\eps&gt;0\text{.}\)</span>  The idea is to use uniform convergence to replace <span class="process-math">\(f\)</span> with one of the known continuous functions <span class="process-math">\(f_n\text{.}\)</span>  Specifically, by uncancelling, we can write</div>
 <div class="displaymath process-math" id="PowerSeriesRedux-UnifConv-19-2-5">
@@ -417,16 +428,16 @@ x\in S\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-descri
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 11.1.1: Sketch of Proof"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-19" title="Copy heading and permalink for Proof 11.1.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 11.1.1: Sketch of Proof">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-20"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-20"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-UnifConv-20-3-1">Provide a formal proof of <a href="PowerSeriesRedux.html#thm_UnifConv-_Continuity" class="internal" title="Theorem 11.1.6">Theorem 11.1.6</a> based on the above ideas.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-20-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.1.7"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-20" title="Copy heading and permalink for Problem 11.1.7" aria-label="Copy heading and permalink for Problem 11.1.7">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMMonomialsOnUnitInterval"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMMonomialsOnUnitInterval"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="PROBLEMMonomialsOnUnitInterval-4-1">
 <div class="para">Consider the sequence of functions <span class="process-math">\(\left(f_n\right)\)</span> defined on <span class="process-math">\([0,1]\)</span> by <span class="process-math">\(f_n(x)=x^n\text{.}\)</span>  Show that the sequence converges to the function</div>
 <div class="displaymath process-math" id="PROBLEMMonomialsOnUnitInterval-4-1-4">
@@ -453,15 +464,15 @@ f(x)=\frac{4}{\pi}\left(\cos\left(\frac{\pi}{2}x\right)-\frac{1}{3}\cos\left( 3\
 <div class="autopermalink" aria-hidden="true" data-description="Section 11.1: Uniform Convergence"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv" title="Copy heading and permalink for Section 11.1: Uniform Convergence" aria-label="Copy heading and permalink for Section 11.1: Uniform Convergence">🔗</a></div>
 </section>
 <section class="section" id="PowerSeriesRedux-UnifConv-IntsAndDerivs">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Uniform Convergence: Integrals and Derivatives</span>
-</h3>
+</h2>
 <section class="introduction" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2">
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-1">We saw in the previous section that if <span class="process-math">\(\left(f_n\right)\)</span> is a sequence of continuous functions which converges uniformly to <span class="process-math">\(f\)</span> on an interval, then <span class="process-math">\(f\)</span> must be continuous on the interval as well.  This was not necessarily true if the convergence was only pointwise. For example, we saw in <a href="PowerSeriesRedux.html#EQUATIONContConvDis" class="internal" title="Equation 11.1.1">equation (11.1.1)</a> a sequence of continuous functions defined on <span class="process-math">\((-\infty,\infty)\)</span> converging pointwise to a function that was not continuous on <span class="process-math">\((-\infty,\infty)\text{.}\)</span>  Uniform convergence guarantees some other nice properties as well.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="th_UniformIntegralConvergence"><h4 class="heading">
+<article class="theorem theorem-like" id="th_UniformIntegralConvergence"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="th_UniformIntegralConvergence-2-1">
 <div class="para">Suppose <span class="process-math">\(f_n\)</span> and <span class="process-math">\(f\)</span> are integrable and <span class="process-math">\(f_n\unif f\)</span> on <span class="process-math">\([a,b]\text{.}\)</span>  Then</div>
 <div class="displaymath process-math" id="th_UniformIntegralConvergence-2-1-5">
@@ -474,9 +485,9 @@ x}\right)}=\int_{x=a}^bf(x)\dx{x}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.1"><a tabindex="-1" href="#th_UniformIntegralConvergence" title="Copy heading and permalink for Theorem 11.2.1" aria-label="Copy heading and permalink for Theorem 11.2.1">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-3"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-3"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-3-3-1">Prove <a href="PowerSeriesRedux.html#th_UniformIntegralConvergence" class="internal" title="Theorem 11.2.1">Theorem 11.2.1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -492,9 +503,9 @@ x}\right)}=\int_{x=a}^bf(x)\dx{x}\text{.}
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-4">Notice that this theorem is not true if the convergence is only pointwise, as illustrated by the following.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="PROBLEMPtwConvNoCommute"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMPtwConvNoCommute"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="introduction" id="PROBLEMPtwConvNoCommute-5">
 <div class="para logical" id="PROBLEMPtwConvNoCommute-5-1">
 <div class="para">Consider the sequence of functions <span class="process-math">\(\left(f_n\right)\)</span> given by</div>
@@ -506,7 +517,7 @@ f_n(x)= \begin{cases}n\amp \text{ if } x\in\left(0,\frac{1}{n}\right)\\ 0\amp \t
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMPtwConvNoCommute-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="PROBLEMPtwConvNoCommute-6"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<article class="task exercise-like" id="PROBLEMPtwConvNoCommute-6"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="PROBLEMPtwConvNoCommute-6-1-1">
 <div class="para">Show that <span class="process-math">\(f_n\ptwise 0\)</span> on <span class="process-math">\([0,1],\)</span> but</div>
 <div class="displaymath process-math" id="PROBLEMPtwConvNoCommute-6-1-1-3">
@@ -519,7 +530,7 @@ x}\right) \neq\int_{x=0}^10\dx{ x}}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 11.2.3.a"><a tabindex="-1" href="#PROBLEMPtwConvNoCommute-6" title="Copy heading and permalink for Task 11.2.3.a" aria-label="Copy heading and permalink for Task 11.2.3.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PROBLEMPtwConvNoCommute-7"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PROBLEMPtwConvNoCommute-7"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="PROBLEMPtwConvNoCommute-7-1-1">Can the convergence be uniform?  Explain.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMPtwConvNoCommute-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 11.2.3.b"><a tabindex="-1" href="#PROBLEMPtwConvNoCommute-7" title="Copy heading and permalink for Task 11.2.3.b" aria-label="Copy heading and permalink for Task 11.2.3.b">🔗</a></div>
@@ -527,9 +538,9 @@ x}\right) \neq\int_{x=0}^10\dx{ x}}\text{.}
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-6">Applying the result of <a href="PowerSeriesRedux.html#PROBLEMPtwConvNoCommute" class="internal" title="Problem 11.2.3">Problem 11.2.3</a> to power series we have the following.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="corollary theorem-like" id="cor_IntConvUni"><h4 class="heading">
+<article class="corollary theorem-like" id="cor_IntConvUni"><h3 class="heading">
 <span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para logical" id="cor_IntConvUni-1-1">
 <div class="para">If <span class="process-math">\(\sum_{n=0}^\infty a_nx^n\)</span> converges uniformly to <span class="process-math">\(f\)</span> on an interval containing <span class="process-math">\(0\)</span> and <span class="process-math">\(x\)</span> then</div>
 <div class="displaymath process-math" id="cor_IntConvUni-1-1-5">
@@ -544,9 +555,9 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Corollary 11.2.4"><a tabindex="-1" href="#cor_IntConvUni" title="Copy heading and permalink for Corollary 11.2.4" aria-label="Copy heading and permalink for Corollary 11.2.4">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-8"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-8"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-8-3-1">Prove <a href="PowerSeriesRedux.html#cor_IntConvUni" class="internal" title="Corollary 11.2.4">Corollary 11.2.4</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -569,16 +580,16 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-9">Surprisingly, the issue of term–by–term differentiation depends not on the uniform convergence of <span class="process-math">\(\left(f_n\right),\)</span> but on the uniform convergence of <span class="process-math">\(\left(f^\prime_n\right)\text{.}\)</span>  More precisely, we have the following result.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_UniformDerivativeConvergence"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_UniformDerivativeConvergence"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="thm_UniformDerivativeConvergence-3-1">Suppose for every <span class="process-math">\(n\in\NN\)</span> <span class="process-math">\(f_n\)</span> is differentiable, <span class="process-math">\(f_n^\prime\)</span> is continuous, <span class="process-math">\(f_n\ptwise f,\)</span> and <span class="process-math">\(f_n^\prime\unif g\)</span> on an interval, <span class="process-math">\(I\text{.}\)</span>  Then <span class="process-math">\(f\)</span> is differentiable and <span class="process-math">\(f^\prime = g\)</span> on <span class="process-math">\(I\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_UniformDerivativeConvergence-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.6"><a tabindex="-1" href="#thm_UniformDerivativeConvergence" title="Copy heading and permalink for Theorem 11.2.6" aria-label="Copy heading and permalink for Theorem 11.2.6">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-11"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-11"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-11-4-1">Prove <a href="PowerSeriesRedux.html#thm_UniformDerivativeConvergence" class="internal" title="Theorem 11.2.6">Theorem 11.2.6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-11-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -602,16 +613,16 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-12">Applying <a href="PowerSeriesRedux.html#thm_UniformDerivativeConvergence" class="internal" title="Theorem 11.2.6">Theorem 11.2.6</a>  to power series gives the following result.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="corollary theorem-like" id="cor_UniformConvergenceDerivative"><h4 class="heading">
+<article class="corollary theorem-like" id="cor_UniformConvergenceDerivative"><h3 class="heading">
 <span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="cor_UniformConvergenceDerivative-1-1">If <span class="process-math">\(\sum_{n=0}^\infty a_nx^n\)</span> converges pointwise to <span class="process-math">\(f\)</span> on an interval containing <span class="process-math">\(0\)</span> and <span class="process-math">\(x\)</span> and <span class="process-math">\(\sum_{n=1}^\infty a_nnx^{n-1}\)</span> converges uniformly on an interval containing <span class="process-math">\(0\)</span> and <span class="process-math">\(x,\)</span> then <span class="process-math">\(f^\prime(x)=\sum_{n=1}^\infty a_nnx^{n-1}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#cor_UniformConvergenceDerivative-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Corollary 11.2.8"><a tabindex="-1" href="#cor_UniformConvergenceDerivative" title="Copy heading and permalink for Corollary 11.2.8" aria-label="Copy heading and permalink for Corollary 11.2.8">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-14"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-14"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-14-4-1">Prove <a href="PowerSeriesRedux.html#cor_UniformConvergenceDerivative" class="internal" title="Corollary 11.2.8">Corollary 11.2.8</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-14-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.9"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-14" title="Copy heading and permalink for Problem 11.2.9" aria-label="Copy heading and permalink for Problem 11.2.9">🔗</a></div>
@@ -621,32 +632,32 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-2-16">However we do not yet have all of the tools necessary to see this.  To build these tools requires that we return briefly to our study, begun in <a href="Convergence.html" class="internal" title="Chapter 6: Convergence of Sequences and Series">Chapter 6</a>, of the convergence of sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-2-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy Sequences</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-2">Knowing that a sequence or a series converges and knowing what it converges to are typically two different matters.  For example, we know that <span class="process-math">\(\sum_{n=0}^\infty\frac{1}{n!}\)</span>and <span class="process-math">\(\sum_{n=0}^\infty\frac{1}{n!\,n!}\)</span> both converge.  The first converges to <span class="process-math">\(e,\)</span> which has meaning in other contexts.  We don’t know what the second one converges to, other than to say it converges to <span class="process-math">\(\sum_{n=0}^\infty\frac{1}{n!\,n!}\text{.}\)</span>  In fact, that question might not have much meaning without some other context in which <span class="process-math">\(\sum_{n=0}^\infty\frac{1}{n!\,n!}\)</span> arises naturally.  Be that as it may, we need to look at the convergence of a series (or a sequence for that matter) without necessarily knowing what it might converge to.  We make the following definition.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="def_CauchySequence"><h5 class="heading">
+<article class="definition definition-like" id="def_CauchySequence"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy Sequence.</span>
-</h5>
-<div class="para" id="def_CauchySequence-5-1">Let <span class="process-math">\(\left(s_n\right)\)</span> be a sequence of real numbers. We say that <span class="process-math">\(\left(s_n\right)\)</span>is a <dfn class="terminology">Cauchy sequence</dfn> if for any <span class="process-math">\(\eps&gt;0,\)</span> there exists a real number <span class="process-math">\(N\)</span> such that if <span class="process-math">\(m,n&gt;N,\)</span> then <span class="process-math">\(|s_m-s_n|\lt \eps\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def_CauchySequence-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="def_CauchySequence-5-1">Let <span class="process-math">\(\left(s_n\right)\)</span> be a sequence of real numbers. We say that <span class="process-math">\(\left(s_n\right)\)</span> is a <dfn class="terminology">Cauchy sequence</dfn> if for any <span class="process-math">\(\eps&gt;0,\)</span> there exists a real number <span class="process-math">\(N\)</span> such that if <span class="process-math">\(m,n&gt;N,\)</span> then <span class="process-math">\(|s_m-s_n|\lt \eps\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def_CauchySequence-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Definition 11.2.10: Cauchy Sequence"><a tabindex="-1" href="#def_CauchySequence" title="Copy heading and permalink for Definition 11.2.10: Cauchy Sequence" aria-label="Copy heading and permalink for Definition 11.2.10: Cauchy Sequence">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-4">Notice that this definition says that the terms in a Cauchy sequence get arbitrarily close to each other and that there is no reference to getting close to any particular fixed real number.  Furthermore, you have already seen lots of examples of Cauchy sequences as illustrated by the following result.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_Converge-_Cauchy"><h5 class="heading">
+<article class="theorem theorem-like" id="thm_Converge-_Cauchy"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="thm_Converge-_Cauchy-3-1">Suppose <span class="process-math">\(\left(s_n\right)\)</span> is a sequence of real numbers which converges to <span class="process-math">\(s\text{.}\)</span>  Then <span class="process-math">\(\left(s_n\right)\)</span> is a Cauchy sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_Converge-_Cauchy-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.11"><a tabindex="-1" href="#thm_Converge-_Cauchy" title="Copy heading and permalink for Theorem 11.2.11" aria-label="Copy heading and permalink for Theorem 11.2.11">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-6">Intuitively, <a href="PowerSeriesRedux.html#thm_Converge-_Cauchy" class="internal" title="Theorem 11.2.11">Theorem 11.2.11</a> makes sense.  If the terms of a sequence are getting arbitrarily close to <span class="process-math">\(s\text{,}\)</span> then they should be getting arbitrarily close to each other as well.  This is the basis of the proof.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-7"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-7"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-7-4-1">Prove <a href="PowerSeriesRedux.html#thm_Converge-_Cauchy" class="internal" title="Theorem 11.2.11">Theorem 11.2.11</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-7-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -660,24 +671,24 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.12"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-7" title="Copy heading and permalink for Problem 11.2.12" aria-label="Copy heading and permalink for Problem 11.2.12">🔗</a></div>
 </article>
-<div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-8">So any convergent sequence is automatically Cauchy.  For the real number system, the converse is also true and, in fact, is equivalent to any of our completeness axioms: the <a href="IVTandEVT.html#NIP" class="xref" data-knowl="./knowl/xref/NIP.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>, the <a href="IVTandEVT.html#BolzanoWeierstrass" class="xref" data-knowl="./knowl/xref/BolzanoWeierstrass.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a>, or the <a href="IVTandEVT.html#thm_LUB" class="xref" data-knowl="./knowl/xref/thm_LUB.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.3: The Least Upper Bound Property (LUBP)">LUB Property</a>.  Thus, this could have been taken as our completeness axiom and we could have used it to prove the others.  One of the most convenient ways to prove this converse is to use the Bolzano–Weierstrass Theorem.  To do that, we must first show that a Cauchy sequence must be bounded.  This result is reminiscent of the fact that a convergent sequence is bounded (<a href="Convergence.html#lemma_BoundedConvergent" class="xref" data-knowl="./knowl/xref/lemma_BoundedConvergent.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 6.2.7">Lemma 6.2.7</a> of <a href="Convergence.html" class="internal" title="Chapter 6: Convergence of Sequences and Series">Chapter 6</a>) and the proof is very similar.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-8">So any convergent sequence is automatically Cauchy.  For the real number system, the converse is also true and, in fact, is equivalent to any of our completeness axioms: the <a href="IVTandEVT.html#NIP" class="xref" data-knowl="./knowl/xref/NIP.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a>, the <a href="IVTandEVT.html#BolzanoWeierstrass" class="xref" data-knowl="./knowl/xref/BolzanoWeierstrass.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a>, or the <a href="IVTandEVT.html#thm_LUB" class="xref" data-knowl="./knowl/xref/thm_LUB.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.4: The Least Upper Bound Property (LUBP)">LUB Property</a>.  Thus, this could have been taken as our completeness axiom and we could have used it to prove the others.  One of the most convenient ways to prove this converse is to use the Bolzano–Weierstrass Theorem.  To do that, we must first show that a Cauchy sequence must be bounded.  This result is reminiscent of the fact that a convergent sequence is bounded (<a href="Convergence.html#lemma_BoundedConvergent" class="xref" data-knowl="./knowl/xref/lemma_BoundedConvergent.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 6.2.7">Lemma 6.2.7</a> of <a href="Convergence.html" class="internal" title="Chapter 6: Convergence of Sequences and Series">Chapter 6</a>) and the proof is very similar.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="lemma theorem-like" id="lemma_Cauchy-_Bounded"><h5 class="heading">
+<article class="lemma theorem-like" id="lemma_Cauchy-_Bounded"><h4 class="heading">
 <span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="lemma_Cauchy-_Bounded-1-1">Suppose <span class="process-math">\(\left(s_n\right)\)</span> <span class="process-math">\(\)</span>is a Cauchy sequence.  Then there exists <span class="process-math">\(B&gt;0\)</span> such that <span class="process-math">\(\abs{s_n}\leq B\)</span> for all <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#lemma_Cauchy-_Bounded-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Lemma 11.2.13"><a tabindex="-1" href="#lemma_Cauchy-_Bounded" title="Copy heading and permalink for Lemma 11.2.13" aria-label="Copy heading and permalink for Lemma 11.2.13">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10-3-1">Prove <a href="PowerSeriesRedux.html#lemma_Cauchy-_Bounded" class="internal" title="Lemma 11.2.13">Lemma 11.2.13</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10-4-1">This is similar to <a href="Convergence.html#prob_BoundedConvergent" class="xref" data-knowl="./knowl/xref/prob_BoundedConvergent.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.2.8">Problem 6.2.8</a> of <a href="Convergence.html" class="internal" title="Chapter 6: Convergence of Sequences and Series">Chapter 6</a>.  There exists <span class="process-math">\(N\)</span> such that if <span class="process-math">\(m,n&gt;N\)</span>then <span class="process-math">\(|s_n-s_m|\lt
+<div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10-4-1">This is similar to <a href="Convergence.html#prob_BoundedConvergent" class="xref" data-knowl="./knowl/xref/prob_BoundedConvergent.html" data-reveal-label="Reveal" data-close-label="Close" title="Problem 6.2.8">Problem 6.2.8</a> of <a href="Convergence.html" class="internal" title="Chapter 6: Convergence of Sequences and Series">Chapter 6</a>.  There exists <span class="process-math">\(N\)</span> such that if <span class="process-math">\(m,n&gt;N\)</span> then <span class="process-math">\(|s_n-s_m|\lt
 1\text{.}\)</span> Choose a fixed <span class="process-math">\(m&gt;N\)</span> and let <span class="process-math">\(B=\max\left(\abs{s_1}, \abs{s_2}, \ldots,
 \abs{s_{\lceil N\rceil}}, \abs{s_m}+1\right)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -686,9 +697,9 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.14"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-10" title="Copy heading and permalink for Problem 11.2.14" aria-label="Copy heading and permalink for Problem 11.2.14">🔗</a></div>
 </article>
-<article class="theorem theorem-like" id="thm_Cauchy-_Converge"><h5 class="heading">
+<article class="theorem theorem-like" id="thm_Cauchy-_Converge"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy Sequences Converge in <span class="process-math">\(\RR \)</span>.</span>
-</h5>
+</h4>
 <div class="para logical" id="thm_Cauchy-_Converge-3-1">
 <div class="para">Suppose <span class="process-math">\(\left(s_n\right)\)</span> is a Cauchy sequence of real numbers.  There exists a real number <span class="process-math">\(s\)</span> such that</div>
 <div class="displaymath process-math" id="thm_Cauchy-_Converge-3-1-3">
@@ -700,7 +711,7 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.15: Cauchy Sequences Converge in \RR "><a tabindex="-1" href="#thm_Cauchy-_Converge" title="Copy heading and permalink for Theorem 11.2.15: Cauchy Sequences Converge in \RR " aria-label="Copy heading and permalink for Theorem 11.2.15: Cauchy Sequences Converge in \RR ">🔗</a></div>
 </article>
-<article class="proof" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-12"><h5 class="heading"><span class="title">Sketch of Proof.</span></h5>
+<article class="proof" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-12"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
 <div class="para logical" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-12-2">
 <div class="para">We know that <span class="process-math">\(\left(s_n\right)\)</span> <span class="process-math">\(\)</span>is bounded, so by the Bolzano–Weierstrass Theorem, it has a convergent subsequence <span class="process-math">\(\left(s_{n_k}\right)\)</span> converging to some real number <span class="process-math">\(s\text{.}\)</span>  We have</div>
 <div class="displaymath process-math" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-12-2-6">
@@ -714,25 +725,25 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 11.2.1.1: Sketch of Proof"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-12" title="Copy heading and permalink for Proof 11.2.1.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 11.2.1.1: Sketch of Proof">🔗</a></div>
 </article>
-<article class="problem example-like" id="prob_Cauchy_sequences_Cauchy_implies_convergence"><h5 class="heading">
+<article class="problem example-like" id="prob_Cauchy_sequences_Cauchy_implies_convergence"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="prob_Cauchy_sequences_Cauchy_implies_convergence-3-1">Provide a formal proof of <a href="PowerSeriesRedux.html#thm_Cauchy-_Converge" class="internal" title="Theorem 11.2.15: Cauchy Sequences Converge in \RR ">Theorem 11.2.15</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#prob_Cauchy_sequences_Cauchy_implies_convergence-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.16"><a tabindex="-1" href="#prob_Cauchy_sequences_Cauchy_implies_convergence" title="Copy heading and permalink for Problem 11.2.16" aria-label="Copy heading and permalink for Problem 11.2.16">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-14">From <a href="PowerSeriesRedux.html#thm_Cauchy-_Converge" class="internal" title="Theorem 11.2.15: Cauchy Sequences Converge in \RR ">Theorem 11.2.15</a> we see that every Cauchy sequence converges in <span class="process-math">\(\RR\text{.}\)</span>  Moreover the proof of this fact depends on the <a href="IVTandEVT.html#BolzanoWeierstrass" class="xref" data-knowl="./knowl/xref/BolzanoWeierstrass.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.3.6: The Bolzano–Weierstrass Theorem">Bolzano–Weierstrass Theorem</a> which, as we have seen, is equivalent to our completeness axiom, the <a href="IVTandEVT.html#NIP" class="xref" data-knowl="./knowl/xref/NIP.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">Nested Interval Property</a>. What this means is that if there is a <a href="PowerSeriesRedux.html#def_CauchySequence" class="internal" title="Definition 11.2.10: Cauchy Sequence">Cauchy sequence</a> which does not converge then the <a href="IVTandEVT.html#NIP" class="xref" data-knowl="./knowl/xref/NIP.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">NIP</a> is not true.  A natural question to ask is if every Cauchy sequence converges does the NIP follow? In other words, is the convergence of Cauchy sequences also equivalent to our completeness axiom?  The following theorem shows that the answer is yes.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_ConvCauchyEquivNIP"><h5 class="heading">
+<article class="theorem theorem-like" id="thm_ConvCauchyEquivNIP"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="thm_ConvCauchyEquivNIP-2-1">Suppose every <a href="PowerSeriesRedux.html#def_CauchySequence" class="internal" title="Definition 11.2.10: Cauchy Sequence">Cauchy sequence</a> converges.  Then the <a href="IVTandEVT.html#NIP" class="xref" data-knowl="./knowl/xref/NIP.html" data-reveal-label="Reveal" data-close-label="Close" title="Axiom 9.1.1: Nested Interval Property of the Real Number System (NIP)">Nested Interval Property</a> is true.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_ConvCauchyEquivNIP-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.17"><a tabindex="-1" href="#thm_ConvCauchyEquivNIP" title="Copy heading and permalink for Theorem 11.2.17" aria-label="Copy heading and permalink for Theorem 11.2.17">🔗</a></div>
 </article>
-<article class="problem example-like" id="prob_Cauchy_sequences_Cauchy_implies_NIP"><h5 class="heading">
+<article class="problem example-like" id="prob_Cauchy_sequences_Cauchy_implies_NIP"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="prob_Cauchy_sequences_Cauchy_implies_NIP-3-1">Prove <a href="PowerSeriesRedux.html#thm_ConvCauchyEquivNIP" class="internal" title="Theorem 11.2.17">Theorem 11.2.17</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#prob_Cauchy_sequences_Cauchy_implies_NIP-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -750,18 +761,18 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/CompletenessAxioms.png" class="contained"></div>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-19">Since we can get from any node on the graph to any other, simply by following the implications (indicated with arrows), any one of these statements is logically equivalent to each of the others.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-20"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-20"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-20-3-1">Since the convergence of Cauchy sequences can be taken as the completeness axiom for the real number system <span class="process-math">\((\RR)\text{,}\)</span> it does not hold for the rational number system <span class="process-math">\((\QQ)\text{,}\)</span> since <span class="process-math">\(\QQ{}\)</span> is not complete. Give an example of a Cauchy sequence of rational numbers which does not converge to a rational number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-20-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.19"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-20" title="Copy heading and permalink for Problem 11.2.19" aria-label="Copy heading and permalink for Problem 11.2.19">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-21">If we apply the above ideas to series we obtain the following important result, which will provide the basis for our investigation of power series.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_CauchyCriterion"><h5 class="heading">
+<article class="theorem theorem-like" id="thm_CauchyCriterion"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cauchy Criterion.</span>
-</h5>
+</h4>
 <div class="para logical" id="thm_CauchyCriterion-3-1">
 <div class="para">The series <span class="process-math">\(\sum_{k=0}^\infty a_k\)</span> converges if and only if <span class="process-math">\(\forall\)</span> <span class="process-math">\(\eps&gt;0\text{,}\)</span> <span class="process-math">\(\exists\ N\)</span> such that</div>
 <div class="displaymath process-math" id="thm_CauchyCriterion-3-1-5">
@@ -774,25 +785,25 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.20: Cauchy Criterion"><a tabindex="-1" href="#thm_CauchyCriterion" title="Copy heading and permalink for Theorem 11.2.20: Cauchy Criterion" aria-label="Copy heading and permalink for Theorem 11.2.20: Cauchy Criterion">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-23"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-23"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-23-3-1">Prove the Cauchy criterion.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-23-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.21"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-23" title="Copy heading and permalink for Problem 11.2.21" aria-label="Copy heading and permalink for Problem 11.2.21">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-24">At this point several of the convergence tests that you probably saw in Calculus are easily proved.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="prob_NthTermTest"><h5 class="heading">
+<article class="problem example-like" id="prob_NthTermTest"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The <span class="process-math">\(n\)</span>th Term Test.</span>
-</h5>
+</h4>
 <div class="para" id="prob_NthTermTest-5-1">Show that if <span class="process-math">\(\sum_{n=1}^\infty a_n\)</span> converges then <span class="process-math">\(\limit{n}{\infty}{a_n}=0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#prob_NthTermTest-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.22: The nth Term Test"><a tabindex="-1" href="#prob_NthTermTest" title="Copy heading and permalink for Problem 11.2.22: The nth Term Test" aria-label="Copy heading and permalink for Problem 11.2.22: The nth Term Test">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-26"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-26"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Strong Cauchy Criterion.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-26-4-1">Show that <span class="process-math">\(\displaystyle\sum_{k=1}^\infty a_k\)</span> converges if and only if <span class="process-math">\(\limit{n}{\infty}{\sum_{k=n+1}^\infty a_k}=0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-26-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -805,19 +816,19 @@ t}=\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.23: The Strong Cauchy Criterion"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-26" title="Copy heading and permalink for Problem 11.2.23: The Strong Cauchy Criterion" aria-label="Copy heading and permalink for Problem 11.2.23: The Strong Cauchy Criterion">🔗</a></div>
 </article>
-<div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-27">You may also recall the <a href="PowerSeriesRedux.html#thm_ComparisonTest" class="internal" title="Theorem 11.2.24: Comparison Test">Comparison Test</a> from your study of series in Calculus. The  result follows from the fact that for a series <span class="process-math">\(\sum a_n \)</span> with non–negative terms the partial sums of <span class="process-math">\(\sum a_n\)</span> form an increasing sequence which is bounded above by <span class="process-math">\(\sum b_n\text{.}\)</span>  (See <a href="IVTandEVT.html#cor_IncBoundedConverge" class="xref" data-knowl="./knowl/xref/cor_IncBoundedConverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 9.4.5">Corollary 9.4.5</a> of <a href="IVTandEVT.html" class="internal" title="Chapter 9: Intermediate and Extreme Values">Chapter 9</a>.)  The <a href="PowerSeriesRedux.html#thm_CauchyCriterion" class="internal" title="Theorem 11.2.20: Cauchy Criterion">Cauchy Criterion</a> allows us to extend this to the case where the terms <span class="process-math">\(a_n\)</span> could be negative as well.  This can be seen in the following theorem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-27">You may also recall the <a href="PowerSeriesRedux.html#thm_ComparisonTest" class="internal" title="Theorem 11.2.24: Comparison Test">Comparison Test</a> from your study of series in Calculus. The  result follows from the fact that for a series <span class="process-math">\(\sum a_n \)</span> with non–negative terms the partial sums of <span class="process-math">\(\sum a_n\)</span> form an increasing sequence which is bounded above by <span class="process-math">\(\sum b_n\text{.}\)</span>  (See <a href="IVTandEVT.html#cor_IncBoundedConverge" class="xref" data-knowl="./knowl/xref/cor_IncBoundedConverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 9.4.6">Corollary 9.4.6</a> of <a href="IVTandEVT.html" class="internal" title="Chapter 9: Intermediate and Extreme Values">Chapter 9</a>.)  The <a href="PowerSeriesRedux.html#thm_CauchyCriterion" class="internal" title="Theorem 11.2.20: Cauchy Criterion">Cauchy Criterion</a> allows us to extend this to the case where the terms <span class="process-math">\(a_n\)</span> could be negative as well.  This can be seen in the following theorem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_ComparisonTest"><h5 class="heading">
+<article class="theorem theorem-like" id="thm_ComparisonTest"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Comparison Test.</span>
-</h5>
+</h4>
 <div class="para" id="thm_ComparisonTest-3-1">Suppose <span class="process-math">\(|a_n|\leq b_n\)</span> for all <span class="process-math">\(n\text{.}\)</span>  If <span class="process-math">\(\sum
 b_n\)</span> converges then <span class="process-math">\(\sum a_n\)</span> also converges.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_ComparisonTest-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.24: Comparison Test"><a tabindex="-1" href="#thm_ComparisonTest" title="Copy heading and permalink for Theorem 11.2.24: Comparison Test" aria-label="Copy heading and permalink for Theorem 11.2.24: Comparison Test">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-29"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-29"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.25</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-29-4-1">Prove <a href="PowerSeriesRedux.html#thm_ComparisonTest" class="internal" title="Theorem 11.2.24: Comparison Test">Theorem 11.2.24</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-29-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -832,41 +843,41 @@ b_n\)</span> converges then <span class="process-math">\(\sum a_n\)</span> also 
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-30">The following definition is of fundamental importance in the study of series.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="AbsoluteConvergence"><h5 class="heading">
+<article class="definition definition-like" id="AbsoluteConvergence"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.26</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Absolute Convergence.</span>
-</h5>
+</h4>
 <div class="para" id="AbsoluteConvergence-5-1">Given a series <span class="process-math">\(\sum a_n\text{,}\)</span> the series <span class="process-math">\(\sum|a_n|\)</span> is called the <dfn class="terminology">absolute series</dfn> of <span class="process-math">\(\sum a_{n}\)</span> and if <span class="process-math">\(\sum|a_n|\)</span> converges then we say that <span class="process-math">\(\sum a_{n}\)</span> <dfn class="terminology">converges absolutely.</dfn><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#AbsoluteConvergence-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Definition 11.2.26: Absolute Convergence"><a tabindex="-1" href="#AbsoluteConvergence" title="Copy heading and permalink for Definition 11.2.26: Absolute Convergence" aria-label="Copy heading and permalink for Definition 11.2.26: Absolute Convergence">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-32">The significance of this definition comes from the following result.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="corollary theorem-like" id="cor_AbsConv-_Conv"><h5 class="heading">
+<article class="corollary theorem-like" id="cor_AbsConv-_Conv"><h4 class="heading">
 <span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.27</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="cor_AbsConv-_Conv-1-1">If <span class="process-math">\(\sum a_n\)</span> converges absolutely, then <span class="process-math">\(\sum a_n\)</span> converges.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#cor_AbsConv-_Conv-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Corollary 11.2.27"><a tabindex="-1" href="#cor_AbsConv-_Conv" title="Copy heading and permalink for Corollary 11.2.27" aria-label="Copy heading and permalink for Corollary 11.2.27">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-34"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-34"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.28</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-34-3-1">Show that <a href="PowerSeriesRedux.html#cor_AbsConv-_Conv" class="internal" title="Corollary 11.2.27">Corollary 11.2.27</a> is a direct consequence of <a href="PowerSeriesRedux.html#thm_ComparisonTest" class="internal" title="Theorem 11.2.24: Comparison Test">Theorem 11.2.24</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-34-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.28"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-34" title="Copy heading and permalink for Problem 11.2.28" aria-label="Copy heading and permalink for Problem 11.2.28">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-35"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-35"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.29</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-35-3-1">If <span class="process-math">\(\displaystyle\sum_{n=0}^\infty\abs{a_n}=s\text{,}\)</span>  does it follow that <span class="process-math">\(\displaystyle s= \abs{\sum_{n=0}^\infty a_n}\text{?}\)</span>  Justify your answer.  What can be said?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-35-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.29"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-35" title="Copy heading and permalink for Problem 11.2.29" aria-label="Copy heading and permalink for Problem 11.2.29">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-36"> The converse of <a href="PowerSeriesRedux.html#cor_AbsConv-_Conv" class="internal" title="Corollary 11.2.27">Corollary 11.2.27</a> is not true as evidenced by the series <span class="process-math">\(\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{n+1}\text{.}\)</span>  As we noted in <a href="PowerSeriesQuestions.html" class="internal" title="Chapter 4: Questions Concerning Power Series">Chapter 4</a>, this series converges to <span class="process-math">\(\ln 2\text{.}\)</span>  However, its absolute series is the Harmonic  Series which diverges.  Any such series which converges, but not absolutely, is said to <em class="alert">converge conditionally</em>. Recall also that in <a href="PowerSeriesQuestions.html" class="internal" title="Chapter 4: Questions Concerning Power Series">Chapter 4</a>, we showed that we could rearrange the terms of the series <span class="process-math">\(\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{n+1}\)</span> to make it converge to any number we wished.  We noted further that all rearrangements of the series <span class="process-math">\(\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{\left(n+1\right)^2}\)</span> converged to the same value.  The difference between the two series is that the latter converges absolutely whereas the former does not.  Specifically, we have the following result.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-36" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_RearrageAbsConv"><h5 class="heading">
+<article class="theorem theorem-like" id="thm_RearrageAbsConv"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.30</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para logical" id="thm_RearrageAbsConv-3-1">
 <div class="para">Suppose <span class="process-math">\(\sum a_n\)</span> converges absolutely and let</div>
 <div class="displaymath process-math" id="thm_RearrageAbsConv-3-1-2">
@@ -880,9 +891,9 @@ s=\sum_{n=0}^\infty a_n\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.2.30"><a tabindex="-1" href="#thm_RearrageAbsConv" title="Copy heading and permalink for Theorem 11.2.30" aria-label="Copy heading and permalink for Theorem 11.2.30">🔗</a></div>
 </article>
-<article class="proof" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-38"><h5 class="heading"><span class="title">Sketch of Proof.</span></h5>
+<article class="proof" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-38"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
 <div class="para logical" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-38-2">
-<div class="para">We will first show that this result is true in the case where <span class="process-math">\(a_n\geq 0\text{.}\)</span>  If <span class="process-math">\(\sum b_n\)</span> represents a rearrangement of <span class="process-math">\(\sum a_n\text{,}\)</span> then notice that the sequence of partial sums <span class="process-math">\(\displaystyle\left(\sum_{k=0}^nb_k\right)_{n=0}^\infty\)</span>is an increasing sequence which is bounded by <span class="process-math">\(s\text{.}\)</span>  By <a href="IVTandEVT.html#cor_IncBoundedConverge" class="xref" data-knowl="./knowl/xref/cor_IncBoundedConverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 9.4.5">Corollary 9.4.5</a> of <a href="IVTandEVT.html" class="internal" title="Chapter 9: Intermediate and Extreme Values">Chapter 9</a>, this sequence must converge to some number <span class="process-math">\(t\)</span> and <span class="process-math">\(t\leq s\text{.}\)</span>  Furthermore <span class="process-math">\(\sum a_n\)</span> is also a rearrangement of <span class="process-math">\(\sum b_n\text{.}\)</span> Thus the result holds for this special case. (Why?) For the general case, notice that <span class="process-math">\(a_n=\frac{|a_n\mathopen|+a_n}{2}-\frac{|a_n\mathopen|-a_n}{2}\)</span> and that <span class="process-math">\(\sum\frac{|a_n\mathopen|+a_n}{2}\)</span> and <span class="process-math">\(\sum\frac{|a_n\mathopen|-a_n}{2}\)</span> are both convergent series with non–negative terms.  By the special case</div>
+<div class="para">We will first show that this result is true in the case where <span class="process-math">\(a_n\geq 0\text{.}\)</span>  If <span class="process-math">\(\sum b_n\)</span> represents a rearrangement of <span class="process-math">\(\sum a_n\text{,}\)</span> then notice that the sequence of partial sums <span class="process-math">\(\displaystyle\left(\sum_{k=0}^nb_k\right)_{n=0}^\infty\)</span>is an increasing sequence which is bounded by <span class="process-math">\(s\text{.}\)</span>  By <a href="IVTandEVT.html#cor_IncBoundedConverge" class="xref" data-knowl="./knowl/xref/cor_IncBoundedConverge.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 9.4.6">Corollary 9.4.6</a> of <a href="IVTandEVT.html" class="internal" title="Chapter 9: Intermediate and Extreme Values">Chapter 9</a>, this sequence must converge to some number <span class="process-math">\(t\)</span> and <span class="process-math">\(t\leq s\text{.}\)</span>  Furthermore <span class="process-math">\(\sum a_n\)</span> is also a rearrangement of <span class="process-math">\(\sum b_n\text{.}\)</span> Thus the result holds for this special case. (Why?) For the general case, notice that <span class="process-math">\(a_n=\frac{|a_n\mathopen|+a_n}{2}-\frac{|a_n\mathopen|-a_n}{2}\)</span> and that <span class="process-math">\(\sum\frac{|a_n\mathopen|+a_n}{2}\)</span> and <span class="process-math">\(\sum\frac{|a_n\mathopen|-a_n}{2}\)</span> are both convergent series with non–negative terms.  By the special case</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor_IncBoundedConverge.html ./knowl/xref/IVTandEVT.html" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-38-2-16">
 \begin{align*}
 \sum\frac{\abs{b_n}+b_n}{2}=
@@ -895,9 +906,9 @@ s=\sum_{n=0}^\infty a_n\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 11.2.1.2: Sketch of Proof"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-38" title="Copy heading and permalink for Proof 11.2.1.2: Sketch of Proof" aria-label="Copy heading and permalink for Proof 11.2.1.2: Sketch of Proof">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-39"><h5 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-39"><h4 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.2.31</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
+</h4>
 <div class="para" id="PowerSeriesRedux-UnifConv-IntsAndDerivs-3-39-3-1">Fill in the details and provide a formal proof of <a href="PowerSeriesRedux.html#thm_RearrageAbsConv" class="internal" title="Theorem 11.2.30">Theorem 11.2.30</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-39-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.2.31"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs-3-39" title="Copy heading and permalink for Problem 11.2.31" aria-label="Copy heading and permalink for Problem 11.2.31">🔗</a></div>
@@ -905,20 +916,20 @@ s=\sum_{n=0}^\infty a_n\text{.}
 </section><div class="autopermalink" aria-hidden="true" data-description="Section 11.2: Uniform Convergence: Integrals and Derivatives"><a tabindex="-1" href="#PowerSeriesRedux-UnifConv-IntsAndDerivs" title="Copy heading and permalink for Section 11.2: Uniform Convergence: Integrals and Derivatives" aria-label="Copy heading and permalink for Section 11.2: Uniform Convergence: Integrals and Derivatives">🔗</a></div>
 </section>
 <section class="section" id="PowerSeriesRedux-RadiusOfConv">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Radius of Convergence of a Power Series</span>
-</h3>
+</h2>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-2">We’ve developed enough machinery to look at the convergence of power series.  The fundamental result is the following theorem due to Abel.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_RadiusOfConvergence"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_RadiusOfConvergence"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="thm_RadiusOfConvergence-2-1">Suppose <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nc^n\)</span> converges for some nonzero real number <span class="process-math">\(c\text{.}\)</span>  Then <span class="process-math">\(\displaystyle\sum_{n=0}^\infty
 a_nx^n\)</span> converges absolutely for all <span class="process-math">\(x\)</span> such that <span class="process-math">\(\abs{x}\lt \abs{c}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_RadiusOfConvergence-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.3.1"><a tabindex="-1" href="#thm_RadiusOfConvergence" title="Copy heading and permalink for Theorem 11.3.1" aria-label="Copy heading and permalink for Theorem 11.3.1">🔗</a></div>
 </article>
-<article class="proof" id="PowerSeriesRedux-RadiusOfConv-4"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
+<article class="proof" id="PowerSeriesRedux-RadiusOfConv-4"><h3 class="heading"><span class="title">Sketch of Proof.</span></h3>
 <div class="para logical" id="PowerSeriesRedux-RadiusOfConv-4-2">
 <div class="para">To prove <a href="PowerSeriesRedux.html#thm_RadiusOfConvergence" class="internal" title="Theorem 11.3.1">Theorem 11.3.1</a> first note that by <a href="PowerSeriesRedux.html#prob_NthTermTest" class="internal" title="Problem 11.2.22: The nth Term Test">Problem 11.2.22</a>, <span class="process-math">\(\limit{n}{\infty}{a_nc^n}=0\text{.}\)</span>  Thus <span class="process-math">\(\left(a_nc^n\right)\)</span> is a bounded sequence.  Let <span class="process-math">\(B\)</span> be a bound: <span class="process-math">\(\abs{a_nc^n}\le B\text{.}\)</span>  Then</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_RadiusOfConvergence.html ./knowl/xref/prob_NthTermTest.html" id="PowerSeriesRedux-RadiusOfConv-4-2-7">
@@ -932,33 +943,34 @@ a_nx^n\)</span> converges absolutely for all <span class="process-math">\(x\)</s
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 11.3.1: Sketch of Proof"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-4" title="Copy heading and permalink for Proof 11.3.1: Sketch of Proof" aria-label="Copy heading and permalink for Proof 11.3.1: Sketch of Proof">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-5"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-5"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-5-4-1">Prove <a href="PowerSeriesRedux.html#thm_RadiusOfConvergence" class="internal" title="Theorem 11.3.1">Theorem 11.3.1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-5-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.3.2"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-5" title="Copy heading and permalink for Problem 11.3.2" aria-label="Copy heading and permalink for Problem 11.3.2">🔗</a></div>
 </article>
-<article class="corollary theorem-like" id="cor_RadiusOfDivergence"><h4 class="heading">
+<article class="corollary theorem-like" id="cor_RadiusOfDivergence"><h3 class="heading">
 <span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="cor_RadiusOfDivergence-1-1">Suppose <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nc^n\)</span> diverges for some real number <span class="process-math">\(c\text{.}\)</span>  Then <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> diverges for all <span class="process-math">\(x\)</span> such that <span class="process-math">\(\abs{x} \gt \abs{c}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#cor_RadiusOfDivergence-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Corollary 11.3.3"><a tabindex="-1" href="#cor_RadiusOfDivergence" title="Copy heading and permalink for Corollary 11.3.3" aria-label="Copy heading and permalink for Corollary 11.3.3">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-7"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-7"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-7-4-1">Prove <a href="PowerSeriesRedux.html#cor_RadiusOfDivergence" class="internal" title="Corollary 11.3.3">Corollary 11.3.3</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-7-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.3.4"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-7" title="Copy heading and permalink for Problem 11.3.4" aria-label="Copy heading and permalink for Problem 11.3.4">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-8">As a result of <a href="PowerSeriesRedux.html#thm_RadiusOfConvergence" class="internal" title="Theorem 11.3.1">Theorem 11.3.1</a> and <a href="PowerSeriesRedux.html#cor_RadiusOfDivergence" class="internal" title="Corollary 11.3.3">Corollary 11.3.3</a>, we have the following: Either <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> converges absolutely for all <span class="process-math">\(x\)</span> or there exists some non–negative real number <span class="process-math">\(r\)</span> such that <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> converges absolutely when <span class="process-math">\(|x|\lt r\)</span> and diverges when <span class="process-math">\(|x|&gt;r\text{.}\)</span>  In the latter case, we call <span class="process-math">\(r\)</span> the <dfn class="terminology">radius of convergence</dfn> of the power series <span class="process-math">\(\displaystyle\sum_{n=0}^{\infty}a_{n} x^{n}\text{.}\)</span>  In the former case, we say that the <dfn class="terminology">radius of convergence</dfn> of <span class="process-math">\(\displaystyle\sum_{n=0}^\infty
-a_nx^n\)</span> is <span class="process-math">\(\infty\text{.}\)</span>  Though we can say that <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> converges absolutely when <span class="process-math">\(|x|\lt r\text{,}\)</span> we cannot say that the convergence is uniform. However, we can come close.  We can show that the convergence is uniform for <span class="process-math">\(|x|\leq b\lt r\text{.}\)</span>  To see this we will use the following result<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+a_nx^n\)</span> is <span class="process-math">\(\infty\text{.}\)</span>  Though we can say that <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> converges absolutely when <span class="process-math">\(|x|\lt r\text{,}\)</span> we cannot say that the convergence is uniform. However, we can come close. If we fix <span class="process-math">\(b\)</span> with <span class="process-math">\(0\lt b
+\lt r\text{,}\)</span> then we can show that the convergence is uniform for <span class="process-math">\(|x|\leq b\lt r\text{.}\)</span>  To see this we will use the following result<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_WeierstrassM"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_WeierstrassM"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Weierstrass-<span class="process-math">\(M\)</span> Test.</span>
-</h4>
+</h3>
 <div class="para logical" id="thm_WeierstrassM-3-1">
 <div class="para">Let <span class="process-math">\(\left(f_n\right)_{n=1}^\infty\)</span> be a sequence of functions defined on <span class="process-math">\(S\subseteq\RR\)</span> and suppose that <span class="process-math">\(\left(M_n\right)_{n=1}^\infty\)</span> is a sequence of non–negative real numbers such that</div>
 <div class="displaymath process-math" id="thm_WeierstrassM-3-1-5">
@@ -972,7 +984,7 @@ a_nx^n\)</span> is <span class="process-math">\(\infty\text{.}\)</span>  Though 
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.3.5: The Weierstrass-M Test"><a tabindex="-1" href="#thm_WeierstrassM" title="Copy heading and permalink for Theorem 11.3.5: The Weierstrass-M Test" aria-label="Copy heading and permalink for Theorem 11.3.5: The Weierstrass-M Test">🔗</a></div>
 </article>
-<article class="proof" id="PowerSeriesRedux-RadiusOfConv-10"><h4 class="heading"><span class="title">Sketch of Proof.</span></h4>
+<article class="proof" id="PowerSeriesRedux-RadiusOfConv-10"><h3 class="heading"><span class="title">Sketch of Proof.</span></h3>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-10-2">Since the crucial feature of the theorem is the function <span class="process-math">\(f(x)\)</span> that our series converges to, our plan of attack is to first define <span class="process-math">\(f(x)\)</span> and then show that our series, <span class="process-math">\(\displaystyle\sum_{n=1}^\infty f_n(x)\text{,}\)</span> converges to it uniformly.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-10-3">First observe that for any <span class="process-math">\(x\in S\text{,}\)</span> <span class="process-math">\(\displaystyle\sum_{n=1}^\infty
@@ -999,17 +1011,17 @@ f_n(x)\)</span> converges pointwise to <span class="process-math">\(f(x)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 11.3.2: Sketch of Proof"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-10" title="Copy heading and permalink for Proof 11.3.2: Sketch of Proof" aria-label="Copy heading and permalink for Proof 11.3.2: Sketch of Proof">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-11"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-11"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-11-3-1">Use the ideas above to provide a formal proof of <a href="PowerSeriesRedux.html#thm_WeierstrassM" class="internal" title="Theorem 11.3.5: The Weierstrass-M Test">Theorem 11.3.5</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-11-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.3.6"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-11" title="Copy heading and permalink for Problem 11.3.6" aria-label="Copy heading and permalink for Problem 11.3.6">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-12"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-12"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-12-4"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+</h3>
+<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-12-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para logical" id="PowerSeriesRedux-RadiusOfConv-12-4-1-1">
 <div class="para">Referring back to <a href="Interegnum.html#PDE_sol" class="xref" data-knowl="./knowl/xref/PDE_sol.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1.3">equation (5.1.3)</a>, show that the Fourier series</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/PDE_sol.html" id="PowerSeriesRedux-RadiusOfConv-12-4-1-1-2">
@@ -1023,32 +1035,32 @@ f_n(x)\)</span> converges pointwise to <span class="process-math">\(f(x)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 11.3.7.a"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-12-4" title="Copy heading and permalink for Task 11.3.7.a" aria-label="Copy heading and permalink for Task 11.3.7.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-12-5"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-12-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-12-5-1-1">Does its differentiated series converge uniformly on <span class="process-math">\(\RR?\)</span> Explain.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-12-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 11.3.7.b"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-12-5" title="Copy heading and permalink for Task 11.3.7.b" aria-label="Copy heading and permalink for Task 11.3.7.b">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Problem 11.3.7"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-12" title="Copy heading and permalink for Problem 11.3.7" aria-label="Copy heading and permalink for Problem 11.3.7">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-13"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-13"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="introduction" id="PowerSeriesRedux-RadiusOfConv-13-4">
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-13-4-1">  Identify which of the following series converges pointwise and which converges uniformly on the interval <span class="process-math">\([-1,1]\text{.}\)</span>  In every case identify the limit function.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-13-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-13-5"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-13-5"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-13-5-1-1">
 <span class="process-math">\(\displaystyle \sum_{n=1}^\infty\left(x^n-x^{n-1}\right)\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-13-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 11.3.8.a"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-13-5" title="Copy heading and permalink for Task 11.3.8.a" aria-label="Copy heading and permalink for Task 11.3.8.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-13-6"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-13-6"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-13-6-1-1">
 <span class="process-math">\(\displaystyle \sum_{n=1}^\infty\frac{\left(x^n-x^{n-1}\right)}{n}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-13-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 11.3.8.b"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-13-6" title="Copy heading and permalink for Task 11.3.8.b" aria-label="Copy heading and permalink for Task 11.3.8.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-13-7"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like" id="PowerSeriesRedux-RadiusOfConv-13-7"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-13-7-1-1">
 <span class="process-math">\(\displaystyle
 \sum_{n=1}^\infty\frac{\left(x^n-x^{n-1}\right)}{n^2}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-13-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1058,16 +1070,16 @@ f_n(x)\)</span> converges pointwise to <span class="process-math">\(f(x)\text{.}
 </article>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-14">Using the Weierstrass–<span class="process-math">\(M\)</span> test, we can prove the following result.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_PowerSeriesConvergeUniformly"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_PowerSeriesConvergeUniformly"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Power Series Converge Uniformly.</span>
-</h4>
+</h3>
 <div class="para" id="thm_PowerSeriesConvergeUniformly-3-1">Suppose <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> has radius of convergence <span class="process-math">\(r\)</span> (where <span class="process-math">\(r\)</span> could be <span class="process-math">\(\infty\)</span> as well).  Let <span class="process-math">\(b\)</span> be any non–negative real number with <span class="process-math">\(b\lt r\text{.}\)</span>  Then <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> converges uniformly on <span class="process-math">\([-b,b]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_PowerSeriesConvergeUniformly-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.3.9: Power Series Converge Uniformly"><a tabindex="-1" href="#thm_PowerSeriesConvergeUniformly" title="Copy heading and permalink for Theorem 11.3.9: Power Series Converge Uniformly" aria-label="Copy heading and permalink for Theorem 11.3.9: Power Series Converge Uniformly">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-16"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-16"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-16-3-1">Prove <a href="PowerSeriesRedux.html#thm_PowerSeriesConvergeUniformly" class="internal" title="Theorem 11.3.9: Power Series Converge Uniformly">Theorem 11.3.9</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-16-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1087,9 +1099,9 @@ t}=\displaystyle\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}\)</
 </div>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-19">Putting the differentiated series into the role of the original series, the original series is now the integrated series and so these would have the same radii of convergence as well.  With this in mind, we want to show that if <span class="process-math">\(|x|\lt r\text{,}\)</span> then <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nnx^{n-1}\)</span> converges. The strategy is to mimic what we did in <a href="PowerSeriesRedux.html#thm_RadiusOfConvergence" class="internal" title="Theorem 11.3.1">Theorem 11.3.1</a>, where we essentially compared our series with a converging geometric series.  Only this time we need to start with the differentiated geometric series.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="prob_PwrSeriesDiffConv"><h4 class="heading">
+<article class="problem example-like" id="prob_PwrSeriesDiffConv"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="prob_PwrSeriesDiffConv-4-1">Show that <span class="process-math">\(\displaystyle\sum_{n=1}^\infty nx^{n-1}\)</span> converges for <span class="process-math">\(|x|\lt 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#prob_PwrSeriesDiffConv-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1102,16 +1114,16 @@ t}=\displaystyle\sum_{n=0}^\infty\left(\frac{a_n}{n+1}x^{n+1}\right)\text{.}\)</
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.3.11"><a tabindex="-1" href="#prob_PwrSeriesDiffConv" title="Copy heading and permalink for Problem 11.3.11" aria-label="Copy heading and permalink for Problem 11.3.11">🔗</a></div>
 </article>
-<article class="theorem theorem-like" id="thm_SeriesConv-_DerivConv"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_SeriesConv-_DerivConv"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="thm_SeriesConv-_DerivConv-2-1">Suppose <span class="process-math">\(\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> has a radius of convergence <span class="process-math">\(r\)</span> and let <span class="process-math">\(\abs{x}\lt r\text{.}\)</span>  Then <span class="process-math">\(\displaystyle\sum_{n=1}^\infty a_nnx^{n-1}\)</span> converges.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_SeriesConv-_DerivConv-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.3.12"><a tabindex="-1" href="#thm_SeriesConv-_DerivConv" title="Copy heading and permalink for Theorem 11.3.12" aria-label="Copy heading and permalink for Theorem 11.3.12">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-22"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-RadiusOfConv-22"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.3.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-RadiusOfConv-22-3-1">Prove <a href="PowerSeriesRedux.html#thm_SeriesConv-_DerivConv" class="internal" title="Theorem 11.3.12">Theorem 11.3.12</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv-22-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1135,9 +1147,9 @@ n\left(\frac{x}{b}\right)^{n-1}} \text{.}
 </article><div class="autopermalink" aria-hidden="true" data-description="Section 11.3: Radius of Convergence of a Power Series"><a tabindex="-1" href="#PowerSeriesRedux-RadiusOfConv" title="Copy heading and permalink for Section 11.3: Radius of Convergence of a Power Series" aria-label="Copy heading and permalink for Section 11.3: Radius of Convergence of a Power Series">🔗</a></div>
 </section>
 <section class="section" id="PowerSeriesRedux-AbelsThm">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Boundary Issues and Abel’s Theorem</span>
-</h3>
+</h2>
 <div class="para" id="PowerSeriesRedux-AbelsThm-2">Summarizing our results, we see that any power series <span class="process-math">\(\sum
 a_nx^n\)</span> has a radius of convergence <span class="process-math">\(r\)</span> such that <span class="process-math">\(\sum a_nx^n\)</span> converges absolutely when <span class="process-math">\(\abs{x}\lt r\)</span> and diverges when <span class="process-math">\(\abs{x}&gt;r\text{.}\)</span>  Furthermore, the convergence is uniform on any closed interval <span class="process-math">\([-b,b]\subset(-r,r)\)</span> which tells us that whatever the power series converges to must be a continuous function on <span class="process-math">\((-r,r)\text{.}\)</span>  Lastly, if <span class="process-math">\(f(x)=\displaystyle\sum_{n=0}^\infty a_nx^n\)</span> for <span class="process-math">\(x\in(-r,r)\text{,}\)</span> then <span class="process-math">\(f^\prime(x)=\displaystyle\sum_{n=1}^\infty a_nnx^{n-1}\)</span> for <span class="process-math">\(x\in(-r,r)\)</span> and <span class="process-math">\(\int_{t=0}^xf(t)\dx{ t} =
 \displaystyle\sum_{n=0}^\infty a_n\frac{x^{n+1}}{n+1}\)</span> for <span class="process-math">\(x\in(-r,r)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1165,9 +1177,9 @@ a_nx^n\)</span> has a radius of convergence <span class="process-math">\(r\)</sp
 </div>
 <div class="para" id="PowerSeriesRedux-AbelsThm-6">Even with the unpredictability of a power series at the endpoints of its interval of convergence, the Weierstrass-<span class="process-math">\(M\)</span> test does give us some hope of uniform convergence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-7"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-7"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-AbelsThm-7-4-1">Suppose the power series <span class="process-math">\(\sum a_nx^n\)</span> has radius of convergence <span class="process-math">\(r\)</span> and the series <span class="process-math">\(\sum a_nr^n\)</span> converges absolutely.  Then <span class="process-math">\(\sum a_nx^n\)</span> converges uniformly on <span class="process-math">\([-r,r]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-7-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1182,18 +1194,18 @@ a_nx^n\)</span> has a radius of convergence <span class="process-math">\(r\)</sp
 </article>
 <div class="para" id="PowerSeriesRedux-AbelsThm-8">Unfortunately, this result doesn’t apply to the integrals we mentioned as the convergence at the endpoints is not absolute. Nonetheless, the integrations we performed in <a href="CalcIn17th18thCentury.html" class="internal" title="Chapter 3: Calculus in the 17th and 18th Centuries">Chapter 3</a> are still legitimate. This is due to the following theorem by Abel which extends uniform convergence to the endpoints of the interval of convergence even if the convergence at an endpoint is only conditional.  Abel did not use the term uniform convergence, as it hadn’t been defined yet, but the ideas involved are his.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="AbelsTheorem"><h4 class="heading">
+<article class="theorem theorem-like" id="AbelsTheorem"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Abel’s Theorem.</span>
-</h4>
+</h3>
 <div class="para" id="AbelsTheorem-3-1">Suppose the power series <span class="process-math">\(\sum a_nx^n\)</span> has radius of convergence <span class="process-math">\(r\)</span> and the series <span class="process-math">\(\sum a_nr^n\)</span> converges.  Then <span class="process-math">\(\sum a_nx^n\)</span> converges uniformly on <span class="process-math">\([0, r]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#AbelsTheorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 11.4.2: Abel’s Theorem"><a tabindex="-1" href="#AbelsTheorem" title="Copy heading and permalink for Theorem 11.4.2: Abel’s Theorem" aria-label="Copy heading and permalink for Theorem 11.4.2: Abel’s Theorem">🔗</a></div>
 </article>
 <div class="para" id="PowerSeriesRedux-AbelsThm-10">The proof of this is not intuitive, but involves a clever technique known as <a href="PowerSeriesRedux.html#lemma_AbelsPartialSummationFormula" class="internal" title="Lemma 11.4.3: Abel’s Partial Summation Formula">Abel’s Partial Summation Formula</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="lemma theorem-like" id="lemma_AbelsPartialSummationFormula"><h4 class="heading">
+<article class="lemma theorem-like" id="lemma_AbelsPartialSummationFormula"><h3 class="heading">
 <span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Abel’s Partial Summation Formula.</span>
-</h4>
+</h3>
 <div class="para logical" id="lemma_AbelsPartialSummationFormula-2-1">
 <div class="para">Let</div>
 <div class="displaymath process-math" id="lemma_AbelsPartialSummationFormula-2-1-1">
@@ -1211,9 +1223,9 @@ a_1b_1+a_2b_2+\cdots+a_nb_n=\sum_{j=1}^{n-1}A_j\left(b_j-b_{j+1}\text{ } \right)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Lemma 11.4.3: Abel’s Partial Summation Formula"><a tabindex="-1" href="#lemma_AbelsPartialSummationFormula" title="Copy heading and permalink for Lemma 11.4.3: Abel’s Partial Summation Formula" aria-label="Copy heading and permalink for Lemma 11.4.3: Abel’s Partial Summation Formula">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-12"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-12"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-AbelsThm-12-3-1">Prove <a href="PowerSeriesRedux.html#lemma_AbelsPartialSummationFormula" class="internal" title="Lemma 11.4.3: Abel’s Partial Summation Formula">Lemma 11.4.3</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-12-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1226,25 +1238,25 @@ a_1b_1+a_2b_2+\cdots+a_nb_n=\sum_{j=1}^{n-1}A_j\left(b_j-b_{j+1}\text{ } \right)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.4.4"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-12" title="Copy heading and permalink for Problem 11.4.4" aria-label="Copy heading and permalink for Problem 11.4.4">🔗</a></div>
 </article>
-<article class="lemma theorem-like" id="lemma_AbelsLemma"><h4 class="heading">
+<article class="lemma theorem-like" id="lemma_AbelsLemma"><h3 class="heading">
 <span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Abel’s Lemma.</span>
-</h4>
+</h3>
 <div class="para" id="lemma_AbelsLemma-2-1">Let <span class="process-math">\(a_1,a_2,\,\ldots,\,a_n,\,b_1,b_2,\,\ldots\,,\,b_n\)</span> be real numbers with <span class="process-math">\(\,b_1\geq
 b_2\geq\,\ldots\geq\,b_n\geq 0\)</span> and let <span class="process-math">\(A_m=\displaystyle\sum_{k=1}^ma_k\text{.}\)</span>  Suppose <span class="process-math">\(|A_m|\leq B\)</span> for all <span class="process-math">\(m\text{.}\)</span>  Then <span class="process-math">\(\displaystyle\abs{\sum_{j=1}^na_jb_j}\leq B\cdot
 b_1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#lemma_AbelsLemma-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Lemma 11.4.5: Abel’s Lemma"><a tabindex="-1" href="#lemma_AbelsLemma" title="Copy heading and permalink for Lemma 11.4.5: Abel’s Lemma" aria-label="Copy heading and permalink for Lemma 11.4.5: Abel’s Lemma">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-14"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-14"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-AbelsThm-14-3-1">Prove <a href="PowerSeriesRedux.html#lemma_AbelsLemma" class="internal" title="Lemma 11.4.5: Abel’s Lemma">Abel’s Lemma</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-14-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.4.6"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-14" title="Copy heading and permalink for Problem 11.4.6" aria-label="Copy heading and permalink for Problem 11.4.6">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-15"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-15"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-AbelsThm-15-3-1">Prove <a href="PowerSeriesRedux.html#AbelsTheorem" class="internal" title="Theorem 11.4.2: Abel’s Theorem">Abel’s Theorem</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-15-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1277,17 +1289,17 @@ a_kx^k}=\limit{m}{\infty}{\abs{\sum_{k=n+1}^ma_kx^k}}\leq\frac{\eps }{2}\lt \eps
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 11.4.7"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-15" title="Copy heading and permalink for Problem 11.4.7" aria-label="Copy heading and permalink for Problem 11.4.7">🔗</a></div>
 </article>
-<article class="corollary theorem-like" id="cor_PowerSeriesConvUnif"><h4 class="heading">
+<article class="corollary theorem-like" id="cor_PowerSeriesConvUnif"><h3 class="heading">
 <span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="cor_PowerSeriesConvUnif-1-1">Suppose the power series <span class="process-math">\(\sum a_nx^n\)</span> has radius of convergence <span class="process-math">\(r\)</span> and the series <span class="process-math">\(\sum
 a_n\left(-r\right)^n\)</span> converges.  Then <span class="process-math">\(\sum a_nx^n\)</span> converges uniformly on <span class="process-math">\([-r,0]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#cor_PowerSeriesConvUnif-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Corollary 11.4.8"><a tabindex="-1" href="#cor_PowerSeriesConvUnif" title="Copy heading and permalink for Corollary 11.4.8" aria-label="Copy heading and permalink for Corollary 11.4.8">🔗</a></div>
 </article>
-<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-17"><h4 class="heading">
+<article class="problem example-like" id="PowerSeriesRedux-AbelsThm-17"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PowerSeriesRedux-AbelsThm-17-5-1">Prove <a href="PowerSeriesRedux.html#cor_PowerSeriesConvUnif" class="internal" title="Corollary 11.4.8">Corollary 11.4.8</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PowerSeriesRedux-AbelsThm-17-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">

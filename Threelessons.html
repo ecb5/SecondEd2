@@ -26,6 +26,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,7 @@ htmlPresentation: false,
 <meta property="og:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta property="book:title" content="A Contextual Introduction to Real Analysis: How We Got From There To Here">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.49"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.49"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -56,21 +57,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="ASORA.html"><span class="title">A Contextual Introduction to Real Analysis: How We Got From There To Here</span></a></div>
 <p class="byline">Robert Rogers, Eugene Boman</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="ASORA-6-2.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="ptx-search-box">
@@ -83,7 +84,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -219,7 +230,7 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, Integrals, and the Fundamental Theorem of Calculus</span></a></div>
+<div class="toc-title-box"><a href="LimDerivIntFTC.html" class="internal"><span class="codenumber">10</span> <span class="title">Limits, Derivatives, and Integrals</span></a></div>
 <ul id="ptx-toc-group-LimDerivIntFTC" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DefLimit" class="internal"><span class="codenumber">10.1</span> <span class="title">The Definition of the Limit of a Function</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="LimDerivIntFTC.html#Continuity-DerivativeAfterthought" class="internal"><span class="codenumber">10.2</span> <span class="title">The Definition of  the Derivative and the Mean Value Theorem</span></a></div></li>
@@ -280,18 +291,18 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="chapter" id="Threelessons">
-<h2 class="heading">
+<h1 class="heading">
 <span class="type">Chapter</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Prologue: Three Lessons Before We Begin</span>
-</h2>
+</h1>
 <section class="section" id="ThreeLessons-lesson-one">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lesson One</span>
-</h3>
+</h2>
 <div class="para" id="ThreeLessons-lesson-one-2">Get a pad of paper and write down the answer to this question: What is . . . No, really.  We’re serious. <em class="emphasis">Get a writing pad.</em> We’ll wait.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons-lesson-one-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ThreeLessons-lesson-one-3" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ThreeLessons-lesson-one-3" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Get Something to Write On!</span>
-</h4></summary>
+</h3></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ThreeLessons-lesson-one-3-2">We really are serious about this.  Get a pad of paper! (Or some device you can do scratch work on.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons-lesson-one-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -361,9 +372,9 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="ThreeLessons-lesson-one-9">The lesson in this little demonstration is this: You don’t really have a clear notion of what we mean when we use the word “number.” And this is fine.  Not knowing is acceptable.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons-lesson-one-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ThreeLessons-lesson-one-10" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ThreeLessons-lesson-one-10" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Not Knowing.</span>
-</h4></summary>
+</h3></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ThreeLessons-lesson-one-10-2">Sometimes it is even encouraged.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons-lesson-one-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -373,9 +384,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Section 1.1: Lesson One"><a tabindex="-1" href="#ThreeLessons-lesson-one" title="Copy heading and permalink for Section 1.1: Lesson One" aria-label="Copy heading and permalink for Section 1.1: Lesson One">🔗</a></div>
 </section>
 <section class="section" id="ThreeLessons_lesson-two">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lesson Two</span>
-</h3>
+</h2>
 <div class="para" id="ThreeLessons_lesson-two-2">Read and understand the following development of the <dfn class="terminology">Quadratic Formula</dfn>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="ThreeLessons_lesson-two-3">
@@ -418,9 +429,9 @@ x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\tag{1.2.5}
 </div>
 <div class="para" id="ThreeLessons_lesson-two-6">That is, let <span class="process-math">\(x=y-\frac{b}{2a}\)</span> in <a href="Threelessons.html#EQUATIONeq_QForm2" class="internal" title="Equation 1.2.2">equation (1.2.2)</a> and see if you can get <a href="Threelessons.html#EQUATIONeq_QForm3" class="internal" title="Equation 1.2.3">equation (1.2.3)</a>.  Do it on that handy pad of paper we told you to get out earlier.  Do it now.  We’ll wait.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ThreeLessons_lesson-two-7" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ThreeLessons_lesson-two-7" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Get Something to Write On!</span>
-</h4></summary>
+</h3></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ThreeLessons_lesson-two-7-2">If you <em class="emphasis">still</em> haven’t gotten out a pad of paper, give up now.  You’re going to fail this course.  Seriously. Do you think we would spend so much time on this, that we would repeat it so many times, if it weren’t important. <em class="alert">GET OUT A PAD OF PAPER NOW!</em> Last chance. You’ve been warned.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -439,9 +450,9 @@ x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\tag{1.2.5}
 </div>
 <div class="para" id="ThreeLessons_lesson-two-14">Moreover, routine does not mean obvious. Every step we took in the development of the <dfn class="terminology">Quadratic Formula</dfn> was routine. But even routine computations need to be understood and the best way to understand them is to do them. This is the way to learn mathematics; it is the <em class="emphasis">only</em> way that really works.  Don’t deprive yourself of your mathematics education by skipping the most important parts.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ThreeLessons_lesson-two-15" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ThreeLessons_lesson-two-15" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fill in the Details!</span>
-</h4></summary>
+</h3></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ThreeLessons_lesson-two-15-2">If you didn’t fill in those details then you are depriving yourself of the education you are here to obtain. This is sad.  There is a good reason for putting these three lessons first.  Stop wasting your time and intellect! Go do it now.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -478,9 +489,9 @@ y^3 +py+q=0
 </div>
 <div class="para" id="ThreeLessons_lesson-two-17">The general <dfn class="terminology">depressed cubic</dfn> had previously been solved by <a class="external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Tartaglia/" target="_blank">Niccolò Fontana</a> (1500–1557) (usually known as “Tartaglia” or “The Stutterer”) so converting the general cubic into a <dfn class="terminology">depressed cubic</dfn> provided a path for Ferrari to compute the <a class="external" href="https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/" target="_blank"><dfn class="terminology">Cubic Formula</dfn></a>. (It’s like the <dfn class="terminology"><a href="Threelessons.html#EQUATIONQuadraticFormula" class="internal" title="Equation 1.2.5">Quadratic Formula</a></dfn> but bigger.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ThreeLessons_lesson-two-18" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<details id="ThreeLessons_lesson-two-18" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Depressed Cubic Polynomials.</span>
-</h4></summary>
+</h3></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ThreeLessons_lesson-two-18-2">It is not entirely clear why eliminating the quadratic term should be depressing, but there it is.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -497,9 +508,9 @@ y^3 +py+q=0
 </div>
 <div class="para" id="ThreeLessons_lesson-two-23">Keep this in mind as you proceed through this course and your mathematical education.  Every problem you solve is really a theorem, a potential tool that you can use later.  We have chosen the problems in this text deliberately with this in mind. Don’t just solve the problems and move on.  Just because you have solved a problem does not mean you should stop thinking about it.  Keep thinking about the problems you’ve solved. Internalize them.  Make the ideas your own so that when you need them later you will have them at hand to use.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ThreeLessons_lesson-two-24"><h4 class="heading">
+<article class="problem example-like" id="ThreeLessons_lesson-two-24"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Quadratic Formula.</span>
-</h4>
+</h3>
 <div class="para logical" id="ThreeLessons_lesson-two-24-4-1">
 <ol class="lower-alpha ol-marker-1" id="ThreeLessons_lesson-two-24-4-1-1">
 <li id="ThreeLessons_lesson-two-24-4-1-1-1">
@@ -522,14 +533,14 @@ y^3 +py+q=0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 1.2.3: The Quadratic Formula"><a tabindex="-1" href="#ThreeLessons_lesson-two-24" title="Copy heading and permalink for Problem 1.2.3: The Quadratic Formula" aria-label="Copy heading and permalink for Problem 1.2.3: The Quadratic Formula">🔗</a></div>
 </article>
-<article class="problem example-like" id="ThreeLessons_lesson-two-25"><h4 class="heading">
+<article class="problem example-like" id="ThreeLessons_lesson-two-25"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Another Derivation of the Quadratic Formula.</span>
-</h4>
+</h3>
 <div class="para" id="ThreeLessons_lesson-two-25-4-1">Here is yet another way to solve a quadratic equation.  Read the development below with pencil and paper handy.  Confirm all of the computations that are not completely transparent to you.  Then use your notes to present the solution with <em class="emphasis">all</em> steps filled in.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-25-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<details id="ThreeLessons_lesson-two-25-4-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<details id="ThreeLessons_lesson-two-25-4-2" class="aside aside-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Aside<span class="colon heading-divison-mark heading-divison-mark__colon">:</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The purpose of these problems.</span>
-</h5></summary>
+</h4></summary>
 <aside class="aside aside-like knowl__content">
 <div class="para" id="ThreeLessons_lesson-two-25-4-2-2">Be sure you are clear on the purpose of this problem before you begin.  This is not about solving the Quadratic Equation.  You already know how to do that.  Our purpose here is to give you practice filling in the skipped details of mathematical exposition.  We’ve chosen this particular problem because it should be a comfortable setting for you, but this particular solution is probably outside of your previous experience.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-two-25-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -574,9 +585,9 @@ r_2\amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\text{.}
 </article><div class="autopermalink" aria-hidden="true" data-description="Section 1.2: Lesson Two"><a tabindex="-1" href="#ThreeLessons_lesson-two" title="Copy heading and permalink for Section 1.2: Lesson Two" aria-label="Copy heading and permalink for Section 1.2: Lesson Two">🔗</a></div>
 </section>
 <section class="section" id="ThreeLessons_lesson-three">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lesson Three</span>
-</h3>
+</h2>
 <div class="para" id="ThreeLessons_lesson-three-2">In the hustle and bustle of a typical college semester, with a lot of demands on your time and very little time to think, it becomes very easy to see each problem you solve as a small, isolated victory and then move on to the next challenge.  This is understandable.  Each problem you solve <em class="emphasis">is</em> a small victory and you’ve every right to be proud of it.  But it is not isolated and it is a mistake to think that it is.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="ThreeLessons_lesson-three-3">
@@ -643,27 +654,27 @@ r_2\amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\text{.}
 </div>
 <div class="para" id="ThreeLessons_lesson-three-12">The purpose of the following sequence of problems is to help you become accustomed to this notion (if you aren’t already).  It is a progression of results about prime numbers.  As you probably recall, a prime number is any integer greater than <span class="process-math">\(1\)</span> whose only factors are itself and <span class="process-math">\(1\text{.}\)</span>  For example, <span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(3\text{,}\)</span> <span class="process-math">\(5\text{,}\)</span> <span class="process-math">\(7\text{,}\)</span> <span class="process-math">\(11\)</span> are prime, while <span class="process-math">\(4\text{,}\)</span> <span class="process-math">\(6\text{,}\)</span> <span class="process-math">\(9\)</span> are not.  A major result about prime numbers is the following:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_FTA"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_FTA"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Fundamental Theorem of Arithmetic.</span>
-</h4>
+</h3>
 <div class="para" id="thm_FTA-2-1">Any integer greater than <span class="process-math">\(1\)</span> is either prime or it is a product of prime numbers.  Furthermore, this prime decomposition is unique up to the order of the factors.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_FTA-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 1.3.2: The Fundamental Theorem of Arithmetic"><a tabindex="-1" href="#thm_FTA" title="Copy heading and permalink for Theorem 1.3.2: The Fundamental Theorem of Arithmetic" aria-label="Copy heading and permalink for Theorem 1.3.2: The Fundamental Theorem of Arithmetic">🔗</a></div>
 </article>
 <div class="para" id="ThreeLessons_lesson-three-14">We will not prove <a href="Threelessons.html#thm_FTA" class="internal" title="Theorem 1.3.2: The Fundamental Theorem of Arithmetic">The Fundamental Theorem of Arithmetic</a>. We will assume that is is true and use it as a starting point to examine the following problems, eventually arriving at the result known as <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a>:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_FermatsLittleTheorem"><h4 class="heading">
+<article class="theorem theorem-like" id="thm_FermatsLittleTheorem"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fermat’s Little Theorem.</span>
-</h4>
+</h3>
 <div class="para" id="thm_FermatsLittleTheorem-3-1">If <span class="process-math">\(p\)</span> is a prime number then <span class="process-math">\(p\,|(n^p-n)\)</span> for all positive integers <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_FermatsLittleTheorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Theorem 1.3.3: Fermat’s Little Theorem"><a tabindex="-1" href="#thm_FermatsLittleTheorem" title="Copy heading and permalink for Theorem 1.3.3: Fermat’s Little Theorem" aria-label="Copy heading and permalink for Theorem 1.3.3: Fermat’s Little Theorem">🔗</a></div>
 </article>
 <div class="para" id="ThreeLessons_lesson-three-16">As you work through these problems, notice how each subsequent problem makes use of the previous results. The notation <span class="process-math">\(p\,|a\)</span> simply means that the integer <span class="process-math">\(p\)</span> divides the integer <span class="process-math">\(a\)</span> with no remainder.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="PROBLEMFermLittl1"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMFermLittl1"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PROBLEMFermLittl1-3-1">Let <span class="process-math">\(p\)</span> be a prime number and <span class="process-math">\(a, b\)</span> positive integers such that <span class="process-math">\(p\, | (a\cdot b)\text{.}\)</span>  Show that <span class="process-math">\(p\,|a\)</span> or <span class="process-math">\(p\,|b\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMFermLittl1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -676,9 +687,9 @@ r_2\amp =\frac{-b-\sqrt{b^2-4ac}}{2a}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 1.3.4"><a tabindex="-1" href="#PROBLEMFermLittl1" title="Copy heading and permalink for Problem 1.3.4" aria-label="Copy heading and permalink for Problem 1.3.4">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMFermLittl2"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMFermLittl2"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PROBLEMFermLittl2-3-1">Let <span class="process-math">\(p\)</span> be a prime number and let <span class="process-math">\(a_1, a_2, \ldots,
 a_n\)</span> be positive integers such that <span class="process-math">\(p\,|\left(a_1\cdot
 a_2\cdot a_3\cdot\ldots\cdot a_n\right)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMFermLittl2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -695,9 +706,9 @@ a_2\cdot a_3\cdot\ldots\cdot a_n\right)\text{.}\)</span><div class="autopermalin
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Problem 1.3.5"><a tabindex="-1" href="#PROBLEMFermLittl2" title="Copy heading and permalink for Problem 1.3.5" aria-label="Copy heading and permalink for Problem 1.3.5">🔗</a></div>
 </article>
-<article class="problem example-like" id="PROBLEMFermLittl3"><h4 class="heading">
+<article class="problem example-like" id="PROBLEMFermLittl3"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="PROBLEMFermLittl3-3-1">Let <span class="process-math">\(p\)</span> be a prime number and let <span class="process-math">\(k\)</span> be an integer with <span class="process-math">\(1\le k\le p-1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#PROBLEMFermLittl3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <div class="para" id="PROBLEMFermLittl3-3-2">Use <a href="Threelessons.html#PROBLEMFermLittl2" class="internal" title="Problem 1.3.5">Problem 1.3.5</a> to prove that <span class="process-math">\(p\left|{p \choose{}k}\right.\text{,}\)</span> where <span class="process-math">\({p
@@ -715,9 +726,9 @@ a_2\cdot a_3\cdot\ldots\cdot a_n\right)\text{.}\)</span><div class="autopermalin
 </article>
 <div class="para" id="ThreeLessons_lesson-three-20">We now have all the machinery in place to prove one of the really cool theorems from number theory.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="DRILLPROBLEMFermLittl4"><h4 class="heading">
+<article class="problem example-like" id="DRILLPROBLEMFermLittl4"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="para" id="DRILLPROBLEMFermLittl4-3-1">Use <a href="Threelessons.html#PROBLEMFermLittl3" class="internal" title="Problem 1.3.6">Problem 1.3.6</a> to show that <span class="process-math">\(p|(n^p-n)\)</span> for all positive integers <span class="process-math">\(n\text{,}\)</span> thus proving <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#DRILLPROBLEMFermLittl4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -733,19 +744,19 @@ a_2\cdot a_3\cdot\ldots\cdot a_n\right)\text{.}\)</span><div class="autopermalin
 <div class="para" id="ThreeLessons_lesson-three-22">
 <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a> is the foundational basis for a number of results in number theory and encryption.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="problem example-like" id="ThreeLessons_lesson-three-23"><h4 class="heading">
+<article class="problem example-like" id="ThreeLessons_lesson-three-23"><h3 class="heading">
 <span class="type">Problem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
+</h3>
 <div class="introduction" id="ThreeLessons_lesson-three-23-2">
 <div class="para" id="ThreeLessons_lesson-three-23-2-1">Recall what we said above: Having solved a problem is no reason to stop thinking about it. Reflect upon your proof of <a href="Threelessons.html#thm_FermatsLittleTheorem" class="internal" title="Theorem 1.3.3: Fermat’s Little Theorem">Fermat’s Little Theorem</a> by answering these questions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-23-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="ThreeLessons_lesson-three-23-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<article class="task exercise-like" id="ThreeLessons_lesson-three-23-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="ThreeLessons_lesson-three-23-3-1-1">Will the result of Fermat’s Little Theorem hold if <span class="process-math">\(p\)</span> is not a prime number?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-23-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 1.3.8.a"><a tabindex="-1" href="#ThreeLessons_lesson-three-23-3" title="Copy heading and permalink for Task 1.3.8.a" aria-label="Copy heading and permalink for Task 1.3.8.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ThreeLessons_lesson-three-23-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<article class="task exercise-like" id="ThreeLessons_lesson-three-23-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="para" id="ThreeLessons_lesson-three-23-4-1-1">If not, then which of the steps in the proof breaks down?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ThreeLessons_lesson-three-23-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Task 1.3.8.b"><a tabindex="-1" href="#ThreeLessons_lesson-three-23-4" title="Copy heading and permalink for Task 1.3.8.b" aria-label="Copy heading and permalink for Task 1.3.8.b">🔗</a></div>
